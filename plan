@@ -1,0 +1,31 @@
+
+Input Data to predict a player’s fantasy score for a given week/fixture
+
+Fantasy Stats:
+Last Week and the sum
+Min,POTM,MC,DB,OF,T,As,C,Pen,DG,SW,50-22,Ta,BS,LS,CPen,YC,RC,Pts
+
+
+Fixture:
+Difference in WR rugby ranking/Rating
+Difference in 6N table standings/points
+Results of past head to heads
+
+
+Player Stats:
+
+Rugby pass stats look great 
+Provincial and international 
+Minutes played and normalised stats per minute
+Position they play in 
+Age
+Where the team placed
+
+
+
+Questions:
+What kind of model should I be using 
+How to train model when inputs have changing quality- in week 1 will have no form data of fantasy point in the 6N compared to the final round in which players could have player up to 4 weeks
+Do I need more data
+	Especially worried for predicting points of positions that score less tries / kicking points in first round when there is no past data to go off. For example Gregory aldritt is very good but his points are coming from metres carried, tackles, tackles, mot and stats that aren’t so well tracker 
+	Players that are debuting in the 6N will have very limited fingerprint to go off in predictions

@@ -10,6 +10,8 @@ from selenium.common.exceptions import ElementClickInterceptedException, Timeout
 from webdriver_manager.chrome import ChromeDriverManager
 import traceback
 import time
+import threading
+import sys
 
 LOGIN_URL = "https://account.sixnationsrugby.com/en/sign-in"
 STATS_URL = "https://fantasy.sixnationsrugby.com/m6n/#/game/stats"
@@ -26,17 +28,63 @@ def scrape_rugby_stats():
     try:
         driver.get(LOGIN_URL)
         print("Please log in manually within 2 minutes...")
+
+        # Start a background input watcher so the user can type 'q' + Enter
+        # at any time to request the scraper stop early.
+        stop_event = threading.Event()
+
+        def input_watcher(ev):
+            while not ev.is_set():
+                try:
+                    line = input()
+                except EOFError:
+                    break
+                if line.strip().lower() == 'q':
+                    ev.set()
+                    print("Stop requested by user ('q').")
+                    break
+
+        watcher = threading.Thread(target=input_watcher, args=(stop_event,), daemon=True)
+        watcher.start()
+        print("Type 'q' then Enter at any time to stop scraping.")
+
         wait = WebDriverWait(driver, 120)
         wait.until(lambda d: "fantasy.sixnationsrugby.com" in d.current_url)
         driver.get(STATS_URL)
-        wait = WebDriverWait(driver, 15)
-        wait.until(EC.presence_of_element_located((By.CSS_SELECTOR, ".fs-table-responsive table")))
+        time.sleep(3)
+        wait = WebDriverWait(driver, 30)
+
+        TABLE_SELECTORS = [
+            ".fs-table-responsive table",
+            "table.mat-mdc-table",
+            "table",
+        ]
+
+        table_selector = None
+        for selector in TABLE_SELECTORS:
+            try:
+                wait.until(EC.presence_of_element_located((By.CSS_SELECTOR, selector)))
+                table_selector = selector
+                print(f"Table found with selector: {selector}")
+                break
+            except TimeoutException:
+                print(f"Selector not found: {selector}, trying next...")
+
+        if table_selector is None:
+            print(f"Current URL: {driver.current_url}")
+            print(f"Page title: {driver.title}")
+            print("Page source snippet:")
+            print(driver.page_source[:2000])
+            raise TimeoutException("Could not find a stats table with any known selector.")
         
         all_players_data = []
         page_num = 1
         has_more_pages = True
 
         while has_more_pages:
+            if stop_event.is_set():
+                print("Stop requested — exiting scrape loop.")
+                break
             html_content = driver.page_source
             soup = BeautifulSoup(html_content, "html.parser")
 
@@ -47,8 +95,9 @@ def scrape_rugby_stats():
                     tooltips[tid] = div.text
 
             headers = ["Player", "Nation", "Position"]
-            table = soup.select_one(".fs-table-responsive table")
+            table = soup.select_one(table_selector)
             if not table:
+                print(f"Table not found in page source with selector: {table_selector}")
                 break
 
             for th in table.select("thead th"):

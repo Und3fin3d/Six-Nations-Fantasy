@@ -1,0 +1,74 @@
+{
+  "/Users/williamgreenfield/Documents/dev/6n/build_wr.py": {
+    "mtime": 1781541063.1101296,
+    "hash": "082aaa3ec9ce7acfc9988c9df33dd57e"
+  },
+  "/Users/williamgreenfield/Documents/dev/6n/build_intl_results.py": {
+    "mtime": 1781557039.613429,
+    "hash": "86b4dc8898f3c7c4ec5076fd015caef2"
+  },
+  "/Users/williamgreenfield/Documents/dev/6n/build_team_form.py": {
+    "mtime": 1781603785.7367427,
+    "hash": "8e0ac021f92b0872a86a35869c2f9591"
+  },
+  "/Users/williamgreenfield/Documents/dev/6n/rugby_api.py": {
+    "mtime": 1781474630.683396,
+    "hash": "9a5150d2ab40ea8d4678467f82fd333e"
+  },
+  "/Users/williamgreenfield/Documents/dev/6n/compare_three_way.py": {
+    "mtime": 1781514191.1912673,
+    "hash": "5a3bfbc1b3cc77f1ae4a32025b54d3ab"
+  },
+  "/Users/williamgreenfield/Documents/dev/6n/build_features.py": {
+    "mtime": 1781601144.89706,
+    "hash": "9526b4e5bbf16c0224c31724a38d5708"
+  },
+  "/Users/williamgreenfield/Documents/dev/6n/build_rugbypass_tables.py": {
+    "mtime": 1781556574.1857023,
+    "hash": "3e1769ba5ae95aa36a12d84140dc996e"
+  },
+  "/Users/williamgreenfield/Documents/dev/6n/build_targets.py": {
+    "mtime": 1781600876.9744086,
+    "hash": "fab1ec681dc487fda82575278a5c06a2"
+  },
+  "/Users/williamgreenfield/Documents/dev/6n/games.py": {
+    "mtime": 1742220747.8906202,
+    "hash": "8c7ac216f3c9192b22409747a56983d3"
+  },
+  "/Users/williamgreenfield/Documents/dev/6n/rugbypass_batch.py": {
+    "mtime": 1781513031.2541144,
+    "hash": "a43feda84f79deb35471053391764000"
+  },
+  "/Users/williamgreenfield/Documents/dev/6n/rugbypass.py": {
+    "mtime": 1772544644.2521214,
+    "hash": "a8350965b66daea490dd1503a10eef71"
+  },
+  "/Users/williamgreenfield/Documents/dev/6n/build_official.py": {
+    "mtime": 1781556604.6085908,
+    "hash": "a3424359879cd64abbf99359a43f87fb"
+  },
+  "/Users/williamgreenfield/Documents/dev/6n/players.py": {
+    "mtime": 1775913043.6335244,
+    "hash": "363366015bf929ff4e6254545676eef5"
+  },
+  "/Users/williamgreenfield/Documents/dev/6n/compare_api_official.py": {
+    "mtime": 1781556533.7048404,
+    "hash": "1389d35d3c6b821d78000718af42f035"
+  },
+  "/Users/williamgreenfield/Documents/dev/6n/build_crosswalk.py": {
+    "mtime": 1781579027.0953317,
+    "hash": "71d1c9cfa7932616253d09ad3a899ed5"
+  },
+  "/Users/williamgreenfield/Documents/dev/6n/ingest_6n.py": {
+    "mtime": 1781576557.8499858,
+    "hash": "b606ab0d0d2704de07a9c51c7bfbbf80"
+  },
+  "/Users/williamgreenfield/Documents/dev/6n/rugbypass_backfill.py": {
+    "mtime": 1781558614.0691473,
+    "hash": "87d53bc219d8a11a8011887b84f6aa2a"
+  },
+  "/Users/williamgreenfield/Documents/dev/6n/DATA_EXTRACTION_PLAN.md": {
+    "mtime": 1781541625.5223413,
+    "hash": "ff6cf916ea06e229f99684dc8e5e296d"
+  }
+}

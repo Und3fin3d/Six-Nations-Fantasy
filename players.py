@@ -94,7 +94,7 @@ def scrape_rugby_stats():
                 if tid:
                     tooltips[tid] = div.text
 
-            headers = ["Player", "Nation", "Position"]
+            headers = ["Player", "Nation"]
             table = soup.select_one(table_selector)
             if not table:
                 print(f"Table not found in page source with selector: {table_selector}")
@@ -118,22 +118,8 @@ def scrape_rugby_stats():
                     if player_img and player_img.get("aria-describedby"):
                         tooltip_id = player_img.get("aria-describedby")
                         player["Nation"] = tooltips.get(tooltip_id, "")
-                    position_class = None
-                    for cls in row.select_one("td").get("class", []):
-                        if cls.startswith("position"):
-                            position_class = cls
-                            break
-                    if position_class:
-                        pos_num = position_class.replace("position", "")
-                        positions = {
-                            "1": "Prop", "2": "Hooker", "3": "Prop", "4": "Lock",
-                            "5": "Lock", "6": "Back Row", "7": "Back Row", "8": "Number 8",
-                            "9": "Scrum-half", "10": "Fly-half", "11": "Wing", "12": "Centre",
-                            "13": "Centre", "14": "Wing", "15": "Full-back"
-                        }
-                        player["Position"] = positions.get(pos_num, f"Position {pos_num}")
                 cells = row.select("td")
-                for i, cell in enumerate(cells[1:], 3):
+                for i, cell in enumerate(cells[1:], 2):
                     if i < len(headers):
                         value = cell.select_one("span")
                         if value:

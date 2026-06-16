@@ -1,0 +1,621 @@
+/Users/williamgreenfield/Library/Python/3.9/lib/python/site-packages/urllib3/__init__.py:35: NotOpenSSLWarning: urllib3 v2 only supports OpenSSL 1.1.1+, currently the 'ssl' module is compiled with 'LibreSSL 2.8.3'. See: https://github.com/urllib3/urllib3/issues/3020
+  warnings.warn(
+  📄  Found /Users/williamgreenfield/Documents/dev/6n/2025/players.csv
+  📄  Found /Users/williamgreenfield/Documents/dev/6n/2026/players.csv
+
+  303 unique player names found across CSVs.
+
+  ✅  289 mapped   ❓  14 unknown
+
+  Unknown players written to rugbypass_unknown_players.txt
+      A. Desperes
+      A. Reed
+      A. Wainwright
+      D. Jenkins
+      D. Lake
+      D. Murray
+      E. James
+      J. Adams
+      J. Botham
+      L. Rees-Zammit
+      N. Nene
+      N. Smith
+      S. Zegueur
+      T. Williams
+
+
+  🏉  Scraping 289 players...
+
+  [  1/289]  A. Beard  →  https://www.rugbypass.com/players/adam-beard/
+           ✅  bio=True  comp_rows=12  six_nations_rows=2  saved→rugbypass_adam_beard.json
+  [  2/289]  A. Capuozzo  →  https://www.rugbypass.com/players/ange-capuozzo/
+           ✅  bio=True  comp_rows=12  six_nations_rows=3  saved→rugbypass_ange_capuozzo.json
+  [  3/289]  A. Coles  →  https://www.rugbypass.com/players/alex-coles/
+           ✅  bio=True  comp_rows=11  six_nations_rows=2  saved→rugbypass_alex_coles.json
+  [  4/289]  A. Craig  →  https://www.rugbypass.com/players/alex-craig/
+           ✅  bio=True  comp_rows=9  six_nations_rows=1  saved→rugbypass_alex_craig.json
+  [  5/289]  A. Dupont  →  https://www.rugbypass.com/players/antoine-dupont/
+           ✅  bio=True  comp_rows=11  six_nations_rows=2  saved→rugbypass_antoine_dupont.json
+  [  6/289]  A. Garbisi  →  https://www.rugbypass.com/players/alessandro-garbisi/
+           ✅  bio=True  comp_rows=12  six_nations_rows=3  saved→rugbypass_alessandro_garbisi.json
+  [  7/289]  A. Griffin  →  https://www.rugbypass.com/players/archie-griffin/
+           ✅  bio=True  comp_rows=10  six_nations_rows=2  saved→rugbypass_archie_griffin.json
+  [  8/289]  A. Hastings  →  https://www.rugbypass.com/players/adam-hastings/
+           ✅  bio=True  comp_rows=10  six_nations_rows=1  saved→rugbypass_adam_hastings.json
+  [  9/289]  A. Jelonch  →  https://www.rugbypass.com/players/anthony-jelonch/
+           ✅  bio=True  comp_rows=11  six_nations_rows=2  saved→rugbypass_anthony_jelonch.json
+  [ 10/289]  A. Mann  →  https://www.rugbypass.com/players/alex-mann/
+           ✅  bio=True  comp_rows=8  six_nations_rows=2  saved→rugbypass_alex_mann.json
+  [ 11/289]  A. Masibaka  →  https://www.rugbypass.com/players/alex-masibaka/
+           ✅  bio=True  comp_rows=3  six_nations_rows=0  saved→rugbypass_alex_masibaka.json
+  [ 12/289]  A. Mitchell  →  https://www.rugbypass.com/players/alex-mitchell/
+           ✅  bio=True  comp_rows=14  six_nations_rows=3  saved→rugbypass_alex_mitchell.json
+  [ 13/289]  A. Porter  →  https://www.rugbypass.com/players/andrew-porter/
+           ✅  bio=True  comp_rows=12  six_nations_rows=2  saved→rugbypass_andrew_porter.json
+  [ 14/289]  A. Roumat  →  https://www.rugbypass.com/players/alexandre-roumat/
+           ✅  bio=True  comp_rows=11  six_nations_rows=2  saved→rugbypass_alexandre_roumat.json
+  [ 15/289]  A. Zambonin  →  https://www.rugbypass.com/players/andrea-zambonin/
+           ✅  bio=True  comp_rows=10  six_nations_rows=2  saved→rugbypass_andrea_zambonin.json
+  [ 16/289]  B. Aki  →  https://www.rugbypass.com/players/bundee-aki/
+           ✅  bio=True  comp_rows=14  six_nations_rows=3  saved→rugbypass_bundee_aki.json
+  [ 17/289]  B. Carter  →  https://www.rugbypass.com/players/ben-carter/
+           ✅  bio=True  comp_rows=8  six_nations_rows=1  saved→rugbypass_ben_carter.json
+  [ 18/289]  B. Curry  →  https://www.rugbypass.com/players/ben-curry/
+           ✅  bio=True  comp_rows=11  six_nations_rows=1  saved→rugbypass_ben_curry.json
+  [ 19/289]  B. Earl  →  https://www.rugbypass.com/players/ben-earl/
+           ✅  bio=True  comp_rows=13  six_nations_rows=3  saved→rugbypass_ben_earl.json
+  [ 20/289]  B. Kinghorn  →  https://www.rugbypass.com/players/blair-kinghorn/
+           ✅  bio=True  comp_rows=14  six_nations_rows=3  saved→rugbypass_blair_kinghorn.json
+  [ 21/289]  B. Muncaster  →  https://www.rugbypass.com/players/ben-muncaster/
+           ✅  bio=True  comp_rows=9  six_nations_rows=1  saved→rugbypass_ben_muncaster.json
+  [ 22/289]  B. Murray  →  https://www.rugbypass.com/players/blair-murray-1/
+           ✅  bio=True  comp_rows=7  six_nations_rows=2  saved→rugbypass_blair_murray_1.json
+  [ 23/289]  B. Rodd  →  https://www.rugbypass.com/players/bevan-rodd/
+           ✅  bio=True  comp_rows=11  six_nations_rows=1  saved→rugbypass_bevan_rodd.json
+  [ 24/289]  B. Serin  →  https://www.rugbypass.com/players/baptiste-serin/
+           ✅  bio=True  comp_rows=9  six_nations_rows=1  saved→rugbypass_baptiste_serin.json
+  [ 25/289]  B. Spencer  →  https://www.rugbypass.com/players/ben-spencer/
+           ✅  bio=True  comp_rows=12  six_nations_rows=2  saved→rugbypass_ben_spencer.json
+  [ 26/289]  B. Thomas  →  https://www.rugbypass.com/players/ben-thomas/
+           ✅  bio=True  comp_rows=11  six_nations_rows=2  saved→rugbypass_ben_thomas.json
+  [ 27/289]  B. White  →  https://www.rugbypass.com/players/ben-white/
+           ✅  bio=True  comp_rows=13  six_nations_rows=3  saved→rugbypass_ben_white.json
+  [ 28/289]  C. Baille  →  https://www.rugbypass.com/players/cyril-baille/
+           ✅  bio=True  comp_rows=11  six_nations_rows=2  saved→rugbypass_cyril_baille.json
+  [ 29/289]  C. Blade  →  https://www.rugbypass.com/players/caolin-blade/
+           ✅  bio=True  comp_rows=10  six_nations_rows=0  saved→rugbypass_caolin_blade.json
+  [ 30/289]  C. Casey  →  https://www.rugbypass.com/players/craig-casey/
+           ✅  bio=True  comp_rows=13  six_nations_rows=2  saved→rugbypass_craig_casey.json
+  [ 31/289]  C. Cunningham-South  →  https://www.rugbypass.com/players/chandler-cunningham-south/
+           ✅  bio=True  comp_rows=14  six_nations_rows=4  saved→rugbypass_chandler_cunningham_south.json
+  [ 32/289]  C. Doris  →  https://www.rugbypass.com/players/caelan-doris/
+           ✅  bio=True  comp_rows=12  six_nations_rows=3  saved→rugbypass_caelan_doris.json
+  [ 33/289]  C. Frawley  →  https://www.rugbypass.com/players/ciaran-frawley/
+           ✅  bio=True  comp_rows=13  six_nations_rows=2  saved→rugbypass_ciaran_frawley.json
+  [ 34/289]  C. Healy  →  https://www.rugbypass.com/players/cian-healy/
+           ✅  bio=True  comp_rows=9  six_nations_rows=2  saved→rugbypass_cian_healy.json
+  [ 35/289]  C. Izuchukwu  →  https://www.rugbypass.com/players/cormac-izuchukwu/
+           ✅  bio=True  comp_rows=8  six_nations_rows=1  saved→rugbypass_cormac_izuchukwu.json
+  [ 36/289]  C. Murley  →  https://www.rugbypass.com/players/cadan-murley/
+           ✅  bio=True  comp_rows=14  six_nations_rows=2  saved→rugbypass_cadan_murley.json
+  [ 37/289]  C. Murray  →  https://www.rugbypass.com/players/conor-murray/
+           ✅  bio=True  comp_rows=9  six_nations_rows=2  saved→rugbypass_conor_murray.json
+  [ 38/289]  C. Nash  →  https://www.rugbypass.com/players/calvin-nash/
+           ✅  bio=True  comp_rows=12  six_nations_rows=2  saved→rugbypass_calvin_nash.json
+  [ 39/289]  C. Ollivon  →  https://www.rugbypass.com/players/charles-ollivon/
+           ✅  bio=True  comp_rows=11  six_nations_rows=2  saved→rugbypass_charles_ollivon.json
+  [ 40/289]  C. Prendergast  →  https://www.rugbypass.com/players/cian-prendergast/
+           ✅  bio=True  comp_rows=11  six_nations_rows=1  saved→rugbypass_cian_prendergast.json
+  [ 41/289]  C. Tshiunza  →  https://www.rugbypass.com/players/christ-tshiunza/
+           ✅  bio=True  comp_rows=10  six_nations_rows=0  saved→rugbypass_christ_tshiunza.json
+  [ 42/289]  C. Woki  →  https://www.rugbypass.com/players/cameron-woki/
+           ✅  bio=True  comp_rows=13  six_nations_rows=1  saved→rugbypass_cameron_woki.json
+  [ 43/289]  D. Aldegheri  →  https://www.rugbypass.com/players/dino-aldegheri/
+           ⚠️  404 — slug may be wrong for 'D. Aldegheri'
+  [ 44/289]  D. Bamba  →  https://www.rugbypass.com/players/demba-bamba/
+           ✅  bio=True  comp_rows=11  six_nations_rows=1  saved→rugbypass_demba_bamba.json
+  [ 45/289]  D. Cherry  →  https://www.rugbypass.com/players/david-cherry/
+           ✅  bio=True  comp_rows=9  six_nations_rows=2  saved→rugbypass_david_cherry.json
+  [ 46/289]  D. Cretin  →  https://www.rugbypass.com/players/dylan-cretin/
+           ✅  bio=True  comp_rows=7  six_nations_rows=0  saved→rugbypass_dylan_cretin.json
+  [ 47/289]  D. Edwards  →  https://www.rugbypass.com/players/daniel-edwards/
+           ✅  bio=True  comp_rows=10  six_nations_rows=3  saved→rugbypass_daniel_edwards.json
+  [ 48/289]  D. Fischetti  →  https://www.rugbypass.com/players/danilo-fischetti/
+           ✅  bio=True  comp_rows=12  six_nations_rows=3  saved→rugbypass_danilo_fischetti.json
+  [ 49/289]  D. Graham  →  https://www.rugbypass.com/players/darcy-graham/
+           ✅  bio=True  comp_rows=12  six_nations_rows=2  saved→rugbypass_darcy_graham.json
+  [ 50/289]  D. Lamb  →  https://www.rugbypass.com/players/dino-lamb/
+           ✅  bio=True  comp_rows=10  six_nations_rows=1  saved→rugbypass_dino_lamb.json
+  [ 51/289]  D. Odiase  →  https://www.rugbypass.com/players/david-odiase/
+           ✅  bio=True  comp_rows=7  six_nations_rows=2  saved→rugbypass_david_odiase.json
+  [ 52/289]  D. Penaud  →  https://www.rugbypass.com/players/damian-penaud/
+           ✅  bio=True  comp_rows=12  six_nations_rows=2  saved→rugbypass_damian_penaud.json
+  [ 53/289]  D. Priso  →  https://www.rugbypass.com/players/dany-priso/
+           ✅  bio=True  comp_rows=8  six_nations_rows=0  saved→rugbypass_dany_priso.json
+  [ 54/289]  D. Rae  →  https://www.rugbypass.com/players/darcy-rae/
+           ✅  bio=True  comp_rows=11  six_nations_rows=1  saved→rugbypass_darcy_rae.json
+  [ 55/289]  D. Sheehan  →  https://www.rugbypass.com/players/dan-sheehan/
+           ✅  bio=True  comp_rows=13  six_nations_rows=3  saved→rugbypass_dan_sheehan.json
+  [ 56/289]  D. van der Merwe  →  https://www.rugbypass.com/players/duhan-van-der-merwe/
+           ✅  bio=True  comp_rows=14  six_nations_rows=3  saved→rugbypass_duhan_van_der_merwe.json
+  [ 57/289]  E. Ashman  →  https://www.rugbypass.com/players/ewan-ashman/
+           ✅  bio=True  comp_rows=14  six_nations_rows=3  saved→rugbypass_ewan_ashman.json
+  [ 58/289]  E. Bevan  →  https://www.rugbypass.com/players/ellis-bevan/
+           ✅  bio=True  comp_rows=8  six_nations_rows=0  saved→rugbypass_ellis_bevan.json
+  [ 59/289]  E. Daly  →  https://www.rugbypass.com/players/elliot-daly/
+           ✅  bio=True  comp_rows=13  six_nations_rows=3  saved→rugbypass_elliot_daly.json
+  [ 60/289]  E. Dee  →  https://www.rugbypass.com/players/elliott-dee/
+           ✅  bio=True  comp_rows=13  six_nations_rows=2  saved→rugbypass_elliott_dee.json
+  [ 61/289]  E. Edogbo  →  https://www.rugbypass.com/players/edwin-edogbo/
+           ✅  bio=True  comp_rows=8  six_nations_rows=1  saved→rugbypass_edwin_edogbo.json
+  [ 62/289]  E. Gailleton  →  https://www.rugbypass.com/players/emilien-gailleton/
+           ✅  bio=True  comp_rows=11  six_nations_rows=3  saved→rugbypass_emilien_gailleton.json
+  [ 63/289]  E. Genge  →  https://www.rugbypass.com/players/ellis-genge/
+           ✅  bio=True  comp_rows=12  six_nations_rows=3  saved→rugbypass_ellis_genge.json
+  [ 64/289]  E. Johnson  →  https://www.rugbypass.com/players/ewan-johnson/
+           ✅  bio=True  comp_rows=5  six_nations_rows=1  saved→rugbypass_ewan_johnson.json
+  [ 65/289]  E. Lloyd  →  https://www.rugbypass.com/players/evan-lloyd/
+           ✅  bio=True  comp_rows=0  six_nations_rows=0  saved→rugbypass_evan_lloyd.json
+  [ 66/289]  E. Meafou  →  https://www.rugbypass.com/players/emmanuel-meafou/
+           ✅  bio=True  comp_rows=11  six_nations_rows=3  saved→rugbypass_emmanuel_meafou.json
+  [ 67/289]  E. Mee  →  https://www.rugbypass.com/players/ellis-mee/
+           ✅  bio=True  comp_rows=6  six_nations_rows=2  saved→rugbypass_ellis_mee.json
+  [ 68/289]  E. Millar-Mills  →  https://www.rugbypass.com/players/elliot-millar-mills/
+           ✅  bio=True  comp_rows=12  six_nations_rows=2  saved→rugbypass_elliot_millar_mills.json
+  [ 69/289]  F. Baxter  →  https://www.rugbypass.com/players/fin-baxter/
+           ✅  bio=True  comp_rows=12  six_nations_rows=1  saved→rugbypass_fin_baxter.json
+  [ 70/289]  F. Bealham  →  https://www.rugbypass.com/players/finlay-bealham/
+           ✅  bio=True  comp_rows=14  six_nations_rows=3  saved→rugbypass_finlay_bealham.json
+  [ 71/289]  F. Brau Boirie  →  https://www.rugbypass.com/players/florian-brau-boirie/
+           ⚠️  404 — slug may be wrong for 'F. Brau Boirie'
+  [ 72/289]  F. Brau-Boirie  →  https://www.rugbypass.com/players/florian-brau-boirie/
+           ⚠️  404 — slug may be wrong for 'F. Brau-Boirie'
+  [ 73/289]  F. Burke  →  https://www.rugbypass.com/players/fergus-burke/
+           ✅  bio=True  comp_rows=8  six_nations_rows=0  saved→rugbypass_fergus_burke.json
+  [ 74/289]  F. Cros  →  https://www.rugbypass.com/players/francois-cros/
+           ✅  bio=True  comp_rows=12  six_nations_rows=3  saved→rugbypass_francois_cros.json
+  [ 75/289]  F. Dingwall  →  https://www.rugbypass.com/players/fraser-dingwall/
+           ✅  bio=True  comp_rows=12  six_nations_rows=3  saved→rugbypass_fraser_dingwall.json
+  [ 76/289]  F. Douglas  →  https://www.rugbypass.com/players/freddie-douglas/
+           ✅  bio=True  comp_rows=9  six_nations_rows=3  saved→rugbypass_freddie_douglas.json
+  [ 77/289]  F. Russell  →  https://www.rugbypass.com/players/finn-russell/
+           ✅  bio=True  comp_rows=14  six_nations_rows=3  saved→rugbypass_finn_russell.json
+  [ 78/289]  F. Ruzza  →  https://www.rugbypass.com/players/federico-ruzza/
+           ✅  bio=True  comp_rows=12  six_nations_rows=3  saved→rugbypass_federico_ruzza.json
+  [ 79/289]  F. Smith  →  https://www.rugbypass.com/players/finlay-smith/
+           ✅  bio=True  comp_rows=13  six_nations_rows=3  saved→rugbypass_finlay_smith.json
+  [ 80/289]  F. Steward  →  https://www.rugbypass.com/players/freddie-steward/
+           ✅  bio=True  comp_rows=12  six_nations_rows=3  saved→rugbypass_freddie_steward.json
+  [ 81/289]  F. Thomas  →  https://www.rugbypass.com/players/freddie-thomas/
+           ✅  bio=True  comp_rows=10  six_nations_rows=2  saved→rugbypass_freddie_thomas.json
+  [ 82/289]  G. Alldritt  →  https://www.rugbypass.com/players/gregory-alldritt/
+           ✅  bio=True  comp_rows=11  six_nations_rows=2  saved→rugbypass_gregory_alldritt.json
+  [ 83/289]  G. Anscombe  →  https://www.rugbypass.com/players/gareth-anscombe/
+           ✅  bio=True  comp_rows=8  six_nations_rows=1  saved→rugbypass_gareth_anscombe.json
+  [ 84/289]  G. Arfeuil  →  https://www.rugbypass.com/players/gregoire-arfeuil/
+           ✅  bio=True  comp_rows=6  six_nations_rows=1  saved→rugbypass_gregoire_arfeuil.json
+  [ 85/289]  G. Bertaccini  →  https://www.rugbypass.com/players/giulio-bertaccini/
+           ✅  bio=True  comp_rows=3  six_nations_rows=0  saved→rugbypass_giulio_bertaccini.json
+  [ 86/289]  G. Brown  →  https://www.rugbypass.com/players/gregor-brown/
+           ✅  bio=True  comp_rows=11  six_nations_rows=2  saved→rugbypass_gregor_brown.json
+  [ 87/289]  G. Colombe  →  https://www.rugbypass.com/players/georges-henri-colombe/
+           ✅  bio=True  comp_rows=11  six_nations_rows=3  saved→rugbypass_georges_henri_colombe.json
+  [ 88/289]  G. Coombes  →  https://www.rugbypass.com/players/gavin-coombes/
+           ✅  bio=True  comp_rows=11  six_nations_rows=0  saved→rugbypass_gavin_coombes.json
+  [ 89/289]  G. Drean  →  https://www.rugbypass.com/players/gael-drean/
+           ✅  bio=True  comp_rows=9  six_nations_rows=1  saved→rugbypass_gael_drean.json
+  [ 90/289]  G. Fickou  →  https://www.rugbypass.com/players/gael-fickou/
+           ✅  bio=True  comp_rows=13  six_nations_rows=2  saved→rugbypass_gael_fickou.json
+  [ 91/289]  G. Fisilau  →  https://www.rugbypass.com/players/greg-fisilau/
+           ✅  bio=True  comp_rows=12  six_nations_rows=1  saved→rugbypass_greg_fisilau.json
+  [ 92/289]  G. Ford  →  https://www.rugbypass.com/players/george-ford/
+           ✅  bio=True  comp_rows=13  six_nations_rows=3  saved→rugbypass_george_ford.json
+  [ 93/289]  G. Furbank  →  https://www.rugbypass.com/players/george-furbank/
+           ✅  bio=True  comp_rows=10  six_nations_rows=1  saved→rugbypass_george_furbank.json
+  [ 94/289]  G. Gilchrist  →  https://www.rugbypass.com/players/grant-gilchrist/
+           ✅  bio=True  comp_rows=12  six_nations_rows=3  saved→rugbypass_grant_gilchrist.json
+  [ 95/289]  G. Hamer-Webb  →  https://www.rugbypass.com/players/gabriel-hamer-webb/
+           ✅  bio=True  comp_rows=10  six_nations_rows=1  saved→rugbypass_gabriel_hamer_webb.json
+  [ 96/289]  G. Hiddleston  →  https://www.rugbypass.com/players/gregor-hiddleston/
+           ✅  bio=True  comp_rows=6  six_nations_rows=0  saved→rugbypass_gregor_hiddleston.json
+  [ 97/289]  G. Horne  →  https://www.rugbypass.com/players/george-horne/
+           ✅  bio=True  comp_rows=13  six_nations_rows=3  saved→rugbypass_george_horne.json
+  [ 98/289]  G. Lucchesi  →  https://www.rugbypass.com/players/gianmarcolucchesi/
+           ✅  bio=True  comp_rows=10  six_nations_rows=2  saved→rugbypass_gianmarcolucchesi.json
+  [ 99/289]  G. Martin  →  https://www.rugbypass.com/players/george-martin/
+           ✅  bio=True  comp_rows=10  six_nations_rows=2  saved→rugbypass_george_martin.json
+  [100/289]  G. McCarthy  →  https://www.rugbypass.com/players/gus-mccarthy/
+           ✅  bio=True  comp_rows=9  six_nations_rows=2  saved→rugbypass_gus_mccarthy.json
+  [101/289]  G. Nicotera  →  https://www.rugbypass.com/players/giacomo-nicotera/
+           ✅  bio=True  comp_rows=12  six_nations_rows=3  saved→rugbypass_giacomo_nicotera.json
+  [102/289]  G. Pepper  →  https://www.rugbypass.com/players/guy-pepper/
+           ✅  bio=True  comp_rows=12  six_nations_rows=1  saved→rugbypass_guy_pepper.json
+  [103/289]  G. Ringrose  →  https://www.rugbypass.com/players/garry-ringrose/
+           ✅  bio=True  comp_rows=13  six_nations_rows=3  saved→rugbypass_garry_ringrose.json
+  [104/289]  G. Thomas  →  https://www.rugbypass.com/players/gareth-thomas/
+           ✅  bio=True  comp_rows=11  six_nations_rows=2  saved→rugbypass_gareth_thomas.json
+  [105/289]  G. Turner  →  https://www.rugbypass.com/players/george-turner/
+           ✅  bio=True  comp_rows=11  six_nations_rows=2  saved→rugbypass_george_turner.json
+  [106/289]  G. Villiere  →  https://www.rugbypass.com/players/gabin-villiere/
+           ✅  bio=True  comp_rows=8  six_nations_rows=0  saved→rugbypass_gabin_villiere.json
+  [107/289]  G. Zilocchi  →  https://www.rugbypass.com/players/giosue-zilocchi/
+           ✅  bio=True  comp_rows=9  six_nations_rows=3  saved→rugbypass_giosue_zilocchi.json
+  [108/289]  G. da Re  →  https://www.rugbypass.com/players/giacomo-da-re/
+           ✅  bio=True  comp_rows=7  six_nations_rows=1  saved→rugbypass_giacomo_da_re.json
+  [109/289]  H. Arundell  →  https://www.rugbypass.com/players/henry-arundell/
+           ✅  bio=True  comp_rows=9  six_nations_rows=1  saved→rugbypass_henry_arundell.json
+  [110/289]  H. Auradou  →  https://www.rugbypass.com/players/hugo-auradou/
+           ✅  bio=True  comp_rows=13  six_nations_rows=3  saved→rugbypass_hugo_auradou.json
+  [111/289]  H. Byrne  →  https://www.rugbypass.com/players/harry-byrne/
+           ✅  bio=True  comp_rows=11  six_nations_rows=1  saved→rugbypass_harry_byrne.json
+  [112/289]  H. Deaves  →  https://www.rugbypass.com/players/harri-deaves/
+           ✅  bio=True  comp_rows=8  six_nations_rows=1  saved→rugbypass_harri_deaves.json
+  [113/289]  H. Jones  →  https://www.rugbypass.com/players/huw-jones/
+           ✅  bio=True  comp_rows=13  six_nations_rows=3  saved→rugbypass_huw_jones.json
+  [114/289]  H. Keenan  →  https://www.rugbypass.com/players/hugo-keenan/
+           ✅  bio=True  comp_rows=12  six_nations_rows=2  saved→rugbypass_hugo_keenan.json
+  [115/289]  H. Pollock  →  https://www.rugbypass.com/players/henry-pollock/
+           ✅  bio=True  comp_rows=13  six_nations_rows=4  saved→rugbypass_henry_pollock.json
+  [116/289]  H. Randall  →  https://www.rugbypass.com/players/harry-randall/
+           ✅  bio=True  comp_rows=11  six_nations_rows=1  saved→rugbypass_harry_randall.json
+  [117/289]  H. Reus  →  https://www.rugbypass.com/players/hugo-reus/
+           ✅  bio=True  comp_rows=14  six_nations_rows=2  saved→rugbypass_hugo_reus.json
+  [118/289]  H. Slade  →  https://www.rugbypass.com/players/henry-slade/
+           ✅  bio=True  comp_rows=11  six_nations_rows=2  saved→rugbypass_henry_slade.json
+  [119/289]  H. Thomas  →  https://www.rugbypass.com/players/harry-thomas/
+           ✅  bio=True  comp_rows=6  six_nations_rows=2  saved→rugbypass_harry_thomas.json
+  [120/289]  I. Henderson  →  https://www.rugbypass.com/players/iain-henderson/
+           ✅  bio=True  comp_rows=12  six_nations_rows=2  saved→rugbypass_iain_henderson.json
+  [121/289]  J. Bayliss  →  https://www.rugbypass.com/players/josh-bayliss/
+           ✅  bio=True  comp_rows=12  six_nations_rows=1  saved→rugbypass_josh_bayliss.json
+  [122/289]  J. Bhatti  →  https://www.rugbypass.com/players/jamie-bhattie/
+           ✅  bio=True  comp_rows=10  six_nations_rows=1  saved→rugbypass_jamie_bhattie.json
+  [123/289]  J. Boyle  →  https://www.rugbypass.com/players/jack-boyle/
+           ✅  bio=True  comp_rows=7  six_nations_rows=1  saved→rugbypass_jack_boyle.json
+  [124/289]  J. Brennan  →  https://www.rugbypass.com/players/joshua-brennan/
+           ✅  bio=True  comp_rows=10  six_nations_rows=1  saved→rugbypass_joshua_brennan.json
+  [125/289]  J. Brex  →  https://www.rugbypass.com/players/juan-ignacio-brex/
+           ✅  bio=True  comp_rows=12  six_nations_rows=3  saved→rugbypass_juan_ignacio_brex.json
+  [126/289]  J. Conan  →  https://www.rugbypass.com/players/jack-conan/
+           ✅  bio=True  comp_rows=13  six_nations_rows=3  saved→rugbypass_jack_conan.json
+  [127/289]  J. Crowley  →  https://www.rugbypass.com/players/jack-crowley/
+           ✅  bio=True  comp_rows=14  six_nations_rows=3  saved→rugbypass_jack_crowley.json
+  [128/289]  J. Dempsey  →  https://www.rugbypass.com/players/jack-dempsey/
+           ✅  bio=True  comp_rows=12  six_nations_rows=3  saved→rugbypass_jack_dempsey.json
+  [129/289]  J. Dobie  →  https://www.rugbypass.com/players/jamie-dobie/
+           ✅  bio=True  comp_rows=11  six_nations_rows=2  saved→rugbypass_jamie_dobie.json
+  [130/289]  J. Evans  →  https://www.rugbypass.com/players/jarrod-evans/
+           ✅  bio=True  comp_rows=11  six_nations_rows=2  saved→rugbypass_jarrod_evans.json
+  [131/289]  J. George  →  https://www.rugbypass.com/players/jamie-george/
+           ✅  bio=True  comp_rows=14  six_nations_rows=3  saved→rugbypass_jamie_george.json
+  [132/289]  J. Gibson-Park  →  https://www.rugbypass.com/players/jamison-gibson-park/
+           ✅  bio=True  comp_rows=13  six_nations_rows=3  saved→rugbypass_jamison_gibson_park.json
+  [133/289]  J. Gray  →  https://www.rugbypass.com/players/jonny-gray/
+           ✅  bio=True  comp_rows=8  six_nations_rows=1  saved→rugbypass_jonny_gray.json
+  [134/289]  J. Gros  →  https://www.rugbypass.com/players/jean-baptiste-gros/
+           ✅  bio=True  comp_rows=11  six_nations_rows=2  saved→rugbypass_jean_baptiste_gros.json
+  [135/289]  J. Hathaway  →  https://www.rugbypass.com/players/josh-hathaway/
+           ✅  bio=True  comp_rows=8  six_nations_rows=2  saved→rugbypass_josh_hathaway.json
+  [136/289]  J. Hawkins  →  https://www.rugbypass.com/players/joe-hawkins/
+           ✅  bio=True  comp_rows=9  six_nations_rows=1  saved→rugbypass_joe_hawkins.json
+  [137/289]  J. Heyes  →  https://www.rugbypass.com/players/joe-heyes/
+           ✅  bio=True  comp_rows=12  six_nations_rows=2  saved→rugbypass_joe_heyes.json
+  [138/289]  J. Kenningham  →  https://www.rugbypass.com/players/jack-kenningham/
+           ✅  bio=True  comp_rows=10  six_nations_rows=0  saved→rugbypass_jack_kenningham.json
+  [139/289]  J. Loughman  →  https://www.rugbypass.com/players/jeremy-loughman/
+           ✅  bio=True  comp_rows=13  six_nations_rows=2  saved→rugbypass_jeremy_loughman.json
+  [140/289]  J. Lowe  →  https://www.rugbypass.com/players/james-lowe/
+           ✅  bio=True  comp_rows=13  six_nations_rows=3  saved→rugbypass_james_lowe.json
+  [141/289]  J. Macleod  →  https://www.rugbypass.com/players/josh-macleod/
+           ✅  bio=True  comp_rows=9  six_nations_rows=1  saved→rugbypass_josh_macleod.json
+  [142/289]  J. Mann  →  https://www.rugbypass.com/players/jack-mann/
+           ✅  bio=True  comp_rows=4  six_nations_rows=0  saved→rugbypass_jack_mann.json
+  [143/289]  J. Marchand  →  https://www.rugbypass.com/players/julien-marchand/
+           ✅  bio=True  comp_rows=12  six_nations_rows=3  saved→rugbypass_julien_marchand.json
+  [144/289]  J. McCarthy  →  https://www.rugbypass.com/players/joe-mccarthy/
+           ✅  bio=True  comp_rows=14  six_nations_rows=3  saved→rugbypass_joe_mccarthy.json
+  [145/289]  J. Morgan  →  https://www.rugbypass.com/players/jac-morgan/
+           ✅  bio=True  comp_rows=12  six_nations_rows=1  saved→rugbypass_jac_morgan.json
+  [146/289]  J. O'Brien  →  https://www.rugbypass.com/players/jimmy-obrien/
+           ✅  bio=True  comp_rows=9  six_nations_rows=0  saved→rugbypass_jimmy_obrien.json
+  [147/289]  J. Osborne  →  https://www.rugbypass.com/players/jamie-osborne/
+           ✅  bio=True  comp_rows=12  six_nations_rows=2  saved→rugbypass_jamie_osborne.json
+  [148/289]  J. Ritchie  →  https://www.rugbypass.com/players/jamie-ritchie/
+           ✅  bio=True  comp_rows=12  six_nations_rows=3  saved→rugbypass_jamie_ritchie.json
+  [149/289]  J. Roberts  →  https://www.rugbypass.com/players/joe-roberts/
+           ✅  bio=True  comp_rows=10  six_nations_rows=2  saved→rugbypass_joe_roberts.json
+  [150/289]  J. Ryan  →  https://www.rugbypass.com/players/james-ryan/
+           ✅  bio=True  comp_rows=13  six_nations_rows=3  saved→rugbypass_james_ryan.json
+  [151/289]  J. Stockdale  →  https://www.rugbypass.com/players/jacob-stockdale/
+           ✅  bio=True  comp_rows=10  six_nations_rows=1  saved→rugbypass_jacob_stockdale.json
+  [152/289]  J. Trulla  →  https://www.rugbypass.com/players/jacopo-trulla/
+           ✅  bio=True  comp_rows=10  six_nations_rows=1  saved→rugbypass_jacopo_trulla.json
+  [153/289]  J. van Poortvliet  →  https://www.rugbypass.com/players/jack-van-poortvliet/
+           ✅  bio=True  comp_rows=11  six_nations_rows=2  saved→rugbypass_jack_van_poortvliet.json
+  [154/289]  J. van der Flier  →  https://www.rugbypass.com/players/josh-van-der-flier/
+           ✅  bio=True  comp_rows=13  six_nations_rows=3  saved→rugbypass_josh_van_der_flier.json
+  [155/289]  K. Assiratti  →  https://www.rugbypass.com/players/kieron-assiratti/
+           ✅  bio=True  comp_rows=10  six_nations_rows=2  saved→rugbypass_kieron_assiratti.json
+  [156/289]  K. Gourgues  →  https://www.rugbypass.com/players/kalvin-gourgues/
+           ✅  bio=True  comp_rows=7  six_nations_rows=2  saved→rugbypass_kalvin_gourgues.json
+  [157/289]  K. Hardy  →  https://www.rugbypass.com/players/kieran-hardy/
+           ✅  bio=True  comp_rows=12  six_nations_rows=2  saved→rugbypass_kieran_hardy.json
+  [158/289]  K. Rowe  →  https://www.rugbypass.com/players/kyle-rowe/
+           ✅  bio=True  comp_rows=9  six_nations_rows=3  saved→rugbypass_kyle_rowe.json
+  [159/289]  K. Steyn  →  https://www.rugbypass.com/players/kyle-steyn/
+           ✅  bio=True  comp_rows=11  six_nations_rows=2  saved→rugbypass_kyle_steyn.json
+  [160/289]  L. Barre  →  https://www.rugbypass.com/players/leo-barre/
+           ✅  bio=True  comp_rows=11  six_nations_rows=2  saved→rugbypass_leo_barre.json
+  [161/289]  L. Belcher  →  https://www.rugbypass.com/players/liam-belcher/
+           ✅  bio=True  comp_rows=9  six_nations_rows=1  saved→rugbypass_liam_belcher.json
+  [162/289]  L. Bielle-Biarrey  →  https://www.rugbypass.com/players/louis-bielle-biarrey/
+           ✅  bio=True  comp_rows=14  six_nations_rows=4  saved→rugbypass_louis_bielle_biarrey.json
+  [163/289]  L. Cannone  →  https://www.rugbypass.com/players/lorenzo-cannone/
+           ✅  bio=True  comp_rows=12  six_nations_rows=3  saved→rugbypass_lorenzo_cannone.json
+  [164/289]  L. Cowan-Dickie  →  https://www.rugbypass.com/players/luke-cowan-dickie/
+           ✅  bio=True  comp_rows=11  six_nations_rows=2  saved→rugbypass_luke_cowan_dickie.json
+  [165/289]  L. Hennessey  →  https://www.rugbypass.com/players/louie-hennessey/
+           ✅  bio=True  comp_rows=11  six_nations_rows=3  saved→rugbypass_louie_hennessey.json
+  [166/289]  L. Lynagh  →  https://www.rugbypass.com/players/louis-lynagh/
+           ✅  bio=True  comp_rows=9  six_nations_rows=2  saved→rugbypass_louis_lynagh.json
+  [167/289]  L. Marin  →  https://www.rugbypass.com/players/leonardo-marin/
+           ✅  bio=True  comp_rows=9  six_nations_rows=3  saved→rugbypass_leonardo_marin.json
+  [168/289]  L. Nouchi  →  https://www.rugbypass.com/players/lenni-nouchi/
+           ✅  bio=True  comp_rows=10  six_nations_rows=2  saved→rugbypass_lenni_nouchi.json
+  [169/289]  L. Pani  →  https://www.rugbypass.com/players/lorenzo-pani/
+           ✅  bio=True  comp_rows=9  six_nations_rows=2  saved→rugbypass_lorenzo_pani.json
+  [170/289]  M. Bradbury  →  https://www.rugbypass.com/players/magnus-bradbury/
+           ✅  bio=True  comp_rows=10  six_nations_rows=1  saved→rugbypass_magnus_bradbury.json
+  [171/289]  M. Currie  →  https://www.rugbypass.com/players/matt-currie/
+           ✅  bio=True  comp_rows=8  six_nations_rows=0  saved→rugbypass_matt_currie.json
+  [172/289]  M. Domon  →  https://www.rugbypass.com/players/marius-domon/
+           ✅  bio=True  comp_rows=7  six_nations_rows=0  saved→rugbypass_marius_domon.json
+  [173/289]  M. Fagerson  →  https://www.rugbypass.com/players/matt-fagerson/
+           ✅  bio=True  comp_rows=12  six_nations_rows=3  saved→rugbypass_matt_fagerson.json
+  [174/289]  M. Gallagher  →  https://www.rugbypass.com/players/matt-gallagher/
+           ✅  bio=True  comp_rows=10  six_nations_rows=1  saved→rugbypass_matt_gallagher.json
+  [175/289]  M. Gazzotti  →  https://www.rugbypass.com/players/marko-gazzotti/
+           ✅  bio=True  comp_rows=9  six_nations_rows=2  saved→rugbypass_marko_gazzotti.json
+  [176/289]  M. Grady  →  https://www.rugbypass.com/players/mason-grady/
+           ✅  bio=True  comp_rows=12  six_nations_rows=2  saved→rugbypass_mason_grady.json
+  [177/289]  M. Guillard  →  https://www.rugbypass.com/players/mickael-guillard/
+           ✅  bio=True  comp_rows=12  six_nations_rows=2  saved→rugbypass_mickael_guillard.json
+  [178/289]  M. Hansen  →  https://www.rugbypass.com/players/mackenzie-hansen/
+           ✅  bio=True  comp_rows=10  six_nations_rows=1  saved→rugbypass_mackenzie_hansen.json
+  [179/289]  M. Hasa  →  https://www.rugbypass.com/players/muhamed-hasa/
+           ✅  bio=True  comp_rows=8  six_nations_rows=1  saved→rugbypass_muhamed_hasa.json
+  [180/289]  M. Ioane  →  https://www.rugbypass.com/players/monty-ioane/
+           ✅  bio=True  comp_rows=10  six_nations_rows=3  saved→rugbypass_monty_ioane.json
+  [181/289]  M. Itoje  →  https://www.rugbypass.com/players/maro-itoje/
+           ✅  bio=True  comp_rows=13  six_nations_rows=3  saved→rugbypass_maro_itoje.json
+  [182/289]  M. Jalibert  →  https://www.rugbypass.com/players/matthieu-jalibert/
+           ✅  bio=True  comp_rows=12  six_nations_rows=3  saved→rugbypass_matthieu_jalibert.json
+  [183/289]  M. Lamaro  →  https://www.rugbypass.com/players/michele-lamaro/
+           ✅  bio=True  comp_rows=13  six_nations_rows=3  saved→rugbypass_michele_lamaro.json
+  [184/289]  M. Lamothe  →  https://www.rugbypass.com/players/maxime-lamothe/
+           ✅  bio=True  comp_rows=9  six_nations_rows=1  saved→rugbypass_maxime_lamothe.json
+  [185/289]  M. Llewellyn  →  https://www.rugbypass.com/players/max-llewellyn/
+           ✅  bio=True  comp_rows=9  six_nations_rows=1  saved→rugbypass_max_llewellyn.json
+  [186/289]  M. Lucu  →  https://www.rugbypass.com/players/maxime-lucu/
+           ✅  bio=True  comp_rows=11  six_nations_rows=2  saved→rugbypass_maxime_lucu.json
+  [187/289]  M. Milne  →  https://www.rugbypass.com/players/michael-milne/
+           ✅  bio=True  comp_rows=11  six_nations_rows=1  saved→rugbypass_michael_milne.json
+  [188/289]  M. Ojomoh  →  https://www.rugbypass.com/players/manny-ojomoh/
+           ⚠️  404 — slug may be wrong for 'M. Ojomoh'
+  [189/289]  M. Page-Relo  →  https://www.rugbypass.com/players/martin-page-relo/
+           ✅  bio=True  comp_rows=11  six_nations_rows=2  saved→rugbypass_martin_page_relo.json
+  [190/289]  M. Riccioni  →  https://www.rugbypass.com/players/marco-riccioni/
+           ✅  bio=True  comp_rows=10  six_nations_rows=1  saved→rugbypass_marco_riccioni.json
+  [191/289]  M. Smith  →  https://www.rugbypass.com/players/marcus-smith/
+           ✅  bio=True  comp_rows=13  six_nations_rows=3  saved→rugbypass_marcus_smith.json
+  [192/289]  M. Spagnolo  →  https://www.rugbypass.com/players/mirco-spagnolo/
+           ✅  bio=True  comp_rows=9  six_nations_rows=3  saved→rugbypass_mirco_spagnolo.json
+  [193/289]  M. Sykes  →  https://www.rugbypass.com/players/marshall-sykes/
+           ✅  bio=True  comp_rows=10  six_nations_rows=1  saved→rugbypass_marshall_sykes.json
+  [194/289]  M. Williamson  →  https://www.rugbypass.com/players/max-williamson/
+           ✅  bio=True  comp_rows=8  six_nations_rows=1  saved→rugbypass_max_williamson.json
+  [195/289]  M. Zanon  →  https://www.rugbypass.com/players/marco-zanon/
+           ✅  bio=True  comp_rows=6  six_nations_rows=0  saved→rugbypass_marco_zanon.json
+  [196/289]  M. Zuliani  →  https://www.rugbypass.com/players/manuelzuliani/
+           ✅  bio=True  comp_rows=12  six_nations_rows=3  saved→rugbypass_manuelzuliani.json
+  [197/289]  N. Cannone  →  https://www.rugbypass.com/players/niccolo-cannone/
+           ✅  bio=True  comp_rows=13  six_nations_rows=3  saved→rugbypass_niccolo_cannone.json
+  [198/289]  N. Depoortere  →  https://www.rugbypass.com/players/nicolas-depoortere/
+           ✅  bio=True  comp_rows=11  six_nations_rows=3  saved→rugbypass_nicolas_depoortere.json
+  [199/289]  N. Doak  →  https://www.rugbypass.com/players/nathan-doak/
+           ✅  bio=True  comp_rows=11  six_nations_rows=1  saved→rugbypass_nathan_doak.json
+  [200/289]  N. Le Garrec  →  https://www.rugbypass.com/players/nolann-le-garrec/
+           ✅  bio=True  comp_rows=13  six_nations_rows=2  saved→rugbypass_nolann_le_garrec.json
+  [201/289]  N. McBeth  →  https://www.rugbypass.com/players/nathan-mcbeth/
+           ✅  bio=True  comp_rows=10  six_nations_rows=1  saved→rugbypass_nathan_mcbeth.json
+  [202/289]  N. Timoney  →  https://www.rugbypass.com/players/nick-timoney/
+           ✅  bio=True  comp_rows=11  six_nations_rows=1  saved→rugbypass_nick_timoney.json
+  [203/289]  N. Tompkins  →  https://www.rugbypass.com/players/nick-tompkins/
+           ✅  bio=True  comp_rows=12  six_nations_rows=2  saved→rugbypass_nick_tompkins.json
+  [204/289]  O. Beard  →  https://www.rugbypass.com/players/oscar-beard/
+           ✅  bio=True  comp_rows=11  six_nations_rows=0  saved→rugbypass_oscar_beard.json
+  [205/289]  O. Chessum  →  https://www.rugbypass.com/players/oliver-chessum/
+           ✅  bio=True  comp_rows=13  six_nations_rows=3  saved→rugbypass_oliver_chessum.json
+  [206/289]  O. Cracknell  →  https://www.rugbypass.com/players/olly-cracknell/
+           ✅  bio=True  comp_rows=9  six_nations_rows=1  saved→rugbypass_olly_cracknell.json
+  [207/289]  O. Jegou  →  https://www.rugbypass.com/players/oscar-jegou/
+           ✅  bio=True  comp_rows=11  six_nations_rows=3  saved→rugbypass_oscar_jegou.json
+  [208/289]  O. Lawrence  →  https://www.rugbypass.com/players/ollie-lawrence/
+           ✅  bio=True  comp_rows=13  six_nations_rows=3  saved→rugbypass_ollie_lawrence.json
+  [209/289]  O. Sleightholme  →  https://www.rugbypass.com/players/ollie-sleightholme/
+           ✅  bio=True  comp_rows=9  six_nations_rows=1  saved→rugbypass_ollie_sleightholme.json
+  [210/289]  O. Smith  →  https://www.rugbypass.com/players/ollie-smith/
+           ✅  bio=True  comp_rows=9  six_nations_rows=0  saved→rugbypass_ollie_smith.json
+  [211/289]  P. Barassi  →  https://www.rugbypass.com/players/pierre-louis-barassi/
+           ✅  bio=True  comp_rows=11  six_nations_rows=2  saved→rugbypass_pierre_louis_barassi.json
+  [212/289]  P. Boudehent  →  https://www.rugbypass.com/players/pierre-boudehent/
+           ✅  bio=True  comp_rows=6  six_nations_rows=0  saved→rugbypass_pierre_boudehent.json
+  [213/289]  P. Bourgarit  →  https://www.rugbypass.com/players/pierre-bourgarit/
+           ✅  bio=True  comp_rows=8  six_nations_rows=0  saved→rugbypass_pierre_bourgarit.json
+  [214/289]  P. Garbisi  →  https://www.rugbypass.com/players/paolo-garbisi/
+           ✅  bio=True  comp_rows=12  six_nations_rows=3  saved→rugbypass_paolo_garbisi.json
+  [215/289]  P. Harrison  →  https://www.rugbypass.com/players/patrick-harrison/
+           ✅  bio=True  comp_rows=7  six_nations_rows=0  saved→rugbypass_patrick_harrison.json
+  [216/289]  P. Mauvaka  →  https://www.rugbypass.com/players/peato-mauvaka/
+           ✅  bio=True  comp_rows=12  six_nations_rows=3  saved→rugbypass_peato_mauvaka.json
+  [217/289]  P. O'Mahony  →  https://www.rugbypass.com/players/peter-omahony/
+           ✅  bio=True  comp_rows=10  six_nations_rows=2  saved→rugbypass_peter_omahony.json
+  [218/289]  P. Odogwu  →  https://www.rugbypass.com/players/paolo-odogwu/
+           ✅  bio=True  comp_rows=11  six_nations_rows=1  saved→rugbypass_paolo_odogwu.json
+  [219/289]  P. Schoeman  →  https://www.rugbypass.com/players/pierre-schoeman/
+           ✅  bio=True  comp_rows=13  six_nations_rows=3  saved→rugbypass_pierre_schoeman.json
+  [220/289]  R. Baird  →  https://www.rugbypass.com/players/ryan-baird/
+           ✅  bio=True  comp_rows=11  six_nations_rows=2  saved→rugbypass_ryan_baird.json
+  [221/289]  R. Baloucoune  →  https://www.rugbypass.com/players/robert-baloucoune/
+           ✅  bio=True  comp_rows=10  six_nations_rows=1  saved→rugbypass_robert_baloucoune.json
+  [222/289]  R. Carre  →  https://www.rugbypass.com/players/rhys-carre/
+           ✅  bio=True  comp_rows=9  six_nations_rows=1  saved→rugbypass_rhys_carre.json
+  [223/289]  R. Darge  →  https://www.rugbypass.com/players/rory-darge/
+           ✅  bio=True  comp_rows=12  six_nations_rows=3  saved→rugbypass_rory_darge.json
+  [224/289]  R. Elias  →  https://www.rugbypass.com/players/ryan-elias/
+           ✅  bio=True  comp_rows=11  six_nations_rows=2  saved→rugbypass_ryan_elias.json
+  [225/289]  R. Favretto  →  https://www.rugbypass.com/players/riccardo-favretto/
+           ✅  bio=True  comp_rows=11  six_nations_rows=3  saved→rugbypass_riccardo_favretto.json
+  [226/289]  R. Henshaw  →  https://www.rugbypass.com/players/robbie-henshaw/
+           ✅  bio=True  comp_rows=11  six_nations_rows=2  saved→rugbypass_robbie_henshaw.json
+  [227/289]  R. Herring  →  https://www.rugbypass.com/players/rory-herring/
+           ⚠️  404 — slug may be wrong for 'R. Herring'
+  [228/289]  R. Hutchinson  →  https://www.rugbypass.com/players/rory-hutchinson/
+           ✅  bio=True  comp_rows=10  six_nations_rows=0  saved→rugbypass_rory_hutchinson.json
+  [229/289]  R. Kelleher  →  https://www.rugbypass.com/players/ronan-kelleher/
+           ✅  bio=True  comp_rows=13  six_nations_rows=3  saved→rugbypass_ronan_kelleher.json
+  [230/289]  R. Montagne  →  https://www.rugbypass.com/players/regis-montagne/
+           ✅  bio=True  comp_rows=0  six_nations_rows=0  saved→rugbypass_regis_montagne.json
+  [231/289]  R. Neti  →  https://www.rugbypass.com/players/rodrigue-neti/
+           ✅  bio=True  comp_rows=10  six_nations_rows=1  saved→rugbypass_rodrigue_neti.json
+  [232/289]  R. Ntamack  →  https://www.rugbypass.com/players/romain-ntamack/
+           ✅  bio=True  comp_rows=9  six_nations_rows=1  saved→rugbypass_romain_ntamack.json
+  [233/289]  R. Quirke  →  https://www.rugbypass.com/players/rafi-quirke/
+           ✅  bio=True  comp_rows=12  six_nations_rows=0  saved→rugbypass_rafi_quirke.json
+  [234/289]  R. Sutherland  →  https://www.rugbypass.com/players/rory-sutherland/
+           ✅  bio=True  comp_rows=14  six_nations_rows=3  saved→rugbypass_rory_sutherland.json
+  [235/289]  R. Taofifenua  →  https://www.rugbypass.com/players/romain-taofifenua/
+           ✅  bio=True  comp_rows=13  six_nations_rows=2  saved→rugbypass_romain_taofifenua.json
+  [236/289]  R. Vintcent  →  https://www.rugbypass.com/players/ross-vintcent/
+           ✅  bio=True  comp_rows=8  six_nations_rows=2  saved→rugbypass_ross_vintcent.json
+  [237/289]  R. Wardi  →  https://www.rugbypass.com/players/reda-wardi/
+           ✅  bio=True  comp_rows=10  six_nations_rows=1  saved→rugbypass_reda_wardi.json
+  [238/289]  R. Williams  →  https://www.rugbypass.com/players/rhodri-williams/
+           ✅  bio=True  comp_rows=10  six_nations_rows=1  saved→rugbypass_rhodri_williams.json
+  [239/289]  R. Woodman  →  https://www.rugbypass.com/players/ryan-woodman/
+           ✅  bio=True  comp_rows=11  six_nations_rows=1  saved→rugbypass_ryan_woodman.json
+  [240/289]  S. Atkinson  →  https://www.rugbypass.com/players/sebastien-atkinson/
+           ✅  bio=True  comp_rows=10  six_nations_rows=1  saved→rugbypass_sebastien_atkinson.json
+  [241/289]  S. Costelow  →  https://www.rugbypass.com/players/sam-costelow/
+           ✅  bio=True  comp_rows=13  six_nations_rows=2  saved→rugbypass_sam_costelow.json
+  [242/289]  S. Cummings  →  https://www.rugbypass.com/players/scott-cummings/
+           ✅  bio=True  comp_rows=12  six_nations_rows=2  saved→rugbypass_scott_cummings.json
+  [243/289]  S. Ferrari  →  https://www.rugbypass.com/players/simone-ferrari/
+           ✅  bio=True  comp_rows=12  six_nations_rows=3  saved→rugbypass_simone_ferrari.json
+  [244/289]  S. Gesi  →  https://www.rugbypass.com/players/simone-gesi/
+           ✅  bio=True  comp_rows=9  six_nations_rows=1  saved→rugbypass_simone_gesi.json
+  [245/289]  S. McCloskey  →  https://www.rugbypass.com/players/stuart-mccloskey/
+           ✅  bio=True  comp_rows=12  six_nations_rows=2  saved→rugbypass_stuart_mccloskey.json
+  [246/289]  S. McDowall  →  https://www.rugbypass.com/players/stafford-mcdowall/
+           ✅  bio=True  comp_rows=11  six_nations_rows=2  saved→rugbypass_stafford_mcdowall.json
+  [247/289]  S. Negri  →  https://www.rugbypass.com/players/sebastian-negri-da-ollegio/
+           ✅  bio=True  comp_rows=12  six_nations_rows=2  saved→rugbypass_sebastian_negri_da_ollegio.json
+  [248/289]  S. Prendergast  →  https://www.rugbypass.com/players/sam-prendergast/
+           ✅  bio=True  comp_rows=12  six_nations_rows=3  saved→rugbypass_sam_prendergast.json
+  [249/289]  S. Skinner  →  https://www.rugbypass.com/players/sam-skinner/
+           ✅  bio=True  comp_rows=10  six_nations_rows=2  saved→rugbypass_sam_skinner.json
+  [250/289]  S. Tuipulotu  →  https://www.rugbypass.com/players/sione-tuipulotu/
+           ✅  bio=True  comp_rows=12  six_nations_rows=2  saved→rugbypass_sione_tuipulotu.json
+  [251/289]  S. Varney  →  https://www.rugbypass.com/players/stephen-varney/
+           ✅  bio=True  comp_rows=12  six_nations_rows=3  saved→rugbypass_stephen_varney.json
+  [252/289]  S. Wainwright  →  https://www.rugbypass.com/players/sam-wainwright/
+           ✅  bio=True  comp_rows=9  six_nations_rows=0  saved→rugbypass_sam_wainwright.json
+  [253/289]  T. Allan  →  https://www.rugbypass.com/players/tommaso-allan/
+           ✅  bio=True  comp_rows=11  six_nations_rows=3  saved→rugbypass_tommaso_allan.json
+  [254/289]  T. Attissogbe  →  https://www.rugbypass.com/players/theo-attissogbe/
+           ✅  bio=True  comp_rows=13  six_nations_rows=4  saved→rugbypass_theo_attissogbe.json
+  [255/289]  T. Beirne  →  https://www.rugbypass.com/players/tadgh-beirne/
+           ✅  bio=True  comp_rows=14  six_nations_rows=3  saved→rugbypass_tadgh_beirne.json
+  [256/289]  T. Clarkson  →  https://www.rugbypass.com/players/tom-clarkson/
+           ✅  bio=True  comp_rows=11  six_nations_rows=2  saved→rugbypass_tom_clarkson.json
+  [257/289]  T. Curry  →  https://www.rugbypass.com/players/tom-curry/
+           ✅  bio=True  comp_rows=11  six_nations_rows=2  saved→rugbypass_tom_curry.json
+  [258/289]  T. Dan  →  https://www.rugbypass.com/players/theo-dan/
+           ✅  bio=True  comp_rows=12  six_nations_rows=2  saved→rugbypass_theo_dan.json
+  [259/289]  T. Davison  →  https://www.rugbypass.com/players/trevor-davison/
+           ✅  bio=True  comp_rows=10  six_nations_rows=1  saved→rugbypass_trevor_davison.json
+  [260/289]  T. Faletau  →  https://www.rugbypass.com/players/taulupe-faletau/
+           ✅  bio=True  comp_rows=8  six_nations_rows=1  saved→rugbypass_taulupe_faletau.json
+  [261/289]  T. Farrell  →  https://www.rugbypass.com/players/thomas-farrell/
+           ✅  bio=True  comp_rows=12  six_nations_rows=1  saved→rugbypass_thomas_farrell.json
+  [262/289]  T. Flament  →  https://www.rugbypass.com/players/thibaud-flament/
+           ✅  bio=True  comp_rows=12  six_nations_rows=3  saved→rugbypass_thibaud_flament.json
+  [263/289]  T. Francis  →  https://www.rugbypass.com/players/tomas-francis/
+           ✅  bio=True  comp_rows=4  six_nations_rows=1  saved→rugbypass_tomas_francis.json
+  [264/289]  T. Freeman  →  https://www.rugbypass.com/players/tommy-freeman/
+           ✅  bio=True  comp_rows=12  six_nations_rows=3  saved→rugbypass_tommy_freeman.json
+  [265/289]  T. Furlong  →  https://www.rugbypass.com/players/tadhg-furlong/
+           ✅  bio=True  comp_rows=13  six_nations_rows=3  saved→rugbypass_tadhg_furlong.json
+  [266/289]  T. Hill  →  https://www.rugbypass.com/players/tom-hill/
+           ✅  bio=True  comp_rows=0  six_nations_rows=0  saved→rugbypass_tom_hill.json
+  [267/289]  T. Jordan  →  https://www.rugbypass.com/players/tom-jordan/
+           ✅  bio=True  comp_rows=10  six_nations_rows=2  saved→rugbypass_tom_jordan.json
+  [268/289]  T. Laclayat  →  https://www.rugbypass.com/players/thomas-laclayat/
+           ✅  bio=True  comp_rows=7  six_nations_rows=0  saved→rugbypass_thomas_laclayat.json
+  [269/289]  T. Matiu  →  https://www.rugbypass.com/players/temo-matiu/
+           ✅  bio=True  comp_rows=5  six_nations_rows=1  saved→rugbypass_temo_matiu.json
+  [270/289]  T. Menoncello  →  https://www.rugbypass.com/players/tommaso-menoncello/
+           ✅  bio=True  comp_rows=11  six_nations_rows=3  saved→rugbypass_tommaso_menoncello.json
+  [271/289]  T. Millet  →  https://www.rugbypass.com/players/theo-millet/
+           ✅  bio=True  comp_rows=6  six_nations_rows=0  saved→rugbypass_theo_millet.json
+  [272/289]  T. O'Brien  →  https://www.rugbypass.com/players/tom-obrien/
+           ⚠️  404 — slug may be wrong for 'T. O'Brien'
+  [273/289]  T. O'Toole  →  https://www.rugbypass.com/players/tom-otoole/
+           ✅  bio=True  comp_rows=14  six_nations_rows=2  saved→rugbypass_tom_otoole.json
+  [274/289]  T. Plumtree  →  https://www.rugbypass.com/players/taine-plumtree/
+           ✅  bio=True  comp_rows=9  six_nations_rows=1  saved→rugbypass_taine_plumtree.json
+  [275/289]  T. Ramos  →  https://www.rugbypass.com/players/thomas-ramos/
+           ✅  bio=True  comp_rows=12  six_nations_rows=3  saved→rugbypass_thomas_ramos.json
+  [276/289]  T. Reffell  →  https://www.rugbypass.com/players/tommy-reffell/
+           ✅  bio=True  comp_rows=12  six_nations_rows=2  saved→rugbypass_tommy_reffell.json
+  [277/289]  T. Roebuck  →  https://www.rugbypass.com/players/tommy-roebuck/
+           ⚠️  404 — slug may be wrong for 'T. Roebuck'
+  [278/289]  T. Rogers  →  https://www.rugbypass.com/players/tom-rogers/
+           ✅  bio=True  comp_rows=10  six_nations_rows=1  saved→rugbypass_tom_rogers.json
+  [279/289]  T. Stewart  →  https://www.rugbypass.com/players/tom-stewart/
+           ✅  bio=True  comp_rows=11  six_nations_rows=1  saved→rugbypass_tom_stewart.json
+  [280/289]  T. Willis  →  https://www.rugbypass.com/players/ted-willis/
+           ⚠️  404 — slug may be wrong for 'T. Willis'
+  [281/289]  T. di Bartolomeo  →  https://www.rugbypass.com/players/tommaso-di-bartolomeo/
+           ✅  bio=True  comp_rows=6  six_nations_rows=1  saved→rugbypass_tommaso_di_bartolomeo.json
+  [282/289]  U. Atonio  →  https://www.rugbypass.com/players/uini-atonio/
+           ✅  bio=True  comp_rows=11  six_nations_rows=2  saved→rugbypass_uini_atonio.json
+  [283/289]  U. Seunes  →  https://www.rugbypass.com/players/ugo-seunes/
+           ✅  bio=True  comp_rows=1  six_nations_rows=0  saved→rugbypass_ugo_seunes.json
+  [284/289]  W. Hurd  →  https://www.rugbypass.com/players/will-hurd/
+           ✅  bio=True  comp_rows=10  six_nations_rows=1  saved→rugbypass_will_hurd.json
+  [285/289]  W. John  →  https://www.rugbypass.com/players/will-john/
+           ✅  bio=True  comp_rows=9  six_nations_rows=1  saved→rugbypass_will_john.json
+  [286/289]  W. Rowlands  →  https://www.rugbypass.com/players/will-rowlands/
+           ✅  bio=True  comp_rows=11  six_nations_rows=2  saved→rugbypass_will_rowlands.json
+  [287/289]  W. Stuart  →  https://www.rugbypass.com/players/will-stuart/
+           ✅  bio=True  comp_rows=12  six_nations_rows=2  saved→rugbypass_will_stuart.json
+  [288/289]  Y. Moefana  →  https://www.rugbypass.com/players/yoram-moefana/
+           ✅  bio=True  comp_rows=12  six_nations_rows=3  saved→rugbypass_yoram_moefana.json
+  [289/289]  Z. Fagerson  →  https://www.rugbypass.com/players/zander-fagerson/
+           ✅  bio=True  comp_rows=12  six_nations_rows=3  saved→rugbypass_zander_fagerson.json
+
+  💾  Six Nations stats  → /Users/williamgreenfield/Documents/dev/6n/rugbypass_stats_6n.csv  (515 rows)
+  💾  All Six Nations stats (incl. existing JSONs) → /Users/williamgreenfield/Documents/dev/6n/rugbypass_stats_6n_all.csv  (565 rows)
+
+  Done.  Scraped: 281  Failed: 8
+
+  Failed players (slug may need correcting in NAME_TO_SLUG):
+    D. Aldegheri (dino-aldegheri)
+    F. Brau Boirie (florian-brau-boirie)
+    F. Brau-Boirie (florian-brau-boirie)
+    M. Ojomoh (manny-ojomoh)
+    R. Herring (rory-herring)
+    T. O'Brien (tom-obrien)
+    T. Roebuck (tommy-roebuck)
+    T. Willis (ted-willis)

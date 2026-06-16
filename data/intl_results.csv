@@ -1,0 +1,415 @@
+date,comp,team,team_id,opponent,opponent_id,team_score,opp_score,margin,result,rankings_weight,is_six_nations_pair
+2020-10-23,Men's Internationals 2020,Scotland,35,Georgia,720,48,7,41,W,,False
+2020-10-24,Men's Internationals 2020,France,42,Wales,33,38,21,17,W,,True
+2020-10-24,Six Nations 2020,Ireland,36,Italy,41,50,17,33,W,,True
+2020-10-24,Six Nations 2020,Italy,41,Ireland,36,17,50,-33,L,,True
+2020-10-24,Men's Internationals 2020,Wales,33,France,42,21,38,-17,L,,True
+2020-10-31,Six Nations 2020,England,34,Italy,41,34,5,29,W,,True
+2020-10-31,Six Nations 2020,France,42,Ireland,36,35,27,8,W,,True
+2020-10-31,Six Nations 2020,Ireland,36,France,42,27,35,-8,L,,True
+2020-10-31,Six Nations 2020,Italy,41,England,34,5,34,-29,L,,True
+2020-10-31,Six Nations 2020,Scotland,35,Wales,33,14,10,4,W,,True
+2020-10-31,Six Nations 2020,Wales,33,Scotland,35,10,14,-4,L,,True
+2020-11-13,Autumn Nations Cup 2020,Ireland,36,Wales,33,32,9,23,W,,True
+2020-11-13,Autumn Nations Cup 2020,Wales,33,Ireland,36,9,32,-23,L,,True
+2020-11-14,Autumn Nations Cup 2020,England,34,Georgia,720,40,0,40,W,,False
+2020-11-14,Autumn Nations Cup 2020,Italy,41,Scotland,35,17,28,-11,L,,True
+2020-11-14,Autumn Nations Cup 2020,Scotland,35,Italy,41,28,17,11,W,,True
+2020-11-15,Autumn Nations Cup 2020,France,42,Fiji,46,28,0,28,W,,False
+2020-11-21,Autumn Nations Cup 2020,England,34,Ireland,36,18,7,11,W,,True
+2020-11-21,Autumn Nations Cup 2020,Ireland,36,England,34,7,18,-11,L,,True
+2020-11-21,Autumn Nations Cup 2020,Italy,41,Fiji,46,28,0,28,W,,False
+2020-11-21,Autumn Nations Cup 2020,Wales,33,Georgia,720,18,0,18,W,,False
+2020-11-22,Autumn Nations Cup 2020,France,42,Scotland,35,22,15,7,W,,True
+2020-11-22,Autumn Nations Cup 2020,Scotland,35,France,42,15,22,-7,L,,True
+2020-11-28,Autumn Nations Cup 2020,England,34,Wales,33,24,13,11,W,,True
+2020-11-28,Autumn Nations Cup 2020,France,42,Italy,41,36,5,31,W,,True
+2020-11-28,Autumn Nations Cup 2020,Italy,41,France,42,5,36,-31,L,,True
+2020-11-28,Autumn Nations Cup 2020,Scotland,35,Fiji,46,28,0,28,W,,False
+2020-11-28,Autumn Nations Cup 2020,Wales,33,England,34,13,24,-11,L,,True
+2020-11-29,Autumn Nations Cup 2020,Ireland,36,Georgia,720,23,10,13,W,,False
+2020-12-05,Autumn Nations Cup 2020,Ireland,36,Scotland,35,31,16,15,W,,True
+2020-12-05,Autumn Nations Cup 2020,Italy,41,Wales,33,18,38,-20,L,,True
+2020-12-05,Autumn Nations Cup 2020,Scotland,35,Ireland,36,16,31,-15,L,,True
+2020-12-05,Autumn Nations Cup 2020,Wales,33,Italy,41,38,18,20,W,,True
+2020-12-06,Autumn Nations Cup 2020,England,34,France,42,22,19,3,W,,True
+2020-12-06,Autumn Nations Cup 2020,France,42,England,34,19,22,-3,L,,True
+2021-02-06,Six Nations 2021,England,34,Scotland,35,6,11,-5,L,,True
+2021-02-06,Six Nations 2021,France,42,Italy,41,50,10,40,W,,True
+2021-02-06,Six Nations 2021,Italy,41,France,42,10,50,-40,L,,True
+2021-02-06,Six Nations 2021,Scotland,35,England,34,11,6,5,W,,True
+2021-02-07,Six Nations 2021,Ireland,36,Wales,33,16,21,-5,L,,True
+2021-02-07,Six Nations 2021,Wales,33,Ireland,36,21,16,5,W,,True
+2021-02-13,Six Nations 2021,England,34,Italy,41,41,18,23,W,,True
+2021-02-13,Six Nations 2021,Italy,41,England,34,18,41,-23,L,,True
+2021-02-13,Six Nations 2021,Scotland,35,Wales,33,24,25,-1,L,,True
+2021-02-13,Six Nations 2021,Wales,33,Scotland,35,25,24,1,W,,True
+2021-02-14,Six Nations 2021,France,42,Ireland,36,15,13,2,W,,True
+2021-02-14,Six Nations 2021,Ireland,36,France,42,13,15,-2,L,,True
+2021-02-27,Six Nations 2021,England,34,Wales,33,24,40,-16,L,,True
+2021-02-27,Six Nations 2021,Ireland,36,Italy,41,48,10,38,W,,True
+2021-02-27,Six Nations 2021,Italy,41,Ireland,36,10,48,-38,L,,True
+2021-02-27,Six Nations 2021,Wales,33,England,34,40,24,16,W,,True
+2021-03-13,Six Nations 2021,England,34,France,42,23,20,3,W,,True
+2021-03-13,Six Nations 2021,France,42,England,34,20,23,-3,L,,True
+2021-03-13,Six Nations 2021,Italy,41,Wales,33,7,48,-41,L,,True
+2021-03-13,Six Nations 2021,Wales,33,Italy,41,48,7,41,W,,True
+2021-03-14,Six Nations 2021,Ireland,36,Scotland,35,27,24,3,W,,True
+2021-03-14,Six Nations 2021,Scotland,35,Ireland,36,24,27,-3,L,,True
+2021-03-20,Six Nations 2021,England,34,Ireland,36,18,32,-14,L,,True
+2021-03-20,Six Nations 2021,France,42,Wales,33,32,30,2,W,,True
+2021-03-20,Six Nations 2021,Ireland,36,England,34,32,18,14,W,,True
+2021-03-20,Six Nations 2021,Italy,41,Scotland,35,10,52,-42,L,,True
+2021-03-20,Six Nations 2021,Scotland,35,Italy,41,52,10,42,W,,True
+2021-03-20,Six Nations 2021,Wales,33,France,42,30,32,-2,L,,True
+2021-03-26,Six Nations 2021,France,42,Scotland,35,23,27,-4,L,,True
+2021-03-26,Six Nations 2021,Scotland,35,France,42,27,23,4,W,,True
+2021-07-03,Men's Internationals 2021,Ireland,36,Japan,49,39,31,8,W,,False
+2021-07-03,Men's Internationals 2021,Wales,33,Canada,50,68,12,56,W,,False
+2021-07-04,Men's Internationals 2021,England,34,USA,51,43,29,14,W,,False
+2021-07-07,Tour 2021,France,42,Australia,38,21,23,-2,L,,False
+2021-07-10,Men's Internationals 2021,England,34,Canada,50,70,14,56,W,,False
+2021-07-10,Men's Internationals 2021,Ireland,36,USA,51,71,10,61,W,,False
+2021-07-10,Men's Internationals 2021,Wales,33,Argentina,40,20,20,0,D,,False
+2021-07-13,Tour 2021,France,42,Australia,38,28,26,2,W,,False
+2021-07-17,Tour 2021,France,42,Australia,38,30,33,-3,L,,False
+2021-07-17,Men's Internationals 2021,Wales,33,Argentina,40,11,33,-22,L,,False
+2021-10-30,Autumn Nations Series 2021,Scotland,35,Tonga,47,60,14,46,W,,False
+2021-10-30,Autumn Nations Series 2021,Wales,33,New Zealand,37,16,54,-38,L,,False
+2021-11-06,Autumn Nations Series 2021,England,34,Tonga,47,69,3,66,W,,False
+2021-11-06,Autumn Nations Series 2021,France,42,Argentina,40,29,20,9,W,,False
+2021-11-06,Autumn Nations Series 2021,Ireland,36,Japan,49,60,5,55,W,,False
+2021-11-06,Autumn Nations Series 2021,Italy,41,New Zealand,37,9,47,-38,L,,False
+2021-11-06,Autumn Nations Series 2021,Wales,33,South Africa,39,18,23,-5,L,,False
+2021-11-07,Autumn Nations Series 2021,Scotland,35,Australia,38,15,13,2,W,,False
+2021-11-13,Autumn Nations Series 2021,England,34,Australia,38,32,15,17,W,,False
+2021-11-13,Autumn Nations Series 2021,Ireland,36,New Zealand,37,29,20,9,W,,False
+2021-11-13,Autumn Nations Series 2021,Italy,41,Argentina,40,16,37,-21,L,,False
+2021-11-13,Autumn Nations Series 2021,Scotland,35,South Africa,39,15,30,-15,L,,False
+2021-11-14,Autumn Nations Series 2021,France,42,Georgia,720,41,15,26,W,,False
+2021-11-14,Autumn Nations Series 2021,Wales,33,Fiji,46,38,23,15,W,,False
+2021-11-20,Autumn Nations Series 2021,England,34,South Africa,39,27,26,1,W,,False
+2021-11-20,Autumn Nations Series 2021,France,42,New Zealand,37,40,25,15,W,,False
+2021-11-20,Autumn Nations Series 2021,Italy,41,Uruguay,68,17,10,7,W,,False
+2021-11-20,Autumn Nations Series 2021,Scotland,35,Japan,49,29,20,9,W,,False
+2021-11-20,Autumn Nations Series 2021,Wales,33,Australia,38,29,28,1,W,,False
+2021-11-21,Autumn Nations Series 2021,Ireland,36,Argentina,40,53,7,46,W,,False
+2022-02-05,Six Nations 2022,England,34,Scotland,35,17,20,-3,L,,True
+2022-02-05,Six Nations 2022,Ireland,36,Wales,33,29,7,22,W,,True
+2022-02-05,Six Nations 2022,Scotland,35,England,34,20,17,3,W,,True
+2022-02-05,Six Nations 2022,Wales,33,Ireland,36,7,29,-22,L,,True
+2022-02-06,Six Nations 2022,France,42,Italy,41,37,10,27,W,,True
+2022-02-06,Six Nations 2022,Italy,41,France,42,10,37,-27,L,,True
+2022-02-12,Six Nations 2022,France,42,Ireland,36,30,24,6,W,,True
+2022-02-12,Six Nations 2022,Ireland,36,France,42,24,30,-6,L,,True
+2022-02-12,Six Nations 2022,Scotland,35,Wales,33,17,20,-3,L,,True
+2022-02-12,Six Nations 2022,Wales,33,Scotland,35,20,17,3,W,,True
+2022-02-13,Six Nations 2022,England,34,Italy,41,33,0,33,W,,True
+2022-02-13,Six Nations 2022,Italy,41,England,34,0,33,-33,L,,True
+2022-02-26,Six Nations 2022,England,34,Wales,33,23,19,4,W,,True
+2022-02-26,Six Nations 2022,France,42,Scotland,35,36,17,19,W,,True
+2022-02-26,Six Nations 2022,Scotland,35,France,42,17,36,-19,L,,True
+2022-02-26,Six Nations 2022,Wales,33,England,34,19,23,-4,L,,True
+2022-02-27,Six Nations 2022,Ireland,36,Italy,41,57,6,51,W,,True
+2022-02-27,Six Nations 2022,Italy,41,Ireland,36,6,57,-51,L,,True
+2022-03-11,Six Nations 2022,France,42,Wales,33,13,9,4,W,,True
+2022-03-11,Six Nations 2022,Wales,33,France,42,9,13,-4,L,,True
+2022-03-12,Six Nations 2022,England,34,Ireland,36,15,32,-17,L,,True
+2022-03-12,Six Nations 2022,Ireland,36,England,34,32,15,17,W,,True
+2022-03-12,Six Nations 2022,Italy,41,Scotland,35,22,33,-11,L,,True
+2022-03-12,Six Nations 2022,Scotland,35,Italy,41,33,22,11,W,,True
+2022-03-19,Six Nations 2022,England,34,France,42,13,25,-12,L,,True
+2022-03-19,Six Nations 2022,France,42,England,34,25,13,12,W,,True
+2022-03-19,Six Nations 2022,Ireland,36,Scotland,35,26,5,21,W,,True
+2022-03-19,Six Nations 2022,Italy,41,Wales,33,22,21,1,W,,True
+2022-03-19,Six Nations 2022,Scotland,35,Ireland,36,5,26,-21,L,,True
+2022-03-19,Six Nations 2022,Wales,33,Italy,41,21,22,-1,L,,True
+2022-06-25,Men's Internationals 2022,Italy,41,Portugal,44,38,31,7,W,,False
+2022-06-29,Tour 2022,Ireland,36,Maori All Blacks,53,17,32,-15,L,,False
+2022-07-01,Men's Internationals 2022,Italy,41,Romania,52,45,13,32,W,,False
+2022-07-02,Men's Internationals 2022,England,34,Australia,38,28,30,-2,L,,False
+2022-07-02,Men's Internationals 2022,France,42,Japan,49,42,23,19,W,,False
+2022-07-02,Men's Internationals 2022,Ireland,36,New Zealand,37,19,42,-23,L,,False
+2022-07-02,Men's Internationals 2022,Scotland,35,Argentina,40,18,26,-8,L,,False
+2022-07-02,Men's Internationals 2022,Wales,33,South Africa,39,29,32,-3,L,,False
+2022-07-09,Men's Internationals 2022,England,34,Australia,38,25,17,8,W,,False
+2022-07-09,Men's Internationals 2022,France,42,Japan,49,20,15,5,W,,False
+2022-07-09,Men's Internationals 2022,Ireland,36,New Zealand,37,23,12,11,W,,False
+2022-07-09,Men's Internationals 2022,Scotland,35,Argentina,40,29,6,23,W,,False
+2022-07-09,Men's Internationals 2022,Wales,33,South Africa,39,13,12,1,W,,False
+2022-07-10,Men's Internationals 2022,Italy,41,Georgia,720,19,28,-9,L,,False
+2022-07-12,Tour 2022,Ireland,36,Maori All Blacks,53,30,24,6,W,,False
+2022-07-16,Men's Internationals 2022,England,34,Australia,38,21,17,4,W,,False
+2022-07-16,Men's Internationals 2022,Ireland,36,New Zealand,37,32,22,10,W,,False
+2022-07-16,Men's Internationals 2022,Scotland,35,Argentina,40,31,34,-3,L,,False
+2022-07-16,Men's Internationals 2022,Wales,33,South Africa,39,14,30,-16,L,,False
+2022-10-29,Autumn Nations Series 2022,Scotland,35,Australia,38,15,16,-1,L,,False
+2022-11-05,Autumn Nations Series 2022,France,42,Australia,38,30,29,1,W,,False
+2022-11-05,Autumn Nations Series 2022,Ireland,36,South Africa,39,19,16,3,W,,False
+2022-11-05,Autumn Nations Series 2022,Italy,41,Samoa,45,49,17,32,W,,False
+2022-11-05,Autumn Nations Series 2022,Scotland,35,Fiji,46,28,12,16,W,,False
+2022-11-05,Autumn Nations Series 2022,Wales,33,New Zealand,37,23,55,-32,L,,False
+2022-11-06,Autumn Nations Series 2022,England,34,Argentina,40,29,30,-1,L,,False
+2022-11-12,Autumn Nations Series 2022,England,34,Japan,49,52,13,39,W,,False
+2022-11-12,Autumn Nations Series 2022,France,42,South Africa,39,30,26,4,W,,False
+2022-11-12,Autumn Nations Series 2022,Ireland,36,Fiji,46,35,17,18,W,,False
+2022-11-12,Autumn Nations Series 2022,Italy,41,Australia,38,28,27,1,W,,False
+2022-11-12,Autumn Nations Series 2022,Wales,33,Argentina,40,20,13,7,W,,False
+2022-11-13,Autumn Nations Series 2022,Scotland,35,New Zealand,37,23,31,-8,L,,False
+2022-11-19,Autumn Nations Series 2022,England,34,New Zealand,37,25,25,0,D,,False
+2022-11-19,Autumn Nations Series 2022,Ireland,36,Australia,38,13,10,3,W,,False
+2022-11-19,Autumn Nations Series 2022,Italy,41,South Africa,39,21,63,-42,L,,False
+2022-11-19,Autumn Nations Series 2022,Scotland,35,Argentina,40,52,29,23,W,,False
+2022-11-19,Autumn Nations Series 2022,Wales,33,Georgia,720,12,13,-1,L,,False
+2022-11-20,Autumn Nations Series 2022,France,42,Japan,49,35,17,18,W,,False
+2022-11-26,Autumn Nations Series 2022,England,34,South Africa,39,13,27,-14,L,,False
+2022-11-26,Autumn Nations Series 2022,Wales,33,Australia,38,34,39,-5,L,,False
+2023-02-04,Six Nations 2023,England,34,Scotland,35,23,29,-6,L,,True
+2023-02-04,Six Nations 2023,Ireland,36,Wales,33,34,10,24,W,,True
+2023-02-04,Six Nations 2023,Scotland,35,England,34,29,23,6,W,,True
+2023-02-04,Six Nations 2023,Wales,33,Ireland,36,10,34,-24,L,,True
+2023-02-05,Six Nations 2023,France,42,Italy,41,29,24,5,W,,True
+2023-02-05,Six Nations 2023,Italy,41,France,42,24,29,-5,L,,True
+2023-02-11,Six Nations 2023,France,42,Ireland,36,19,32,-13,L,,True
+2023-02-11,Six Nations 2023,Ireland,36,France,42,32,19,13,W,,True
+2023-02-11,Six Nations 2023,Scotland,35,Wales,33,35,7,28,W,,True
+2023-02-11,Six Nations 2023,Wales,33,Scotland,35,7,35,-28,L,,True
+2023-02-12,Six Nations 2023,England,34,Italy,41,31,14,17,W,,True
+2023-02-12,Six Nations 2023,Italy,41,England,34,14,31,-17,L,,True
+2023-02-25,Six Nations 2023,England,34,Wales,33,20,10,10,W,,True
+2023-02-25,Six Nations 2023,Ireland,36,Italy,41,34,20,14,W,,True
+2023-02-25,Six Nations 2023,Italy,41,Ireland,36,20,34,-14,L,,True
+2023-02-25,Six Nations 2023,Wales,33,England,34,10,20,-10,L,,True
+2023-02-26,Six Nations 2023,France,42,Scotland,35,32,21,11,W,,True
+2023-02-26,Six Nations 2023,Scotland,35,France,42,21,32,-11,L,,True
+2023-03-11,Six Nations 2023,England,34,France,42,10,53,-43,L,,True
+2023-03-11,Six Nations 2023,France,42,England,34,53,10,43,W,,True
+2023-03-11,Six Nations 2023,Italy,41,Wales,33,17,29,-12,L,,True
+2023-03-11,Six Nations 2023,Wales,33,Italy,41,29,17,12,W,,True
+2023-03-12,Six Nations 2023,Ireland,36,Scotland,35,22,7,15,W,,True
+2023-03-12,Six Nations 2023,Scotland,35,Ireland,36,7,22,-15,L,,True
+2023-03-18,Six Nations 2023,England,34,Ireland,36,16,29,-13,L,,True
+2023-03-18,Six Nations 2023,France,42,Wales,33,41,28,13,W,,True
+2023-03-18,Six Nations 2023,Ireland,36,England,34,29,16,13,W,,True
+2023-03-18,Six Nations 2023,Italy,41,Scotland,35,14,26,-12,L,,True
+2023-03-18,Six Nations 2023,Scotland,35,Italy,41,26,14,12,W,,True
+2023-03-18,Six Nations 2023,Wales,33,France,42,28,41,-13,L,,True
+2023-07-29,Summer Nations Series 2023,Italy,41,Scotland,35,13,25,-12,L,,True
+2023-07-29,Summer Nations Series 2023,Scotland,35,Italy,41,25,13,12,W,,True
+2023-08-05,Summer Nations Series 2023,England,34,Wales,33,9,20,-11,L,,True
+2023-08-05,Summer Nations Series 2023,France,42,Scotland,35,21,25,-4,L,,True
+2023-08-05,Summer Nations Series 2023,Ireland,36,Italy,41,33,17,16,W,,True
+2023-08-05,Summer Nations Series 2023,Italy,41,Ireland,36,17,33,-16,L,,True
+2023-08-05,Summer Nations Series 2023,Scotland,35,France,42,25,21,4,W,,True
+2023-08-05,Summer Nations Series 2023,Wales,33,England,34,20,9,11,W,,True
+2023-08-12,Summer Nations Series 2023,England,34,Wales,33,19,17,2,W,,True
+2023-08-12,Summer Nations Series 2023,France,42,Scotland,35,30,27,3,W,,True
+2023-08-12,Summer Nations Series 2023,Scotland,35,France,42,27,30,-3,L,,True
+2023-08-12,Summer Nations Series 2023,Wales,33,England,34,17,19,-2,L,,True
+2023-08-19,Summer Nations Series 2023,England,34,Ireland,36,10,29,-19,L,,True
+2023-08-19,Summer Nations Series 2023,France,42,Fiji,46,34,17,17,W,,False
+2023-08-19,Summer Nations Series 2023,Ireland,36,England,34,29,10,19,W,,True
+2023-08-19,Summer Nations Series 2023,Italy,41,Romania,52,57,7,50,W,,False
+2023-08-19,Summer Nations Series 2023,Wales,33,South Africa,39,16,52,-36,L,,False
+2023-08-26,Summer Nations Series 2023,England,34,Fiji,46,22,30,-8,L,,False
+2023-08-26,Summer Nations Series 2023,Ireland,36,Samoa,45,17,13,4,W,,False
+2023-08-26,Summer Nations Series 2023,Italy,41,Japan,49,42,21,21,W,,False
+2023-08-26,Summer Nations Series 2023,Scotland,35,Georgia,720,33,6,27,W,,False
+2023-08-27,Summer Nations Series 2023,France,42,Australia,38,41,17,24,W,,False
+2023-09-08,Men's Rugby World Cup 2023,France,42,New Zealand,37,27,13,14,W,,False
+2023-09-09,Men's Rugby World Cup 2023,England,34,Argentina,40,27,10,17,W,,False
+2023-09-09,Men's Rugby World Cup 2023,Ireland,36,Romania,52,82,8,74,W,,False
+2023-09-09,Men's Rugby World Cup 2023,Italy,41,Namibia,58,52,8,44,W,,False
+2023-09-10,Men's Rugby World Cup 2023,Scotland,35,South Africa,39,3,18,-15,L,,False
+2023-09-10,Men's Rugby World Cup 2023,Wales,33,Fiji,46,32,26,6,W,,False
+2023-09-14,Men's Rugby World Cup 2023,France,42,Uruguay,68,27,12,15,W,,False
+2023-09-16,Men's Rugby World Cup 2023,Ireland,36,Tonga,47,59,16,43,W,,False
+2023-09-16,Men's Rugby World Cup 2023,Wales,33,Portugal,44,28,8,20,W,,False
+2023-09-17,Men's Rugby World Cup 2023,England,34,Japan,49,34,12,22,W,,False
+2023-09-20,Men's Rugby World Cup 2023,Italy,41,Uruguay,68,38,17,21,W,,False
+2023-09-21,Men's Rugby World Cup 2023,France,42,Namibia,58,96,0,96,W,,False
+2023-09-23,Men's Rugby World Cup 2023,England,34,Chile,708,71,0,71,W,,False
+2023-09-23,Men's Rugby World Cup 2023,Ireland,36,South Africa,39,13,8,5,W,,False
+2023-09-24,Men's Rugby World Cup 2023,Scotland,35,Tonga,47,45,17,28,W,,False
+2023-09-24,Men's Rugby World Cup 2023,Wales,33,Australia,38,40,6,34,W,,False
+2023-09-29,Men's Rugby World Cup 2023,Italy,41,New Zealand,37,17,96,-79,L,,False
+2023-09-30,Men's Rugby World Cup 2023,Scotland,35,Romania,52,84,0,84,W,,False
+2023-10-06,Men's Rugby World Cup 2023,France,42,Italy,41,60,7,53,W,,True
+2023-10-06,Men's Rugby World Cup 2023,Italy,41,France,42,7,60,-53,L,,True
+2023-10-07,Men's Rugby World Cup 2023,England,34,Samoa,45,18,17,1,W,,False
+2023-10-07,Men's Rugby World Cup 2023,Ireland,36,Scotland,35,36,14,22,W,,True
+2023-10-07,Men's Rugby World Cup 2023,Scotland,35,Ireland,36,14,36,-22,L,,True
+2023-10-07,Men's Rugby World Cup 2023,Wales,33,Georgia,720,43,19,24,W,,False
+2023-10-14,Men's Rugby World Cup 2023,Ireland,36,New Zealand,37,24,28,-4,L,,False
+2023-10-14,Men's Rugby World Cup 2023,Wales,33,Argentina,40,17,29,-12,L,,False
+2023-10-15,Men's Rugby World Cup 2023,England,34,Fiji,46,30,24,6,W,,False
+2023-10-15,Men's Rugby World Cup 2023,France,42,South Africa,39,28,29,-1,L,,False
+2023-10-21,Men's Rugby World Cup 2023,England,34,South Africa,39,15,16,-1,L,,False
+2023-10-27,Men's Rugby World Cup 2023,England,34,Argentina,40,26,23,3,W,,False
+2024-02-02,Six Nations 2024,France,42,Ireland,36,17,38,-21,L,,True
+2024-02-02,Six Nations 2024,Ireland,36,France,42,38,17,21,W,,True
+2024-02-03,Six Nations 2024,England,34,Italy,41,27,24,3,W,,True
+2024-02-03,Six Nations 2024,Italy,41,England,34,24,27,-3,L,,True
+2024-02-03,Six Nations 2024,Scotland,35,Wales,33,27,26,1,W,,True
+2024-02-03,Six Nations 2024,Wales,33,Scotland,35,26,27,-1,L,,True
+2024-02-10,Six Nations 2024,England,34,Wales,33,16,14,2,W,,True
+2024-02-10,Six Nations 2024,France,42,Scotland,35,20,16,4,W,,True
+2024-02-10,Six Nations 2024,Scotland,35,France,42,16,20,-4,L,,True
+2024-02-10,Six Nations 2024,Wales,33,England,34,14,16,-2,L,,True
+2024-02-11,Six Nations 2024,Ireland,36,Italy,41,36,0,36,W,,True
+2024-02-11,Six Nations 2024,Italy,41,Ireland,36,0,36,-36,L,,True
+2024-02-24,Six Nations 2024,England,34,Scotland,35,21,30,-9,L,,True
+2024-02-24,Six Nations 2024,Ireland,36,Wales,33,31,7,24,W,,True
+2024-02-24,Six Nations 2024,Scotland,35,England,34,30,21,9,W,,True
+2024-02-24,Six Nations 2024,Wales,33,Ireland,36,7,31,-24,L,,True
+2024-02-25,Six Nations 2024,France,42,Italy,41,13,13,0,D,,True
+2024-02-25,Six Nations 2024,Italy,41,France,42,13,13,0,D,,True
+2024-03-09,Six Nations 2024,England,34,Ireland,36,23,22,1,W,,True
+2024-03-09,Six Nations 2024,Ireland,36,England,34,22,23,-1,L,,True
+2024-03-09,Six Nations 2024,Italy,41,Scotland,35,31,29,2,W,,True
+2024-03-09,Six Nations 2024,Scotland,35,Italy,41,29,31,-2,L,,True
+2024-03-10,Six Nations 2024,France,42,Wales,33,45,24,21,W,,True
+2024-03-10,Six Nations 2024,Wales,33,France,42,24,45,-21,L,,True
+2024-03-16,Six Nations 2024,England,34,France,42,31,33,-2,L,,True
+2024-03-16,Six Nations 2024,France,42,England,34,33,31,2,W,,True
+2024-03-16,Six Nations 2024,Ireland,36,Scotland,35,17,13,4,W,,True
+2024-03-16,Six Nations 2024,Italy,41,Wales,33,24,21,3,W,,True
+2024-03-16,Six Nations 2024,Scotland,35,Ireland,36,13,17,-4,L,,True
+2024-03-16,Six Nations 2024,Wales,33,Italy,41,21,24,-3,L,,True
+2024-06-22,Men's Internationals 2024,England,34,Japan,49,52,17,35,W,,False
+2024-06-22,Men's Internationals 2024,Wales,33,South Africa,39,13,41,-28,L,,False
+2024-07-05,Men's Internationals 2024,Italy,41,Samoa,45,25,33,-8,L,,False
+2024-07-06,Men's Internationals 2024,England,34,New Zealand,37,15,16,-1,L,,False
+2024-07-06,Men's Internationals 2024,France,42,Argentina,40,28,13,15,W,,False
+2024-07-06,Men's Internationals 2024,Ireland,36,South Africa,39,20,27,-7,L,,False
+2024-07-06,Men's Internationals 2024,Scotland,35,Canada,50,73,12,61,W,,False
+2024-07-06,Men's Internationals 2024,Wales,33,Australia,38,16,25,-9,L,,False
+2024-07-10,Men's Internationals 2024,France,42,Uruguay,68,43,28,15,W,,False
+2024-07-12,Men's Internationals 2024,Italy,41,Tonga,47,36,14,22,W,,False
+2024-07-12,Men's Internationals 2024,Scotland,35,USA,51,42,7,35,W,,False
+2024-07-13,Men's Internationals 2024,England,34,New Zealand,37,17,24,-7,L,,False
+2024-07-13,Men's Internationals 2024,France,42,Argentina,40,25,33,-8,L,,False
+2024-07-13,Men's Internationals 2024,Ireland,36,South Africa,39,25,24,1,W,,False
+2024-07-13,Men's Internationals 2024,Wales,33,Australia,38,28,36,-8,L,,False
+2024-07-20,Men's Internationals 2024,Scotland,35,Chile,708,52,11,41,W,,False
+2024-07-21,Men's Internationals 2024,Italy,41,Japan,49,42,14,28,W,,False
+2024-07-27,Men's Internationals 2024,Scotland,35,Uruguay,68,31,19,12,W,,False
+2024-11-02,Autumn Nations Series 2024,England,34,New Zealand,37,22,24,-2,L,,False
+2024-11-02,Autumn Nations Series 2024,Scotland,35,Fiji,46,57,17,40,W,,False
+2024-11-08,Autumn Nations Series 2024,Ireland,36,New Zealand,37,13,23,-10,L,,False
+2024-11-09,Autumn Nations Series 2024,England,34,Australia,38,37,42,-5,L,,False
+2024-11-09,Autumn Nations Series 2024,France,42,Japan,49,52,12,40,W,,False
+2024-11-09,Autumn Nations Series 2024,Italy,41,Argentina,40,18,50,-32,L,,False
+2024-11-10,Autumn Nations Series 2024,Scotland,35,South Africa,39,15,32,-17,L,,False
+2024-11-10,Autumn Nations Series 2024,Wales,33,Fiji,46,19,24,-5,L,,False
+2024-11-15,Autumn Nations Series 2024,Ireland,36,Argentina,40,22,19,3,W,,False
+2024-11-16,Autumn Nations Series 2024,England,34,South Africa,39,20,29,-9,L,,False
+2024-11-16,Autumn Nations Series 2024,France,42,New Zealand,37,30,29,1,W,,False
+2024-11-16,Autumn Nations Series 2024,Scotland,35,Portugal,44,59,21,38,W,,False
+2024-11-17,Autumn Nations Series 2024,Italy,41,Georgia,720,20,17,3,W,,False
+2024-11-17,Autumn Nations Series 2024,Wales,33,Australia,38,20,52,-32,L,,False
+2024-11-22,Autumn Nations Series 2024,France,42,Argentina,40,37,23,14,W,,False
+2024-11-23,Autumn Nations Series 2024,Ireland,36,Fiji,46,52,17,35,W,,False
+2024-11-23,Autumn Nations Series 2024,Italy,41,New Zealand,37,11,29,-18,L,,False
+2024-11-23,Autumn Nations Series 2024,Wales,33,South Africa,39,12,45,-33,L,,False
+2024-11-24,Autumn Nations Series 2024,England,34,Japan,49,59,14,45,W,,False
+2024-11-24,Autumn Nations Series 2024,Scotland,35,Australia,38,27,13,14,W,,False
+2024-11-30,Autumn Nations Series 2024,Ireland,36,Australia,38,22,19,3,W,,False
+2025-01-31,Six Nations 2025,France,42,Wales,33,43,0,43,W,,True
+2025-01-31,Six Nations 2025,Wales,33,France,42,0,43,-43,L,,True
+2025-02-01,Six Nations 2025,England,34,Ireland,36,22,27,-5,L,,True
+2025-02-01,Six Nations 2025,Ireland,36,England,34,27,22,5,W,,True
+2025-02-01,Six Nations 2025,Italy,41,Scotland,35,19,31,-12,L,,True
+2025-02-01,Six Nations 2025,Scotland,35,Italy,41,31,19,12,W,,True
+2025-02-08,Six Nations 2025,England,34,France,42,26,25,1,W,,True
+2025-02-08,Six Nations 2025,France,42,England,34,25,26,-1,L,,True
+2025-02-08,Six Nations 2025,Italy,41,Wales,33,22,15,7,W,,True
+2025-02-08,Six Nations 2025,Wales,33,Italy,41,15,22,-7,L,,True
+2025-02-09,Six Nations 2025,Ireland,36,Scotland,35,32,18,14,W,,True
+2025-02-09,Six Nations 2025,Scotland,35,Ireland,36,18,32,-14,L,,True
+2025-02-22,Six Nations 2025,England,34,Scotland,35,16,15,1,W,,True
+2025-02-22,Six Nations 2025,Ireland,36,Wales,33,27,18,9,W,,True
+2025-02-22,Six Nations 2025,Scotland,35,England,34,15,16,-1,L,,True
+2025-02-22,Six Nations 2025,Wales,33,Ireland,36,18,27,-9,L,,True
+2025-02-23,Six Nations 2025,France,42,Italy,41,73,24,49,W,,True
+2025-02-23,Six Nations 2025,Italy,41,France,42,24,73,-49,L,,True
+2025-03-08,Six Nations 2025,France,42,Ireland,36,42,27,15,W,,True
+2025-03-08,Six Nations 2025,Ireland,36,France,42,27,42,-15,L,,True
+2025-03-08,Six Nations 2025,Scotland,35,Wales,33,35,29,6,W,,True
+2025-03-08,Six Nations 2025,Wales,33,Scotland,35,29,35,-6,L,,True
+2025-03-09,Six Nations 2025,England,34,Italy,41,47,24,23,W,,True
+2025-03-09,Six Nations 2025,Italy,41,England,34,24,47,-23,L,,True
+2025-03-15,Six Nations 2025,England,34,Wales,33,68,14,54,W,,True
+2025-03-15,Six Nations 2025,France,42,Scotland,35,35,16,19,W,,True
+2025-03-15,Six Nations 2025,Ireland,36,Italy,41,22,17,5,W,,True
+2025-03-15,Six Nations 2025,Italy,41,Ireland,36,17,22,-5,L,,True
+2025-03-15,Six Nations 2025,Scotland,35,France,42,16,35,-19,L,,True
+2025-03-15,Six Nations 2025,Wales,33,England,34,14,68,-54,L,,True
+2025-06-27,Men's Internationals 2025,Italy,41,Namibia,58,73,6,67,W,,False
+2025-07-05,Men's Internationals 2025,England,34,Argentina,40,35,12,23,W,,False
+2025-07-05,Men's Internationals 2025,France,42,New Zealand,37,27,31,-4,L,,False
+2025-07-05,Men's Internationals 2025,Ireland,36,Georgia,720,34,5,29,W,,False
+2025-07-05,Men's Internationals 2025,Italy,41,South Africa,39,24,42,-18,L,,False
+2025-07-05,Men's Internationals 2025,Scotland,35,Maori All Blacks,53,29,26,3,W,,False
+2025-07-05,Men's Internationals 2025,Wales,33,Japan,49,19,24,-5,L,,False
+2025-07-12,Men's Internationals 2025,England,34,Argentina,40,22,17,5,W,,False
+2025-07-12,Men's Internationals 2025,France,42,New Zealand,37,17,43,-26,L,,False
+2025-07-12,Men's Internationals 2025,Ireland,36,Portugal,44,106,7,99,W,,False
+2025-07-12,Men's Internationals 2025,Italy,41,South Africa,39,0,45,-45,L,,False
+2025-07-12,Men's Internationals 2025,Scotland,35,Fiji,46,14,29,-15,L,,False
+2025-07-12,Men's Internationals 2025,Wales,33,Japan,49,31,22,9,W,,False
+2025-07-18,Men's Internationals 2025,Scotland,35,Samoa,45,41,12,29,W,,False
+2025-07-19,Men's Internationals 2025,England,34,USA,51,40,5,35,W,,False
+2025-07-19,Men's Internationals 2025,France,42,New Zealand,37,19,29,-10,L,,False
+2025-11-01,Autumn Nations Series 2025,England,34,Australia,38,25,7,18,W,,False
+2025-11-01,Autumn Nations Series 2025,Ireland,36,New Zealand,37,13,26,-13,L,,False
+2025-11-01,Autumn Nations Series 2025,Scotland,35,USA,51,85,0,85,W,,False
+2025-11-08,Autumn Nations Series 2025,England,34,Fiji,46,38,18,20,W,,False
+2025-11-08,Autumn Nations Series 2025,France,42,South Africa,39,17,32,-15,L,,False
+2025-11-08,Autumn Nations Series 2025,Ireland,36,Japan,49,41,10,31,W,,False
+2025-11-08,Autumn Nations Series 2025,Italy,41,Australia,38,26,19,7,W,,False
+2025-11-08,Autumn Nations Series 2025,Scotland,35,New Zealand,37,17,25,-8,L,,False
+2025-11-09,Autumn Nations Series 2025,Wales,33,Argentina,40,28,52,-24,L,,False
+2025-11-15,Autumn Nations Series 2025,England,34,New Zealand,37,33,19,14,W,,False
+2025-11-15,Autumn Nations Series 2025,France,42,Fiji,46,34,21,13,W,,False
+2025-11-15,Autumn Nations Series 2025,Ireland,36,Australia,38,46,19,27,W,,False
+2025-11-15,Autumn Nations Series 2025,Italy,41,South Africa,39,14,32,-18,L,,False
+2025-11-15,Autumn Nations Series 2025,Wales,33,Japan,49,24,23,1,W,,False
+2025-11-16,Autumn Nations Series 2025,Scotland,35,Argentina,40,24,33,-9,L,,False
+2025-11-22,Autumn Nations Series 2025,France,42,Australia,38,48,33,15,W,,False
+2025-11-22,Autumn Nations Series 2025,Ireland,36,South Africa,39,13,24,-11,L,,False
+2025-11-22,Autumn Nations Series 2025,Italy,41,Chile,708,34,19,15,W,,False
+2025-11-22,Autumn Nations Series 2025,Wales,33,New Zealand,37,26,52,-26,L,,False
+2025-11-23,Autumn Nations Series 2025,England,34,Argentina,40,27,23,4,W,,False
+2025-11-23,Autumn Nations Series 2025,Scotland,35,Tonga,47,56,0,56,W,,False
+2025-11-29,Autumn Nations Series 2025,Wales,33,South Africa,39,0,73,-73,L,,False
+2026-02-05,Six Nations 2026,France,42,Ireland,36,36,14,22,W,,True
+2026-02-05,Six Nations 2026,Ireland,36,France,42,14,36,-22,L,,True
+2026-02-07,Six Nations 2026,England,34,Wales,33,48,7,41,W,,True
+2026-02-07,Six Nations 2026,Italy,41,Scotland,35,18,15,3,W,,True
+2026-02-07,Six Nations 2026,Scotland,35,Italy,41,15,18,-3,L,,True
+2026-02-07,Six Nations 2026,Wales,33,England,34,7,48,-41,L,,True
+2026-02-14,Six Nations 2026,England,34,Scotland,35,20,31,-11,L,,True
+2026-02-14,Six Nations 2026,Ireland,36,Italy,41,20,13,7,W,,True
+2026-02-14,Six Nations 2026,Italy,41,Ireland,36,13,20,-7,L,,True
+2026-02-14,Six Nations 2026,Scotland,35,England,34,31,20,11,W,,True
+2026-02-15,Six Nations 2026,France,42,Wales,33,54,12,42,W,,True
+2026-02-15,Six Nations 2026,Wales,33,France,42,12,54,-42,L,,True
+2026-02-21,Six Nations 2026,England,34,Ireland,36,21,42,-21,L,,True
+2026-02-21,Six Nations 2026,Ireland,36,England,34,42,21,21,W,,True
+2026-02-21,Six Nations 2026,Scotland,35,Wales,33,26,23,3,W,,True
+2026-02-21,Six Nations 2026,Wales,33,Scotland,35,23,26,-3,L,,True
+2026-02-22,Six Nations 2026,France,42,Italy,41,33,8,25,W,,True
+2026-02-22,Six Nations 2026,Italy,41,France,42,8,33,-25,L,,True
+2026-03-06,Six Nations 2026,Ireland,36,Wales,33,27,17,10,W,,True
+2026-03-06,Six Nations 2026,Wales,33,Ireland,36,17,27,-10,L,,True
+2026-03-07,Six Nations 2026,England,34,Italy,41,18,23,-5,L,,True
+2026-03-07,Six Nations 2026,France,42,Scotland,35,40,50,-10,L,,True
+2026-03-07,Six Nations 2026,Italy,41,England,34,23,18,5,W,,True
+2026-03-07,Six Nations 2026,Scotland,35,France,42,50,40,10,W,,True
+2026-03-14,Six Nations 2026,England,34,France,42,46,48,-2,L,,True
+2026-03-14,Six Nations 2026,France,42,England,34,48,46,2,W,,True
+2026-03-14,Six Nations 2026,Ireland,36,Scotland,35,43,21,22,W,,True
+2026-03-14,Six Nations 2026,Italy,41,Wales,33,17,31,-14,L,,True
+2026-03-14,Six Nations 2026,Scotland,35,Ireland,36,21,43,-22,L,,True
+2026-03-14,Six Nations 2026,Wales,33,Italy,41,31,17,14,W,,True

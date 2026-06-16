@@ -1,0 +1,5014 @@
+{
+  "directed": false,
+  "multigraph": false,
+  "graph": {},
+  "nodes": [
+    {
+      "label": "build_wr.py",
+      "file_type": "code",
+      "source_file": "build_wr.py",
+      "source_location": "L1",
+      "id": "build_wr_py",
+      "community": 13,
+      "norm_label": "build_wr.py"
+    },
+    {
+      "label": "fetch_snapshot()",
+      "file_type": "code",
+      "source_file": "build_wr.py",
+      "source_location": "L42",
+      "id": "6n_build_wr_fetch_snapshot",
+      "community": 13,
+      "norm_label": "fetch_snapshot()"
+    },
+    {
+      "label": "snapshot_rows()",
+      "file_type": "code",
+      "source_file": "build_wr.py",
+      "source_location": "L57",
+      "id": "6n_build_wr_snapshot_rows",
+      "community": 13,
+      "norm_label": "snapshot_rows()"
+    },
+    {
+      "label": "main()",
+      "file_type": "code",
+      "source_file": "build_wr.py",
+      "source_location": "L73",
+      "id": "6n_build_wr_main",
+      "community": 13,
+      "norm_label": "main()"
+    },
+    {
+      "label": "Cached GET of the WR ranking as of `date` (YYYY-MM-DD).",
+      "file_type": "rationale",
+      "source_file": "build_wr.py",
+      "source_location": "L43",
+      "id": "6n_build_wr_rationale_43",
+      "community": 13,
+      "norm_label": "cached get of the wr ranking as of `date` (yyyy-mm-dd)."
+    },
+    {
+      "label": "build_intl_results.py",
+      "file_type": "code",
+      "source_file": "build_intl_results.py",
+      "source_location": "L1",
+      "id": "build_intl_results_py",
+      "community": 9,
+      "norm_label": "build_intl_results.py"
+    },
+    {
+      "label": "_get()",
+      "file_type": "code",
+      "source_file": "build_intl_results.py",
+      "source_location": "L62",
+      "id": "6n_build_intl_results_get",
+      "community": 9,
+      "norm_label": "_get()"
+    },
+    {
+      "label": "fetch_chunk()",
+      "file_type": "code",
+      "source_file": "build_intl_results.py",
+      "source_location": "L68",
+      "id": "6n_build_intl_results_fetch_chunk",
+      "community": 9,
+      "norm_label": "fetch_chunk()"
+    },
+    {
+      "label": "month_chunks()",
+      "file_type": "code",
+      "source_file": "build_intl_results.py",
+      "source_location": "L92",
+      "id": "6n_build_intl_results_month_chunks",
+      "community": 9,
+      "norm_label": "month_chunks()"
+    },
+    {
+      "label": "rows_from_match()",
+      "file_type": "code",
+      "source_file": "build_intl_results.py",
+      "source_location": "L105",
+      "id": "6n_build_intl_results_rows_from_match",
+      "community": 9,
+      "norm_label": "rows_from_match()"
+    },
+    {
+      "label": "_season()",
+      "file_type": "code",
+      "source_file": "build_intl_results.py",
+      "source_location": "L147",
+      "id": "6n_build_intl_results_season",
+      "community": 9,
+      "norm_label": "_season()"
+    },
+    {
+      "label": "main()",
+      "file_type": "code",
+      "source_file": "build_intl_results.py",
+      "source_location": "L155",
+      "id": "6n_build_intl_results_main",
+      "community": 9,
+      "norm_label": "main()"
+    },
+    {
+      "label": "Cached, paginated GET of all completed matches in [start, end].      Caches the",
+      "file_type": "rationale",
+      "source_file": "build_intl_results.py",
+      "source_location": "L69",
+      "id": "6n_build_intl_results_rationale_69",
+      "community": 9,
+      "norm_label": "cached, paginated get of all completed matches in [start, end].      caches the"
+    },
+    {
+      "label": "Calendar-month [first, last] chunks covering [start, end]. Month-sized     keeps",
+      "file_type": "rationale",
+      "source_file": "build_intl_results.py",
+      "source_location": "L93",
+      "id": "6n_build_intl_results_rationale_93",
+      "community": 9,
+      "norm_label": "calendar-month [first, last] chunks covering [start, end]. month-sized     keeps"
+    },
+    {
+      "label": "Two mirrored rows (one per side) for a senior men's match where at least     one",
+      "file_type": "rationale",
+      "source_file": "build_intl_results.py",
+      "source_location": "L106",
+      "id": "6n_build_intl_results_rationale_106",
+      "community": 9,
+      "norm_label": "two mirrored rows (one per side) for a senior men's match where at least     one"
+    },
+    {
+      "label": "6N-style season label: a match in Jul..Dec belongs to the NEXT calendar     seas",
+      "file_type": "rationale",
+      "source_file": "build_intl_results.py",
+      "source_location": "L148",
+      "id": "6n_build_intl_results_rationale_148",
+      "community": 9,
+      "norm_label": "6n-style season label: a match in jul..dec belongs to the next calendar     seas"
+    },
+    {
+      "label": "build_team_form.py",
+      "file_type": "code",
+      "source_file": "build_team_form.py",
+      "source_location": "L1",
+      "id": "build_team_form_py",
+      "community": 5,
+      "norm_label": "build_team_form.py"
+    },
+    {
+      "label": "_load_h2h_meetings()",
+      "file_type": "code",
+      "source_file": "build_team_form.py",
+      "source_location": "L79",
+      "id": "6n_build_team_form_load_h2h_meetings",
+      "community": 5,
+      "norm_label": "_load_h2h_meetings()"
+    },
+    {
+      "label": "_decayed_mean()",
+      "file_type": "code",
+      "source_file": "build_team_form.py",
+      "source_location": "L113",
+      "id": "6n_build_team_form_decayed_mean",
+      "community": 5,
+      "norm_label": "_decayed_mean()"
+    },
+    {
+      "label": "build()",
+      "file_type": "code",
+      "source_file": "build_team_form.py",
+      "source_location": "L123",
+      "id": "6n_build_team_form_build",
+      "community": 5,
+      "norm_label": "build()"
+    },
+    {
+      "label": "_merge_wr()",
+      "file_type": "code",
+      "source_file": "build_team_form.py",
+      "source_location": "L176",
+      "id": "6n_build_team_form_merge_wr",
+      "community": 5,
+      "norm_label": "_merge_wr()"
+    },
+    {
+      "label": "main()",
+      "file_type": "code",
+      "source_file": "build_team_form.py",
+      "source_location": "L194",
+      "id": "6n_build_team_form_main",
+      "community": 5,
+      "norm_label": "main()"
+    },
+    {
+      "label": "Prior-meetings pool for head-to-head, UNIONing the rich     api_team_match rows",
+      "file_type": "rationale",
+      "source_file": "build_team_form.py",
+      "source_location": "L80",
+      "id": "6n_build_team_form_rationale_80",
+      "community": 5,
+      "norm_label": "prior-meetings pool for head-to-head, unioning the rich     api_team_match rows"
+    },
+    {
+      "label": "Exponentially weighted mean, weight = 0.5 ** (days_ago / half_life).",
+      "file_type": "rationale",
+      "source_file": "build_team_form.py",
+      "source_location": "L114",
+      "id": "6n_build_team_form_rationale_114",
+      "community": 5,
+      "norm_label": "exponentially weighted mean, weight = 0.5 ** (days_ago / half_life)."
+    },
+    {
+      "label": "PIT-join World Rugby strength (data/wr_rankings.csv) by (date, team) and     (da",
+      "file_type": "rationale",
+      "source_file": "build_team_form.py",
+      "source_location": "L177",
+      "id": "6n_build_team_form_rationale_177",
+      "community": 5,
+      "norm_label": "pit-join world rugby strength (data/wr_rankings.csv) by (date, team) and     (da"
+    },
+    {
+      "label": "rugby_api.py",
+      "file_type": "code",
+      "source_file": "rugby_api.py",
+      "source_location": "L1",
+      "id": "rugby_api_py",
+      "community": 7,
+      "norm_label": "rugby_api.py"
+    },
+    {
+      "label": "RugbyAPI",
+      "file_type": "code",
+      "source_file": "rugby_api.py",
+      "source_location": "L46",
+      "id": "6n_rugby_api_rugbyapi",
+      "community": 7,
+      "norm_label": "rugbyapi"
+    },
+    {
+      "label": ".__init__()",
+      "file_type": "code",
+      "source_file": "rugby_api.py",
+      "source_location": "L47",
+      "id": "6n_rugby_api_rugbyapi_init",
+      "community": 7,
+      "norm_label": ".__init__()"
+    },
+    {
+      "label": "._cache_path()",
+      "file_type": "code",
+      "source_file": "rugby_api.py",
+      "source_location": "L61",
+      "id": "6n_rugby_api_rugbyapi_cache_path",
+      "community": 7,
+      "norm_label": "._cache_path()"
+    },
+    {
+      "label": ".get()",
+      "file_type": "code",
+      "source_file": "rugby_api.py",
+      "source_location": "L65",
+      "id": "6n_rugby_api_rugbyapi_get",
+      "community": 7,
+      "norm_label": ".get()"
+    },
+    {
+      "label": ".competitions()",
+      "file_type": "code",
+      "source_file": "rugby_api.py",
+      "source_location": "L102",
+      "id": "6n_rugby_api_rugbyapi_competitions",
+      "community": 7,
+      "norm_label": ".competitions()"
+    },
+    {
+      "label": ".fixtures()",
+      "file_type": "code",
+      "source_file": "rugby_api.py",
+      "source_location": "L105",
+      "id": "6n_rugby_api_rugbyapi_fixtures",
+      "community": 7,
+      "norm_label": ".fixtures()"
+    },
+    {
+      "label": ".fixtures_by_team()",
+      "file_type": "code",
+      "source_file": "rugby_api.py",
+      "source_location": "L108",
+      "id": "6n_rugby_api_rugbyapi_fixtures_by_team",
+      "community": 7,
+      "norm_label": ".fixtures_by_team()"
+    },
+    {
+      "label": ".match()",
+      "file_type": "code",
+      "source_file": "rugby_api.py",
+      "source_location": "L111",
+      "id": "6n_rugby_api_rugbyapi_match",
+      "community": 7,
+      "norm_label": ".match()"
+    },
+    {
+      "label": ".standings()",
+      "file_type": "code",
+      "source_file": "rugby_api.py",
+      "source_location": "L114",
+      "id": "6n_rugby_api_rugbyapi_standings",
+      "community": 7,
+      "norm_label": ".standings()"
+    },
+    {
+      "label": "GET an endpoint path (e.g. '/match/123'), with permanent disk cache.",
+      "file_type": "rationale",
+      "source_file": "rugby_api.py",
+      "source_location": "L66",
+      "id": "6n_rugby_api_rationale_66",
+      "community": 7,
+      "norm_label": "get an endpoint path (e.g. '/match/123'), with permanent disk cache."
+    },
+    {
+      "label": "compare_three_way.py",
+      "file_type": "code",
+      "source_file": "compare_three_way.py",
+      "source_location": "L1",
+      "id": "compare_three_way_py",
+      "community": 2,
+      "norm_label": "compare_three_way.py"
+    },
+    {
+      "label": "slug_key()",
+      "file_type": "code",
+      "source_file": "compare_three_way.py",
+      "source_location": "L50",
+      "id": "6n_compare_three_way_slug_key",
+      "community": 2,
+      "norm_label": "slug_key()"
+    },
+    {
+      "label": "load_rugbypass()",
+      "file_type": "code",
+      "source_file": "compare_three_way.py",
+      "source_location": "L58",
+      "id": "6n_compare_three_way_load_rugbypass",
+      "community": 2,
+      "norm_label": "load_rugbypass()"
+    },
+    {
+      "label": "agg_official()",
+      "file_type": "code",
+      "source_file": "compare_three_way.py",
+      "source_location": "L82",
+      "id": "6n_compare_three_way_agg_official",
+      "community": 2,
+      "norm_label": "agg_official()"
+    },
+    {
+      "label": "agg_api()",
+      "file_type": "code",
+      "source_file": "compare_three_way.py",
+      "source_location": "L94",
+      "id": "6n_compare_three_way_agg_api",
+      "community": 2,
+      "norm_label": "agg_api()"
+    },
+    {
+      "label": "corr()",
+      "file_type": "code",
+      "source_file": "compare_three_way.py",
+      "source_location": "L109",
+      "id": "6n_compare_three_way_corr",
+      "community": 2,
+      "norm_label": "corr()"
+    },
+    {
+      "label": "main()",
+      "file_type": "code",
+      "source_file": "compare_three_way.py",
+      "source_location": "L114",
+      "id": "6n_compare_three_way_main",
+      "community": 2,
+      "norm_label": "main()"
+    },
+    {
+      "label": "build_features.py",
+      "file_type": "code",
+      "source_file": "build_features.py",
+      "source_location": "L1",
+      "id": "build_features_py",
+      "community": 3,
+      "norm_label": "build_features.py"
+    },
+    {
+      "label": "_decay_weights()",
+      "file_type": "code",
+      "source_file": "build_features.py",
+      "source_location": "L88",
+      "id": "6n_build_features_decay_weights",
+      "community": 3,
+      "norm_label": "_decay_weights()"
+    },
+    {
+      "label": "_bool()",
+      "file_type": "code",
+      "source_file": "build_features.py",
+      "source_location": "L93",
+      "id": "6n_build_features_bool",
+      "community": 3,
+      "norm_label": "_bool()"
+    },
+    {
+      "label": "_season_end_year()",
+      "file_type": "code",
+      "source_file": "build_features.py",
+      "source_location": "L98",
+      "id": "6n_build_features_season_end_year",
+      "community": 3,
+      "norm_label": "_season_end_year()"
+    },
+    {
+      "label": "class_features()",
+      "file_type": "code",
+      "source_file": "build_features.py",
+      "source_location": "L105",
+      "id": "6n_build_features_class_features",
+      "community": 3,
+      "norm_label": "class_features()"
+    },
+    {
+      "label": "form_role_features()",
+      "file_type": "code",
+      "source_file": "build_features.py",
+      "source_location": "L135",
+      "id": "6n_build_features_form_role_features",
+      "community": 3,
+      "norm_label": "form_role_features()"
+    },
+    {
+      "label": "ownteam_features()",
+      "file_type": "code",
+      "source_file": "build_features.py",
+      "source_location": "L184",
+      "id": "6n_build_features_ownteam_features",
+      "community": 3,
+      "norm_label": "ownteam_features()"
+    },
+    {
+      "label": "build()",
+      "file_type": "code",
+      "source_file": "build_features.py",
+      "source_location": "L199",
+      "id": "6n_build_features_build",
+      "community": 3,
+      "norm_label": "build()"
+    },
+    {
+      "label": "main()",
+      "file_type": "code",
+      "source_file": "build_features.py",
+      "source_location": "L329",
+      "id": "6n_build_features_main",
+      "community": 3,
+      "norm_label": "main()"
+    },
+    {
+      "label": "RugbyPass labels are mixed: '2025/2026' (club) and '2026' (intl). The     PIT-co",
+      "file_type": "rationale",
+      "source_file": "build_features.py",
+      "source_location": "L99",
+      "id": "6n_build_features_rationale_99",
+      "community": 3,
+      "norm_label": "rugbypass labels are mixed: '2025/2026' (club) and '2026' (intl). the     pit-co"
+    },
+    {
+      "label": "Minutes-weighted per-80 rates over the player's **completed prior**     RugbyPas",
+      "file_type": "rationale",
+      "source_file": "build_features.py",
+      "source_location": "L106",
+      "id": "6n_build_features_rationale_106",
+      "community": 3,
+      "norm_label": "minutes-weighted per-80 rates over the player's **completed prior**     rugbypas"
+    },
+    {
+      "label": "Decayed per-80 FORM rates + minutes/start trend + ROLE signals, over the     pla",
+      "file_type": "rationale",
+      "source_file": "build_features.py",
+      "source_location": "L136",
+      "id": "6n_build_features_rationale_136",
+      "community": 3,
+      "norm_label": "decayed per-80 form rates + minutes/start trend + role signals, over the     pla"
+    },
+    {
+      "label": "Own side's decayed attacking output over its matches before the fixture.",
+      "file_type": "rationale",
+      "source_file": "build_features.py",
+      "source_location": "L185",
+      "id": "6n_build_features_rationale_185",
+      "community": 3,
+      "norm_label": "own side's decayed attacking output over its matches before the fixture."
+    },
+    {
+      "label": "build_rugbypass_tables.py",
+      "file_type": "code",
+      "source_file": "build_rugbypass_tables.py",
+      "source_location": "L1",
+      "id": "build_rugbypass_tables_py",
+      "community": 2,
+      "norm_label": "build_rugbypass_tables.py"
+    },
+    {
+      "label": "_num()",
+      "file_type": "code",
+      "source_file": "build_rugbypass_tables.py",
+      "source_location": "L53",
+      "id": "6n_build_rugbypass_tables_num",
+      "community": 2,
+      "norm_label": "_num()"
+    },
+    {
+      "label": "_parse_height_cm()",
+      "file_type": "code",
+      "source_file": "build_rugbypass_tables.py",
+      "source_location": "L64",
+      "id": "6n_build_rugbypass_tables_parse_height_cm",
+      "community": 2,
+      "norm_label": "_parse_height_cm()"
+    },
+    {
+      "label": "_parse_weight_kg()",
+      "file_type": "code",
+      "source_file": "build_rugbypass_tables.py",
+      "source_location": "L72",
+      "id": "6n_build_rugbypass_tables_parse_weight_kg",
+      "community": 2,
+      "norm_label": "_parse_weight_kg()"
+    },
+    {
+      "label": "_parse_age()",
+      "file_type": "code",
+      "source_file": "build_rugbypass_tables.py",
+      "source_location": "L80",
+      "id": "6n_build_rugbypass_tables_parse_age",
+      "community": 2,
+      "norm_label": "_parse_age()"
+    },
+    {
+      "label": "load_json_files()",
+      "file_type": "code",
+      "source_file": "build_rugbypass_tables.py",
+      "source_location": "L87",
+      "id": "6n_build_rugbypass_tables_load_json_files",
+      "community": 2,
+      "norm_label": "load_json_files()"
+    },
+    {
+      "label": "build_bio()",
+      "file_type": "code",
+      "source_file": "build_rugbypass_tables.py",
+      "source_location": "L97",
+      "id": "6n_build_rugbypass_tables_build_bio",
+      "community": 2,
+      "norm_label": "build_bio()"
+    },
+    {
+      "label": "build_compstats()",
+      "file_type": "code",
+      "source_file": "build_rugbypass_tables.py",
+      "source_location": "L113",
+      "id": "6n_build_rugbypass_tables_build_compstats",
+      "community": 2,
+      "norm_label": "build_compstats()"
+    },
+    {
+      "label": "build_matchlog()",
+      "file_type": "code",
+      "source_file": "build_rugbypass_tables.py",
+      "source_location": "L130",
+      "id": "6n_build_rugbypass_tables_build_matchlog",
+      "community": 2,
+      "norm_label": "build_matchlog()"
+    },
+    {
+      "label": "main()",
+      "file_type": "code",
+      "source_file": "build_rugbypass_tables.py",
+      "source_location": "L156",
+      "id": "6n_build_rugbypass_tables_main",
+      "community": 2,
+      "norm_label": "main()"
+    },
+    {
+      "label": "Coerce to int/float; None/blank/non-numeric -> 0.",
+      "file_type": "rationale",
+      "source_file": "build_rugbypass_tables.py",
+      "source_location": "L54",
+      "id": "6n_build_rugbypass_tables_rationale_54",
+      "community": 2,
+      "norm_label": "coerce to int/float; none/blank/non-numeric -> 0."
+    },
+    {
+      "label": "188cm' -> 188 ; missing -> 0.",
+      "file_type": "rationale",
+      "source_file": "build_rugbypass_tables.py",
+      "source_location": "L65",
+      "id": "6n_build_rugbypass_tables_rationale_65",
+      "community": 2,
+      "norm_label": "188cm' -> 188 ; missing -> 0."
+    },
+    {
+      "label": "106kg' -> 106 ; missing -> 0.",
+      "file_type": "rationale",
+      "source_file": "build_rugbypass_tables.py",
+      "source_location": "L73",
+      "id": "6n_build_rugbypass_tables_rationale_73",
+      "community": 2,
+      "norm_label": "106kg' -> 106 ; missing -> 0."
+    },
+    {
+      "label": "build_targets.py",
+      "file_type": "code",
+      "source_file": "build_targets.py",
+      "source_location": "L1",
+      "id": "build_targets_py",
+      "community": 8,
+      "norm_label": "build_targets.py"
+    },
+    {
+      "label": "score_components()",
+      "file_type": "code",
+      "source_file": "build_targets.py",
+      "source_location": "L84",
+      "id": "6n_build_targets_score_components",
+      "community": 8,
+      "norm_label": "score_components()"
+    },
+    {
+      "label": "build()",
+      "file_type": "code",
+      "source_file": "build_targets.py",
+      "source_location": "L107",
+      "id": "6n_build_targets_build",
+      "community": 8,
+      "norm_label": "build()"
+    },
+    {
+      "label": "_fit_latent()",
+      "file_type": "code",
+      "source_file": "build_targets.py",
+      "source_location": "L186",
+      "id": "6n_build_targets_fit_latent",
+      "community": 8,
+      "norm_label": "_fit_latent()"
+    },
+    {
+      "label": "main()",
+      "file_type": "code",
+      "source_file": "build_targets.py",
+      "source_location": "L226",
+      "id": "6n_build_targets_main",
+      "community": 8,
+      "norm_label": "main()"
+    },
+    {
+      "label": "Deterministic fantasy score under the **modern** (2025/2026) official     formul",
+      "file_type": "rationale",
+      "source_file": "build_targets.py",
+      "source_location": "L85",
+      "id": "6n_build_targets_rationale_85",
+      "community": 8,
+      "norm_label": "deterministic fantasy score under the **modern** (2025/2026) official     formul"
+    },
+    {
+      "label": "Fit the latent decomposition on MODERN labelled rows (2025+2026) \u2014 the     only",
+      "file_type": "rationale",
+      "source_file": "build_targets.py",
+      "source_location": "L187",
+      "id": "6n_build_targets_rationale_187",
+      "community": 8,
+      "norm_label": "fit the latent decomposition on modern labelled rows (2025+2026) \u2014 the     only"
+    },
+    {
+      "label": "games.py",
+      "file_type": "code",
+      "source_file": "games.py",
+      "source_location": "L1",
+      "id": "games_py",
+      "community": 14,
+      "norm_label": "games.py"
+    },
+    {
+      "label": "scrape_rugby_stats()",
+      "file_type": "code",
+      "source_file": "games.py",
+      "source_location": "L18",
+      "id": "6n_games_scrape_rugby_stats",
+      "community": 14,
+      "norm_label": "scrape_rugby_stats()"
+    },
+    {
+      "label": "scrape_match_data()",
+      "file_type": "code",
+      "source_file": "games.py",
+      "source_location": "L142",
+      "id": "6n_games_scrape_match_data",
+      "community": 14,
+      "norm_label": "scrape_match_data()"
+    },
+    {
+      "label": "rugbypass_batch.py",
+      "file_type": "code",
+      "source_file": "rugbypass_batch.py",
+      "source_location": "L1",
+      "id": "rugbypass_batch_py",
+      "community": 12,
+      "norm_label": "rugbypass_batch.py"
+    },
+    {
+      "label": "make_driver()",
+      "file_type": "code",
+      "source_file": "rugbypass_batch.py",
+      "source_location": "L384",
+      "id": "6n_rugbypass_batch_make_driver",
+      "community": 12,
+      "norm_label": "make_driver()"
+    },
+    {
+      "label": "extract_bio()",
+      "file_type": "code",
+      "source_file": "rugbypass_batch.py",
+      "source_location": "L413",
+      "id": "6n_rugbypass_batch_extract_bio",
+      "community": 12,
+      "norm_label": "extract_bio()"
+    },
+    {
+      "label": "extract_comp_stats()",
+      "file_type": "code",
+      "source_file": "rugbypass_batch.py",
+      "source_location": "L431",
+      "id": "6n_rugbypass_batch_extract_comp_stats",
+      "community": 12,
+      "norm_label": "extract_comp_stats()"
+    },
+    {
+      "label": "extract_match_log()",
+      "file_type": "code",
+      "source_file": "rugbypass_batch.py",
+      "source_location": "L473",
+      "id": "6n_rugbypass_batch_extract_match_log",
+      "community": 12,
+      "norm_label": "extract_match_log()"
+    },
+    {
+      "label": "get_unique_players()",
+      "file_type": "code",
+      "source_file": "rugbypass_batch.py",
+      "source_location": "L503",
+      "id": "6n_rugbypass_batch_get_unique_players",
+      "community": 12,
+      "norm_label": "get_unique_players()"
+    },
+    {
+      "label": "is_six_nations()",
+      "file_type": "code",
+      "source_file": "rugbypass_batch.py",
+      "source_location": "L515",
+      "id": "6n_rugbypass_batch_is_six_nations",
+      "community": 12,
+      "norm_label": "is_six_nations()"
+    },
+    {
+      "label": "main()",
+      "file_type": "code",
+      "source_file": "rugbypass_batch.py",
+      "source_location": "L525",
+      "id": "6n_rugbypass_batch_main",
+      "community": 12,
+      "norm_label": "main()"
+    },
+    {
+      "label": "rugbypass.py",
+      "file_type": "code",
+      "source_file": "rugbypass.py",
+      "source_location": "L1",
+      "id": "rugbypass_py",
+      "community": 11,
+      "norm_label": "rugbypass.py"
+    },
+    {
+      "label": "make_driver()",
+      "file_type": "code",
+      "source_file": "rugbypass.py",
+      "source_location": "L32",
+      "id": "6n_rugbypass_make_driver",
+      "community": 11,
+      "norm_label": "make_driver()"
+    },
+    {
+      "label": "extract_bio()",
+      "file_type": "code",
+      "source_file": "rugbypass.py",
+      "source_location": "L63",
+      "id": "6n_rugbypass_extract_bio",
+      "community": 11,
+      "norm_label": "extract_bio()"
+    },
+    {
+      "label": "extract_comp_stats()",
+      "file_type": "code",
+      "source_file": "rugbypass.py",
+      "source_location": "L82",
+      "id": "6n_rugbypass_extract_comp_stats",
+      "community": 11,
+      "norm_label": "extract_comp_stats()"
+    },
+    {
+      "label": "extract_match_log()",
+      "file_type": "code",
+      "source_file": "rugbypass.py",
+      "source_location": "L129",
+      "id": "6n_rugbypass_extract_match_log",
+      "community": 11,
+      "norm_label": "extract_match_log()"
+    },
+    {
+      "label": "main()",
+      "file_type": "code",
+      "source_file": "rugbypass.py",
+      "source_location": "L159",
+      "id": "6n_rugbypass_main",
+      "community": 11,
+      "norm_label": "main()"
+    },
+    {
+      "label": "Parse player bio from .player-details.",
+      "file_type": "rationale",
+      "source_file": "rugbypass.py",
+      "source_location": "L64",
+      "id": "6n_rugbypass_rationale_64",
+      "community": 11,
+      "norm_label": "parse player bio from .player-details."
+    },
+    {
+      "label": "Parse #app-comp-stats \u2192 list of per-competition season aggregates.     Returns a",
+      "file_type": "rationale",
+      "source_file": "rugbypass.py",
+      "source_location": "L83",
+      "id": "6n_rugbypass_rationale_83",
+      "community": 11,
+      "norm_label": "parse #app-comp-stats \u2192 list of per-competition season aggregates.     returns a"
+    },
+    {
+      "label": "Parse #app-competitions \u2192 flat list of per-game records.",
+      "file_type": "rationale",
+      "source_file": "rugbypass.py",
+      "source_location": "L130",
+      "id": "6n_rugbypass_rationale_130",
+      "community": 11,
+      "norm_label": "parse #app-competitions \u2192 flat list of per-game records."
+    },
+    {
+      "label": "build_official.py",
+      "file_type": "code",
+      "source_file": "build_official.py",
+      "source_location": "L1",
+      "id": "build_official_py",
+      "community": 6,
+      "norm_label": "build_official.py"
+    },
+    {
+      "label": "_player_nation_map()",
+      "file_type": "code",
+      "source_file": "build_official.py",
+      "source_location": "L62",
+      "id": "6n_build_official_player_nation_map",
+      "community": 6,
+      "norm_label": "_player_nation_map()"
+    },
+    {
+      "label": "parse_official_2023()",
+      "file_type": "code",
+      "source_file": "build_official.py",
+      "source_location": "L75",
+      "id": "6n_build_official_parse_official_2023",
+      "community": 6,
+      "norm_label": "parse_official_2023()"
+    },
+    {
+      "label": "build()",
+      "file_type": "code",
+      "source_file": "build_official.py",
+      "source_location": "L125",
+      "id": "6n_build_official_build",
+      "community": 6,
+      "norm_label": "build()"
+    },
+    {
+      "label": "main()",
+      "file_type": "code",
+      "source_file": "build_official.py",
+      "source_location": "L146",
+      "id": "6n_build_official_main",
+      "community": 6,
+      "norm_label": "main()"
+    },
+    {
+      "label": "Build {norm_key(name): nation} from the 2023 'Player List' sheet.",
+      "file_type": "rationale",
+      "source_file": "build_official.py",
+      "source_location": "L63",
+      "id": "6n_build_official_rationale_63",
+      "community": 6,
+      "norm_label": "build {norm_key(name): nation} from the 2023 'player list' sheet."
+    },
+    {
+      "label": "Parse the 2023 split-sheet layout (Rounds 1-4) -> tidy long frame.      Reads ea",
+      "file_type": "rationale",
+      "source_file": "build_official.py",
+      "source_location": "L76",
+      "id": "6n_build_official_rationale_76",
+      "community": 6,
+      "norm_label": "parse the 2023 split-sheet layout (rounds 1-4) -> tidy long frame.      reads ea"
+    },
+    {
+      "label": "players.py",
+      "file_type": "code",
+      "source_file": "players.py",
+      "source_location": "L1",
+      "id": "players_py",
+      "community": 15,
+      "norm_label": "players.py"
+    },
+    {
+      "label": "scrape_rugby_stats()",
+      "file_type": "code",
+      "source_file": "players.py",
+      "source_location": "L19",
+      "id": "6n_players_scrape_rugby_stats",
+      "community": 15,
+      "norm_label": "scrape_rugby_stats()"
+    },
+    {
+      "label": "compare_api_official.py",
+      "file_type": "code",
+      "source_file": "compare_api_official.py",
+      "source_location": "L1",
+      "id": "compare_api_official_py",
+      "community": 6,
+      "norm_label": "compare_api_official.py"
+    },
+    {
+      "label": "norm_key()",
+      "file_type": "code",
+      "source_file": "compare_api_official.py",
+      "source_location": "L59",
+      "id": "6n_compare_api_official_norm_key",
+      "community": 6,
+      "norm_label": "norm_key()"
+    },
+    {
+      "label": "parse_official()",
+      "file_type": "code",
+      "source_file": "compare_api_official.py",
+      "source_location": "L74",
+      "id": "6n_compare_api_official_parse_official",
+      "community": 6,
+      "norm_label": "parse_official()"
+    },
+    {
+      "label": "load_api()",
+      "file_type": "code",
+      "source_file": "compare_api_official.py",
+      "source_location": "L105",
+      "id": "6n_compare_api_official_load_api",
+      "community": 6,
+      "norm_label": "load_api()"
+    },
+    {
+      "label": "compare()",
+      "file_type": "code",
+      "source_file": "compare_api_official.py",
+      "source_location": "L111",
+      "id": "6n_compare_api_official_compare",
+      "community": 6,
+      "norm_label": "compare()"
+    },
+    {
+      "label": "T. Bielle-Biarrey' / 'Louis Bielle-Biarrey' -> 't|biellebiarrey'.",
+      "file_type": "rationale",
+      "source_file": "compare_api_official.py",
+      "source_location": "L60",
+      "id": "6n_compare_api_official_rationale_60",
+      "community": 6,
+      "norm_label": "t. bielle-biarrey' / 'louis bielle-biarrey' -> 't|biellebiarrey'."
+    },
+    {
+      "label": "Walk the stacked per-team blocks in every sheet -> tidy long frame.",
+      "file_type": "rationale",
+      "source_file": "compare_api_official.py",
+      "source_location": "L75",
+      "id": "6n_compare_api_official_rationale_75",
+      "community": 6,
+      "norm_label": "walk the stacked per-team blocks in every sheet -> tidy long frame."
+    },
+    {
+      "label": "build_crosswalk.py",
+      "file_type": "code",
+      "source_file": "build_crosswalk.py",
+      "source_location": "L1",
+      "id": "build_crosswalk_py",
+      "community": 0,
+      "norm_label": "build_crosswalk.py"
+    },
+    {
+      "label": "surname_of()",
+      "file_type": "code",
+      "source_file": "build_crosswalk.py",
+      "source_location": "L55",
+      "id": "6n_build_crosswalk_surname_of",
+      "community": 0,
+      "norm_label": "surname_of()"
+    },
+    {
+      "label": "last_token()",
+      "file_type": "code",
+      "source_file": "build_crosswalk.py",
+      "source_location": "L62",
+      "id": "6n_build_crosswalk_last_token",
+      "community": 0,
+      "norm_label": "last_token()"
+    },
+    {
+      "label": "load_api()",
+      "file_type": "code",
+      "source_file": "build_crosswalk.py",
+      "source_location": "L83",
+      "id": "6n_build_crosswalk_load_api",
+      "community": 0,
+      "norm_label": "load_api()"
+    },
+    {
+      "label": "load_rp()",
+      "file_type": "code",
+      "source_file": "build_crosswalk.py",
+      "source_location": "L138",
+      "id": "6n_build_crosswalk_load_rp",
+      "community": 0,
+      "norm_label": "load_rp()"
+    },
+    {
+      "label": "load_official()",
+      "file_type": "code",
+      "source_file": "build_crosswalk.py",
+      "source_location": "L148",
+      "id": "6n_build_crosswalk_load_official",
+      "community": 0,
+      "norm_label": "load_official()"
+    },
+    {
+      "label": "build()",
+      "file_type": "code",
+      "source_file": "build_crosswalk.py",
+      "source_location": "L163",
+      "id": "6n_build_crosswalk_build",
+      "community": 0,
+      "norm_label": "build()"
+    },
+    {
+      "label": "_nat_team_compatible()",
+      "file_type": "code",
+      "source_file": "build_crosswalk.py",
+      "source_location": "L198",
+      "id": "6n_build_crosswalk_nat_team_compatible",
+      "community": 0,
+      "norm_label": "_nat_team_compatible()"
+    },
+    {
+      "label": "_row_source()",
+      "file_type": "code",
+      "source_file": "build_crosswalk.py",
+      "source_location": "L207",
+      "id": "6n_build_crosswalk_row_source",
+      "community": 0,
+      "norm_label": "_row_source()"
+    },
+    {
+      "label": "_surname_candidates()",
+      "file_type": "code",
+      "source_file": "build_crosswalk.py",
+      "source_location": "L216",
+      "id": "6n_build_crosswalk_surname_candidates",
+      "community": 0,
+      "norm_label": "_surname_candidates()"
+    },
+    {
+      "label": "_surname_pass()",
+      "file_type": "code",
+      "source_file": "build_crosswalk.py",
+      "source_location": "L238",
+      "id": "6n_build_crosswalk_surname_pass",
+      "community": 0,
+      "norm_label": "_surname_pass()"
+    },
+    {
+      "label": "_consolidate_name_variants()",
+      "file_type": "code",
+      "source_file": "build_crosswalk.py",
+      "source_location": "L313",
+      "id": "6n_build_crosswalk_consolidate_name_variants",
+      "community": 0,
+      "norm_label": "_consolidate_name_variants()"
+    },
+    {
+      "label": "_fold()",
+      "file_type": "code",
+      "source_file": "build_crosswalk.py",
+      "source_location": "L352",
+      "id": "6n_build_crosswalk_fold",
+      "community": 0,
+      "norm_label": "_fold()"
+    },
+    {
+      "label": "report()",
+      "file_type": "code",
+      "source_file": "build_crosswalk.py",
+      "source_location": "L370",
+      "id": "6n_build_crosswalk_report",
+      "community": 0,
+      "norm_label": "report()"
+    },
+    {
+      "label": "main()",
+      "file_type": "code",
+      "source_file": "build_crosswalk.py",
+      "source_location": "L435",
+      "id": "6n_build_crosswalk_main",
+      "community": 0,
+      "norm_label": "main()"
+    },
+    {
+      "label": "j|brex' -> 'brex'.  The part after the '|' in a norm_key.",
+      "file_type": "rationale",
+      "source_file": "build_crosswalk.py",
+      "source_location": "L56",
+      "id": "6n_build_crosswalk_rationale_56",
+      "community": 0,
+      "norm_label": "j|brex' -> 'brex'.  the part after the '|' in a norm_key."
+    },
+    {
+      "label": "Real final whitespace token of a name, ascii-folded, letters only.      'Juan Ig",
+      "file_type": "rationale",
+      "source_file": "build_crosswalk.py",
+      "source_location": "L63",
+      "id": "6n_build_crosswalk_rationale_63",
+      "community": 0,
+      "norm_label": "real final whitespace token of a name, ascii-folded, letters only.      'juan ig"
+    },
+    {
+      "label": "Distinct (player_id, player_name) for every SIX NATIONS player.      Source is t",
+      "file_type": "rationale",
+      "source_file": "build_crosswalk.py",
+      "source_location": "L84",
+      "id": "6n_build_crosswalk_rationale_84",
+      "community": 0,
+      "norm_label": "distinct (player_id, player_name) for every six nations player.      source is t"
+    },
+    {
+      "label": "True if RP nationality and API/official team don't actively conflict.",
+      "file_type": "rationale",
+      "source_file": "build_crosswalk.py",
+      "source_location": "L199",
+      "id": "6n_build_crosswalk_rationale_199",
+      "community": 0,
+      "norm_label": "true if rp nationality and api/official team don't actively conflict."
+    },
+    {
+      "label": "Single source a lonely row belongs to: 'api' | 'rp' | 'official'.",
+      "file_type": "rationale",
+      "source_file": "build_crosswalk.py",
+      "source_location": "L208",
+      "id": "6n_build_crosswalk_rationale_208",
+      "community": 0,
+      "norm_label": "single source a lonely row belongs to: 'api' | 'rp' | 'official'."
+    },
+    {
+      "label": "Surname forms by which this lonely row may be matched.      Combines the norm_ke",
+      "file_type": "rationale",
+      "source_file": "build_crosswalk.py",
+      "source_location": "L217",
+      "id": "6n_build_crosswalk_rationale_217",
+      "community": 0,
+      "norm_label": "surname forms by which this lonely row may be matched.      combines the norm_ke"
+    },
+    {
+      "label": "Recover cross-source singletons that share a unique surname.      A 'lonely' row",
+      "file_type": "rationale",
+      "source_file": "build_crosswalk.py",
+      "source_location": "L239",
+      "id": "6n_build_crosswalk_rationale_239",
+      "community": 0,
+      "norm_label": "recover cross-source singletons that share a unique surname.      a 'lonely' row"
+    },
+    {
+      "label": "Merge two partially-filled rows that are the same player under official     name",
+      "file_type": "rationale",
+      "source_file": "build_crosswalk.py",
+      "source_location": "L314",
+      "id": "6n_build_crosswalk_rationale_314",
+      "community": 0,
+      "norm_label": "merge two partially-filled rows that are the same player under official     name"
+    },
+    {
+      "label": "Merge row `drop` into row `keep` in place; mark match_method='surname'.",
+      "file_type": "rationale",
+      "source_file": "build_crosswalk.py",
+      "source_location": "L353",
+      "id": "6n_build_crosswalk_rationale_353",
+      "community": 0,
+      "norm_label": "merge row `drop` into row `keep` in place; mark match_method='surname'."
+    },
+    {
+      "label": "ingest_6n.py",
+      "file_type": "code",
+      "source_file": "ingest_6n.py",
+      "source_location": "L1",
+      "id": "ingest_6n_py",
+      "community": 1,
+      "norm_label": "ingest_6n.py"
+    },
+    {
+      "label": "QuotaExhausted",
+      "file_type": "code",
+      "source_file": "ingest_6n.py",
+      "source_location": "L54",
+      "id": "6n_ingest_6n_quotaexhausted",
+      "community": 1,
+      "norm_label": "quotaexhausted"
+    },
+    {
+      "label": "RuntimeError",
+      "file_type": "code",
+      "source_file": "",
+      "source_location": "",
+      "id": "runtimeerror",
+      "community": 7,
+      "norm_label": "runtimeerror"
+    },
+    {
+      "label": "_in_form_window()",
+      "file_type": "code",
+      "source_file": "ingest_6n.py",
+      "source_location": "L58",
+      "id": "6n_ingest_6n_in_form_window",
+      "community": 1,
+      "norm_label": "_in_form_window()"
+    },
+    {
+      "label": "_skip_comp_season()",
+      "file_type": "code",
+      "source_file": "ingest_6n.py",
+      "source_location": "L70",
+      "id": "6n_ingest_6n_skip_comp_season",
+      "community": 1,
+      "norm_label": "_skip_comp_season()"
+    },
+    {
+      "label": "_quota_guard()",
+      "file_type": "code",
+      "source_file": "ingest_6n.py",
+      "source_location": "L77",
+      "id": "6n_ingest_6n_quota_guard",
+      "community": 1,
+      "norm_label": "_quota_guard()"
+    },
+    {
+      "label": "_num()",
+      "file_type": "code",
+      "source_file": "ingest_6n.py",
+      "source_location": "L108",
+      "id": "6n_ingest_6n_num",
+      "community": 1,
+      "norm_label": "_num()"
+    },
+    {
+      "label": "derive_minutes()",
+      "file_type": "code",
+      "source_file": "ingest_6n.py",
+      "source_location": "L116",
+      "id": "6n_ingest_6n_derive_minutes",
+      "community": 1,
+      "norm_label": "derive_minutes()"
+    },
+    {
+      "label": "player_minutes()",
+      "file_type": "code",
+      "source_file": "ingest_6n.py",
+      "source_location": "L136",
+      "id": "6n_ingest_6n_player_minutes",
+      "community": 1,
+      "norm_label": "player_minutes()"
+    },
+    {
+      "label": "ingest()",
+      "file_type": "code",
+      "source_file": "ingest_6n.py",
+      "source_location": "L145",
+      "id": "6n_ingest_6n_ingest",
+      "community": 1,
+      "norm_label": "ingest()"
+    },
+    {
+      "label": "_flatten_one_team_stats()",
+      "file_type": "code",
+      "source_file": "ingest_6n.py",
+      "source_location": "L242",
+      "id": "6n_ingest_6n_flatten_one_team_stats",
+      "community": 1,
+      "norm_label": "_flatten_one_team_stats()"
+    },
+    {
+      "label": "flatten_team_stats()",
+      "file_type": "code",
+      "source_file": "ingest_6n.py",
+      "source_location": "L260",
+      "id": "6n_ingest_6n_flatten_team_stats",
+      "community": 1,
+      "norm_label": "flatten_team_stats()"
+    },
+    {
+      "label": "add_position_and_recon()",
+      "file_type": "code",
+      "source_file": "ingest_6n.py",
+      "source_location": "L324",
+      "id": "6n_ingest_6n_add_position_and_recon",
+      "community": 1,
+      "norm_label": "add_position_and_recon()"
+    },
+    {
+      "label": "main()",
+      "file_type": "code",
+      "source_file": "ingest_6n.py",
+      "source_location": "L369",
+      "id": "6n_ingest_6n_main",
+      "community": 1,
+      "norm_label": "main()"
+    },
+    {
+      "label": "Raised to stop a backfill cleanly when api.remaining < QUOTA_FLOOR.",
+      "file_type": "rationale",
+      "source_file": "ingest_6n.py",
+      "source_location": "L55",
+      "id": "6n_ingest_6n_rationale_55",
+      "community": 1,
+      "norm_label": "raised to stop a backfill cleanly when api.remaining < quota_floor."
+    },
+    {
+      "label": "6N keeps every match (all cached seasons are free PIT history). A club comp",
+      "file_type": "rationale",
+      "source_file": "ingest_6n.py",
+      "source_location": "L59",
+      "id": "6n_ingest_6n_rationale_59",
+      "community": 1,
+      "norm_label": "6n keeps every match (all cached seasons are free pit history). a club comp"
+    },
+    {
+      "label": "True when a (comp, season) has no eligible matches and must not even be     fetc",
+      "file_type": "rationale",
+      "source_file": "ingest_6n.py",
+      "source_location": "L71",
+      "id": "6n_ingest_6n_rationale_71",
+      "community": 1,
+      "norm_label": "true when a (comp, season) has no eligible matches and must not even be     fetc"
+    },
+    {
+      "label": "Stop *before* the next quota-spending /match once we near the cap.",
+      "file_type": "rationale",
+      "source_file": "ingest_6n.py",
+      "source_location": "L78",
+      "id": "6n_ingest_6n_rationale_78",
+      "community": 1,
+      "norm_label": "stop *before* the next quota-spending /match once we near the cap."
+    },
+    {
+      "label": "Return (off_time_by_pid, on_time_by_pid, cards_by_pid) from events.",
+      "file_type": "rationale",
+      "source_file": "ingest_6n.py",
+      "source_location": "L117",
+      "id": "6n_ingest_6n_rationale_117",
+      "community": 1,
+      "norm_label": "return (off_time_by_pid, on_time_by_pid, cards_by_pid) from events."
+    },
+    {
+      "label": "Build the long player-per-match table for the given comps \u00d7 seasons.      `comps",
+      "file_type": "rationale",
+      "source_file": "ingest_6n.py",
+      "source_location": "L146",
+      "id": "6n_ingest_6n_rationale_146",
+      "community": 1,
+      "norm_label": "build the long player-per-match table for the given comps \u00d7 seasons.      `comps"
+    },
+    {
+      "label": "team_stats dict (or list) -> {stat: numeric}, group-prefixed on collision.",
+      "file_type": "rationale",
+      "source_file": "ingest_6n.py",
+      "source_location": "L243",
+      "id": "6n_ingest_6n_rationale_243",
+      "community": 1,
+      "norm_label": "team_stats dict (or list) -> {stat: numeric}, group-prefixed on collision."
+    },
+    {
+      "label": "One row per (completed match, team): identity + for/against outcome +     that t",
+      "file_type": "rationale",
+      "source_file": "ingest_6n.py",
+      "source_location": "L261",
+      "id": "6n_ingest_6n_rationale_261",
+      "community": 1,
+      "norm_label": "one row per (completed match, team): identity + for/against outcome +     that t"
+    },
+    {
+      "label": "Derive each player's canonical fantasy position (modal start jersey),     then c",
+      "file_type": "rationale",
+      "source_file": "ingest_6n.py",
+      "source_location": "L325",
+      "id": "6n_ingest_6n_rationale_325",
+      "community": 1,
+      "norm_label": "derive each player's canonical fantasy position (modal start jersey),     then c"
+    },
+    {
+      "label": "rugbypass_backfill.py",
+      "file_type": "code",
+      "source_file": "rugbypass_backfill.py",
+      "source_location": "L1",
+      "id": "rugbypass_backfill_py",
+      "community": 10,
+      "norm_label": "rugbypass_backfill.py"
+    },
+    {
+      "label": "fold()",
+      "file_type": "code",
+      "source_file": "rugbypass_backfill.py",
+      "source_location": "L66",
+      "id": "6n_rugbypass_backfill_fold",
+      "community": 10,
+      "norm_label": "fold()"
+    },
+    {
+      "label": "slug_candidates()",
+      "file_type": "code",
+      "source_file": "rugbypass_backfill.py",
+      "source_location": "L72",
+      "id": "6n_rugbypass_backfill_slug_candidates",
+      "community": 10,
+      "norm_label": "slug_candidates()"
+    },
+    {
+      "label": "unmatched_api_players()",
+      "file_type": "code",
+      "source_file": "rugbypass_backfill.py",
+      "source_location": "L96",
+      "id": "6n_rugbypass_backfill_unmatched_api_players",
+      "community": 10,
+      "norm_label": "unmatched_api_players()"
+    },
+    {
+      "label": "fetch()",
+      "file_type": "code",
+      "source_file": "rugbypass_backfill.py",
+      "source_location": "L106",
+      "id": "6n_rugbypass_backfill_fetch",
+      "community": 10,
+      "norm_label": "fetch()"
+    },
+    {
+      "label": "resolve_and_scrape()",
+      "file_type": "code",
+      "source_file": "rugbypass_backfill.py",
+      "source_location": "L116",
+      "id": "6n_rugbypass_backfill_resolve_and_scrape",
+      "community": 10,
+      "norm_label": "resolve_and_scrape()"
+    },
+    {
+      "label": "main()",
+      "file_type": "code",
+      "source_file": "rugbypass_backfill.py",
+      "source_location": "L209",
+      "id": "6n_rugbypass_backfill_main",
+      "community": 10,
+      "norm_label": "main()"
+    },
+    {
+      "label": "ASCII-fold + lowercase: 'S\u00e9bastien' -> 'sebastien'.",
+      "file_type": "rationale",
+      "source_file": "rugbypass_backfill.py",
+      "source_location": "L67",
+      "id": "6n_rugbypass_backfill_rationale_67",
+      "community": 10,
+      "norm_label": "ascii-fold + lowercase: 'sebastien' -> 'sebastien'."
+    },
+    {
+      "label": "Ordered RugbyPass slug guesses for an API player name.",
+      "file_type": "rationale",
+      "source_file": "rugbypass_backfill.py",
+      "source_location": "L73",
+      "id": "6n_rugbypass_backfill_rationale_73",
+      "community": 10,
+      "norm_label": "ordered rugbypass slug guesses for an api player name."
+    },
+    {
+      "label": "API players present in the crosswalk but not linked to RugbyPass.",
+      "file_type": "rationale",
+      "source_file": "rugbypass_backfill.py",
+      "source_location": "L97",
+      "id": "6n_rugbypass_backfill_rationale_97",
+      "community": 10,
+      "norm_label": "api players present in the crosswalk but not linked to rugbypass."
+    },
+    {
+      "label": "Return (status_code, html_or_None) for a RugbyPass player slug.",
+      "file_type": "rationale",
+      "source_file": "rugbypass_backfill.py",
+      "source_location": "L107",
+      "id": "6n_rugbypass_backfill_rationale_107",
+      "community": 10,
+      "norm_label": "return (status_code, html_or_none) for a rugbypass player slug."
+    },
+    {
+      "label": "DATA_EXTRACTION_PLAN.md",
+      "file_type": "document",
+      "source_file": "DATA_EXTRACTION_PLAN.md",
+      "source_location": "L1",
+      "id": "data_extraction_plan_md",
+      "community": 4,
+      "norm_label": "data_extraction_plan.md"
+    },
+    {
+      "label": "Six Nations Picker \u2014 Complete Data Extraction (Once-and-Done)",
+      "file_type": "document",
+      "source_file": "DATA_EXTRACTION_PLAN.md",
+      "source_location": "L1",
+      "id": "6n_data_extraction_plan_six_nations_picker_complete_data_extraction_once_and_done",
+      "community": 4,
+      "norm_label": "six nations picker \u2014 complete data extraction (once-and-done)"
+    },
+    {
+      "label": "Spend & coverage summary (verified 2026-06-15)",
+      "file_type": "document",
+      "source_file": "DATA_EXTRACTION_PLAN.md",
+      "source_location": "L19",
+      "id": "6n_data_extraction_plan_spend_coverage_summary_verified_2026_06_15",
+      "community": 4,
+      "norm_label": "spend & coverage summary (verified 2026-06-15)"
+    },
+    {
+      "label": "Phase 0 \u2014 Allowed APIs / Sources (READ FIRST, do not invent)",
+      "file_type": "document",
+      "source_file": "DATA_EXTRACTION_PLAN.md",
+      "source_location": "L33",
+      "id": "6n_data_extraction_plan_phase_0_allowed_apis_sources_read_first_do_not_invent",
+      "community": 4,
+      "norm_label": "phase 0 \u2014 allowed apis / sources (read first, do not invent)"
+    },
+    {
+      "label": "rugby-live-data \u2014 `rugby_api.RugbyAPI` (`rugby_api.py`)",
+      "file_type": "document",
+      "source_file": "DATA_EXTRACTION_PLAN.md",
+      "source_location": "L35",
+      "id": "6n_data_extraction_plan_rugby_live_data_rugby_api_rugbyapi_rugby_api_py",
+      "community": 4,
+      "norm_label": "rugby-live-data \u2014 `rugby_api.rugbyapi` (`rugby_api.py`)"
+    },
+    {
+      "label": "WR / Pulselive (free, no key) \u2014 VERIFIED working this session",
+      "file_type": "document",
+      "source_file": "DATA_EXTRACTION_PLAN.md",
+      "source_location": "L50",
+      "id": "6n_data_extraction_plan_wr_pulselive_free_no_key_verified_working_this_session",
+      "community": 4,
+      "norm_label": "wr / pulselive (free, no key) \u2014 verified working this session"
+    },
+    {
+      "label": "RugbyPass \u2014 `rugbypass_batch.py` (Selenium, no login)",
+      "file_type": "document",
+      "source_file": "DATA_EXTRACTION_PLAN.md",
+      "source_location": "L60",
+      "id": "6n_data_extraction_plan_rugbypass_rugbypass_batch_py_selenium_no_login",
+      "community": 4,
+      "norm_label": "rugbypass \u2014 `rugbypass_batch.py` (selenium, no login)"
+    },
+    {
+      "label": "Official fantasy labels (manual xlsx)",
+      "file_type": "document",
+      "source_file": "DATA_EXTRACTION_PLAN.md",
+      "source_location": "L74",
+      "id": "6n_data_extraction_plan_official_fantasy_labels_manual_xlsx",
+      "community": 4,
+      "norm_label": "official fantasy labels (manual xlsx)"
+    },
+    {
+      "label": "Phase 1 \u2014 Repair & consolidate FREE sources (0 API spend)",
+      "file_type": "document",
+      "source_file": "DATA_EXTRACTION_PLAN.md",
+      "source_location": "L84",
+      "id": "6n_data_extraction_plan_phase_1_repair_consolidate_free_sources_0_api_spend",
+      "community": 4,
+      "norm_label": "phase 1 \u2014 repair & consolidate free sources (0 api spend)"
+    },
+    {
+      "label": "Phase 2 \u2014 Free international widening (Pulselive, 0 paid quota)",
+      "file_type": "document",
+      "source_file": "DATA_EXTRACTION_PLAN.md",
+      "source_location": "L106",
+      "id": "6n_data_extraction_plan_phase_2_free_international_widening_pulselive_0_paid_quota",
+      "community": 4,
+      "norm_label": "phase 2 \u2014 free international widening (pulselive, 0 paid quota)"
+    },
+    {
+      "label": "Phase 3 \u2014 `build_crosswalk.py` (new) \u2192 `data/player_crosswalk.csv`",
+      "file_type": "document",
+      "source_file": "DATA_EXTRACTION_PLAN.md",
+      "source_location": "L121",
+      "id": "6n_data_extraction_plan_phase_3_build_crosswalk_py_new_data_player_crosswalk_csv",
+      "community": 4,
+      "norm_label": "phase 3 \u2014 `build_crosswalk.py` (new) \u2192 `data/player_crosswalk.csv`"
+    },
+    {
+      "label": "Phase 4 \u2014 PAID club backfill (the single spend) \ud83d\udfe1",
+      "file_type": "document",
+      "source_file": "DATA_EXTRACTION_PLAN.md",
+      "source_location": "L126",
+      "id": "6n_data_extraction_plan_phase_4_paid_club_backfill_the_single_spend",
+      "community": 4,
+      "norm_label": "phase 4 \u2014 paid club backfill (the single spend) \ud83d\udfe1"
+    },
+    {
+      "label": "Phase 5 \u2014 `build_features.py` (new) \u2192 `data/model_player_match.csv` (0 API)",
+      "file_type": "document",
+      "source_file": "DATA_EXTRACTION_PLAN.md",
+      "source_location": "L139",
+      "id": "6n_data_extraction_plan_phase_5_build_features_py_new_data_model_player_match_csv_0_api",
+      "community": 4,
+      "norm_label": "phase 5 \u2014 `build_features.py` (new) \u2192 `data/model_player_match.csv` (0 api)"
+    },
+    {
+      "label": "Phase 6 \u2014 `build_targets.py` (new) \u2192 `data/model_targets.csv` (0 API)",
+      "file_type": "document",
+      "source_file": "DATA_EXTRACTION_PLAN.md",
+      "source_location": "L153",
+      "id": "6n_data_extraction_plan_phase_6_build_targets_py_new_data_model_targets_csv_0_api",
+      "community": 4,
+      "norm_label": "phase 6 \u2014 `build_targets.py` (new) \u2192 `data/model_targets.csv` (0 api)"
+    },
+    {
+      "label": "Phase 7 \u2014 Verification (final, gate before training)",
+      "file_type": "document",
+      "source_file": "DATA_EXTRACTION_PLAN.md",
+      "source_location": "L162",
+      "id": "6n_data_extraction_plan_phase_7_verification_final_gate_before_training",
+      "community": 4,
+      "norm_label": "phase 7 \u2014 verification (final, gate before training)"
+    },
+    {
+      "label": "Future updates (the \"months later\" upkeep \u2014 not part of this once-and-done)",
+      "file_type": "document",
+      "source_file": "DATA_EXTRACTION_PLAN.md",
+      "source_location": "L173",
+      "id": "6n_data_extraction_plan_future_updates_the_months_later_upkeep_not_part_of_this_once_and_done",
+      "community": 4,
+      "norm_label": "future updates (the \"months later\" upkeep \u2014 not part of this once-and-done)"
+    },
+    {
+      "label": "Reuse map",
+      "file_type": "document",
+      "source_file": "DATA_EXTRACTION_PLAN.md",
+      "source_location": "L179",
+      "id": "6n_data_extraction_plan_reuse_map",
+      "community": 4,
+      "norm_label": "reuse map"
+    },
+    {
+      "label": "Prior-meetings pool for head-to-head, UNIONing the rich     api_team_match rows",
+      "file_type": "rationale",
+      "source_file": "build_team_form.py",
+      "source_location": "L74",
+      "community": 5,
+      "norm_label": "prior-meetings pool for head-to-head, unioning the rich     api_team_match rows",
+      "id": "6n_build_team_form_rationale_74"
+    },
+    {
+      "label": "Exponentially weighted mean, weight = 0.5 ** (days_ago / half_life).",
+      "file_type": "rationale",
+      "source_file": "build_team_form.py",
+      "source_location": "L108",
+      "community": 5,
+      "norm_label": "exponentially weighted mean, weight = 0.5 ** (days_ago / half_life).",
+      "id": "6n_build_team_form_rationale_108"
+    },
+    {
+      "label": "PIT-join World Rugby strength (data/wr_rankings.csv) by (date, team) and     (da",
+      "file_type": "rationale",
+      "source_file": "build_team_form.py",
+      "source_location": "L171",
+      "community": 5,
+      "norm_label": "pit-join world rugby strength (data/wr_rankings.csv) by (date, team) and     (da",
+      "id": "6n_build_team_form_rationale_171"
+    },
+    {
+      "label": "Prior-meetings pool for head-to-head, UNIONing the rich     api_team_match rows",
+      "file_type": "rationale",
+      "source_file": "build_team_form.py",
+      "source_location": "L69",
+      "community": 5,
+      "norm_label": "prior-meetings pool for head-to-head, unioning the rich     api_team_match rows",
+      "id": "6n_build_team_form_rationale_69"
+    },
+    {
+      "label": "Exponentially weighted mean, weight = 0.5 ** (days_ago / half_life).",
+      "file_type": "rationale",
+      "source_file": "build_team_form.py",
+      "source_location": "L103",
+      "community": 5,
+      "norm_label": "exponentially weighted mean, weight = 0.5 ** (days_ago / half_life).",
+      "id": "6n_build_team_form_rationale_103"
+    },
+    {
+      "label": "PIT-join World Rugby strength (data/wr_rankings.csv) by (date, team) and     (da",
+      "file_type": "rationale",
+      "source_file": "build_team_form.py",
+      "source_location": "L166",
+      "community": 5,
+      "norm_label": "pit-join world rugby strength (data/wr_rankings.csv) by (date, team) and     (da",
+      "id": "6n_build_team_form_rationale_166"
+    },
+    {
+      "label": "RugbyPass labels are mixed: '2025/2026' (club) and '2026' (intl). The     PIT-co",
+      "file_type": "rationale",
+      "source_file": "build_features.py",
+      "source_location": "L90",
+      "community": 3,
+      "norm_label": "rugbypass labels are mixed: '2025/2026' (club) and '2026' (intl). the     pit-co",
+      "id": "6n_build_features_rationale_90"
+    },
+    {
+      "label": "Minutes-weighted per-80 rates over the player's **completed prior**     RugbyPas",
+      "file_type": "rationale",
+      "source_file": "build_features.py",
+      "source_location": "L97",
+      "community": 3,
+      "norm_label": "minutes-weighted per-80 rates over the player's **completed prior**     rugbypas",
+      "id": "6n_build_features_rationale_97"
+    },
+    {
+      "label": "Decayed per-80 FORM rates + minutes/start trend + ROLE signals, over the     pla",
+      "file_type": "rationale",
+      "source_file": "build_features.py",
+      "source_location": "L127",
+      "community": 3,
+      "norm_label": "decayed per-80 form rates + minutes/start trend + role signals, over the     pla",
+      "id": "6n_build_features_rationale_127"
+    },
+    {
+      "label": "Own side's decayed attacking output over its matches before the fixture.",
+      "file_type": "rationale",
+      "source_file": "build_features.py",
+      "source_location": "L163",
+      "community": 3,
+      "norm_label": "own side's decayed attacking output over its matches before the fixture.",
+      "id": "6n_build_features_rationale_163"
+    },
+    {
+      "label": "_validate_latent()",
+      "file_type": "code",
+      "source_file": "build_targets.py",
+      "source_location": "L157",
+      "community": 8,
+      "norm_label": "_validate_latent()",
+      "id": "6n_build_targets_validate_latent"
+    },
+    {
+      "label": "Deterministic fantasy score under the **modern** (2025/2026) official     formul",
+      "file_type": "rationale",
+      "source_file": "build_targets.py",
+      "source_location": "L78",
+      "community": 8,
+      "norm_label": "deterministic fantasy score under the **modern** (2025/2026) official     formul",
+      "id": "6n_build_targets_rationale_78"
+    },
+    {
+      "label": "Cross-check: for modern labelled rows, the residual (official \u2212 recon)     shoul",
+      "file_type": "rationale",
+      "source_file": "build_targets.py",
+      "source_location": "L158",
+      "community": 8,
+      "norm_label": "cross-check: for modern labelled rows, the residual (official \u2212 recon)     shoul",
+      "id": "6n_build_targets_rationale_158"
+    },
+    {
+      "label": "True if RP nationality and API/official team don't actively conflict.",
+      "file_type": "rationale",
+      "source_file": "build_crosswalk.py",
+      "source_location": "L170",
+      "community": 0,
+      "norm_label": "true if rp nationality and api/official team don't actively conflict.",
+      "id": "6n_build_crosswalk_rationale_170"
+    },
+    {
+      "label": "Single source a lonely row belongs to: 'api' | 'rp' | 'official'.",
+      "file_type": "rationale",
+      "source_file": "build_crosswalk.py",
+      "source_location": "L179",
+      "community": 0,
+      "norm_label": "single source a lonely row belongs to: 'api' | 'rp' | 'official'.",
+      "id": "6n_build_crosswalk_rationale_179"
+    },
+    {
+      "label": "Surname forms by which this lonely row may be matched.      Combines the norm_ke",
+      "file_type": "rationale",
+      "source_file": "build_crosswalk.py",
+      "source_location": "L188",
+      "community": 0,
+      "norm_label": "surname forms by which this lonely row may be matched.      combines the norm_ke",
+      "id": "6n_build_crosswalk_rationale_188"
+    },
+    {
+      "label": "Recover cross-source singletons that share a unique surname.      A 'lonely' row",
+      "file_type": "rationale",
+      "source_file": "build_crosswalk.py",
+      "source_location": "L210",
+      "community": 0,
+      "norm_label": "recover cross-source singletons that share a unique surname.      a 'lonely' row",
+      "id": "6n_build_crosswalk_rationale_210"
+    },
+    {
+      "label": "Merge two partially-filled rows that are the same player under official     name",
+      "file_type": "rationale",
+      "source_file": "build_crosswalk.py",
+      "source_location": "L285",
+      "community": 0,
+      "norm_label": "merge two partially-filled rows that are the same player under official     name",
+      "id": "6n_build_crosswalk_rationale_285"
+    },
+    {
+      "label": "Merge row `drop` into row `keep` in place; mark match_method='surname'.",
+      "file_type": "rationale",
+      "source_file": "build_crosswalk.py",
+      "source_location": "L324",
+      "community": 0,
+      "norm_label": "merge row `drop` into row `keep` in place; mark match_method='surname'.",
+      "id": "6n_build_crosswalk_rationale_324"
+    },
+    {
+      "label": "Deterministic fantasy score under the **modern** (2025/2026) official     formul",
+      "file_type": "rationale",
+      "source_file": "build_targets.py",
+      "source_location": "L77",
+      "community": 8,
+      "norm_label": "deterministic fantasy score under the **modern** (2025/2026) official     formul",
+      "id": "6n_build_targets_rationale_77"
+    },
+    {
+      "label": "Cross-check: for modern labelled rows, the residual (official \u2212 recon)     shoul",
+      "file_type": "rationale",
+      "source_file": "build_targets.py",
+      "source_location": "L157",
+      "community": 8,
+      "norm_label": "cross-check: for modern labelled rows, the residual (official \u2212 recon)     shoul",
+      "id": "6n_build_targets_rationale_157"
+    }
+  ],
+  "links": [
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "build_wr.py",
+      "source_location": "L42",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "build_wr_py",
+      "target": "6n_build_wr_fetch_snapshot"
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "build_wr.py",
+      "source_location": "L57",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "build_wr_py",
+      "target": "6n_build_wr_snapshot_rows"
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "build_wr.py",
+      "source_location": "L73",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "build_wr_py",
+      "target": "6n_build_wr_main"
+    },
+    {
+      "relation": "calls",
+      "context": "call",
+      "confidence": "EXTRACTED",
+      "source_file": "build_wr.py",
+      "source_location": "L89",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "6n_build_wr_main",
+      "target": "6n_build_wr_fetch_snapshot"
+    },
+    {
+      "relation": "rationale_for",
+      "confidence": "EXTRACTED",
+      "source_file": "build_wr.py",
+      "source_location": "L43",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "6n_build_wr_rationale_43",
+      "target": "6n_build_wr_fetch_snapshot"
+    },
+    {
+      "relation": "calls",
+      "context": "call",
+      "confidence": "EXTRACTED",
+      "source_file": "build_wr.py",
+      "source_location": "L89",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "6n_build_wr_main",
+      "target": "6n_build_wr_snapshot_rows"
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "build_intl_results.py",
+      "source_location": "L62",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "build_intl_results_py",
+      "target": "6n_build_intl_results_get"
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "build_intl_results.py",
+      "source_location": "L68",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "build_intl_results_py",
+      "target": "6n_build_intl_results_fetch_chunk"
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "build_intl_results.py",
+      "source_location": "L92",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "build_intl_results_py",
+      "target": "6n_build_intl_results_month_chunks"
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "build_intl_results.py",
+      "source_location": "L105",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "build_intl_results_py",
+      "target": "6n_build_intl_results_rows_from_match"
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "build_intl_results.py",
+      "source_location": "L147",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "build_intl_results_py",
+      "target": "6n_build_intl_results_season"
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "build_intl_results.py",
+      "source_location": "L155",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "build_intl_results_py",
+      "target": "6n_build_intl_results_main"
+    },
+    {
+      "relation": "calls",
+      "context": "call",
+      "confidence": "EXTRACTED",
+      "source_file": "build_intl_results.py",
+      "source_location": "L77",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "6n_build_intl_results_fetch_chunk",
+      "target": "6n_build_intl_results_get"
+    },
+    {
+      "relation": "calls",
+      "context": "call",
+      "confidence": "EXTRACTED",
+      "source_file": "build_intl_results.py",
+      "source_location": "L168",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "6n_build_intl_results_main",
+      "target": "6n_build_intl_results_fetch_chunk"
+    },
+    {
+      "relation": "rationale_for",
+      "confidence": "EXTRACTED",
+      "source_file": "build_intl_results.py",
+      "source_location": "L69",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "6n_build_intl_results_rationale_69",
+      "target": "6n_build_intl_results_fetch_chunk"
+    },
+    {
+      "relation": "calls",
+      "context": "call",
+      "confidence": "EXTRACTED",
+      "source_file": "build_intl_results.py",
+      "source_location": "L163",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "6n_build_intl_results_main",
+      "target": "6n_build_intl_results_month_chunks"
+    },
+    {
+      "relation": "rationale_for",
+      "confidence": "EXTRACTED",
+      "source_file": "build_intl_results.py",
+      "source_location": "L93",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "6n_build_intl_results_rationale_93",
+      "target": "6n_build_intl_results_month_chunks"
+    },
+    {
+      "relation": "calls",
+      "context": "call",
+      "confidence": "EXTRACTED",
+      "source_file": "build_intl_results.py",
+      "source_location": "L169",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "6n_build_intl_results_main",
+      "target": "6n_build_intl_results_rows_from_match"
+    },
+    {
+      "relation": "rationale_for",
+      "confidence": "EXTRACTED",
+      "source_file": "build_intl_results.py",
+      "source_location": "L106",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "6n_build_intl_results_rationale_106",
+      "target": "6n_build_intl_results_rows_from_match"
+    },
+    {
+      "relation": "rationale_for",
+      "confidence": "EXTRACTED",
+      "source_file": "build_intl_results.py",
+      "source_location": "L148",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "6n_build_intl_results_rationale_148",
+      "target": "6n_build_intl_results_season"
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "build_team_form.py",
+      "source_location": "L68",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "build_team_form_py",
+      "target": "6n_build_team_form_load_h2h_meetings"
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "build_team_form.py",
+      "source_location": "L102",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "build_team_form_py",
+      "target": "6n_build_team_form_decayed_mean"
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "build_team_form.py",
+      "source_location": "L112",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "build_team_form_py",
+      "target": "6n_build_team_form_build"
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "build_team_form.py",
+      "source_location": "L165",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "build_team_form_py",
+      "target": "6n_build_team_form_merge_wr"
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "build_team_form.py",
+      "source_location": "L183",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "build_team_form_py",
+      "target": "6n_build_team_form_main"
+    },
+    {
+      "relation": "calls",
+      "context": "call",
+      "confidence": "EXTRACTED",
+      "source_file": "build_team_form.py",
+      "source_location": "L120",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "6n_build_team_form_build",
+      "target": "6n_build_team_form_load_h2h_meetings"
+    },
+    {
+      "relation": "rationale_for",
+      "confidence": "EXTRACTED",
+      "source_file": "build_team_form.py",
+      "source_location": "L80",
+      "weight": 1.0,
+      "source": "6n_build_team_form_rationale_80",
+      "target": "6n_build_team_form_load_h2h_meetings",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "rationale_for",
+      "confidence": "EXTRACTED",
+      "source_file": "build_team_form.py",
+      "source_location": "L74",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "6n_build_team_form_rationale_74",
+      "target": "6n_build_team_form_load_h2h_meetings"
+    },
+    {
+      "relation": "rationale_for",
+      "confidence": "EXTRACTED",
+      "source_file": "build_team_form.py",
+      "source_location": "L69",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "6n_build_team_form_rationale_69",
+      "target": "6n_build_team_form_load_h2h_meetings"
+    },
+    {
+      "relation": "calls",
+      "context": "call",
+      "confidence": "EXTRACTED",
+      "source_file": "build_team_form.py",
+      "source_location": "L152",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "6n_build_team_form_build",
+      "target": "6n_build_team_form_decayed_mean"
+    },
+    {
+      "relation": "rationale_for",
+      "confidence": "EXTRACTED",
+      "source_file": "build_team_form.py",
+      "source_location": "L114",
+      "weight": 1.0,
+      "source": "6n_build_team_form_rationale_114",
+      "target": "6n_build_team_form_decayed_mean",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "rationale_for",
+      "confidence": "EXTRACTED",
+      "source_file": "build_team_form.py",
+      "source_location": "L108",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "6n_build_team_form_rationale_108",
+      "target": "6n_build_team_form_decayed_mean"
+    },
+    {
+      "relation": "rationale_for",
+      "confidence": "EXTRACTED",
+      "source_file": "build_team_form.py",
+      "source_location": "L103",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "6n_build_team_form_rationale_103",
+      "target": "6n_build_team_form_decayed_mean"
+    },
+    {
+      "relation": "calls",
+      "context": "call",
+      "confidence": "EXTRACTED",
+      "source_file": "build_team_form.py",
+      "source_location": "L162",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "6n_build_team_form_build",
+      "target": "6n_build_team_form_merge_wr"
+    },
+    {
+      "relation": "calls",
+      "context": "call",
+      "confidence": "EXTRACTED",
+      "source_file": "build_team_form.py",
+      "source_location": "L192",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "6n_build_team_form_main",
+      "target": "6n_build_team_form_build"
+    },
+    {
+      "relation": "rationale_for",
+      "confidence": "EXTRACTED",
+      "source_file": "build_team_form.py",
+      "source_location": "L177",
+      "weight": 1.0,
+      "source": "6n_build_team_form_rationale_177",
+      "target": "6n_build_team_form_merge_wr",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "rationale_for",
+      "confidence": "EXTRACTED",
+      "source_file": "build_team_form.py",
+      "source_location": "L171",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "6n_build_team_form_rationale_171",
+      "target": "6n_build_team_form_merge_wr"
+    },
+    {
+      "relation": "rationale_for",
+      "confidence": "EXTRACTED",
+      "source_file": "build_team_form.py",
+      "source_location": "L166",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "6n_build_team_form_rationale_166",
+      "target": "6n_build_team_form_merge_wr"
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "rugby_api.py",
+      "source_location": "L46",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "rugby_api_py",
+      "target": "6n_rugby_api_rugbyapi"
+    },
+    {
+      "relation": "method",
+      "confidence": "EXTRACTED",
+      "source_file": "rugby_api.py",
+      "source_location": "L47",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "6n_rugby_api_rugbyapi",
+      "target": "6n_rugby_api_rugbyapi_init"
+    },
+    {
+      "relation": "method",
+      "confidence": "EXTRACTED",
+      "source_file": "rugby_api.py",
+      "source_location": "L61",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "6n_rugby_api_rugbyapi",
+      "target": "6n_rugby_api_rugbyapi_cache_path"
+    },
+    {
+      "relation": "method",
+      "confidence": "EXTRACTED",
+      "source_file": "rugby_api.py",
+      "source_location": "L65",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "6n_rugby_api_rugbyapi",
+      "target": "6n_rugby_api_rugbyapi_get"
+    },
+    {
+      "relation": "method",
+      "confidence": "EXTRACTED",
+      "source_file": "rugby_api.py",
+      "source_location": "L102",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "6n_rugby_api_rugbyapi",
+      "target": "6n_rugby_api_rugbyapi_competitions"
+    },
+    {
+      "relation": "method",
+      "confidence": "EXTRACTED",
+      "source_file": "rugby_api.py",
+      "source_location": "L105",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "6n_rugby_api_rugbyapi",
+      "target": "6n_rugby_api_rugbyapi_fixtures"
+    },
+    {
+      "relation": "method",
+      "confidence": "EXTRACTED",
+      "source_file": "rugby_api.py",
+      "source_location": "L108",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "6n_rugby_api_rugbyapi",
+      "target": "6n_rugby_api_rugbyapi_fixtures_by_team"
+    },
+    {
+      "relation": "method",
+      "confidence": "EXTRACTED",
+      "source_file": "rugby_api.py",
+      "source_location": "L111",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "6n_rugby_api_rugbyapi",
+      "target": "6n_rugby_api_rugbyapi_match"
+    },
+    {
+      "relation": "method",
+      "confidence": "EXTRACTED",
+      "source_file": "rugby_api.py",
+      "source_location": "L114",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "6n_rugby_api_rugbyapi",
+      "target": "6n_rugby_api_rugbyapi_standings"
+    },
+    {
+      "relation": "uses",
+      "confidence": "INFERRED",
+      "source_file": "ingest_6n.py",
+      "source_location": "L38",
+      "weight": 0.8,
+      "confidence_score": 0.5,
+      "source": "6n_ingest_6n_quotaexhausted",
+      "target": "6n_rugby_api_rugbyapi"
+    },
+    {
+      "relation": "calls",
+      "context": "call",
+      "confidence": "INFERRED",
+      "confidence_score": 0.8,
+      "source_file": "ingest_6n.py",
+      "source_location": "L154",
+      "weight": 1.0,
+      "source": "6n_ingest_6n_ingest",
+      "target": "6n_rugby_api_rugbyapi"
+    },
+    {
+      "relation": "calls",
+      "context": "call",
+      "confidence": "INFERRED",
+      "confidence_score": 0.8,
+      "source_file": "ingest_6n.py",
+      "source_location": "L264",
+      "weight": 1.0,
+      "source": "6n_ingest_6n_flatten_team_stats",
+      "target": "6n_rugby_api_rugbyapi"
+    },
+    {
+      "relation": "calls",
+      "context": "call",
+      "confidence": "EXTRACTED",
+      "source_file": "rugby_api.py",
+      "source_location": "L49",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "6n_rugby_api_rugbyapi_init",
+      "target": "6n_rugby_api_rugbyapi_get"
+    },
+    {
+      "relation": "calls",
+      "context": "call",
+      "confidence": "EXTRACTED",
+      "source_file": "rugby_api.py",
+      "source_location": "L67",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "6n_rugby_api_rugbyapi_get",
+      "target": "6n_rugby_api_rugbyapi_cache_path"
+    },
+    {
+      "relation": "calls",
+      "context": "call",
+      "confidence": "EXTRACTED",
+      "source_file": "rugby_api.py",
+      "source_location": "L103",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "6n_rugby_api_rugbyapi_competitions",
+      "target": "6n_rugby_api_rugbyapi_get"
+    },
+    {
+      "relation": "calls",
+      "context": "call",
+      "confidence": "EXTRACTED",
+      "source_file": "rugby_api.py",
+      "source_location": "L106",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "6n_rugby_api_rugbyapi_fixtures",
+      "target": "6n_rugby_api_rugbyapi_get"
+    },
+    {
+      "relation": "calls",
+      "context": "call",
+      "confidence": "EXTRACTED",
+      "source_file": "rugby_api.py",
+      "source_location": "L109",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "6n_rugby_api_rugbyapi_fixtures_by_team",
+      "target": "6n_rugby_api_rugbyapi_get"
+    },
+    {
+      "relation": "calls",
+      "context": "call",
+      "confidence": "EXTRACTED",
+      "source_file": "rugby_api.py",
+      "source_location": "L112",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "6n_rugby_api_rugbyapi_match",
+      "target": "6n_rugby_api_rugbyapi_get"
+    },
+    {
+      "relation": "calls",
+      "context": "call",
+      "confidence": "EXTRACTED",
+      "source_file": "rugby_api.py",
+      "source_location": "L115",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "6n_rugby_api_rugbyapi_standings",
+      "target": "6n_rugby_api_rugbyapi_get"
+    },
+    {
+      "relation": "rationale_for",
+      "confidence": "EXTRACTED",
+      "source_file": "rugby_api.py",
+      "source_location": "L66",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "6n_rugby_api_rationale_66",
+      "target": "6n_rugby_api_rugbyapi_get"
+    },
+    {
+      "relation": "calls",
+      "context": "call",
+      "confidence": "INFERRED",
+      "confidence_score": 0.8,
+      "source_file": "rugby_api.py",
+      "source_location": "L89",
+      "weight": 1.0,
+      "source": "6n_rugby_api_rugbyapi_get",
+      "target": "runtimeerror"
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "compare_three_way.py",
+      "source_location": "L50",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "compare_three_way_py",
+      "target": "6n_compare_three_way_slug_key"
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "compare_three_way.py",
+      "source_location": "L58",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "compare_three_way_py",
+      "target": "6n_compare_three_way_load_rugbypass"
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "compare_three_way.py",
+      "source_location": "L82",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "compare_three_way_py",
+      "target": "6n_compare_three_way_agg_official"
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "compare_three_way.py",
+      "source_location": "L94",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "compare_three_way_py",
+      "target": "6n_compare_three_way_agg_api"
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "compare_three_way.py",
+      "source_location": "L109",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "compare_three_way_py",
+      "target": "6n_compare_three_way_corr"
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "compare_three_way.py",
+      "source_location": "L114",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "compare_three_way_py",
+      "target": "6n_compare_three_way_main"
+    },
+    {
+      "relation": "calls",
+      "context": "call",
+      "confidence": "EXTRACTED",
+      "source_file": "compare_three_way.py",
+      "source_location": "L67",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "6n_compare_three_way_load_rugbypass",
+      "target": "6n_compare_three_way_slug_key"
+    },
+    {
+      "relation": "calls",
+      "context": "call",
+      "confidence": "INFERRED",
+      "confidence_score": 0.8,
+      "source_file": "compare_three_way.py",
+      "source_location": "L53",
+      "weight": 1.0,
+      "source": "6n_compare_three_way_slug_key",
+      "target": "6n_compare_api_official_norm_key"
+    },
+    {
+      "relation": "calls",
+      "context": "call",
+      "confidence": "INFERRED",
+      "confidence_score": 0.8,
+      "source_file": "build_rugbypass_tables.py",
+      "source_location": "L102",
+      "weight": 1.0,
+      "source": "6n_build_rugbypass_tables_build_bio",
+      "target": "6n_compare_three_way_slug_key"
+    },
+    {
+      "relation": "calls",
+      "context": "call",
+      "confidence": "INFERRED",
+      "confidence_score": 0.8,
+      "source_file": "build_rugbypass_tables.py",
+      "source_location": "L116",
+      "weight": 1.0,
+      "source": "6n_build_rugbypass_tables_build_compstats",
+      "target": "6n_compare_three_way_slug_key"
+    },
+    {
+      "relation": "calls",
+      "context": "call",
+      "confidence": "INFERRED",
+      "confidence_score": 0.8,
+      "source_file": "build_rugbypass_tables.py",
+      "source_location": "L133",
+      "weight": 1.0,
+      "source": "6n_build_rugbypass_tables_build_matchlog",
+      "target": "6n_compare_three_way_slug_key"
+    },
+    {
+      "relation": "calls",
+      "context": "call",
+      "confidence": "EXTRACTED",
+      "source_file": "compare_three_way.py",
+      "source_location": "L118",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "6n_compare_three_way_main",
+      "target": "6n_compare_three_way_load_rugbypass"
+    },
+    {
+      "relation": "calls",
+      "context": "call",
+      "confidence": "EXTRACTED",
+      "source_file": "compare_three_way.py",
+      "source_location": "L116",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "6n_compare_three_way_main",
+      "target": "6n_compare_three_way_agg_official"
+    },
+    {
+      "relation": "calls",
+      "context": "call",
+      "confidence": "INFERRED",
+      "confidence_score": 0.8,
+      "source_file": "compare_three_way.py",
+      "source_location": "L83",
+      "weight": 1.0,
+      "source": "6n_compare_three_way_agg_official",
+      "target": "6n_compare_api_official_parse_official"
+    },
+    {
+      "relation": "calls",
+      "context": "call",
+      "confidence": "EXTRACTED",
+      "source_file": "compare_three_way.py",
+      "source_location": "L117",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "6n_compare_three_way_main",
+      "target": "6n_compare_three_way_agg_api"
+    },
+    {
+      "relation": "calls",
+      "context": "call",
+      "confidence": "EXTRACTED",
+      "source_file": "compare_three_way.py",
+      "source_location": "L139",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "6n_compare_three_way_main",
+      "target": "6n_compare_three_way_corr"
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "build_features.py",
+      "source_location": "L79",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "build_features_py",
+      "target": "6n_build_features_decay_weights"
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "build_features.py",
+      "source_location": "L84",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "build_features_py",
+      "target": "6n_build_features_bool"
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "build_features.py",
+      "source_location": "L89",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "build_features_py",
+      "target": "6n_build_features_season_end_year"
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "build_features.py",
+      "source_location": "L96",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "build_features_py",
+      "target": "6n_build_features_class_features"
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "build_features.py",
+      "source_location": "L126",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "build_features_py",
+      "target": "6n_build_features_form_role_features"
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "build_features.py",
+      "source_location": "L162",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "build_features_py",
+      "target": "6n_build_features_ownteam_features"
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "build_features.py",
+      "source_location": "L177",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "build_features_py",
+      "target": "6n_build_features_build"
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "build_features.py",
+      "source_location": "L284",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "build_features_py",
+      "target": "6n_build_features_main"
+    },
+    {
+      "relation": "calls",
+      "context": "call",
+      "confidence": "EXTRACTED",
+      "source_file": "build_features.py",
+      "source_location": "L140",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "6n_build_features_form_role_features",
+      "target": "6n_build_features_decay_weights"
+    },
+    {
+      "relation": "calls",
+      "context": "call",
+      "confidence": "EXTRACTED",
+      "source_file": "build_features.py",
+      "source_location": "L169",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "6n_build_features_ownteam_features",
+      "target": "6n_build_features_decay_weights"
+    },
+    {
+      "relation": "calls",
+      "context": "call",
+      "confidence": "EXTRACTED",
+      "source_file": "build_features.py",
+      "source_location": "L147",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "6n_build_features_form_role_features",
+      "target": "6n_build_features_bool"
+    },
+    {
+      "relation": "rationale_for",
+      "confidence": "EXTRACTED",
+      "source_file": "build_features.py",
+      "source_location": "L99",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "6n_build_features_rationale_99",
+      "target": "6n_build_features_season_end_year"
+    },
+    {
+      "relation": "rationale_for",
+      "confidence": "EXTRACTED",
+      "source_file": "build_features.py",
+      "source_location": "L90",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "6n_build_features_rationale_90",
+      "target": "6n_build_features_season_end_year"
+    },
+    {
+      "relation": "calls",
+      "context": "call",
+      "confidence": "EXTRACTED",
+      "source_file": "build_features.py",
+      "source_location": "L237",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "6n_build_features_build",
+      "target": "6n_build_features_class_features"
+    },
+    {
+      "relation": "rationale_for",
+      "confidence": "EXTRACTED",
+      "source_file": "build_features.py",
+      "source_location": "L106",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "6n_build_features_rationale_106",
+      "target": "6n_build_features_class_features"
+    },
+    {
+      "relation": "rationale_for",
+      "confidence": "EXTRACTED",
+      "source_file": "build_features.py",
+      "source_location": "L97",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "6n_build_features_rationale_97",
+      "target": "6n_build_features_class_features"
+    },
+    {
+      "relation": "calls",
+      "context": "call",
+      "confidence": "EXTRACTED",
+      "source_file": "build_features.py",
+      "source_location": "L242",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "6n_build_features_build",
+      "target": "6n_build_features_form_role_features"
+    },
+    {
+      "relation": "rationale_for",
+      "confidence": "EXTRACTED",
+      "source_file": "build_features.py",
+      "source_location": "L136",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "6n_build_features_rationale_136",
+      "target": "6n_build_features_form_role_features"
+    },
+    {
+      "relation": "rationale_for",
+      "confidence": "EXTRACTED",
+      "source_file": "build_features.py",
+      "source_location": "L127",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "6n_build_features_rationale_127",
+      "target": "6n_build_features_form_role_features"
+    },
+    {
+      "relation": "calls",
+      "context": "call",
+      "confidence": "EXTRACTED",
+      "source_file": "build_features.py",
+      "source_location": "L253",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "6n_build_features_build",
+      "target": "6n_build_features_ownteam_features"
+    },
+    {
+      "relation": "rationale_for",
+      "confidence": "EXTRACTED",
+      "source_file": "build_features.py",
+      "source_location": "L185",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "6n_build_features_rationale_185",
+      "target": "6n_build_features_ownteam_features"
+    },
+    {
+      "relation": "rationale_for",
+      "confidence": "EXTRACTED",
+      "source_file": "build_features.py",
+      "source_location": "L163",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "6n_build_features_rationale_163",
+      "target": "6n_build_features_ownteam_features"
+    },
+    {
+      "relation": "calls",
+      "context": "call",
+      "confidence": "EXTRACTED",
+      "source_file": "build_features.py",
+      "source_location": "L289",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "6n_build_features_main",
+      "target": "6n_build_features_build"
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "build_rugbypass_tables.py",
+      "source_location": "L53",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "build_rugbypass_tables_py",
+      "target": "6n_build_rugbypass_tables_num"
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "build_rugbypass_tables.py",
+      "source_location": "L64",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "build_rugbypass_tables_py",
+      "target": "6n_build_rugbypass_tables_parse_height_cm"
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "build_rugbypass_tables.py",
+      "source_location": "L72",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "build_rugbypass_tables_py",
+      "target": "6n_build_rugbypass_tables_parse_weight_kg"
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "build_rugbypass_tables.py",
+      "source_location": "L80",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "build_rugbypass_tables_py",
+      "target": "6n_build_rugbypass_tables_parse_age"
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "build_rugbypass_tables.py",
+      "source_location": "L87",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "build_rugbypass_tables_py",
+      "target": "6n_build_rugbypass_tables_load_json_files"
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "build_rugbypass_tables.py",
+      "source_location": "L97",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "build_rugbypass_tables_py",
+      "target": "6n_build_rugbypass_tables_build_bio"
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "build_rugbypass_tables.py",
+      "source_location": "L113",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "build_rugbypass_tables_py",
+      "target": "6n_build_rugbypass_tables_build_compstats"
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "build_rugbypass_tables.py",
+      "source_location": "L130",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "build_rugbypass_tables_py",
+      "target": "6n_build_rugbypass_tables_build_matchlog"
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "build_rugbypass_tables.py",
+      "source_location": "L156",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "build_rugbypass_tables_py",
+      "target": "6n_build_rugbypass_tables_main"
+    },
+    {
+      "relation": "calls",
+      "context": "call",
+      "confidence": "EXTRACTED",
+      "source_file": "build_rugbypass_tables.py",
+      "source_location": "L67",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "6n_build_rugbypass_tables_parse_height_cm",
+      "target": "6n_build_rugbypass_tables_num"
+    },
+    {
+      "relation": "calls",
+      "context": "call",
+      "confidence": "EXTRACTED",
+      "source_file": "build_rugbypass_tables.py",
+      "source_location": "L75",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "6n_build_rugbypass_tables_parse_weight_kg",
+      "target": "6n_build_rugbypass_tables_num"
+    },
+    {
+      "relation": "calls",
+      "context": "call",
+      "confidence": "EXTRACTED",
+      "source_file": "build_rugbypass_tables.py",
+      "source_location": "L125",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "6n_build_rugbypass_tables_build_compstats",
+      "target": "6n_build_rugbypass_tables_num"
+    },
+    {
+      "relation": "calls",
+      "context": "call",
+      "confidence": "EXTRACTED",
+      "source_file": "build_rugbypass_tables.py",
+      "source_location": "L144",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "6n_build_rugbypass_tables_build_matchlog",
+      "target": "6n_build_rugbypass_tables_num"
+    },
+    {
+      "relation": "rationale_for",
+      "confidence": "EXTRACTED",
+      "source_file": "build_rugbypass_tables.py",
+      "source_location": "L54",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "6n_build_rugbypass_tables_rationale_54",
+      "target": "6n_build_rugbypass_tables_num"
+    },
+    {
+      "relation": "calls",
+      "context": "call",
+      "confidence": "EXTRACTED",
+      "source_file": "build_rugbypass_tables.py",
+      "source_location": "L107",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "6n_build_rugbypass_tables_build_bio",
+      "target": "6n_build_rugbypass_tables_parse_height_cm"
+    },
+    {
+      "relation": "rationale_for",
+      "confidence": "EXTRACTED",
+      "source_file": "build_rugbypass_tables.py",
+      "source_location": "L65",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "6n_build_rugbypass_tables_rationale_65",
+      "target": "6n_build_rugbypass_tables_parse_height_cm"
+    },
+    {
+      "relation": "calls",
+      "context": "call",
+      "confidence": "EXTRACTED",
+      "source_file": "build_rugbypass_tables.py",
+      "source_location": "L108",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "6n_build_rugbypass_tables_build_bio",
+      "target": "6n_build_rugbypass_tables_parse_weight_kg"
+    },
+    {
+      "relation": "rationale_for",
+      "confidence": "EXTRACTED",
+      "source_file": "build_rugbypass_tables.py",
+      "source_location": "L73",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "6n_build_rugbypass_tables_rationale_73",
+      "target": "6n_build_rugbypass_tables_parse_weight_kg"
+    },
+    {
+      "relation": "calls",
+      "context": "call",
+      "confidence": "EXTRACTED",
+      "source_file": "build_rugbypass_tables.py",
+      "source_location": "L105",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "6n_build_rugbypass_tables_build_bio",
+      "target": "6n_build_rugbypass_tables_parse_age"
+    },
+    {
+      "relation": "calls",
+      "context": "call",
+      "confidence": "EXTRACTED",
+      "source_file": "build_rugbypass_tables.py",
+      "source_location": "L161",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "6n_build_rugbypass_tables_main",
+      "target": "6n_build_rugbypass_tables_load_json_files"
+    },
+    {
+      "relation": "calls",
+      "context": "call",
+      "confidence": "EXTRACTED",
+      "source_file": "build_rugbypass_tables.py",
+      "source_location": "L164",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "6n_build_rugbypass_tables_main",
+      "target": "6n_build_rugbypass_tables_build_bio"
+    },
+    {
+      "relation": "calls",
+      "context": "call",
+      "confidence": "EXTRACTED",
+      "source_file": "build_rugbypass_tables.py",
+      "source_location": "L165",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "6n_build_rugbypass_tables_main",
+      "target": "6n_build_rugbypass_tables_build_compstats"
+    },
+    {
+      "relation": "calls",
+      "context": "call",
+      "confidence": "EXTRACTED",
+      "source_file": "build_rugbypass_tables.py",
+      "source_location": "L166",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "6n_build_rugbypass_tables_main",
+      "target": "6n_build_rugbypass_tables_build_matchlog"
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "build_targets.py",
+      "source_location": "L76",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "build_targets_py",
+      "target": "6n_build_targets_score_components"
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "build_targets.py",
+      "source_location": "L99",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "build_targets_py",
+      "target": "6n_build_targets_build"
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "build_targets.py",
+      "source_location": "L186",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "build_targets_py",
+      "target": "6n_build_targets_fit_latent"
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "build_targets.py",
+      "source_location": "L181",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "build_targets_py",
+      "target": "6n_build_targets_main"
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "build_targets.py",
+      "source_location": "L156",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "build_targets_py",
+      "target": "6n_build_targets_validate_latent"
+    },
+    {
+      "relation": "calls",
+      "context": "call",
+      "confidence": "EXTRACTED",
+      "source_file": "build_targets.py",
+      "source_location": "L116",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "6n_build_targets_build",
+      "target": "6n_build_targets_score_components"
+    },
+    {
+      "relation": "rationale_for",
+      "confidence": "EXTRACTED",
+      "source_file": "build_targets.py",
+      "source_location": "L85",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "6n_build_targets_rationale_85",
+      "target": "6n_build_targets_score_components"
+    },
+    {
+      "relation": "rationale_for",
+      "confidence": "EXTRACTED",
+      "source_file": "build_targets.py",
+      "source_location": "L78",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "6n_build_targets_rationale_78",
+      "target": "6n_build_targets_score_components"
+    },
+    {
+      "relation": "rationale_for",
+      "confidence": "EXTRACTED",
+      "source_file": "build_targets.py",
+      "source_location": "L77",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "6n_build_targets_rationale_77",
+      "target": "6n_build_targets_score_components"
+    },
+    {
+      "relation": "calls",
+      "context": "call",
+      "confidence": "EXTRACTED",
+      "source_file": "build_targets.py",
+      "source_location": "L160",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "6n_build_targets_build",
+      "target": "6n_build_targets_fit_latent"
+    },
+    {
+      "relation": "calls",
+      "context": "call",
+      "confidence": "EXTRACTED",
+      "source_file": "build_targets.py",
+      "source_location": "L182",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "6n_build_targets_main",
+      "target": "6n_build_targets_build"
+    },
+    {
+      "relation": "calls",
+      "context": "call",
+      "confidence": "EXTRACTED",
+      "source_file": "build_targets.py",
+      "source_location": "L144",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "6n_build_targets_build",
+      "target": "6n_build_targets_validate_latent"
+    },
+    {
+      "relation": "rationale_for",
+      "confidence": "EXTRACTED",
+      "source_file": "build_targets.py",
+      "source_location": "L187",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "6n_build_targets_rationale_187",
+      "target": "6n_build_targets_fit_latent"
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "games.py",
+      "source_location": "L18",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "games_py",
+      "target": "6n_games_scrape_rugby_stats"
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "games.py",
+      "source_location": "L142",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "games_py",
+      "target": "6n_games_scrape_match_data"
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "rugbypass_batch.py",
+      "source_location": "L384",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "rugbypass_batch_py",
+      "target": "6n_rugbypass_batch_make_driver"
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "rugbypass_batch.py",
+      "source_location": "L413",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "rugbypass_batch_py",
+      "target": "6n_rugbypass_batch_extract_bio"
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "rugbypass_batch.py",
+      "source_location": "L431",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "rugbypass_batch_py",
+      "target": "6n_rugbypass_batch_extract_comp_stats"
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "rugbypass_batch.py",
+      "source_location": "L473",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "rugbypass_batch_py",
+      "target": "6n_rugbypass_batch_extract_match_log"
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "rugbypass_batch.py",
+      "source_location": "L503",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "rugbypass_batch_py",
+      "target": "6n_rugbypass_batch_get_unique_players"
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "rugbypass_batch.py",
+      "source_location": "L515",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "rugbypass_batch_py",
+      "target": "6n_rugbypass_batch_is_six_nations"
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "rugbypass_batch.py",
+      "source_location": "L525",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "rugbypass_batch_py",
+      "target": "6n_rugbypass_batch_main"
+    },
+    {
+      "relation": "calls",
+      "context": "call",
+      "confidence": "EXTRACTED",
+      "source_file": "rugbypass_batch.py",
+      "source_location": "L606",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "6n_rugbypass_batch_main",
+      "target": "6n_rugbypass_batch_make_driver"
+    },
+    {
+      "relation": "calls",
+      "context": "call",
+      "confidence": "EXTRACTED",
+      "source_file": "rugbypass_batch.py",
+      "source_location": "L631",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "6n_rugbypass_batch_main",
+      "target": "6n_rugbypass_batch_extract_bio"
+    },
+    {
+      "relation": "calls",
+      "context": "call",
+      "confidence": "EXTRACTED",
+      "source_file": "rugbypass_batch.py",
+      "source_location": "L632",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "6n_rugbypass_batch_main",
+      "target": "6n_rugbypass_batch_extract_comp_stats"
+    },
+    {
+      "relation": "calls",
+      "context": "call",
+      "confidence": "EXTRACTED",
+      "source_file": "rugbypass_batch.py",
+      "source_location": "L633",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "6n_rugbypass_batch_main",
+      "target": "6n_rugbypass_batch_extract_match_log"
+    },
+    {
+      "relation": "calls",
+      "context": "call",
+      "confidence": "EXTRACTED",
+      "source_file": "rugbypass_batch.py",
+      "source_location": "L557",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "6n_rugbypass_batch_main",
+      "target": "6n_rugbypass_batch_get_unique_players"
+    },
+    {
+      "relation": "calls",
+      "context": "call",
+      "confidence": "EXTRACTED",
+      "source_file": "rugbypass_batch.py",
+      "source_location": "L647",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "6n_rugbypass_batch_main",
+      "target": "6n_rugbypass_batch_is_six_nations"
+    },
+    {
+      "relation": "calls",
+      "context": "call",
+      "confidence": "INFERRED",
+      "confidence_score": 0.8,
+      "source_file": "rugbypass_backfill.py",
+      "source_location": "L176",
+      "weight": 1.0,
+      "source": "6n_rugbypass_backfill_resolve_and_scrape",
+      "target": "6n_rugbypass_batch_is_six_nations"
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "rugbypass.py",
+      "source_location": "L32",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "rugbypass_py",
+      "target": "6n_rugbypass_make_driver"
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "rugbypass.py",
+      "source_location": "L63",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "rugbypass_py",
+      "target": "6n_rugbypass_extract_bio"
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "rugbypass.py",
+      "source_location": "L82",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "rugbypass_py",
+      "target": "6n_rugbypass_extract_comp_stats"
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "rugbypass.py",
+      "source_location": "L129",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "rugbypass_py",
+      "target": "6n_rugbypass_extract_match_log"
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "rugbypass.py",
+      "source_location": "L159",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "rugbypass_py",
+      "target": "6n_rugbypass_main"
+    },
+    {
+      "relation": "calls",
+      "context": "call",
+      "confidence": "EXTRACTED",
+      "source_file": "rugbypass.py",
+      "source_location": "L172",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "6n_rugbypass_main",
+      "target": "6n_rugbypass_make_driver"
+    },
+    {
+      "relation": "calls",
+      "context": "call",
+      "confidence": "EXTRACTED",
+      "source_file": "rugbypass.py",
+      "source_location": "L191",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "6n_rugbypass_main",
+      "target": "6n_rugbypass_extract_bio"
+    },
+    {
+      "relation": "rationale_for",
+      "confidence": "EXTRACTED",
+      "source_file": "rugbypass.py",
+      "source_location": "L64",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "6n_rugbypass_rationale_64",
+      "target": "6n_rugbypass_extract_bio"
+    },
+    {
+      "relation": "calls",
+      "context": "call",
+      "confidence": "EXTRACTED",
+      "source_file": "rugbypass.py",
+      "source_location": "L195",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "6n_rugbypass_main",
+      "target": "6n_rugbypass_extract_comp_stats"
+    },
+    {
+      "relation": "rationale_for",
+      "confidence": "EXTRACTED",
+      "source_file": "rugbypass.py",
+      "source_location": "L83",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "6n_rugbypass_rationale_83",
+      "target": "6n_rugbypass_extract_comp_stats"
+    },
+    {
+      "relation": "calls",
+      "context": "call",
+      "confidence": "EXTRACTED",
+      "source_file": "rugbypass.py",
+      "source_location": "L203",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "6n_rugbypass_main",
+      "target": "6n_rugbypass_extract_match_log"
+    },
+    {
+      "relation": "rationale_for",
+      "confidence": "EXTRACTED",
+      "source_file": "rugbypass.py",
+      "source_location": "L130",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "6n_rugbypass_rationale_130",
+      "target": "6n_rugbypass_extract_match_log"
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "build_official.py",
+      "source_location": "L62",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "build_official_py",
+      "target": "6n_build_official_player_nation_map"
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "build_official.py",
+      "source_location": "L75",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "build_official_py",
+      "target": "6n_build_official_parse_official_2023"
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "build_official.py",
+      "source_location": "L125",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "build_official_py",
+      "target": "6n_build_official_build"
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "build_official.py",
+      "source_location": "L146",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "build_official_py",
+      "target": "6n_build_official_main"
+    },
+    {
+      "relation": "calls",
+      "context": "call",
+      "confidence": "EXTRACTED",
+      "source_file": "build_official.py",
+      "source_location": "L84",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "6n_build_official_parse_official_2023",
+      "target": "6n_build_official_player_nation_map"
+    },
+    {
+      "relation": "rationale_for",
+      "confidence": "EXTRACTED",
+      "source_file": "build_official.py",
+      "source_location": "L63",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "6n_build_official_rationale_63",
+      "target": "6n_build_official_player_nation_map"
+    },
+    {
+      "relation": "calls",
+      "context": "call",
+      "confidence": "INFERRED",
+      "confidence_score": 0.8,
+      "source_file": "build_official.py",
+      "source_location": "L71",
+      "weight": 1.0,
+      "source": "6n_build_official_player_nation_map",
+      "target": "6n_compare_api_official_norm_key"
+    },
+    {
+      "relation": "calls",
+      "context": "call",
+      "confidence": "EXTRACTED",
+      "source_file": "build_official.py",
+      "source_location": "L132",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "6n_build_official_build",
+      "target": "6n_build_official_parse_official_2023"
+    },
+    {
+      "relation": "rationale_for",
+      "confidence": "EXTRACTED",
+      "source_file": "build_official.py",
+      "source_location": "L76",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "6n_build_official_rationale_76",
+      "target": "6n_build_official_parse_official_2023"
+    },
+    {
+      "relation": "calls",
+      "context": "call",
+      "confidence": "INFERRED",
+      "confidence_score": 0.8,
+      "source_file": "build_official.py",
+      "source_location": "L106",
+      "weight": 1.0,
+      "source": "6n_build_official_parse_official_2023",
+      "target": "6n_compare_api_official_norm_key"
+    },
+    {
+      "relation": "calls",
+      "context": "call",
+      "confidence": "EXTRACTED",
+      "source_file": "build_official.py",
+      "source_location": "L149",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "6n_build_official_main",
+      "target": "6n_build_official_build"
+    },
+    {
+      "relation": "calls",
+      "context": "call",
+      "confidence": "INFERRED",
+      "confidence_score": 0.8,
+      "source_file": "build_official.py",
+      "source_location": "L134",
+      "weight": 1.0,
+      "source": "6n_build_official_build",
+      "target": "6n_compare_api_official_parse_official"
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "players.py",
+      "source_location": "L19",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "players_py",
+      "target": "6n_players_scrape_rugby_stats"
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "compare_api_official.py",
+      "source_location": "L59",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "compare_api_official_py",
+      "target": "6n_compare_api_official_norm_key"
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "compare_api_official.py",
+      "source_location": "L74",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "compare_api_official_py",
+      "target": "6n_compare_api_official_parse_official"
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "compare_api_official.py",
+      "source_location": "L105",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "compare_api_official_py",
+      "target": "6n_compare_api_official_load_api"
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "compare_api_official.py",
+      "source_location": "L111",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "compare_api_official_py",
+      "target": "6n_compare_api_official_compare"
+    },
+    {
+      "relation": "calls",
+      "context": "call",
+      "confidence": "EXTRACTED",
+      "source_file": "compare_api_official.py",
+      "source_location": "L93",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "6n_compare_api_official_parse_official",
+      "target": "6n_compare_api_official_norm_key"
+    },
+    {
+      "relation": "rationale_for",
+      "confidence": "EXTRACTED",
+      "source_file": "compare_api_official.py",
+      "source_location": "L60",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "6n_compare_api_official_rationale_60",
+      "target": "6n_compare_api_official_norm_key"
+    },
+    {
+      "relation": "calls",
+      "context": "call",
+      "confidence": "EXTRACTED",
+      "source_file": "compare_api_official.py",
+      "source_location": "L113",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "6n_compare_api_official_compare",
+      "target": "6n_compare_api_official_parse_official"
+    },
+    {
+      "relation": "rationale_for",
+      "confidence": "EXTRACTED",
+      "source_file": "compare_api_official.py",
+      "source_location": "L75",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "6n_compare_api_official_rationale_75",
+      "target": "6n_compare_api_official_parse_official"
+    },
+    {
+      "relation": "calls",
+      "context": "call",
+      "confidence": "EXTRACTED",
+      "source_file": "compare_api_official.py",
+      "source_location": "L112",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "6n_compare_api_official_compare",
+      "target": "6n_compare_api_official_load_api"
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "build_crosswalk.py",
+      "source_location": "L55",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "build_crosswalk_py",
+      "target": "6n_build_crosswalk_surname_of"
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "build_crosswalk.py",
+      "source_location": "L62",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "build_crosswalk_py",
+      "target": "6n_build_crosswalk_last_token"
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "build_crosswalk.py",
+      "source_location": "L83",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "build_crosswalk_py",
+      "target": "6n_build_crosswalk_load_api"
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "build_crosswalk.py",
+      "source_location": "L109",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "build_crosswalk_py",
+      "target": "6n_build_crosswalk_load_rp"
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "build_crosswalk.py",
+      "source_location": "L119",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "build_crosswalk_py",
+      "target": "6n_build_crosswalk_load_official"
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "build_crosswalk.py",
+      "source_location": "L134",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "build_crosswalk_py",
+      "target": "6n_build_crosswalk_build"
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "build_crosswalk.py",
+      "source_location": "L169",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "build_crosswalk_py",
+      "target": "6n_build_crosswalk_nat_team_compatible"
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "build_crosswalk.py",
+      "source_location": "L178",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "build_crosswalk_py",
+      "target": "6n_build_crosswalk_row_source"
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "build_crosswalk.py",
+      "source_location": "L187",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "build_crosswalk_py",
+      "target": "6n_build_crosswalk_surname_candidates"
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "build_crosswalk.py",
+      "source_location": "L209",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "build_crosswalk_py",
+      "target": "6n_build_crosswalk_surname_pass"
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "build_crosswalk.py",
+      "source_location": "L284",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "build_crosswalk_py",
+      "target": "6n_build_crosswalk_consolidate_name_variants"
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "build_crosswalk.py",
+      "source_location": "L323",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "build_crosswalk_py",
+      "target": "6n_build_crosswalk_fold"
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "build_crosswalk.py",
+      "source_location": "L341",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "build_crosswalk_py",
+      "target": "6n_build_crosswalk_report"
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "build_crosswalk.py",
+      "source_location": "L406",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "build_crosswalk_py",
+      "target": "6n_build_crosswalk_main"
+    },
+    {
+      "relation": "calls",
+      "context": "call",
+      "confidence": "EXTRACTED",
+      "source_file": "build_crosswalk.py",
+      "source_location": "L196",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "6n_build_crosswalk_surname_candidates",
+      "target": "6n_build_crosswalk_surname_of"
+    },
+    {
+      "relation": "rationale_for",
+      "confidence": "EXTRACTED",
+      "source_file": "build_crosswalk.py",
+      "source_location": "L56",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "6n_build_crosswalk_rationale_56",
+      "target": "6n_build_crosswalk_surname_of"
+    },
+    {
+      "relation": "calls",
+      "context": "call",
+      "confidence": "EXTRACTED",
+      "source_file": "build_crosswalk.py",
+      "source_location": "L203",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "6n_build_crosswalk_surname_candidates",
+      "target": "6n_build_crosswalk_last_token"
+    },
+    {
+      "relation": "calls",
+      "context": "call",
+      "confidence": "EXTRACTED",
+      "source_file": "build_crosswalk.py",
+      "source_location": "L293",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "6n_build_crosswalk_consolidate_name_variants",
+      "target": "6n_build_crosswalk_last_token"
+    },
+    {
+      "relation": "rationale_for",
+      "confidence": "EXTRACTED",
+      "source_file": "build_crosswalk.py",
+      "source_location": "L63",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "6n_build_crosswalk_rationale_63",
+      "target": "6n_build_crosswalk_last_token"
+    },
+    {
+      "relation": "calls",
+      "context": "call",
+      "confidence": "EXTRACTED",
+      "source_file": "build_crosswalk.py",
+      "source_location": "L135",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "6n_build_crosswalk_build",
+      "target": "6n_build_crosswalk_load_api"
+    },
+    {
+      "relation": "rationale_for",
+      "confidence": "EXTRACTED",
+      "source_file": "build_crosswalk.py",
+      "source_location": "L84",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "6n_build_crosswalk_rationale_84",
+      "target": "6n_build_crosswalk_load_api"
+    },
+    {
+      "relation": "calls",
+      "context": "call",
+      "confidence": "EXTRACTED",
+      "source_file": "build_crosswalk.py",
+      "source_location": "L136",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "6n_build_crosswalk_build",
+      "target": "6n_build_crosswalk_load_rp"
+    },
+    {
+      "relation": "calls",
+      "context": "call",
+      "confidence": "EXTRACTED",
+      "source_file": "build_crosswalk.py",
+      "source_location": "L137",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "6n_build_crosswalk_build",
+      "target": "6n_build_crosswalk_load_official"
+    },
+    {
+      "relation": "calls",
+      "context": "call",
+      "confidence": "EXTRACTED",
+      "source_file": "build_crosswalk.py",
+      "source_location": "L159",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "6n_build_crosswalk_build",
+      "target": "6n_build_crosswalk_surname_pass"
+    },
+    {
+      "relation": "calls",
+      "context": "call",
+      "confidence": "EXTRACTED",
+      "source_file": "build_crosswalk.py",
+      "source_location": "L407",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "6n_build_crosswalk_main",
+      "target": "6n_build_crosswalk_build"
+    },
+    {
+      "relation": "calls",
+      "context": "call",
+      "confidence": "EXTRACTED",
+      "source_file": "build_crosswalk.py",
+      "source_location": "L249",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "6n_build_crosswalk_surname_pass",
+      "target": "6n_build_crosswalk_nat_team_compatible"
+    },
+    {
+      "relation": "calls",
+      "context": "call",
+      "confidence": "EXTRACTED",
+      "source_file": "build_crosswalk.py",
+      "source_location": "L315",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "6n_build_crosswalk_consolidate_name_variants",
+      "target": "6n_build_crosswalk_nat_team_compatible"
+    },
+    {
+      "relation": "rationale_for",
+      "confidence": "EXTRACTED",
+      "source_file": "build_crosswalk.py",
+      "source_location": "L199",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "6n_build_crosswalk_rationale_199",
+      "target": "6n_build_crosswalk_nat_team_compatible"
+    },
+    {
+      "relation": "rationale_for",
+      "confidence": "EXTRACTED",
+      "source_file": "build_crosswalk.py",
+      "source_location": "L170",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "6n_build_crosswalk_rationale_170",
+      "target": "6n_build_crosswalk_nat_team_compatible"
+    },
+    {
+      "relation": "calls",
+      "context": "call",
+      "confidence": "EXTRACTED",
+      "source_file": "build_crosswalk.py",
+      "source_location": "L199",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "6n_build_crosswalk_surname_candidates",
+      "target": "6n_build_crosswalk_row_source"
+    },
+    {
+      "relation": "calls",
+      "context": "call",
+      "confidence": "EXTRACTED",
+      "source_file": "build_crosswalk.py",
+      "source_location": "L227",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "6n_build_crosswalk_surname_pass",
+      "target": "6n_build_crosswalk_row_source"
+    },
+    {
+      "relation": "rationale_for",
+      "confidence": "EXTRACTED",
+      "source_file": "build_crosswalk.py",
+      "source_location": "L208",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "6n_build_crosswalk_rationale_208",
+      "target": "6n_build_crosswalk_row_source"
+    },
+    {
+      "relation": "rationale_for",
+      "confidence": "EXTRACTED",
+      "source_file": "build_crosswalk.py",
+      "source_location": "L179",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "6n_build_crosswalk_rationale_179",
+      "target": "6n_build_crosswalk_row_source"
+    },
+    {
+      "relation": "calls",
+      "context": "call",
+      "confidence": "EXTRACTED",
+      "source_file": "build_crosswalk.py",
+      "source_location": "L230",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "6n_build_crosswalk_surname_pass",
+      "target": "6n_build_crosswalk_surname_candidates"
+    },
+    {
+      "relation": "rationale_for",
+      "confidence": "EXTRACTED",
+      "source_file": "build_crosswalk.py",
+      "source_location": "L217",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "6n_build_crosswalk_rationale_217",
+      "target": "6n_build_crosswalk_surname_candidates"
+    },
+    {
+      "relation": "rationale_for",
+      "confidence": "EXTRACTED",
+      "source_file": "build_crosswalk.py",
+      "source_location": "L188",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "6n_build_crosswalk_rationale_188",
+      "target": "6n_build_crosswalk_surname_candidates"
+    },
+    {
+      "relation": "calls",
+      "context": "call",
+      "confidence": "EXTRACTED",
+      "source_file": "build_crosswalk.py",
+      "source_location": "L260",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "6n_build_crosswalk_surname_pass",
+      "target": "6n_build_crosswalk_fold"
+    },
+    {
+      "relation": "calls",
+      "context": "call",
+      "confidence": "EXTRACTED",
+      "source_file": "build_crosswalk.py",
+      "source_location": "L278",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "6n_build_crosswalk_surname_pass",
+      "target": "6n_build_crosswalk_consolidate_name_variants"
+    },
+    {
+      "relation": "rationale_for",
+      "confidence": "EXTRACTED",
+      "source_file": "build_crosswalk.py",
+      "source_location": "L239",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "6n_build_crosswalk_rationale_239",
+      "target": "6n_build_crosswalk_surname_pass"
+    },
+    {
+      "relation": "rationale_for",
+      "confidence": "EXTRACTED",
+      "source_file": "build_crosswalk.py",
+      "source_location": "L210",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "6n_build_crosswalk_rationale_210",
+      "target": "6n_build_crosswalk_surname_pass"
+    },
+    {
+      "relation": "calls",
+      "context": "call",
+      "confidence": "EXTRACTED",
+      "source_file": "build_crosswalk.py",
+      "source_location": "L317",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "6n_build_crosswalk_consolidate_name_variants",
+      "target": "6n_build_crosswalk_fold"
+    },
+    {
+      "relation": "rationale_for",
+      "confidence": "EXTRACTED",
+      "source_file": "build_crosswalk.py",
+      "source_location": "L314",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "6n_build_crosswalk_rationale_314",
+      "target": "6n_build_crosswalk_consolidate_name_variants"
+    },
+    {
+      "relation": "rationale_for",
+      "confidence": "EXTRACTED",
+      "source_file": "build_crosswalk.py",
+      "source_location": "L285",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "6n_build_crosswalk_rationale_285",
+      "target": "6n_build_crosswalk_consolidate_name_variants"
+    },
+    {
+      "relation": "rationale_for",
+      "confidence": "EXTRACTED",
+      "source_file": "build_crosswalk.py",
+      "source_location": "L353",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "6n_build_crosswalk_rationale_353",
+      "target": "6n_build_crosswalk_fold"
+    },
+    {
+      "relation": "rationale_for",
+      "confidence": "EXTRACTED",
+      "source_file": "build_crosswalk.py",
+      "source_location": "L324",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "6n_build_crosswalk_rationale_324",
+      "target": "6n_build_crosswalk_fold"
+    },
+    {
+      "relation": "calls",
+      "context": "call",
+      "confidence": "EXTRACTED",
+      "source_file": "build_crosswalk.py",
+      "source_location": "L410",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "6n_build_crosswalk_main",
+      "target": "6n_build_crosswalk_report"
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "ingest_6n.py",
+      "source_location": "L54",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "ingest_6n_py",
+      "target": "6n_ingest_6n_quotaexhausted"
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "ingest_6n.py",
+      "source_location": "L58",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "ingest_6n_py",
+      "target": "6n_ingest_6n_in_form_window"
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "ingest_6n.py",
+      "source_location": "L70",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "ingest_6n_py",
+      "target": "6n_ingest_6n_skip_comp_season"
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "ingest_6n.py",
+      "source_location": "L77",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "ingest_6n_py",
+      "target": "6n_ingest_6n_quota_guard"
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "ingest_6n.py",
+      "source_location": "L108",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "ingest_6n_py",
+      "target": "6n_ingest_6n_num"
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "ingest_6n.py",
+      "source_location": "L116",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "ingest_6n_py",
+      "target": "6n_ingest_6n_derive_minutes"
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "ingest_6n.py",
+      "source_location": "L136",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "ingest_6n_py",
+      "target": "6n_ingest_6n_player_minutes"
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "ingest_6n.py",
+      "source_location": "L145",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "ingest_6n_py",
+      "target": "6n_ingest_6n_ingest"
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "ingest_6n.py",
+      "source_location": "L242",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "ingest_6n_py",
+      "target": "6n_ingest_6n_flatten_one_team_stats"
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "ingest_6n.py",
+      "source_location": "L260",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "ingest_6n_py",
+      "target": "6n_ingest_6n_flatten_team_stats"
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "ingest_6n.py",
+      "source_location": "L324",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "ingest_6n_py",
+      "target": "6n_ingest_6n_add_position_and_recon"
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "ingest_6n.py",
+      "source_location": "L369",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "ingest_6n_py",
+      "target": "6n_ingest_6n_main"
+    },
+    {
+      "relation": "inherits",
+      "confidence": "EXTRACTED",
+      "source_file": "ingest_6n.py",
+      "source_location": "L54",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "6n_ingest_6n_quotaexhausted",
+      "target": "runtimeerror"
+    },
+    {
+      "relation": "calls",
+      "context": "call",
+      "confidence": "EXTRACTED",
+      "source_file": "ingest_6n.py",
+      "source_location": "L80",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "6n_ingest_6n_quota_guard",
+      "target": "6n_ingest_6n_quotaexhausted"
+    },
+    {
+      "relation": "rationale_for",
+      "confidence": "EXTRACTED",
+      "source_file": "ingest_6n.py",
+      "source_location": "L55",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "6n_ingest_6n_rationale_55",
+      "target": "6n_ingest_6n_quotaexhausted"
+    },
+    {
+      "relation": "calls",
+      "context": "call",
+      "confidence": "EXTRACTED",
+      "source_file": "ingest_6n.py",
+      "source_location": "L166",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "6n_ingest_6n_ingest",
+      "target": "6n_ingest_6n_in_form_window"
+    },
+    {
+      "relation": "calls",
+      "context": "call",
+      "confidence": "EXTRACTED",
+      "source_file": "ingest_6n.py",
+      "source_location": "L274",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "6n_ingest_6n_flatten_team_stats",
+      "target": "6n_ingest_6n_in_form_window"
+    },
+    {
+      "relation": "rationale_for",
+      "confidence": "EXTRACTED",
+      "source_file": "ingest_6n.py",
+      "source_location": "L59",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "6n_ingest_6n_rationale_59",
+      "target": "6n_ingest_6n_in_form_window"
+    },
+    {
+      "relation": "calls",
+      "context": "call",
+      "confidence": "EXTRACTED",
+      "source_file": "ingest_6n.py",
+      "source_location": "L161",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "6n_ingest_6n_ingest",
+      "target": "6n_ingest_6n_skip_comp_season"
+    },
+    {
+      "relation": "calls",
+      "context": "call",
+      "confidence": "EXTRACTED",
+      "source_file": "ingest_6n.py",
+      "source_location": "L269",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "6n_ingest_6n_flatten_team_stats",
+      "target": "6n_ingest_6n_skip_comp_season"
+    },
+    {
+      "relation": "rationale_for",
+      "confidence": "EXTRACTED",
+      "source_file": "ingest_6n.py",
+      "source_location": "L71",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "6n_ingest_6n_rationale_71",
+      "target": "6n_ingest_6n_skip_comp_season"
+    },
+    {
+      "relation": "calls",
+      "context": "call",
+      "confidence": "EXTRACTED",
+      "source_file": "ingest_6n.py",
+      "source_location": "L170",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "6n_ingest_6n_ingest",
+      "target": "6n_ingest_6n_quota_guard"
+    },
+    {
+      "relation": "calls",
+      "context": "call",
+      "confidence": "EXTRACTED",
+      "source_file": "ingest_6n.py",
+      "source_location": "L278",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "6n_ingest_6n_flatten_team_stats",
+      "target": "6n_ingest_6n_quota_guard"
+    },
+    {
+      "relation": "rationale_for",
+      "confidence": "EXTRACTED",
+      "source_file": "ingest_6n.py",
+      "source_location": "L78",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "6n_ingest_6n_rationale_78",
+      "target": "6n_ingest_6n_quota_guard"
+    },
+    {
+      "relation": "calls",
+      "context": "call",
+      "confidence": "EXTRACTED",
+      "source_file": "ingest_6n.py",
+      "source_location": "L125",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "6n_ingest_6n_derive_minutes",
+      "target": "6n_ingest_6n_num"
+    },
+    {
+      "relation": "calls",
+      "context": "call",
+      "confidence": "EXTRACTED",
+      "source_file": "ingest_6n.py",
+      "source_location": "L210",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "6n_ingest_6n_ingest",
+      "target": "6n_ingest_6n_num"
+    },
+    {
+      "relation": "calls",
+      "context": "call",
+      "confidence": "EXTRACTED",
+      "source_file": "ingest_6n.py",
+      "source_location": "L256",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "6n_ingest_6n_flatten_one_team_stats",
+      "target": "6n_ingest_6n_num"
+    },
+    {
+      "relation": "calls",
+      "context": "call",
+      "confidence": "EXTRACTED",
+      "source_file": "ingest_6n.py",
+      "source_location": "L301",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "6n_ingest_6n_flatten_team_stats",
+      "target": "6n_ingest_6n_num"
+    },
+    {
+      "relation": "calls",
+      "context": "call",
+      "confidence": "EXTRACTED",
+      "source_file": "ingest_6n.py",
+      "source_location": "L174",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "6n_ingest_6n_ingest",
+      "target": "6n_ingest_6n_derive_minutes"
+    },
+    {
+      "relation": "rationale_for",
+      "confidence": "EXTRACTED",
+      "source_file": "ingest_6n.py",
+      "source_location": "L117",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "6n_ingest_6n_rationale_117",
+      "target": "6n_ingest_6n_derive_minutes"
+    },
+    {
+      "relation": "calls",
+      "context": "call",
+      "confidence": "EXTRACTED",
+      "source_file": "ingest_6n.py",
+      "source_location": "L205",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "6n_ingest_6n_ingest",
+      "target": "6n_ingest_6n_player_minutes"
+    },
+    {
+      "relation": "calls",
+      "context": "call",
+      "confidence": "EXTRACTED",
+      "source_file": "ingest_6n.py",
+      "source_location": "L401",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "6n_ingest_6n_main",
+      "target": "6n_ingest_6n_ingest"
+    },
+    {
+      "relation": "rationale_for",
+      "confidence": "EXTRACTED",
+      "source_file": "ingest_6n.py",
+      "source_location": "L146",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "6n_ingest_6n_rationale_146",
+      "target": "6n_ingest_6n_ingest"
+    },
+    {
+      "relation": "calls",
+      "context": "call",
+      "confidence": "EXTRACTED",
+      "source_file": "ingest_6n.py",
+      "source_location": "L310",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "6n_ingest_6n_flatten_team_stats",
+      "target": "6n_ingest_6n_flatten_one_team_stats"
+    },
+    {
+      "relation": "rationale_for",
+      "confidence": "EXTRACTED",
+      "source_file": "ingest_6n.py",
+      "source_location": "L243",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "6n_ingest_6n_rationale_243",
+      "target": "6n_ingest_6n_flatten_one_team_stats"
+    },
+    {
+      "relation": "calls",
+      "context": "call",
+      "confidence": "EXTRACTED",
+      "source_file": "ingest_6n.py",
+      "source_location": "L391",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "6n_ingest_6n_main",
+      "target": "6n_ingest_6n_flatten_team_stats"
+    },
+    {
+      "relation": "rationale_for",
+      "confidence": "EXTRACTED",
+      "source_file": "ingest_6n.py",
+      "source_location": "L261",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "6n_ingest_6n_rationale_261",
+      "target": "6n_ingest_6n_flatten_team_stats"
+    },
+    {
+      "relation": "calls",
+      "context": "call",
+      "confidence": "EXTRACTED",
+      "source_file": "ingest_6n.py",
+      "source_location": "L402",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "6n_ingest_6n_main",
+      "target": "6n_ingest_6n_add_position_and_recon"
+    },
+    {
+      "relation": "rationale_for",
+      "confidence": "EXTRACTED",
+      "source_file": "ingest_6n.py",
+      "source_location": "L325",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "6n_ingest_6n_rationale_325",
+      "target": "6n_ingest_6n_add_position_and_recon"
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "rugbypass_backfill.py",
+      "source_location": "L66",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "rugbypass_backfill_py",
+      "target": "6n_rugbypass_backfill_fold"
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "rugbypass_backfill.py",
+      "source_location": "L72",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "rugbypass_backfill_py",
+      "target": "6n_rugbypass_backfill_slug_candidates"
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "rugbypass_backfill.py",
+      "source_location": "L96",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "rugbypass_backfill_py",
+      "target": "6n_rugbypass_backfill_unmatched_api_players"
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "rugbypass_backfill.py",
+      "source_location": "L106",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "rugbypass_backfill_py",
+      "target": "6n_rugbypass_backfill_fetch"
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "rugbypass_backfill.py",
+      "source_location": "L116",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "rugbypass_backfill_py",
+      "target": "6n_rugbypass_backfill_resolve_and_scrape"
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "rugbypass_backfill.py",
+      "source_location": "L209",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "rugbypass_backfill_py",
+      "target": "6n_rugbypass_backfill_main"
+    },
+    {
+      "relation": "calls",
+      "context": "call",
+      "confidence": "EXTRACTED",
+      "source_file": "rugbypass_backfill.py",
+      "source_location": "L74",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "6n_rugbypass_backfill_slug_candidates",
+      "target": "6n_rugbypass_backfill_fold"
+    },
+    {
+      "relation": "rationale_for",
+      "confidence": "EXTRACTED",
+      "source_file": "rugbypass_backfill.py",
+      "source_location": "L67",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "6n_rugbypass_backfill_rationale_67",
+      "target": "6n_rugbypass_backfill_fold"
+    },
+    {
+      "relation": "calls",
+      "context": "call",
+      "confidence": "EXTRACTED",
+      "source_file": "rugbypass_backfill.py",
+      "source_location": "L136",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "6n_rugbypass_backfill_resolve_and_scrape",
+      "target": "6n_rugbypass_backfill_slug_candidates"
+    },
+    {
+      "relation": "rationale_for",
+      "confidence": "EXTRACTED",
+      "source_file": "rugbypass_backfill.py",
+      "source_location": "L73",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "6n_rugbypass_backfill_rationale_73",
+      "target": "6n_rugbypass_backfill_slug_candidates"
+    },
+    {
+      "relation": "calls",
+      "context": "call",
+      "confidence": "EXTRACTED",
+      "source_file": "rugbypass_backfill.py",
+      "source_location": "L216",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "6n_rugbypass_backfill_main",
+      "target": "6n_rugbypass_backfill_unmatched_api_players"
+    },
+    {
+      "relation": "rationale_for",
+      "confidence": "EXTRACTED",
+      "source_file": "rugbypass_backfill.py",
+      "source_location": "L97",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "6n_rugbypass_backfill_rationale_97",
+      "target": "6n_rugbypass_backfill_unmatched_api_players"
+    },
+    {
+      "relation": "calls",
+      "context": "call",
+      "confidence": "EXTRACTED",
+      "source_file": "rugbypass_backfill.py",
+      "source_location": "L147",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "6n_rugbypass_backfill_resolve_and_scrape",
+      "target": "6n_rugbypass_backfill_fetch"
+    },
+    {
+      "relation": "rationale_for",
+      "confidence": "EXTRACTED",
+      "source_file": "rugbypass_backfill.py",
+      "source_location": "L107",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "6n_rugbypass_backfill_rationale_107",
+      "target": "6n_rugbypass_backfill_fetch"
+    },
+    {
+      "relation": "calls",
+      "context": "call",
+      "confidence": "EXTRACTED",
+      "source_file": "rugbypass_backfill.py",
+      "source_location": "L218",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "6n_rugbypass_backfill_main",
+      "target": "6n_rugbypass_backfill_resolve_and_scrape"
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "DATA_EXTRACTION_PLAN.md",
+      "source_location": "L1",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "data_extraction_plan_md",
+      "target": "6n_data_extraction_plan_six_nations_picker_complete_data_extraction_once_and_done"
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "DATA_EXTRACTION_PLAN.md",
+      "source_location": "L19",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "6n_data_extraction_plan_six_nations_picker_complete_data_extraction_once_and_done",
+      "target": "6n_data_extraction_plan_spend_coverage_summary_verified_2026_06_15"
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "DATA_EXTRACTION_PLAN.md",
+      "source_location": "L33",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "6n_data_extraction_plan_six_nations_picker_complete_data_extraction_once_and_done",
+      "target": "6n_data_extraction_plan_phase_0_allowed_apis_sources_read_first_do_not_invent"
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "DATA_EXTRACTION_PLAN.md",
+      "source_location": "L84",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "6n_data_extraction_plan_six_nations_picker_complete_data_extraction_once_and_done",
+      "target": "6n_data_extraction_plan_phase_1_repair_consolidate_free_sources_0_api_spend"
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "DATA_EXTRACTION_PLAN.md",
+      "source_location": "L106",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "6n_data_extraction_plan_six_nations_picker_complete_data_extraction_once_and_done",
+      "target": "6n_data_extraction_plan_phase_2_free_international_widening_pulselive_0_paid_quota"
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "DATA_EXTRACTION_PLAN.md",
+      "source_location": "L121",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "6n_data_extraction_plan_six_nations_picker_complete_data_extraction_once_and_done",
+      "target": "6n_data_extraction_plan_phase_3_build_crosswalk_py_new_data_player_crosswalk_csv"
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "DATA_EXTRACTION_PLAN.md",
+      "source_location": "L126",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "6n_data_extraction_plan_six_nations_picker_complete_data_extraction_once_and_done",
+      "target": "6n_data_extraction_plan_phase_4_paid_club_backfill_the_single_spend"
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "DATA_EXTRACTION_PLAN.md",
+      "source_location": "L139",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "6n_data_extraction_plan_six_nations_picker_complete_data_extraction_once_and_done",
+      "target": "6n_data_extraction_plan_phase_5_build_features_py_new_data_model_player_match_csv_0_api"
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "DATA_EXTRACTION_PLAN.md",
+      "source_location": "L153",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "6n_data_extraction_plan_six_nations_picker_complete_data_extraction_once_and_done",
+      "target": "6n_data_extraction_plan_phase_6_build_targets_py_new_data_model_targets_csv_0_api"
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "DATA_EXTRACTION_PLAN.md",
+      "source_location": "L162",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "6n_data_extraction_plan_six_nations_picker_complete_data_extraction_once_and_done",
+      "target": "6n_data_extraction_plan_phase_7_verification_final_gate_before_training"
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "DATA_EXTRACTION_PLAN.md",
+      "source_location": "L173",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "6n_data_extraction_plan_six_nations_picker_complete_data_extraction_once_and_done",
+      "target": "6n_data_extraction_plan_future_updates_the_months_later_upkeep_not_part_of_this_once_and_done"
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "DATA_EXTRACTION_PLAN.md",
+      "source_location": "L179",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "6n_data_extraction_plan_six_nations_picker_complete_data_extraction_once_and_done",
+      "target": "6n_data_extraction_plan_reuse_map"
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "DATA_EXTRACTION_PLAN.md",
+      "source_location": "L35",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "6n_data_extraction_plan_phase_0_allowed_apis_sources_read_first_do_not_invent",
+      "target": "6n_data_extraction_plan_rugby_live_data_rugby_api_rugbyapi_rugby_api_py"
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "DATA_EXTRACTION_PLAN.md",
+      "source_location": "L50",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "6n_data_extraction_plan_phase_0_allowed_apis_sources_read_first_do_not_invent",
+      "target": "6n_data_extraction_plan_wr_pulselive_free_no_key_verified_working_this_session"
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "DATA_EXTRACTION_PLAN.md",
+      "source_location": "L60",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "6n_data_extraction_plan_phase_0_allowed_apis_sources_read_first_do_not_invent",
+      "target": "6n_data_extraction_plan_rugbypass_rugbypass_batch_py_selenium_no_login"
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "DATA_EXTRACTION_PLAN.md",
+      "source_location": "L74",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "6n_data_extraction_plan_phase_0_allowed_apis_sources_read_first_do_not_invent",
+      "target": "6n_data_extraction_plan_official_fantasy_labels_manual_xlsx"
+    },
+    {
+      "relation": "rationale_for",
+      "confidence": "EXTRACTED",
+      "source_file": "build_targets.py",
+      "source_location": "L158",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "6n_build_targets_rationale_158",
+      "target": "6n_build_targets_validate_latent"
+    },
+    {
+      "relation": "rationale_for",
+      "confidence": "EXTRACTED",
+      "source_file": "build_targets.py",
+      "source_location": "L157",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "6n_build_targets_rationale_157",
+      "target": "6n_build_targets_validate_latent"
+    }
+  ],
+  "hyperedges": [],
+  "built_at_commit": "e391e030b277306d587bacb24351e67dfb472d2a"
+}

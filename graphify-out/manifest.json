@@ -67,6 +67,42 @@
     "mtime": 1781558614.0691473,
     "hash": "87d53bc219d8a11a8011887b84f6aa2a"
   },
+  "/Users/williamgreenfield/Documents/dev/6n/model/baselines.py": {
+    "mtime": 1781616821.375408,
+    "hash": "98d57d9e2fb186fa45bb3414438b2b2a"
+  },
+  "/Users/williamgreenfield/Documents/dev/6n/model/run.py": {
+    "mtime": 1781617618.537653,
+    "hash": "e7f684548a234fc2d42af2aede1ebd7e"
+  },
+  "/Users/williamgreenfield/Documents/dev/6n/model/train_components.py": {
+    "mtime": 1781617146.6016862,
+    "hash": "8bd9d2d2f3c72d87a4cb3008b8be6bd4"
+  },
+  "/Users/williamgreenfield/Documents/dev/6n/model/__init__.py": {
+    "mtime": 1781616448.601956,
+    "hash": "b9d42474f9980113369228b2903df29f"
+  },
+  "/Users/williamgreenfield/Documents/dev/6n/model/assemble.py": {
+    "mtime": 1781617400.7389421,
+    "hash": "684a3886db8bca84919b0d2fe95205b2"
+  },
+  "/Users/williamgreenfield/Documents/dev/6n/model/splits.py": {
+    "mtime": 1781616546.8643856,
+    "hash": "c199a328af3413da046039c6af38e5c5"
+  },
+  "/Users/williamgreenfield/Documents/dev/6n/model/evaluate.py": {
+    "mtime": 1781617564.2320135,
+    "hash": "b4a7b2553e7ee15977d4cfa16888528c"
+  },
+  "/Users/williamgreenfield/Documents/dev/6n/model/data.py": {
+    "mtime": 1781616483.9262147,
+    "hash": "9c3687e1d8a5116844a3a7e44ac61d66"
+  },
+  "/Users/williamgreenfield/Documents/dev/6n/MODEL_TRAINING_PLAN.md": {
+    "mtime": 1781618455.5853078,
+    "hash": "5f19a7ef1e47fb6351f5c36646fe23d8"
+  },
   "/Users/williamgreenfield/Documents/dev/6n/DATA_EXTRACTION_PLAN.md": {
     "mtime": 1781541625.5223413,
     "hash": "ff6cf916ea06e229f99684dc8e5e296d"

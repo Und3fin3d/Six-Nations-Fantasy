@@ -9,7 +9,7 @@
       "source_file": "build_wr.py",
       "source_location": "L1",
       "id": "build_wr_py",
-      "community": 13,
+      "community": 16,
       "norm_label": "build_wr.py"
     },
     {
@@ -18,7 +18,7 @@
       "source_file": "build_wr.py",
       "source_location": "L42",
       "id": "6n_build_wr_fetch_snapshot",
-      "community": 13,
+      "community": 16,
       "norm_label": "fetch_snapshot()"
     },
     {
@@ -27,7 +27,7 @@
       "source_file": "build_wr.py",
       "source_location": "L57",
       "id": "6n_build_wr_snapshot_rows",
-      "community": 13,
+      "community": 16,
       "norm_label": "snapshot_rows()"
     },
     {
@@ -36,7 +36,7 @@
       "source_file": "build_wr.py",
       "source_location": "L73",
       "id": "6n_build_wr_main",
-      "community": 13,
+      "community": 16,
       "norm_label": "main()"
     },
     {
@@ -45,7 +45,7 @@
       "source_file": "build_wr.py",
       "source_location": "L43",
       "id": "6n_build_wr_rationale_43",
-      "community": 13,
+      "community": 16,
       "norm_label": "cached get of the wr ranking as of `date` (yyyy-mm-dd)."
     },
     {
@@ -54,7 +54,7 @@
       "source_file": "build_intl_results.py",
       "source_location": "L1",
       "id": "build_intl_results_py",
-      "community": 9,
+      "community": 13,
       "norm_label": "build_intl_results.py"
     },
     {
@@ -63,7 +63,7 @@
       "source_file": "build_intl_results.py",
       "source_location": "L62",
       "id": "6n_build_intl_results_get",
-      "community": 9,
+      "community": 13,
       "norm_label": "_get()"
     },
     {
@@ -72,7 +72,7 @@
       "source_file": "build_intl_results.py",
       "source_location": "L68",
       "id": "6n_build_intl_results_fetch_chunk",
-      "community": 9,
+      "community": 13,
       "norm_label": "fetch_chunk()"
     },
     {
@@ -81,7 +81,7 @@
       "source_file": "build_intl_results.py",
       "source_location": "L92",
       "id": "6n_build_intl_results_month_chunks",
-      "community": 9,
+      "community": 13,
       "norm_label": "month_chunks()"
     },
     {
@@ -90,7 +90,7 @@
       "source_file": "build_intl_results.py",
       "source_location": "L105",
       "id": "6n_build_intl_results_rows_from_match",
-      "community": 9,
+      "community": 13,
       "norm_label": "rows_from_match()"
     },
     {
@@ -99,7 +99,7 @@
       "source_file": "build_intl_results.py",
       "source_location": "L147",
       "id": "6n_build_intl_results_season",
-      "community": 9,
+      "community": 13,
       "norm_label": "_season()"
     },
     {
@@ -108,7 +108,7 @@
       "source_file": "build_intl_results.py",
       "source_location": "L155",
       "id": "6n_build_intl_results_main",
-      "community": 9,
+      "community": 13,
       "norm_label": "main()"
     },
     {
@@ -117,7 +117,7 @@
       "source_file": "build_intl_results.py",
       "source_location": "L69",
       "id": "6n_build_intl_results_rationale_69",
-      "community": 9,
+      "community": 13,
       "norm_label": "cached, paginated get of all completed matches in [start, end].      caches the"
     },
     {
@@ -126,7 +126,7 @@
       "source_file": "build_intl_results.py",
       "source_location": "L93",
       "id": "6n_build_intl_results_rationale_93",
-      "community": 9,
+      "community": 13,
       "norm_label": "calendar-month [first, last] chunks covering [start, end]. month-sized     keeps"
     },
     {
@@ -135,7 +135,7 @@
       "source_file": "build_intl_results.py",
       "source_location": "L106",
       "id": "6n_build_intl_results_rationale_106",
-      "community": 9,
+      "community": 13,
       "norm_label": "two mirrored rows (one per side) for a senior men's match where at least     one"
     },
     {
@@ -144,7 +144,7 @@
       "source_file": "build_intl_results.py",
       "source_location": "L148",
       "id": "6n_build_intl_results_rationale_148",
-      "community": 9,
+      "community": 13,
       "norm_label": "6n-style season label: a match in jul..dec belongs to the next calendar     seas"
     },
     {
@@ -153,7 +153,7 @@
       "source_file": "build_team_form.py",
       "source_location": "L1",
       "id": "build_team_form_py",
-      "community": 5,
+      "community": 10,
       "norm_label": "build_team_form.py"
     },
     {
@@ -162,7 +162,7 @@
       "source_file": "build_team_form.py",
       "source_location": "L79",
       "id": "6n_build_team_form_load_h2h_meetings",
-      "community": 5,
+      "community": 10,
       "norm_label": "_load_h2h_meetings()"
     },
     {
@@ -171,7 +171,7 @@
       "source_file": "build_team_form.py",
       "source_location": "L113",
       "id": "6n_build_team_form_decayed_mean",
-      "community": 5,
+      "community": 10,
       "norm_label": "_decayed_mean()"
     },
     {
@@ -180,7 +180,7 @@
       "source_file": "build_team_form.py",
       "source_location": "L123",
       "id": "6n_build_team_form_build",
-      "community": 5,
+      "community": 10,
       "norm_label": "build()"
     },
     {
@@ -189,7 +189,7 @@
       "source_file": "build_team_form.py",
       "source_location": "L176",
       "id": "6n_build_team_form_merge_wr",
-      "community": 5,
+      "community": 10,
       "norm_label": "_merge_wr()"
     },
     {
@@ -198,7 +198,7 @@
       "source_file": "build_team_form.py",
       "source_location": "L194",
       "id": "6n_build_team_form_main",
-      "community": 5,
+      "community": 10,
       "norm_label": "main()"
     },
     {
@@ -207,7 +207,7 @@
       "source_file": "build_team_form.py",
       "source_location": "L80",
       "id": "6n_build_team_form_rationale_80",
-      "community": 5,
+      "community": 10,
       "norm_label": "prior-meetings pool for head-to-head, unioning the rich     api_team_match rows"
     },
     {
@@ -216,7 +216,7 @@
       "source_file": "build_team_form.py",
       "source_location": "L114",
       "id": "6n_build_team_form_rationale_114",
-      "community": 5,
+      "community": 10,
       "norm_label": "exponentially weighted mean, weight = 0.5 ** (days_ago / half_life)."
     },
     {
@@ -225,7 +225,7 @@
       "source_file": "build_team_form.py",
       "source_location": "L177",
       "id": "6n_build_team_form_rationale_177",
-      "community": 5,
+      "community": 10,
       "norm_label": "pit-join world rugby strength (data/wr_rankings.csv) by (date, team) and     (da"
     },
     {
@@ -234,7 +234,7 @@
       "source_file": "rugby_api.py",
       "source_location": "L1",
       "id": "rugby_api_py",
-      "community": 7,
+      "community": 1,
       "norm_label": "rugby_api.py"
     },
     {
@@ -243,7 +243,7 @@
       "source_file": "rugby_api.py",
       "source_location": "L46",
       "id": "6n_rugby_api_rugbyapi",
-      "community": 7,
+      "community": 1,
       "norm_label": "rugbyapi"
     },
     {
@@ -252,7 +252,7 @@
       "source_file": "rugby_api.py",
       "source_location": "L47",
       "id": "6n_rugby_api_rugbyapi_init",
-      "community": 7,
+      "community": 1,
       "norm_label": ".__init__()"
     },
     {
@@ -261,7 +261,7 @@
       "source_file": "rugby_api.py",
       "source_location": "L61",
       "id": "6n_rugby_api_rugbyapi_cache_path",
-      "community": 7,
+      "community": 1,
       "norm_label": "._cache_path()"
     },
     {
@@ -270,7 +270,7 @@
       "source_file": "rugby_api.py",
       "source_location": "L65",
       "id": "6n_rugby_api_rugbyapi_get",
-      "community": 7,
+      "community": 1,
       "norm_label": ".get()"
     },
     {
@@ -279,7 +279,7 @@
       "source_file": "rugby_api.py",
       "source_location": "L102",
       "id": "6n_rugby_api_rugbyapi_competitions",
-      "community": 7,
+      "community": 1,
       "norm_label": ".competitions()"
     },
     {
@@ -288,7 +288,7 @@
       "source_file": "rugby_api.py",
       "source_location": "L105",
       "id": "6n_rugby_api_rugbyapi_fixtures",
-      "community": 7,
+      "community": 1,
       "norm_label": ".fixtures()"
     },
     {
@@ -297,7 +297,7 @@
       "source_file": "rugby_api.py",
       "source_location": "L108",
       "id": "6n_rugby_api_rugbyapi_fixtures_by_team",
-      "community": 7,
+      "community": 1,
       "norm_label": ".fixtures_by_team()"
     },
     {
@@ -306,7 +306,7 @@
       "source_file": "rugby_api.py",
       "source_location": "L111",
       "id": "6n_rugby_api_rugbyapi_match",
-      "community": 7,
+      "community": 1,
       "norm_label": ".match()"
     },
     {
@@ -315,7 +315,7 @@
       "source_file": "rugby_api.py",
       "source_location": "L114",
       "id": "6n_rugby_api_rugbyapi_standings",
-      "community": 7,
+      "community": 1,
       "norm_label": ".standings()"
     },
     {
@@ -324,7 +324,7 @@
       "source_file": "rugby_api.py",
       "source_location": "L66",
       "id": "6n_rugby_api_rationale_66",
-      "community": 7,
+      "community": 1,
       "norm_label": "get an endpoint path (e.g. '/match/123'), with permanent disk cache."
     },
     {
@@ -333,7 +333,7 @@
       "source_file": "compare_three_way.py",
       "source_location": "L1",
       "id": "compare_three_way_py",
-      "community": 2,
+      "community": 6,
       "norm_label": "compare_three_way.py"
     },
     {
@@ -342,7 +342,7 @@
       "source_file": "compare_three_way.py",
       "source_location": "L50",
       "id": "6n_compare_three_way_slug_key",
-      "community": 2,
+      "community": 6,
       "norm_label": "slug_key()"
     },
     {
@@ -351,7 +351,7 @@
       "source_file": "compare_three_way.py",
       "source_location": "L58",
       "id": "6n_compare_three_way_load_rugbypass",
-      "community": 2,
+      "community": 6,
       "norm_label": "load_rugbypass()"
     },
     {
@@ -360,7 +360,7 @@
       "source_file": "compare_three_way.py",
       "source_location": "L82",
       "id": "6n_compare_three_way_agg_official",
-      "community": 2,
+      "community": 6,
       "norm_label": "agg_official()"
     },
     {
@@ -369,7 +369,7 @@
       "source_file": "compare_three_way.py",
       "source_location": "L94",
       "id": "6n_compare_three_way_agg_api",
-      "community": 2,
+      "community": 6,
       "norm_label": "agg_api()"
     },
     {
@@ -378,7 +378,7 @@
       "source_file": "compare_three_way.py",
       "source_location": "L109",
       "id": "6n_compare_three_way_corr",
-      "community": 2,
+      "community": 6,
       "norm_label": "corr()"
     },
     {
@@ -387,7 +387,7 @@
       "source_file": "compare_three_way.py",
       "source_location": "L114",
       "id": "6n_compare_three_way_main",
-      "community": 2,
+      "community": 6,
       "norm_label": "main()"
     },
     {
@@ -396,7 +396,7 @@
       "source_file": "build_features.py",
       "source_location": "L1",
       "id": "build_features_py",
-      "community": 3,
+      "community": 8,
       "norm_label": "build_features.py"
     },
     {
@@ -405,7 +405,7 @@
       "source_file": "build_features.py",
       "source_location": "L88",
       "id": "6n_build_features_decay_weights",
-      "community": 3,
+      "community": 8,
       "norm_label": "_decay_weights()"
     },
     {
@@ -414,7 +414,7 @@
       "source_file": "build_features.py",
       "source_location": "L93",
       "id": "6n_build_features_bool",
-      "community": 3,
+      "community": 8,
       "norm_label": "_bool()"
     },
     {
@@ -423,7 +423,7 @@
       "source_file": "build_features.py",
       "source_location": "L98",
       "id": "6n_build_features_season_end_year",
-      "community": 3,
+      "community": 8,
       "norm_label": "_season_end_year()"
     },
     {
@@ -432,7 +432,7 @@
       "source_file": "build_features.py",
       "source_location": "L105",
       "id": "6n_build_features_class_features",
-      "community": 3,
+      "community": 8,
       "norm_label": "class_features()"
     },
     {
@@ -441,7 +441,7 @@
       "source_file": "build_features.py",
       "source_location": "L135",
       "id": "6n_build_features_form_role_features",
-      "community": 3,
+      "community": 8,
       "norm_label": "form_role_features()"
     },
     {
@@ -450,7 +450,7 @@
       "source_file": "build_features.py",
       "source_location": "L184",
       "id": "6n_build_features_ownteam_features",
-      "community": 3,
+      "community": 8,
       "norm_label": "ownteam_features()"
     },
     {
@@ -459,7 +459,7 @@
       "source_file": "build_features.py",
       "source_location": "L199",
       "id": "6n_build_features_build",
-      "community": 3,
+      "community": 8,
       "norm_label": "build()"
     },
     {
@@ -468,7 +468,7 @@
       "source_file": "build_features.py",
       "source_location": "L329",
       "id": "6n_build_features_main",
-      "community": 3,
+      "community": 8,
       "norm_label": "main()"
     },
     {
@@ -477,7 +477,7 @@
       "source_file": "build_features.py",
       "source_location": "L99",
       "id": "6n_build_features_rationale_99",
-      "community": 3,
+      "community": 8,
       "norm_label": "rugbypass labels are mixed: '2025/2026' (club) and '2026' (intl). the     pit-co"
     },
     {
@@ -486,7 +486,7 @@
       "source_file": "build_features.py",
       "source_location": "L106",
       "id": "6n_build_features_rationale_106",
-      "community": 3,
+      "community": 8,
       "norm_label": "minutes-weighted per-80 rates over the player's **completed prior**     rugbypas"
     },
     {
@@ -495,7 +495,7 @@
       "source_file": "build_features.py",
       "source_location": "L136",
       "id": "6n_build_features_rationale_136",
-      "community": 3,
+      "community": 8,
       "norm_label": "decayed per-80 form rates + minutes/start trend + role signals, over the     pla"
     },
     {
@@ -504,7 +504,7 @@
       "source_file": "build_features.py",
       "source_location": "L185",
       "id": "6n_build_features_rationale_185",
-      "community": 3,
+      "community": 8,
       "norm_label": "own side's decayed attacking output over its matches before the fixture."
     },
     {
@@ -513,7 +513,7 @@
       "source_file": "build_rugbypass_tables.py",
       "source_location": "L1",
       "id": "build_rugbypass_tables_py",
-      "community": 2,
+      "community": 6,
       "norm_label": "build_rugbypass_tables.py"
     },
     {
@@ -522,7 +522,7 @@
       "source_file": "build_rugbypass_tables.py",
       "source_location": "L53",
       "id": "6n_build_rugbypass_tables_num",
-      "community": 2,
+      "community": 6,
       "norm_label": "_num()"
     },
     {
@@ -531,7 +531,7 @@
       "source_file": "build_rugbypass_tables.py",
       "source_location": "L64",
       "id": "6n_build_rugbypass_tables_parse_height_cm",
-      "community": 2,
+      "community": 6,
       "norm_label": "_parse_height_cm()"
     },
     {
@@ -540,7 +540,7 @@
       "source_file": "build_rugbypass_tables.py",
       "source_location": "L72",
       "id": "6n_build_rugbypass_tables_parse_weight_kg",
-      "community": 2,
+      "community": 6,
       "norm_label": "_parse_weight_kg()"
     },
     {
@@ -549,7 +549,7 @@
       "source_file": "build_rugbypass_tables.py",
       "source_location": "L80",
       "id": "6n_build_rugbypass_tables_parse_age",
-      "community": 2,
+      "community": 6,
       "norm_label": "_parse_age()"
     },
     {
@@ -558,7 +558,7 @@
       "source_file": "build_rugbypass_tables.py",
       "source_location": "L87",
       "id": "6n_build_rugbypass_tables_load_json_files",
-      "community": 2,
+      "community": 6,
       "norm_label": "load_json_files()"
     },
     {
@@ -567,7 +567,7 @@
       "source_file": "build_rugbypass_tables.py",
       "source_location": "L97",
       "id": "6n_build_rugbypass_tables_build_bio",
-      "community": 2,
+      "community": 6,
       "norm_label": "build_bio()"
     },
     {
@@ -576,7 +576,7 @@
       "source_file": "build_rugbypass_tables.py",
       "source_location": "L113",
       "id": "6n_build_rugbypass_tables_build_compstats",
-      "community": 2,
+      "community": 6,
       "norm_label": "build_compstats()"
     },
     {
@@ -585,7 +585,7 @@
       "source_file": "build_rugbypass_tables.py",
       "source_location": "L130",
       "id": "6n_build_rugbypass_tables_build_matchlog",
-      "community": 2,
+      "community": 6,
       "norm_label": "build_matchlog()"
     },
     {
@@ -594,7 +594,7 @@
       "source_file": "build_rugbypass_tables.py",
       "source_location": "L156",
       "id": "6n_build_rugbypass_tables_main",
-      "community": 2,
+      "community": 6,
       "norm_label": "main()"
     },
     {
@@ -603,7 +603,7 @@
       "source_file": "build_rugbypass_tables.py",
       "source_location": "L54",
       "id": "6n_build_rugbypass_tables_rationale_54",
-      "community": 2,
+      "community": 6,
       "norm_label": "coerce to int/float; none/blank/non-numeric -> 0."
     },
     {
@@ -612,7 +612,7 @@
       "source_file": "build_rugbypass_tables.py",
       "source_location": "L65",
       "id": "6n_build_rugbypass_tables_rationale_65",
-      "community": 2,
+      "community": 6,
       "norm_label": "188cm' -> 188 ; missing -> 0."
     },
     {
@@ -621,7 +621,7 @@
       "source_file": "build_rugbypass_tables.py",
       "source_location": "L73",
       "id": "6n_build_rugbypass_tables_rationale_73",
-      "community": 2,
+      "community": 6,
       "norm_label": "106kg' -> 106 ; missing -> 0."
     },
     {
@@ -630,7 +630,7 @@
       "source_file": "build_targets.py",
       "source_location": "L1",
       "id": "build_targets_py",
-      "community": 8,
+      "community": 12,
       "norm_label": "build_targets.py"
     },
     {
@@ -639,7 +639,7 @@
       "source_file": "build_targets.py",
       "source_location": "L84",
       "id": "6n_build_targets_score_components",
-      "community": 8,
+      "community": 12,
       "norm_label": "score_components()"
     },
     {
@@ -648,7 +648,7 @@
       "source_file": "build_targets.py",
       "source_location": "L107",
       "id": "6n_build_targets_build",
-      "community": 8,
+      "community": 12,
       "norm_label": "build()"
     },
     {
@@ -657,7 +657,7 @@
       "source_file": "build_targets.py",
       "source_location": "L186",
       "id": "6n_build_targets_fit_latent",
-      "community": 8,
+      "community": 12,
       "norm_label": "_fit_latent()"
     },
     {
@@ -666,7 +666,7 @@
       "source_file": "build_targets.py",
       "source_location": "L226",
       "id": "6n_build_targets_main",
-      "community": 8,
+      "community": 12,
       "norm_label": "main()"
     },
     {
@@ -675,7 +675,7 @@
       "source_file": "build_targets.py",
       "source_location": "L85",
       "id": "6n_build_targets_rationale_85",
-      "community": 8,
+      "community": 12,
       "norm_label": "deterministic fantasy score under the **modern** (2025/2026) official     formul"
     },
     {
@@ -684,7 +684,7 @@
       "source_file": "build_targets.py",
       "source_location": "L187",
       "id": "6n_build_targets_rationale_187",
-      "community": 8,
+      "community": 12,
       "norm_label": "fit the latent decomposition on modern labelled rows (2025+2026) \u2014 the     only"
     },
     {
@@ -693,7 +693,7 @@
       "source_file": "games.py",
       "source_location": "L1",
       "id": "games_py",
-      "community": 14,
+      "community": 17,
       "norm_label": "games.py"
     },
     {
@@ -702,7 +702,7 @@
       "source_file": "games.py",
       "source_location": "L18",
       "id": "6n_games_scrape_rugby_stats",
-      "community": 14,
+      "community": 17,
       "norm_label": "scrape_rugby_stats()"
     },
     {
@@ -711,7 +711,7 @@
       "source_file": "games.py",
       "source_location": "L142",
       "id": "6n_games_scrape_match_data",
-      "community": 14,
+      "community": 17,
       "norm_label": "scrape_match_data()"
     },
     {
@@ -720,7 +720,7 @@
       "source_file": "rugbypass_batch.py",
       "source_location": "L1",
       "id": "rugbypass_batch_py",
-      "community": 12,
+      "community": 7,
       "norm_label": "rugbypass_batch.py"
     },
     {
@@ -729,7 +729,7 @@
       "source_file": "rugbypass_batch.py",
       "source_location": "L384",
       "id": "6n_rugbypass_batch_make_driver",
-      "community": 12,
+      "community": 7,
       "norm_label": "make_driver()"
     },
     {
@@ -738,7 +738,7 @@
       "source_file": "rugbypass_batch.py",
       "source_location": "L413",
       "id": "6n_rugbypass_batch_extract_bio",
-      "community": 12,
+      "community": 7,
       "norm_label": "extract_bio()"
     },
     {
@@ -747,7 +747,7 @@
       "source_file": "rugbypass_batch.py",
       "source_location": "L431",
       "id": "6n_rugbypass_batch_extract_comp_stats",
-      "community": 12,
+      "community": 7,
       "norm_label": "extract_comp_stats()"
     },
     {
@@ -756,7 +756,7 @@
       "source_file": "rugbypass_batch.py",
       "source_location": "L473",
       "id": "6n_rugbypass_batch_extract_match_log",
-      "community": 12,
+      "community": 7,
       "norm_label": "extract_match_log()"
     },
     {
@@ -765,7 +765,7 @@
       "source_file": "rugbypass_batch.py",
       "source_location": "L503",
       "id": "6n_rugbypass_batch_get_unique_players",
-      "community": 12,
+      "community": 7,
       "norm_label": "get_unique_players()"
     },
     {
@@ -774,7 +774,7 @@
       "source_file": "rugbypass_batch.py",
       "source_location": "L515",
       "id": "6n_rugbypass_batch_is_six_nations",
-      "community": 12,
+      "community": 7,
       "norm_label": "is_six_nations()"
     },
     {
@@ -783,7 +783,7 @@
       "source_file": "rugbypass_batch.py",
       "source_location": "L525",
       "id": "6n_rugbypass_batch_main",
-      "community": 12,
+      "community": 7,
       "norm_label": "main()"
     },
     {
@@ -792,7 +792,7 @@
       "source_file": "rugbypass.py",
       "source_location": "L1",
       "id": "rugbypass_py",
-      "community": 11,
+      "community": 14,
       "norm_label": "rugbypass.py"
     },
     {
@@ -801,7 +801,7 @@
       "source_file": "rugbypass.py",
       "source_location": "L32",
       "id": "6n_rugbypass_make_driver",
-      "community": 11,
+      "community": 14,
       "norm_label": "make_driver()"
     },
     {
@@ -810,7 +810,7 @@
       "source_file": "rugbypass.py",
       "source_location": "L63",
       "id": "6n_rugbypass_extract_bio",
-      "community": 11,
+      "community": 14,
       "norm_label": "extract_bio()"
     },
     {
@@ -819,7 +819,7 @@
       "source_file": "rugbypass.py",
       "source_location": "L82",
       "id": "6n_rugbypass_extract_comp_stats",
-      "community": 11,
+      "community": 14,
       "norm_label": "extract_comp_stats()"
     },
     {
@@ -828,7 +828,7 @@
       "source_file": "rugbypass.py",
       "source_location": "L129",
       "id": "6n_rugbypass_extract_match_log",
-      "community": 11,
+      "community": 14,
       "norm_label": "extract_match_log()"
     },
     {
@@ -837,7 +837,7 @@
       "source_file": "rugbypass.py",
       "source_location": "L159",
       "id": "6n_rugbypass_main",
-      "community": 11,
+      "community": 14,
       "norm_label": "main()"
     },
     {
@@ -846,7 +846,7 @@
       "source_file": "rugbypass.py",
       "source_location": "L64",
       "id": "6n_rugbypass_rationale_64",
-      "community": 11,
+      "community": 14,
       "norm_label": "parse player bio from .player-details."
     },
     {
@@ -855,7 +855,7 @@
       "source_file": "rugbypass.py",
       "source_location": "L83",
       "id": "6n_rugbypass_rationale_83",
-      "community": 11,
+      "community": 14,
       "norm_label": "parse #app-comp-stats \u2192 list of per-competition season aggregates.     returns a"
     },
     {
@@ -864,7 +864,7 @@
       "source_file": "rugbypass.py",
       "source_location": "L130",
       "id": "6n_rugbypass_rationale_130",
-      "community": 11,
+      "community": 14,
       "norm_label": "parse #app-competitions \u2192 flat list of per-game records."
     },
     {
@@ -873,7 +873,7 @@
       "source_file": "build_official.py",
       "source_location": "L1",
       "id": "build_official_py",
-      "community": 6,
+      "community": 11,
       "norm_label": "build_official.py"
     },
     {
@@ -882,7 +882,7 @@
       "source_file": "build_official.py",
       "source_location": "L62",
       "id": "6n_build_official_player_nation_map",
-      "community": 6,
+      "community": 11,
       "norm_label": "_player_nation_map()"
     },
     {
@@ -891,7 +891,7 @@
       "source_file": "build_official.py",
       "source_location": "L75",
       "id": "6n_build_official_parse_official_2023",
-      "community": 6,
+      "community": 11,
       "norm_label": "parse_official_2023()"
     },
     {
@@ -900,7 +900,7 @@
       "source_file": "build_official.py",
       "source_location": "L125",
       "id": "6n_build_official_build",
-      "community": 6,
+      "community": 11,
       "norm_label": "build()"
     },
     {
@@ -909,7 +909,7 @@
       "source_file": "build_official.py",
       "source_location": "L146",
       "id": "6n_build_official_main",
-      "community": 6,
+      "community": 11,
       "norm_label": "main()"
     },
     {
@@ -918,7 +918,7 @@
       "source_file": "build_official.py",
       "source_location": "L63",
       "id": "6n_build_official_rationale_63",
-      "community": 6,
+      "community": 11,
       "norm_label": "build {norm_key(name): nation} from the 2023 'player list' sheet."
     },
     {
@@ -927,7 +927,7 @@
       "source_file": "build_official.py",
       "source_location": "L76",
       "id": "6n_build_official_rationale_76",
-      "community": 6,
+      "community": 11,
       "norm_label": "parse the 2023 split-sheet layout (rounds 1-4) -> tidy long frame.      reads ea"
     },
     {
@@ -936,7 +936,7 @@
       "source_file": "players.py",
       "source_location": "L1",
       "id": "players_py",
-      "community": 15,
+      "community": 18,
       "norm_label": "players.py"
     },
     {
@@ -945,7 +945,7 @@
       "source_file": "players.py",
       "source_location": "L19",
       "id": "6n_players_scrape_rugby_stats",
-      "community": 15,
+      "community": 18,
       "norm_label": "scrape_rugby_stats()"
     },
     {
@@ -954,7 +954,7 @@
       "source_file": "compare_api_official.py",
       "source_location": "L1",
       "id": "compare_api_official_py",
-      "community": 6,
+      "community": 11,
       "norm_label": "compare_api_official.py"
     },
     {
@@ -963,7 +963,7 @@
       "source_file": "compare_api_official.py",
       "source_location": "L59",
       "id": "6n_compare_api_official_norm_key",
-      "community": 6,
+      "community": 11,
       "norm_label": "norm_key()"
     },
     {
@@ -972,7 +972,7 @@
       "source_file": "compare_api_official.py",
       "source_location": "L74",
       "id": "6n_compare_api_official_parse_official",
-      "community": 6,
+      "community": 11,
       "norm_label": "parse_official()"
     },
     {
@@ -981,7 +981,7 @@
       "source_file": "compare_api_official.py",
       "source_location": "L105",
       "id": "6n_compare_api_official_load_api",
-      "community": 6,
+      "community": 11,
       "norm_label": "load_api()"
     },
     {
@@ -990,7 +990,7 @@
       "source_file": "compare_api_official.py",
       "source_location": "L111",
       "id": "6n_compare_api_official_compare",
-      "community": 6,
+      "community": 11,
       "norm_label": "compare()"
     },
     {
@@ -999,7 +999,7 @@
       "source_file": "compare_api_official.py",
       "source_location": "L60",
       "id": "6n_compare_api_official_rationale_60",
-      "community": 6,
+      "community": 11,
       "norm_label": "t. bielle-biarrey' / 'louis bielle-biarrey' -> 't|biellebiarrey'."
     },
     {
@@ -1008,7 +1008,7 @@
       "source_file": "compare_api_official.py",
       "source_location": "L75",
       "id": "6n_compare_api_official_rationale_75",
-      "community": 6,
+      "community": 11,
       "norm_label": "walk the stacked per-team blocks in every sheet -> tidy long frame."
     },
     {
@@ -1017,7 +1017,7 @@
       "source_file": "build_crosswalk.py",
       "source_location": "L1",
       "id": "build_crosswalk_py",
-      "community": 0,
+      "community": 2,
       "norm_label": "build_crosswalk.py"
     },
     {
@@ -1026,7 +1026,7 @@
       "source_file": "build_crosswalk.py",
       "source_location": "L55",
       "id": "6n_build_crosswalk_surname_of",
-      "community": 0,
+      "community": 2,
       "norm_label": "surname_of()"
     },
     {
@@ -1035,7 +1035,7 @@
       "source_file": "build_crosswalk.py",
       "source_location": "L62",
       "id": "6n_build_crosswalk_last_token",
-      "community": 0,
+      "community": 2,
       "norm_label": "last_token()"
     },
     {
@@ -1044,7 +1044,7 @@
       "source_file": "build_crosswalk.py",
       "source_location": "L83",
       "id": "6n_build_crosswalk_load_api",
-      "community": 0,
+      "community": 2,
       "norm_label": "load_api()"
     },
     {
@@ -1053,7 +1053,7 @@
       "source_file": "build_crosswalk.py",
       "source_location": "L138",
       "id": "6n_build_crosswalk_load_rp",
-      "community": 0,
+      "community": 2,
       "norm_label": "load_rp()"
     },
     {
@@ -1062,7 +1062,7 @@
       "source_file": "build_crosswalk.py",
       "source_location": "L148",
       "id": "6n_build_crosswalk_load_official",
-      "community": 0,
+      "community": 2,
       "norm_label": "load_official()"
     },
     {
@@ -1071,7 +1071,7 @@
       "source_file": "build_crosswalk.py",
       "source_location": "L163",
       "id": "6n_build_crosswalk_build",
-      "community": 0,
+      "community": 2,
       "norm_label": "build()"
     },
     {
@@ -1080,7 +1080,7 @@
       "source_file": "build_crosswalk.py",
       "source_location": "L198",
       "id": "6n_build_crosswalk_nat_team_compatible",
-      "community": 0,
+      "community": 2,
       "norm_label": "_nat_team_compatible()"
     },
     {
@@ -1089,7 +1089,7 @@
       "source_file": "build_crosswalk.py",
       "source_location": "L207",
       "id": "6n_build_crosswalk_row_source",
-      "community": 0,
+      "community": 2,
       "norm_label": "_row_source()"
     },
     {
@@ -1098,7 +1098,7 @@
       "source_file": "build_crosswalk.py",
       "source_location": "L216",
       "id": "6n_build_crosswalk_surname_candidates",
-      "community": 0,
+      "community": 2,
       "norm_label": "_surname_candidates()"
     },
     {
@@ -1107,7 +1107,7 @@
       "source_file": "build_crosswalk.py",
       "source_location": "L238",
       "id": "6n_build_crosswalk_surname_pass",
-      "community": 0,
+      "community": 2,
       "norm_label": "_surname_pass()"
     },
     {
@@ -1116,7 +1116,7 @@
       "source_file": "build_crosswalk.py",
       "source_location": "L313",
       "id": "6n_build_crosswalk_consolidate_name_variants",
-      "community": 0,
+      "community": 2,
       "norm_label": "_consolidate_name_variants()"
     },
     {
@@ -1125,7 +1125,7 @@
       "source_file": "build_crosswalk.py",
       "source_location": "L352",
       "id": "6n_build_crosswalk_fold",
-      "community": 0,
+      "community": 2,
       "norm_label": "_fold()"
     },
     {
@@ -1134,7 +1134,7 @@
       "source_file": "build_crosswalk.py",
       "source_location": "L370",
       "id": "6n_build_crosswalk_report",
-      "community": 0,
+      "community": 2,
       "norm_label": "report()"
     },
     {
@@ -1143,7 +1143,7 @@
       "source_file": "build_crosswalk.py",
       "source_location": "L435",
       "id": "6n_build_crosswalk_main",
-      "community": 0,
+      "community": 2,
       "norm_label": "main()"
     },
     {
@@ -1152,7 +1152,7 @@
       "source_file": "build_crosswalk.py",
       "source_location": "L56",
       "id": "6n_build_crosswalk_rationale_56",
-      "community": 0,
+      "community": 2,
       "norm_label": "j|brex' -> 'brex'.  the part after the '|' in a norm_key."
     },
     {
@@ -1161,7 +1161,7 @@
       "source_file": "build_crosswalk.py",
       "source_location": "L63",
       "id": "6n_build_crosswalk_rationale_63",
-      "community": 0,
+      "community": 2,
       "norm_label": "real final whitespace token of a name, ascii-folded, letters only.      'juan ig"
     },
     {
@@ -1170,7 +1170,7 @@
       "source_file": "build_crosswalk.py",
       "source_location": "L84",
       "id": "6n_build_crosswalk_rationale_84",
-      "community": 0,
+      "community": 2,
       "norm_label": "distinct (player_id, player_name) for every six nations player.      source is t"
     },
     {
@@ -1179,7 +1179,7 @@
       "source_file": "build_crosswalk.py",
       "source_location": "L199",
       "id": "6n_build_crosswalk_rationale_199",
-      "community": 0,
+      "community": 2,
       "norm_label": "true if rp nationality and api/official team don't actively conflict."
     },
     {
@@ -1188,7 +1188,7 @@
       "source_file": "build_crosswalk.py",
       "source_location": "L208",
       "id": "6n_build_crosswalk_rationale_208",
-      "community": 0,
+      "community": 2,
       "norm_label": "single source a lonely row belongs to: 'api' | 'rp' | 'official'."
     },
     {
@@ -1197,7 +1197,7 @@
       "source_file": "build_crosswalk.py",
       "source_location": "L217",
       "id": "6n_build_crosswalk_rationale_217",
-      "community": 0,
+      "community": 2,
       "norm_label": "surname forms by which this lonely row may be matched.      combines the norm_ke"
     },
     {
@@ -1206,7 +1206,7 @@
       "source_file": "build_crosswalk.py",
       "source_location": "L239",
       "id": "6n_build_crosswalk_rationale_239",
-      "community": 0,
+      "community": 2,
       "norm_label": "recover cross-source singletons that share a unique surname.      a 'lonely' row"
     },
     {
@@ -1215,7 +1215,7 @@
       "source_file": "build_crosswalk.py",
       "source_location": "L314",
       "id": "6n_build_crosswalk_rationale_314",
-      "community": 0,
+      "community": 2,
       "norm_label": "merge two partially-filled rows that are the same player under official     name"
     },
     {
@@ -1224,7 +1224,7 @@
       "source_file": "build_crosswalk.py",
       "source_location": "L353",
       "id": "6n_build_crosswalk_rationale_353",
-      "community": 0,
+      "community": 2,
       "norm_label": "merge row `drop` into row `keep` in place; mark match_method='surname'."
     },
     {
@@ -1251,7 +1251,7 @@
       "source_file": "",
       "source_location": "",
       "id": "runtimeerror",
-      "community": 7,
+      "community": 1,
       "norm_label": "runtimeerror"
     },
     {
@@ -1440,7 +1440,7 @@
       "source_file": "rugbypass_backfill.py",
       "source_location": "L1",
       "id": "rugbypass_backfill_py",
-      "community": 10,
+      "community": 7,
       "norm_label": "rugbypass_backfill.py"
     },
     {
@@ -1449,7 +1449,7 @@
       "source_file": "rugbypass_backfill.py",
       "source_location": "L66",
       "id": "6n_rugbypass_backfill_fold",
-      "community": 10,
+      "community": 7,
       "norm_label": "fold()"
     },
     {
@@ -1458,7 +1458,7 @@
       "source_file": "rugbypass_backfill.py",
       "source_location": "L72",
       "id": "6n_rugbypass_backfill_slug_candidates",
-      "community": 10,
+      "community": 7,
       "norm_label": "slug_candidates()"
     },
     {
@@ -1467,7 +1467,7 @@
       "source_file": "rugbypass_backfill.py",
       "source_location": "L96",
       "id": "6n_rugbypass_backfill_unmatched_api_players",
-      "community": 10,
+      "community": 7,
       "norm_label": "unmatched_api_players()"
     },
     {
@@ -1476,7 +1476,7 @@
       "source_file": "rugbypass_backfill.py",
       "source_location": "L106",
       "id": "6n_rugbypass_backfill_fetch",
-      "community": 10,
+      "community": 7,
       "norm_label": "fetch()"
     },
     {
@@ -1485,7 +1485,7 @@
       "source_file": "rugbypass_backfill.py",
       "source_location": "L116",
       "id": "6n_rugbypass_backfill_resolve_and_scrape",
-      "community": 10,
+      "community": 7,
       "norm_label": "resolve_and_scrape()"
     },
     {
@@ -1494,7 +1494,7 @@
       "source_file": "rugbypass_backfill.py",
       "source_location": "L209",
       "id": "6n_rugbypass_backfill_main",
-      "community": 10,
+      "community": 7,
       "norm_label": "main()"
     },
     {
@@ -1503,7 +1503,7 @@
       "source_file": "rugbypass_backfill.py",
       "source_location": "L67",
       "id": "6n_rugbypass_backfill_rationale_67",
-      "community": 10,
+      "community": 7,
       "norm_label": "ascii-fold + lowercase: 'sebastien' -> 'sebastien'."
     },
     {
@@ -1512,7 +1512,7 @@
       "source_file": "rugbypass_backfill.py",
       "source_location": "L73",
       "id": "6n_rugbypass_backfill_rationale_73",
-      "community": 10,
+      "community": 7,
       "norm_label": "ordered rugbypass slug guesses for an api player name."
     },
     {
@@ -1521,7 +1521,7 @@
       "source_file": "rugbypass_backfill.py",
       "source_location": "L97",
       "id": "6n_rugbypass_backfill_rationale_97",
-      "community": 10,
+      "community": 7,
       "norm_label": "api players present in the crosswalk but not linked to rugbypass."
     },
     {
@@ -1530,8 +1530,1124 @@
       "source_file": "rugbypass_backfill.py",
       "source_location": "L107",
       "id": "6n_rugbypass_backfill_rationale_107",
-      "community": 10,
+      "community": 7,
       "norm_label": "return (status_code, html_or_none) for a rugbypass player slug."
+    },
+    {
+      "label": "baselines.py",
+      "file_type": "code",
+      "source_file": "model/baselines.py",
+      "source_location": "L1",
+      "id": "model_baselines_py",
+      "community": 4,
+      "norm_label": "baselines.py"
+    },
+    {
+      "label": "PositionMeanImputer",
+      "file_type": "code",
+      "source_file": "model/baselines.py",
+      "source_location": "L58",
+      "id": "model_baselines_positionmeanimputer",
+      "community": 4,
+      "norm_label": "positionmeanimputer"
+    },
+    {
+      "label": ".fit()",
+      "file_type": "code",
+      "source_file": "model/baselines.py",
+      "source_location": "L65",
+      "id": "model_baselines_positionmeanimputer_fit",
+      "community": 4,
+      "norm_label": ".fit()"
+    },
+    {
+      "label": ".transform()",
+      "file_type": "code",
+      "source_file": "model/baselines.py",
+      "source_location": "L71",
+      "id": "model_baselines_positionmeanimputer_transform",
+      "community": 4,
+      "norm_label": ".transform()"
+    },
+    {
+      "label": "numeric_cols()",
+      "file_type": "code",
+      "source_file": "model/baselines.py",
+      "source_location": "L77",
+      "id": "model_baselines_numeric_cols",
+      "community": 4,
+      "norm_label": "numeric_cols()"
+    },
+    {
+      "label": "build_matrix()",
+      "file_type": "code",
+      "source_file": "model/baselines.py",
+      "source_location": "L82",
+      "id": "model_baselines_build_matrix",
+      "community": 4,
+      "norm_label": "build_matrix()"
+    },
+    {
+      "label": "expected_minutes()",
+      "file_type": "code",
+      "source_file": "model/baselines.py",
+      "source_location": "L102",
+      "id": "model_baselines_expected_minutes",
+      "community": 4,
+      "norm_label": "expected_minutes()"
+    },
+    {
+      "label": "_rate_target()",
+      "file_type": "code",
+      "source_file": "model/baselines.py",
+      "source_location": "L136",
+      "id": "model_baselines_rate_target",
+      "community": 4,
+      "norm_label": "_rate_target()"
+    },
+    {
+      "label": "rates_to_components()",
+      "file_type": "code",
+      "source_file": "model/baselines.py",
+      "source_location": "L144",
+      "id": "model_baselines_rates_to_components",
+      "community": 4,
+      "norm_label": "rates_to_components()"
+    },
+    {
+      "label": "score_recon()",
+      "file_type": "code",
+      "source_file": "model/baselines.py",
+      "source_location": "L153",
+      "id": "model_baselines_score_recon",
+      "community": 4,
+      "norm_label": "score_recon()"
+    },
+    {
+      "label": "predict_rates()",
+      "file_type": "code",
+      "source_file": "model/baselines.py",
+      "source_location": "L166",
+      "id": "model_baselines_predict_rates",
+      "community": 5,
+      "norm_label": "predict_rates()"
+    },
+    {
+      "label": "_position_rate_prior()",
+      "file_type": "code",
+      "source_file": "model/baselines.py",
+      "source_location": "L178",
+      "id": "model_baselines_position_rate_prior",
+      "community": 4,
+      "norm_label": "_position_rate_prior()"
+    },
+    {
+      "label": "_rates_naive()",
+      "file_type": "code",
+      "source_file": "model/baselines.py",
+      "source_location": "L188",
+      "id": "model_baselines_rates_naive",
+      "community": 4,
+      "norm_label": "_rates_naive()"
+    },
+    {
+      "label": "_rates_linear()",
+      "file_type": "code",
+      "source_file": "model/baselines.py",
+      "source_location": "L203",
+      "id": "model_baselines_rates_linear",
+      "community": 4,
+      "norm_label": "_rates_linear()"
+    },
+    {
+      "label": "direct_points_oof()",
+      "file_type": "code",
+      "source_file": "model/baselines.py",
+      "source_location": "L238",
+      "id": "model_baselines_direct_points_oof",
+      "community": 4,
+      "norm_label": "direct_points_oof()"
+    },
+    {
+      "label": "_selfcheck()",
+      "file_type": "code",
+      "source_file": "model/baselines.py",
+      "source_location": "L259",
+      "id": "model_baselines_selfcheck",
+      "community": 4,
+      "norm_label": "_selfcheck()"
+    },
+    {
+      "label": "Fill NaN with the TRAIN canonical_pos group mean, then global mean.      Pairs w",
+      "file_type": "rationale",
+      "source_file": "model/baselines.py",
+      "source_location": "L59",
+      "id": "model_baselines_rationale_59",
+      "community": 4,
+      "norm_label": "fill nan with the train canonical_pos group mean, then global mean.      pairs w"
+    },
+    {
+      "label": "Feature-view columns minus the categorical text column(s).",
+      "file_type": "rationale",
+      "source_file": "model/baselines.py",
+      "source_location": "L78",
+      "id": "model_baselines_rationale_78",
+      "community": 4,
+      "norm_label": "feature-view columns minus the categorical text column(s)."
+    },
+    {
+      "label": "Imputed + standardized design matrices for linear/GLM baselines.      Imputer an",
+      "file_type": "rationale",
+      "source_file": "model/baselines.py",
+      "source_location": "L85",
+      "id": "model_baselines_rationale_85",
+      "community": 4,
+      "norm_label": "imputed + standardized design matrices for linear/glm baselines.      imputer an"
+    },
+    {
+      "label": "minutes_hat for the test rows.      pre_team_sheet : decayed `form_minutes_recen",
+      "file_type": "rationale",
+      "source_file": "model/baselines.py",
+      "source_location": "L105",
+      "id": "model_baselines_rationale_105",
+      "community": 4,
+      "norm_label": "minutes_hat for the test rows.      pre_team_sheet : decayed `form_minutes_recen"
+    },
+    {
+      "label": "Realised per-80 rate of a component (y / min_share).",
+      "file_type": "rationale",
+      "source_file": "model/baselines.py",
+      "source_location": "L137",
+      "id": "model_baselines_rationale_137",
+      "community": 4,
+      "norm_label": "realised per-80 rate of a component (y / min_share)."
+    },
+    {
+      "label": "Convert per-80 rates to non-negative per-match component counts.",
+      "file_type": "rationale",
+      "source_file": "model/baselines.py",
+      "source_location": "L147",
+      "id": "model_baselines_rationale_147",
+      "community": 4,
+      "norm_label": "convert per-80 rates to non-negative per-match component counts."
+    },
+    {
+      "label": "Deterministic modern-formula score of a component frame (reuses the     frozen `",
+      "file_type": "rationale",
+      "source_file": "model/baselines.py",
+      "source_location": "L154",
+      "id": "model_baselines_rationale_154",
+      "community": 4,
+      "norm_label": "deterministic modern-formula score of a component frame (reuses the     frozen `"
+    },
+    {
+      "label": "Per-80 rate predictions (index=test_idx, cols=SCORED) for a baseline engine.",
+      "file_type": "rationale",
+      "source_file": "model/baselines.py",
+      "source_location": "L170",
+      "id": "model_baselines_rationale_170",
+      "community": 5,
+      "norm_label": "per-80 rate predictions (index=test_idx, cols=scored) for a baseline engine."
+    },
+    {
+      "label": "Position-group mean realised per-80 rate (train, minutes>=10) + global.",
+      "file_type": "rationale",
+      "source_file": "model/baselines.py",
+      "source_location": "L179",
+      "id": "model_baselines_rationale_179",
+      "community": 4,
+      "norm_label": "position-group mean realised per-80 rate (train, minutes>=10) + global."
+    },
+    {
+      "label": "GroupKFold OOF Ridge predicting modern `official_pts` within `season`.      Ther",
+      "file_type": "rationale",
+      "source_file": "model/baselines.py",
+      "source_location": "L239",
+      "id": "model_baselines_rationale_239",
+      "community": 4,
+      "norm_label": "groupkfold oof ridge predicting modern `official_pts` within `season`.      ther"
+    },
+    {
+      "label": "run.py",
+      "file_type": "code",
+      "source_file": "model/run.py",
+      "source_location": "L1",
+      "id": "model_run_py",
+      "community": 0,
+      "norm_label": "run.py"
+    },
+    {
+      "label": "build_predictors()",
+      "file_type": "code",
+      "source_file": "model/run.py",
+      "source_location": "L40",
+      "id": "model_run_build_predictors",
+      "community": 5,
+      "norm_label": "build_predictors()"
+    },
+    {
+      "label": "direct_points_frame()",
+      "file_type": "code",
+      "source_file": "model/run.py",
+      "source_location": "L50",
+      "id": "model_run_direct_points_frame",
+      "community": 0,
+      "norm_label": "direct_points_frame()"
+    },
+    {
+      "label": "run_season()",
+      "file_type": "code",
+      "source_file": "model/run.py",
+      "source_location": "L81",
+      "id": "model_run_run_season",
+      "community": 0,
+      "norm_label": "run_season()"
+    },
+    {
+      "label": "main()",
+      "file_type": "code",
+      "source_file": "model/run.py",
+      "source_location": "L97",
+      "id": "model_run_main",
+      "community": 0,
+      "norm_label": "main()"
+    },
+    {
+      "label": "_accept_and_persist()",
+      "file_type": "code",
+      "source_file": "model/run.py",
+      "source_location": "L141",
+      "id": "model_run_accept_and_persist",
+      "community": 0,
+      "norm_label": "_accept_and_persist()"
+    },
+    {
+      "label": "_verdict()",
+      "file_type": "code",
+      "source_file": "model/run.py",
+      "source_location": "L148",
+      "id": "model_run_verdict",
+      "community": 0,
+      "norm_label": "_verdict()"
+    },
+    {
+      "label": "B3 cross-check frame: predicted modern `official_pts` directly.      Trains on p",
+      "file_type": "rationale",
+      "source_file": "model/run.py",
+      "source_location": "L51",
+      "id": "model_run_rationale_51",
+      "community": 0,
+      "norm_label": "b3 cross-check frame: predicted modern `official_pts` directly.      trains on p"
+    },
+    {
+      "label": "train_components.py",
+      "file_type": "code",
+      "source_file": "model/train_components.py",
+      "source_location": "L1",
+      "id": "model_train_components_py",
+      "community": 5,
+      "norm_label": "train_components.py"
+    },
+    {
+      "label": "_lgbm_objective()",
+      "file_type": "code",
+      "source_file": "model/train_components.py",
+      "source_location": "L62",
+      "id": "model_train_components_lgbm_objective",
+      "community": 5,
+      "norm_label": "_lgbm_objective()"
+    },
+    {
+      "label": "_lgbm_frame()",
+      "file_type": "code",
+      "source_file": "model/train_components.py",
+      "source_location": "L70",
+      "id": "model_train_components_lgbm_frame",
+      "community": 5,
+      "norm_label": "_lgbm_frame()"
+    },
+    {
+      "label": "_fit_lgbm_component()",
+      "file_type": "code",
+      "source_file": "model/train_components.py",
+      "source_location": "L79",
+      "id": "model_train_components_fit_lgbm_component",
+      "community": 5,
+      "norm_label": "_fit_lgbm_component()"
+    },
+    {
+      "label": "_lgbm_predict()",
+      "file_type": "code",
+      "source_file": "model/train_components.py",
+      "source_location": "L108",
+      "id": "model_train_components_lgbm_predict",
+      "community": 5,
+      "norm_label": "_lgbm_predict()"
+    },
+    {
+      "label": "_kick_gate()",
+      "file_type": "code",
+      "source_file": "model/train_components.py",
+      "source_location": "L113",
+      "id": "model_train_components_kick_gate",
+      "community": 5,
+      "norm_label": "_kick_gate()"
+    },
+    {
+      "label": "_oof_candidate_mae()",
+      "file_type": "code",
+      "source_file": "model/train_components.py",
+      "source_location": "L122",
+      "id": "model_train_components_oof_candidate_mae",
+      "community": 5,
+      "norm_label": "_oof_candidate_mae()"
+    },
+    {
+      "label": "select_components()",
+      "file_type": "code",
+      "source_file": "model/train_components.py",
+      "source_location": "L167",
+      "id": "model_train_components_select_components",
+      "community": 5,
+      "norm_label": "select_components()"
+    },
+    {
+      "label": "predict_rates_registry()",
+      "file_type": "code",
+      "source_file": "model/train_components.py",
+      "source_location": "L211",
+      "id": "model_train_components_predict_rates_registry",
+      "community": 5,
+      "norm_label": "predict_rates_registry()"
+    },
+    {
+      "label": "predict_rates_lgbm_only()",
+      "file_type": "code",
+      "source_file": "model/train_components.py",
+      "source_location": "L244",
+      "id": "model_train_components_predict_rates_lgbm_only",
+      "community": 5,
+      "norm_label": "predict_rates_lgbm_only()"
+    },
+    {
+      "label": "save_registry()",
+      "file_type": "code",
+      "source_file": "model/train_components.py",
+      "source_location": "L266",
+      "id": "model_train_components_save_registry",
+      "community": 5,
+      "norm_label": "save_registry()"
+    },
+    {
+      "label": "_selfcheck()",
+      "file_type": "code",
+      "source_file": "model/train_components.py",
+      "source_location": "L271",
+      "id": "model_train_components_selfcheck",
+      "community": 5,
+      "norm_label": "_selfcheck()"
+    },
+    {
+      "label": "LightGBM design frame: raw feature view (native NaN, bio_position as     categor",
+      "file_type": "rationale",
+      "source_file": "model/train_components.py",
+      "source_location": "L71",
+      "id": "model_train_components_rationale_71",
+      "community": 5,
+      "norm_label": "lightgbm design frame: raw feature view (native nan, bio_position as     categor"
+    },
+    {
+      "label": "Fit one LightGBM rate model; early-stops on va_idx if provided.",
+      "file_type": "rationale",
+      "source_file": "model/train_components.py",
+      "source_location": "L83",
+      "id": "model_train_components_rationale_83",
+      "community": 5,
+      "norm_label": "fit one lightgbm rate model; early-stops on va_idx if provided."
+    },
+    {
+      "label": "1.0 for plausible goal-kickers, else 0.0 (concentrates kicking mass).",
+      "file_type": "rationale",
+      "source_file": "model/train_components.py",
+      "source_location": "L114",
+      "id": "model_train_components_rationale_114",
+      "community": 5,
+      "norm_label": "1.0 for plausible goal-kickers, else 0.0 (concentrates kicking mass)."
+    },
+    {
+      "label": "Pooled GroupKFold OOF per-80 MAE for each (component, engine) candidate.",
+      "file_type": "rationale",
+      "source_file": "model/train_components.py",
+      "source_location": "L125",
+      "id": "model_train_components_rationale_125",
+      "community": 5,
+      "norm_label": "pooled groupkfold oof per-80 mae for each (component, engine) candidate."
+    },
+    {
+      "label": "Build the per-component registry via OOF MAE with baseline-gated LightGBM.",
+      "file_type": "rationale",
+      "source_file": "model/train_components.py",
+      "source_location": "L170",
+      "id": "model_train_components_rationale_170",
+      "community": 5,
+      "norm_label": "build the per-component registry via oof mae with baseline-gated lightgbm."
+    },
+    {
+      "label": "Per-80 rate predictions for the chosen-engine ensemble.",
+      "file_type": "rationale",
+      "source_file": "model/train_components.py",
+      "source_location": "L215",
+      "id": "model_train_components_rationale_215",
+      "community": 5,
+      "norm_label": "per-80 rate predictions for the chosen-engine ensemble."
+    },
+    {
+      "label": "Every trainable component via LightGBM (rare/degenerate -> zero/naive).     Used",
+      "file_type": "rationale",
+      "source_file": "model/train_components.py",
+      "source_location": "L247",
+      "id": "model_train_components_rationale_247",
+      "community": 5,
+      "norm_label": "every trainable component via lightgbm (rare/degenerate -> zero/naive).     used"
+    },
+    {
+      "label": "__init__.py",
+      "file_type": "code",
+      "source_file": "model/__init__.py",
+      "source_location": "L1",
+      "id": "model_init_py",
+      "community": 19,
+      "norm_label": "__init__.py"
+    },
+    {
+      "label": "Six Nations Picker \u2014 model layer (Strategy C).  Predict the API-measurable compo",
+      "file_type": "rationale",
+      "source_file": "model/__init__.py",
+      "source_location": "L1",
+      "id": "model_init_rationale_1",
+      "community": 19,
+      "norm_label": "six nations picker \u2014 model layer (strategy c).  predict the api-measurable compo"
+    },
+    {
+      "label": "assemble.py",
+      "file_type": "code",
+      "source_file": "model/assemble.py",
+      "source_location": "L1",
+      "id": "model_assemble_py",
+      "community": 0,
+      "norm_label": "assemble.py"
+    },
+    {
+      "label": "fit_latent_asof()",
+      "file_type": "code",
+      "source_file": "model/assemble.py",
+      "source_location": "L38",
+      "id": "model_assemble_fit_latent_asof",
+      "community": 0,
+      "norm_label": "fit_latent_asof()"
+    },
+    {
+      "label": "_expected_drives()",
+      "file_type": "code",
+      "source_file": "model/assemble.py",
+      "source_location": "L52",
+      "id": "model_assemble_expected_drives",
+      "community": 0,
+      "norm_label": "_expected_drives()"
+    },
+    {
+      "label": "_expected_potm()",
+      "file_type": "code",
+      "source_file": "model/assemble.py",
+      "source_location": "L65",
+      "id": "model_assemble_expected_potm",
+      "community": 0,
+      "norm_label": "_expected_potm()"
+    },
+    {
+      "label": "assemble_predictions()",
+      "file_type": "code",
+      "source_file": "model/assemble.py",
+      "source_location": "L87",
+      "id": "model_assemble_assemble_predictions",
+      "community": 0,
+      "norm_label": "assemble_predictions()"
+    },
+    {
+      "label": "rank_scores()",
+      "file_type": "code",
+      "source_file": "model/assemble.py",
+      "source_location": "L148",
+      "id": "model_assemble_rank_scores",
+      "community": 0,
+      "norm_label": "rank_scores()"
+    },
+    {
+      "label": "_selfcheck()",
+      "file_type": "code",
+      "source_file": "model/assemble.py",
+      "source_location": "L180",
+      "id": "model_assemble_selfcheck",
+      "community": 5,
+      "norm_label": "_selfcheck()"
+    },
+    {
+      "label": "Fit the latent decomposition on the forward-chained modern subset     (date < as",
+      "file_type": "rationale",
+      "source_file": "model/assemble.py",
+      "source_location": "L39",
+      "id": "model_assemble_rationale_39",
+      "community": 0,
+      "norm_label": "fit the latent decomposition on the forward-chained modern subset     (date < as"
+    },
+    {
+      "label": "PIT expected SW / LS drives (NO realised team counts).",
+      "file_type": "rationale",
+      "source_file": "model/assemble.py",
+      "source_location": "L55",
+      "id": "model_assemble_rationale_55",
+      "community": 0,
+      "norm_label": "pit expected sw / ls drives (no realised team counts)."
+    },
+    {
+      "label": "Expected POTM points = 15 * P(POTM), where P is a per-match blend of a     softm",
+      "file_type": "rationale",
+      "source_file": "model/assemble.py",
+      "source_location": "L68",
+      "id": "model_assemble_rationale_68",
+      "community": 0,
+      "norm_label": "expected potm points = 15 * p(potm), where p is a per-match blend of a     softm"
+    },
+    {
+      "label": "Full Strategy-C assembly for one season.      rate_predictor(df, train_idx, test",
+      "file_type": "rationale",
+      "source_file": "model/assemble.py",
+      "source_location": "L91",
+      "id": "model_assemble_rationale_91",
+      "community": 0,
+      "norm_label": "full strategy-c assembly for one season.      rate_predictor(df, train_idx, test"
+    },
+    {
+      "label": "Within-match LightGBM lambdarank score for the test rows.      Trained to rank p",
+      "file_type": "rationale",
+      "source_file": "model/assemble.py",
+      "source_location": "L151",
+      "id": "model_assemble_rationale_151",
+      "community": 0,
+      "norm_label": "within-match lightgbm lambdarank score for the test rows.      trained to rank p"
+    },
+    {
+      "label": "splits.py",
+      "file_type": "code",
+      "source_file": "model/splits.py",
+      "source_location": "L1",
+      "id": "model_splits_py",
+      "community": 0,
+      "norm_label": "splits.py"
+    },
+    {
+      "label": "component_train()",
+      "file_type": "code",
+      "source_file": "model/splits.py",
+      "source_location": "L28",
+      "id": "model_splits_component_train",
+      "community": 0,
+      "norm_label": "component_train()"
+    },
+    {
+      "label": "group_kfold_indices()",
+      "file_type": "code",
+      "source_file": "model/splits.py",
+      "source_location": "L37",
+      "id": "model_splits_group_kfold_indices",
+      "community": 0,
+      "norm_label": "group_kfold_indices()"
+    },
+    {
+      "label": "latent_calib_rows()",
+      "file_type": "code",
+      "source_file": "model/splits.py",
+      "source_location": "L56",
+      "id": "model_splits_latent_calib_rows",
+      "community": 0,
+      "norm_label": "latent_calib_rows()"
+    },
+    {
+      "label": "round_iter()",
+      "file_type": "code",
+      "source_file": "model/splits.py",
+      "source_location": "L74",
+      "id": "model_splits_round_iter",
+      "community": 0,
+      "norm_label": "round_iter()"
+    },
+    {
+      "label": "_selfcheck()",
+      "file_type": "code",
+      "source_file": "model/splits.py",
+      "source_location": "L97",
+      "id": "model_splits_selfcheck",
+      "community": 0,
+      "norm_label": "_selfcheck()"
+    },
+    {
+      "label": "Boolean mask of rows used to TRAIN components: all 6N rows with     season < tes",
+      "file_type": "rationale",
+      "source_file": "model/splits.py",
+      "source_location": "L29",
+      "id": "model_splits_rationale_29",
+      "community": 0,
+      "norm_label": "boolean mask of rows used to train components: all 6n rows with     season < tes"
+    },
+    {
+      "label": "Yield (tr_idx, va_idx) positional indices via GroupKFold on `fixture_id`.      G",
+      "file_type": "rationale",
+      "source_file": "model/splits.py",
+      "source_location": "L40",
+      "id": "model_splits_rationale_40",
+      "community": 0,
+      "norm_label": "yield (tr_idx, va_idx) positional indices via groupkfold on `fixture_id`.      g"
+    },
+    {
+      "label": "Boolean mask of modern-labelled rows strictly before `asof_date`     (forward-ch",
+      "file_type": "rationale",
+      "source_file": "model/splits.py",
+      "source_location": "L57",
+      "id": "model_splits_rationale_57",
+      "community": 0,
+      "norm_label": "boolean mask of modern-labelled rows strictly before `asof_date`     (forward-ch"
+    },
+    {
+      "label": "Yield (round, asof_date, row_idx) for the test season in date order.      `asof_",
+      "file_type": "rationale",
+      "source_file": "model/splits.py",
+      "source_location": "L77",
+      "id": "model_splits_rationale_77",
+      "community": 0,
+      "norm_label": "yield (round, asof_date, row_idx) for the test season in date order.      `asof_"
+    },
+    {
+      "label": "evaluate.py",
+      "file_type": "code",
+      "source_file": "model/evaluate.py",
+      "source_location": "L1",
+      "id": "model_evaluate_py",
+      "community": 0,
+      "norm_label": "evaluate.py"
+    },
+    {
+      "label": "_labelled()",
+      "file_type": "code",
+      "source_file": "model/evaluate.py",
+      "source_location": "L28",
+      "id": "model_evaluate_labelled",
+      "community": 0,
+      "norm_label": "_labelled()"
+    },
+    {
+      "label": "points_mae()",
+      "file_type": "code",
+      "source_file": "model/evaluate.py",
+      "source_location": "L32",
+      "id": "model_evaluate_points_mae",
+      "community": 0,
+      "norm_label": "points_mae()"
+    },
+    {
+      "label": "value_of_xv()",
+      "file_type": "code",
+      "source_file": "model/evaluate.py",
+      "source_location": "L40",
+      "id": "model_evaluate_value_of_xv",
+      "community": 0,
+      "norm_label": "value_of_xv()"
+    },
+    {
+      "label": "captain_hitrate()",
+      "file_type": "code",
+      "source_file": "model/evaluate.py",
+      "source_location": "L56",
+      "id": "model_evaluate_captain_hitrate",
+      "community": 0,
+      "norm_label": "captain_hitrate()"
+    },
+    {
+      "label": "topn_overlap()",
+      "file_type": "code",
+      "source_file": "model/evaluate.py",
+      "source_location": "L71",
+      "id": "model_evaluate_topn_overlap",
+      "community": 0,
+      "norm_label": "topn_overlap()"
+    },
+    {
+      "label": "spearman_within_pos()",
+      "file_type": "code",
+      "source_file": "model/evaluate.py",
+      "source_location": "L82",
+      "id": "model_evaluate_spearman_within_pos",
+      "community": 0,
+      "norm_label": "spearman_within_pos()"
+    },
+    {
+      "label": "evaluate()",
+      "file_type": "code",
+      "source_file": "model/evaluate.py",
+      "source_location": "L95",
+      "id": "model_evaluate_evaluate",
+      "community": 0,
+      "norm_label": "evaluate()"
+    },
+    {
+      "label": "format_table()",
+      "file_type": "code",
+      "source_file": "model/evaluate.py",
+      "source_location": "L109",
+      "id": "model_evaluate_format_table",
+      "community": 0,
+      "norm_label": "format_table()"
+    },
+    {
+      "label": "All metrics for one prediction frame.  `points=False` for ordering-only     over",
+      "file_type": "rationale",
+      "source_file": "model/evaluate.py",
+      "source_location": "L96",
+      "id": "model_evaluate_rationale_96",
+      "community": 0,
+      "norm_label": "all metrics for one prediction frame.  `points=false` for ordering-only     over"
+    },
+    {
+      "label": "data.py",
+      "file_type": "code",
+      "source_file": "model/data.py",
+      "source_location": "L1",
+      "id": "model_data_py",
+      "community": 15,
+      "norm_label": "data.py"
+    },
+    {
+      "label": "_feature_cols()",
+      "file_type": "code",
+      "source_file": "model/data.py",
+      "source_location": "L66",
+      "id": "model_data_feature_cols",
+      "community": 15,
+      "norm_label": "_feature_cols()"
+    },
+    {
+      "label": "load()",
+      "file_type": "code",
+      "source_file": "model/data.py",
+      "source_location": "L77",
+      "id": "model_data_load",
+      "community": 15,
+      "norm_label": "load()"
+    },
+    {
+      "label": "_assert_no_leakage()",
+      "file_type": "code",
+      "source_file": "model/data.py",
+      "source_location": "L108",
+      "id": "model_data_assert_no_leakage",
+      "community": 15,
+      "norm_label": "_assert_no_leakage()"
+    },
+    {
+      "label": "feature_view()",
+      "file_type": "code",
+      "source_file": "model/data.py",
+      "source_location": "L114",
+      "id": "model_data_feature_view",
+      "community": 15,
+      "norm_label": "feature_view()"
+    },
+    {
+      "label": "_selfcheck()",
+      "file_type": "code",
+      "source_file": "model/data.py",
+      "source_location": "L142",
+      "id": "model_data_selfcheck",
+      "community": 15,
+      "norm_label": "_selfcheck()"
+    },
+    {
+      "label": "The 91 family-prefix feature columns, preserving store order.",
+      "file_type": "rationale",
+      "source_file": "model/data.py",
+      "source_location": "L67",
+      "id": "model_data_rationale_67",
+      "community": 15,
+      "norm_label": "the 91 family-prefix feature columns, preserving store order."
+    },
+    {
+      "label": "Read both stores, inner-join 1:1 on (fixture_id, player_id), parse date.      Ta",
+      "file_type": "rationale",
+      "source_file": "model/data.py",
+      "source_location": "L78",
+      "id": "model_data_rationale_78",
+      "community": 15,
+      "norm_label": "read both stores, inner-join 1:1 on (fixture_id, player_id), parse date.      ta"
+    },
+    {
+      "label": "Return the column list to use as model inputs for a given mode.      mode == \"pr",
+      "file_type": "rationale",
+      "source_file": "model/data.py",
+      "source_location": "L115",
+      "id": "model_data_rationale_115",
+      "community": 15,
+      "norm_label": "return the column list to use as model inputs for a given mode.      mode == \"pr"
+    },
+    {
+      "label": "MODEL_TRAINING_PLAN.md",
+      "file_type": "document",
+      "source_file": "MODEL_TRAINING_PLAN.md",
+      "source_location": "L1",
+      "id": "model_training_plan_md",
+      "community": 3,
+      "norm_label": "model_training_plan.md"
+    },
+    {
+      "label": "Six Nations Picker \u2014 Model Training Plan",
+      "file_type": "document",
+      "source_file": "MODEL_TRAINING_PLAN.md",
+      "source_location": "L1",
+      "id": "6n_model_training_plan_six_nations_picker_model_training_plan",
+      "community": 3,
+      "norm_label": "six nations picker \u2014 model training plan"
+    },
+    {
+      "label": "Context",
+      "file_type": "document",
+      "source_file": "MODEL_TRAINING_PLAN.md",
+      "source_location": "L3",
+      "id": "6n_model_training_plan_context",
+      "community": 3,
+      "norm_label": "context"
+    },
+    {
+      "label": "Phase 0 \u2014 Discovery (DONE, recorded here)",
+      "file_type": "document",
+      "source_file": "MODEL_TRAINING_PLAN.md",
+      "source_location": "L24",
+      "id": "6n_model_training_plan_phase_0_discovery_done_recorded_here",
+      "community": 3,
+      "norm_label": "phase 0 \u2014 discovery (done, recorded here)"
+    },
+    {
+      "label": "Environment (VERIFIED 2026-06-16)",
+      "file_type": "document",
+      "source_file": "MODEL_TRAINING_PLAN.md",
+      "source_location": "L26",
+      "id": "6n_model_training_plan_environment_verified_2026_06_16",
+      "community": 3,
+      "norm_label": "environment (verified 2026-06-16)"
+    },
+    {
+      "label": "Reusable interfaces (VERIFIED in `build_targets.py`)",
+      "file_type": "document",
+      "source_file": "MODEL_TRAINING_PLAN.md",
+      "source_location": "L34",
+      "id": "6n_model_training_plan_reusable_interfaces_verified_in_build_targets_py",
+      "community": 3,
+      "norm_label": "reusable interfaces (verified in `build_targets.py`)"
+    },
+    {
+      "label": "The 13 scored components (everything else is non-scoring, do NOT model for points)",
+      "file_type": "document",
+      "source_file": "MODEL_TRAINING_PLAN.md",
+      "source_location": "L45",
+      "id": "6n_model_training_plan_the_13_scored_components_everything_else_is_non_scoring_do_not_model_for_points",
+      "community": 3,
+      "norm_label": "the 13 scored components (everything else is non-scoring, do not model for points)"
+    },
+    {
+      "label": "Target-shape implications (VERIFIED 2026-06-16)",
+      "file_type": "document",
+      "source_file": "MODEL_TRAINING_PLAN.md",
+      "source_location": "L50",
+      "id": "6n_model_training_plan_target_shape_implications_verified_2026_06_16",
+      "community": 3,
+      "norm_label": "target-shape implications (verified 2026-06-16)"
+    },
+    {
+      "label": "Allowed APIs (cite when used; do not invent)",
+      "file_type": "document",
+      "source_file": "MODEL_TRAINING_PLAN.md",
+      "source_location": "L65",
+      "id": "6n_model_training_plan_allowed_apis_cite_when_used_do_not_invent",
+      "community": 3,
+      "norm_label": "allowed apis (cite when used; do not invent)"
+    },
+    {
+      "label": "Phase 1 \u2014 Environment + `model/` skeleton + data loader",
+      "file_type": "document",
+      "source_file": "MODEL_TRAINING_PLAN.md",
+      "source_location": "L80",
+      "id": "6n_model_training_plan_phase_1_environment_model_skeleton_data_loader",
+      "community": 3,
+      "norm_label": "phase 1 \u2014 environment + `model/` skeleton + data loader"
+    },
+    {
+      "label": "Phase 2 \u2014 Splits + fold infrastructure (`model/splits.py`)",
+      "file_type": "document",
+      "source_file": "MODEL_TRAINING_PLAN.md",
+      "source_location": "L115",
+      "id": "6n_model_training_plan_phase_2_splits_fold_infrastructure_model_splits_py",
+      "community": 3,
+      "norm_label": "phase 2 \u2014 splits + fold infrastructure (`model/splits.py`)"
+    },
+    {
+      "label": "Phase 3 \u2014 Baselines (`model/baselines.py`) \u2014 the must-beat bar",
+      "file_type": "document",
+      "source_file": "MODEL_TRAINING_PLAN.md",
+      "source_location": "L155",
+      "id": "6n_model_training_plan_phase_3_baselines_model_baselines_py_the_must_beat_bar",
+      "community": 3,
+      "norm_label": "phase 3 \u2014 baselines (`model/baselines.py`) \u2014 the must-beat bar"
+    },
+    {
+      "label": "Phase 4 \u2014 Component model + minutes (`model/train_components.py`)",
+      "file_type": "document",
+      "source_file": "MODEL_TRAINING_PLAN.md",
+      "source_location": "L185",
+      "id": "6n_model_training_plan_phase_4_component_model_minutes_model_train_components_py",
+      "community": 3,
+      "norm_label": "phase 4 \u2014 component model + minutes (`model/train_components.py`)"
+    },
+    {
+      "label": "Phase 5 \u2014 Assemble points + forward-chained latent (`model/assemble.py`)",
+      "file_type": "document",
+      "source_file": "MODEL_TRAINING_PLAN.md",
+      "source_location": "L244",
+      "id": "6n_model_training_plan_phase_5_assemble_points_forward_chained_latent_model_assemble_py",
+      "community": 3,
+      "norm_label": "phase 5 \u2014 assemble points + forward-chained latent (`model/assemble.py`)"
+    },
+    {
+      "label": "Phase 6 \u2014 Evaluation (`model/evaluate.py`) + run harness (`model/run.py`)",
+      "file_type": "document",
+      "source_file": "MODEL_TRAINING_PLAN.md",
+      "source_location": "L277",
+      "id": "6n_model_training_plan_phase_6_evaluation_model_evaluate_py_run_harness_model_run_py",
+      "community": 3,
+      "norm_label": "phase 6 \u2014 evaluation (`model/evaluate.py`) + run harness (`model/run.py`)"
+    },
+    {
+      "label": "Phase 7 \u2014 Generalisation failure fallbacks",
+      "file_type": "document",
+      "source_file": "MODEL_TRAINING_PLAN.md",
+      "source_location": "L308",
+      "id": "6n_model_training_plan_phase_7_generalisation_failure_fallbacks",
+      "community": 3,
+      "norm_label": "phase 7 \u2014 generalisation failure fallbacks"
+    },
+    {
+      "label": "Final Phase \u2014 Verification gate",
+      "file_type": "document",
+      "source_file": "MODEL_TRAINING_PLAN.md",
+      "source_location": "L348",
+      "id": "6n_model_training_plan_final_phase_verification_gate",
+      "community": 3,
+      "norm_label": "final phase \u2014 verification gate"
+    },
+    {
+      "label": "Outputs",
+      "file_type": "document",
+      "source_file": "MODEL_TRAINING_PLAN.md",
+      "source_location": "L362",
+      "id": "6n_model_training_plan_outputs",
+      "community": 3,
+      "norm_label": "outputs"
+    },
+    {
+      "label": "Reuse (do not reimplement)",
+      "file_type": "document",
+      "source_file": "MODEL_TRAINING_PLAN.md",
+      "source_location": "L368",
+      "id": "6n_model_training_plan_reuse_do_not_reimplement",
+      "community": 3,
+      "norm_label": "reuse (do not reimplement)"
+    },
+    {
+      "label": "Risks / requirements",
+      "file_type": "document",
+      "source_file": "MODEL_TRAINING_PLAN.md",
+      "source_location": "L372",
+      "id": "6n_model_training_plan_risks_requirements",
+      "community": 3,
+      "norm_label": "risks / requirements"
+    },
+    {
+      "label": "Execution Record / Results (2026-06-16)",
+      "file_type": "document",
+      "source_file": "MODEL_TRAINING_PLAN.md",
+      "source_location": "L385",
+      "id": "6n_model_training_plan_execution_record_results_2026_06_16",
+      "community": 3,
+      "norm_label": "execution record / results (2026-06-16)"
+    },
+    {
+      "label": "Promoted model \u2014 component-ensemble (registry-gated)",
+      "file_type": "document",
+      "source_file": "MODEL_TRAINING_PLAN.md",
+      "source_location": "L393",
+      "id": "6n_model_training_plan_promoted_model_component_ensemble_registry_gated",
+      "community": 3,
+      "norm_label": "promoted model \u2014 component-ensemble (registry-gated)"
+    },
+    {
+      "label": "2025 backtest (train 2023+2024, post_team_sheet)",
+      "file_type": "document",
+      "source_file": "MODEL_TRAINING_PLAN.md",
+      "source_location": "L419",
+      "id": "6n_model_training_plan_2025_backtest_train_2023_2024_post_team_sheet",
+      "community": 3,
+      "norm_label": "2025 backtest (train 2023+2024, post_team_sheet)"
+    },
+    {
+      "label": "2026 deployment (train 2023+2024+2025, post_team_sheet) \u2014 sealed, evaluated once",
+      "file_type": "document",
+      "source_file": "MODEL_TRAINING_PLAN.md",
+      "source_location": "L432",
+      "id": "6n_model_training_plan_2026_deployment_train_2023_2024_2025_post_team_sheet_sealed_evaluated_once",
+      "community": 3,
+      "norm_label": "2026 deployment (train 2023+2024+2025, post_team_sheet) \u2014 sealed, evaluated once"
+    },
+    {
+      "label": "Why the ensemble over LightGBM-only (fallback audit, requirement #4)",
+      "file_type": "document",
+      "source_file": "MODEL_TRAINING_PLAN.md",
+      "source_location": "L447",
+      "id": "6n_model_training_plan_why_the_ensemble_over_lightgbm_only_fallback_audit_requirement_4",
+      "community": 3,
+      "norm_label": "why the ensemble over lightgbm-only (fallback audit, requirement #4)"
+    },
+    {
+      "label": "B3 direct-points cross-check (requirement: Strategy C justification)",
+      "file_type": "document",
+      "source_file": "MODEL_TRAINING_PLAN.md",
+      "source_location": "L457",
+      "id": "6n_model_training_plan_b3_direct_points_cross_check_requirement_strategy_c_justification",
+      "community": 3,
+      "norm_label": "b3 direct-points cross-check (requirement: strategy c justification)"
+    },
+    {
+      "label": "Notes / caveats",
+      "file_type": "document",
+      "source_file": "MODEL_TRAINING_PLAN.md",
+      "source_location": "L462",
+      "id": "6n_model_training_plan_notes_caveats",
+      "community": 3,
+      "norm_label": "notes / caveats"
+    },
+    {
+      "label": "Final verification gate",
+      "file_type": "document",
+      "source_file": "MODEL_TRAINING_PLAN.md",
+      "source_location": "L475",
+      "id": "6n_model_training_plan_final_verification_gate",
+      "community": 3,
+      "norm_label": "final verification gate"
     },
     {
       "label": "DATA_EXTRACTION_PLAN.md",
@@ -1539,7 +2655,7 @@
       "source_file": "DATA_EXTRACTION_PLAN.md",
       "source_location": "L1",
       "id": "data_extraction_plan_md",
-      "community": 4,
+      "community": 9,
       "norm_label": "data_extraction_plan.md"
     },
     {
@@ -1548,7 +2664,7 @@
       "source_file": "DATA_EXTRACTION_PLAN.md",
       "source_location": "L1",
       "id": "6n_data_extraction_plan_six_nations_picker_complete_data_extraction_once_and_done",
-      "community": 4,
+      "community": 9,
       "norm_label": "six nations picker \u2014 complete data extraction (once-and-done)"
     },
     {
@@ -1557,7 +2673,7 @@
       "source_file": "DATA_EXTRACTION_PLAN.md",
       "source_location": "L19",
       "id": "6n_data_extraction_plan_spend_coverage_summary_verified_2026_06_15",
-      "community": 4,
+      "community": 9,
       "norm_label": "spend & coverage summary (verified 2026-06-15)"
     },
     {
@@ -1566,7 +2682,7 @@
       "source_file": "DATA_EXTRACTION_PLAN.md",
       "source_location": "L33",
       "id": "6n_data_extraction_plan_phase_0_allowed_apis_sources_read_first_do_not_invent",
-      "community": 4,
+      "community": 9,
       "norm_label": "phase 0 \u2014 allowed apis / sources (read first, do not invent)"
     },
     {
@@ -1575,7 +2691,7 @@
       "source_file": "DATA_EXTRACTION_PLAN.md",
       "source_location": "L35",
       "id": "6n_data_extraction_plan_rugby_live_data_rugby_api_rugbyapi_rugby_api_py",
-      "community": 4,
+      "community": 9,
       "norm_label": "rugby-live-data \u2014 `rugby_api.rugbyapi` (`rugby_api.py`)"
     },
     {
@@ -1584,7 +2700,7 @@
       "source_file": "DATA_EXTRACTION_PLAN.md",
       "source_location": "L50",
       "id": "6n_data_extraction_plan_wr_pulselive_free_no_key_verified_working_this_session",
-      "community": 4,
+      "community": 9,
       "norm_label": "wr / pulselive (free, no key) \u2014 verified working this session"
     },
     {
@@ -1593,7 +2709,7 @@
       "source_file": "DATA_EXTRACTION_PLAN.md",
       "source_location": "L60",
       "id": "6n_data_extraction_plan_rugbypass_rugbypass_batch_py_selenium_no_login",
-      "community": 4,
+      "community": 9,
       "norm_label": "rugbypass \u2014 `rugbypass_batch.py` (selenium, no login)"
     },
     {
@@ -1602,7 +2718,7 @@
       "source_file": "DATA_EXTRACTION_PLAN.md",
       "source_location": "L74",
       "id": "6n_data_extraction_plan_official_fantasy_labels_manual_xlsx",
-      "community": 4,
+      "community": 9,
       "norm_label": "official fantasy labels (manual xlsx)"
     },
     {
@@ -1611,7 +2727,7 @@
       "source_file": "DATA_EXTRACTION_PLAN.md",
       "source_location": "L84",
       "id": "6n_data_extraction_plan_phase_1_repair_consolidate_free_sources_0_api_spend",
-      "community": 4,
+      "community": 9,
       "norm_label": "phase 1 \u2014 repair & consolidate free sources (0 api spend)"
     },
     {
@@ -1620,7 +2736,7 @@
       "source_file": "DATA_EXTRACTION_PLAN.md",
       "source_location": "L106",
       "id": "6n_data_extraction_plan_phase_2_free_international_widening_pulselive_0_paid_quota",
-      "community": 4,
+      "community": 9,
       "norm_label": "phase 2 \u2014 free international widening (pulselive, 0 paid quota)"
     },
     {
@@ -1629,7 +2745,7 @@
       "source_file": "DATA_EXTRACTION_PLAN.md",
       "source_location": "L121",
       "id": "6n_data_extraction_plan_phase_3_build_crosswalk_py_new_data_player_crosswalk_csv",
-      "community": 4,
+      "community": 9,
       "norm_label": "phase 3 \u2014 `build_crosswalk.py` (new) \u2192 `data/player_crosswalk.csv`"
     },
     {
@@ -1638,7 +2754,7 @@
       "source_file": "DATA_EXTRACTION_PLAN.md",
       "source_location": "L126",
       "id": "6n_data_extraction_plan_phase_4_paid_club_backfill_the_single_spend",
-      "community": 4,
+      "community": 9,
       "norm_label": "phase 4 \u2014 paid club backfill (the single spend) \ud83d\udfe1"
     },
     {
@@ -1647,7 +2763,7 @@
       "source_file": "DATA_EXTRACTION_PLAN.md",
       "source_location": "L139",
       "id": "6n_data_extraction_plan_phase_5_build_features_py_new_data_model_player_match_csv_0_api",
-      "community": 4,
+      "community": 9,
       "norm_label": "phase 5 \u2014 `build_features.py` (new) \u2192 `data/model_player_match.csv` (0 api)"
     },
     {
@@ -1656,7 +2772,7 @@
       "source_file": "DATA_EXTRACTION_PLAN.md",
       "source_location": "L153",
       "id": "6n_data_extraction_plan_phase_6_build_targets_py_new_data_model_targets_csv_0_api",
-      "community": 4,
+      "community": 9,
       "norm_label": "phase 6 \u2014 `build_targets.py` (new) \u2192 `data/model_targets.csv` (0 api)"
     },
     {
@@ -1665,7 +2781,7 @@
       "source_file": "DATA_EXTRACTION_PLAN.md",
       "source_location": "L162",
       "id": "6n_data_extraction_plan_phase_7_verification_final_gate_before_training",
-      "community": 4,
+      "community": 9,
       "norm_label": "phase 7 \u2014 verification (final, gate before training)"
     },
     {
@@ -1674,7 +2790,7 @@
       "source_file": "DATA_EXTRACTION_PLAN.md",
       "source_location": "L173",
       "id": "6n_data_extraction_plan_future_updates_the_months_later_upkeep_not_part_of_this_once_and_done",
-      "community": 4,
+      "community": 9,
       "norm_label": "future updates (the \"months later\" upkeep \u2014 not part of this once-and-done)"
     },
     {
@@ -1683,7 +2799,7 @@
       "source_file": "DATA_EXTRACTION_PLAN.md",
       "source_location": "L179",
       "id": "6n_data_extraction_plan_reuse_map",
-      "community": 4,
+      "community": 9,
       "norm_label": "reuse map"
     },
     {
@@ -1691,7 +2807,7 @@
       "file_type": "rationale",
       "source_file": "build_team_form.py",
       "source_location": "L74",
-      "community": 5,
+      "community": 10,
       "norm_label": "prior-meetings pool for head-to-head, unioning the rich     api_team_match rows",
       "id": "6n_build_team_form_rationale_74"
     },
@@ -1700,7 +2816,7 @@
       "file_type": "rationale",
       "source_file": "build_team_form.py",
       "source_location": "L108",
-      "community": 5,
+      "community": 10,
       "norm_label": "exponentially weighted mean, weight = 0.5 ** (days_ago / half_life).",
       "id": "6n_build_team_form_rationale_108"
     },
@@ -1709,7 +2825,7 @@
       "file_type": "rationale",
       "source_file": "build_team_form.py",
       "source_location": "L171",
-      "community": 5,
+      "community": 10,
       "norm_label": "pit-join world rugby strength (data/wr_rankings.csv) by (date, team) and     (da",
       "id": "6n_build_team_form_rationale_171"
     },
@@ -1718,7 +2834,7 @@
       "file_type": "rationale",
       "source_file": "build_team_form.py",
       "source_location": "L69",
-      "community": 5,
+      "community": 10,
       "norm_label": "prior-meetings pool for head-to-head, unioning the rich     api_team_match rows",
       "id": "6n_build_team_form_rationale_69"
     },
@@ -1727,7 +2843,7 @@
       "file_type": "rationale",
       "source_file": "build_team_form.py",
       "source_location": "L103",
-      "community": 5,
+      "community": 10,
       "norm_label": "exponentially weighted mean, weight = 0.5 ** (days_ago / half_life).",
       "id": "6n_build_team_form_rationale_103"
     },
@@ -1736,7 +2852,7 @@
       "file_type": "rationale",
       "source_file": "build_team_form.py",
       "source_location": "L166",
-      "community": 5,
+      "community": 10,
       "norm_label": "pit-join world rugby strength (data/wr_rankings.csv) by (date, team) and     (da",
       "id": "6n_build_team_form_rationale_166"
     },
@@ -1745,7 +2861,7 @@
       "file_type": "rationale",
       "source_file": "build_features.py",
       "source_location": "L90",
-      "community": 3,
+      "community": 8,
       "norm_label": "rugbypass labels are mixed: '2025/2026' (club) and '2026' (intl). the     pit-co",
       "id": "6n_build_features_rationale_90"
     },
@@ -1754,7 +2870,7 @@
       "file_type": "rationale",
       "source_file": "build_features.py",
       "source_location": "L97",
-      "community": 3,
+      "community": 8,
       "norm_label": "minutes-weighted per-80 rates over the player's **completed prior**     rugbypas",
       "id": "6n_build_features_rationale_97"
     },
@@ -1763,7 +2879,7 @@
       "file_type": "rationale",
       "source_file": "build_features.py",
       "source_location": "L127",
-      "community": 3,
+      "community": 8,
       "norm_label": "decayed per-80 form rates + minutes/start trend + role signals, over the     pla",
       "id": "6n_build_features_rationale_127"
     },
@@ -1772,7 +2888,7 @@
       "file_type": "rationale",
       "source_file": "build_features.py",
       "source_location": "L163",
-      "community": 3,
+      "community": 8,
       "norm_label": "own side's decayed attacking output over its matches before the fixture.",
       "id": "6n_build_features_rationale_163"
     },
@@ -1781,7 +2897,7 @@
       "file_type": "code",
       "source_file": "build_targets.py",
       "source_location": "L157",
-      "community": 8,
+      "community": 12,
       "norm_label": "_validate_latent()",
       "id": "6n_build_targets_validate_latent"
     },
@@ -1790,7 +2906,7 @@
       "file_type": "rationale",
       "source_file": "build_targets.py",
       "source_location": "L78",
-      "community": 8,
+      "community": 12,
       "norm_label": "deterministic fantasy score under the **modern** (2025/2026) official     formul",
       "id": "6n_build_targets_rationale_78"
     },
@@ -1799,7 +2915,7 @@
       "file_type": "rationale",
       "source_file": "build_targets.py",
       "source_location": "L158",
-      "community": 8,
+      "community": 12,
       "norm_label": "cross-check: for modern labelled rows, the residual (official \u2212 recon)     shoul",
       "id": "6n_build_targets_rationale_158"
     },
@@ -1808,7 +2924,7 @@
       "file_type": "rationale",
       "source_file": "build_crosswalk.py",
       "source_location": "L170",
-      "community": 0,
+      "community": 2,
       "norm_label": "true if rp nationality and api/official team don't actively conflict.",
       "id": "6n_build_crosswalk_rationale_170"
     },
@@ -1817,7 +2933,7 @@
       "file_type": "rationale",
       "source_file": "build_crosswalk.py",
       "source_location": "L179",
-      "community": 0,
+      "community": 2,
       "norm_label": "single source a lonely row belongs to: 'api' | 'rp' | 'official'.",
       "id": "6n_build_crosswalk_rationale_179"
     },
@@ -1826,7 +2942,7 @@
       "file_type": "rationale",
       "source_file": "build_crosswalk.py",
       "source_location": "L188",
-      "community": 0,
+      "community": 2,
       "norm_label": "surname forms by which this lonely row may be matched.      combines the norm_ke",
       "id": "6n_build_crosswalk_rationale_188"
     },
@@ -1835,7 +2951,7 @@
       "file_type": "rationale",
       "source_file": "build_crosswalk.py",
       "source_location": "L210",
-      "community": 0,
+      "community": 2,
       "norm_label": "recover cross-source singletons that share a unique surname.      a 'lonely' row",
       "id": "6n_build_crosswalk_rationale_210"
     },
@@ -1844,7 +2960,7 @@
       "file_type": "rationale",
       "source_file": "build_crosswalk.py",
       "source_location": "L285",
-      "community": 0,
+      "community": 2,
       "norm_label": "merge two partially-filled rows that are the same player under official     name",
       "id": "6n_build_crosswalk_rationale_285"
     },
@@ -1853,7 +2969,7 @@
       "file_type": "rationale",
       "source_file": "build_crosswalk.py",
       "source_location": "L324",
-      "community": 0,
+      "community": 2,
       "norm_label": "merge row `drop` into row `keep` in place; mark match_method='surname'.",
       "id": "6n_build_crosswalk_rationale_324"
     },
@@ -1862,7 +2978,7 @@
       "file_type": "rationale",
       "source_file": "build_targets.py",
       "source_location": "L77",
-      "community": 8,
+      "community": 12,
       "norm_label": "deterministic fantasy score under the **modern** (2025/2026) official     formul",
       "id": "6n_build_targets_rationale_77"
     },
@@ -1871,7 +2987,7 @@
       "file_type": "rationale",
       "source_file": "build_targets.py",
       "source_location": "L157",
-      "community": 8,
+      "community": 12,
       "norm_label": "cross-check: for modern labelled rows, the residual (official \u2212 recon)     shoul",
       "id": "6n_build_targets_rationale_157"
     }
@@ -2150,9 +3266,9 @@
       "source_file": "build_team_form.py",
       "source_location": "L80",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "6n_build_team_form_rationale_80",
-      "target": "6n_build_team_form_load_h2h_meetings",
-      "confidence_score": 1.0
+      "target": "6n_build_team_form_load_h2h_meetings"
     },
     {
       "relation": "rationale_for",
@@ -2191,9 +3307,9 @@
       "source_file": "build_team_form.py",
       "source_location": "L114",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "6n_build_team_form_rationale_114",
-      "target": "6n_build_team_form_decayed_mean",
-      "confidence_score": 1.0
+      "target": "6n_build_team_form_decayed_mean"
     },
     {
       "relation": "rationale_for",
@@ -2243,9 +3359,9 @@
       "source_file": "build_team_form.py",
       "source_location": "L177",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "6n_build_team_form_rationale_177",
-      "target": "6n_build_team_form_merge_wr",
-      "confidence_score": 1.0
+      "target": "6n_build_team_form_merge_wr"
     },
     {
       "relation": "rationale_for",
@@ -3207,6 +4323,17 @@
       "target": "6n_build_targets_score_components"
     },
     {
+      "relation": "calls",
+      "context": "call",
+      "confidence": "INFERRED",
+      "confidence_score": 0.8,
+      "source_file": "model/baselines.py",
+      "source_location": "L158",
+      "weight": 1.0,
+      "source": "model_baselines_score_recon",
+      "target": "6n_build_targets_score_components"
+    },
+    {
       "relation": "rationale_for",
       "confidence": "EXTRACTED",
       "source_file": "build_targets.py",
@@ -3267,6 +4394,17 @@
       "weight": 1.0,
       "confidence_score": 1.0,
       "source": "6n_build_targets_rationale_187",
+      "target": "6n_build_targets_fit_latent"
+    },
+    {
+      "relation": "calls",
+      "context": "call",
+      "confidence": "INFERRED",
+      "confidence_score": 0.8,
+      "source_file": "model/assemble.py",
+      "source_location": "L49",
+      "weight": 1.0,
+      "source": "model_assemble_fit_latent_asof",
       "target": "6n_build_targets_fit_latent"
     },
     {
@@ -4831,6 +5969,2333 @@
     {
       "relation": "contains",
       "confidence": "EXTRACTED",
+      "source_file": "model/baselines.py",
+      "source_location": "L58",
+      "weight": 1.0,
+      "source": "model_baselines_py",
+      "target": "model_baselines_positionmeanimputer",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "model/baselines.py",
+      "source_location": "L77",
+      "weight": 1.0,
+      "source": "model_baselines_py",
+      "target": "model_baselines_numeric_cols",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "model/baselines.py",
+      "source_location": "L82",
+      "weight": 1.0,
+      "source": "model_baselines_py",
+      "target": "model_baselines_build_matrix",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "model/baselines.py",
+      "source_location": "L102",
+      "weight": 1.0,
+      "source": "model_baselines_py",
+      "target": "model_baselines_expected_minutes",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "model/baselines.py",
+      "source_location": "L136",
+      "weight": 1.0,
+      "source": "model_baselines_py",
+      "target": "model_baselines_rate_target",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "model/baselines.py",
+      "source_location": "L144",
+      "weight": 1.0,
+      "source": "model_baselines_py",
+      "target": "model_baselines_rates_to_components",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "model/baselines.py",
+      "source_location": "L153",
+      "weight": 1.0,
+      "source": "model_baselines_py",
+      "target": "model_baselines_score_recon",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "model/baselines.py",
+      "source_location": "L166",
+      "weight": 1.0,
+      "source": "model_baselines_py",
+      "target": "model_baselines_predict_rates",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "model/baselines.py",
+      "source_location": "L178",
+      "weight": 1.0,
+      "source": "model_baselines_py",
+      "target": "model_baselines_position_rate_prior",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "model/baselines.py",
+      "source_location": "L188",
+      "weight": 1.0,
+      "source": "model_baselines_py",
+      "target": "model_baselines_rates_naive",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "model/baselines.py",
+      "source_location": "L203",
+      "weight": 1.0,
+      "source": "model_baselines_py",
+      "target": "model_baselines_rates_linear",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "model/baselines.py",
+      "source_location": "L238",
+      "weight": 1.0,
+      "source": "model_baselines_py",
+      "target": "model_baselines_direct_points_oof",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "model/baselines.py",
+      "source_location": "L259",
+      "weight": 1.0,
+      "source": "model_baselines_py",
+      "target": "model_baselines_selfcheck",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "method",
+      "confidence": "EXTRACTED",
+      "source_file": "model/baselines.py",
+      "source_location": "L65",
+      "weight": 1.0,
+      "source": "model_baselines_positionmeanimputer",
+      "target": "model_baselines_positionmeanimputer_fit",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "method",
+      "confidence": "EXTRACTED",
+      "source_file": "model/baselines.py",
+      "source_location": "L71",
+      "weight": 1.0,
+      "source": "model_baselines_positionmeanimputer",
+      "target": "model_baselines_positionmeanimputer_transform",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "calls",
+      "context": "call",
+      "confidence": "EXTRACTED",
+      "source_file": "model/baselines.py",
+      "source_location": "L92",
+      "weight": 1.0,
+      "source": "model_baselines_build_matrix",
+      "target": "model_baselines_positionmeanimputer",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "rationale_for",
+      "confidence": "EXTRACTED",
+      "source_file": "model/baselines.py",
+      "source_location": "L59",
+      "weight": 1.0,
+      "source": "model_baselines_rationale_59",
+      "target": "model_baselines_positionmeanimputer",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "calls",
+      "context": "call",
+      "confidence": "EXTRACTED",
+      "source_file": "model/baselines.py",
+      "source_location": "L92",
+      "weight": 1.0,
+      "source": "model_baselines_build_matrix",
+      "target": "model_baselines_positionmeanimputer_fit",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "calls",
+      "context": "call",
+      "confidence": "EXTRACTED",
+      "source_file": "model/baselines.py",
+      "source_location": "L127",
+      "weight": 1.0,
+      "source": "model_baselines_expected_minutes",
+      "target": "model_baselines_positionmeanimputer_fit",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "calls",
+      "context": "call",
+      "confidence": "EXTRACTED",
+      "source_file": "model/baselines.py",
+      "source_location": "L222",
+      "weight": 1.0,
+      "source": "model_baselines_rates_linear",
+      "target": "model_baselines_positionmeanimputer_fit",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "calls",
+      "context": "call",
+      "confidence": "EXTRACTED",
+      "source_file": "model/baselines.py",
+      "source_location": "L251",
+      "weight": 1.0,
+      "source": "model_baselines_direct_points_oof",
+      "target": "model_baselines_positionmeanimputer_fit",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "calls",
+      "context": "call",
+      "confidence": "EXTRACTED",
+      "source_file": "model/baselines.py",
+      "source_location": "L93",
+      "weight": 1.0,
+      "source": "model_baselines_build_matrix",
+      "target": "model_baselines_positionmeanimputer_transform",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "calls",
+      "context": "call",
+      "confidence": "EXTRACTED",
+      "source_file": "model/baselines.py",
+      "source_location": "L89",
+      "weight": 1.0,
+      "source": "model_baselines_build_matrix",
+      "target": "model_baselines_numeric_cols",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "rationale_for",
+      "confidence": "EXTRACTED",
+      "source_file": "model/baselines.py",
+      "source_location": "L78",
+      "weight": 1.0,
+      "source": "model_baselines_rationale_78",
+      "target": "model_baselines_numeric_cols",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "calls",
+      "context": "call",
+      "confidence": "INFERRED",
+      "confidence_score": 0.8,
+      "source_file": "model/baselines.py",
+      "source_location": "L79",
+      "weight": 1.0,
+      "source": "model_baselines_numeric_cols",
+      "target": "model_data_feature_view"
+    },
+    {
+      "relation": "calls",
+      "context": "call",
+      "confidence": "EXTRACTED",
+      "source_file": "model/baselines.py",
+      "source_location": "L210",
+      "weight": 1.0,
+      "source": "model_baselines_rates_linear",
+      "target": "model_baselines_build_matrix",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "calls",
+      "context": "call",
+      "confidence": "EXTRACTED",
+      "source_file": "model/baselines.py",
+      "source_location": "L249",
+      "weight": 1.0,
+      "source": "model_baselines_direct_points_oof",
+      "target": "model_baselines_build_matrix",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "rationale_for",
+      "confidence": "EXTRACTED",
+      "source_file": "model/baselines.py",
+      "source_location": "L85",
+      "weight": 1.0,
+      "source": "model_baselines_rationale_85",
+      "target": "model_baselines_build_matrix",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "calls",
+      "context": "call",
+      "confidence": "INFERRED",
+      "confidence_score": 0.8,
+      "source_file": "model/run.py",
+      "source_location": "L63",
+      "weight": 1.0,
+      "source": "model_run_direct_points_frame",
+      "target": "model_baselines_build_matrix"
+    },
+    {
+      "relation": "calls",
+      "context": "call",
+      "confidence": "EXTRACTED",
+      "source_file": "model/baselines.py",
+      "source_location": "L270",
+      "weight": 1.0,
+      "source": "model_baselines_selfcheck",
+      "target": "model_baselines_expected_minutes",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "rationale_for",
+      "confidence": "EXTRACTED",
+      "source_file": "model/baselines.py",
+      "source_location": "L105",
+      "weight": 1.0,
+      "source": "model_baselines_rationale_105",
+      "target": "model_baselines_expected_minutes",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "calls",
+      "context": "call",
+      "confidence": "INFERRED",
+      "confidence_score": 0.8,
+      "source_file": "model/train_components.py",
+      "source_location": "L287",
+      "weight": 1.0,
+      "source": "model_train_components_selfcheck",
+      "target": "model_baselines_expected_minutes"
+    },
+    {
+      "relation": "calls",
+      "context": "call",
+      "confidence": "INFERRED",
+      "confidence_score": 0.8,
+      "source_file": "model/assemble.py",
+      "source_location": "L98",
+      "weight": 1.0,
+      "source": "model_assemble_assemble_predictions",
+      "target": "model_baselines_expected_minutes"
+    },
+    {
+      "relation": "calls",
+      "context": "call",
+      "confidence": "EXTRACTED",
+      "source_file": "model/baselines.py",
+      "source_location": "L182",
+      "weight": 1.0,
+      "source": "model_baselines_position_rate_prior",
+      "target": "model_baselines_rate_target",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "calls",
+      "context": "call",
+      "confidence": "EXTRACTED",
+      "source_file": "model/baselines.py",
+      "source_location": "L214",
+      "weight": 1.0,
+      "source": "model_baselines_rates_linear",
+      "target": "model_baselines_rate_target",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "calls",
+      "context": "call",
+      "confidence": "EXTRACTED",
+      "source_file": "model/baselines.py",
+      "source_location": "L286",
+      "weight": 1.0,
+      "source": "model_baselines_selfcheck",
+      "target": "model_baselines_rate_target",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "rationale_for",
+      "confidence": "EXTRACTED",
+      "source_file": "model/baselines.py",
+      "source_location": "L137",
+      "weight": 1.0,
+      "source": "model_baselines_rationale_137",
+      "target": "model_baselines_rate_target",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "calls",
+      "context": "call",
+      "confidence": "INFERRED",
+      "confidence_score": 0.8,
+      "source_file": "model/train_components.py",
+      "source_location": "L87",
+      "weight": 1.0,
+      "source": "model_train_components_fit_lgbm_component",
+      "target": "model_baselines_rate_target"
+    },
+    {
+      "relation": "calls",
+      "context": "call",
+      "confidence": "INFERRED",
+      "confidence_score": 0.8,
+      "source_file": "model/train_components.py",
+      "source_location": "L149",
+      "weight": 1.0,
+      "source": "model_train_components_oof_candidate_mae",
+      "target": "model_baselines_rate_target"
+    },
+    {
+      "relation": "calls",
+      "context": "call",
+      "confidence": "EXTRACTED",
+      "source_file": "model/baselines.py",
+      "source_location": "L281",
+      "weight": 1.0,
+      "source": "model_baselines_selfcheck",
+      "target": "model_baselines_rates_to_components",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "rationale_for",
+      "confidence": "EXTRACTED",
+      "source_file": "model/baselines.py",
+      "source_location": "L147",
+      "weight": 1.0,
+      "source": "model_baselines_rationale_147",
+      "target": "model_baselines_rates_to_components",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "calls",
+      "context": "call",
+      "confidence": "INFERRED",
+      "confidence_score": 0.8,
+      "source_file": "model/train_components.py",
+      "source_location": "L289",
+      "weight": 1.0,
+      "source": "model_train_components_selfcheck",
+      "target": "model_baselines_rates_to_components"
+    },
+    {
+      "relation": "calls",
+      "context": "call",
+      "confidence": "INFERRED",
+      "confidence_score": 0.8,
+      "source_file": "model/assemble.py",
+      "source_location": "L101",
+      "weight": 1.0,
+      "source": "model_assemble_assemble_predictions",
+      "target": "model_baselines_rates_to_components"
+    },
+    {
+      "relation": "calls",
+      "context": "call",
+      "confidence": "EXTRACTED",
+      "source_file": "model/baselines.py",
+      "source_location": "L282",
+      "weight": 1.0,
+      "source": "model_baselines_selfcheck",
+      "target": "model_baselines_score_recon",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "rationale_for",
+      "confidence": "EXTRACTED",
+      "source_file": "model/baselines.py",
+      "source_location": "L154",
+      "weight": 1.0,
+      "source": "model_baselines_rationale_154",
+      "target": "model_baselines_score_recon",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "calls",
+      "context": "call",
+      "confidence": "INFERRED",
+      "confidence_score": 0.8,
+      "source_file": "model/train_components.py",
+      "source_location": "L292",
+      "weight": 1.0,
+      "source": "model_train_components_selfcheck",
+      "target": "model_baselines_score_recon"
+    },
+    {
+      "relation": "calls",
+      "context": "call",
+      "confidence": "INFERRED",
+      "confidence_score": 0.8,
+      "source_file": "model/assemble.py",
+      "source_location": "L103",
+      "weight": 1.0,
+      "source": "model_assemble_assemble_predictions",
+      "target": "model_baselines_score_recon"
+    },
+    {
+      "relation": "calls",
+      "context": "call",
+      "confidence": "EXTRACTED",
+      "source_file": "model/baselines.py",
+      "source_location": "L172",
+      "weight": 1.0,
+      "source": "model_baselines_predict_rates",
+      "target": "model_baselines_rates_naive",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "calls",
+      "context": "call",
+      "confidence": "EXTRACTED",
+      "source_file": "model/baselines.py",
+      "source_location": "L174",
+      "weight": 1.0,
+      "source": "model_baselines_predict_rates",
+      "target": "model_baselines_rates_linear",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "calls",
+      "context": "call",
+      "confidence": "EXTRACTED",
+      "source_file": "model/baselines.py",
+      "source_location": "L280",
+      "weight": 1.0,
+      "source": "model_baselines_selfcheck",
+      "target": "model_baselines_predict_rates",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "rationale_for",
+      "confidence": "EXTRACTED",
+      "source_file": "model/baselines.py",
+      "source_location": "L170",
+      "weight": 1.0,
+      "source": "model_baselines_rationale_170",
+      "target": "model_baselines_predict_rates",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "calls",
+      "context": "call",
+      "confidence": "INFERRED",
+      "confidence_score": 0.8,
+      "source_file": "model/run.py",
+      "source_location": "L42",
+      "weight": 1.0,
+      "source": "model_run_build_predictors",
+      "target": "model_baselines_predict_rates"
+    },
+    {
+      "relation": "calls",
+      "context": "call",
+      "confidence": "INFERRED",
+      "confidence_score": 0.8,
+      "source_file": "model/train_components.py",
+      "source_location": "L144",
+      "weight": 1.0,
+      "source": "model_train_components_oof_candidate_mae",
+      "target": "model_baselines_predict_rates"
+    },
+    {
+      "relation": "calls",
+      "context": "call",
+      "confidence": "INFERRED",
+      "confidence_score": 0.8,
+      "source_file": "model/train_components.py",
+      "source_location": "L220",
+      "weight": 1.0,
+      "source": "model_train_components_predict_rates_registry",
+      "target": "model_baselines_predict_rates"
+    },
+    {
+      "relation": "calls",
+      "context": "call",
+      "confidence": "INFERRED",
+      "confidence_score": 0.8,
+      "source_file": "model/train_components.py",
+      "source_location": "L249",
+      "weight": 1.0,
+      "source": "model_train_components_predict_rates_lgbm_only",
+      "target": "model_baselines_predict_rates"
+    },
+    {
+      "relation": "calls",
+      "context": "call",
+      "confidence": "INFERRED",
+      "confidence_score": 0.8,
+      "source_file": "model/assemble.py",
+      "source_location": "L214",
+      "weight": 1.0,
+      "source": "model_assemble_selfcheck",
+      "target": "model_baselines_predict_rates"
+    },
+    {
+      "relation": "calls",
+      "context": "call",
+      "confidence": "EXTRACTED",
+      "source_file": "model/baselines.py",
+      "source_location": "L193",
+      "weight": 1.0,
+      "source": "model_baselines_rates_naive",
+      "target": "model_baselines_position_rate_prior",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "rationale_for",
+      "confidence": "EXTRACTED",
+      "source_file": "model/baselines.py",
+      "source_location": "L179",
+      "weight": 1.0,
+      "source": "model_baselines_rationale_179",
+      "target": "model_baselines_position_rate_prior",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "calls",
+      "context": "call",
+      "confidence": "EXTRACTED",
+      "source_file": "model/baselines.py",
+      "source_location": "L293",
+      "weight": 1.0,
+      "source": "model_baselines_selfcheck",
+      "target": "model_baselines_direct_points_oof",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "rationale_for",
+      "confidence": "EXTRACTED",
+      "source_file": "model/baselines.py",
+      "source_location": "L239",
+      "weight": 1.0,
+      "source": "model_baselines_rationale_239",
+      "target": "model_baselines_direct_points_oof",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "calls",
+      "context": "call",
+      "confidence": "INFERRED",
+      "confidence_score": 0.8,
+      "source_file": "model/baselines.py",
+      "source_location": "L248",
+      "weight": 1.0,
+      "source": "model_baselines_direct_points_oof",
+      "target": "model_splits_group_kfold_indices"
+    },
+    {
+      "relation": "calls",
+      "context": "call",
+      "confidence": "INFERRED",
+      "confidence_score": 0.8,
+      "source_file": "model/run.py",
+      "source_location": "L70",
+      "weight": 1.0,
+      "source": "model_run_direct_points_frame",
+      "target": "model_baselines_direct_points_oof"
+    },
+    {
+      "relation": "calls",
+      "context": "call",
+      "confidence": "INFERRED",
+      "confidence_score": 0.8,
+      "source_file": "model/baselines.py",
+      "source_location": "L265",
+      "weight": 1.0,
+      "source": "model_baselines_selfcheck",
+      "target": "model_data_load"
+    },
+    {
+      "relation": "calls",
+      "context": "call",
+      "confidence": "INFERRED",
+      "confidence_score": 0.8,
+      "source_file": "model/baselines.py",
+      "source_location": "L267",
+      "weight": 1.0,
+      "source": "model_baselines_selfcheck",
+      "target": "model_splits_component_train"
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "model/run.py",
+      "source_location": "L40",
+      "weight": 1.0,
+      "source": "model_run_py",
+      "target": "model_run_build_predictors",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "model/run.py",
+      "source_location": "L50",
+      "weight": 1.0,
+      "source": "model_run_py",
+      "target": "model_run_direct_points_frame",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "model/run.py",
+      "source_location": "L81",
+      "weight": 1.0,
+      "source": "model_run_py",
+      "target": "model_run_run_season",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "model/run.py",
+      "source_location": "L97",
+      "weight": 1.0,
+      "source": "model_run_py",
+      "target": "model_run_main",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "model/run.py",
+      "source_location": "L141",
+      "weight": 1.0,
+      "source": "model_run_py",
+      "target": "model_run_accept_and_persist",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "model/run.py",
+      "source_location": "L148",
+      "weight": 1.0,
+      "source": "model_run_py",
+      "target": "model_run_verdict",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "calls",
+      "context": "call",
+      "confidence": "EXTRACTED",
+      "source_file": "model/run.py",
+      "source_location": "L113",
+      "weight": 1.0,
+      "source": "model_run_main",
+      "target": "model_run_build_predictors",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "calls",
+      "context": "call",
+      "confidence": "INFERRED",
+      "confidence_score": 0.8,
+      "source_file": "model/run.py",
+      "source_location": "L45",
+      "weight": 1.0,
+      "source": "model_run_build_predictors",
+      "target": "model_train_components_predict_rates_lgbm_only"
+    },
+    {
+      "relation": "calls",
+      "context": "call",
+      "confidence": "INFERRED",
+      "confidence_score": 0.8,
+      "source_file": "model/run.py",
+      "source_location": "L46",
+      "weight": 1.0,
+      "source": "model_run_build_predictors",
+      "target": "model_train_components_predict_rates_registry"
+    },
+    {
+      "relation": "calls",
+      "context": "call",
+      "confidence": "EXTRACTED",
+      "source_file": "model/run.py",
+      "source_location": "L88",
+      "weight": 1.0,
+      "source": "model_run_run_season",
+      "target": "model_run_direct_points_frame",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "rationale_for",
+      "confidence": "EXTRACTED",
+      "source_file": "model/run.py",
+      "source_location": "L51",
+      "weight": 1.0,
+      "source": "model_run_rationale_51",
+      "target": "model_run_direct_points_frame",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "calls",
+      "context": "call",
+      "confidence": "EXTRACTED",
+      "source_file": "model/run.py",
+      "source_location": "L117",
+      "weight": 1.0,
+      "source": "model_run_main",
+      "target": "model_run_run_season",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "calls",
+      "context": "call",
+      "confidence": "INFERRED",
+      "confidence_score": 0.8,
+      "source_file": "model/run.py",
+      "source_location": "L84",
+      "weight": 1.0,
+      "source": "model_run_run_season",
+      "target": "model_assemble_assemble_predictions"
+    },
+    {
+      "relation": "calls",
+      "context": "call",
+      "confidence": "INFERRED",
+      "confidence_score": 0.8,
+      "source_file": "model/run.py",
+      "source_location": "L85",
+      "weight": 1.0,
+      "source": "model_run_run_season",
+      "target": "model_evaluate_evaluate"
+    },
+    {
+      "relation": "calls",
+      "context": "call",
+      "confidence": "INFERRED",
+      "confidence_score": 0.8,
+      "source_file": "model/run.py",
+      "source_location": "L92",
+      "weight": 1.0,
+      "source": "model_run_run_season",
+      "target": "model_assemble_rank_scores"
+    },
+    {
+      "relation": "calls",
+      "context": "call",
+      "confidence": "EXTRACTED",
+      "source_file": "model/run.py",
+      "source_location": "L129",
+      "weight": 1.0,
+      "source": "model_run_main",
+      "target": "model_run_accept_and_persist",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "calls",
+      "context": "call",
+      "confidence": "EXTRACTED",
+      "source_file": "model/run.py",
+      "source_location": "L138",
+      "weight": 1.0,
+      "source": "model_run_main",
+      "target": "model_run_verdict",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "calls",
+      "context": "call",
+      "confidence": "INFERRED",
+      "confidence_score": 0.8,
+      "source_file": "model/run.py",
+      "source_location": "L104",
+      "weight": 1.0,
+      "source": "model_run_main",
+      "target": "model_data_load"
+    },
+    {
+      "relation": "calls",
+      "context": "call",
+      "confidence": "INFERRED",
+      "confidence_score": 0.8,
+      "source_file": "model/run.py",
+      "source_location": "L107",
+      "weight": 1.0,
+      "source": "model_run_main",
+      "target": "model_splits_component_train"
+    },
+    {
+      "relation": "calls",
+      "context": "call",
+      "confidence": "INFERRED",
+      "confidence_score": 0.8,
+      "source_file": "model/run.py",
+      "source_location": "L109",
+      "weight": 1.0,
+      "source": "model_run_main",
+      "target": "model_train_components_select_components"
+    },
+    {
+      "relation": "calls",
+      "context": "call",
+      "confidence": "INFERRED",
+      "confidence_score": 0.8,
+      "source_file": "model/run.py",
+      "source_location": "L110",
+      "weight": 1.0,
+      "source": "model_run_main",
+      "target": "model_train_components_save_registry"
+    },
+    {
+      "relation": "calls",
+      "context": "call",
+      "confidence": "INFERRED",
+      "confidence_score": 0.8,
+      "source_file": "model/run.py",
+      "source_location": "L118",
+      "weight": 1.0,
+      "source": "model_run_main",
+      "target": "model_evaluate_format_table"
+    },
+    {
+      "relation": "calls",
+      "context": "call",
+      "confidence": "INFERRED",
+      "confidence_score": 0.8,
+      "source_file": "model/run.py",
+      "source_location": "L124",
+      "weight": 1.0,
+      "source": "model_run_main",
+      "target": "model_assemble_assemble_predictions"
+    },
+    {
+      "relation": "calls",
+      "context": "call",
+      "confidence": "INFERRED",
+      "confidence_score": 0.8,
+      "source_file": "model/run.py",
+      "source_location": "L126",
+      "weight": 1.0,
+      "source": "model_run_main",
+      "target": "model_evaluate_evaluate"
+    },
+    {
+      "relation": "calls",
+      "context": "call",
+      "confidence": "INFERRED",
+      "confidence_score": 0.8,
+      "source_file": "model/run.py",
+      "source_location": "L142",
+      "weight": 1.0,
+      "source": "model_run_accept_and_persist",
+      "target": "model_assemble_assemble_predictions"
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "model/train_components.py",
+      "source_location": "L62",
+      "weight": 1.0,
+      "source": "model_train_components_py",
+      "target": "model_train_components_lgbm_objective",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "model/train_components.py",
+      "source_location": "L70",
+      "weight": 1.0,
+      "source": "model_train_components_py",
+      "target": "model_train_components_lgbm_frame",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "model/train_components.py",
+      "source_location": "L79",
+      "weight": 1.0,
+      "source": "model_train_components_py",
+      "target": "model_train_components_fit_lgbm_component",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "model/train_components.py",
+      "source_location": "L108",
+      "weight": 1.0,
+      "source": "model_train_components_py",
+      "target": "model_train_components_lgbm_predict",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "model/train_components.py",
+      "source_location": "L113",
+      "weight": 1.0,
+      "source": "model_train_components_py",
+      "target": "model_train_components_kick_gate",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "model/train_components.py",
+      "source_location": "L122",
+      "weight": 1.0,
+      "source": "model_train_components_py",
+      "target": "model_train_components_oof_candidate_mae",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "model/train_components.py",
+      "source_location": "L167",
+      "weight": 1.0,
+      "source": "model_train_components_py",
+      "target": "model_train_components_select_components",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "model/train_components.py",
+      "source_location": "L211",
+      "weight": 1.0,
+      "source": "model_train_components_py",
+      "target": "model_train_components_predict_rates_registry",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "model/train_components.py",
+      "source_location": "L244",
+      "weight": 1.0,
+      "source": "model_train_components_py",
+      "target": "model_train_components_predict_rates_lgbm_only",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "model/train_components.py",
+      "source_location": "L266",
+      "weight": 1.0,
+      "source": "model_train_components_py",
+      "target": "model_train_components_save_registry",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "model/train_components.py",
+      "source_location": "L271",
+      "weight": 1.0,
+      "source": "model_train_components_py",
+      "target": "model_train_components_selfcheck",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "calls",
+      "context": "call",
+      "confidence": "EXTRACTED",
+      "source_file": "model/train_components.py",
+      "source_location": "L89",
+      "weight": 1.0,
+      "source": "model_train_components_fit_lgbm_component",
+      "target": "model_train_components_lgbm_objective",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "calls",
+      "context": "call",
+      "confidence": "EXTRACTED",
+      "source_file": "model/train_components.py",
+      "source_location": "L86",
+      "weight": 1.0,
+      "source": "model_train_components_fit_lgbm_component",
+      "target": "model_train_components_lgbm_frame",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "calls",
+      "context": "call",
+      "confidence": "EXTRACTED",
+      "source_file": "model/train_components.py",
+      "source_location": "L109",
+      "weight": 1.0,
+      "source": "model_train_components_lgbm_predict",
+      "target": "model_train_components_lgbm_frame",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "rationale_for",
+      "confidence": "EXTRACTED",
+      "source_file": "model/train_components.py",
+      "source_location": "L71",
+      "weight": 1.0,
+      "source": "model_train_components_rationale_71",
+      "target": "model_train_components_lgbm_frame",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "calls",
+      "context": "call",
+      "confidence": "INFERRED",
+      "confidence_score": 0.8,
+      "source_file": "model/train_components.py",
+      "source_location": "L73",
+      "weight": 1.0,
+      "source": "model_train_components_lgbm_frame",
+      "target": "model_data_feature_view"
+    },
+    {
+      "relation": "calls",
+      "context": "call",
+      "confidence": "INFERRED",
+      "confidence_score": 0.8,
+      "source_file": "model/assemble.py",
+      "source_location": "L161",
+      "weight": 1.0,
+      "source": "model_assemble_rank_scores",
+      "target": "model_train_components_lgbm_frame"
+    },
+    {
+      "relation": "calls",
+      "context": "call",
+      "confidence": "EXTRACTED",
+      "source_file": "model/train_components.py",
+      "source_location": "L154",
+      "weight": 1.0,
+      "source": "model_train_components_oof_candidate_mae",
+      "target": "model_train_components_fit_lgbm_component",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "calls",
+      "context": "call",
+      "confidence": "EXTRACTED",
+      "source_file": "model/train_components.py",
+      "source_location": "L232",
+      "weight": 1.0,
+      "source": "model_train_components_predict_rates_registry",
+      "target": "model_train_components_fit_lgbm_component",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "calls",
+      "context": "call",
+      "confidence": "EXTRACTED",
+      "source_file": "model/train_components.py",
+      "source_location": "L257",
+      "weight": 1.0,
+      "source": "model_train_components_predict_rates_lgbm_only",
+      "target": "model_train_components_fit_lgbm_component",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "rationale_for",
+      "confidence": "EXTRACTED",
+      "source_file": "model/train_components.py",
+      "source_location": "L83",
+      "weight": 1.0,
+      "source": "model_train_components_rationale_83",
+      "target": "model_train_components_fit_lgbm_component",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "calls",
+      "context": "call",
+      "confidence": "EXTRACTED",
+      "source_file": "model/train_components.py",
+      "source_location": "L155",
+      "weight": 1.0,
+      "source": "model_train_components_oof_candidate_mae",
+      "target": "model_train_components_lgbm_predict",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "calls",
+      "context": "call",
+      "confidence": "EXTRACTED",
+      "source_file": "model/train_components.py",
+      "source_location": "L233",
+      "weight": 1.0,
+      "source": "model_train_components_predict_rates_registry",
+      "target": "model_train_components_lgbm_predict",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "calls",
+      "context": "call",
+      "confidence": "EXTRACTED",
+      "source_file": "model/train_components.py",
+      "source_location": "L258",
+      "weight": 1.0,
+      "source": "model_train_components_predict_rates_lgbm_only",
+      "target": "model_train_components_lgbm_predict",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "calls",
+      "context": "call",
+      "confidence": "EXTRACTED",
+      "source_file": "model/train_components.py",
+      "source_location": "L224",
+      "weight": 1.0,
+      "source": "model_train_components_predict_rates_registry",
+      "target": "model_train_components_kick_gate",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "calls",
+      "context": "call",
+      "confidence": "EXTRACTED",
+      "source_file": "model/train_components.py",
+      "source_location": "L252",
+      "weight": 1.0,
+      "source": "model_train_components_predict_rates_lgbm_only",
+      "target": "model_train_components_kick_gate",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "calls",
+      "context": "call",
+      "confidence": "EXTRACTED",
+      "source_file": "model/train_components.py",
+      "source_location": "L297",
+      "weight": 1.0,
+      "source": "model_train_components_selfcheck",
+      "target": "model_train_components_kick_gate",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "rationale_for",
+      "confidence": "EXTRACTED",
+      "source_file": "model/train_components.py",
+      "source_location": "L114",
+      "weight": 1.0,
+      "source": "model_train_components_rationale_114",
+      "target": "model_train_components_kick_gate",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "calls",
+      "context": "call",
+      "confidence": "EXTRACTED",
+      "source_file": "model/train_components.py",
+      "source_location": "L171",
+      "weight": 1.0,
+      "source": "model_train_components_select_components",
+      "target": "model_train_components_oof_candidate_mae",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "rationale_for",
+      "confidence": "EXTRACTED",
+      "source_file": "model/train_components.py",
+      "source_location": "L125",
+      "weight": 1.0,
+      "source": "model_train_components_rationale_125",
+      "target": "model_train_components_oof_candidate_mae",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "calls",
+      "context": "call",
+      "confidence": "INFERRED",
+      "confidence_score": 0.8,
+      "source_file": "model/train_components.py",
+      "source_location": "L135",
+      "weight": 1.0,
+      "source": "model_train_components_oof_candidate_mae",
+      "target": "model_splits_group_kfold_indices"
+    },
+    {
+      "relation": "calls",
+      "context": "call",
+      "confidence": "EXTRACTED",
+      "source_file": "model/train_components.py",
+      "source_location": "L279",
+      "weight": 1.0,
+      "source": "model_train_components_selfcheck",
+      "target": "model_train_components_select_components",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "rationale_for",
+      "confidence": "EXTRACTED",
+      "source_file": "model/train_components.py",
+      "source_location": "L170",
+      "weight": 1.0,
+      "source": "model_train_components_rationale_170",
+      "target": "model_train_components_select_components",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "calls",
+      "context": "call",
+      "confidence": "INFERRED",
+      "confidence_score": 0.8,
+      "source_file": "model/assemble.py",
+      "source_location": "L190",
+      "weight": 1.0,
+      "source": "model_assemble_selfcheck",
+      "target": "model_train_components_select_components"
+    },
+    {
+      "relation": "calls",
+      "context": "call",
+      "confidence": "EXTRACTED",
+      "source_file": "model/train_components.py",
+      "source_location": "L288",
+      "weight": 1.0,
+      "source": "model_train_components_selfcheck",
+      "target": "model_train_components_predict_rates_registry",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "rationale_for",
+      "confidence": "EXTRACTED",
+      "source_file": "model/train_components.py",
+      "source_location": "L215",
+      "weight": 1.0,
+      "source": "model_train_components_rationale_215",
+      "target": "model_train_components_predict_rates_registry",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "rationale_for",
+      "confidence": "EXTRACTED",
+      "source_file": "model/train_components.py",
+      "source_location": "L247",
+      "weight": 1.0,
+      "source": "model_train_components_rationale_247",
+      "target": "model_train_components_predict_rates_lgbm_only",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "calls",
+      "context": "call",
+      "confidence": "EXTRACTED",
+      "source_file": "model/train_components.py",
+      "source_location": "L283",
+      "weight": 1.0,
+      "source": "model_train_components_selfcheck",
+      "target": "model_train_components_save_registry",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "calls",
+      "context": "call",
+      "confidence": "INFERRED",
+      "confidence_score": 0.8,
+      "source_file": "model/train_components.py",
+      "source_location": "L276",
+      "weight": 1.0,
+      "source": "model_train_components_selfcheck",
+      "target": "model_data_load"
+    },
+    {
+      "relation": "calls",
+      "context": "call",
+      "confidence": "INFERRED",
+      "confidence_score": 0.8,
+      "source_file": "model/train_components.py",
+      "source_location": "L278",
+      "weight": 1.0,
+      "source": "model_train_components_selfcheck",
+      "target": "model_splits_component_train"
+    },
+    {
+      "relation": "rationale_for",
+      "confidence": "EXTRACTED",
+      "source_file": "model/__init__.py",
+      "source_location": "L1",
+      "weight": 1.0,
+      "source": "model_init_rationale_1",
+      "target": "model_init_py",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "model/assemble.py",
+      "source_location": "L38",
+      "weight": 1.0,
+      "source": "model_assemble_py",
+      "target": "model_assemble_fit_latent_asof",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "model/assemble.py",
+      "source_location": "L52",
+      "weight": 1.0,
+      "source": "model_assemble_py",
+      "target": "model_assemble_expected_drives",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "model/assemble.py",
+      "source_location": "L65",
+      "weight": 1.0,
+      "source": "model_assemble_py",
+      "target": "model_assemble_expected_potm",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "model/assemble.py",
+      "source_location": "L87",
+      "weight": 1.0,
+      "source": "model_assemble_py",
+      "target": "model_assemble_assemble_predictions",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "model/assemble.py",
+      "source_location": "L148",
+      "weight": 1.0,
+      "source": "model_assemble_py",
+      "target": "model_assemble_rank_scores",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "model/assemble.py",
+      "source_location": "L180",
+      "weight": 1.0,
+      "source": "model_assemble_py",
+      "target": "model_assemble_selfcheck",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "calls",
+      "context": "call",
+      "confidence": "EXTRACTED",
+      "source_file": "model/assemble.py",
+      "source_location": "L110",
+      "weight": 1.0,
+      "source": "model_assemble_assemble_predictions",
+      "target": "model_assemble_fit_latent_asof",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "rationale_for",
+      "confidence": "EXTRACTED",
+      "source_file": "model/assemble.py",
+      "source_location": "L39",
+      "weight": 1.0,
+      "source": "model_assemble_rationale_39",
+      "target": "model_assemble_fit_latent_asof",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "calls",
+      "context": "call",
+      "confidence": "INFERRED",
+      "confidence_score": 0.8,
+      "source_file": "model/assemble.py",
+      "source_location": "L41",
+      "weight": 1.0,
+      "source": "model_assemble_fit_latent_asof",
+      "target": "model_splits_latent_calib_rows"
+    },
+    {
+      "relation": "calls",
+      "context": "call",
+      "confidence": "EXTRACTED",
+      "source_file": "model/assemble.py",
+      "source_location": "L115",
+      "weight": 1.0,
+      "source": "model_assemble_assemble_predictions",
+      "target": "model_assemble_expected_drives",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "rationale_for",
+      "confidence": "EXTRACTED",
+      "source_file": "model/assemble.py",
+      "source_location": "L55",
+      "weight": 1.0,
+      "source": "model_assemble_rationale_55",
+      "target": "model_assemble_expected_drives",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "calls",
+      "context": "call",
+      "confidence": "EXTRACTED",
+      "source_file": "model/assemble.py",
+      "source_location": "L118",
+      "weight": 1.0,
+      "source": "model_assemble_assemble_predictions",
+      "target": "model_assemble_expected_potm",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "rationale_for",
+      "confidence": "EXTRACTED",
+      "source_file": "model/assemble.py",
+      "source_location": "L68",
+      "weight": 1.0,
+      "source": "model_assemble_rationale_68",
+      "target": "model_assemble_expected_potm",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "calls",
+      "context": "call",
+      "confidence": "EXTRACTED",
+      "source_file": "model/assemble.py",
+      "source_location": "L195",
+      "weight": 1.0,
+      "source": "model_assemble_selfcheck",
+      "target": "model_assemble_assemble_predictions",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "rationale_for",
+      "confidence": "EXTRACTED",
+      "source_file": "model/assemble.py",
+      "source_location": "L91",
+      "weight": 1.0,
+      "source": "model_assemble_rationale_91",
+      "target": "model_assemble_assemble_predictions",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "calls",
+      "context": "call",
+      "confidence": "INFERRED",
+      "confidence_score": 0.8,
+      "source_file": "model/assemble.py",
+      "source_location": "L107",
+      "weight": 1.0,
+      "source": "model_assemble_assemble_predictions",
+      "target": "model_splits_round_iter"
+    },
+    {
+      "relation": "calls",
+      "context": "call",
+      "confidence": "INFERRED",
+      "confidence_score": 0.8,
+      "source_file": "model/assemble.py",
+      "source_location": "L111",
+      "weight": 1.0,
+      "source": "model_assemble_assemble_predictions",
+      "target": "model_splits_latent_calib_rows"
+    },
+    {
+      "relation": "rationale_for",
+      "confidence": "EXTRACTED",
+      "source_file": "model/assemble.py",
+      "source_location": "L151",
+      "weight": 1.0,
+      "source": "model_assemble_rationale_151",
+      "target": "model_assemble_rank_scores",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "calls",
+      "context": "call",
+      "confidence": "INFERRED",
+      "confidence_score": 0.8,
+      "source_file": "model/assemble.py",
+      "source_location": "L186",
+      "weight": 1.0,
+      "source": "model_assemble_selfcheck",
+      "target": "model_data_load"
+    },
+    {
+      "relation": "calls",
+      "context": "call",
+      "confidence": "INFERRED",
+      "confidence_score": 0.8,
+      "source_file": "model/assemble.py",
+      "source_location": "L188",
+      "weight": 1.0,
+      "source": "model_assemble_selfcheck",
+      "target": "model_splits_component_train"
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "model/splits.py",
+      "source_location": "L28",
+      "weight": 1.0,
+      "source": "model_splits_py",
+      "target": "model_splits_component_train",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "model/splits.py",
+      "source_location": "L37",
+      "weight": 1.0,
+      "source": "model_splits_py",
+      "target": "model_splits_group_kfold_indices",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "model/splits.py",
+      "source_location": "L56",
+      "weight": 1.0,
+      "source": "model_splits_py",
+      "target": "model_splits_latent_calib_rows",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "model/splits.py",
+      "source_location": "L74",
+      "weight": 1.0,
+      "source": "model_splits_py",
+      "target": "model_splits_round_iter",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "model/splits.py",
+      "source_location": "L97",
+      "weight": 1.0,
+      "source": "model_splits_py",
+      "target": "model_splits_selfcheck",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "calls",
+      "context": "call",
+      "confidence": "EXTRACTED",
+      "source_file": "model/splits.py",
+      "source_location": "L102",
+      "weight": 1.0,
+      "source": "model_splits_selfcheck",
+      "target": "model_splits_component_train",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "rationale_for",
+      "confidence": "EXTRACTED",
+      "source_file": "model/splits.py",
+      "source_location": "L29",
+      "weight": 1.0,
+      "source": "model_splits_rationale_29",
+      "target": "model_splits_component_train",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "calls",
+      "context": "call",
+      "confidence": "EXTRACTED",
+      "source_file": "model/splits.py",
+      "source_location": "L113",
+      "weight": 1.0,
+      "source": "model_splits_selfcheck",
+      "target": "model_splits_group_kfold_indices",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "rationale_for",
+      "confidence": "EXTRACTED",
+      "source_file": "model/splits.py",
+      "source_location": "L40",
+      "weight": 1.0,
+      "source": "model_splits_rationale_40",
+      "target": "model_splits_group_kfold_indices",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "calls",
+      "context": "call",
+      "confidence": "EXTRACTED",
+      "source_file": "model/splits.py",
+      "source_location": "L121",
+      "weight": 1.0,
+      "source": "model_splits_selfcheck",
+      "target": "model_splits_latent_calib_rows",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "rationale_for",
+      "confidence": "EXTRACTED",
+      "source_file": "model/splits.py",
+      "source_location": "L57",
+      "weight": 1.0,
+      "source": "model_splits_rationale_57",
+      "target": "model_splits_latent_calib_rows",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "calls",
+      "context": "call",
+      "confidence": "EXTRACTED",
+      "source_file": "model/splits.py",
+      "source_location": "L119",
+      "weight": 1.0,
+      "source": "model_splits_selfcheck",
+      "target": "model_splits_round_iter",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "rationale_for",
+      "confidence": "EXTRACTED",
+      "source_file": "model/splits.py",
+      "source_location": "L77",
+      "weight": 1.0,
+      "source": "model_splits_rationale_77",
+      "target": "model_splits_round_iter",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "calls",
+      "context": "call",
+      "confidence": "INFERRED",
+      "confidence_score": 0.8,
+      "source_file": "model/splits.py",
+      "source_location": "L100",
+      "weight": 1.0,
+      "source": "model_splits_selfcheck",
+      "target": "model_data_load"
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "model/evaluate.py",
+      "source_location": "L28",
+      "weight": 1.0,
+      "source": "model_evaluate_py",
+      "target": "model_evaluate_labelled",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "model/evaluate.py",
+      "source_location": "L32",
+      "weight": 1.0,
+      "source": "model_evaluate_py",
+      "target": "model_evaluate_points_mae",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "model/evaluate.py",
+      "source_location": "L40",
+      "weight": 1.0,
+      "source": "model_evaluate_py",
+      "target": "model_evaluate_value_of_xv",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "model/evaluate.py",
+      "source_location": "L56",
+      "weight": 1.0,
+      "source": "model_evaluate_py",
+      "target": "model_evaluate_captain_hitrate",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "model/evaluate.py",
+      "source_location": "L71",
+      "weight": 1.0,
+      "source": "model_evaluate_py",
+      "target": "model_evaluate_topn_overlap",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "model/evaluate.py",
+      "source_location": "L82",
+      "weight": 1.0,
+      "source": "model_evaluate_py",
+      "target": "model_evaluate_spearman_within_pos",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "model/evaluate.py",
+      "source_location": "L95",
+      "weight": 1.0,
+      "source": "model_evaluate_py",
+      "target": "model_evaluate_evaluate",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "model/evaluate.py",
+      "source_location": "L109",
+      "weight": 1.0,
+      "source": "model_evaluate_py",
+      "target": "model_evaluate_format_table",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "calls",
+      "context": "call",
+      "confidence": "EXTRACTED",
+      "source_file": "model/evaluate.py",
+      "source_location": "L33",
+      "weight": 1.0,
+      "source": "model_evaluate_points_mae",
+      "target": "model_evaluate_labelled",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "calls",
+      "context": "call",
+      "confidence": "EXTRACTED",
+      "source_file": "model/evaluate.py",
+      "source_location": "L41",
+      "weight": 1.0,
+      "source": "model_evaluate_value_of_xv",
+      "target": "model_evaluate_labelled",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "calls",
+      "context": "call",
+      "confidence": "EXTRACTED",
+      "source_file": "model/evaluate.py",
+      "source_location": "L57",
+      "weight": 1.0,
+      "source": "model_evaluate_captain_hitrate",
+      "target": "model_evaluate_labelled",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "calls",
+      "context": "call",
+      "confidence": "EXTRACTED",
+      "source_file": "model/evaluate.py",
+      "source_location": "L72",
+      "weight": 1.0,
+      "source": "model_evaluate_topn_overlap",
+      "target": "model_evaluate_labelled",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "calls",
+      "context": "call",
+      "confidence": "EXTRACTED",
+      "source_file": "model/evaluate.py",
+      "source_location": "L83",
+      "weight": 1.0,
+      "source": "model_evaluate_spearman_within_pos",
+      "target": "model_evaluate_labelled",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "calls",
+      "context": "call",
+      "confidence": "EXTRACTED",
+      "source_file": "model/evaluate.py",
+      "source_location": "L105",
+      "weight": 1.0,
+      "source": "model_evaluate_evaluate",
+      "target": "model_evaluate_points_mae",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "calls",
+      "context": "call",
+      "confidence": "EXTRACTED",
+      "source_file": "model/evaluate.py",
+      "source_location": "L98",
+      "weight": 1.0,
+      "source": "model_evaluate_evaluate",
+      "target": "model_evaluate_value_of_xv",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "calls",
+      "context": "call",
+      "confidence": "EXTRACTED",
+      "source_file": "model/evaluate.py",
+      "source_location": "L99",
+      "weight": 1.0,
+      "source": "model_evaluate_evaluate",
+      "target": "model_evaluate_captain_hitrate",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "calls",
+      "context": "call",
+      "confidence": "EXTRACTED",
+      "source_file": "model/evaluate.py",
+      "source_location": "L102",
+      "weight": 1.0,
+      "source": "model_evaluate_evaluate",
+      "target": "model_evaluate_topn_overlap",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "calls",
+      "context": "call",
+      "confidence": "EXTRACTED",
+      "source_file": "model/evaluate.py",
+      "source_location": "L103",
+      "weight": 1.0,
+      "source": "model_evaluate_evaluate",
+      "target": "model_evaluate_spearman_within_pos",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "rationale_for",
+      "confidence": "EXTRACTED",
+      "source_file": "model/evaluate.py",
+      "source_location": "L96",
+      "weight": 1.0,
+      "source": "model_evaluate_rationale_96",
+      "target": "model_evaluate_evaluate",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "model/data.py",
+      "source_location": "L66",
+      "weight": 1.0,
+      "source": "model_data_py",
+      "target": "model_data_feature_cols",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "model/data.py",
+      "source_location": "L77",
+      "weight": 1.0,
+      "source": "model_data_py",
+      "target": "model_data_load",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "model/data.py",
+      "source_location": "L108",
+      "weight": 1.0,
+      "source": "model_data_py",
+      "target": "model_data_assert_no_leakage",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "model/data.py",
+      "source_location": "L114",
+      "weight": 1.0,
+      "source": "model_data_py",
+      "target": "model_data_feature_view",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "model/data.py",
+      "source_location": "L142",
+      "weight": 1.0,
+      "source": "model_data_py",
+      "target": "model_data_selfcheck",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "rationale_for",
+      "confidence": "EXTRACTED",
+      "source_file": "model/data.py",
+      "source_location": "L67",
+      "weight": 1.0,
+      "source": "model_data_rationale_67",
+      "target": "model_data_feature_cols",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "calls",
+      "context": "call",
+      "confidence": "EXTRACTED",
+      "source_file": "model/data.py",
+      "source_location": "L143",
+      "weight": 1.0,
+      "source": "model_data_selfcheck",
+      "target": "model_data_load",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "rationale_for",
+      "confidence": "EXTRACTED",
+      "source_file": "model/data.py",
+      "source_location": "L78",
+      "weight": 1.0,
+      "source": "model_data_rationale_78",
+      "target": "model_data_load",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "calls",
+      "context": "call",
+      "confidence": "EXTRACTED",
+      "source_file": "model/data.py",
+      "source_location": "L133",
+      "weight": 1.0,
+      "source": "model_data_feature_view",
+      "target": "model_data_assert_no_leakage",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "calls",
+      "context": "call",
+      "confidence": "EXTRACTED",
+      "source_file": "model/data.py",
+      "source_location": "L153",
+      "weight": 1.0,
+      "source": "model_data_selfcheck",
+      "target": "model_data_assert_no_leakage",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "calls",
+      "context": "call",
+      "confidence": "EXTRACTED",
+      "source_file": "model/data.py",
+      "source_location": "L154",
+      "weight": 1.0,
+      "source": "model_data_selfcheck",
+      "target": "model_data_feature_view",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "rationale_for",
+      "confidence": "EXTRACTED",
+      "source_file": "model/data.py",
+      "source_location": "L115",
+      "weight": 1.0,
+      "source": "model_data_rationale_115",
+      "target": "model_data_feature_view",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "MODEL_TRAINING_PLAN.md",
+      "source_location": "L1",
+      "weight": 1.0,
+      "source": "model_training_plan_md",
+      "target": "6n_model_training_plan_six_nations_picker_model_training_plan",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "MODEL_TRAINING_PLAN.md",
+      "source_location": "L3",
+      "weight": 1.0,
+      "source": "6n_model_training_plan_six_nations_picker_model_training_plan",
+      "target": "6n_model_training_plan_context",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "MODEL_TRAINING_PLAN.md",
+      "source_location": "L24",
+      "weight": 1.0,
+      "source": "6n_model_training_plan_six_nations_picker_model_training_plan",
+      "target": "6n_model_training_plan_phase_0_discovery_done_recorded_here",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "MODEL_TRAINING_PLAN.md",
+      "source_location": "L80",
+      "weight": 1.0,
+      "source": "6n_model_training_plan_six_nations_picker_model_training_plan",
+      "target": "6n_model_training_plan_phase_1_environment_model_skeleton_data_loader",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "MODEL_TRAINING_PLAN.md",
+      "source_location": "L115",
+      "weight": 1.0,
+      "source": "6n_model_training_plan_six_nations_picker_model_training_plan",
+      "target": "6n_model_training_plan_phase_2_splits_fold_infrastructure_model_splits_py",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "MODEL_TRAINING_PLAN.md",
+      "source_location": "L155",
+      "weight": 1.0,
+      "source": "6n_model_training_plan_six_nations_picker_model_training_plan",
+      "target": "6n_model_training_plan_phase_3_baselines_model_baselines_py_the_must_beat_bar",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "MODEL_TRAINING_PLAN.md",
+      "source_location": "L185",
+      "weight": 1.0,
+      "source": "6n_model_training_plan_six_nations_picker_model_training_plan",
+      "target": "6n_model_training_plan_phase_4_component_model_minutes_model_train_components_py",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "MODEL_TRAINING_PLAN.md",
+      "source_location": "L244",
+      "weight": 1.0,
+      "source": "6n_model_training_plan_six_nations_picker_model_training_plan",
+      "target": "6n_model_training_plan_phase_5_assemble_points_forward_chained_latent_model_assemble_py",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "MODEL_TRAINING_PLAN.md",
+      "source_location": "L277",
+      "weight": 1.0,
+      "source": "6n_model_training_plan_six_nations_picker_model_training_plan",
+      "target": "6n_model_training_plan_phase_6_evaluation_model_evaluate_py_run_harness_model_run_py",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "MODEL_TRAINING_PLAN.md",
+      "source_location": "L308",
+      "weight": 1.0,
+      "source": "6n_model_training_plan_six_nations_picker_model_training_plan",
+      "target": "6n_model_training_plan_phase_7_generalisation_failure_fallbacks",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "MODEL_TRAINING_PLAN.md",
+      "source_location": "L348",
+      "weight": 1.0,
+      "source": "6n_model_training_plan_six_nations_picker_model_training_plan",
+      "target": "6n_model_training_plan_final_phase_verification_gate",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "MODEL_TRAINING_PLAN.md",
+      "source_location": "L362",
+      "weight": 1.0,
+      "source": "6n_model_training_plan_six_nations_picker_model_training_plan",
+      "target": "6n_model_training_plan_outputs",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "MODEL_TRAINING_PLAN.md",
+      "source_location": "L368",
+      "weight": 1.0,
+      "source": "6n_model_training_plan_six_nations_picker_model_training_plan",
+      "target": "6n_model_training_plan_reuse_do_not_reimplement",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "MODEL_TRAINING_PLAN.md",
+      "source_location": "L372",
+      "weight": 1.0,
+      "source": "6n_model_training_plan_six_nations_picker_model_training_plan",
+      "target": "6n_model_training_plan_risks_requirements",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "MODEL_TRAINING_PLAN.md",
+      "source_location": "L385",
+      "weight": 1.0,
+      "source": "6n_model_training_plan_six_nations_picker_model_training_plan",
+      "target": "6n_model_training_plan_execution_record_results_2026_06_16",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "MODEL_TRAINING_PLAN.md",
+      "source_location": "L26",
+      "weight": 1.0,
+      "source": "6n_model_training_plan_phase_0_discovery_done_recorded_here",
+      "target": "6n_model_training_plan_environment_verified_2026_06_16",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "MODEL_TRAINING_PLAN.md",
+      "source_location": "L34",
+      "weight": 1.0,
+      "source": "6n_model_training_plan_phase_0_discovery_done_recorded_here",
+      "target": "6n_model_training_plan_reusable_interfaces_verified_in_build_targets_py",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "MODEL_TRAINING_PLAN.md",
+      "source_location": "L45",
+      "weight": 1.0,
+      "source": "6n_model_training_plan_phase_0_discovery_done_recorded_here",
+      "target": "6n_model_training_plan_the_13_scored_components_everything_else_is_non_scoring_do_not_model_for_points",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "MODEL_TRAINING_PLAN.md",
+      "source_location": "L50",
+      "weight": 1.0,
+      "source": "6n_model_training_plan_phase_0_discovery_done_recorded_here",
+      "target": "6n_model_training_plan_target_shape_implications_verified_2026_06_16",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "MODEL_TRAINING_PLAN.md",
+      "source_location": "L65",
+      "weight": 1.0,
+      "source": "6n_model_training_plan_phase_0_discovery_done_recorded_here",
+      "target": "6n_model_training_plan_allowed_apis_cite_when_used_do_not_invent",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "MODEL_TRAINING_PLAN.md",
+      "source_location": "L393",
+      "weight": 1.0,
+      "source": "6n_model_training_plan_execution_record_results_2026_06_16",
+      "target": "6n_model_training_plan_promoted_model_component_ensemble_registry_gated",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "MODEL_TRAINING_PLAN.md",
+      "source_location": "L419",
+      "weight": 1.0,
+      "source": "6n_model_training_plan_execution_record_results_2026_06_16",
+      "target": "6n_model_training_plan_2025_backtest_train_2023_2024_post_team_sheet",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "MODEL_TRAINING_PLAN.md",
+      "source_location": "L432",
+      "weight": 1.0,
+      "source": "6n_model_training_plan_execution_record_results_2026_06_16",
+      "target": "6n_model_training_plan_2026_deployment_train_2023_2024_2025_post_team_sheet_sealed_evaluated_once",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "MODEL_TRAINING_PLAN.md",
+      "source_location": "L447",
+      "weight": 1.0,
+      "source": "6n_model_training_plan_execution_record_results_2026_06_16",
+      "target": "6n_model_training_plan_why_the_ensemble_over_lightgbm_only_fallback_audit_requirement_4",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "MODEL_TRAINING_PLAN.md",
+      "source_location": "L457",
+      "weight": 1.0,
+      "source": "6n_model_training_plan_execution_record_results_2026_06_16",
+      "target": "6n_model_training_plan_b3_direct_points_cross_check_requirement_strategy_c_justification",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "MODEL_TRAINING_PLAN.md",
+      "source_location": "L462",
+      "weight": 1.0,
+      "source": "6n_model_training_plan_execution_record_results_2026_06_16",
+      "target": "6n_model_training_plan_notes_caveats",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "MODEL_TRAINING_PLAN.md",
+      "source_location": "L475",
+      "weight": 1.0,
+      "source": "6n_model_training_plan_execution_record_results_2026_06_16",
+      "target": "6n_model_training_plan_final_verification_gate",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
       "source_file": "DATA_EXTRACTION_PLAN.md",
       "source_location": "L1",
       "weight": 1.0,
@@ -5010,5 +8475,5 @@
     }
   ],
   "hyperedges": [],
-  "built_at_commit": "e391e030b277306d587bacb24351e67dfb472d2a"
+  "built_at_commit": "8f4ce95fe4b232b3761c0a351fd4c1346ff43429"
 }

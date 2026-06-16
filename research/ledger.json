@@ -1,0 +1,114 @@
+[
+  {
+    "trial": 0,
+    "name": "baseline",
+    "note": "current cdx selected deployable engine",
+    "accepted": true,
+    "reason": "incumbent",
+    "value_xv": 0.680232721733217,
+    "mae": 7.679834708332707,
+    "top15": 0.36,
+    "capt_top1": 0.0,
+    "capt_top3": 0.0,
+    "spearman_pos": 0.47523331022536114,
+    "registry_lgbm": 8,
+    "round_xv": [
+      0.7657512116316639,
+      0.5174418604651163,
+      0.6441821247892074,
+      0.79073756432247,
+      0.6830508474576271
+    ],
+    "round_mae": [
+      8.398184257472167,
+      6.95921969300171,
+      7.184527850445684,
+      8.259188370763638,
+      7.609606046837723
+    ]
+  },
+  {
+    "trial": 1,
+    "name": "target_posmean_10",
+    "note": "blend target 10% toward prior position mean",
+    "accepted": true,
+    "reason": "ACCEPT via mae: dval=+0.000 dmae=-0.052 value_rounds_up=0/5 mae_rounds_up=4/5",
+    "value_xv": 0.680232721733217,
+    "mae": 7.627787616070425,
+    "top15": 0.36,
+    "capt_top1": 0.0,
+    "capt_top3": 0.0,
+    "spearman_pos": 0.47050143840627845,
+    "registry_lgbm": 8,
+    "round_xv": [
+      0.7657512116316639,
+      0.5174418604651163,
+      0.6441821247892074,
+      0.79073756432247,
+      0.6830508474576271
+    ],
+    "round_mae": [
+      8.398184257472167,
+      6.940132848501134,
+      7.11642271265336,
+      8.182518414811339,
+      7.515811779804785
+    ]
+  },
+  {
+    "trial": 2,
+    "name": "target_posmean_20",
+    "note": "blend target 20% toward prior position mean",
+    "accepted": false,
+    "reason": "reject (no Pareto improvement): dval=+0.000 dmae=-0.008 value_rounds_up=0/5 mae_rounds_up=3/5",
+    "value_xv": 0.680232721733217,
+    "mae": 7.619689185036402,
+    "top15": 0.36,
+    "capt_top1": 0.0,
+    "capt_top3": 0.0,
+    "spearman_pos": 0.46738199902614397,
+    "registry_lgbm": 8,
+    "round_xv": [
+      0.7657512116316639,
+      0.5174418604651163,
+      0.6441821247892074,
+      0.79073756432247,
+      0.6830508474576271
+    ],
+    "round_mae": [
+      8.398184257472167,
+      6.995575898248575,
+      7.09718164565232,
+      8.135560414315764,
+      7.487593544488217
+    ]
+  },
+  {
+    "trial": 3,
+    "name": "selector_tilt_025",
+    "note": "tilt XV pick toward rank head",
+    "accepted": true,
+    "reason": "ACCEPT via value_xv: dval=+0.027 dmae=+0.000 value_rounds_up=3/5 mae_rounds_up=0/5",
+    "value_xv": 0.7073419277235518,
+    "mae": 7.627787616070425,
+    "top15": 0.38666666666666666,
+    "capt_top1": 0.0,
+    "capt_top3": 0.0,
+    "spearman_pos": 0.47050143840627845,
+    "registry_lgbm": 8,
+    "round_xv": [
+      0.7915993537964459,
+      0.5174418604651163,
+      0.7369308600337268,
+      0.79073756432247,
+      0.7
+    ],
+    "round_mae": [
+      8.398184257472167,
+      6.940132848501134,
+      7.11642271265336,
+      8.182518414811339,
+      7.515811779804785
+    ]
+  }
+]

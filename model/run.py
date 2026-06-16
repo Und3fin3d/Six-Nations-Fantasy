@@ -8,6 +8,12 @@ printing a comparison table across all engines and both feature-view modes:
 2026 is sealed: it is evaluated exactly once here, after the 2025 backtest
 result is accepted, and is never used to choose components or tune anything.
 
+Selection policy:
+  pick the best deployable point engine on the 2025 backtest, requiring it to
+  beat naive on both MAE and XV value.  Rank candidates by XV value first, then
+  MAE.  This keeps b3_direct/rank_head as diagnostics while allowing lgbm_only
+  to win if it proves better at the assembled picker objective.
+
 Usage:
   python -m model.run                # backtest + deployment, post-team-sheet headline
   python -m model.run --no-2026      # backtest only (keep 2026 sealed)
@@ -15,6 +21,7 @@ Usage:
 from __future__ import annotations
 
 import argparse
+import json
 import warnings
 
 import numpy as np
@@ -35,6 +42,7 @@ from model.train_components import (
 )
 
 ENGINE_ORDER = ["ensemble", "lgbm_only", "glm", "ridge", "naive"]
+DEPLOYABLE_ENGINES = ["ensemble", "lgbm_only", "glm", "ridge", "naive"]
 
 
 def build_predictors(registry: pd.DataFrame):
@@ -126,33 +134,80 @@ def main():
             alt[name] = evaluate(pred)
         print(format_table(alt, "2025 BACKTEST  (mode=pre_team_sheet, anchors only)"))
 
-    _accept_and_persist(df, bt_train_idx, 2025, args.mode, predictors, res25)
+    selected_engine = select_deployable_engine(res25)
+    print(f"\nSelected deployable engine from 2025 backtest: {selected_engine}")
+    _accept_and_persist(df, bt_train_idx, 2025, args.mode, predictors,
+                        selected_engine)
 
     # ---- 2026 deployment (sealed; evaluated once) ----
     if not args.no_2026:
         dep_train_idx = np.where(component_train(df, 2026))[0]
         res26, _ = run_season(df, dep_train_idx, 2026, args.mode, predictors, registry)
         print(format_table(res26, f"2026 DEPLOYMENT  (train 2023+2024+2025, mode={args.mode})"))
-        _accept_and_persist(df, dep_train_idx, 2026, args.mode, predictors, res26, persist=True)
+        _accept_and_persist(df, dep_train_idx, 2026, args.mode, predictors,
+                            selected_engine)
 
-    _verdict(res25)
+    seasons = [2025] + ([] if args.no_2026 else [2026])
+    _persist_promoted_research_config(df, seasons)
+
+    _verdict(res25, selected_engine)
 
 
-def _accept_and_persist(df, train_idx, season, mode, predictors, results, persist=False):
-    pred, _ = assemble_predictions(df, train_idx, season, mode, predictors["ensemble"])
+def select_deployable_engine(results: dict[str, dict]) -> str:
+    """Choose the best deployable point model from the 2025 validation table.
+
+    `b3_direct` is diagnostic and `rank_head` is not a calibrated point forecast,
+    so neither is eligible.  Candidates must beat naive on both target metrics;
+    if none do, fall back to naive.
+    """
+    naive = results["naive"]
+    candidates = []
+    for name in DEPLOYABLE_ENGINES:
+        m = results[name]
+        if m["mae"] <= naive["mae"] and m["value_xv"] >= naive["value_xv"]:
+            candidates.append(name)
+    if not candidates:
+        return "naive"
+    return sorted(
+        candidates,
+        key=lambda n: (-results[n]["value_xv"], results[n]["mae"], n),
+    )[0]
+
+
+def _accept_and_persist(df, train_idx, season, mode, predictors, engine):
+    pred, _ = assemble_predictions(df, train_idx, season, mode, predictors[engine])
     out = DATA / f"model_predictions_{season}.csv"
     pred.to_csv(out, index=False)
-    print(f"  saved {out.name}  ({len(pred)} rows)")
+    print(f"  saved {out.name} from {engine}  ({len(pred)} rows)")
 
 
-def _verdict(res25):
-    e, n = res25["ensemble"], res25["naive"]
+def _persist_promoted_research_config(df, seasons: list[int]) -> None:
+    """If the research loop has a promotion decision, make it the final artifact.
+
+    `model.run` still prints the full diagnostic table, but the branch's deployable
+    config may include research-only assembly/selection knobs such as `sel_score`.
+    """
+    from model.research import Config, PROMOTED_CONFIG, _predict_config
+
+    if not PROMOTED_CONFIG.exists():
+        return
+    cfg = Config(**json.loads(PROMOTED_CONFIG.read_text()))
+    for season in seasons:
+        pred, _, _ = _predict_config(df, cfg, season)
+        out = DATA / f"model_predictions_{season}.csv"
+        pred.to_csv(out, index=False)
+        print(f"  refreshed {out.name} from promoted research config {cfg.name} "
+              f"({len(pred)} rows)")
+
+
+def _verdict(res25, selected_engine):
+    e, n = res25[selected_engine], res25["naive"]
     print("\n=== VERDICT (2025 backtest, baseline bar) ===")
-    print(f"  ensemble value_xv={e['value_xv']:.3f} vs naive {n['value_xv']:.3f} "
+    print(f"  {selected_engine} value_xv={e['value_xv']:.3f} vs naive {n['value_xv']:.3f} "
           f"-> {'PASS' if e['value_xv'] >= n['value_xv'] else 'FAIL'}")
-    print(f"  ensemble MAE={e['mae']:.3f} vs naive {n['mae']:.3f} "
+    print(f"  {selected_engine} MAE={e['mae']:.3f} vs naive {n['mae']:.3f} "
           f"-> {'PASS' if e['mae'] <= n['mae'] else 'FAIL'}")
-    print(f"  ensemble spearman={e['spearman_pos']:.3f} vs naive {n['spearman_pos']:.3f}")
+    print(f"  {selected_engine} spearman={e['spearman_pos']:.3f} vs naive {n['spearman_pos']:.3f}")
 
 
 if __name__ == "__main__":

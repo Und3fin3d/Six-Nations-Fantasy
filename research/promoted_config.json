@@ -1,0 +1,15 @@
+{
+  "name": "selector_tilt_025_promoted",
+  "note": "Promoted fallback: selector tilt with default minutes; minutes_alpha_3 stayed dev-only after sealed generalisation check.",
+  "deploy_engine": "lgbm_only",
+  "lgbm_margin": 0.02,
+  "blend_weight": 0.5,
+  "minutes_model": "ridge",
+  "minutes_alpha": 10.0,
+  "potm_pp_weight": 0.5,
+  "potm_tau_floor": 1.0,
+  "latent_shrink": 1.0,
+  "recon_calib": "none",
+  "target_prior_blend": 0.0,
+  "selector_tilt": 0.25
+}

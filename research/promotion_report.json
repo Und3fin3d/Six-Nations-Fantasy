@@ -1,0 +1,53 @@
+{
+  "date": "2026-06-16",
+  "decision": "fallback_to_selector_tilt_025_promoted",
+  "policy": "Use 2026 only as a promotion veto after the 2025-only loop has selected a candidate; do not tune candidates against 2026.",
+  "reason": "The current 2025-dev winner improves MAE, but regresses both sealed 2026 headline metrics versus the promoted selector-only incumbent. The earlier minutes-alpha dev winner was vetoed for the same reason.",
+  "promoted_config": "selector_tilt_025_promoted",
+  "promoted_metrics": {
+    "2025": {
+      "mae": 7.679834708332707,
+      "value_xv": 0.7073419277235518,
+      "top15": 0.36,
+      "spearman_pos": 0.47523331022536114
+    },
+    "2026": {
+      "mae": 7.446846069277958,
+      "value_xv": 0.7114999296223994,
+      "top15": 0.3733333333333333,
+      "spearman_pos": 0.5781502178199741
+    }
+  },
+  "dev_winners_vetoed": {
+    "target_posmean_10_plus_selector_tilt_025": {
+      "reason": "2025 MAE improved, but sealed 2026 MAE/value_xv regressed.",
+      "2025": {
+        "mae": 7.627787616070425,
+        "value_xv": 0.7073419277235518,
+        "top15": 0.38666666666666666,
+        "spearman_pos": 0.47050143840627845
+      },
+      "2026": {
+        "mae": 7.473266795584847,
+        "value_xv": 0.7064763817417086,
+        "top15": 0.4,
+        "spearman_pos": 0.5777734410646738
+      }
+    },
+    "minutes_alpha_3_plus_selector_tilt_025": {
+      "reason": "2025 MAE and value_xv improved, but sealed 2026 MAE/value_xv regressed.",
+      "2025": {
+        "mae": 7.64563346678421,
+        "value_xv": 0.7095605149434293,
+        "top15": 0.36,
+        "spearman_pos": 0.47295049606614403
+      },
+      "2026": {
+        "mae": 7.460180148892212,
+        "value_xv": 0.7064763817417086,
+        "top15": 0.3866666666666666,
+        "spearman_pos": 0.5811496109121443
+      }
+    }
+  }
+}

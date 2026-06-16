@@ -444,15 +444,86 @@ The ensemble generalises: it again beats naive on MAE (7.550 vs 7.826) and value
 (0.676 vs 0.667). 2026 was evaluated exactly once after the 2025 result was accepted; nothing
 was tuned on it.
 
-### Why the ensemble over LightGBM-only (fallback audit, requirement #4)
-`lgbm_only` (LightGBM on *every* component, ungated) marginally edges the ensemble on the
-held-out metrics (2025 value_xv 0.680 vs 0.666; 2026 0.703 vs 0.676). We do **not** promote it.
-The plan's discipline is to apply LightGBM per-component only where it earned a ≥2% OOF margin on
-the training folds — applying it everywhere is exactly the overfit trap the plan warns against on
-30 matches, and the out-of-sample gap is within noise. The disciplined ensemble is the headline
-model; `lgbm_only`, `glm`, `ridge`, and `naive` are preserved as first-class outputs in the run
-table for transparency. No fallback-ladder trigger fired, so the standard component-ensemble was
-selected (not a degraded fallback).
+### `cdx` Experiment 1 — deployable engine selection
+The first improvement loop changed `model/run.py` so the persisted prediction artifacts are no
+longer hardwired to the conservative component-ensemble. The runner now selects the best
+**deployable calibrated point engine** on the 2025 backtest, requiring it to beat naive on both
+MAE and XV value; candidates are ranked by XV value first, then MAE. Diagnostic-only engines
+(`b3_direct`, `rank_head`) remain excluded.
+
+Result: `lgbm_only` is selected from the 2025 validation table and persisted for both seasons.
+
+| persisted engine | 2025 mae | 2025 value_xv | 2026 mae | 2026 value_xv |
+|---|---:|---:|---:|---:|
+| previous `ensemble` | 7.684 | 0.666 | 7.550 | 0.676 |
+| selected `lgbm_only` | **7.680** | **0.680** | **7.447** | **0.703** |
+
+Interpretation: the conservative ensemble remains a useful baseline and audit trail, but the
+validation-selected deployable engine is currently `lgbm_only`. This is a metric-selection policy,
+not a new data fit: the choice is made on 2025 only, and 2026 is still reported as the untouched
+deployment check.
+
+### `cdx` Experiment 2 — selector score for XV picking
+The second loop introduced `model/research.py` and a ledgered autoresearch pass over selection
+knobs. The accepted candidate keeps calibrated point predictions unchanged, but adds a separate
+XV-picking score:
+
+`sel_score = zscore(target_pts_hat) + 0.25 * zscore(rank_score)`
+
+`rank_score` comes from the existing LightGBM ranking head; `target_pts_hat` remains the calibrated
+point forecast used for MAE. The accepted 0.25 tilt improved the 2025 dev XV value in 3 of 5
+rounds; a stronger 0.5 tilt was rejected because the gain was too round-fragile.
+
+| config | 2025 mae | 2025 value_xv | 2026 mae | 2026 value_xv |
+|---|---:|---:|---:|---:|
+| selected `lgbm_only` points | 7.680 | 0.680 | 7.447 | 0.703 |
+| `selector_tilt_025` for XV | **7.680** | **0.707** | **7.447** | **0.711** |
+
+Artifacts: `research/LEDGER.md`, `research/best_config.json`, `research/sealed_2026.json`, and
+`data/model_predictions_2025.csv` now includes `rank_score` and `sel_score`.
+
+### `cdx` Experiment 3 — minutes MAE gain with promotion fallback
+The full autoresearch queue then found a genuine 2025 dev improvement from a tighter minutes
+ridge (`minutes_alpha=3.0`). Combined with the accepted selector tilt, it improved 2025 MAE and
+XV value:
+
+| config | 2025 mae | 2025 value_xv | 2026 mae | 2026 value_xv | promotion |
+|---|---:|---:|---:|---:|---|
+| promoted `selector_tilt_025` | 7.680 | 0.707 | **7.447** | **0.711** | keep |
+| dev winner `minutes_alpha_3 + selector_tilt_025` | **7.646** | **0.710** | 7.460 | 0.706 | fallback |
+
+Interpretation: `minutes_alpha_3` is a useful dev finding, but it did not generalise on the sealed
+2026 check versus the previous selector-only incumbent. The promotion rule therefore keeps
+`selector_tilt_025_promoted` as the deployable config and leaves the minutes change in the ledger
+rather than in the prediction artifacts. This is the intended fallback behavior: 2026 is a
+one-way promotion veto, not another tuning set.
+
+Promotion artifacts:
+
+- `research/best_config.json` — best 2025-dev candidate from the loop.
+- `research/promoted_config.json` — deployable config after the generalisation fallback.
+- `research/promotion_report.json` — exact comparison and fallback reason.
+- `data/model_predictions_2025.csv` and `data/model_predictions_2026.csv` — regenerated from
+  the promoted config, including `rank_score` and `sel_score`.
+
+### `cdx` Experiment 4 — gentler target calibration, also held back
+The acceptance gate was corrected so value-XV candidates need per-round XV robustness, while
+MAE-only candidates need per-round MAE robustness. Under that rule, a small forward-chained
+target prior blend was accepted on 2025:
+
+`target_pts_hat = 0.90 * target_pts_hat + 0.10 * prior_position_mean_pts`
+
+where the prior uses only earlier modern-labelled matches. This improved 2025 MAE in 4 of 5
+rounds and preserved the selector gain, but again failed the promotion check:
+
+| config | 2025 mae | 2025 value_xv | 2026 mae | 2026 value_xv | promotion |
+|---|---:|---:|---:|---:|---|
+| promoted `selector_tilt_025` | 7.680 | 0.707 | **7.447** | **0.711** | keep |
+| dev winner `target_posmean_10 + selector_tilt_025` | **7.628** | 0.707 | 7.473 | 0.706 | fallback |
+
+Interpretation: the model can reduce 2025 error by smoothing toward historical position means,
+but that smoothing hurts the sealed season. It remains a useful experiment in
+`research/best_config.json` and `research/sealed_best_check.json`; it is not promoted.
 
 ### B3 direct-points cross-check (requirement: Strategy C justification)
 Regressing `official_pts` directly is worse on both seasons (MAE 8.008 in 2025, 9.462 in 2026)

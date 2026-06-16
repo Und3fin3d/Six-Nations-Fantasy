@@ -42,6 +42,9 @@ RNG = 0
 # be promoted. Small data (30 train fixtures): sub-margin OOF wins are noise and
 # the plan's whole stance is "simplest model that beats naive" -> demote them.
 LGBM_MARGIN = 0.02
+# convex blend weight on the LightGBM leg of the "blend" candidate (1-w on glm).
+# Default 0.5 reproduces the frozen behaviour; tuned by model.research.
+BLEND_WEIGHT = 0.5
 # components for which a LightGBM candidate is even considered
 LGBM_COMPS = {
     "tackles", "metres", "tries", "try_assists", "defenders_beaten",
@@ -154,8 +157,8 @@ def _oof_candidate_mae(
                 m = _fit_lgbm_component(df, tr_idx, va_idx, comp, mode)
                 yl = _lgbm_predict(m, df, vu, mode)
                 add(comp, "lgbm", ytrue, yl)
-                # blend candidate: 0.5 lgbm + 0.5 glm
-                yb = 0.5 * yl + 0.5 * frames["glm"][comp].to_numpy(float)
+                # blend candidate: w*lgbm + (1-w)*glm
+                yb = BLEND_WEIGHT * yl + (1.0 - BLEND_WEIGHT) * frames["glm"][comp].to_numpy(float)
                 add(comp, "blend", ytrue, yb)
 
     out: dict[str, dict[str, float]] = {}
@@ -234,7 +237,7 @@ def predict_rates_registry(
         elif e == "blend":
             m = _fit_lgbm_component(df, train_idx, None, comp, mode)
             yl = _lgbm_predict(m, df, test_idx, mode)
-            out[comp] = 0.5 * yl + 0.5 * base["glm"][comp].to_numpy(float)
+            out[comp] = BLEND_WEIGHT * yl + (1.0 - BLEND_WEIGHT) * base["glm"][comp].to_numpy(float)
         # gate kicking to plausible kickers
         if comp in KICK_COMPS:
             out[comp] = out[comp].to_numpy(float) * gate

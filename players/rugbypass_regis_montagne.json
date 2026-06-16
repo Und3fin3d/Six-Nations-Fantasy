@@ -1,6 +1,6 @@
 {
   "player": "regis-montagne",
-  "csv_name": "regis-montagne",
+  "csv_name": "R. Montagne",
   "bio": {
     "Age": "25",
     "Position": "Fullback",
@@ -102,6 +102,32 @@
     },
     {
       "competition": "Top 14",
+      "match": "Bordeaux vs Clermont",
+      "date": "6 Jun 2026",
+      "opposition": "Bordeaux",
+      "win": true,
+      "draw": false,
+      "mins": 80,
+      "tries": 0,
+      "yellow_cards": 0,
+      "red_cards": 0,
+      "conversions": 0
+    },
+    {
+      "competition": "Top 14",
+      "match": "Clermont vs Racing 92",
+      "date": "31 May 2026",
+      "opposition": "Racing 92",
+      "win": false,
+      "draw": false,
+      "mins": 48,
+      "tries": 0,
+      "yellow_cards": 0,
+      "red_cards": 0,
+      "conversions": 0
+    },
+    {
+      "competition": "Top 14",
       "match": "Clermont vs Stade Rochelais",
       "date": "25 Jan 2026",
       "opposition": "Stade Rochelais",
@@ -147,19 +173,6 @@
       "win": false,
       "draw": false,
       "mins": 56,
-      "tries": 0,
-      "yellow_cards": 0,
-      "red_cards": 0,
-      "conversions": 0
-    },
-    {
-      "competition": "Top 14",
-      "match": "Clermont vs Stade Francais",
-      "date": "29 Nov 2025",
-      "opposition": "Stade Francais",
-      "win": true,
-      "draw": false,
-      "mins": 49,
       "tries": 0,
       "yellow_cards": 0,
       "red_cards": 0,

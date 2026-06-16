@@ -17,6 +17,8 @@ Usage:
     python rugbypass_batch.py --delay 5    # seconds between pages
 """
 
+from __future__ import annotations
+
 import argparse
 import json
 import re
@@ -534,6 +536,8 @@ def main():
     args = parser.parse_args()
 
     base = Path(__file__).parent
+    out_dir = base / "players"          # per-player JSONs live here
+    out_dir.mkdir(exist_ok=True)
 
     # ── Collect CSV paths ───────────────────────────────────────────────────
     csv_paths: list[Path] = []
@@ -577,7 +581,7 @@ def main():
     if args.dry_run:
         print("── Dry run — would scrape ──")
         for name, slug in known:
-            json_path = base / f"rugbypass_{slug.replace('-', '_')}.json"
+            json_path = out_dir / f"rugbypass_{slug.replace('-', '_')}.json"
             status = "EXISTS" if json_path.exists() else "new"
             print(f"  {name:35s}  {slug:45s}  [{status}]")
         return
@@ -586,7 +590,7 @@ def main():
     to_scrape: list[tuple[str, str]] = []
     for name, slug in known:
         stem = slug.replace("-", "_")
-        json_path = base / f"rugbypass_{stem}.json"
+        json_path = out_dir / f"rugbypass_{stem}.json"
         if json_path.exists() and not args.force:
             print(f"  ⏭   Skipping {name} (already have {json_path.name})")
         else:
@@ -607,7 +611,7 @@ def main():
         for i, (name, slug) in enumerate(to_scrape, 1):
             url = f"https://www.rugbypass.com/players/{slug}/"
             stem = slug.replace("-", "_")
-            json_path = base / f"rugbypass_{stem}.json"
+            json_path = out_dir / f"rugbypass_{stem}.json"
 
             print(f"  [{i:>3}/{len(to_scrape)}]  {name}  →  {url}")
 
@@ -665,7 +669,7 @@ def main():
 
     # ── Also rebuild from existing JSONs (catches previously scraped players) ─
     all_6n: list[dict] = []
-    for json_file in sorted(base.glob("rugbypass_*.json")):
+    for json_file in sorted(out_dir.glob("rugbypass_*.json")):
         if json_file.name in ("rugbypass_stats_6n.json",):
             continue
         try:

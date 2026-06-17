@@ -3,7 +3,7 @@
 
 Backtest (train 2023+2024 -> 2025) and deployment (train 2023+2024+2025 -> 2026),
 printing a comparison table across all engines and both feature-view modes:
-  ensemble | lgbm_only | glm | ridge | naive | b3_direct | rank_head
+  ensemble | xgb_only | glm | ridge | naive | b3_direct | rank_head
 
 2026 is sealed: it is evaluated exactly once here, after the 2025 backtest
 result is accepted, and is never used to choose components or tune anything.
@@ -11,7 +11,7 @@ result is accepted, and is never used to choose components or tune anything.
 Selection policy:
   pick the best deployable point engine on the 2025 backtest, requiring it to
   beat naive on both MAE and XV value.  Rank candidates by XV value first, then
-  MAE.  This keeps b3_direct/rank_head as diagnostics while allowing lgbm_only
+  MAE.  This keeps b3_direct/rank_head as diagnostics while allowing xgb_only
   to win if it proves better at the assembled picker objective.
 
 Usage:
@@ -35,14 +35,14 @@ from model.data import DATA, load
 from model.evaluate import evaluate, format_table
 from model.splits import component_train
 from model.train_components import (
-    predict_rates_lgbm_only,
+    predict_rates_xgb_only,
     predict_rates_registry,
     save_registry,
     select_components,
 )
 
-ENGINE_ORDER = ["ensemble", "lgbm_only", "glm", "ridge", "naive"]
-DEPLOYABLE_ENGINES = ["ensemble", "lgbm_only", "glm", "ridge", "naive"]
+ENGINE_ORDER = ["ensemble", "xgb_only", "glm", "ridge", "naive"]
+DEPLOYABLE_ENGINES = ["ensemble", "xgb_only", "glm", "ridge", "naive"]
 
 
 def build_predictors(registry: pd.DataFrame):
@@ -50,7 +50,7 @@ def build_predictors(registry: pd.DataFrame):
         "naive": lambda d, ti, te, mo: predict_rates(d, ti, te, mo, "naive"),
         "ridge": lambda d, ti, te, mo: predict_rates(d, ti, te, mo, "ridge"),
         "glm": lambda d, ti, te, mo: predict_rates(d, ti, te, mo, "glm"),
-        "lgbm_only": lambda d, ti, te, mo: predict_rates_lgbm_only(d, ti, te, mo),
+        "xgb_only": lambda d, ti, te, mo: predict_rates_xgb_only(d, ti, te, mo),
         "ensemble": lambda d, ti, te, mo: predict_rates_registry(d, ti, te, mo, registry),
     }
 

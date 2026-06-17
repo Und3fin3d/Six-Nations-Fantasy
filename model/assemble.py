@@ -150,22 +150,22 @@ def assemble_predictions(
 
 
 # ---------------------------------------------------------------------------
-# optional selection-rank head (LightGBM lambdarank) — comparison overlay
+# optional selection-rank head (XGBoost rank:ndcg) — comparison overlay
 # ---------------------------------------------------------------------------
 def rank_scores(
     df: pd.DataFrame, train_idx: np.ndarray, test_idx: np.ndarray, mode: str
 ) -> np.ndarray:
-    """Within-match LightGBM lambdarank score for the test rows.
+    """Within-match XGBoost ranking score for the test rows.
 
     Trained to rank players by realised modern-scale `recon_pts` within each
     training fixture (a label available for every season, no leakage), grouped
     by fixture.  A pure ordering overlay — not a calibrated point forecast.
     """
-    import lightgbm as lgb
+    import xgboost as xgb
 
-    from model.train_components import _lgbm_frame
+    from model.train_components import _xgb_frame
 
-    X = _lgbm_frame(df, mode)
+    X = _xgb_frame(df, mode)
     tr = df.iloc[train_idx].copy()
     order = np.argsort(tr["fixture_id"].to_numpy(), kind="stable")
     tr_idx_sorted = train_idx[order]
@@ -173,10 +173,11 @@ def rank_scores(
     # relevance grade 0..4 by within-fixture realised recon_pts rank
     grade = (tr.iloc[order].groupby("fixture_id")["recon_pts"]
              .rank(pct=True).mul(4.999).astype(int).to_numpy())
-    ranker = lgb.LGBMRanker(
-        objective="lambdarank", n_estimators=300, learning_rate=0.05,
-        num_leaves=15, min_child_samples=50, reg_lambda=5.0,
-        random_state=0, n_jobs=1, verbosity=-1,
+    ranker = xgb.XGBRanker(
+        objective="rank:ndcg", n_estimators=300, learning_rate=0.05,
+        max_depth=3, min_child_weight=10.0, reg_lambda=5.0,
+        random_state=0, n_jobs=1, verbosity=0,
+        tree_method="hist", max_bin=64,
     )
     with warnings.catch_warnings():
         warnings.simplefilter("ignore")

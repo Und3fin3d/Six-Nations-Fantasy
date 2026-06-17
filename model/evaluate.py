@@ -10,7 +10,8 @@ Metrics (all on modern-labelled rows):
                         respecting the positional quota, averaged over rounds
   captain_hitrate       model's #1 pick == actual #1 (and within actual top-3)
   topn_overlap          fraction of model's top-N that are in the actual top-N
-  spearman_within_pos   within-position rank correlation of prediction vs actual
+  spearman_within_pos   within-position rank correlation of prediction vs actual,
+                        overall + by position
 """
 from __future__ import annotations
 
@@ -80,16 +81,26 @@ def topn_overlap(pred: pd.DataFrame, n: int = 15, score_col: str = "target_pts_h
 
 
 def spearman_within_pos(pred: pd.DataFrame, score_col: str = "target_pts_hat") -> float:
+    by_pos = spearman_by_pos(pred, score_col)
     lab = _labelled(pred).dropna(subset=[score_col])
     num = den = 0.0
-    for _, g in lab.groupby("canonical_pos"):
+    for pos, rho in by_pos.items():
+        n = len(lab[lab["canonical_pos"] == pos])
+        num += rho * n
+        den += n
+    return float(num / den) if den else np.nan
+
+
+def spearman_by_pos(pred: pd.DataFrame, score_col: str = "target_pts_hat") -> dict:
+    lab = _labelled(pred).dropna(subset=[score_col])
+    out = {}
+    for pos, g in lab.groupby("canonical_pos"):
         if g[score_col].nunique() < 3 or len(g) < 5:
             continue
         rho = spearmanr(g[score_col], g["official_pts"]).correlation
         if np.isfinite(rho):
-            num += rho * len(g)
-            den += len(g)
-    return float(num / den) if den else np.nan
+            out[pos] = round(float(rho), 3)
+    return out
 
 
 def evaluate(pred: pd.DataFrame, score_col: str = "target_pts_hat", *, points: bool = True) -> dict:
@@ -100,14 +111,18 @@ def evaluate(pred: pd.DataFrame, score_col: str = "target_pts_hat", *, points: b
     out = {
         "value_xv": vx, "capt_top1": c1, "capt_top3": c3,
         "top15": topn_overlap(pred, 15, score_col),
+        "top30": topn_overlap(pred, 30, score_col),
         "spearman_pos": spearman_within_pos(pred, score_col),
     }
-    out["mae"] = points_mae(pred, score_col)["overall"] if points else np.nan
+    mae = points_mae(pred, score_col) if points else {"overall": np.nan, "by_pos": {}}
+    out["mae"] = mae["overall"]
+    out["mae_by_pos"] = mae["by_pos"]
+    out["spearman_by_pos"] = spearman_by_pos(pred, score_col)
     return out
 
 
 def format_table(rows: dict[str, dict], title: str) -> str:
-    cols = ["mae", "value_xv", "top15", "capt_top1", "capt_top3", "spearman_pos"]
+    cols = ["mae", "value_xv", "top15", "top30", "capt_top1", "capt_top3", "spearman_pos"]
     head = f"{'engine':16s} " + " ".join(f"{c:>10s}" for c in cols)
     lines = [f"\n=== {title} ===", head, "-" * len(head)]
     for name, m in rows.items():

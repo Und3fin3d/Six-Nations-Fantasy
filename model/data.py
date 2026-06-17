@@ -42,7 +42,7 @@ REALISED_LINEUP = ["minutes"]
 # set, so they are exposed separately and added to the model matrix on demand.
 FLAG_COLS = ["has_class", "has_form", "has_bio"]
 
-# bio_position is categorical text -> category for LightGBM, dropped for linear.
+# bio_position is categorical text -> category for tree models, dropped for linear.
 CATEGORICAL_COLS = ["bio_position"]
 
 # Prefixes that define the 91 feature columns. "opp_" (with the underscore)

@@ -38,14 +38,15 @@ from model.data import load
 from model.evaluate import (
     captain_hitrate,
     points_mae,
+    spearman_by_pos,
     spearman_within_pos,
     topn_overlap,
     value_of_xv,
 )
 from model.splits import component_train, round_iter
 from model.train_components import (
-    LGBM_COMPS,
-    predict_rates_lgbm_only,
+    XGB_COMPS,
+    predict_rates_xgb_only,
     predict_rates_registry,
     save_registry,
     select_components,
@@ -75,9 +76,9 @@ class Config:
     """All knobs.  Defaults reproduce the current cdx deployable behaviour."""
     name: str = "baseline"
     note: str = "current cdx selected deployable engine"
-    deploy_engine: str = "lgbm_only"       # lgbm_only | registry
+    deploy_engine: str = "xgb_only"        # xgb_only | registry
     # component layer (validated on 2023+2024 OOF)
-    lgbm_margin: float = 0.02
+    xgb_margin: float = 0.02
     blend_weight: float = 0.5
     # minutes model
     minutes_model: str = "ridge"        # ridge | ridge_interact | poisson
@@ -99,10 +100,10 @@ class Config:
 def apply_config(cfg: Config):
     """Thread cfg into the module globals that the pipeline reads, then restore."""
     saved = (
-        TC.LGBM_MARGIN, TC.BLEND_WEIGHT,
+        TC.XGB_MARGIN, TC.BLEND_WEIGHT,
         A.POTM_PP_WEIGHT, A.POTM_TAU_FLOOR, A.LATENT_SHRINK,
     )
-    TC.LGBM_MARGIN = cfg.lgbm_margin
+    TC.XGB_MARGIN = cfg.xgb_margin
     TC.BLEND_WEIGHT = cfg.blend_weight
     A.POTM_PP_WEIGHT = cfg.potm_pp_weight
     A.POTM_TAU_FLOOR = cfg.potm_tau_floor
@@ -110,7 +111,7 @@ def apply_config(cfg: Config):
     try:
         yield
     finally:
-        (TC.LGBM_MARGIN, TC.BLEND_WEIGHT,
+        (TC.XGB_MARGIN, TC.BLEND_WEIGHT,
          A.POTM_PP_WEIGHT, A.POTM_TAU_FLOOR, A.LATENT_SHRINK) = saved
 
 
@@ -228,17 +229,17 @@ _REG_CACHE: dict = {}
 
 
 def _registry_for(df, train_mask, cfg: Config) -> pd.DataFrame:
-    key = (round(cfg.lgbm_margin, 5), round(cfg.blend_weight, 5))
+    key = (round(cfg.xgb_margin, 5), round(cfg.blend_weight, 5))
     if key not in _REG_CACHE:
         with apply_config(cfg):
             _REG_CACHE[key] = select_components(df, train_mask, MODE)
     return _REG_CACHE[key]
 
 
-def _registry_lgbm_count(cfg: Config, registry: pd.DataFrame | None) -> int:
-    if cfg.deploy_engine == "lgbm_only":
-        return len(LGBM_COMPS)
-    return int((registry["engine"].isin(["lgbm", "blend"])).sum())
+def _registry_xgb_count(cfg: Config, registry: pd.DataFrame | None) -> int:
+    if cfg.deploy_engine == "xgb_only":
+        return len(XGB_COMPS)
+    return int((registry["engine"].isin(["xgb", "blend"])).sum())
 
 
 def _predict_config(
@@ -248,14 +249,14 @@ def _predict_config(
     train_mask = component_train(df, season)
     train_idx = np.where(train_mask)[0]
     test_idx = np.where((df["season"] == season).to_numpy())[0]
-    registry = None if cfg.deploy_engine == "lgbm_only" else _registry_for(df, train_mask, cfg)
+    registry = None if cfg.deploy_engine == "xgb_only" else _registry_for(df, train_mask, cfg)
 
     with apply_config(cfg):
         minutes_hat = build_minutes(df, train_idx, test_idx, cfg)
 
         def predictor(d, ti, te, mo):
-            if cfg.deploy_engine == "lgbm_only":
-                return predict_rates_lgbm_only(d, ti, te, mo)
+            if cfg.deploy_engine == "xgb_only":
+                return predict_rates_xgb_only(d, ti, te, mo)
             return predict_rates_registry(d, ti, te, mo, registry)
 
         pred, diag = assemble_predictions(
@@ -282,17 +283,23 @@ def _evaluate_prediction(
 ) -> dict:
     vx, ratios = value_of_xv(pred, sel_col)
     c1, c3 = captain_hitrate(pred, sel_col)
+    mae = points_mae(pred, "target_pts_hat")
     return {
         "config": cfg.name,
         "value_xv": vx,
         "round_xv": [float(r) for r in ratios],
         "round_mae": _round_mae(pred),
-        "mae": points_mae(pred, "target_pts_hat")["overall"],
+        "round_top15": _round_topn(pred, sel_col, 15),
+        "round_top30": _round_topn(pred, sel_col, 30),
+        "mae": mae["overall"],
+        "mae_by_pos": mae["by_pos"],
         "top15": topn_overlap(pred, 15, sel_col),
+        "top30": topn_overlap(pred, 30, sel_col),
         "capt_top1": c1,
         "capt_top3": c3,
         "spearman_pos": spearman_within_pos(pred, "target_pts_hat"),
-        "registry_lgbm": _registry_lgbm_count(cfg, registry),
+        "spearman_by_pos": spearman_by_pos(pred, "target_pts_hat"),
+        "registry_xgb": _registry_xgb_count(cfg, registry),
     }
 
 
@@ -301,6 +308,17 @@ def _round_mae(pred: pd.DataFrame) -> list[float]:
     for _, g in pred.groupby("round", sort=True):
         lab = g[g["has_label"].astype(bool) & g["is_modern"].astype(bool)]
         out.append(float((lab["official_pts"] - lab["target_pts_hat"]).abs().mean()))
+    return out
+
+
+def _round_topn(pred: pd.DataFrame, score_col: str, n: int) -> list[float]:
+    out = []
+    lab = pred[pred["has_label"].astype(bool) & pred["is_modern"].astype(bool)]
+    for _, g in lab.groupby("round", sort=True):
+        k = min(n, len(g))
+        pm = set(g.nlargest(k, score_col)["player_id"])
+        am = set(g.nlargest(k, "official_pts")["player_id"])
+        out.append(float(len(pm & am) / k) if k else np.nan)
     return out
 
 
@@ -345,38 +363,61 @@ CANDIDATES = [
     ("minutes_interact", "started/jersey x is_forward", dict(minutes_model="ridge_interact")),
     ("minutes_poisson", "Poisson minutes head", dict(minutes_model="poisson", minutes_alpha=1.0)),
     ("latent_shrink_05", "shrink set-piece latent 0.5", dict(latent_shrink=0.5)),
+    ("latent_shrink_025_posmean_10", "shrink latent 0.25 with 10% position-mean blend",
+     dict(latent_shrink=0.25, target_prior_blend=0.10)),
+    ("latent_shrink_025_posmean_05", "shrink latent 0.25 with 5% position-mean blend",
+     dict(latent_shrink=0.25, target_prior_blend=0.05)),
+    ("latent_shrink_075_posmean_10", "shrink latent 0.75 with 10% position-mean blend",
+     dict(latent_shrink=0.75, target_prior_blend=0.10)),
     ("latent_shrink_0", "drop set-piece latent (fallback 4)", dict(latent_shrink=0.0)),
     ("potm_pp_07", "POTM lean on points", dict(potm_pp_weight=0.7)),
     ("potm_pp_03", "POTM lean on role prior", dict(potm_pp_weight=0.3)),
+    ("potm_pp_10", "POTM probability entirely from predicted points",
+     dict(potm_pp_weight=1.0)),
+    ("potm10_latent010", "POTM points-only with latent shrink 0.10",
+     dict(potm_pp_weight=1.0, latent_shrink=0.10)),
+    ("potm10_latent010_tilt0025", "POTM points-only, latent 0.10, tiny rank tilt",
+     dict(potm_pp_weight=1.0, latent_shrink=0.10, selector_tilt=0.025)),
     ("potm_tau_2", "softer POTM softmax", dict(potm_tau_floor=2.0)),
-    ("lgbm_margin_05", "stricter LGBM gate", dict(lgbm_margin=0.05)),
-    ("lgbm_margin_01", "looser LGBM gate", dict(lgbm_margin=0.01)),
-    ("blend_07", "heavier LGBM in blend", dict(blend_weight=0.7)),
+    ("xgb_margin_05", "stricter XGBoost gate", dict(xgb_margin=0.05)),
+    ("xgb_margin_01", "looser XGBoost gate", dict(xgb_margin=0.01)),
+    ("blend_07", "heavier XGBoost in blend", dict(blend_weight=0.7)),
     ("recon_calib_linear", "forward-chained recon calibration", dict(recon_calib="linear")),
     ("target_posmean_10", "blend target 10% toward prior position mean",
      dict(target_prior_blend=0.10)),
     ("target_posmean_20", "blend target 20% toward prior position mean",
      dict(target_prior_blend=0.20)),
+    ("selector_tilt_010", "light tilt of XV pick toward rank head", dict(selector_tilt=0.10)),
     ("selector_tilt_025", "tilt XV pick toward rank head", dict(selector_tilt=0.25)),
     ("selector_tilt_05", "stronger rank tilt", dict(selector_tilt=0.5)),
+    ("minutes_alpha_3_potm07", "tighter minutes ridge plus POTM points weight 0.7",
+     dict(minutes_alpha=3.0, potm_pp_weight=0.7)),
 ]
 
 
 # ---------------------------------------------------------------------------
 # the loop
 # ---------------------------------------------------------------------------
-def run_loop(candidate_names: set[str] | None = None, limit: int | None = None) -> tuple[Config, dict, list]:
+def run_loop(
+    candidate_names: set[str] | None = None,
+    limit: int | None = None,
+    *,
+    base_cfg: Config | None = None,
+    base_name: str = "baseline",
+    ledger_stem: str = "ledger",
+) -> tuple[Config, dict, list]:
     df = load()
     RESEARCH.mkdir(exist_ok=True)
 
-    best_cfg = Config()
+    best_cfg = base_cfg or Config()
     best = dev_evaluate(df, best_cfg)
-    trials = [{"trial": 0, "name": "baseline", "note": best_cfg.note,
+    trials = [{"trial": 0, "name": base_name, "note": best_cfg.note,
                "accepted": True, "reason": "incumbent",
                **_metric_row(best)}]
-    print(f"[0] baseline           value_xv={best['value_xv']:.3f} "
+    print(f"[0] {base_name:20s} value_xv={best['value_xv']:.3f} "
           f"mae={best['mae']:.3f} top15={best['top15']:.3f} "
-          f"lgbm={best['registry_lgbm']}")
+          f"top30={best['top30']:.3f} "
+          f"xgb={best['registry_xgb']}")
 
     candidates = CANDIDATES
     if candidate_names is not None:
@@ -389,43 +430,83 @@ def run_loop(candidate_names: set[str] | None = None, limit: int | None = None) 
         cand = dev_evaluate(df, cand_cfg)
         ok, reason = accept(best, cand)
         print(f"[{i}] {name:20s} value_xv={cand['value_xv']:.3f} "
-              f"mae={cand['mae']:.3f} top15={cand['top15']:.3f}  -> "
+              f"mae={cand['mae']:.3f} top15={cand['top15']:.3f} "
+              f"top30={cand['top30']:.3f}  -> "
               f"{'ACCEPT' if ok else 'reject'}  ({reason})")
         trials.append({"trial": i, "name": name, "note": note,
                        "accepted": ok, "reason": reason, **_metric_row(cand)})
         if ok:
             best_cfg, best = cand_cfg, cand
 
-    _write_ledger(trials, best_cfg, best)
-    _persist_best(df, best_cfg, best)
+    accepted_any = any(t["accepted"] for t in trials[1:])
+    persist_best = ledger_stem == "ledger" or accepted_any
+    _write_ledger(
+        trials,
+        best_cfg,
+        best,
+        ledger_stem=ledger_stem,
+        base_name=base_name,
+        persist_best_config=persist_best,
+    )
+    if persist_best:
+        _persist_best(df, best_cfg, best)
     print(f"\nBEST = {best_cfg.name}  value_xv={best['value_xv']:.3f} "
           f"mae={best['mae']:.3f}  (cdx baseline 0.680 / 7.680)")
     return best_cfg, best, trials
 
 
 def _metric_row(m: dict) -> dict:
-    return {k: m[k] for k in ("value_xv", "mae", "top15", "capt_top1",
-                              "capt_top3", "spearman_pos", "registry_lgbm")} \
-        | {"round_xv": m["round_xv"], "round_mae": m["round_mae"]}
+    return {k: m[k] for k in ("value_xv", "mae", "top15", "top30",
+                              "capt_top1", "capt_top3", "spearman_pos",
+                              "registry_xgb")} \
+        | {
+            "round_xv": m["round_xv"],
+            "round_mae": m["round_mae"],
+            "round_top15": m["round_top15"],
+            "round_top30": m["round_top30"],
+            "mae_by_pos": m["mae_by_pos"],
+            "spearman_by_pos": m["spearman_by_pos"],
+        }
 
 
-def _write_ledger(trials: list, best_cfg: Config, best: dict) -> None:
-    (RESEARCH / "ledger.json").write_text(json.dumps(trials, indent=2))
-    (RESEARCH / "best_config.json").write_text(
-        json.dumps(dataclasses.asdict(best_cfg), indent=2))
+def _write_ledger(
+    trials: list,
+    best_cfg: Config,
+    best: dict,
+    *,
+    ledger_stem: str = "ledger",
+    base_name: str = "baseline",
+    persist_best_config: bool = True,
+) -> None:
+    json_name = "ledger.json" if ledger_stem == "ledger" else f"{ledger_stem}.json"
+    md_name = "LEDGER.md" if ledger_stem == "ledger" else f"{ledger_stem}.md"
+    (RESEARCH / json_name).write_text(json.dumps(trials, indent=2))
+    if persist_best_config:
+        (RESEARCH / "best_config.json").write_text(
+            json.dumps(dataclasses.asdict(best_cfg), indent=2))
     lines = [f"# Autoresearch ledger — {date.today()}", "",
-             f"Dev season {DEV_SEASON} (post_team_sheet). Baseline value_xv=0.680 / MAE=7.680.",
+             f"Dev season {DEV_SEASON} (post_team_sheet). Base config: `{base_name}`.",
+             "Reference cdx baseline value_xv=0.680 / MAE=7.680.",
              "2026 sealed — not evaluated here.", "",
-             "| # | candidate | value_xv | MAE | top15 | accepted | reason |",
-             "|---|---|---|---|---|---|---|"]
+             "| # | candidate | value_xv | MAE | top15 | top30 | accepted | reason |",
+             "|---|---|---|---|---|---|---|---|"]
     for t in trials:
         lines.append(f"| {t['trial']} | {t['name']} | {t['value_xv']:.3f} | "
-                     f"{t['mae']:.3f} | {t['top15']:.3f} | "
+                     f"{t['mae']:.3f} | {t['top15']:.3f} | {t['top30']:.3f} | "
                      f"{'yes' if t['accepted'] else 'no'} | {t['reason']} |")
     lines += ["", f"**Best:** `{best_cfg.name}` — value_xv {best['value_xv']:.3f}, "
-              f"MAE {best['mae']:.3f}, top15 {best['top15']:.3f}.",
+              f"MAE {best['mae']:.3f}, top15 {best['top15']:.3f}, "
+              f"top30 {best['top30']:.3f}.",
+              "",
+              "Best by-position MAE:",
+              "",
+              "```json", json.dumps(best["mae_by_pos"], indent=2), "```",
+              "",
+              "Best by-position Spearman:",
+              "",
+              "```json", json.dumps(best["spearman_by_pos"], indent=2), "```",
               "", "```json", json.dumps(dataclasses.asdict(best_cfg), indent=2), "```"]
-    (RESEARCH / "LEDGER.md").write_text("\n".join(lines))
+    (RESEARCH / md_name).write_text("\n".join(lines))
 
 
 def _persist_best(df, best_cfg: Config, best: dict) -> None:
@@ -461,26 +542,52 @@ def _seal_eval(df, cfg: Config) -> dict:
     return _evaluate_prediction(pred, sel_col, cfg, registry)
 
 
+def _config_path(choice: str) -> Path | None:
+    if choice == "baseline":
+        return None
+    cfg_path = PROMOTED_CONFIG if choice == "promoted" else BEST_CONFIG
+    if not cfg_path.exists() and choice == "promoted":
+        cfg_path = BEST_CONFIG
+    return cfg_path
+
+
+def _load_base_config(choice: str) -> Config:
+    cfg_path = _config_path(choice)
+    if cfg_path is None:
+        return Config()
+    print(f"Starting from config {cfg_path.relative_to(ROOT)}")
+    return Config(**json.loads(cfg_path.read_text()))
+
+
 def main() -> None:
     ap = argparse.ArgumentParser()
     ap.add_argument("--seal-2026", action="store_true",
                     help="evaluate the saved best config on the sealed season once")
     ap.add_argument("--seal-config", choices=["promoted", "best"], default="promoted",
                     help="which saved config to seal; promoted falls back to best if absent")
+    ap.add_argument("--base-config", choices=["baseline", "promoted", "best"], default="baseline",
+                    help="which config to use as trial 0 for non-seal research runs")
+    ap.add_argument("--ledger-stem", default="ledger",
+                    help="write research/<stem>.json and .md; 'ledger' keeps legacy names")
     ap.add_argument("--candidate", action="append",
                     help="run only this candidate name; can be passed multiple times")
     ap.add_argument("--limit", type=int,
                     help="run only the first N candidates after filtering")
     args = ap.parse_args()
     if args.seal_2026:
-        cfg_path = PROMOTED_CONFIG if args.seal_config == "promoted" else BEST_CONFIG
-        if not cfg_path.exists() and args.seal_config == "promoted":
-            cfg_path = BEST_CONFIG
+        cfg_path = _config_path(args.seal_config)
         print(f"Sealing config from {cfg_path.relative_to(ROOT)}")
         cfg = Config(**json.loads(cfg_path.read_text()))
         seal_2026(cfg, persist_predictions=(cfg_path == PROMOTED_CONFIG))
     else:
-        run_loop(set(args.candidate) if args.candidate else None, args.limit)
+        base_cfg = _load_base_config(args.base_config)
+        run_loop(
+            set(args.candidate) if args.candidate else None,
+            args.limit,
+            base_cfg=base_cfg,
+            base_name=args.base_config,
+            ledger_stem=args.ledger_stem,
+        )
 
 
 if __name__ == "__main__":

@@ -8,7 +8,7 @@ Metrics (all on modern-labelled rows):
   points_mae            MAE(official_pts, target_pts_hat), overall + by position
   value_of_xv           sum(actual pts of model's chosen XV) / hindsight-optimal XV,
                         respecting the positional quota, averaged over rounds
-  captain_hitrate       model's #1 pick == actual #1 (and within actual top-3)
+  captain_hit_rates     model's #1 pick lands inside actual top-N
   topn_overlap          fraction of model's top-N that are in the actual top-N
   spearman_within_pos   within-position rank correlation of prediction vs actual
 """
@@ -53,19 +53,27 @@ def value_of_xv(pred: pd.DataFrame, score_col: str = "target_pts_hat") -> tuple[
     return float(np.nanmean(ratios)), ratios
 
 
-def captain_hitrate(pred: pd.DataFrame, score_col: str = "target_pts_hat") -> tuple[float, float]:
+def captain_hit_rates(
+    pred: pd.DataFrame, score_col: str = "target_pts_hat", topns: tuple[int, ...] = (1, 3, 5),
+) -> dict[str, float]:
     lab = _labelled(pred)
-    top1 = top3 = n = 0
+    hits = {n: 0 for n in topns}
+    total = 0
     for _, g in lab.groupby("round"):
         if g.empty:
             continue
         cap = g.loc[g[score_col].idxmax()]
         act = g["official_pts"].sort_values(ascending=False).to_numpy()
-        thr3 = act[min(2, len(act) - 1)]
-        top1 += int(cap["official_pts"] >= act[0])
-        top3 += int(cap["official_pts"] >= thr3)
-        n += 1
-    return (top1 / n, top3 / n) if n else (np.nan, np.nan)
+        for n in topns:
+            threshold = act[min(n - 1, len(act) - 1)]
+            hits[n] += int(cap["official_pts"] >= threshold)
+        total += 1
+    return {f"capt_top{n}": (hits[n] / total if total else np.nan) for n in topns}
+
+
+def captain_hitrate(pred: pd.DataFrame, score_col: str = "target_pts_hat") -> tuple[float, float]:
+    rates = captain_hit_rates(pred, score_col, (1, 3))
+    return rates["capt_top1"], rates["capt_top3"]
 
 
 def topn_overlap(pred: pd.DataFrame, n: int = 15, score_col: str = "target_pts_hat") -> float:
@@ -96,10 +104,11 @@ def evaluate(pred: pd.DataFrame, score_col: str = "target_pts_hat", *, points: b
     """All metrics for one prediction frame.  `points=False` for ordering-only
     overlays (e.g. the rank head) where the score is not a calibrated point."""
     vx, _ = value_of_xv(pred, score_col)
-    c1, c3 = captain_hitrate(pred, score_col)
+    capt = captain_hit_rates(pred, score_col, (1, 3, 5))
     out = {
-        "value_xv": vx, "capt_top1": c1, "capt_top3": c3,
+        "value_xv": vx, **capt,
         "top15": topn_overlap(pred, 15, score_col),
+        "top30": topn_overlap(pred, 30, score_col),
         "spearman_pos": spearman_within_pos(pred, score_col),
     }
     out["mae"] = points_mae(pred, score_col)["overall"] if points else np.nan
@@ -107,7 +116,10 @@ def evaluate(pred: pd.DataFrame, score_col: str = "target_pts_hat", *, points: b
 
 
 def format_table(rows: dict[str, dict], title: str) -> str:
-    cols = ["mae", "value_xv", "top15", "capt_top1", "capt_top3", "spearman_pos"]
+    cols = [
+        "mae", "value_xv", "top15", "top30",
+        "capt_top1", "capt_top3", "capt_top5", "spearman_pos",
+    ]
     head = f"{'engine':16s} " + " ".join(f"{c:>10s}" for c in cols)
     lines = [f"\n=== {title} ===", head, "-" * len(head)]
     for name, m in rows.items():

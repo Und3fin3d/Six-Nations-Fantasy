@@ -23,7 +23,7 @@ import dataclasses
 import json
 import warnings
 from dataclasses import dataclass
-from datetime import date
+from datetime import date, datetime, timezone
 from pathlib import Path
 
 import numpy as np
@@ -36,6 +36,7 @@ from model.assemble import assemble_predictions, rank_scores
 from model.baselines import MIN_MINUTES
 from model.data import load
 from model.evaluate import (
+    captain_hit_rates,
     captain_hitrate,
     points_mae,
     spearman_within_pos,
@@ -65,6 +66,8 @@ DELTA_V = 0.003            # min value_xv gain to accept on the value_xv leg
 TAU_MAE = 0.02            # max tolerated MAE regression on the value_xv leg
 DELTA_M = 0.02            # min MAE gain to accept on the MAE leg
 ROUND_ROBUST = 3          # value_xv gain must hold on >= this many of 5 rounds
+TOP15_MAX_DROP = 0.04     # guardrail: about three top-15 misses over 5 rounds
+SPEARMAN_MAX_DROP = 0.03  # guardrail for within-position selector health
 
 
 # ---------------------------------------------------------------------------
@@ -89,7 +92,11 @@ class Config:
     # post-hoc
     recon_calib: str = "none"           # none | linear (forward-chained per round)
     target_prior_blend: float = 0.0     # blend points toward prior position mean
+    target_prior_scope: str = "all"     # all | prop | hooker | frontrow | tight5 | forwards | backs
+    extra_prior_blend: float = 0.0      # optional second scoped blend after the primary
+    extra_prior_scope: str = "all"
     selector_tilt: float = 0.0          # blend rank head into the XV pick only
+    selector_point_source: str = "target"  # target | pre_calib
 
     def delta(self, **kw) -> "Config":
         return dataclasses.replace(self, **kw)
@@ -173,7 +180,7 @@ def _forward_linear_calib(pred: pd.DataFrame) -> np.ndarray:
 
 def _forward_posmean_blend(
     df: pd.DataFrame, test_idx: np.ndarray, pred: pd.DataFrame, season: int,
-    weight: float, *, min_n: int = 40,
+    weight: float, scope: str = "all", *, min_n: int = 40,
 ) -> np.ndarray:
     """Blend point forecasts toward prior modern-labelled position means.
 
@@ -183,6 +190,7 @@ def _forward_posmean_blend(
     """
     out = pred["target_pts_hat"].to_numpy(float).copy()
     base = out.copy()
+    scope_positions = _scope_positions(scope)
     for _, asof, ridx in round_iter(df, season):
         hist_mask = (
             df["is_modern"].to_numpy()
@@ -197,8 +205,32 @@ def _forward_posmean_blend(
         global_mean = float(hist["official_pts"].mean())
         pos_mean = hist.groupby("canonical_pos")["official_pts"].mean()
         prior = df.iloc[ridx]["canonical_pos"].map(pos_mean).fillna(global_mean).to_numpy(float)
-        out[local] = (1.0 - weight) * base[local] + weight * prior
+        eligible = np.ones(len(ridx), dtype=bool)
+        if scope_positions is not None:
+            eligible = df.iloc[ridx]["canonical_pos"].isin(scope_positions).to_numpy()
+        out[local[eligible]] = ((1.0 - weight) * base[local[eligible]]
+                                + weight * prior[eligible])
     return np.clip(out, 0.0, None)
+
+
+def _scope_positions(scope: str) -> set[str] | None:
+    scopes = {
+        "all": None,
+        "prop": {"Prop"},
+        "hooker": {"Hooker"},
+        "frontrow": {"Prop", "Hooker"},
+        "tight5": {"Prop", "Hooker", "Second-row"},
+        "forwards": {"Prop", "Hooker", "Second-row", "Back-row"},
+        "backs": {"Scrum-half", "Fly-half", "Centre", "Back-three"},
+        "back5": {"Back-row", "Scrum-half", "Fly-half", "Centre", "Back-three"},
+        "backrow_backs": {"Back-row", "Centre", "Back-three"},
+        "outside_backs": {"Centre", "Back-three"},
+        "non_frontrow": {"Second-row", "Back-row", "Scrum-half", "Fly-half",
+                         "Centre", "Back-three"},
+    }
+    if scope not in scopes:
+        raise ValueError(f"unknown target_prior_scope {scope!r}")
+    return scopes[scope]
 
 
 def _zscore(x: np.ndarray) -> np.ndarray:
@@ -216,8 +248,13 @@ def _add_selector_score(
     rk = rank_scores(df, train_idx, test_idx, MODE)
     out = pred.copy()
     out["rank_score"] = rk
-    out["sel_score"] = _zscore(out["target_pts_hat"].to_numpy(float)) + \
-        cfg.selector_tilt * _zscore(rk)
+    if cfg.selector_point_source == "target":
+        point_base = out["target_pts_hat"].to_numpy(float)
+    elif cfg.selector_point_source == "pre_calib":
+        point_base = out["selector_pts_hat"].to_numpy(float)
+    else:
+        raise ValueError(f"unknown selector_point_source {cfg.selector_point_source!r}")
+    out["sel_score"] = _zscore(point_base) + cfg.selector_tilt * _zscore(rk)
     return out, "sel_score"
 
 
@@ -267,10 +304,20 @@ def _predict_config(
             pred["recon_pts_hat"] = recon_c
             pred["target_pts_hat"] = recon_c + pred["latent_hat"].to_numpy(float)
 
+        pre_calib_target = pred["target_pts_hat"].to_numpy(float).copy()
         if cfg.target_prior_blend > 0:
             pred = pred.copy()
             pred["target_pts_hat"] = _forward_posmean_blend(
-                df, test_idx, pred, season, cfg.target_prior_blend)
+                df, test_idx, pred, season, cfg.target_prior_blend,
+                cfg.target_prior_scope)
+        if cfg.extra_prior_blend > 0:
+            pred = pred.copy()
+            pred["target_pts_hat"] = _forward_posmean_blend(
+                df, test_idx, pred, season, cfg.extra_prior_blend,
+                cfg.extra_prior_scope)
+        if cfg.selector_point_source == "pre_calib":
+            pred = pred.copy()
+            pred["selector_pts_hat"] = pre_calib_target
 
         pred, sel_col = _add_selector_score(df, train_idx, test_idx, pred, cfg)
 
@@ -282,16 +329,22 @@ def _evaluate_prediction(
 ) -> dict:
     vx, ratios = value_of_xv(pred, sel_col)
     c1, c3 = captain_hitrate(pred, sel_col)
+    capt = captain_hit_rates(pred, sel_col, (5,))
     return {
         "config": cfg.name,
         "value_xv": vx,
         "round_xv": [float(r) for r in ratios],
         "round_mae": _round_mae(pred),
+        "round_bias": _round_bias(pred),
         "mae": points_mae(pred, "target_pts_hat")["overall"],
+        "by_pos": _position_diagnostics(pred),
         "top15": topn_overlap(pred, 15, sel_col),
+        "top30": topn_overlap(pred, 30, sel_col),
         "capt_top1": c1,
         "capt_top3": c3,
+        "capt_top5": capt["capt_top5"],
         "spearman_pos": spearman_within_pos(pred, "target_pts_hat"),
+        "spearman_sel": spearman_within_pos(pred, sel_col),
         "registry_lgbm": _registry_lgbm_count(cfg, registry),
     }
 
@@ -301,6 +354,30 @@ def _round_mae(pred: pd.DataFrame) -> list[float]:
     for _, g in pred.groupby("round", sort=True):
         lab = g[g["has_label"].astype(bool) & g["is_modern"].astype(bool)]
         out.append(float((lab["official_pts"] - lab["target_pts_hat"]).abs().mean()))
+    return out
+
+
+def _round_bias(pred: pd.DataFrame) -> list[float]:
+    out = []
+    for _, g in pred.groupby("round", sort=True):
+        lab = g[g["has_label"].astype(bool) & g["is_modern"].astype(bool)]
+        out.append(float((lab["official_pts"] - lab["target_pts_hat"]).mean()))
+    return out
+
+
+def _position_diagnostics(pred: pd.DataFrame) -> dict[str, dict]:
+    lab = pred[pred["has_label"].astype(bool) & pred["is_modern"].astype(bool)].copy()
+    lab["abs_err"] = (lab["official_pts"] - lab["target_pts_hat"]).abs()
+    lab["resid"] = lab["official_pts"] - lab["target_pts_hat"]
+    out = {}
+    for pos, g in lab.groupby("canonical_pos", sort=True):
+        out[str(pos)] = {
+            "n": int(len(g)),
+            "mae": float(g["abs_err"].mean()),
+            "bias": float(g["resid"].mean()),
+            "actual_mean": float(g["official_pts"].mean()),
+            "pred_mean": float(g["target_pts_hat"].mean()),
+        }
     return out
 
 
@@ -317,21 +394,36 @@ def dev_evaluate(df, cfg: Config, season: int = DEV_SEASON) -> dict:
 def accept(best: dict, cand: dict) -> tuple[bool, str]:
     dv = cand["value_xv"] - best["value_xv"]
     dm = cand["mae"] - best["mae"]                      # negative = improvement
+    dt15 = cand["top15"] - best["top15"]
+    dspear = cand["spearman_sel"] - best["spearman_sel"]
     rb_v = sum(c > b + 1e-9 for c, b in zip(cand["round_xv"], best["round_xv"]))
     rb_m = sum(c < b - 1e-9 for c, b in zip(cand["round_mae"], best["round_mae"]))
     pareto_v = dv >= DELTA_V and dm <= TAU_MAE
     pareto_m = dm <= -DELTA_M and dv >= -DELTA_V
+    guardrails = []
+    if dt15 < -TOP15_MAX_DROP:
+        guardrails.append(f"top15 {dt15:+.3f}")
+    if np.isfinite(dspear) and dspear < -SPEARMAN_MAX_DROP:
+        guardrails.append(f"spearman_sel {dspear:+.3f}")
+    if (pareto_v or pareto_m) and guardrails:
+        return False, (f"reject (guardrail failed: {', '.join(guardrails)}): "
+                       f"dval={dv:+.3f} dmae={dm:+.3f} dtop15={dt15:+.3f} "
+                       f"dspear={dspear:+.3f} value_rounds_up={rb_v}/5 "
+                       f"mae_rounds_up={rb_m}/5")
     if pareto_v and rb_v >= ROUND_ROBUST:
         return True, (f"ACCEPT via value_xv: dval={dv:+.3f} dmae={dm:+.3f} "
+                      f"dtop15={dt15:+.3f} dspear={dspear:+.3f} "
                       f"value_rounds_up={rb_v}/5 mae_rounds_up={rb_m}/5")
     if pareto_m and rb_m >= ROUND_ROBUST:
         return True, (f"ACCEPT via mae: dval={dv:+.3f} dmae={dm:+.3f} "
+                      f"dtop15={dt15:+.3f} dspear={dspear:+.3f} "
                       f"value_rounds_up={rb_v}/5 mae_rounds_up={rb_m}/5")
     if pareto_v or pareto_m:
         why = "round robustness failed"
     else:
         why = "no Pareto improvement"
     return (False, f"reject ({why}): dval={dv:+.3f} dmae={dm:+.3f} "
+            f"dtop15={dt15:+.3f} dspear={dspear:+.3f} "
             f"value_rounds_up={rb_v}/5 mae_rounds_up={rb_m}/5")
 
 
@@ -341,6 +433,12 @@ def accept(best: dict, cand: dict) -> tuple[bool, str]:
 CANDIDATES = [
     ("deploy_registry", "return to OOF-gated component registry", dict(deploy_engine="registry")),
     ("minutes_alpha_3", "tighter minutes ridge", dict(minutes_alpha=3.0)),
+    ("minutes_alpha_4", "tighter minutes ridge, alpha 4", dict(minutes_alpha=4.0)),
+    ("minutes_alpha_5", "tighter minutes ridge, alpha 5", dict(minutes_alpha=5.0)),
+    ("minutes_alpha_6", "tighter minutes ridge, alpha 6", dict(minutes_alpha=6.0)),
+    ("minutes_alpha_7", "tighter minutes ridge, alpha 7", dict(minutes_alpha=7.0)),
+    ("minutes_alpha_8", "tighter minutes ridge, alpha 8", dict(minutes_alpha=8.0)),
+    ("minutes_alpha_9", "tighter minutes ridge, alpha 9", dict(minutes_alpha=9.0)),
     ("minutes_alpha_30", "looser minutes ridge", dict(minutes_alpha=30.0)),
     ("minutes_interact", "started/jersey x is_forward", dict(minutes_model="ridge_interact")),
     ("minutes_poisson", "Poisson minutes head", dict(minutes_model="poisson", minutes_alpha=1.0)),
@@ -357,6 +455,48 @@ CANDIDATES = [
      dict(target_prior_blend=0.10)),
     ("target_posmean_20", "blend target 20% toward prior position mean",
      dict(target_prior_blend=0.20)),
+    ("target_frontrow_10_selector_raw",
+     "blend target 10% toward prior position mean for props/hookers; keep raw selector",
+     dict(target_prior_blend=0.10, target_prior_scope="frontrow",
+          selector_point_source="pre_calib")),
+    ("target_frontrow_15_selector_raw",
+     "blend target 15% toward prior position mean for props/hookers; keep raw selector",
+     dict(target_prior_blend=0.15, target_prior_scope="frontrow",
+          selector_point_source="pre_calib")),
+    ("target_frontrow_20_selector_raw",
+     "front-row target blend but keep selector based on pre-calibration points",
+     dict(target_prior_blend=0.20, target_prior_scope="frontrow",
+          selector_point_source="pre_calib")),
+    ("target_frontrow_25_selector_raw",
+     "blend target 25% toward prior position mean for props/hookers; keep raw selector",
+     dict(target_prior_blend=0.25, target_prior_scope="frontrow",
+          selector_point_source="pre_calib")),
+    ("target_frontrow_30_selector_raw",
+     "blend target 30% toward prior position mean for props/hookers; keep raw selector",
+     dict(target_prior_blend=0.30, target_prior_scope="frontrow",
+          selector_point_source="pre_calib")),
+    ("target_prop_20_selector_raw",
+     "blend target 20% toward prior position mean for props only; keep raw selector",
+     dict(target_prior_blend=0.20, target_prior_scope="prop",
+          selector_point_source="pre_calib")),
+    ("target_hooker_20_selector_raw",
+     "blend target 20% toward prior position mean for hookers only; keep raw selector",
+     dict(target_prior_blend=0.20, target_prior_scope="hooker",
+          selector_point_source="pre_calib")),
+    ("target_tight5_20", "blend target 20% toward prior position mean for tight five",
+     dict(target_prior_blend=0.20, target_prior_scope="tight5")),
+    ("target_frontrow20_back5_10",
+     "keep promoted front-row blend, then add 10% prior blend for back-five roles",
+     dict(extra_prior_blend=0.10, extra_prior_scope="back5")),
+    ("target_frontrow20_back5_20",
+     "keep promoted front-row blend, then add 20% prior blend for back-five roles",
+     dict(extra_prior_blend=0.20, extra_prior_scope="back5")),
+    ("target_frontrow20_nonfront_10",
+     "keep promoted front-row blend, then add 10% prior blend for all non-frontrow roles",
+     dict(extra_prior_blend=0.10, extra_prior_scope="non_frontrow")),
+    ("target_frontrow20_nonfront_20",
+     "keep promoted front-row blend, then add 20% prior blend for all non-frontrow roles",
+     dict(extra_prior_blend=0.20, extra_prior_scope="non_frontrow")),
     ("selector_tilt_025", "tilt XV pick toward rank head", dict(selector_tilt=0.25)),
     ("selector_tilt_05", "stronger rank tilt", dict(selector_tilt=0.5)),
 ]
@@ -365,16 +505,20 @@ CANDIDATES = [
 # ---------------------------------------------------------------------------
 # the loop
 # ---------------------------------------------------------------------------
-def run_loop(candidate_names: set[str] | None = None, limit: int | None = None) -> tuple[Config, dict, list]:
+def run_loop(
+    candidate_names: set[str] | None = None,
+    limit: int | None = None,
+    base_cfg: Config | None = None,
+) -> tuple[Config, dict, list]:
     df = load()
     RESEARCH.mkdir(exist_ok=True)
 
-    best_cfg = Config()
+    best_cfg = base_cfg or Config()
     best = dev_evaluate(df, best_cfg)
-    trials = [{"trial": 0, "name": "baseline", "note": best_cfg.note,
+    trials = [{"trial": 0, "name": best_cfg.name, "note": best_cfg.note,
                "accepted": True, "reason": "incumbent",
                **_metric_row(best)}]
-    print(f"[0] baseline           value_xv={best['value_xv']:.3f} "
+    print(f"[0] {best_cfg.name:18s} value_xv={best['value_xv']:.3f} "
           f"mae={best['mae']:.3f} top15={best['top15']:.3f} "
           f"lgbm={best['registry_lgbm']}")
 
@@ -404,23 +548,30 @@ def run_loop(candidate_names: set[str] | None = None, limit: int | None = None) 
 
 
 def _metric_row(m: dict) -> dict:
-    return {k: m[k] for k in ("value_xv", "mae", "top15", "capt_top1",
-                              "capt_top3", "spearman_pos", "registry_lgbm")} \
-        | {"round_xv": m["round_xv"], "round_mae": m["round_mae"]}
+    return {k: m[k] for k in ("value_xv", "mae", "top15", "top30", "capt_top1",
+                              "capt_top3", "capt_top5", "spearman_pos",
+                              "spearman_sel", "registry_lgbm")} \
+        | {"round_xv": m["round_xv"], "round_mae": m["round_mae"],
+           "round_bias": m["round_bias"], "by_pos": m["by_pos"]}
 
 
 def _write_ledger(trials: list, best_cfg: Config, best: dict) -> None:
     (RESEARCH / "ledger.json").write_text(json.dumps(trials, indent=2))
     (RESEARCH / "best_config.json").write_text(
         json.dumps(dataclasses.asdict(best_cfg), indent=2))
+    _append_history(trials, best_cfg, best)
     lines = [f"# Autoresearch ledger — {date.today()}", "",
-             f"Dev season {DEV_SEASON} (post_team_sheet). Baseline value_xv=0.680 / MAE=7.680.",
+             f"Dev season {DEV_SEASON} (post_team_sheet). "
+             f"Incumbent value_xv={trials[0]['value_xv']:.3f} / "
+             f"MAE={trials[0]['mae']:.3f}.",
              "2026 sealed — not evaluated here.", "",
-             "| # | candidate | value_xv | MAE | top15 | accepted | reason |",
-             "|---|---|---|---|---|---|---|"]
+             "| # | candidate | value_xv | MAE | top15 | top30 | cap3 | spear_sel | accepted | reason |",
+             "|---|---|---|---|---|---|---|---|---|---|"]
     for t in trials:
         lines.append(f"| {t['trial']} | {t['name']} | {t['value_xv']:.3f} | "
                      f"{t['mae']:.3f} | {t['top15']:.3f} | "
+                     f"{t['top30']:.3f} | {t['capt_top3']:.3f} | "
+                     f"{t['spearman_sel']:.3f} | "
                      f"{'yes' if t['accepted'] else 'no'} | {t['reason']} |")
     lines += ["", f"**Best:** `{best_cfg.name}` — value_xv {best['value_xv']:.3f}, "
               f"MAE {best['mae']:.3f}, top15 {best['top15']:.3f}.",
@@ -428,12 +579,26 @@ def _write_ledger(trials: list, best_cfg: Config, best: dict) -> None:
     (RESEARCH / "LEDGER.md").write_text("\n".join(lines))
 
 
+def _append_history(trials: list, best_cfg: Config, best: dict) -> None:
+    """Append each loop run before the short-form ledger gets overwritten."""
+    rec = {
+        "ts": datetime.now(timezone.utc).isoformat(),
+        "dev_season": DEV_SEASON,
+        "incumbent": trials[0]["name"],
+        "best_config": best_cfg.name,
+        "best": _metric_row(best),
+        "trials": trials,
+    }
+    with (RESEARCH / "history.jsonl").open("a") as f:
+        f.write(json.dumps(rec) + "\n")
+
+
 def _persist_best(df, best_cfg: Config, best: dict) -> None:
-    """Refresh the registry + 2025 predictions for the winning config (dev only)."""
+    """Write dev-best predictions without overwriting promoted data artifacts."""
     pred, _, registry = _predict_config(df, best_cfg, DEV_SEASON)
     if registry is not None:
         save_registry(registry, DATA / "model_component_registry.csv")
-    pred.to_csv(DATA / f"model_predictions_{DEV_SEASON}.csv", index=False)
+    pred.to_csv(RESEARCH / f"dev_predictions_{DEV_SEASON}.csv", index=False)
 
 
 def seal_2026(best_cfg: Config, *, persist_predictions: bool = True) -> None:
@@ -467,6 +632,8 @@ def main() -> None:
                     help="evaluate the saved best config on the sealed season once")
     ap.add_argument("--seal-config", choices=["promoted", "best"], default="promoted",
                     help="which saved config to seal; promoted falls back to best if absent")
+    ap.add_argument("--base-config", choices=["baseline", "promoted", "best"], default="baseline",
+                    help="incumbent config for candidate comparisons")
     ap.add_argument("--candidate", action="append",
                     help="run only this candidate name; can be passed multiple times")
     ap.add_argument("--limit", type=int,
@@ -480,7 +647,17 @@ def main() -> None:
         cfg = Config(**json.loads(cfg_path.read_text()))
         seal_2026(cfg, persist_predictions=(cfg_path == PROMOTED_CONFIG))
     else:
-        run_loop(set(args.candidate) if args.candidate else None, args.limit)
+        base_cfg = _load_base_config(args.base_config)
+        run_loop(set(args.candidate) if args.candidate else None, args.limit, base_cfg)
+
+
+def _load_base_config(which: str) -> Config:
+    if which == "baseline":
+        return Config()
+    cfg_path = PROMOTED_CONFIG if which == "promoted" else BEST_CONFIG
+    if not cfg_path.exists():
+        raise FileNotFoundError(f"{cfg_path.relative_to(ROOT)} does not exist")
+    return Config(**json.loads(cfg_path.read_text()))
 
 
 if __name__ == "__main__":

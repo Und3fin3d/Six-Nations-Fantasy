@@ -525,6 +525,84 @@ Interpretation: the model can reduce 2025 error by smoothing toward historical p
 but that smoothing hurts the sealed season. It remains a useful experiment in
 `research/best_config.json` and `research/sealed_best_check.json`; it is not promoted.
 
+### `cdx` Experiment 5 — promoted front-row calibration
+The next accepted point-side candidate is narrower than the earlier broad target calibration:
+blend only props and hookers 20% toward the prior modern-labelled position mean, while keeping
+the XV selector based on the pre-calibration point signal.
+
+Why this split matters: the front-row prior improves point-scale accuracy for low-variance
+positions, but XV ranking should not move just because the prop/hooker point scale was calibrated.
+So the deployed CSV now has both `target_pts_hat` for MAE and `selector_pts_hat` for the XV
+selector base.
+
+| config | 2025 mae | 2025 value_xv | 2025 top30 | 2026 mae | 2026 value_xv | promotion |
+|---|---:|---:|---:|---:|---:|---|
+| previous promoted `selector_tilt_025` | 7.680 | 0.707 | 0.560 | 7.447 | 0.711 | replaced |
+| `target_frontrow_20_selector_raw` | **7.650** | **0.707** | **0.560** | **7.383** | **0.711** | promote |
+
+Interpretation: this is the first post-selector change that improves MAE on both 2025 dev and
+the sealed 2026 check without reducing XV value. The 10% front-row candidate was accepted when
+tested first (2025 MAE 7.658), but the 20% candidate is the stronger direct improvement versus
+the promoted incumbent. `research/promoted_config.json`, `research/sealed_2026.json`, and both
+`data/model_predictions_*.csv` now reflect this promoted configuration.
+
+### `cdx` Experiment 6 — stacked back-five prior vetoed
+The next residual-driven test kept the promoted 20% front-row calibration and added a second
+position-mean prior blend for the remaining high-bias roles. Because `sel_score` still uses the
+pre-calibration point signal, these candidates test MAE calibration without changing XV ranking.
+
+| config | 2025 mae | 2025 value_xv | 2026 mae | 2026 value_xv | decision |
+|---|---:|---:|---:|---:|---|
+| promoted `target_frontrow_20_selector_raw` | **7.650** | 0.707 | **7.383** | 0.711 | keep |
+| `target_frontrow20_back5_10` | 7.615 | 0.707 | not sealed | not sealed | superseded |
+| `target_frontrow20_back5_20` | **7.609** | 0.707 | 7.529 | 0.711 | veto |
+| `target_frontrow20_nonfront_10` | 7.620 | 0.707 | not sealed | not sealed | reject |
+| `target_frontrow20_nonfront_20` | 7.620 | 0.707 | not sealed | not sealed | reject |
+
+Interpretation: stacked back-five smoothing reduces 2025 error a lot, but it overfits the 2025
+residual shape and worsens sealed 2026 MAE by +0.146 versus the promoted config. It is stored as
+a vetoed dev winner in `research/history.jsonl`,
+`research/sealed_veto_target_frontrow20_back5_20.json`, and `research/promotion_report.json`.
+`research/best_config.json` was reset to the promoted config after the veto so future loops do not
+accidentally build on the rejected candidate.
+
+### `cdx` Experiment 7 — tighter minutes ridge vetoed again
+The next narrow sweep revisited minutes regularisation around the earlier failed
+`minutes_alpha_3` result, this time starting from the promoted front-row calibration. The dev loop
+accepted `minutes_alpha_4`: it reduced 2025 MAE, nudged `top15` up, and slightly improved selector
+Spearman. The sealed 2026 check vetoed it because both primary metrics worsened versus the
+promoted model.
+
+| config | 2025 mae | 2025 value_xv | 2025 top15 | 2026 mae | 2026 value_xv | decision |
+|---|---:|---:|---:|---:|---:|---|
+| promoted `target_frontrow_20_selector_raw` | **7.650** | 0.707 | 0.360 | **7.383** | **0.711** | keep |
+| `minutes_alpha_4` | 7.621 | 0.708 | 0.373 | 7.391 | 0.706 | veto |
+| `minutes_alpha_9` | 7.646 | 0.711 | 0.373 | not sealed | not sealed | dev reject |
+
+Interpretation: lower minutes-ridge alphas are another dev-only attractor. They can improve 2025
+calibration and sometimes `top15`, but the sealed season says the movement is not stable enough to
+promote. `minutes_alpha_9` had the best dev XV value in the sweep, but failed the acceptance rule:
+MAE worsened and only 2 of 5 rounds improved on XV value. The veto evidence is stored in
+`research/sealed_veto_minutes_alpha_4.json`; `research/best_config.json` was reset to the promoted
+front-row config afterward.
+
+### `cdx` Experiment 8 — front-row split variants rejected
+The only promoted calibration so far is the 20% front-row position-mean blend, so the next test
+split that effect into smaller front-row weights and role-specific scopes. None beat the promoted
+combined prop+hooker setting on 2025 dev, so the sealed 2026 check was not opened.
+
+| config | 2025 mae | 2025 value_xv | 2025 top15 | decision |
+|---|---:|---:|---:|---|
+| promoted `target_frontrow_20_selector_raw` | **7.650** | 0.707 | 0.360 | keep |
+| `target_frontrow_15_selector_raw` | 7.653 | 0.707 | 0.360 | reject |
+| `target_frontrow_25_selector_raw` | 7.652 | 0.707 | 0.360 | reject |
+| `target_prop_20_selector_raw` | 7.653 | 0.707 | 0.360 | reject |
+| `target_hooker_20_selector_raw` | 7.677 | 0.707 | 0.360 | reject |
+
+Interpretation: the front-row gain is not improved by narrowing to prop-only or hooker-only, and
+20% is still the best local weight among the tested neighbouring values. This makes further
+front-row scalar tinkering low priority unless new data changes the residual pattern.
+
 ### B3 direct-points cross-check (requirement: Strategy C justification)
 Regressing `official_pts` directly is worse on both seasons (MAE 8.008 in 2025, 9.462 in 2026)
 than the Strategy-C component→score ensemble, confirming the decomposition is worth its

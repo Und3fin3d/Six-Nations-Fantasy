@@ -1,6 +1,6 @@
 {
-  "name": "selector_tilt_025",
-  "note": "tilt XV pick toward rank head",
+  "name": "target_frontrow_20_selector_raw_promoted",
+  "note": "Promoted: 20% front-row target calibration for MAE, while XV selector uses pre-calibration point signal.",
   "deploy_engine": "lgbm_only",
   "lgbm_margin": 0.02,
   "blend_weight": 0.5,
@@ -10,6 +10,10 @@
   "potm_tau_floor": 1.0,
   "latent_shrink": 1.0,
   "recon_calib": "none",
-  "target_prior_blend": 0.1,
-  "selector_tilt": 0.25
+  "target_prior_blend": 0.2,
+  "target_prior_scope": "frontrow",
+  "extra_prior_blend": 0.0,
+  "extra_prior_scope": "all",
+  "selector_tilt": 0.25,
+  "selector_point_source": "pre_calib"
 }

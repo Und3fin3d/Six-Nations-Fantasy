@@ -1,52 +1,168 @@
 {
-  "date": "2026-06-16",
-  "decision": "fallback_to_selector_tilt_025_promoted",
+  "date": "2026-06-17",
+  "decision": "promote_target_frontrow_20_selector_raw",
   "policy": "Use 2026 only as a promotion veto after the 2025-only loop has selected a candidate; do not tune candidates against 2026.",
-  "reason": "The current 2025-dev winner improves MAE, but regresses both sealed 2026 headline metrics versus the promoted selector-only incumbent. The earlier minutes-alpha dev winner was vetoed for the same reason.",
-  "promoted_config": "selector_tilt_025_promoted",
-  "promoted_metrics": {
-    "2025": {
-      "mae": 7.679834708332707,
-      "value_xv": 0.7073419277235518,
-      "top15": 0.36,
-      "spearman_pos": 0.47523331022536114
+  "reason": "The front-row-only target calibration improved 2025 MAE with no XV-value loss, and the sealed 2026 check improved MAE while preserving XV value. The selector is deliberately based on the pre-calibration point signal so a point-scale correction does not perturb XV ranking.",
+  "previous_promoted_config": "selector_tilt_025_promoted",
+  "promoted_config": "target_frontrow_20_selector_raw_promoted",
+  "comparison": {
+    "previous_promoted": {
+      "2025": {
+        "mae": 7.679834708332707,
+        "value_xv": 0.7073419277235518,
+        "top15": 0.36,
+        "top30": 0.5599999999999999,
+        "spearman_sel": 0.48905547862228155
+      },
+      "2026": {
+        "mae": 7.446846069277958,
+        "value_xv": 0.7114999296223994,
+        "top15": 0.3733333333333333,
+        "top30": 0.5466666666666666,
+        "spearman_sel": 0.584447451724677
+      }
     },
-    "2026": {
-      "mae": 7.446846069277958,
-      "value_xv": 0.7114999296223994,
-      "top15": 0.3733333333333333,
-      "spearman_pos": 0.5781502178199741
+    "new_promoted": {
+      "2025": {
+        "mae": 7.6502361690809755,
+        "value_xv": 0.7073419277235518,
+        "top15": 0.36,
+        "top30": 0.5599999999999999,
+        "spearman_sel": 0.48905547862228155
+      },
+      "2026": {
+        "mae": 7.383394000981791,
+        "value_xv": 0.7114999296223994,
+        "top15": 0.3733333333333333,
+        "top30": 0.5466666666666666,
+        "spearman_sel": 0.584447451724677
+      }
     }
   },
-  "dev_winners_vetoed": {
+  "latest_rejected_candidates": {
+    "frontrow_scope_split_family": {
+      "reason": "A direct split of the promoted front-row calibration found no 2025 dev improvement. The original 20% combined prop+hooker scope remains better than 15%, 25%, prop-only 20%, or hooker-only 20%, so no sealed 2026 check was warranted.",
+      "2025": {
+        "promoted_frontrow20_mae": 7.6502361690809755,
+        "target_frontrow_15_mae": 7.6525816720595685,
+        "target_frontrow_25_mae": 7.652257281784823,
+        "target_prop_20_mae": 7.652965139153608,
+        "target_hooker_20_mae": 7.677105738260074,
+        "value_xv": 0.7073419277235518,
+        "top15": 0.36
+      }
+    },
+    "minutes_alpha_4": {
+      "reason": "Accepted on 2025 dev after a tighter minutes ridge improved MAE and top15, but vetoed by sealed 2026 because both primary metrics worsened versus the promoted front-row model. The top15 and Spearman gains are useful diagnostics, not enough to override worse MAE and XV value.",
+      "2025": {
+        "mae": 7.621236885437519,
+        "value_xv": 0.7076219042810706,
+        "top15": 0.37333333333333335,
+        "top30": 0.5466666666666666,
+        "spearman_sel": 0.490708760304428
+      },
+      "2026": {
+        "mae": 7.391291493599426,
+        "value_xv": 0.7064763817417086,
+        "top15": 0.3866666666666666,
+        "top30": 0.5399999999999999,
+        "spearman_sel": 0.586993665831193
+      }
+    },
+    "minutes_alpha_5_to_9": {
+      "reason": "Neighbouring tighter minutes-ridge settings did not beat minutes_alpha_4 on 2025 dev. Alpha 9 briefly looked attractive on XV value, but missed the MAE gate and only improved value in 2 of 5 rounds.",
+      "2025": {
+        "minutes_alpha_5_mae": 7.6222029948447725,
+        "minutes_alpha_6_mae": 7.627986228240924,
+        "minutes_alpha_7_mae": 7.6324763917563105,
+        "minutes_alpha_8_mae": 7.642180587195731,
+        "minutes_alpha_9_mae": 7.646300426254017,
+        "minutes_alpha_9_value_xv": 0.7108960472712094,
+        "minutes_alpha_9_round_value_wins": 2
+      }
+    },
+    "target_frontrow20_back5_20": {
+      "reason": "Accepted on 2025 dev after stacking a 20% back-five prior on top of the promoted front-row calibration, but vetoed by sealed 2026 because MAE worsened sharply versus the promoted model. XV selection metrics were unchanged because the selector stayed on the pre-calibration point signal.",
+      "2025": {
+        "mae": 7.6086210491859125,
+        "value_xv": 0.7073419277235518,
+        "top15": 0.36,
+        "top30": 0.5599999999999999,
+        "spearman_sel": 0.48905547862228155
+      },
+      "2026": {
+        "mae": 7.529234426767659,
+        "value_xv": 0.7114999296223994,
+        "top15": 0.3733333333333333,
+        "top30": 0.5466666666666666,
+        "spearman_sel": 0.584447451724677
+      }
+    },
+    "target_frontrow20_back5_10": {
+      "reason": "Accepted when tested first, but superseded on 2025 dev by the stronger 20% stacked back-five prior; the family representative was sealed and vetoed.",
+      "2025": {
+        "mae": 7.615481950528249,
+        "value_xv": 0.7073419277235518,
+        "top15": 0.36
+      }
+    },
+    "target_frontrow20_nonfront_family": {
+      "reason": "Adding a broad non-frontrow prior on top of the promoted front-row calibration was worse than the back-five-specific version and below the acceptance threshold.",
+      "2025": {
+        "target_frontrow20_nonfront_10_mae": 7.619845572466942,
+        "target_frontrow20_nonfront_20_mae": 7.619689185036402,
+        "value_xv": 0.7073419277235518,
+        "top15": 0.36
+      }
+    },
+    "target_frontrow_10_selector_raw": {
+      "reason": "Accepted when tested first, but superseded by the stronger 20% front-row candidate when compared directly to the promoted incumbent.",
+      "2025": {
+        "mae": 7.65817821268446,
+        "value_xv": 0.7073419277235518,
+        "top15": 0.36
+      }
+    },
+    "target_frontrow_30_selector_raw": {
+      "reason": "Did not improve enough after the 10% step and was worse than the 20% front-row candidate on 2025 MAE.",
+      "2025": {
+        "mae": 7.655409675089883,
+        "value_xv": 0.7073419277235518,
+        "top15": 0.36
+      }
+    },
+    "target_tight5_20": {
+      "reason": "Adding second-row smoothing reduced the MAE gain relative to front-row-only calibration.",
+      "2025": {
+        "mae": 7.661304304931465,
+        "value_xv": 0.7073419277235518,
+        "top15": 0.36
+      }
+    },
     "target_posmean_10_plus_selector_tilt_025": {
-      "reason": "2025 MAE improved, but sealed 2026 MAE/value_xv regressed.",
+      "reason": "Earlier broad position-mean smoothing improved 2025 MAE, but regressed sealed 2026 MAE/value_xv versus the selector-only incumbent.",
       "2025": {
         "mae": 7.627787616070425,
         "value_xv": 0.7073419277235518,
-        "top15": 0.38666666666666666,
-        "spearman_pos": 0.47050143840627845
+        "top15": 0.38666666666666666
       },
       "2026": {
         "mae": 7.473266795584847,
         "value_xv": 0.7064763817417086,
-        "top15": 0.4,
-        "spearman_pos": 0.5777734410646738
+        "top15": 0.4
       }
     },
     "minutes_alpha_3_plus_selector_tilt_025": {
-      "reason": "2025 MAE and value_xv improved, but sealed 2026 MAE/value_xv regressed.",
+      "reason": "Earlier tighter minutes ridge improved 2025 MAE and value_xv, but regressed sealed 2026 MAE/value_xv.",
       "2025": {
         "mae": 7.64563346678421,
         "value_xv": 0.7095605149434293,
-        "top15": 0.36,
-        "spearman_pos": 0.47295049606614403
+        "top15": 0.36
       },
       "2026": {
         "mae": 7.460180148892212,
         "value_xv": 0.7064763817417086,
-        "top15": 0.3866666666666666,
-        "spearman_pos": 0.5811496109121443
+        "top15": 0.3866666666666666
       }
     }
   }

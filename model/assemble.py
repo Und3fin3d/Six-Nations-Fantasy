@@ -39,6 +39,8 @@ from model.splits import latent_calib_rows, round_iter
 POTM_PP_WEIGHT = 0.5     # weight on the softmax-of-points term vs the role prior
 POTM_TAU_FLOOR = 1.0     # softmax temperature floor (points scale)
 LATENT_SHRINK = 1.0      # shrink set-piece latent a*sw + b*ls toward 0 (fallback step 4)
+OTHER_CONST_SHRINK = 1.0  # shrink position/global latent constants toward 0
+ZERO_BACK_SETPIECE = False
 
 
 def fit_latent_asof(df: pd.DataFrame, asof) -> dict | None:
@@ -119,10 +121,14 @@ def assemble_predictions(
             diag.append(dict(round=r, asof=asof, n_calib=0, a=0.0, b=0.0))
             continue
         sw, ls = _expected_drives(df, ridx, minutes_hat[local])
-        other = (df.iloc[ridx]["canonical_pos"].map(fit["other_const"])
+        sub_round = df.iloc[ridx]
+        other = (sub_round["canonical_pos"].map(fit["other_const"])
                  .fillna(fit["other_global"]).to_numpy(float))
+        other = OTHER_CONST_SHRINK * other
         potm = _expected_potm(df, ridx, recon_hat[local])
         setpiece = LATENT_SHRINK * (fit["a"] * sw + fit["b"] * ls)
+        if ZERO_BACK_SETPIECE:
+            setpiece = np.where(sub_round["is_forward"].to_numpy(bool), setpiece, 0.0)
         latent_hat[local] = setpiece + other + potm
         diag.append(dict(round=r, asof=asof, n_calib=n_calib,
                          a=fit["a"], b=fit["b"]))

@@ -1,0 +1,21 @@
+# OS / editor
+.DS_Store
+.vscode/
+.claude/
+
+# Python
+__pycache__/
+*.pyc
+
+# Secrets / env
+secrets.json
+.env
+
+# Tooling / scratch
+chromedriver
+scrape.log
+data/cache/
+
+# Generated artifacts (regenerated locally)
+graphify-out/
+research/

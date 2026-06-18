@@ -19,3 +19,16 @@ data/cache/
 # Generated artifacts (regenerated locally)
 graphify-out/
 research/
+
+# Derived model outputs (regenerate via the build pipeline)
+data/model_player_match.csv
+data/model_player_match.csv.prefix-bak
+data/model_targets.csv
+data/model_predictions_2025.csv
+data/model_predictions_2026.csv
+data/fixture_difficulty.csv
+
+# Working/planning docs (implemented; kept local only)
+DATA_EXTRACTION_PLAN.md
+MODEL_TRAINING_PLAN.md
+RESEARCH_GOAL.md

@@ -51,6 +51,22 @@ SELECTION_SCORE_PRIORITY = (
     "recon_pts_hat",
     "rank_score",
 )
+CAPTAIN_SCORE_PRIORITY = (
+    "captain_score",
+    "sel_score",
+    "selector_pts_hat",
+    "target_pts_hat",
+    "recon_pts_hat",
+    "rank_score",
+)
+SUPERSUB_SCORE_PRIORITY = (
+    "supersub_score",
+    "sel_score",
+    "selector_pts_hat",
+    "target_pts_hat",
+    "recon_pts_hat",
+    "rank_score",
+)
 PREDICTED_POINTS_PRIORITY = (
     "target_pts_hat",
     "selector_pts_hat",
@@ -100,6 +116,16 @@ def parse_args() -> argparse.Namespace:
         help="Column displayed as predicted points. Defaults to target_pts_hat.",
     )
     parser.add_argument(
+        "--captain-col",
+        default="auto",
+        help="Column used to choose the captain from the picked XV.",
+    )
+    parser.add_argument(
+        "--supersub-col",
+        default="auto",
+        help="Column used to choose the supersub from non-starters.",
+    )
+    parser.add_argument(
         "--output-dir",
         type=Path,
         default=DEFAULT_OUTPUT_DIR,
@@ -129,11 +155,21 @@ def main() -> None:
     predicted_col = resolve_column(
         pred, args.predicted_col, PREDICTED_POINTS_PRIORITY, "predicted points"
     )
-    pred = coerce_numeric(pred, [selection_col, predicted_col, "official_pts"])
+    captain_col = resolve_column(
+        pred, args.captain_col, CAPTAIN_SCORE_PRIORITY, "captain score"
+    )
+    supersub_col = resolve_column(
+        pred, args.supersub_col, SUPERSUB_SCORE_PRIORITY, "supersub score"
+    )
+    pred = coerce_numeric(
+        pred, {selection_col, predicted_col, captain_col, supersub_col, "official_pts"}
+    )
     pred = labelled_rows(pred)
 
-    round_xv = build_round_xvs(pred, selection_col, predicted_col)
-    overall_xv = build_overall_xv(pred, selection_col, predicted_col)
+    round_xv = build_round_xvs(
+        pred, selection_col, predicted_col, captain_col, supersub_col)
+    overall_xv = build_overall_xv(
+        pred, selection_col, predicted_col, captain_col, supersub_col)
     summary = build_summary(pred, round_xv, overall_xv, predicted_col)
 
     print_report(
@@ -142,6 +178,8 @@ def main() -> None:
         overall_xv,
         selection_col,
         predicted_col,
+        captain_col,
+        supersub_col,
         args.season,
         summary_only=args.summary_only,
     )
@@ -230,12 +268,17 @@ def labelled_rows(df: pd.DataFrame) -> pd.DataFrame:
 
 
 def build_round_xvs(
-    pred: pd.DataFrame, selection_col: str, predicted_col: str
+    pred: pd.DataFrame,
+    selection_col: str,
+    predicted_col: str,
+    captain_col: str,
+    supersub_col: str,
 ) -> pd.DataFrame:
     teams = []
     for round_no, group in pred.groupby("round", sort=True):
         xv = pick_xv(group, selection_col, predicted_col)
-        xv = add_captain_and_supersub(xv, group, selection_col, predicted_col)
+        xv = add_captain_and_supersub(
+            xv, group, selection_col, predicted_col, captain_col, supersub_col)
         xv["round"] = round_no
         xv["view"] = "round"
         teams.append(xv)
@@ -243,7 +286,11 @@ def build_round_xvs(
 
 
 def build_overall_xv(
-    pred: pd.DataFrame, selection_col: str, predicted_col: str
+    pred: pd.DataFrame,
+    selection_col: str,
+    predicted_col: str,
+    captain_col: str,
+    supersub_col: str,
 ) -> pd.DataFrame:
     group_cols = ["player_id", "player_name", "canonical_pos"]
     optional = [c for c in ("team",) if c in pred.columns]
@@ -253,21 +300,29 @@ def build_overall_xv(
         "fixtures": ("fixture_id", "nunique"),
         "selection_score": (selection_col, "sum"),
         "predicted_pts": (predicted_col, "sum"),
+        "captain_score": (captain_col, "sum"),
+        "supersub_score": (supersub_col, "sum"),
         "actual_pts": ("official_pts", "sum"),
     }
     for col in optional:
         named_aggs[col] = (col, mode_value)
 
     agg = pred.groupby(group_cols, as_index=False).agg(**named_aggs)
-    supersub_pool = aggregate_supersub_pool(pred, selection_col, predicted_col)
+    supersub_pool = aggregate_supersub_pool(
+        pred, selection_col, predicted_col, supersub_col)
     xv = pick_xv(agg, "selection_score", "predicted_pts")
-    xv = add_captain_and_supersub(xv, supersub_pool, "selection_score", "predicted_pts")
+    xv = add_captain_and_supersub(
+        xv, supersub_pool, "selection_score", "predicted_pts",
+        "captain_score", "supersub_score")
     xv["view"] = "overall"
     return tidy_team(xv)
 
 
 def aggregate_supersub_pool(
-    pred: pd.DataFrame, selection_col: str, predicted_col: str
+    pred: pd.DataFrame,
+    selection_col: str,
+    predicted_col: str,
+    supersub_col: str,
 ) -> pd.DataFrame:
     pool = pred.copy()
     if "started" in pool.columns:
@@ -282,6 +337,7 @@ def aggregate_supersub_pool(
         "fixtures": ("fixture_id", "nunique"),
         "selection_score": (selection_col, "sum"),
         "predicted_pts": (predicted_col, "sum"),
+        "supersub_score": (supersub_col, "sum"),
         "actual_pts": ("official_pts", "sum"),
         "started": ("started", "first"),
     }
@@ -318,6 +374,8 @@ def add_captain_and_supersub(
     pool: pd.DataFrame,
     selection_col: str,
     predicted_col: str,
+    captain_col: str,
+    supersub_col: str,
 ) -> pd.DataFrame:
     team = prepare_team_rows(xv, selection_col, predicted_col)
     team["team_role"] = "XV"
@@ -325,13 +383,13 @@ def add_captain_and_supersub(
     team["is_supersub"] = False
     team["score_multiplier"] = 1.0
 
-    captain_idx = top_model_index(team, selection_col, predicted_col)
+    captain_idx = top_model_index(team, captain_col, predicted_col)
     if captain_idx is not None:
         team.loc[captain_idx, "team_role"] = "Captain"
         team.loc[captain_idx, "is_captain"] = True
         team.loc[captain_idx, "score_multiplier"] = CAPTAIN_MULTIPLIER
 
-    supersub = pick_supersub(pool, set(team["player_id"]), selection_col, predicted_col)
+    supersub = pick_supersub(pool, set(team["player_id"]), supersub_col, predicted_col)
     if supersub is not None:
         supersub = prepare_team_rows(supersub, selection_col, predicted_col)
         supersub["team_role"] = "Supersub"
@@ -531,7 +589,8 @@ def hindsight_overall_team_total(pred: pd.DataFrame) -> float:
     selected_ids = set(xv["player_id"])
     base_total = float(xv["official_pts"].sum())
     captain_extra = float(xv["official_pts"].max()) if len(xv) else 0.0
-    supersub_pool = aggregate_supersub_pool(pred, "official_pts", "official_pts")
+    supersub_pool = aggregate_supersub_pool(
+        pred, "official_pts", "official_pts", "official_pts")
     supersub = best_actual_supersub(supersub_pool, selected_ids)
     return base_total + captain_extra + SUPERSUB_MULTIPLIER * supersub
 
@@ -578,12 +637,16 @@ def print_report(
     overall_xv: pd.DataFrame,
     selection_col: str,
     predicted_col: str,
+    captain_col: str,
+    supersub_col: str,
     season: int,
     *,
     summary_only: bool,
 ) -> None:
     print(f"\n{season} Six Nations model XV report")
     print(f"  selecting XVs by: {selection_col}")
+    print(f"  captain by: {captain_col}")
+    print(f"  supersub by: {supersub_col}")
     print(f"  predicted points: {predicted_col}")
 
     print("\nSummary")

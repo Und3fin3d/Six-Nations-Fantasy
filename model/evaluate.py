@@ -8,6 +8,8 @@ Metrics (all on modern-labelled rows):
   points_mae            MAE(official_pts, target_pts_hat), overall + by position
   value_of_xv           sum(actual pts of model's chosen XV) / hindsight-optimal XV,
                         respecting the positional quota, averaged over rounds
+  value_of_team         fantasy-team value: XV + model captain + model supersub,
+                        divided by hindsight XV + captain + supersub
   captain_hit_rates     model's #1 pick lands inside actual top-N
   topn_overlap          fraction of model's top-N that are in the actual top-N
   spearman_within_pos   within-position rank correlation of prediction vs actual
@@ -23,6 +25,8 @@ XV_QUOTA = {
     "Prop": 2, "Hooker": 1, "Second-row": 2, "Back-row": 3,
     "Scrum-half": 1, "Fly-half": 1, "Centre": 2, "Back-three": 3,
 }
+CAPTAIN_MULTIPLIER = 2.0
+SUPERSUB_MULTIPLIER = 3.0
 
 
 def _labelled(pred: pd.DataFrame) -> pd.DataFrame:
@@ -37,18 +41,89 @@ def points_mae(pred: pd.DataFrame, score_col: str = "target_pts_hat") -> dict:
     return {"overall": float(err.mean()), "by_pos": by_pos}
 
 
+def bench_mae(pred: pd.DataFrame, score_col: str = "target_pts_hat") -> float:
+    lab = _labelled(pred).dropna(subset=[score_col])
+    if "started" not in lab.columns:
+        return np.nan
+    bench = lab[~lab["started"].astype(bool)]
+    if bench.empty:
+        return np.nan
+    return float((bench["official_pts"] - bench[score_col]).abs().mean())
+
+
+def _pick_xv(df: pd.DataFrame, score_col: str) -> pd.DataFrame:
+    picked = []
+    for pos, k in XV_QUOTA.items():
+        gp = df[df["canonical_pos"] == pos]
+        if gp.empty:
+            continue
+        kk = min(k, len(gp))
+        picked.append(gp.nlargest(kk, score_col))
+    if not picked:
+        return df.iloc[0:0].copy()
+    return pd.concat(picked)
+
+
+def _supersub_pool(df: pd.DataFrame, selected_ids: set) -> pd.DataFrame:
+    pool = df[~df["player_id"].isin(selected_ids)].copy()
+    if "started" in pool.columns:
+        bench = pool[~pool["started"].astype(bool)].copy()
+        if not bench.empty:
+            pool = bench
+    return pool
+
+
 def value_of_xv(pred: pd.DataFrame, score_col: str = "target_pts_hat") -> tuple[float, list]:
     lab = _labelled(pred)
     ratios = []
     for _, g in lab.groupby("round"):
-        picked = optimal = 0.0
-        for pos, k in XV_QUOTA.items():
-            gp = g[g["canonical_pos"] == pos]
-            if gp.empty:
-                continue
-            kk = min(k, len(gp))
-            picked += gp.nlargest(kk, score_col)["official_pts"].sum()
-            optimal += gp.nlargest(kk, "official_pts")["official_pts"].sum()
+        picked = float(_pick_xv(g, score_col)["official_pts"].sum())
+        optimal = float(_pick_xv(g, "official_pts")["official_pts"].sum())
+        ratios.append(picked / optimal if optimal > 0 else np.nan)
+    return float(np.nanmean(ratios)), ratios
+
+
+def value_of_team(
+    pred: pd.DataFrame,
+    score_col: str = "target_pts_hat",
+    *,
+    captain_score_col: str | None = None,
+    supersub_score_col: str | None = None,
+) -> tuple[float, list]:
+    """Fantasy-team value with multiplier roles.
+
+    The XV is picked by `score_col`.  The captain is picked from that XV by
+    `captain_score_col` (default same score).  The supersub is picked from
+    non-starters outside the XV by `supersub_score_col` (default same score).
+    """
+    lab = _labelled(pred)
+    captain_score_col = captain_score_col or score_col
+    supersub_score_col = supersub_score_col or score_col
+    ratios = []
+    for _, g in lab.groupby("round"):
+        xv = _pick_xv(g, score_col)
+        if xv.empty:
+            ratios.append(np.nan)
+            continue
+        picked_base = float(xv["official_pts"].sum())
+        captain_extra = float(
+            xv.loc[xv[captain_score_col].idxmax(), "official_pts"]
+        ) if captain_score_col in xv.columns else float(
+            xv.loc[xv[score_col].idxmax(), "official_pts"]
+        )
+        pool = _supersub_pool(g, set(xv["player_id"]))
+        supersub = 0.0
+        if not pool.empty:
+            ss_col = supersub_score_col if supersub_score_col in pool.columns else score_col
+            supersub = float(pool.loc[pool[ss_col].idxmax(), "official_pts"])
+        picked = picked_base + captain_extra + SUPERSUB_MULTIPLIER * supersub
+
+        opt_xv = _pick_xv(g, "official_pts")
+        opt_base = float(opt_xv["official_pts"].sum())
+        opt_captain = float(opt_xv["official_pts"].max()) if not opt_xv.empty else 0.0
+        opt_pool = _supersub_pool(g, set(opt_xv["player_id"]))
+        opt_supersub = float(opt_pool["official_pts"].max()) if not opt_pool.empty else 0.0
+        optimal = opt_base + opt_captain + SUPERSUB_MULTIPLIER * opt_supersub
         ratios.append(picked / optimal if optimal > 0 else np.nan)
     return float(np.nanmean(ratios)), ratios
 
@@ -104,20 +179,28 @@ def evaluate(pred: pd.DataFrame, score_col: str = "target_pts_hat", *, points: b
     """All metrics for one prediction frame.  `points=False` for ordering-only
     overlays (e.g. the rank head) where the score is not a calibrated point."""
     vx, _ = value_of_xv(pred, score_col)
+    vt, _ = value_of_team(
+        pred,
+        score_col,
+        supersub_score_col="supersub_score" if "supersub_score" in pred.columns else None,
+        captain_score_col="captain_score" if "captain_score" in pred.columns else None,
+    )
     capt = captain_hit_rates(pred, score_col, (1, 3, 5))
     out = {
+        "value_team": vt,
         "value_xv": vx, **capt,
         "top15": topn_overlap(pred, 15, score_col),
         "top30": topn_overlap(pred, 30, score_col),
         "spearman_pos": spearman_within_pos(pred, score_col),
     }
     out["mae"] = points_mae(pred, score_col)["overall"] if points else np.nan
+    out["bench_mae"] = bench_mae(pred, score_col) if points else np.nan
     return out
 
 
 def format_table(rows: dict[str, dict], title: str) -> str:
     cols = [
-        "mae", "value_xv", "top15", "top30",
+        "mae", "bench_mae", "value_team", "value_xv", "top15", "top30",
         "capt_top1", "capt_top3", "capt_top5", "spearman_pos",
     ]
     head = f"{'engine':16s} " + " ".join(f"{c:>10s}" for c in cols)

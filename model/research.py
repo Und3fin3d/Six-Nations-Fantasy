@@ -45,7 +45,9 @@ from model.evaluate import (
 from model.splits import component_train, round_iter
 from model.train_components import (
     LGBM_COMPS,
+    LSTM_COMPS,
     predict_rates_lgbm_only,
+    predict_rates_lstm_only,
     predict_rates_registry,
     save_registry,
     select_components,
@@ -75,7 +77,7 @@ class Config:
     """All knobs.  Defaults reproduce the current cdx deployable behaviour."""
     name: str = "baseline"
     note: str = "current cdx selected deployable engine"
-    deploy_engine: str = "lgbm_only"       # lgbm_only | registry
+    deploy_engine: str = "lgbm_only"       # lstm_only | lgbm_only | registry
     # component layer (validated on 2023+2024 OOF)
     lgbm_margin: float = 0.02
     blend_weight: float = 0.5
@@ -238,7 +240,9 @@ def _registry_for(df, train_mask, cfg: Config) -> pd.DataFrame:
 def _registry_lgbm_count(cfg: Config, registry: pd.DataFrame | None) -> int:
     if cfg.deploy_engine == "lgbm_only":
         return len(LGBM_COMPS)
-    return int((registry["engine"].isin(["lgbm", "blend"])).sum())
+    if cfg.deploy_engine == "lstm_only":
+        return len(LSTM_COMPS)
+    return int((registry["engine"].isin(["lstm", "lgbm", "blend"])).sum())
 
 
 def _predict_config(
@@ -256,6 +260,8 @@ def _predict_config(
         def predictor(d, ti, te, mo):
             if cfg.deploy_engine == "lgbm_only":
                 return predict_rates_lgbm_only(d, ti, te, mo)
+            if cfg.deploy_engine == "lstm_only":
+                return predict_rates_lstm_only(d, ti, te, mo)
             return predict_rates_registry(d, ti, te, mo, registry)
 
         pred, diag = assemble_predictions(
@@ -339,6 +345,7 @@ def accept(best: dict, cand: dict) -> tuple[bool, str]:
 # candidate queue — each is (name, note, delta kwargs)
 # ---------------------------------------------------------------------------
 CANDIDATES = [
+    ("deploy_lstm_only", "use LSTM component-rate architecture", dict(deploy_engine="lstm_only")),
     ("deploy_registry", "return to OOF-gated component registry", dict(deploy_engine="registry")),
     ("minutes_alpha_3", "tighter minutes ridge", dict(minutes_alpha=3.0)),
     ("minutes_alpha_30", "looser minutes ridge", dict(minutes_alpha=30.0)),

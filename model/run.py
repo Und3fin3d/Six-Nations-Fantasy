@@ -3,7 +3,7 @@
 
 Backtest (train 2023+2024 -> 2025) and deployment (train 2023+2024+2025 -> 2026),
 printing a comparison table across all engines and both feature-view modes:
-  ensemble | lgbm_only | glm | ridge | naive | b3_direct | rank_head
+  ensemble | lstm_only | lgbm_only | glm | ridge | naive | b3_direct | rank_head
 
 2026 is sealed: it is evaluated exactly once here, after the 2025 backtest
 result is accepted, and is never used to choose components or tune anything.
@@ -17,6 +17,7 @@ Selection policy:
 Usage:
   python -m model.run                # backtest + deployment, post-team-sheet headline
   python -m model.run --no-2026      # backtest only (keep 2026 sealed)
+  python -m model.run --engine lstm_only --no-2026
 """
 from __future__ import annotations
 
@@ -36,20 +37,22 @@ from model.evaluate import evaluate, format_table
 from model.splits import component_train
 from model.train_components import (
     predict_rates_lgbm_only,
+    predict_rates_lstm_only,
     predict_rates_registry,
     save_registry,
     select_components,
 )
 
-ENGINE_ORDER = ["ensemble", "lgbm_only", "glm", "ridge", "naive"]
-DEPLOYABLE_ENGINES = ["ensemble", "lgbm_only", "glm", "ridge", "naive"]
+ENGINE_ORDER = ["ensemble", "lstm_only", "lgbm_only", "glm", "ridge", "naive"]
+DEPLOYABLE_ENGINES = ["ensemble", "lstm_only", "lgbm_only", "glm", "ridge", "naive"]
 
 
-def build_predictors(registry: pd.DataFrame):
+def build_predictors(registry: pd.DataFrame | None):
     return {
         "naive": lambda d, ti, te, mo: predict_rates(d, ti, te, mo, "naive"),
         "ridge": lambda d, ti, te, mo: predict_rates(d, ti, te, mo, "ridge"),
         "glm": lambda d, ti, te, mo: predict_rates(d, ti, te, mo, "glm"),
+        "lstm_only": lambda d, ti, te, mo: predict_rates_lstm_only(d, ti, te, mo),
         "lgbm_only": lambda d, ti, te, mo: predict_rates_lgbm_only(d, ti, te, mo),
         "ensemble": lambda d, ti, te, mo: predict_rates_registry(d, ti, te, mo, registry),
     }
@@ -86,12 +89,18 @@ def direct_points_frame(df: pd.DataFrame, test_season: int, mode: str) -> pd.Dat
     }, index=sub.index)
 
 
-def run_season(df, train_idx, test_season, mode, predictors, registry):
+def run_season(
+    df, train_idx, test_season, mode, predictors, registry,
+    engine_order=None, *, diagnostics: bool = True,
+):
+    engine_order = engine_order or ENGINE_ORDER
     results, preds = {}, {}
-    for name in ENGINE_ORDER:
+    for name in engine_order:
         pred, diag = assemble_predictions(df, train_idx, test_season, mode, predictors[name])
         results[name] = evaluate(pred)
         preds[name] = (pred, diag)
+    if not diagnostics:
+        return results, preds
     # B3 direct-points cross-check
     results["b3_direct"] = evaluate(direct_points_frame(df, test_season, mode))
     # optional rank head (ordering overlay on the ensemble frame)
@@ -107,26 +116,35 @@ def main():
     ap.add_argument("--no-2026", action="store_true", help="keep 2026 sealed")
     ap.add_argument("--mode", default="post_team_sheet",
                     choices=["pre_team_sheet", "post_team_sheet"])
+    ap.add_argument("--engine", default="all",
+                    choices=["all"] + DEPLOYABLE_ENGINES,
+                    help="run all engines, or one deployable engine for a focused experiment")
     args = ap.parse_args()
 
     df = load()
 
     # ---- component selection on the BACKTEST train years (no 2025/2026 peek) ----
     bt_train_mask = component_train(df, 2025)
-    print("Selecting components on 2023+2024 OOF (post_team_sheet) ...")
-    registry = select_components(df, bt_train_mask, args.mode)
-    save_registry(registry)
-    print(registry[["component", "kind", "engine", "reason"]].to_string(index=False))
+    registry = None
+    if args.engine in ("all", "ensemble"):
+        print("Selecting components on 2023+2024 OOF (post_team_sheet) ...")
+        registry = select_components(df, bt_train_mask, args.mode)
+        save_registry(registry)
+        print(registry[["component", "kind", "engine", "reason"]].to_string(index=False))
 
     predictors = build_predictors(registry)
     bt_train_idx = np.where(bt_train_mask)[0]
+    engine_order = ENGINE_ORDER if args.engine == "all" else [args.engine]
+    diagnostics = args.engine == "all"
 
     # ---- 2025 backtest ----
-    res25, preds25 = run_season(df, bt_train_idx, 2025, args.mode, predictors, registry)
+    res25, preds25 = run_season(
+        df, bt_train_idx, 2025, args.mode, predictors, registry,
+        engine_order, diagnostics=diagnostics)
     print(format_table(res25, f"2025 BACKTEST  (train 2023+2024, mode={args.mode})"))
 
     # mode comparison for the two anchor engines
-    if args.mode == "post_team_sheet":
+    if args.mode == "post_team_sheet" and args.engine == "all":
         alt = {}
         for name in ("naive", "ensemble"):
             pred, _ = assemble_predictions(df, bt_train_idx, 2025, "pre_team_sheet",
@@ -134,7 +152,7 @@ def main():
             alt[name] = evaluate(pred)
         print(format_table(alt, "2025 BACKTEST  (mode=pre_team_sheet, anchors only)"))
 
-    selected_engine = select_deployable_engine(res25)
+    selected_engine = select_deployable_engine(res25) if args.engine == "all" else args.engine
     print(f"\nSelected deployable engine from 2025 backtest: {selected_engine}")
     _accept_and_persist(df, bt_train_idx, 2025, args.mode, predictors,
                         selected_engine)
@@ -142,15 +160,18 @@ def main():
     # ---- 2026 deployment (sealed; evaluated once) ----
     if not args.no_2026:
         dep_train_idx = np.where(component_train(df, 2026))[0]
-        res26, _ = run_season(df, dep_train_idx, 2026, args.mode, predictors, registry)
+        res26, _ = run_season(
+            df, dep_train_idx, 2026, args.mode, predictors, registry,
+            engine_order, diagnostics=diagnostics)
         print(format_table(res26, f"2026 DEPLOYMENT  (train 2023+2024+2025, mode={args.mode})"))
         _accept_and_persist(df, dep_train_idx, 2026, args.mode, predictors,
                             selected_engine)
 
     seasons = [2025] + ([] if args.no_2026 else [2026])
-    _persist_promoted_research_config(df, seasons)
+    _persist_promoted_research_config(df, seasons, selected_engine)
 
-    _verdict(res25, selected_engine)
+    if args.engine == "all":
+        _verdict(res25, selected_engine)
 
 
 def select_deployable_engine(results: dict[str, dict]) -> str:
@@ -181,7 +202,7 @@ def _accept_and_persist(df, train_idx, season, mode, predictors, engine):
     print(f"  saved {out.name} from {engine}  ({len(pred)} rows)")
 
 
-def _persist_promoted_research_config(df, seasons: list[int]) -> None:
+def _persist_promoted_research_config(df, seasons: list[int], selected_engine: str) -> None:
     """If the research loop has a promotion decision, make it the final artifact.
 
     `model.run` still prints the full diagnostic table, but the branch's deployable
@@ -192,6 +213,14 @@ def _persist_promoted_research_config(df, seasons: list[int]) -> None:
     if not PROMOTED_CONFIG.exists():
         return
     cfg = Config(**json.loads(PROMOTED_CONFIG.read_text()))
+    if cfg.deploy_engine != "lstm_only":
+        print(f"  skipped promoted research config {cfg.name} "
+              f"({cfg.deploy_engine}); this branch is testing lstm_only")
+        return
+    if cfg.deploy_engine != selected_engine:
+        print(f"  skipped promoted research config {cfg.name} "
+              f"({cfg.deploy_engine}); selected engine is {selected_engine}")
+        return
     for season in seasons:
         pred, _, _ = _predict_config(df, cfg, season)
         out = DATA / f"model_predictions_{season}.csv"

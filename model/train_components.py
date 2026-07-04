@@ -26,6 +26,14 @@ import warnings
 import lightgbm as lgb
 import numpy as np
 import pandas as pd
+from sklearn.preprocessing import StandardScaler
+
+try:
+    import torch
+    from torch import nn
+except ImportError:  # pragma: no cover - only exercised on non-torch envs
+    torch = None
+    nn = None
 
 from model import baselines as B
 from model.baselines import (
@@ -50,6 +58,7 @@ LGBM_COMPS = {
     "tackles", "metres", "tries", "try_assists", "defenders_beaten",
     "offload", "tackle_turnover", "penalties_conceded",
 }
+LSTM_COMPS = set(LGBM_COMPS)
 # always-zero / always-prior components (never fit a flexible model)
 ZERO_PRIOR = {"drop_goals_converted", "red_cards"}
 KICK_COMPS = {"conversion_goals", "penalty_goals"}
@@ -60,6 +69,12 @@ _LGBM_BASE = dict(
     min_child_samples=50, reg_lambda=5.0, colsample_bytree=0.8,
     subsample=0.9, subsample_freq=1, random_state=RNG, n_jobs=1, verbosity=-1,
 )
+_LSTM_BASE = dict(
+    seq_len=4, hidden_size=12, batch_size=512, max_epochs=12, patience=3,
+    learning_rate=0.01, weight_decay=1e-3,
+)
+LSTM_REGISTRY_CANDIDATE = False
+_SEQ_POS_CACHE: dict[tuple[int, int], list[np.ndarray]] = {}
 
 
 def _lgbm_objective(comp: str) -> dict:
@@ -113,6 +128,177 @@ def _lgbm_predict(model, df: pd.DataFrame, idx: np.ndarray, mode: str) -> np.nda
     return np.clip(model.predict(X.iloc[idx]), 0.0, None)
 
 
+class _ComponentLSTM(nn.Module if nn is not None else object):
+    def __init__(self, input_size: int, hidden_size: int):
+        super().__init__()
+        self.lstm = nn.LSTM(input_size, hidden_size, batch_first=True)
+        self.head = nn.Sequential(
+            nn.LayerNorm(hidden_size),
+            nn.Linear(hidden_size, 1),
+        )
+
+    def forward(self, x):
+        _, (h, _) = self.lstm(x)
+        return self.head(h[-1]).squeeze(-1)
+
+
+def _require_torch():
+    if torch is None or nn is None:
+        raise ImportError("PyTorch is required for the LSTM experiment")
+    torch.manual_seed(RNG)
+    torch.set_num_threads(1)
+    return torch
+
+
+def _sequence_positions(df: pd.DataFrame, seq_len: int) -> list[np.ndarray]:
+    key = (id(df), seq_len)
+    cached = _SEQ_POS_CACHE.get(key)
+    if cached is not None:
+        return cached
+
+    work = df[["player_id", "date", "fixture_id", "round"]].copy()
+    work["_pos"] = np.arange(len(df))
+    work = work.sort_values(
+        ["player_id", "date", "fixture_id", "round", "_pos"],
+        kind="stable",
+    )
+    out: list[np.ndarray] = [np.array([], dtype=int) for _ in range(len(df))]
+    for _, g in work.groupby("player_id", sort=False):
+        pos = g["_pos"].to_numpy(int)
+        for i, p in enumerate(pos):
+            out[p] = pos[max(0, i - seq_len + 1): i + 1]
+    _SEQ_POS_CACHE[key] = out
+    return out
+
+
+def _lstm_feature_matrix(
+    df: pd.DataFrame, fit_idx: np.ndarray, mode: str
+) -> tuple[np.ndarray, list[str]]:
+    cols = B.numeric_cols(df, mode)
+    Xraw = df[cols].astype(float)
+    imp = B.PositionMeanImputer().fit(
+        Xraw.iloc[fit_idx], df.iloc[fit_idx]["canonical_pos"])
+    Ximp = imp.transform(Xraw, df["canonical_pos"])
+    sc = StandardScaler().fit(Ximp.iloc[fit_idx].to_numpy())
+    return sc.transform(Ximp.to_numpy()).astype(np.float32), cols
+
+
+def _lstm_sequences(
+    df: pd.DataFrame, X_all: np.ndarray, idx: np.ndarray, seq_len: int
+) -> np.ndarray:
+    seq_pos = _sequence_positions(df, seq_len)
+    X = np.zeros((len(idx), seq_len, X_all.shape[1]), dtype=np.float32)
+    for i, p in enumerate(idx.astype(int)):
+        hist = seq_pos[p]
+        X[i, -len(hist):, :] = X_all[hist]
+    return X
+
+
+def _fit_lstm_component(
+    df: pd.DataFrame, tr_idx: np.ndarray, va_idx: np.ndarray | None,
+    comp: str, mode: str,
+):
+    """Fit one small LSTM on player-history feature sequences for a component."""
+    torch_mod = _require_torch()
+    keep = (df.iloc[tr_idx]["minutes"] >= MIN_MINUTES).to_numpy()
+    use = tr_idx[keep]
+    if len(use) < 20:
+        y_const = _rate_target(df.iloc[use], comp) if len(use) else np.array([0.0])
+        return {
+            "kind": "constant",
+            "value": float(np.nan_to_num(y_const, nan=0.0, posinf=0.0,
+                                         neginf=0.0).clip(min=0.0).mean()),
+        }
+
+    X_all, _ = _lstm_feature_matrix(df, use, mode)
+    Xtr = _lstm_sequences(df, X_all, use, _LSTM_BASE["seq_len"])
+    ytr = np.clip(
+        np.nan_to_num(_rate_target(df.iloc[use], comp), nan=0.0,
+                      posinf=0.0, neginf=0.0),
+        0.0,
+        None,
+    )
+    ytr = np.log1p(ytr).astype(np.float32)
+
+    val_data = None
+    if va_idx is not None:
+        vkeep = (df.iloc[va_idx]["minutes"] >= MIN_MINUTES).to_numpy()
+        vu = va_idx[vkeep]
+        if len(vu):
+            Xva = _lstm_sequences(df, X_all, vu, _LSTM_BASE["seq_len"])
+            yva = np.clip(
+                np.nan_to_num(_rate_target(df.iloc[vu], comp), nan=0.0,
+                              posinf=0.0, neginf=0.0),
+                0.0,
+                None,
+            )
+            val_data = (
+                torch_mod.tensor(Xva),
+                torch_mod.tensor(np.log1p(yva).astype(np.float32)),
+            )
+
+    model = _ComponentLSTM(Xtr.shape[-1], _LSTM_BASE["hidden_size"])
+    opt = torch_mod.optim.AdamW(
+        model.parameters(),
+        lr=_LSTM_BASE["learning_rate"],
+        weight_decay=_LSTM_BASE["weight_decay"],
+    )
+    loss_fn = nn.SmoothL1Loss()
+    Xt = torch_mod.tensor(Xtr)
+    yt = torch_mod.tensor(ytr)
+    rng = np.random.default_rng(RNG)
+    best_loss = float("inf")
+    best_state = None
+    stale = 0
+
+    for _ in range(_LSTM_BASE["max_epochs"]):
+        model.train()
+        order = rng.permutation(len(Xt))
+        for start in range(0, len(order), _LSTM_BASE["batch_size"]):
+            batch = order[start:start + _LSTM_BASE["batch_size"]]
+            opt.zero_grad()
+            loss = loss_fn(model(Xt[batch]), yt[batch])
+            loss.backward()
+            torch_mod.nn.utils.clip_grad_norm_(model.parameters(), 1.0)
+            opt.step()
+
+        model.eval()
+        with torch_mod.no_grad():
+            if val_data is None:
+                cur = float(loss_fn(model(Xt), yt).item())
+            else:
+                Xv, yv = val_data
+                cur = float(loss_fn(model(Xv), yv).item())
+        if cur < best_loss - 1e-5:
+            best_loss = cur
+            best_state = {k: v.detach().clone() for k, v in model.state_dict().items()}
+            stale = 0
+        else:
+            stale += 1
+            if val_data is not None and stale >= _LSTM_BASE["patience"]:
+                break
+
+    if best_state is not None:
+        model.load_state_dict(best_state)
+    model.eval()
+    return {
+        "kind": "lstm",
+        "model": model,
+        "x_all": X_all,
+        "seq_len": _LSTM_BASE["seq_len"],
+    }
+
+
+def _lstm_predict(model, df: pd.DataFrame, idx: np.ndarray, mode: str) -> np.ndarray:
+    if model["kind"] == "constant":
+        return np.full(len(idx), model["value"], dtype=float)
+    torch_mod = _require_torch()
+    X = _lstm_sequences(df, model["x_all"], idx, model["seq_len"])
+    with torch_mod.no_grad():
+        y = model["model"](torch_mod.tensor(X)).detach().numpy()
+    return np.clip(np.expm1(y), 0.0, None)
+
+
 def _kick_gate(df: pd.DataFrame, idx: np.ndarray) -> np.ndarray:
     """1.0 for plausible goal-kickers, else 0.0 (concentrates kicking mass)."""
     r = df.iloc[idx]["role_goal_kicker_rate"].fillna(0.0).to_numpy(float)
@@ -160,6 +346,10 @@ def _oof_candidate_mae(
                 # blend candidate: w*lgbm + (1-w)*glm
                 yb = BLEND_WEIGHT * yl + (1.0 - BLEND_WEIGHT) * frames["glm"][comp].to_numpy(float)
                 add(comp, "blend", ytrue, yb)
+            if LSTM_REGISTRY_CANDIDATE and comp in LSTM_COMPS:
+                m = _fit_lstm_component(df, tr_idx, va_idx, comp, mode)
+                yn = _lstm_predict(m, df, vu, mode)
+                add(comp, "lstm", ytrue, yn)
 
     out: dict[str, dict[str, float]] = {}
     for comp in SCORED:
@@ -191,7 +381,7 @@ def select_components(
             # meaningful relative margin (epsilon wins on 30 fixtures are noise).
             threshold = best_simple_mae * (1.0 - LGBM_MARGIN)
             best_adv, best_adv_mae = None, threshold
-            for adv in ("lgbm", "blend"):
+            for adv in ("lstm", "lgbm", "blend"):
                 if adv in m and m[adv] < best_adv_mae:
                     best_adv, best_adv_mae = adv, m[adv]
             if best_adv is not None:
@@ -203,7 +393,8 @@ def select_components(
             component=comp, kind=kind, engine=choice,
             oof_naive=m.get("naive", np.nan), oof_ridge=m.get("ridge", np.nan),
             oof_glm=m.get("glm", np.nan), oof_lgbm=m.get("lgbm", np.nan),
-            oof_blend=m.get("blend", np.nan), reason=reason,
+            oof_blend=m.get("blend", np.nan), oof_lstm=m.get("lstm", np.nan),
+            reason=reason,
         ))
     return pd.DataFrame(rows)
 
@@ -238,6 +429,9 @@ def predict_rates_registry(
             m = _fit_lgbm_component(df, train_idx, None, comp, mode)
             yl = _lgbm_predict(m, df, test_idx, mode)
             out[comp] = BLEND_WEIGHT * yl + (1.0 - BLEND_WEIGHT) * base["glm"][comp].to_numpy(float)
+        elif e == "lstm":
+            m = _fit_lstm_component(df, train_idx, None, comp, mode)
+            out[comp] = _lstm_predict(m, df, test_idx, mode)
         # gate kicking to plausible kickers
         if comp in KICK_COMPS:
             out[comp] = out[comp].to_numpy(float) * gate
@@ -266,6 +460,32 @@ def predict_rates_lgbm_only(
     return out.clip(lower=0.0)
 
 
+def predict_rates_lstm_only(
+    df: pd.DataFrame, train_idx: np.ndarray, test_idx: np.ndarray, mode: str
+) -> pd.DataFrame:
+    """Every trainable component via a small LSTM over player-history sequences.
+
+    Rare, card, and kicking components keep the same conservative priors as the
+    LightGBM-only comparison because they are sparse assignment/prior problems
+    more than sequence-learning problems at this sample size.
+    """
+    naive = predict_rates(df, train_idx, test_idx, mode, "naive")
+    te = df.iloc[test_idx]
+    out = pd.DataFrame(index=te.index, columns=SCORED, dtype=float)
+    gate = _kick_gate(df, test_idx)
+    for comp in SCORED:
+        if comp in ZERO_PRIOR:
+            out[comp] = 0.0
+        elif comp in LSTM_COMPS:
+            m = _fit_lstm_component(df, train_idx, None, comp, mode)
+            out[comp] = _lstm_predict(m, df, test_idx, mode)
+        else:
+            out[comp] = naive[comp].to_numpy(float)
+        if comp in KICK_COMPS:
+            out[comp] = out[comp].to_numpy(float) * gate
+    return out.clip(lower=0.0)
+
+
 def save_registry(registry: pd.DataFrame, path=None) -> None:
     path = path or (DATA / "model_component_registry.csv")
     registry.to_csv(path, index=False)
@@ -282,7 +502,7 @@ def _selfcheck() -> None:
     reg = select_components(df, train_mask, mode)
     pd.set_option("display.width", 160)
     print(reg[["component", "kind", "engine", "oof_naive", "oof_ridge",
-               "oof_glm", "oof_lgbm", "reason"]].to_string(index=False))
+               "oof_glm", "oof_lgbm", "oof_lstm", "reason"]].to_string(index=False))
     save_registry(reg)
 
     train_idx = np.where(train_mask)[0]

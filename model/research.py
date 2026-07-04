@@ -33,7 +33,7 @@ from sklearn.linear_model import PoissonRegressor, Ridge
 from model import assemble as A
 from model import train_components as TC
 from model.assemble import assemble_predictions, rank_scores
-from model.baselines import MIN_MINUTES
+from model.baselines import MIN_MINUTES, predict_rates
 from model.data import load
 from model.evaluate import (
     captain_hitrate,
@@ -75,7 +75,7 @@ class Config:
     """All knobs.  Defaults reproduce the current cdx deployable behaviour."""
     name: str = "baseline"
     note: str = "current cdx selected deployable engine"
-    deploy_engine: str = "lgbm_only"       # lgbm_only | registry
+    deploy_engine: str = "lgbm_only"       # lgbm_only | bayesian | registry
     # component layer (validated on 2023+2024 OOF)
     lgbm_margin: float = 0.02
     blend_weight: float = 0.5
@@ -238,6 +238,8 @@ def _registry_for(df, train_mask, cfg: Config) -> pd.DataFrame:
 def _registry_lgbm_count(cfg: Config, registry: pd.DataFrame | None) -> int:
     if cfg.deploy_engine == "lgbm_only":
         return len(LGBM_COMPS)
+    if cfg.deploy_engine == "bayesian":
+        return 0
     return int((registry["engine"].isin(["lgbm", "blend"])).sum())
 
 
@@ -248,7 +250,8 @@ def _predict_config(
     train_mask = component_train(df, season)
     train_idx = np.where(train_mask)[0]
     test_idx = np.where((df["season"] == season).to_numpy())[0]
-    registry = None if cfg.deploy_engine == "lgbm_only" else _registry_for(df, train_mask, cfg)
+    registry = None if cfg.deploy_engine in {"lgbm_only", "bayesian"} \
+        else _registry_for(df, train_mask, cfg)
 
     with apply_config(cfg):
         minutes_hat = build_minutes(df, train_idx, test_idx, cfg)
@@ -256,6 +259,8 @@ def _predict_config(
         def predictor(d, ti, te, mo):
             if cfg.deploy_engine == "lgbm_only":
                 return predict_rates_lgbm_only(d, ti, te, mo)
+            if cfg.deploy_engine == "bayesian":
+                return predict_rates(d, ti, te, mo, "bayesian")
             return predict_rates_registry(d, ti, te, mo, registry)
 
         pred, diag = assemble_predictions(
@@ -339,6 +344,7 @@ def accept(best: dict, cand: dict) -> tuple[bool, str]:
 # candidate queue — each is (name, note, delta kwargs)
 # ---------------------------------------------------------------------------
 CANDIDATES = [
+    ("deploy_bayesian", "use Bayesian ridge component architecture", dict(deploy_engine="bayesian")),
     ("deploy_registry", "return to OOF-gated component registry", dict(deploy_engine="registry")),
     ("minutes_alpha_3", "tighter minutes ridge", dict(minutes_alpha=3.0)),
     ("minutes_alpha_30", "looser minutes ridge", dict(minutes_alpha=30.0)),

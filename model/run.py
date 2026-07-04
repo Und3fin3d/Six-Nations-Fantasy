@@ -1,9 +1,12 @@
 #!/usr/bin/env python3
 """model/run.py  —  run harness (Phase 6).
 
-Backtest (train 2023+2024 -> 2025) and deployment (train 2023+2024+2025 -> 2026),
-printing a comparison table across all engines and both feature-view modes:
-  ensemble | lgbm_only | glm | ridge | naive | b3_direct | rank_head
+Backtest (train 2023+2024 -> 2025) and deployment (train 2023+2024+2025 -> 2026).
+By default this experiment branch runs the Bayesian component architecture:
+  bayesian | naive
+
+The legacy exhaustive comparison is still available with `--architecture all`:
+  bayesian | ensemble | lgbm_only | glm | ridge | naive | b3_direct | rank_head
 
 2026 is sealed: it is evaluated exactly once here, after the 2025 backtest
 result is accepted, and is never used to choose components or tune anything.
@@ -15,8 +18,9 @@ Selection policy:
   to win if it proves better at the assembled picker objective.
 
 Usage:
-  python -m model.run                # backtest + deployment, post-team-sheet headline
-  python -m model.run --no-2026      # backtest only (keep 2026 sealed)
+  python -m model.run                # Bayesian backtest + deployment
+  python -m model.run --no-2026      # Bayesian backtest only (keep 2026 sealed)
+  python -m model.run --architecture all --no-2026  # legacy all-engine comparison
 """
 from __future__ import annotations
 
@@ -41,14 +45,15 @@ from model.train_components import (
     select_components,
 )
 
-ENGINE_ORDER = ["ensemble", "lgbm_only", "glm", "ridge", "naive"]
-DEPLOYABLE_ENGINES = ["ensemble", "lgbm_only", "glm", "ridge", "naive"]
+BAYESIAN_ENGINE_ORDER = ["bayesian", "naive"]
+ALL_ENGINE_ORDER = ["bayesian", "ensemble", "lgbm_only", "glm", "ridge", "naive"]
 
 
-def build_predictors(registry: pd.DataFrame):
+def build_predictors(registry: pd.DataFrame | None):
     return {
         "naive": lambda d, ti, te, mo: predict_rates(d, ti, te, mo, "naive"),
         "ridge": lambda d, ti, te, mo: predict_rates(d, ti, te, mo, "ridge"),
+        "bayesian": lambda d, ti, te, mo: predict_rates(d, ti, te, mo, "bayesian"),
         "glm": lambda d, ti, te, mo: predict_rates(d, ti, te, mo, "glm"),
         "lgbm_only": lambda d, ti, te, mo: predict_rates_lgbm_only(d, ti, te, mo),
         "ensemble": lambda d, ti, te, mo: predict_rates_registry(d, ti, te, mo, registry),
@@ -86,19 +91,20 @@ def direct_points_frame(df: pd.DataFrame, test_season: int, mode: str) -> pd.Dat
     }, index=sub.index)
 
 
-def run_season(df, train_idx, test_season, mode, predictors, registry):
+def run_season(df, train_idx, test_season, mode, predictors, registry, engine_order):
     results, preds = {}, {}
-    for name in ENGINE_ORDER:
+    for name in engine_order:
         pred, diag = assemble_predictions(df, train_idx, test_season, mode, predictors[name])
         results[name] = evaluate(pred)
         preds[name] = (pred, diag)
-    # B3 direct-points cross-check
-    results["b3_direct"] = evaluate(direct_points_frame(df, test_season, mode))
-    # optional rank head (ordering overlay on the ensemble frame)
-    test_idx = np.where((df["season"] == test_season).to_numpy())[0]
-    rk = preds["ensemble"][0].copy()
-    rk["rank_score"] = rank_scores(df, train_idx, test_idx, mode)
-    results["rank_head"] = evaluate(rk, score_col="rank_score", points=False)
+    if "ensemble" in preds:
+        # B3 direct-points cross-check
+        results["b3_direct"] = evaluate(direct_points_frame(df, test_season, mode))
+        # optional rank head (ordering overlay on the ensemble frame)
+        test_idx = np.where((df["season"] == test_season).to_numpy())[0]
+        rk = preds["ensemble"][0].copy()
+        rk["rank_score"] = rank_scores(df, train_idx, test_idx, mode)
+        results["rank_head"] = evaluate(rk, score_col="rank_score", points=False)
     return results, preds
 
 
@@ -107,34 +113,48 @@ def main():
     ap.add_argument("--no-2026", action="store_true", help="keep 2026 sealed")
     ap.add_argument("--mode", default="post_team_sheet",
                     choices=["pre_team_sheet", "post_team_sheet"])
+    ap.add_argument("--architecture", default="bayesian", choices=["bayesian", "all"],
+                    help="bayesian experiment path, or all for the legacy exhaustive comparison")
     args = ap.parse_args()
 
     df = load()
 
-    # ---- component selection on the BACKTEST train years (no 2025/2026 peek) ----
     bt_train_mask = component_train(df, 2025)
-    print("Selecting components on 2023+2024 OOF (post_team_sheet) ...")
-    registry = select_components(df, bt_train_mask, args.mode)
-    save_registry(registry)
-    print(registry[["component", "kind", "engine", "reason"]].to_string(index=False))
+    registry = None
+    if args.architecture == "all":
+        # ---- component selection on the BACKTEST train years (no 2025/2026 peek) ----
+        print("Selecting components on 2023+2024 OOF (post_team_sheet) ...")
+        registry = select_components(df, bt_train_mask, args.mode)
+        save_registry(registry)
+        print(registry[["component", "kind", "engine", "reason"]].to_string(index=False))
+        engine_order = ALL_ENGINE_ORDER
+    else:
+        print("Running Bayesian component architecture (registry selection skipped) ...")
+        engine_order = BAYESIAN_ENGINE_ORDER
 
     predictors = build_predictors(registry)
     bt_train_idx = np.where(bt_train_mask)[0]
 
     # ---- 2025 backtest ----
-    res25, preds25 = run_season(df, bt_train_idx, 2025, args.mode, predictors, registry)
-    print(format_table(res25, f"2025 BACKTEST  (train 2023+2024, mode={args.mode})"))
+    res25, preds25 = run_season(
+        df, bt_train_idx, 2025, args.mode, predictors, registry, engine_order)
+    print(format_table(
+        res25,
+        f"2025 BACKTEST  (train 2023+2024, mode={args.mode}, architecture={args.architecture})",
+    ))
 
     # mode comparison for the two anchor engines
     if args.mode == "post_team_sheet":
         alt = {}
-        for name in ("naive", "ensemble"):
+        anchors = ("naive", "bayesian", "ensemble") if args.architecture == "all" \
+            else ("naive", "bayesian")
+        for name in anchors:
             pred, _ = assemble_predictions(df, bt_train_idx, 2025, "pre_team_sheet",
                                            predictors[name])
             alt[name] = evaluate(pred)
         print(format_table(alt, "2025 BACKTEST  (mode=pre_team_sheet, anchors only)"))
 
-    selected_engine = select_deployable_engine(res25)
+    selected_engine = select_deployable_engine(res25, engine_order)
     print(f"\nSelected deployable engine from 2025 backtest: {selected_engine}")
     _accept_and_persist(df, bt_train_idx, 2025, args.mode, predictors,
                         selected_engine)
@@ -142,18 +162,24 @@ def main():
     # ---- 2026 deployment (sealed; evaluated once) ----
     if not args.no_2026:
         dep_train_idx = np.where(component_train(df, 2026))[0]
-        res26, _ = run_season(df, dep_train_idx, 2026, args.mode, predictors, registry)
-        print(format_table(res26, f"2026 DEPLOYMENT  (train 2023+2024+2025, mode={args.mode})"))
+        res26, _ = run_season(
+            df, dep_train_idx, 2026, args.mode, predictors, registry, engine_order)
+        print(format_table(
+            res26,
+            f"2026 DEPLOYMENT  (train 2023+2024+2025, mode={args.mode}, "
+            f"architecture={args.architecture})",
+        ))
         _accept_and_persist(df, dep_train_idx, 2026, args.mode, predictors,
                             selected_engine)
 
     seasons = [2025] + ([] if args.no_2026 else [2026])
-    _persist_promoted_research_config(df, seasons)
+    if args.architecture == "all":
+        _persist_promoted_research_config(df, seasons)
 
     _verdict(res25, selected_engine)
 
 
-def select_deployable_engine(results: dict[str, dict]) -> str:
+def select_deployable_engine(results: dict[str, dict], deployable_engines: list[str]) -> str:
     """Choose the best deployable point model from the 2025 validation table.
 
     `b3_direct` is diagnostic and `rank_head` is not a calibrated point forecast,
@@ -162,7 +188,7 @@ def select_deployable_engine(results: dict[str, dict]) -> str:
     """
     naive = results["naive"]
     candidates = []
-    for name in DEPLOYABLE_ENGINES:
+    for name in deployable_engines:
         m = results[name]
         if m["mae"] <= naive["mae"] and m["value_xv"] >= naive["value_xv"]:
             candidates.append(name)

@@ -5,10 +5,11 @@ Per-component objective map, baseline-GATED LightGBM, and a component registry.
 
 Selection rule (no test peeking): for each SCORED component we measure
 GroupKFold(5) OOF per-80 MAE **on the component-training years only** (2023+2024
-for the 2025 backtest).  LightGBM / blend are promoted only when they strictly
-beat the best of {naive, ridge, glm}; ties prefer the simpler engine.  The same
-selected ensemble is then used for both the 2025 backtest and the 2026
-deployment — 2025 is never used to choose components.
+for the 2025 backtest).  Bayesian ridge is a first-class shrinkage baseline.
+LightGBM / blend are promoted only when they strictly beat the best of
+{naive, ridge, bayesian, glm}; ties prefer the simpler engine.  The same selected
+ensemble is then used for both the 2025 backtest and the 2026 deployment — 2025
+is never used to choose components.
 
 Per-component families (COMP_KIND):
   rare  (drop_goals_converted, red_cards) -> zero_prior
@@ -53,6 +54,7 @@ LGBM_COMPS = {
 # always-zero / always-prior components (never fit a flexible model)
 ZERO_PRIOR = {"drop_goals_converted", "red_cards"}
 KICK_COMPS = {"conversion_goals", "penalty_goals"}
+SIMPLE_ENGINES = ("naive", "ridge", "bayesian", "glm")
 
 # conservative, heavily-regularized fixed config (small-data: 30 train fixtures)
 _LGBM_BASE = dict(
@@ -145,13 +147,13 @@ def _oof_candidate_mae(
         # baseline engines (full 13-col frames, sliced per comp)
         frames = {
             e: predict_rates(df, tr_idx, vu, mode, e)
-            for e in ("naive", "ridge", "glm")
+            for e in SIMPLE_ENGINES
         }
         # lgbm per eligible component
         for comp in SCORED:
             ytrue = _rate_target(df.iloc[vu], comp)
             ytrue = np.nan_to_num(ytrue, nan=0.0, posinf=0.0, neginf=0.0)
-            for e in ("naive", "ridge", "glm"):
+            for e in SIMPLE_ENGINES:
                 add(comp, e, ytrue, frames[e][comp].to_numpy(float))
             if comp in LGBM_COMPS:
                 m = _fit_lgbm_component(df, tr_idx, va_idx, comp, mode)
@@ -183,7 +185,7 @@ def select_components(
         elif comp == "yellow_cards":
             choice, reason = "naive", "position/discipline base rate"
         else:
-            simple = {e: m[e] for e in ("naive", "ridge", "glm") if e in m}
+            simple = {e: m[e] for e in SIMPLE_ENGINES if e in m}
             best_simple = min(simple, key=simple.get)
             best_simple_mae = simple[best_simple]
             choice, reason = best_simple, f"best baseline (OOF {best_simple_mae:.3f})"
@@ -202,8 +204,9 @@ def select_components(
         rows.append(dict(
             component=comp, kind=kind, engine=choice,
             oof_naive=m.get("naive", np.nan), oof_ridge=m.get("ridge", np.nan),
-            oof_glm=m.get("glm", np.nan), oof_lgbm=m.get("lgbm", np.nan),
-            oof_blend=m.get("blend", np.nan), reason=reason,
+            oof_bayesian=m.get("bayesian", np.nan), oof_glm=m.get("glm", np.nan),
+            oof_lgbm=m.get("lgbm", np.nan), oof_blend=m.get("blend", np.nan),
+            reason=reason,
         ))
     return pd.DataFrame(rows)
 
@@ -217,7 +220,7 @@ def predict_rates_registry(
 ) -> pd.DataFrame:
     """Per-80 rate predictions for the chosen-engine ensemble."""
     eng = dict(zip(registry["component"], registry["engine"]))
-    need_base = {e for e in eng.values() if e in ("naive", "ridge", "glm")}
+    need_base = {e for e in eng.values() if e in SIMPLE_ENGINES}
     need_base |= {"glm"} if "blend" in eng.values() else set()
     need_base |= {"naive"}  # kicking fallback always available
     base = {e: predict_rates(df, train_idx, test_idx, mode, e) for e in need_base}
@@ -282,7 +285,8 @@ def _selfcheck() -> None:
     reg = select_components(df, train_mask, mode)
     pd.set_option("display.width", 160)
     print(reg[["component", "kind", "engine", "oof_naive", "oof_ridge",
-               "oof_glm", "oof_lgbm", "reason"]].to_string(index=False))
+               "oof_bayesian", "oof_glm", "oof_lgbm",
+               "reason"]].to_string(index=False))
     save_registry(reg)
 
     train_idx = np.where(train_mask)[0]

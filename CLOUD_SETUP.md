@@ -12,6 +12,12 @@ The previous key appeared in public Git history. Revoke that key and create a re
 
 Use the repository Python environment for data scripts.
 
+Install the minimal scheduled-refresh dependencies in a cloud environment:
+
+```bash
+python -m pip install -r requirements-refresh.txt
+```
+
 ```bash
 python ncr_ingest.py --fetch --floor 50
 python ncr_ingest.py --rebuild

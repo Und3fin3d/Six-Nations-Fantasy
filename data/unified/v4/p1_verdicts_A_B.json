@@ -1,0 +1,18 @@
+{
+  "A": {
+    "mae_holds": true,
+    "spearman_improves": false,
+    "capture_improves": false,
+    "thin_n_total": 69,
+    "thin_mae": 5.940448715867467,
+    "thin_mae_baseline": 5.973756578837828
+  },
+  "B": {
+    "mae_holds": true,
+    "spearman_improves": true,
+    "capture_improves": true,
+    "thin_n_total": 69,
+    "thin_mae": 5.913770736555112,
+    "thin_mae_baseline": 5.973756578837828
+  }
+}

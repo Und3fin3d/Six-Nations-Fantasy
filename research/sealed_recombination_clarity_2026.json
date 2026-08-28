@@ -1,0 +1,243 @@
+{
+  "date": "2026-06-18",
+  "sealed_season": 2026,
+  "purpose": "Retrospective sealed 2026 recombination clarity check: add-on candidates evaluated on top of current promoted supersub_two_stage_minutes baseline. Not promotion policy.",
+  "current_base": {
+    "name": "supersub_two_stage_minutes",
+    "value_team": 0.6875127745483398,
+    "value_xv": 0.7144594778697986,
+    "mae": 7.348994791544289,
+    "top15": 0.3866666666666666,
+    "top30": 0.5466666666666666,
+    "spearman_sel": 0.587103050538006,
+    "round_team": [
+      0.7362045760430687,
+      0.740979381443299,
+      0.6036269430051814,
+      0.6272965879265092,
+      0.729456384323641
+    ]
+  },
+  "candidates": [
+    {
+      "name": "selector_upside_halfbacks_backs_025",
+      "value_team": 0.6875127745483398,
+      "value_xv": 0.7144594778697986,
+      "mae": 7.348994791544289,
+      "top15": 0.3466666666666666,
+      "top30": 0.5266666666666666,
+      "spearman_sel": 0.5873844033431567,
+      "dvalue_team_vs_current": 0.0,
+      "dvalue_xv_vs_current": 0.0,
+      "dmae_vs_current": 0.0,
+      "round_team_up_vs_current": 0,
+      "round_team": [
+        0.7362045760430687,
+        0.740979381443299,
+        0.6036269430051814,
+        0.6272965879265092,
+        0.729456384323641
+      ]
+    },
+    {
+      "name": "selector_upside_backthree_025",
+      "value_team": 0.6839729515394902,
+      "value_xv": 0.7101183925984808,
+      "mae": 7.348994791544289,
+      "top15": 0.36,
+      "top30": 0.54,
+      "spearman_sel": 0.5852575286014784,
+      "dvalue_team_vs_current": -0.0035398230088495852,
+      "dvalue_xv_vs_current": -0.004341085271317824,
+      "dmae_vs_current": 0.0,
+      "round_team_up_vs_current": 0,
+      "round_team": [
+        0.7362045760430687,
+        0.740979381443299,
+        0.6036269430051814,
+        0.6272965879265092,
+        0.7117572692793932
+      ]
+    },
+    {
+      "name": "selector_upside_backrow_backs_025",
+      "value_team": 0.6837201070388581,
+      "value_xv": 0.7098083150791009,
+      "mae": 7.348994791544289,
+      "top15": 0.3333333333333333,
+      "top30": 0.5399999999999999,
+      "spearman_sel": 0.5869381572830873,
+      "dvalue_team_vs_current": -0.0037926675094817064,
+      "dvalue_xv_vs_current": -0.0046511627906976605,
+      "dmae_vs_current": 0.0,
+      "round_team_up_vs_current": 0,
+      "round_team": [
+        0.7362045760430687,
+        0.740979381443299,
+        0.6036269430051814,
+        0.6272965879265092,
+        0.7104930467762326
+      ]
+    },
+    {
+      "name": "selector_mean_plus_upside_010",
+      "value_team": 0.6875127745483398,
+      "value_xv": 0.7144594778697986,
+      "mae": 7.348994791544289,
+      "top15": 0.3733333333333333,
+      "top30": 0.5466666666666666,
+      "spearman_sel": 0.5865407493034307,
+      "dvalue_team_vs_current": 0.0,
+      "dvalue_xv_vs_current": 0.0,
+      "dmae_vs_current": 0.0,
+      "round_team_up_vs_current": 0,
+      "round_team": [
+        0.7362045760430687,
+        0.740979381443299,
+        0.6036269430051814,
+        0.6272965879265092,
+        0.729456384323641
+      ]
+    },
+    {
+      "name": "selector_mean_plus_upside_020",
+      "value_team": 0.6872599300477077,
+      "value_xv": 0.7141494003504187,
+      "mae": 7.348994791544289,
+      "top15": 0.3333333333333333,
+      "top30": 0.5466666666666666,
+      "spearman_sel": 0.5868813864332041,
+      "dvalue_team_vs_current": -0.00025284450063212116,
+      "dvalue_xv_vs_current": -0.00031007751937983663,
+      "dmae_vs_current": 0.0,
+      "round_team_up_vs_current": 0,
+      "round_team": [
+        0.7362045760430687,
+        0.740979381443299,
+        0.6036269430051814,
+        0.6272965879265092,
+        0.7281921618204804
+      ]
+    },
+    {
+      "name": "captain_mean_plus_upside_010",
+      "value_team": 0.6875127745483398,
+      "value_xv": 0.7144594778697986,
+      "mae": 7.348994791544289,
+      "top15": 0.3866666666666666,
+      "top30": 0.5466666666666666,
+      "spearman_sel": 0.587103050538006,
+      "dvalue_team_vs_current": 0.0,
+      "dvalue_xv_vs_current": 0.0,
+      "dmae_vs_current": 0.0,
+      "round_team_up_vs_current": 0,
+      "round_team": [
+        0.7362045760430687,
+        0.740979381443299,
+        0.6036269430051814,
+        0.6272965879265092,
+        0.729456384323641
+      ]
+    },
+    {
+      "name": "captain_mean_plus_upside_020",
+      "value_team": 0.6875127745483398,
+      "value_xv": 0.7144594778697986,
+      "mae": 7.348994791544289,
+      "top15": 0.3866666666666666,
+      "top30": 0.5466666666666666,
+      "spearman_sel": 0.587103050538006,
+      "dvalue_team_vs_current": 0.0,
+      "dvalue_xv_vs_current": 0.0,
+      "dmae_vs_current": 0.0,
+      "round_team_up_vs_current": 0,
+      "round_team": [
+        0.7362045760430687,
+        0.740979381443299,
+        0.6036269430051814,
+        0.6272965879265092,
+        0.729456384323641
+      ]
+    },
+    {
+      "name": "captain_kicker_floor_plus_upside",
+      "value_team": 0.6875127745483398,
+      "value_xv": 0.7144594778697986,
+      "mae": 7.348994791544289,
+      "top15": 0.3866666666666666,
+      "top30": 0.5466666666666666,
+      "spearman_sel": 0.587103050538006,
+      "dvalue_team_vs_current": 0.0,
+      "dvalue_xv_vs_current": 0.0,
+      "dmae_vs_current": 0.0,
+      "round_team_up_vs_current": 0,
+      "round_team": [
+        0.7362045760430687,
+        0.740979381443299,
+        0.6036269430051814,
+        0.6272965879265092,
+        0.729456384323641
+      ]
+    },
+    {
+      "name": "captain_rank_overlay_025",
+      "value_team": 0.6875127745483398,
+      "value_xv": 0.7144594778697986,
+      "mae": 7.348994791544289,
+      "top15": 0.3866666666666666,
+      "top30": 0.5466666666666666,
+      "spearman_sel": 0.587103050538006,
+      "dvalue_team_vs_current": 0.0,
+      "dvalue_xv_vs_current": 0.0,
+      "dmae_vs_current": 0.0,
+      "round_team_up_vs_current": 0,
+      "round_team": [
+        0.7362045760430687,
+        0.740979381443299,
+        0.6036269430051814,
+        0.6272965879265092,
+        0.729456384323641
+      ]
+    },
+    {
+      "name": "supersub_minutes_uncertainty_025",
+      "value_team": 0.6875127745483398,
+      "value_xv": 0.7144594778697986,
+      "mae": 7.348994791544289,
+      "top15": 0.3866666666666666,
+      "top30": 0.5466666666666666,
+      "spearman_sel": 0.587103050538006,
+      "dvalue_team_vs_current": 0.0,
+      "dvalue_xv_vs_current": 0.0,
+      "dmae_vs_current": 0.0,
+      "round_team_up_vs_current": 0,
+      "round_team": [
+        0.7362045760430687,
+        0.740979381443299,
+        0.6036269430051814,
+        0.6272965879265092,
+        0.729456384323641
+      ]
+    },
+    {
+      "name": "supersub_value_minus_risk_025",
+      "value_team": 0.6776518390236875,
+      "value_xv": 0.7144594778697986,
+      "mae": 7.348994791544289,
+      "top15": 0.3866666666666666,
+      "top30": 0.5466666666666666,
+      "spearman_sel": 0.587103050538006,
+      "dvalue_team_vs_current": -0.009860935524652281,
+      "dvalue_xv_vs_current": 0.0,
+      "dmae_vs_current": 0.0,
+      "round_team_up_vs_current": 0,
+      "round_team": [
+        0.7362045760430687,
+        0.740979381443299,
+        0.6036269430051814,
+        0.6272965879265092,
+        0.6801517067003793
+      ]
+    }
+  ]
+}

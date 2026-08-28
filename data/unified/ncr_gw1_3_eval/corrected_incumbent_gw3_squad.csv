@@ -1,0 +1,17 @@
+id,name,team,hemi,pos,value,sel,status,opp,home,n_hist,rp_min,wr_margin,weather_att,per80,exp_min,starter_exp,supersub_exp,in_squad,is_sub,is_capt
+146220,Will Jordan,New Zealand,2,Back Three,8.5,44.1,P,Ireland,True,56,2032,9.4,0.976,26.08,78.7,27.6,12.82,True,False,False
+244532,Theo Attissogbe,France,1,Back Three,6.5,35.7,P,Japan,False,15,3569,14.6,0.951,24.01,80.0,25.96,12.01,True,False,False
+190344,Matthieu Jalibert,France,1,Fly Half,8.0,33.2,P,Japan,False,36,4126,14.6,0.951,31.77,76.1,32.16,15.11,True,False,True
+229307,Cam Roigard,New Zealand,2,Scrum Half,8.0,45.2,P,Ireland,True,19,2081,9.4,0.976,32.49,64.4,28.11,13.08,True,False,False
+179379,Ardie Savea,New Zealand,2,Loose Forward,8.5,46.1,P,Ireland,True,64,3403,9.4,0.976,24.8,78.1,26.16,12.11,True,False,False
+123016,Jac Morgan,Wales,1,Loose Forward,7.0,29.4,P,South Africa,False,33,2339,-40.5,0.988,26.13,74.0,26.13,12.09,True,False,False
+237155,Justo Piccardo,Argentina,2,Centre,5.5,3.4,P,England,True,13,1108,5.7,1.0,22.72,73.7,22.88,10.47,True,False,False
+250067,Fabien Brau-Boirie,France,1,Centre,6.0,24.7,P,Japan,False,4,2419,14.6,0.951,24.09,73.3,24.03,11.04,True,False,False
+241018,Sean Jansen,Ireland,1,Loose Forward,3.5,2.1,B,New Zealand,False,2,2114,-9.4,0.976,26.8,34.0,12.14,34.16,True,True,False
+238928,Warner Dearns,Japan,2,Lock,6.5,16.0,P,France,True,34,2722,-14.6,0.951,15.56,78.4,16.83,7.63,True,False,False
+240478,Gregor Hiddleston,Scotland,1,Hooker,4.0,3.7,P,Fiji,False,2,1610,3.2,0.976,24.44,72.0,23.94,11.0,True,False,False
+172455,Duhan van der Merwe,Scotland,1,Back Three,5.0,5.1,P,Fiji,False,57,2762,3.2,0.976,24.11,78.8,25.69,11.87,True,False,False
+146815,Angus Bell,Australia,2,Prop,7.0,21.3,P,Italy,True,50,1772,13.9,0.87,19.02,53.1,13.93,6.31,True,False,False
+261209,Sojiro Otsuka,Japan,2,Prop,3.0,0.5,P,France,True,2,0,-14.6,0.951,14.73,72.0,14.63,6.63,True,False,False
+208620,Carlo Tizzano,Australia,2,Loose Forward,6.0,3.7,P,Italy,True,14,2246,13.9,0.87,24.44,76.6,25.35,11.7,True,False,False
+169185,Teddy Williams,Wales,1,Lock,4.0,0.8,P,South Africa,False,9,1734,-40.5,0.988,18.32,80.0,20.21,9.16,True,False,False

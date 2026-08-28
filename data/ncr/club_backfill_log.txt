@@ -1,0 +1,115 @@
+=== club ALL-seasons backfill start; floor 60 ===
+=== Japan League One D1 pull (2026, 2025) ===
+=== priority chain: Lions -> Tours -> Japan rest -> club ===
+Lions2025: fetched 10/10 quota=323
+TourMatch2025-NCR: fetched 4/4 quota=319
+TourMatch2026-A-games: fetched 2/2 quota=317
+JLO-D1-2026: fetched 12/12 quota=305
+JLO-D1-2025: fetched 113/113 quota=192
+=== priority done; chaining club backfill ===
+=== club ALL-seasons backfill start; floor 60 ===
+URC s2026: fetched 28/28  quota=164
+Prem s2026: fetched 98/98  quota=66
+QUOTA FLOOR at Top14 s2026 (6/46); total=132
+=== run end (floor) ===
+=== club backfill: comps=[1218] seasons=[2026] floor=60 budget=100000 dry=True ===
+Top14 s2026: 40 uncached
+=== dry run: 40 matches uncached; quota=None ===
+=== club backfill: comps=[1218] seasons=[2026] floor=12 budget=100000 dry=False ===
+Top14 s2026: fetched 40/40  quota=18
+=== run end: ALL DONE total=40 quota=18 ===
+=== club backfill: comps=[1236, 1218, 1230, 1464, 1470] seasons=[2026] floor=60 budget=100000 dry=True ===
+URC s2026: 0 uncached
+Prem s2026: 0 uncached
+Top14 s2026: 0 uncached
+ChampCup s2026: 15 uncached
+ChalCup s2026: 15 uncached
+=== dry run: 30 matches uncached; quota=None ===
+=== club backfill: comps=[1236, 1218, 1230, 1464, 1470] seasons=[2026, 2025, 2024, 2023] floor=60 budget=100000 dry=False ===
+URC s2026: fetched 0/0  quota=None
+Prem s2026: fetched 0/0  quota=None
+Top14 s2026: fetched 0/0  quota=None
+ChampCup s2026: fetched 15/15  quota=2484
+ChalCup s2026: fetched 15/15  quota=2469
+URC s2025: fetched 88/88  quota=2381
+Prem s2025: fetched 48/48  quota=2333
+Top14 s2025: fetched 110/110  quota=2230
+ChampCup s2025: fetched 15/15  quota=2210
+ChalCup s2025: fetched 15/15  quota=2195
+URC s2024: fetched 79/79  quota=2116
+Prem s2024: fetched 33/33  quota=2083
+Top14 s2024: fetched 117/117  quota=1966
+ChampCup s2024: fetched 15/15  quota=1951
+ChalCup s2024: fetched 15/15  quota=1936
+URC s2023: fetched 68/68  quota=1868
+Prem s2023: fetched 62/62  quota=1806
+Top14 s2023: fetched 103/103  quota=1702
+ChampCup s2023: fetched 15/15  quota=1687
+ChalCup s2023: fetched 15/15  quota=1672
+=== run end: ALL DONE total=828 quota=1672 ===
+=== club backfill: comps=[1236, 1218, 1230, 1464, 1470] seasons=[2026, 2025, 2024, 2023] floor=60 budget=100000 dry=True ===
+URC s2026: 0 uncached
+Prem s2026: 0 uncached
+Top14 s2026: 0 uncached
+ChampCup s2026: 0 uncached
+ChalCup s2026: 0 uncached
+URC s2025: 0 uncached
+Prem s2025: 0 uncached
+Top14 s2025: 0 uncached
+ChampCup s2025: 0 uncached
+ChalCup s2025: 0 uncached
+URC s2024: 0 uncached
+Prem s2024: 0 uncached
+Top14 s2024: 0 uncached
+ChampCup s2024: 0 uncached
+ChalCup s2024: 0 uncached
+URC s2023: 0 uncached
+Prem s2023: 0 uncached
+Top14 s2023: 0 uncached
+ChampCup s2023: 0 uncached
+ChalCup s2023: 0 uncached
+=== dry run: 0 matches uncached; quota=None ===
+=== club backfill: comps=[1236, 1218, 1230, 1464, 1470] seasons=[2026, 2025, 2024, 2023] floor=60 budget=100000 dry=True ===
+URC s2026: 0 uncached
+Prem s2026: 0 uncached
+Top14 s2026: 0 uncached
+ChampCup s2026: 0 uncached
+ChalCup s2026: 0 uncached
+URC s2025: 0 uncached
+Prem s2025: 0 uncached
+Top14 s2025: 0 uncached
+ChampCup s2025: 0 uncached
+ChalCup s2025: 0 uncached
+URC s2024: 0 uncached
+Prem s2024: 0 uncached
+Top14 s2024: 0 uncached
+ChampCup s2024: 0 uncached
+ChalCup s2024: 0 uncached
+URC s2023: 0 uncached
+Prem s2023: 0 uncached
+Top14 s2023: 0 uncached
+ChampCup s2023: 0 uncached
+ChalCup s2023: 0 uncached
+=== dry run: 0 matches uncached; quota=None ===
+=== club backfill: comps=[1236, 1218, 1230, 1464, 1470] seasons=[2026, 2025, 2024, 2023] floor=60 budget=100000 dry=True ===
+URC s2026: 0 uncached
+Prem s2026: 0 uncached
+Top14 s2026: 0 uncached
+ChampCup s2026: 0 uncached
+ChalCup s2026: 0 uncached
+URC s2025: 0 uncached
+Prem s2025: 0 uncached
+Top14 s2025: 0 uncached
+ChampCup s2025: 0 uncached
+ChalCup s2025: 0 uncached
+URC s2024: 0 uncached
+Prem s2024: 0 uncached
+Top14 s2024: 0 uncached
+ChampCup s2024: 0 uncached
+ChalCup s2024: 0 uncached
+URC s2023: 0 uncached
+Prem s2023: 0 uncached
+Top14 s2023: 0 uncached
+ChampCup s2023: 0 uncached
+ChalCup s2023: 0 uncached
+=== dry run: 0 matches uncached; quota=None ===

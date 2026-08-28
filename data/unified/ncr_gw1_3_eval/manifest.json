@@ -1,0 +1,42 @@
+{
+  "created_at": "2026-07-19T20:16:29.264732+00:00",
+  "engines": [
+    "p3_event_50",
+    "v1",
+    "v5_t",
+    "ncr_incumbent"
+  ],
+  "evaluation_rounds": [
+    1,
+    2,
+    3
+  ],
+  "evaluation_rows": {
+    "1": 270,
+    "2": 262,
+    "3": 270
+  },
+  "fixed_tournament_holdout": true,
+  "official_points_fetched_post_round": {
+    "1": true,
+    "2": true,
+    "3": true
+  },
+  "retained_fitted_artifacts": [
+    "/Users/williamgreenfield/Documents/dev/6n/data/unified/raw_benchmark/v1/models/p3_event_50/nations_championship_2026.pkl"
+  ],
+  "schema_version": 1,
+  "source_sha256": {
+    "/Users/williamgreenfield/Documents/dev/6n/data/ncr/feeds/players_gw1.json": "22e24d749924b0c8c966fc90b1572eb566cfd3675a01cb37d0ff5e487411c819",
+    "/Users/williamgreenfield/Documents/dev/6n/data/ncr/feeds/players_gw2.json": "a5a9f7b025544f271e4844a0e894c5cd462a26505cd9f2fcfa3f3536e4dd8594",
+    "/Users/williamgreenfield/Documents/dev/6n/data/ncr/feeds/players_gw3.json": "a68a9b598c48fc9c7a56bce85d06b9ae33ab4e0e3ac39dcacb8bc0421cb49bc8",
+    "/Users/williamgreenfield/Documents/dev/6n/data/ncr/ncr_gw1_projections.csv": "2dbf97f24558ea4f723cb80a0fd0b90d07fb1f3b50d1dd74512d70115e9429ba",
+    "/Users/williamgreenfield/Documents/dev/6n/data/ncr/ncr_gw2_projections.csv": "35b720ebbb6051ec265b5372dac71b11e30985bd32cdad2fd2c78a3ec92fa2d4",
+    "/Users/williamgreenfield/Documents/dev/6n/data/ncr/ncr_gw3_projections.csv": "09acfd7bfbc1250ed64d1b833a9df18dcaaa26c45f12c783ce0a41be73e39998",
+    "/Users/williamgreenfield/Documents/dev/6n/data/unified/raw_benchmark/v1/models/p3_event_50/nations_championship_2026.pkl": "79da46093fc497cb1f694da32b951bb221c162e955a9ce064d05b4318d857439",
+    "/Users/williamgreenfield/Documents/dev/6n/data/unified/raw_benchmark/v1/player_match.csv": "7db55ba3a7c3de38908acb90bf23eb499c649d01c4094df1597b776bce67fe74"
+  },
+  "temporary_fitted_artifacts_written": false,
+  "training_cutoff": "2026-07-04T07:10:00+00:00",
+  "training_rows": 150312
+}

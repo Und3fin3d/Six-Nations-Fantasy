@@ -1,0 +1,58 @@
+# Unified supermodel v4 — final report
+
+Admitted configuration: **gbdt_v4[B]** (P1 variant B: pooled player id + post-hoc EB player effects + level-split form; P2 hurdle heads NOT admitted)
+
+Admission decisions (3/3 used, 6N-2025 LORO only — see p1_verdicts_A_B.json,
+p2_verdict.json). Quarantined sets below are DISPLAY ONLY (plan §6/S3): no
+decision was or may be revised on them. Promotion evidence = prospective NCR
+GW4–7 shadows, pooled, burn-once (tier-1 superiority / tier-2 deferred).
+
+## 6N 2025 selection layer (admission evidence)
+
+| Model | MAE | Spearman | Top10 | Top25 | Top50 | Top100 |
+|---|---:|---:|---:|---:|---:|---:|
+| A | 7.26 | 0.642 | 65.4% | 72.4% | 83.7% | 95.0% |
+| B | 7.27 | 0.653 | 69.3% | 74.8% | 84.5% | 95.0% |
+| baseline(frozen) | 7.27 | 0.647 | 66.2% | 75.7% | 84.4% | 94.7% |
+
+P2 tail diagnostics: Brier 0.0951 (hurdle) vs 0.0923 (plain NB); |p90 coverage − 0.90| 0.050 vs 0.063; mean capture 0.810 vs B 0.809 → admit=False.
+
+## Six Nations 2026 (quarantined — display only)
+
+| Model | MAE | Spearman | Top10 | Top25 | Top50 | Top100 |
+|---|---:|---:|---:|---:|---:|---:|
+| baseline | 7.19 | 0.686 | 70.7% | 78.4% | 87.2% | 95.2% |
+| gbdt_v3 | 7.14 | 0.689 | 69.4% | 79.2% | 86.2% | 95.0% |
+| gbdt_v4 (display-only) | 7.23 | 0.682 | 72.8% | 76.3% | 87.3% | 95.2% |
+| incumbent | 7.30 | 0.666 | 71.5% | 77.1% | 83.5% | 95.2% |
+
+## NCR GW1–2 (quarantined — display only)
+
+| Model | MAE | Spearman | Top10 | Top25 | Top50 | Top100 |
+|---|---:|---:|---:|---:|---:|---:|
+| baseline | 9.10 | 0.522 | 56.4% | 61.3% | 64.9% | 76.2% |
+| gbdt_v3 | 9.01 | 0.536 | 51.2% | 60.1% | 66.1% | 76.2% |
+| gbdt_v4 (display-only) | 8.97 | 0.532 | 55.5% | 60.3% | 67.7% | 77.6% |
+| incumbent | 8.90 | 0.581 | 62.7% | 71.5% | 74.2% | 80.4% |
+
+### Paired bootstrap, v4 − incumbent, pooled NCR (display only)
+
+- MAE diff +0.06 (90% CI -0.33 … +0.44), n=532
+- Top-10 capture diff -7.7% (90% CI -21.4% … +5.6%)
+
+## November runbook (GW4–7)
+
+```bash
+# before each GW lock (repeat --target-gw 4..7):
+/tmp/6n-model-pinned/bin/python -m model.unified.v4.assemble fit \
+    --config 'B' --cutoff <GW_LOCK_UTC> \
+    --output data/unified/v4/models/gbdt_v4_ncr_gw<N>.pkl
+/tmp/6n-model-pinned/bin/python -m model.unified.v4.assemble activate \
+    --model data/unified/v4/models/gbdt_v4_ncr_gw<N>.pkl --target-gw <N>
+# gw_update.sh step 6 then freezes the write-once shadow automatically.
+```
+
+After GW7 labels: single pooled look. Tier-1 (2026 promotion) requires the
+paired-bootstrap 90% CI to exclude zero on MAE AND mean capture vs the NCR
+incumbent while holding 6N — otherwise incumbents stay and the tier-2
+non-inferiority clock continues into 2027 (plan §6).

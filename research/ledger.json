@@ -1,0 +1,427 @@
+[
+  {
+    "trial": 0,
+    "name": "orchestrator_resid030_delta_overlay_010",
+    "note": "backs residual plus 0.10 selector tie-breaker from specialist delta; market specialists disabled after PIT audit",
+    "accepted": true,
+    "stability_passed": true,
+    "reason": "incumbent",
+    "value_team": 0.7136315045676115,
+    "value_xv": 0.7138887178569575,
+    "mae": 7.406337196819871,
+    "bench_mae": 5.3731753676480505,
+    "top15": 0.3866666666666666,
+    "top30": 0.5733333333333333,
+    "capt_top1": 0.0,
+    "capt_top3": 0.2,
+    "capt_top5": 0.2,
+    "spearman_pos": 0.4999070278260977,
+    "spearman_sel": 0.5083971175499208,
+    "registry_lgbm": 8,
+    "round_team": [
+      0.7464607464607464,
+      0.5765230312035661,
+      0.7013513513513514,
+      0.6857142857142857,
+      0.8581081081081081
+    ],
+    "round_xv": [
+      0.7948303715670436,
+      0.5116279069767442,
+      0.7352445193929174,
+      0.7667238421955404,
+      0.7610169491525424
+    ],
+    "round_mae": [
+      7.743097977468123,
+      6.908869057582458,
+      7.0679092583821745,
+      7.908593883864435,
+      7.404587946050123
+    ],
+    "round_bias": [
+      5.763539989228395,
+      -0.8850316761711455,
+      1.0890886184102702,
+      2.949728869563387,
+      1.3411203664790765
+    ],
+    "by_pos": {
+      "Back-row": {
+        "n": 139,
+        "mae": 9.336789450183607,
+        "bias": 3.33642750486988,
+        "actual_mean": 20.47482014388489,
+        "pred_mean": 17.138392639015013
+      },
+      "Back-three": {
+        "n": 102,
+        "mae": 9.688634331539594,
+        "bias": 4.122358477341918,
+        "actual_mean": 22.166666666666668,
+        "pred_mean": 18.04430818932475
+      },
+      "Centre": {
+        "n": 66,
+        "mae": 8.56585145575822,
+        "bias": 2.8220923155143716,
+        "actual_mean": 19.742424242424242,
+        "pred_mean": 16.92033192690987
+      },
+      "Fly-half": {
+        "n": 43,
+        "mae": 7.5645015889414084,
+        "bias": 1.0557629165266342,
+        "actual_mean": 18.74418604651163,
+        "pred_mean": 17.688423129984997
+      },
+      "Hooker": {
+        "n": 60,
+        "mae": 7.7006286676072,
+        "bias": 2.1356283326909944,
+        "actual_mean": 13.766666666666667,
+        "pred_mean": 11.631038333975674
+      },
+      "Prop": {
+        "n": 117,
+        "mae": 4.207275132853878,
+        "bias": 0.4293768907614813,
+        "actual_mean": 9.709401709401709,
+        "pred_mean": 9.280024818640229
+      },
+      "Scrum-half": {
+        "n": 55,
+        "mae": 6.352380938100053,
+        "bias": 1.4123882619553114,
+        "actual_mean": 10.854545454545455,
+        "pred_mean": 9.442157192590145
+      },
+      "Second-row": {
+        "n": 92,
+        "mae": 5.560078355039913,
+        "bias": -0.009839843819092897,
+        "actual_mean": 13.445652173913043,
+        "pred_mean": 13.455492017732139
+      }
+    },
+    "selection_diagnostics": {
+      "rounds": [
+        {
+          "round": 1,
+          "captain": "Thomas Ramos",
+          "best_captain_in_xv": "Gregory Alldritt",
+          "captain_regret": 34.0,
+          "supersub": "Jack Dempsey",
+          "best_supersub": "Tommy Reffell",
+          "best_supersub_rank": 2,
+          "supersub_regret": 12.0
+        },
+        {
+          "round": 2,
+          "captain": "Thomas Ramos",
+          "best_captain_in_xv": "Damian Penaud",
+          "captain_regret": 3.0,
+          "supersub": "Jack Conan",
+          "best_supersub": "Jack Conan",
+          "best_supersub_rank": 1,
+          "supersub_regret": 0.0
+        },
+        {
+          "round": 3,
+          "captain": "Leo Barre",
+          "best_captain_in_xv": "Antoine Dupont",
+          "captain_regret": 34.0,
+          "supersub": "Ross Vintcent",
+          "best_supersub": "Ben Curry",
+          "best_supersub_rank": 15,
+          "supersub_regret": 10.0
+        },
+        {
+          "round": 4,
+          "captain": "Thomas Ramos",
+          "best_captain_in_xv": "Blair Kinghorn",
+          "captain_regret": 35.0,
+          "supersub": "Lorenzo Cannone",
+          "best_supersub": "Marcus Smith",
+          "best_supersub_rank": 37,
+          "supersub_regret": 29.0
+        },
+        {
+          "round": 5,
+          "captain": "Thomas Ramos",
+          "best_captain_in_xv": "Dan Sheehan",
+          "captain_regret": 48.0,
+          "supersub": "Chandler Cunningham-South",
+          "best_supersub": "Chandler Cunningham-South",
+          "best_supersub_rank": 1,
+          "supersub_regret": 0.0
+        }
+      ],
+      "captain_regret_total": 154.0,
+      "supersub_regret_total": 51.0,
+      "selected_bias": {
+        "Back-row": {
+          "n": 20,
+          "pred_mean": 22.469295824020314,
+          "actual_mean": 28.05,
+          "bias": 5.580704175979685
+        },
+        "Back-three": {
+          "n": 15,
+          "pred_mean": 27.609558902810782,
+          "actual_mean": 34.86666666666667,
+          "bias": 7.257107763855885
+        },
+        "Centre": {
+          "n": 10,
+          "pred_mean": 23.351769497975702,
+          "actual_mean": 37.2,
+          "bias": 13.848230502024299
+        },
+        "Fly-half": {
+          "n": 5,
+          "pred_mean": 27.77928864929196,
+          "actual_mean": 24.0,
+          "bias": -3.77928864929196
+        },
+        "Hooker": {
+          "n": 5,
+          "pred_mean": 18.9841896024164,
+          "actual_mean": 29.6,
+          "bias": 10.615810397583601
+        },
+        "Prop": {
+          "n": 10,
+          "pred_mean": 16.07228897810034,
+          "actual_mean": 11.7,
+          "bias": -4.372288978100341
+        },
+        "Scrum-half": {
+          "n": 5,
+          "pred_mean": 20.87908058305357,
+          "actual_mean": 32.4,
+          "bias": 11.52091941694643
+        },
+        "Second-row": {
+          "n": 10,
+          "pred_mean": 20.83349772082598,
+          "actual_mean": 19.8,
+          "bias": -1.0334977208259797
+        }
+      }
+    }
+  },
+  {
+    "trial": 1,
+    "name": "supersub_team_slot_history",
+    "note": "use each national team's PIT jersey-slot substitution history only in the supersub head",
+    "accepted": false,
+    "stability_passed": false,
+    "stability_reason": "not run",
+    "reason": "reject (no Pareto improvement): dval=-0.006 dmae=+0.000 dtop15=+0.000 dspear=+0.000 team_rounds_up=0/5 team_rounds_down=1/5 mae_rounds_up=0/5",
+    "value_team": 0.7074538983900054,
+    "value_xv": 0.7138887178569575,
+    "mae": 7.406337196819871,
+    "bench_mae": 5.3731753676480505,
+    "top15": 0.3866666666666666,
+    "top30": 0.5733333333333333,
+    "capt_top1": 0.0,
+    "capt_top3": 0.2,
+    "capt_top5": 0.2,
+    "spearman_pos": 0.4999070278260977,
+    "spearman_sel": 0.5083971175499208,
+    "registry_lgbm": 8,
+    "round_team": [
+      0.7155727155727156,
+      0.5765230312035661,
+      0.7013513513513514,
+      0.6857142857142857,
+      0.8581081081081081
+    ],
+    "round_xv": [
+      0.7948303715670436,
+      0.5116279069767442,
+      0.7352445193929174,
+      0.7667238421955404,
+      0.7610169491525424
+    ],
+    "round_mae": [
+      7.743097977468123,
+      6.908869057582458,
+      7.0679092583821745,
+      7.908593883864435,
+      7.404587946050123
+    ],
+    "round_bias": [
+      5.763539989228395,
+      -0.8850316761711455,
+      1.0890886184102702,
+      2.949728869563387,
+      1.3411203664790765
+    ],
+    "by_pos": {
+      "Back-row": {
+        "n": 139,
+        "mae": 9.336789450183607,
+        "bias": 3.33642750486988,
+        "actual_mean": 20.47482014388489,
+        "pred_mean": 17.138392639015013
+      },
+      "Back-three": {
+        "n": 102,
+        "mae": 9.688634331539594,
+        "bias": 4.122358477341918,
+        "actual_mean": 22.166666666666668,
+        "pred_mean": 18.04430818932475
+      },
+      "Centre": {
+        "n": 66,
+        "mae": 8.56585145575822,
+        "bias": 2.8220923155143716,
+        "actual_mean": 19.742424242424242,
+        "pred_mean": 16.92033192690987
+      },
+      "Fly-half": {
+        "n": 43,
+        "mae": 7.5645015889414084,
+        "bias": 1.0557629165266342,
+        "actual_mean": 18.74418604651163,
+        "pred_mean": 17.688423129984997
+      },
+      "Hooker": {
+        "n": 60,
+        "mae": 7.7006286676072,
+        "bias": 2.1356283326909944,
+        "actual_mean": 13.766666666666667,
+        "pred_mean": 11.631038333975674
+      },
+      "Prop": {
+        "n": 117,
+        "mae": 4.207275132853878,
+        "bias": 0.4293768907614813,
+        "actual_mean": 9.709401709401709,
+        "pred_mean": 9.280024818640229
+      },
+      "Scrum-half": {
+        "n": 55,
+        "mae": 6.352380938100053,
+        "bias": 1.4123882619553114,
+        "actual_mean": 10.854545454545455,
+        "pred_mean": 9.442157192590145
+      },
+      "Second-row": {
+        "n": 92,
+        "mae": 5.560078355039913,
+        "bias": -0.009839843819092897,
+        "actual_mean": 13.445652173913043,
+        "pred_mean": 13.455492017732139
+      }
+    },
+    "selection_diagnostics": {
+      "rounds": [
+        {
+          "round": 1,
+          "captain": "Thomas Ramos",
+          "best_captain_in_xv": "Gregory Alldritt",
+          "captain_regret": 34.0,
+          "supersub": "Simone Gesi",
+          "best_supersub": "Tommy Reffell",
+          "best_supersub_rank": 10,
+          "supersub_regret": 20.0
+        },
+        {
+          "round": 2,
+          "captain": "Thomas Ramos",
+          "best_captain_in_xv": "Damian Penaud",
+          "captain_regret": 3.0,
+          "supersub": "Jack Conan",
+          "best_supersub": "Jack Conan",
+          "best_supersub_rank": 1,
+          "supersub_regret": 0.0
+        },
+        {
+          "round": 3,
+          "captain": "Leo Barre",
+          "best_captain_in_xv": "Antoine Dupont",
+          "captain_regret": 34.0,
+          "supersub": "Ross Vintcent",
+          "best_supersub": "Ben Curry",
+          "best_supersub_rank": 13,
+          "supersub_regret": 10.0
+        },
+        {
+          "round": 4,
+          "captain": "Thomas Ramos",
+          "best_captain_in_xv": "Blair Kinghorn",
+          "captain_regret": 35.0,
+          "supersub": "Lorenzo Cannone",
+          "best_supersub": "Marcus Smith",
+          "best_supersub_rank": 22,
+          "supersub_regret": 29.0
+        },
+        {
+          "round": 5,
+          "captain": "Thomas Ramos",
+          "best_captain_in_xv": "Dan Sheehan",
+          "captain_regret": 48.0,
+          "supersub": "Chandler Cunningham-South",
+          "best_supersub": "Chandler Cunningham-South",
+          "best_supersub_rank": 1,
+          "supersub_regret": 0.0
+        }
+      ],
+      "captain_regret_total": 154.0,
+      "supersub_regret_total": 59.0,
+      "selected_bias": {
+        "Back-row": {
+          "n": 19,
+          "pred_mean": 23.264424591289732,
+          "actual_mean": 28.63157894736842,
+          "bias": 5.367154356078688
+        },
+        "Back-three": {
+          "n": 16,
+          "pred_mean": 26.376840482271522,
+          "actual_mean": 33.25,
+          "bias": 6.87315951772848
+        },
+        "Centre": {
+          "n": 10,
+          "pred_mean": 23.351769497975702,
+          "actual_mean": 37.2,
+          "bias": 13.848230502024299
+        },
+        "Fly-half": {
+          "n": 5,
+          "pred_mean": 27.77928864929196,
+          "actual_mean": 24.0,
+          "bias": -3.77928864929196
+        },
+        "Hooker": {
+          "n": 5,
+          "pred_mean": 18.9841896024164,
+          "actual_mean": 29.6,
+          "bias": 10.615810397583601
+        },
+        "Prop": {
+          "n": 10,
+          "pred_mean": 16.07228897810034,
+          "actual_mean": 11.7,
+          "bias": -4.372288978100341
+        },
+        "Scrum-half": {
+          "n": 5,
+          "pred_mean": 20.87908058305357,
+          "actual_mean": 32.4,
+          "bias": 11.52091941694643
+        },
+        "Second-row": {
+          "n": 10,
+          "pred_mean": 20.83349772082598,
+          "actual_mean": 19.8,
+          "bias": -1.0334977208259797
+        }
+      }
+    }
+  }
+]

@@ -15,7 +15,7 @@ six feature families from the plan, every value **point-in-time (PIT)**:
                 left-joined on (fixture_id, team_id).
   4. TEAMPLAY — explicit PIT team edge / game-script predictions
                 (team_play_predictions.csv), left-joined on (fixture_id, team_id).
-  5. EXTERNAL — optional market / weather / role-certainty files. These are
+  5. EXTERNAL — optional weather / role-certainty files. These are
                 joined only when present and are off by default in model/data.py.
   6. BIO      — age-at-fixture / height / weight / position (rp_bio.csv).
   7. ROLE     — goal-kicker rate, starter prob, set-piece (lineout) involvement,
@@ -94,7 +94,6 @@ ID_COLS = [
 ]
 
 OPTIONAL_EXTERNAL_FILES = {
-    "market": DATA / "external_fixture_markets.csv",
     "weather": DATA / "external_fixture_weather.csv",
     "rolecert": DATA / "external_player_roles.csv",
     "style": DATA / "external_team_style.csv",
@@ -204,50 +203,6 @@ def _merge_external(
         out = out.drop(columns=[ts_col])
     return out
 
-
-def _merge_external_markets(feat: pd.DataFrame) -> pd.DataFrame:
-    path = OPTIONAL_EXTERNAL_FILES["market"]
-    if not path.exists():
-        return feat
-    raw = pd.read_csv(path)
-    raw = raw.rename(columns={
-        "market_total": "market_total_points",
-        "market_spread_team": "market_expected_margin",
-        "market_team_total": "market_team_implied_points",
-        "market_opponent_total": "market_opp_implied_points",
-    })
-    if {"market_total_points", "market_expected_margin"}.issubset(raw.columns):
-        total = pd.to_numeric(raw["market_total_points"], errors="coerce")
-        margin = pd.to_numeric(raw["market_expected_margin"], errors="coerce")
-        if "market_team_implied_points" not in raw.columns:
-            raw["market_team_implied_points"] = (total + margin) / 2.0
-        if "market_opp_implied_points" not in raw.columns:
-            raw["market_opp_implied_points"] = (total - margin) / 2.0
-    if "market_win_prob" in raw.columns:
-        win_edge = pd.to_numeric(raw["market_win_prob"], errors="coerce") - 0.5
-        raw["market_win_prob_centered"] = win_edge
-        if "market_expected_margin" in raw.columns:
-            margin_edge = pd.to_numeric(raw["market_expected_margin"], errors="coerce") / 40.0
-            raw["market_strength_index"] = win_edge + margin_edge.fillna(0.0)
-        else:
-            raw["market_strength_index"] = win_edge
-    if "market_draw_prob" in raw.columns:
-        raw["market_decisiveness_index"] = (
-            1.0 - pd.to_numeric(raw["market_draw_prob"], errors="coerce")
-        )
-    if "market_total_points" in raw.columns:
-        raw["market_open_game_index"] = (
-            pd.to_numeric(raw["market_total_points"], errors="coerce") / 50.0
-        )
-    if "market_team_implied_points" in raw.columns:
-        raw["market_attack_index"] = (
-            pd.to_numeric(raw["market_team_implied_points"], errors="coerce") / 30.0
-        )
-        raw["market_kicking_opportunity_index"] = raw["market_attack_index"]
-    return _merge_external(
-        feat, raw, source=str(path), prefix="market_", join_candidates=FIXTURE_JOIN_KEYS,
-        timestamp_col="market_timestamp",
-    )
 
 
 def _merge_external_weather(feat: pd.DataFrame) -> pd.DataFrame:
@@ -699,7 +654,6 @@ def build(half_life: float) -> pd.DataFrame:
         ]
         feat = feat.merge(tp[tp_feats], on=["fixture_id", "team_id"], how="left",
                           validate="many_to_one")
-    feat = _merge_external_markets(feat)
     feat = _merge_external_weather(feat)
     feat = _merge_external_roles(feat)
     feat = _merge_external_style(feat)
@@ -723,7 +677,6 @@ def main():
         "BIO": [c for c in feat if c.startswith("bio")],
         "FIXTURE": [c for c in feat if c.startswith(("opp_", "h2h_", "team_wr", "wr_"))],
         "TEAMPLAY": [c for c in feat if c.startswith("teamplay_")],
-        "MARKET": [c for c in feat if c.startswith("market_")],
         "WEATHER": [c for c in feat if c.startswith("weather_")],
         "ROLECERT": [c for c in feat if c.startswith("rolecert_")],
         "STYLE": [c for c in feat if c.startswith("style_")],

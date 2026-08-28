@@ -1,0 +1,19 @@
+{
+  "hidden": 256,
+  "depth": 3,
+  "dropout": 0.11789671747458844,
+  "embedding_scale": 1.0,
+  "epochs": 40,
+  "batch_size": 1024,
+  "learning_rate": 0.0016679008779602752,
+  "weight_decay": 7.525358106248146e-05,
+  "patience": 5,
+  "weighting": "natural",
+  "time_half_life_days": 547.5,
+  "rate_cap_quantile": 0.995,
+  "use_appearance": true,
+  "context_blocks": [
+    "wr"
+  ],
+  "seed": 31
+}

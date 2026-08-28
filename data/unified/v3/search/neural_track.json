@@ -1,0 +1,6 @@
+{
+  "status": "stopped",
+  "completed_rung": 1,
+  "surviving_candidate_id": 14,
+  "reason": "all 20 configurations exceeded the same-fold GBDT-v3 raw deviance and observable-points MAE by more than 3%"
+}

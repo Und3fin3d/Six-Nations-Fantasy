@@ -21,8 +21,8 @@ CRITICAL FILTERS
   • sport == "MRU"  — senior men's XV only. Women's (WRU), U20 (JMU) and
     sevens (MRS/WRS) reuse the SAME team names ("England", "France", …) so
     filtering on name alone would silently merge women's/U20 results.
-  • at least one team in the 6 nations; a side is emitted only when `team`
-    itself is one of the 6 (opponent may be any nation).
+  • the Six Nations output keeps sides from the six northern teams.
+  • the NCR output keeps sides from all 12 Nations Championship teams.
 
 Pulselive team ids (England=34, …) are a DIFFERENT id-space from
 rugby-live-data (England=1667, …). We store the Pulselive id for traceability,
@@ -31,6 +31,10 @@ but any join back onto api_team_match.csv must be by team NAME.
 Output: data/intl_results.csv
     date, comp, team, team_id, opponent, opponent_id, team_score, opp_score,
     margin, result(W/L/D), rankings_weight, is_six_nations_pair
+
+Additional output: data/ncr/ncr_intl_results.csv
+    The same team-side grain for all 12 Nations Championship teams, with
+    `is_ncr_pair` in place of `is_six_nations_pair`.
 
 Usage:
     python build_intl_results.py
@@ -56,6 +60,7 @@ URL = ("https://api.wr-rims-prod.pulselive.com/rugby/v3/match"
 HEADERS = {"User-Agent": "Mozilla/5.0", "Accept": "application/json"}
 
 SIX = {"England", "France", "Ireland", "Italy", "Scotland", "Wales"}
+NCR = SIX | {"Argentina", "Australia", "Fiji", "Japan", "New Zealand", "South Africa"}
 SENIOR_MENS = "MRU"   # senior men's XV; exclude WRU/JMU/MRS/WRS
 
 
@@ -102,7 +107,11 @@ def month_chunks(start: dt.date, end: dt.date) -> list[tuple[str, str]]:
     return chunks
 
 
-def rows_from_match(m: dict) -> list[dict]:
+def rows_from_match(
+    m: dict,
+    target_teams: set[str] = SIX,
+    pair_field: str = "is_six_nations_pair",
+) -> list[dict]:
     """Two mirrored rows (one per side) for a senior men's match where at least
     one team is a 6N side. Only sides whose `team` is in SIX are emitted."""
     if m.get("sport") != SENIOR_MENS:
@@ -112,17 +121,17 @@ def rows_from_match(m: dict) -> list[dict]:
     if len(teams) != 2 or len(scores) != 2:
         return []
     names = [t.get("name") for t in teams]
-    if not any(n in SIX for n in names):
+    if not any(n in target_teams for n in names):
         return []
 
     date = (m.get("time") or {}).get("label")
     comp = m.get("competition")
     rw = m.get("rankingsWeight")
-    is_pair = all(n in SIX for n in names)
+    is_pair = all(n in target_teams for n in names)
 
     out = []
     for i, j in ((0, 1), (1, 0)):
-        if names[i] not in SIX:
+        if names[i] not in target_teams:
             continue
         ts, os_ = scores[i], scores[j]
         margin = ts - os_
@@ -139,7 +148,7 @@ def rows_from_match(m: dict) -> list[dict]:
             "margin": margin,
             "result": result,
             "rankings_weight": rw,
-            "is_six_nations_pair": is_pair,
+            pair_field: is_pair,
         })
     return out
 
@@ -164,9 +173,11 @@ def main():
     print(f"fetching Pulselive matches {start}…{end} in {len(chunks)} monthly chunks")
 
     rows: list[dict] = []
+    ncr_rows: list[dict] = []
     for s, e in chunks:
         for m in fetch_chunk(s, e):
             rows += rows_from_match(m)
+            ncr_rows += rows_from_match(m, NCR, "is_ncr_pair")
 
     df = pd.DataFrame(rows)
     if not df.empty:
@@ -176,6 +187,15 @@ def main():
 
     out = BASE / "data" / "intl_results.csv"
     df.to_csv(out, index=False)
+
+    ncr_df = pd.DataFrame(ncr_rows)
+    if not ncr_df.empty:
+        ncr_df = (ncr_df.drop_duplicates(subset=["date", "team", "opponent"])
+                         .sort_values(["date", "team"])
+                         .reset_index(drop=True))
+    ncr_out = BASE / "data" / "ncr" / "ncr_intl_results.csv"
+    ncr_out.parent.mkdir(parents=True, exist_ok=True)
+    ncr_df.to_csv(ncr_out, index=False)
 
     # ---- report ----
     n_matches = df["is_six_nations_pair"].notna().sum()        # = total sides emitted
@@ -208,6 +228,7 @@ def main():
     print(f"    6 nations present as `team`: {seen_nations} "
           f"({'ALL 6' if len(seen_nations) == 6 else 'MISSING ' + str(sorted(SIX - set(seen_nations)))})")
     print(f"💾  {out}")
+    print(f"💾  {ncr_out}  ({len(ncr_df)} team-side rows, all 12 NCR nations)")
 
 
 if __name__ == "__main__":

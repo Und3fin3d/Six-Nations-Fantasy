@@ -1,0 +1,47 @@
+{
+  "protocol": "fixed 6N-2025 baseline squad; Gaussian noise with E|noise|=sigma; grid 0.1..1.0; 200 seeded reps; margin = smallest sigma with >=50% squad-change rate",
+  "sensitivity": [
+    {
+      "sigma_mae_equivalent": 0.1,
+      "change_rate": 0.675
+    },
+    {
+      "sigma_mae_equivalent": 0.2,
+      "change_rate": 0.975
+    },
+    {
+      "sigma_mae_equivalent": 0.3,
+      "change_rate": 1.0
+    },
+    {
+      "sigma_mae_equivalent": 0.4,
+      "change_rate": 1.0
+    },
+    {
+      "sigma_mae_equivalent": 0.5,
+      "change_rate": 1.0
+    },
+    {
+      "sigma_mae_equivalent": 0.6,
+      "change_rate": 1.0
+    },
+    {
+      "sigma_mae_equivalent": 0.7,
+      "change_rate": 1.0
+    },
+    {
+      "sigma_mae_equivalent": 0.8,
+      "change_rate": 1.0
+    },
+    {
+      "sigma_mae_equivalent": 0.9,
+      "change_rate": 1.0
+    },
+    {
+      "sigma_mae_equivalent": 1.0,
+      "change_rate": 1.0
+    }
+  ],
+  "derived_margin_mae_points": 0.1,
+  "frozen": true
+}

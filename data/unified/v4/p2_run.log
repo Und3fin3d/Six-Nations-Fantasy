@@ -1,0 +1,40 @@
+/Users/williamgreenfield/Documents/dev/6n/model/unified/v4/features.py:56: PerformanceWarning: DataFrame is highly fragmented.  This is usually the result of calling `frame.insert` many times, which has poor performance.  Consider joining all columns at once using pd.concat(axis=1) instead. To get a de-fragmented frame, use `newframe = frame.copy()`
+  df[f"cum_min__{event}"] = mins.fillna(0.0).groupby(
+/Users/williamgreenfield/Documents/dev/6n/model/unified/v4/features.py:62: PerformanceWarning: DataFrame is highly fragmented.  This is usually the result of calling `frame.insert` many times, which has poor performance.  Consider joining all columns at once using pd.concat(axis=1) instead. To get a de-fragmented frame, use `newframe = frame.copy()`
+  df[f"prior_per80__{event}"] = per80.groupby(group).transform(
+/Users/williamgreenfield/Documents/dev/6n/model/unified/v4/features.py:48: PerformanceWarning: DataFrame is highly fragmented.  This is usually the result of calling `frame.insert` many times, which has poor performance.  Consider joining all columns at once using pd.concat(axis=1) instead. To get a de-fragmented frame, use `newframe = frame.copy()`
+  df[f"form_per80_{level}__{event}"] = level_per80.groupby(
+/Users/williamgreenfield/Documents/dev/6n/model/unified/v4/features.py:48: PerformanceWarning: DataFrame is highly fragmented.  This is usually the result of calling `frame.insert` many times, which has poor performance.  Consider joining all columns at once using pd.concat(axis=1) instead. To get a de-fragmented frame, use `newframe = frame.copy()`
+  df[f"form_per80_{level}__{event}"] = level_per80.groupby(
+/Users/williamgreenfield/Documents/dev/6n/model/unified/v4/features.py:53: PerformanceWarning: DataFrame is highly fragmented.  This is usually the result of calling `frame.insert` many times, which has poor performance.  Consider joining all columns at once using pd.concat(axis=1) instead. To get a de-fragmented frame, use `newframe = frame.copy()`
+  df[f"cum_count__{event}"] = count.fillna(0.0).groupby(
+/Users/williamgreenfield/Documents/dev/6n/model/unified/v4/features.py:56: PerformanceWarning: DataFrame is highly fragmented.  This is usually the result of calling `frame.insert` many times, which has poor performance.  Consider joining all columns at once using pd.concat(axis=1) instead. To get a de-fragmented frame, use `newframe = frame.copy()`
+  df[f"cum_min__{event}"] = mins.fillna(0.0).groupby(
+/Users/williamgreenfield/Documents/dev/6n/model/unified/v4/features.py:62: PerformanceWarning: DataFrame is highly fragmented.  This is usually the result of calling `frame.insert` many times, which has poor performance.  Consider joining all columns at once using pd.concat(axis=1) instead. To get a de-fragmented frame, use `newframe = frame.copy()`
+  df[f"prior_per80__{event}"] = per80.groupby(group).transform(
+/Users/williamgreenfield/Documents/dev/6n/model/unified/v4/features.py:48: PerformanceWarning: DataFrame is highly fragmented.  This is usually the result of calling `frame.insert` many times, which has poor performance.  Consider joining all columns at once using pd.concat(axis=1) instead. To get a de-fragmented frame, use `newframe = frame.copy()`
+  df[f"form_per80_{level}__{event}"] = level_per80.groupby(
+/Users/williamgreenfield/Documents/dev/6n/model/unified/v4/features.py:48: PerformanceWarning: DataFrame is highly fragmented.  This is usually the result of calling `frame.insert` many times, which has poor performance.  Consider joining all columns at once using pd.concat(axis=1) instead. To get a de-fragmented frame, use `newframe = frame.copy()`
+  df[f"form_per80_{level}__{event}"] = level_per80.groupby(
+/Users/williamgreenfield/Documents/dev/6n/model/unified/v4/features.py:53: PerformanceWarning: DataFrame is highly fragmented.  This is usually the result of calling `frame.insert` many times, which has poor performance.  Consider joining all columns at once using pd.concat(axis=1) instead. To get a de-fragmented frame, use `newframe = frame.copy()`
+  df[f"cum_count__{event}"] = count.fillna(0.0).groupby(
+/Users/williamgreenfield/Documents/dev/6n/model/unified/v4/features.py:56: PerformanceWarning: DataFrame is highly fragmented.  This is usually the result of calling `frame.insert` many times, which has poor performance.  Consider joining all columns at once using pd.concat(axis=1) instead. To get a de-fragmented frame, use `newframe = frame.copy()`
+  df[f"cum_min__{event}"] = mins.fillna(0.0).groupby(
+/Users/williamgreenfield/Documents/dev/6n/model/unified/v4/features.py:62: PerformanceWarning: DataFrame is highly fragmented.  This is usually the result of calling `frame.insert` many times, which has poor performance.  Consider joining all columns at once using pd.concat(axis=1) instead. To get a de-fragmented frame, use `newframe = frame.copy()`
+  df[f"prior_per80__{event}"] = per80.groupby(group).transform(
+[6n-2025-r1] fitting B+hurdle on 93,962 rows
+[6n-2025-r2] fitting B+hurdle on 94,376 rows
+[6n-2025-r3] fitting B+hurdle on 96,124 rows
+[6n-2025-r4] fitting B+hurdle on 98,286 rows
+[6n-2025-r5] fitting B+hurdle on 98,792 rows
+{
+  "brier_hurdle": 0.09514621920549574,
+  "brier_plain": 0.09230949558431788,
+  "p90_gap_hurdle": 0.0503875699412077,
+  "p90_gap_plain": 0.06265523955449152,
+  "capture_hurdle": 0.8096847963175636,
+  "capture_B": 0.8092859220629324,
+  "mae_hurdle": 7.269857802526711,
+  "mae_B": 7.271577509736808,
+  "admit": false
+}

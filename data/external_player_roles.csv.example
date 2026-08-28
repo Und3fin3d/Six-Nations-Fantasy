@@ -1,0 +1,2 @@
+season,round,fixture_id,team_id,team,player_id,player_name,player_key,rolecert_source_timestamp,rolecert_goal_kicker_prob,rolecert_named_captain,rolecert_lineout_role_prob,rolecert_bench_fh_kick_share,rolecert_replacement_role_uncertainty
+2026,1,9999999,1817,Ireland,123456,Example Player,example-player,2026-01-30T12:00:00Z,0.80,0,0.10,0.00,0.20

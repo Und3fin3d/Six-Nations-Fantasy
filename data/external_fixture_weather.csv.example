@@ -1,0 +1,2 @@
+season,round,fixture_id,date,venue,weather_source_timestamp,weather_source_kind,weather_temp_c,weather_rain_mm,weather_precip_probability,weather_wind_kph,weather_wind_gust_kph
+2026,1,9999999,2026-02-01,Aviva Stadium,2026-02-01T12:00:00Z,forecast,7.8,1.2,0.55,22.0,36.0

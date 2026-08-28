@@ -1,0 +1,209 @@
+{
+  "extended_gated_targets": [
+    "dominant_tackles",
+    "tackle_try_saver",
+    "tackle_turnover"
+  ],
+  "historical_primary_gate": true,
+  "paired_bootstrap": {
+    "empirical_event": {
+      "ncr_mae_vs_v1_by_slate": {
+        "mean": -0.32551143448120756,
+        "n_clusters": 98,
+        "p05": -0.423077019105425,
+        "p95": -0.2248606033088904
+      },
+      "ncr_mean_capture_vs_v1_by_slate": {
+        "mean": 0.028384651968511955,
+        "n_clusters": 98,
+        "p05": 0.016506824239647295,
+        "p95": 0.04065100424279993
+      },
+      "six_nations_mae_vs_v1_by_slate": {
+        "mean": -0.29002027744876624,
+        "n_clusters": 98,
+        "p05": -0.3835584345809274,
+        "p95": -0.196790173093858
+      },
+      "six_nations_mean_capture_vs_v1_by_slate": {
+        "mean": 0.024991831042604464,
+        "n_clusters": 98,
+        "p05": 0.01589788572309423,
+        "p95": 0.03443682940387044
+      },
+      "stable_score_vs_v1_by_fold": {
+        "mean": 0.031113366953665872,
+        "n_clusters": 21,
+        "p05": 0.016929028388769814,
+        "p95": 0.04450757444394253
+      }
+    },
+    "gbdt_v3": {
+      "ncr_mae_vs_v1_by_slate": {
+        "mean": -0.06141045935092373,
+        "n_clusters": 98,
+        "p05": -0.07596763870206799,
+        "p95": -0.04715408669919164
+      },
+      "ncr_mean_capture_vs_v1_by_slate": {
+        "mean": -0.0038483828839916442,
+        "n_clusters": 98,
+        "p05": -0.007081663499158444,
+        "p95": -0.0006679700170453165
+      },
+      "six_nations_mae_vs_v1_by_slate": {
+        "mean": -0.06266519273802387,
+        "n_clusters": 98,
+        "p05": -0.07848445659550658,
+        "p95": -0.04678645067246461
+      },
+      "six_nations_mean_capture_vs_v1_by_slate": {
+        "mean": -0.0023355734952862474,
+        "n_clusters": 98,
+        "p05": -0.005729838145169464,
+        "p95": 0.00092181016527849
+      },
+      "stable_score_vs_v1_by_fold": {
+        "mean": 0.14959100597743197,
+        "n_clusters": 21,
+        "p05": 0.10402760286268165,
+        "p95": 0.1937623956469957
+      }
+    },
+    "p3_event_50": {
+      "ncr_mae_vs_v1_by_slate": {
+        "mean": -0.21362831497370824,
+        "n_clusters": 98,
+        "p05": -0.2746425976414725,
+        "p95": -0.15511377354680092
+      },
+      "ncr_mean_capture_vs_v1_by_slate": {
+        "mean": 0.019226031517746028,
+        "n_clusters": 98,
+        "p05": 0.008931519216595393,
+        "p95": 0.029020646420324574
+      },
+      "six_nations_mae_vs_v1_by_slate": {
+        "mean": -0.21054135792091,
+        "n_clusters": 98,
+        "p05": -0.2685821701583002,
+        "p95": -0.15707792736488105
+      },
+      "six_nations_mean_capture_vs_v1_by_slate": {
+        "mean": 0.0214375497335035,
+        "n_clusters": 98,
+        "p05": 0.013836484323225234,
+        "p95": 0.029104570313001562
+      },
+      "stable_score_vs_v1_by_fold": {
+        "mean": -0.02144723854007279,
+        "n_clusters": 21,
+        "p05": -0.028605834356039684,
+        "p95": -0.014034544836597636
+      }
+    },
+    "v4": {
+      "ncr_mae_vs_v1_by_slate": {
+        "mean": 0.13154645580309163,
+        "n_clusters": 98,
+        "p05": 0.09165334966684074,
+        "p95": 0.17307417295063338
+      },
+      "ncr_mean_capture_vs_v1_by_slate": {
+        "mean": 0.0027604454627816635,
+        "n_clusters": 98,
+        "p05": -0.004195830848750241,
+        "p95": 0.009058208256290817
+      },
+      "six_nations_mae_vs_v1_by_slate": {
+        "mean": 0.12199596975893379,
+        "n_clusters": 98,
+        "p05": 0.0837620220518602,
+        "p95": 0.16133309749635164
+      },
+      "six_nations_mean_capture_vs_v1_by_slate": {
+        "mean": 0.0011955111812096153,
+        "n_clusters": 98,
+        "p05": -0.00322629962411066,
+        "p95": 0.005548832407134275
+      },
+      "stable_score_vs_v1_by_fold": {
+        "mean": 0.005389849898310087,
+        "n_clusters": 21,
+        "p05": 0.001719249538471096,
+        "p95": 0.009393973321921297
+      }
+    },
+    "v5_t": {
+      "ncr_mae_vs_v1_by_slate": {
+        "mean": 9.512437737039995e-06,
+        "n_clusters": 98,
+        "p05": 1.6163910647782684e-06,
+        "p95": 1.9579701928474255e-05
+      },
+      "ncr_mean_capture_vs_v1_by_slate": {
+        "mean": 0.0,
+        "n_clusters": 98,
+        "p05": 0.0,
+        "p95": 0.0
+      },
+      "six_nations_mae_vs_v1_by_slate": {
+        "mean": 1.0369620958622258e-05,
+        "n_clusters": 98,
+        "p05": -1.7460504538811844e-07,
+        "p95": 2.1660138124915578e-05
+      },
+      "six_nations_mean_capture_vs_v1_by_slate": {
+        "mean": 0.0,
+        "n_clusters": 98,
+        "p05": 0.0,
+        "p95": 0.0
+      },
+      "stable_score_vs_v1_by_fold": {
+        "mean": 0.0009406873794414659,
+        "n_clusters": 21,
+        "p05": 0.0,
+        "p95": 0.0028220621383243977
+      }
+    }
+  },
+  "passed": {
+    "empirical_event": false,
+    "gbdt_v3": false,
+    "p3_event_50": true,
+    "v1": true,
+    "v4": false,
+    "v5_t": false
+  },
+  "prospective_ncr_status": "confirmatory_veto_pending_or_separate",
+  "prospective_veto": {
+    "mae_regression": 0.05,
+    "mean_capture_pp_regression": 0.05
+  },
+  "reasons": {
+    "empirical_event": [
+      "competition-balanced stable raw score did not improve over v1",
+      "north stable raw score regressed by more than 2%",
+      "south stable raw score regressed by more than 2%",
+      "tournament-family stable regression >2%: british_irish_lions, nations_championship, rugby_championship, six_nations, summer_internationals",
+      "extended-event loss regression >5%: tackle_try_saver, tackle_turnover"
+    ],
+    "gbdt_v3": [
+      "competition-balanced stable raw score did not improve over v1",
+      "north stable raw score regressed by more than 2%",
+      "south stable raw score regressed by more than 2%",
+      "tournament-family stable regression >2%: autumn_internationals, rugby_championship, rugby_world_cup, six_nations, summer_internationals"
+    ],
+    "p3_event_50": [],
+    "v1": [],
+    "v4": [
+      "competition-balanced stable raw score did not improve over v1"
+    ],
+    "v5_t": [
+      "competition-balanced stable raw score did not improve over v1"
+    ]
+  },
+  "schema_version": 1,
+  "selected": "p3_event_50",
+  "v1_stable_score": 0.9079176750187402
+}

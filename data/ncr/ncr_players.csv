@@ -1,0 +1,480 @@
+id,display_name,full_name,team_name,team_id,team_short_code,hemisphere,skill,skill_desc,value,sel_percentage,sel_cap_percentage,is_active,available_status,injury_status,player_status,cur_gd_points,min_in_game
+146220,W. Jordan,Will Jordan,New Zealand,7,nzl,2,8,BACK THREE,8.5,44.4,12.8521,1,,,,50.00,3
+244532,T. Attissogbe,Theo Attissogbe,France,5,fra,1,8,BACK THREE,6.5,35.8,7.8774,1,,,,44.00,3
+233237,I. Feyi-Waboso,Immanuel Feyi-Waboso,England,1,eng,1,8,BACK THREE,6.5,9.2,0.3437,1,,,,85.00,3
+235266,J. Oviedo,Joaquin Oviedo,Argentina,10,arg,2,3,LOOSE FORWARD,5.5,19.9,0.1814,1,,,,31.00,3
+190344,M. Jalibert,Matthieu Jalibert,France,5,fra,1,6,FLY-HALF,8,33.3,7.6817,1,,,,45.00,3
+104346,T. Ikanivere,Tevita Ikanivere,Fiji,243,fij,2,2,HOOKER,5,7.3,0.0764,1,,,,50.00,3
+229307,C. Roigard,Cam Roigard,New Zealand,7,nzl,2,5,SCRUM-HALF,8,44.9,7.1326,1,,,,20.00,3
+179379,A. Savea,Ardie Savea,New Zealand,7,nzl,2,3,LOOSE FORWARD,8.5,45.9,8.4408,1,,,,49.00,3
+140494,J. Wainiqolo,Jiuta Wainiqolo,Fiji,243,fij,2,8,BACK THREE,5.5,18.7,0.6923,1,,,,13.00,3
+123016,J. Morgan,Jac Morgan,Wales,3,wal,1,3,LOOSE FORWARD,7,29.9,1.3606,1,,,,22.00,3
+142873,B. Gunter,Ben Gunter,Japan,103,jpn,2,3,LOOSE FORWARD,4.5,16.1,0.0668,1,,,,33.00,3
+146480,S. Tuipulotu,Sione Tuipulotu,Scotland,2,sco,1,7,CENTRE,7.5,17.2,0.6779,1,,,,5.00,3
+105748,J. Conan,Jack Conan,Ireland,4,ire,1,3,LOOSE FORWARD,7,13.6,0.2339,1,,,,42.00,3
+180443,D. Willemse,Damian Willemse,South Africa,8,rsa,2,8,BACK THREE,5.5,12.8,0.3772,1,,,,19.00,3
+237155,J. Piccardo,Justo Piccardo,Argentina,10,arg,2,7,CENTRE,5.5,4.2,0.0334,1,,,,43.00,2
+162344,J. Montoya,Julian Montoya,Argentina,10,arg,2,2,HOOKER,7.5,15.2,0.444,1,,,,15.00,3
+240799,J. Canham,Josh Canham,Australia,9,aus,2,4,LOCK,4.5,10.3,0.0239,1,,,,63.00,3
+143492,D. McKenzie,Damian McKenzie,New Zealand,7,nzl,2,6,FLY-HALF,8.5,4.6,1.2222,1,,,,61.00,3
+245055,E. Canakaivata,Elia Canakaivata,Fiji,243,fij,2,3,LOOSE FORWARD,4,2.8,0,1,,,,50.00,3
+137626,F. Smith,Fin Smith,England,1,eng,1,6,FLY-HALF,5,9.6,0.7304,1,,,,18.00,3
+202239,T. Albornoz,Tomas Albornoz,Argentina,10,arg,2,6,FLY-HALF,7,4,0.4297,1,,,,50.00,3
+250067,F. Brau-Boirie,Fabien Brau-Boirie,France,5,fra,1,7,CENTRE,6,24.2,0.3103,1,,,,18.00,3
+209612,B. Earl,Ben Earl,England,1,eng,1,3,LOOSE FORWARD,8,16.8,1.0264,1,,,,45.00,3
+100043,M. Lucu,Maxime Lucu,France,5,fra,1,5,SCRUM-HALF,6.5,14.7,1.5564,1,,,,44.00,3
+179604,J. Tuisova,Josua Tuisova,Fiji,243,fij,2,7,CENTRE,5.5,9.5,0.148,1,,,,45.00,3
+172024,J. Moorby,Josh Moorby,New Zealand,7,nzl,2,8,BACK THREE,5,2.5,0.2148,1,,,,48.00,2
+121353,M. Marx,Malcolm Marx,South Africa,8,rsa,2,2,HOOKER,8.5,30.3,3.3324,1,,,,28.00,2
+180778,K. Rowe,Kyle Rowe,Scotland,2,sco,1,8,BACK THREE,5.5,2.9,0.0286,1,,,,0,2
+122907,R. Ntamack,Romain Ntamack,France,5,fra,1,6,FLY-HALF,7,5.5,1.141,1,,,,26.00,2
+240624,S. Ravutaumada,Selestino Ravutaumada,Fiji,243,fij,2,7,CENTRE,5,6.3,0.0477,1,,,,32.00,2
+245050,M. Jorgensen,Max Jorgensen,Australia,9,aus,2,8,BACK THREE,7.5,16.3,1.0217,1,,,,23.00,3
+145361,H. Keenan,Hugo Keenan,Ireland,4,ire,1,8,BACK THREE,5.5,5.7,0.0907,1,,,,35.00,2
+214439,R. Valetini,Rob Valetini,Australia,9,aus,2,3,LOOSE FORWARD,6.5,12.5,0.1766,1,,,,32.00,3
+100192,J. Bayliss,Josh Bayliss,Scotland,2,sco,1,3,LOOSE FORWARD,4,4.4,0.0573,1,,,,42.00,2
+136947,B. Paenga-Amosa,Brandon Paenga-Amosa,Australia,9,aus,2,2,HOOKER,4,2.9,0.0048,1,,,,35.00,3
+212902,D. Lake,Dewi Lake,Wales,3,wal,1,2,HOOKER,6,4.6,0.1671,1,,,,22.00,3
+189326,M. Smith,Marcus Smith,England,1,eng,1,6,FLY-HALF,4.5,2.6,0.1098,1,,,,28.00,3
+242264,JA. Suaalii,Joseph-Aukuso Suaalii,Australia,9,aus,2,7,CENTRE,7.5,16.3,0.296,1,,,,21.00,3
+222388,Y. Moefana,Yoram Moefana,France,5,fra,1,7,CENTRE,6.5,11.2,0.1194,1,,,,18.00,3
+239634,H. Pollock,Henry Pollock,England,1,eng,1,3,LOOSE FORWARD,5.5,22.9,0.2626,1,,,,13.00,3
+169055,J. Barrett,Jordie Barrett,New Zealand,7,nzl,2,7,CENTRE,8,11.2,1.0026,1,,,,24.00,3
+189190,M. Lamothe,Maxime Lamothe,France,5,fra,1,2,HOOKER,4.5,3.2,0.0286,1,,,,42.00,3
+210801,S. Cummings,Scott Cummings,Scotland,2,sco,1,4,LOCK,6,5,0.0191,1,,,,32.00,3
+129616,F. McReight,Fraser McReight,Australia,9,aus,2,3,LOOSE FORWARD,7,11.2,0.191,1,,,,8.00,3
+160801,J. George,Jamie George,England,1,eng,1,2,HOOKER,5.5,6.7,0.296,1,,,,17.00,3
+165591,M. Carreras,Mateo Carreras,Argentina,10,arg,2,8,BACK THREE,5,6,0.0907,1,,,,23.00,3
+102468,E. de Groot,Ethan de Groot,New Zealand,7,nzl,2,1,PROP,7,16.3,0.4488,1,,,,19.00,3
+165007,E. Genge,Ellis Genge,England,1,eng,1,1,PROP,5.5,27.4,0.4201,1,,,,24.00,3
+229297,R. Love,Ruben Love,New Zealand,7,nzl,2,6,FLY-HALF,5,10.3,1.5994,1,,,,22.00,3
+241018,S. Jansen,Sean Jansen,Ireland,4,ire,1,3,LOOSE FORWARD,3.5,2.3,0.0095,1,,,,12.00,2
+229557,T. Menoncello,Tommaso Menoncello,Italy,6,ita,1,7,CENTRE,8,18.7,2.2916,1,,,,0,2
+110910,J. Kriel,Jesse Kriel,South Africa,8,rsa,2,7,CENTRE,7,15,0.5777,1,,,,26.00,3
+238928,W. Dearns,Warner Dearns,Japan,103,jpn,2,4,LOCK,6.5,16.1,0.0907,1,,,,29.00,3
+239638,T. Matsunaga,Takuro Matsunaga,Japan,103,jpn,2,8,BACK THREE,3.5,3,0.0143,1,,,,16.00,3
+185160,C. Taylor,Codie Taylor,New Zealand,7,nzl,2,2,HOOKER,7.5,4.3,0.1957,1,,,,14.00,3
+137153,J. Wiese,Jasper Wiese,South Africa,8,rsa,2,3,LOOSE FORWARD,6.5,10.6,0.3103,1,,,,40.00,2
+120191,M. Lamaro,Michele Lamaro,Italy,6,ita,1,3,LOOSE FORWARD,6,1.5,0.0286,1,,,,31.00,3
+185293,L. Ikitau,Len Ikitau,Australia,9,aus,2,7,CENTRE,6.5,7,0.0859,1,,,,32.00,3
+223308,A. Grandidier-Nkanang,Aaron Grandidier-Nkanang,France,5,fra,1,8,BACK THREE,4,5.2,0.3819,1,,,,11.00,2
+229857,J. Williams,Jeremy Williams,Australia,9,aus,2,4,LOCK,5.5,13,0.0143,1,,,,27.00,3
+237233,R. Vintcent,Ross Vintcent,Italy,6,ita,1,3,LOOSE FORWARD,4.5,5.7,0.0239,1,,,,31.00,3
+196773,P. Schoeman,Pierre Schoeman,Scotland,2,sco,1,1,PROP,6,5.3,0.0477,1,,,,28.00,3
+241677,P. de Villiers,Paul de Villiers,South Africa,8,rsa,2,3,LOOSE FORWARD,4,2.9,0.043,1,,,,51.00,2
+211240,D. Sheehan,Dan Sheehan,Ireland,4,ire,1,2,HOOKER,8,12.3,1.2174,1,,,,32.00,2
+229505,L. Cinti,Lucio Cinti,Argentina,10,arg,2,7,CENTRE,6,2.3,0.0095,1,,,,6.00,3
+195298,J. Dobie,Jamie Dobie,Scotland,2,sco,1,5,SCRUM-HALF,5,1.7,0.0095,1,,,,37.00,3
+243508,T. Jordan,Tom Jordan,Scotland,2,sco,1,7,CENTRE,4.5,6.2,0.1003,1,,,,36.00,3
+109648,S. Atkinson,Seb Atkinson,England,1,eng,1,7,CENTRE,4,1.3,0.0095,1,,,,29.00,3
+119955,R. Carre,Rhys Carre,Wales,3,wal,1,1,PROP,4.5,29.1,0.1337,1,,,,16.00,3
+224426,T. OToole,Tom OToole,Ireland,4,ire,1,1,PROP,4,11,0.0239,1,,,,16.00,3
+243815,M. Gazzotti,Marko Gazzotti,France,5,fra,1,3,LOOSE FORWARD,4,6.2,0.0143,1,,,,8.00,3
+187820,R. Darge,Rory Darge,Scotland,2,sco,1,3,LOOSE FORWARD,6.5,3.6,0.0764,1,,,I,0,2
+126800,J. van der Flier,Josh van der Flier,Ireland,4,ire,1,3,LOOSE FORWARD,6,8.6,0.1528,1,,,,17.00,2
+180382,B. Delguy,Bautista Delguy,Argentina,10,arg,2,8,BACK THREE,5,1.9,0.0191,1,,,,23.00,3
+240478,G. Hiddleston,Gregor Hiddleston,Scotland,2,sco,1,2,HOOKER,4,3.6,0.0143,1,,,,25.00,3
+223413,J. McCarthy,Joe McCarthy,Ireland,4,ire,1,4,LOCK,6.5,5.8,0.0525,1,,,,48.00,2
+190708,H. Wilson,Harry Wilson,Australia,9,aus,2,3,LOOSE FORWARD,6,6.6,0.0716,1,,,,13.00,3
+251199,H. Era,Hayate Era,Japan,103,jpn,2,2,HOOKER,3.5,0.4,0.0048,1,,,,25.00,3
+207343,G. Williams,Grant Williams,South Africa,8,rsa,2,5,SCRUM-HALF,7,4.2,0.2005,1,,,,0,2
+172455,D. van der Merwe,Duhan van der Merwe,Scotland,2,sco,1,8,BACK THREE,5,5.2,0.2483,1,,,,56.00,1
+146815,A. Bell,Angus Bell,Australia,9,aus,2,1,PROP,7,21.5,0.1957,1,,,,28.00,3
+196669,Z. Fagerson,Zander Fagerson,Scotland,2,sco,1,1,PROP,6.5,1.7,0.043,1,,,,21.00,3
+159599,M. Fagerson,Matt Fagerson,Scotland,2,sco,1,3,LOOSE FORWARD,5.5,1.7,0,1,,,,0,2
+193134,N. Timoney,Nick Timoney,Ireland,4,ire,1,3,LOOSE FORWARD,5,2.9,0.0095,1,,,,6.00,3
+106142,L. Cowan-Dickie,Luke Cowan-Dickie,England,1,eng,1,2,HOOKER,4.5,0.9,0.0095,1,,,,27.00,3
+172351,S. McCloskey,Stuart McCloskey,Ireland,4,ire,1,7,CENTRE,6.5,12.2,0.3437,1,,,,9.00,3
+173801,A. Coles,Alex Coles,England,1,eng,1,4,LOCK,5,8.1,0.0382,1,,,,16.00,3
+188057,B. White,Ben White,Scotland,2,sco,1,5,SCRUM-HALF,4.5,3,0.0382,1,,,,0,2
+156918,T. Freeman,Tommy Freeman,England,1,eng,1,8,BACK THREE,7,14.6,0.888,1,,,,36.00,3
+136190,L. Jacobson,Luke Jacobson,New Zealand,7,nzl,2,3,LOOSE FORWARD,4,2.2,0.0143,1,,,,14.00,3
+240621,D. Pietsch,Dylan Pietsch,Australia,9,aus,2,8,BACK THREE,6.5,1.3,0.0095,1,,,,0,2
+130487,N. Brex,Nacho Brex,Italy,6,ita,1,7,CENTRE,6,3.6,0.0239,1,,,,5.00,3
+141860,E. Ashman,Ewan Ashman,Scotland,2,sco,1,2,HOOKER,5.5,1.7,0.0095,1,,,,0,2
+219485,R. Lonergan,Ryan Lonergan,Australia,9,aus,2,5,SCRUM-HALF,4,2.4,0.0286,1,,,,16.00,3
+189982,S. Carreras,Santiago Carreras,Argentina,10,arg,2,8,BACK THREE,6.5,7.3,0.3055,1,,,,10.00,3
+191608,C. Reinach,Cobus Reinach,South Africa,8,rsa,2,5,SCRUM-HALF,6.5,4.6,0.3055,1,,,,46.00,2
+138016,H. Slade,Henry Slade,England,1,eng,1,7,CENTRE,4,2.7,0.0286,1,,,,16.00,3
+182170,R. Elias,Ryan Elias,Wales,3,wal,1,2,HOOKER,4,0.3,0,1,,,,14.00,3
+216173,J. Gibson-Park,Jamison Gibson-Park,Ireland,4,ire,1,5,SCRUM-HALF,7,12.5,1.0599,1,,,,8.00,2
+151974,B. Proctor,Billy Proctor,New Zealand,7,nzl,2,7,CENTRE,6,0.6,0.0239,1,,,,0,2
+135572,J. Cornelsen,Jack Cornelsen,Japan,103,jpn,2,4,LOCK,5.5,2.2,0.0095,1,,,,11.00,3
+240916,B. Wenger,Boris Wenger,Argentina,10,arg,2,1,PROP,4,0.4,0.0048,1,,,,22.00,3
+103821,E. Mawi,Eroni Mawi,Fiji,243,fij,2,1,PROP,5,3.4,0.0191,1,,,,17.00,3
+188103,P. Sowakula,Pita Gus Sowakula,Fiji,243,fij,2,3,LOOSE FORWARD,4,1,0.0095,1,,,,20.00,3
+195116,H. Potter,Harry Potter,Australia,9,aus,2,8,BACK THREE,5.5,1.8,0.0525,1,,,,45.00,1
+233314,T. Main,Taira Main,Japan,103,jpn,2,8,BACK THREE,3.5,0.1,0,1,,,,7.00,2
+171003,P. du Toit,Pieter-Steph du Toit,South Africa,8,rsa,2,3,LOOSE FORWARD,8.5,15,1.9622,1,,,,19.00,3
+197335,L. Cannone,Lorenzo Cannone,Italy,6,ita,1,3,LOOSE FORWARD,6,2.8,0.0286,1,,,,0,2
+113737,J. van Poortvliet,Jack van Poortvliet,England,1,eng,1,5,SCRUM-HALF,4,1.1,0.0143,1,,,,19.00,3
+206415,M. Harada,Mamoru Harada,Japan,103,jpn,2,2,HOOKER,4,0.8,0.0095,1,,,,0,2
+246824,Z. Porthen,Zac Porthen,South Africa,8,rsa,2,1,PROP,3,2.7,0.0239,1,,,,0,2
+128023,S. Rayasi,Salesi Rayasi,Fiji,243,fij,2,8,BACK THREE,6.5,4.2,0.1719,1,,,,0.00,3
+119132,A. Wainwright,Aaron Wainwright,Wales,3,wal,1,3,LOOSE FORWARD,6.5,3.6,0.1194,1,,,,9.00,3
+142211,G. Martin,George Martin,England,1,eng,1,4,LOCK,4,9.6,0.0191,1,,,,15.00,3
+156336,T. Wright,Tom Wright,Australia,9,aus,2,8,BACK THREE,6,3,0.0621,1,,,,24.00,3
+229303,S. Darry,Sam Darry,New Zealand,7,nzl,2,4,LOCK,5.5,2.8,0.0095,1,,,,0,2
+120076,M. Leitch,Michael Leitch,Japan,103,jpn,2,3,LOOSE FORWARD,5,0.5,0.0048,1,,,,23.00,3
+137453,J. Adams,Josh Adams,Wales,3,wal,1,8,BACK THREE,4.5,9.9,0.0812,1,,,,0,2
+246851,T. Rapetti,Toms Rapetti,Argentina,10,arg,2,1,PROP,3,7.1,0.0048,1,,,,8.00,3
+154929,C. Kolbe,Cheslin Kolbe,South Africa,8,rsa,2,8,BACK THREE,8,18.7,4.3636,1,,,,0,1
+241794,W. Sititi,Wallace Sititi,New Zealand,7,nzl,2,3,LOOSE FORWARD,6.5,2.7,0.0525,1,,,,0,2
+134796,J. Heyes,Joe Heyes,England,1,eng,1,1,PROP,6.5,3.5,0.043,1,,,,22.00,3
+203381,J. Ryan,James Ryan,Ireland,4,ire,1,4,LOCK,5.5,5.5,0.0143,1,,,,15.00,3
+128750,A. Zambonin,Andrea Zambonin,Italy,6,ita,1,4,LOCK,5.5,5.3,0.0477,1,,,,-1.00,3
+243190,B. Murray,Blair Murray,Wales,3,wal,1,8,BACK THREE,4.5,4.3,0.0334,1,,,,5.00,3
+226014,C. Wiese,Cobus Wiese,South Africa,8,rsa,2,4,LOCK,4,5,0.0286,1,,,,28.00,2
+236606,L. Marin,Leonardo Marin,Italy,6,ita,1,6,FLY-HALF,4,0.3,0,1,,,,3.00,3
+109816,R. Hutchinson,Rory Hutchinson,Scotland,2,sco,1,7,CENTRE,4,1.7,0.0143,1,,,,0,2
+236602,T. di Bartolomeo,Tommaso di Bartolomeo,Italy,6,ita,1,2,HOOKER,3.5,1.3,0.0048,1,,,,0,2
+101634,T. Vaai,Tupou Vaai,New Zealand,7,nzl,2,4,LOCK,5,5.7,0.0143,1,,,,20.00,2
+150038,T. Lomax,Tyrel Lomax,New Zealand,7,nzl,2,1,PROP,5,3,0.0095,1,,,,13.00,3
+111475,J. Lord,Josh Lord,New Zealand,7,nzl,2,4,LOCK,6,2.4,0.0191,1,,,,19.00,3
+174318,M. Ioane,Monty Ioane,Italy,6,ita,1,8,BACK THREE,5,2.7,0.043,1,,,,32.00,2
+244170,L.Nouchi,Lenni Nouchi,France,5,fra,1,3,LOOSE FORWARD,5,1.6,0.0143,1,,,,9.00,2
+112684,G. Pepper,Guy Pepper,England,1,eng,1,3,LOOSE FORWARD,4.5,4,0.0334,1,,,,24.00,3
+144570,J. OBrien,Jimmy OBrien,Ireland,4,ire,1,8,BACK THREE,4,1.8,0.0382,1,,,,7.00,3
+136875,G. Lucchesi,Gianmarco Lucchesi,Italy,6,ita,1,2,HOOKER,3.5,0.7,0,1,,,,19.00,3
+144635,O. Chessum,Ollie Chessum,England,1,eng,1,4,LOCK,6.5,22.9,0.5156,1,,,,15.00,3
+178222,J. Campbell,Jock Campbell,Australia,9,aus,2,8,BACK THREE,4,1.8,0.0048,1,,,,0,2
+156253,P. Garbisi,Paolo Garbisi,Italy,6,ita,1,6,FLY-HALF,7,2,0.2435,1,,,,4.00,3
+118531,R. Kelleher,Ronan Kelleher,Ireland,4,ire,1,2,HOOKER,6,1.5,0.0191,1,,,,4.00,3
+103440,F. Ruzza,Federico Ruzza,Italy,6,ita,1,4,LOCK,5.5,0.6,0,1,,,,24.00,2
+222920,G. Brown,Gregor Brown,Scotland,2,sco,1,4,LOCK,4.5,6.4,0.0048,1,,,,8.00,3
+132322,K.Tixeront,Killian Tixeront,France,5,fra,1,3,LOOSE FORWARD,4,0.4,0,1,,,,3.00,3
+225770,A. Aumua,Asafo Aumua,New Zealand,7,nzl,2,2,HOOKER,4,0.8,0.0095,1,,,,31.00,2
+110905,B. Dixon,Ben-Jason Dixon,South Africa,8,rsa,2,3,LOOSE FORWARD,4,1.1,0,1,,,,2.00,3
+197546,J. Hawkins,Joe Hawkins,Wales,3,wal,1,7,CENTRE,6,0.4,0,1,,,,3.00,3
+202316,F. Lomani,Frank Lomani,Fiji,243,fij,2,5,SCRUM-HALF,3.5,1.1,0.0048,1,,,,11.00,3
+104572,T. du Toit,Thomas du Toit,South Africa,8,rsa,2,1,PROP,7,15.2,0.8498,1,,,,0,2
+237803,K. Ravouvou,Kalaveti Ravouvou,Fiji,243,fij,2,8,BACK THREE,6.5,1.4,0.0286,1,,,,0,2
+113444,T. Furlong,Tadhg Furlong,Ireland,4,ire,1,1,PROP,5,5.7,0.0525,1,,,,26.00,2
+164116,R. Henshaw,Robbie Henshaw,Ireland,4,ire,1,7,CENTRE,5,0.8,0.0048,1,,,,0,1
+226250,I. Nasilasila,Isoa Nasilasila,Fiji,243,fij,2,4,LOCK,4.5,2.1,0,1,,,,9.00,3
+226185,K. Salawa,Kitione Salawa,Fiji,243,fij,2,3,LOOSE FORWARD,4.5,2.7,0.0143,1,,,,15.00,2
+133457,A. Hastoy,Antoine Hastoy,France,5,fra,1,6,FLY-HALF,4,0.2,0.0095,1,,,,0,1
+113000,J. Dempsey,Jack Dempsey,Scotland,2,sco,1,3,LOOSE FORWARD,6.5,2.6,0.0525,1,,,,0,2
+222623,T. Curry,Tom Curry,England,1,eng,1,3,LOOSE FORWARD,6,3.3,0.0764,1,,,,15.00,3
+133163,T. Williams,Tomos Williams,Wales,3,wal,1,5,SCRUM-HALF,5.5,4.5,0.0955,1,,,,0.00,3
+143048,A. Alaalatoa,Allan Alaalatoa,Australia,9,aus,2,1,PROP,5.5,4.1,0.0143,1,,,,15.00,3
+103703,H. Hockings,Harry Hockings,Japan,103,jpn,2,4,LOCK,4.5,1.5,0,1,,,,4.00,3
+197246,T. Stewart,Tom Stewart,Ireland,4,ire,1,2,HOOKER,4,0.2,0,1,,,,0,1
+149746,S. McDowall,Stafford McDowall,Scotland,2,sco,1,7,CENTRE,4,1.2,0.0382,1,,,,33.00,2
+255396,M. Faissal,Malik Faissal,Italy,6,ita,1,8,BACK THREE,3.5,1.2,0,1,,,,0,2
+202570,T. Staniforth,Tom Staniforth,France,5,fra,1,4,LOCK,3.5,1.6,0.0048,1,,,,10.00,3
+131550,T. Okabe,Takato Okabe,Japan,103,jpn,2,1,PROP,3,1.1,0,1,,,,8.00,3
+261209,S. Otsuka,Sojiro Otsuka,Japan,103,jpn,2,1,PROP,3,0.5,0,1,,,,18.00,3
+157863,F. Russell,Finn Russell,Scotland,2,sco,1,6,FLY-HALF,8.5,18.2,4.3015,1,,,,0,1
+147486,T. Beirne,Tadhg Beirne,Ireland,4,ire,1,4,LOCK,7.5,13.3,0.4249,1,,,,16.00,3
+190669,K. Arendse,Kurt-Lee Arendse,South Africa,8,rsa,2,8,BACK THREE,6.5,14.7,3.0268,1,,,,26.00,2
+117303,P. Mauvaka,Peato Mauvaka,France,5,fra,1,2,HOOKER,6.5,1.1,0.0239,1,,,,18.00,2
+204526,M. Kremer,Marcos Kremer,Argentina,10,arg,2,3,LOOSE FORWARD,6,1.5,0.0239,1,,,,10.00,2
+214124,J. Botham,James Botham,Wales,3,wal,1,3,LOOSE FORWARD,6,0.2,0.0048,1,,,,8.00,3
+225264,R. Nortje,Ruan Nortje,South Africa,8,rsa,2,4,LOCK,6,3.8,0.043,1,,,,0,2
+244767,O. Jegou,Oscar Jegou,France,5,fra,1,3,LOOSE FORWARD,6,2,0.0048,1,,,,0,2
+182650,C. Muntz,Caleb Muntz,Fiji,243,fij,2,6,FLY-HALF,5,0.3,0.0239,1,,,,17.00,2
+165194,A.Roumat,Alexandre Roumat,France,5,fra,1,3,LOOSE FORWARD,5,0.5,0.0095,1,,,,33.00,1
+199383,C. Frawley,Ciaran Frawley,Ireland,4,ire,1,6,FLY-HALF,4.5,0.4,0.0048,1,,,,7.00,3
+108021,J. Poirot,Jefferson Poirot,France,5,fra,1,1,PROP,4,2.7,0.0095,1,,,,9.00,3
+136509,F. Burke,Fergus Burke,Scotland,2,sco,1,6,FLY-HALF,4,0.8,0.0573,1,,,,18.00,2
+252989,N. Caluori,Noah Caluori,England,1,eng,1,8,BACK THREE,4,1.5,0.0048,1,,,,0.00,2
+168641,D. Lewis,Dillon Lewis,Wales,3,wal,1,1,PROP,3.5,1.4,0,1,,,,11.00,3
+196853,T. Clarkson,Thomas Clarkson,Ireland,4,ire,1,1,PROP,3.5,0.6,0,1,,,,7.00,3
+252481,J. Williams,Jaco Williams,South Africa,8,rsa,2,8,BACK THREE,3.5,2.9,0.2339,1,,,,33.00,1
+219771,H. Pollard,Handre Pollard,South Africa,8,rsa,2,6,FLY-HALF,8,1.9,0.3772,1,,,,0,1
+198661,D. Riley,Dylan Riley,Japan,103,jpn,2,7,CENTRE,5,0.7,0.0095,1,,,,15.00,3
+164759,B. Warren,Ben Warren,Wales,3,wal,1,1,PROP,3,0.4,0,1,,,,-1.00,3
+123723,D. Fischetti,Danilo Fischetti,Italy,6,ita,1,1,PROP,5.5,4.9,0.0334,1,,,,10.00,3
+152990,T. Mayanavanua,Temo Mayanavanua,Fiji,243,fij,2,4,LOCK,5,1.7,0.0143,1,,,,11.00,3
+250678,K. Ishida,Kippei Ishida,Japan,103,jpn,2,8,BACK THREE,4,0.4,0,1,,,,21.00,2
+141337,F. Verhaeghe,Florian Verhaeghe,France,5,fra,1,4,LOCK,3.5,2.6,0.0095,1,,,,7.00,2
+166930,P. Kovekalou,Peni Ravai Kovekalou,Fiji,243,fij,2,1,PROP,3.5,0.3,0.0048,1,,,,9.00,3
+110170,K. Steyn,Kyle Steyn,Scotland,2,sco,1,8,BACK THREE,6.5,5,0.253,1,,,I,0,2
+249797,K. Gourgues,Kalvin Gourgues,France,5,fra,1,7,CENTRE,5.5,1.4,0,1,,,,4.00,2
+182760,M. Vivas,Mayco Vivas,Argentina,10,arg,2,1,PROP,4.5,2.3,0.0095,1,,,,1.00,3
+208620,C. Tizzano,Carlo Tizzano,Australia,9,aus,2,3,LOOSE FORWARD,6,3.5,0.043,1,,,,28.00,1
+238629,P. Lakai,Peter Lakai,New Zealand,7,nzl,2,3,LOOSE FORWARD,6,1.6,0.0239,1,,,,5.00,2
+210952,T. McDermott,Tate McDermott,Australia,9,aus,2,5,SCRUM-HALF,4,1.1,0,1,,,,4.00,3
+233260,S. Takeuchi,Shuhei Takeuchi,Japan,103,jpn,2,1,PROP,4,0.6,0.0095,1,,,,0,2
+172284,M. Hasa,Muhamed Hasa,Italy,6,ita,1,1,PROP,3.5,0.5,0,1,,,,9.00,3
+134112,E. Meafou,Emmanuel Meafou,France,5,fra,1,4,LOCK,7.5,2.1,0.0143,1,,,,16.00,2
+105949,D. de Allende,Damian de Allende,South Africa,8,rsa,2,7,CENTRE,7,7.4,0.253,1,,,,7.00,2
+127095,S. Grondona,Santiago Grondona,Argentina,10,arg,2,3,LOOSE FORWARD,5.5,0.8,0.0048,1,,,,3.00,3
+245177,T. Costley,Tiennan Costley,Japan,103,jpn,2,3,LOOSE FORWARD,4.5,0.1,0,1,,,,15.00,3
+208805,M. Doge,Mesake Doge,Fiji,243,fij,2,1,PROP,4,0.2,0,1,,,,16.00,2
+111864,M. Spring,Max Spring,France,5,fra,1,8,BACK THREE,4,0.7,0,1,,,,0,1
+196687,D. Penaud,Damian Penaud,France,5,fra,1,8,BACK THREE,7.5,6.2,0.444,1,,,I,0,1
+116876,F. Newell,Fletcher Newell,New Zealand,7,nzl,2,1,PROP,6,1.1,0,1,,,,11.00,2
+193699,E. Papier,Embrose Papier,South Africa,8,rsa,2,5,SCRUM-HALF,4,0.6,0.0239,1,,,,0,1
+144545,B. Carter,Ben Carter,Wales,3,wal,1,4,LOCK,4,0.8,0.0095,1,,,,0,2
+240668,G. Marini,Giulio Marini,Italy,6,ita,1,4,LOCK,3,1.3,0,1,,,,16.00,2
+164832,Q. Tupaea,Quinn Tupaea,New Zealand,7,nzl,2,7,CENTRE,6.5,2.4,0.1098,1,,,,24.00,2
+117823,M. Alemanno,Matias Alemanno,Argentina,10,arg,2,4,LOCK,6,3.7,0.0286,1,,,,8.00,3
+235183,A. Mann,Alex Mann,Wales,3,wal,1,3,LOOSE FORWARD,5.5,1,0.0048,1,,,,9.00,2
+194110,R. Isgro,Rodrigo Isgro,Argentina,10,arg,2,8,BACK THREE,5.5,1.3,0.0239,1,,,,0,1
+130282,T. Allan,Tommaso Allan,Italy,6,ita,1,6,FLY-HALF,5,0.2,0.0143,1,,,,0,2
+144180,O. Smith,Ollie Smith,Scotland,2,sco,1,7,CENTRE,4,0.5,0,1,,,,25.00,1
+229690,J. Wessels,Jan-Hendrik Wessels,South Africa,8,rsa,2,1,PROP,3.5,0.7,0.0095,1,,,,2.00,3
+107059,M. Riccioni,Marco Riccioni,Italy,6,ita,1,1,PROP,3.5,4,0.0095,1,,,,1.00,3
+200003,P. Matera,Pablo Matera,Argentina,10,arg,2,3,LOOSE FORWARD,6.5,4.5,0.1146,1,,,,5.00,3
+117646,B. Donaldson,Ben Donaldson,Australia,9,aus,2,6,FLY-HALF,5.5,0.4,0.0095,1,,,,22.00,2
+215963,G. Petti,Guido Petti,Argentina,10,arg,2,4,LOCK,5.5,2.9,0.0143,1,,,,1.00,3
+219828,G. Ringrose,Garry Ringrose,Ireland,4,ire,1,7,CENTRE,5.5,3.4,0.043,1,,,,18.00,2
+171323,J. Gray,Jonny Gray,Scotland,2,sco,1,4,LOCK,4,1.9,0,1,,,,16.00,2
+252801,K. Ueda,Kazuma Ueda,Japan,103,jpn,2,8,BACK THREE,3.5,0.3,0,1,,,,3.00,3
+251438,K. Tamefusa,Keijiro Tamefusa,Japan,103,jpn,2,1,PROP,3,0.6,0,1,,,,8.00,3
+154458,M. Moroni,Matias Moroni,Argentina,10,arg,2,7,CENTRE,5.5,0.5,0,1,,,,12.00,3
+102792,A. Lienert-Brown,Anton Lienert-Brown,New Zealand,7,nzl,2,7,CENTRE,5.5,0.4,0,1,,,,20.00,2
+201684,P. Tuipulotu,Patrick Tuipulotu,New Zealand,7,nzl,2,4,LOCK,4.5,1.6,0.0143,1,,,,23.00,1
+105892,A. Beard,Adam Beard,Wales,3,wal,1,4,LOCK,4,1.7,0.0095,1,,,,5.00,3
+219226,H. Jantjies,Herschel Jantjies,South Africa,8,rsa,2,5,SCRUM-HALF,4,0.1,0.0048,1,,,,23.00,1
+198565,C. Prendergast,Cian Prendergast,Ireland,4,ire,1,3,LOOSE FORWARD,4,1.7,0.0191,1,,,,0,1
+178772,G. Garcia,Gonzalo Garcia,Argentina,10,arg,2,5,SCRUM-HALF,4,1.2,0.0048,1,,,,3.00,3
+237062,B. Pollard,Billy Pollard,Australia,9,aus,2,2,HOOKER,4,0.6,0.0095,1,,,,23.00,1
+120767,L. Rees-Zammit,Louis Rees-Zammit,Wales,3,wal,1,8,BACK THREE,6,5.1,0.1623,1,,,,12.00,3
+217606,B. van Rensburg,Benhard Janse van Rensburg,England,1,eng,1,7,CENTRE,5,0.9,0.0048,1,,,,2.00,2
+246864,I. Armstrong-Ravula,Isaiah Armstrong-Ravula,Fiji,243,fij,2,6,FLY-HALF,5,0.4,0.0095,1,,,,5.00,3
+177342,J. Grobbelaar,Johan Grobbelaar,South Africa,8,rsa,2,2,HOOKER,5,1,0.0143,1,,,,0,1
+140735,N. Saito,Naoto Saito,Japan,103,jpn,2,5,SCRUM-HALF,4.5,0.7,0.0143,1,,,,6.00,3
+118619,S. Costelow,Sam Costelow,Wales,3,wal,1,6,FLY-HALF,4,0.1,0,1,,,,0,2
+110891,S. Varney,Stephen Varney,Italy,6,ita,1,5,SCRUM-HALF,4,0.9,0.0095,1,,,,0,2
+166457,R. Montagne,Regis Montagne,France,5,fra,1,1,PROP,3.5,0.8,0.0095,1,,,,11.00,2
+156550,M. Bradbury,Magnus Bradbury,Scotland,2,sco,1,3,LOOSE FORWARD,4.5,0.7,0,1,,,,12.00,2
+174208,R. Favretto,Riccardo Favretto,Italy,6,ita,1,4,LOCK,4,0.2,0.0048,1,,,,14.00,3
+164150,D. Graham,Darcy Graham,Scotland,2,sco,1,8,BACK THREE,7,9.9,1.0646,1,,,,12.00,2
+114362,E. Roos,Evan Roos,South Africa,8,rsa,2,3,LOOSE FORWARD,5.5,0.8,0.0048,1,,,,0,1
+173763,L. Carter,Leroy Carter,New Zealand,7,nzl,2,8,BACK THREE,5,0.7,0.0525,1,,,,0,1
+110319,N. Smith,Nicky Smith,Wales,3,wal,1,1,PROP,4.5,0.4,0,1,,,,2.00,3
+105642,C. Casey,Craig Casey,Ireland,4,ire,1,5,SCRUM-HALF,4,0.3,0,1,,,,3.00,2
+153725,P. Odogwu,Paolo Odogwu,Italy,6,ita,1,8,BACK THREE,3.5,0.3,0,1,,,,20.00,1
+250879,P. Delgado,Pedro Delgado,Argentina,10,arg,2,1,PROP,3,1.4,0,1,,,,4.00,2
+241698,S. Prendergast,Sam Prendergast,Ireland,4,ire,1,6,FLY-HALF,5,1.8,0.148,1,,,,15.00,2
+207407,D. Bamba,Demba Bamba,France,5,fra,1,1,PROP,4.5,1.7,0.0048,1,,,,0,2
+235935,I. Ruiz,Ignacio Ruiz,Argentina,10,arg,2,2,HOOKER,4,0.2,0,1,,,,8.00,3
+215827,S. Tua,Samisoni Tua,Japan,103,jpn,2,7,CENTRE,3.5,0.5,0,1,,,,19.00,1
+202267,M. Libbok,Manie Libbok,South Africa,8,rsa,2,6,FLY-HALF,7,2.4,0.4583,1,,,,9.00,2
+153215,A. Fassi,Aphelele Fassi,South Africa,8,rsa,2,8,BACK THREE,5.5,2.3,0.1528,1,,,,15.00,2
+236957,M. Williamson,Max Williamson,Scotland,2,sco,1,4,LOCK,4,0.8,0,1,,,,3.00,2
+239229,H. Auradou,Hugo Auradou,France,5,fra,1,4,LOCK,4,0.9,0,1,,,,5.00,3
+148390,E. Louw,Elrigh Louw,South Africa,8,rsa,2,3,LOOSE FORWARD,4,0.1,0,1,,,,0,1
+240452,C.Hanekom,Cameron Hanekom,South Africa,8,rsa,2,3,LOOSE FORWARD,4,0.7,0,1,,,,0,1
+113765,P. Yato,Peceli Yato,Fiji,243,fij,2,3,LOOSE FORWARD,4,0.2,0,1,,,,0,2
+244984,A. Moyano,Agustin Moyano,Argentina,10,arg,2,5,SCRUM-HALF,3.5,0.2,0,1,,,,0,1
+229431,A. Segner,Anton Segner,New Zealand,7,nzl,2,3,LOOSE FORWARD,4,0.4,0.0191,1,,,,4.00,2
+229852,T. Tatafu,Tevita Tatafu,France,5,fra,1,1,PROP,3.5,0.2,0,1,,,,0,1
+251673,R. Ito,Ryunosuke Ito,Japan,103,jpn,2,6,FLY-HALF,4,0.2,0.0191,1,,,,4.00,3
+224905,G. Horne,George Horne,Scotland,2,sco,1,5,SCRUM-HALF,4,1.7,0.0382,1,,,,16.00,2
+251359,Y. Hirose,Yuya Hirose,Japan,103,jpn,2,7,CENTRE,4,0.3,0,1,,,,0,2
+154414,K. Shimokawa,Kanji Shimokawa,Japan,103,jpn,2,3,LOOSE FORWARD,4,0.3,0.0095,1,,,,0,2
+182833,T. Tupou,Taniela Tupou,Australia,9,aus,2,1,PROP,4,1.2,0,1,,,,0,2
+253176,V. Moyo,Vusi Moyo,South Africa,8,rsa,2,6,FLY-HALF,3.5,2.5,0.3151,1,,,,16.00,1
+237049,AH. Venter,Andre-Hugo Venter,South Africa,8,rsa,2,2,HOOKER,3.5,0.2,0,1,,,,16.00,1
+109697,N. le Garrec,Nolann le Garrec,France,5,fra,1,5,SCRUM-HALF,4,0.4,0.0095,1,,,,0,2
+148312,C. Gordon,Carter Gordon,Australia,9,aus,2,6,FLY-HALF,4,0.5,0.0143,1,,,I,0,1
+112072,L. Natave,Livai Natave,Fiji,243,fij,2,1,PROP,3.5,0,0,1,,,,10.00,2
+186092,F. Daugunu,Filipo Daugunu,Australia,9,aus,2,8,BACK THREE,5,0.3,0,1,,,,15.00,2
+229826,J. Osborne,Jamie Osborne,Ireland,4,ire,1,7,CENTRE,5,1.7,0.0191,1,,,,0,2
+249307,E. Mee,Ellis Mee,Wales,3,wal,1,8,BACK THREE,4.5,1.7,0.0048,1,,,,8.00,3
+206390,P. Dimcheff,Pablo Dimcheff,Italy,6,ita,1,2,HOOKER,3.5,0,0,1,,,,14.00,1
+177559,A. Mitchell,Alex Mitchell,England,1,eng,1,5,SCRUM-HALF,5.5,1,0.0095,1,,,I,0,2
+175150,R. Baloucoune,Robert Baloucoune,Ireland,4,ire,1,8,BACK THREE,5,2.6,0.1194,1,,,,13.00,1
+122465,L. Tagitagivalu,Lekima Tagitagivalu,Fiji,243,fij,2,3,LOOSE FORWARD,4,0.3,0.0048,1,,,,12.00,2
+237231,M. Spagnolo,Mirco Spagnolo,Italy,6,ita,1,1,PROP,4,0.2,0,1,,,,0,2
+237237,S. Illo,Sam Illo,Ireland,4,ire,1,1,PROP,2.5,0.6,0,1,,,,0,1
+157406,B. Aki,Bundee Aki,Ireland,4,ire,1,7,CENTRE,6,3.3,0.0668,1,,,,5.00,3
+143950,S. Radradra,Semi Radradra,Fiji,243,fij,2,7,CENTRE,6,3.6,0.0716,1,,,I,0,1
+225671,S. Taukeiaho,Samisoni Taukeiaho,New Zealand,7,nzl,2,2,HOOKER,6,0.7,0.0191,1,,,,0,1
+251584,S. Cruz,Simon Benitez Cruz,Argentina,10,arg,2,5,SCRUM-HALF,5,0.5,0.0048,1,,,,6.00,2
+208971,F. Molina,Franco Molina,Argentina,10,arg,2,4,LOCK,5,0.7,0.0143,1,,,,0,2
+241830,I. Rabitu,Isikeli Rabitu,Fiji,243,fij,2,5,SCRUM-HALF,4,0,0,1,,,,12.00,1
+110793,C. Murley,Cadan Murley,England,1,eng,1,8,BACK THREE,4,0.6,0.0095,1,,,I,0,1
+165888,W. Louw,Wilco Louw,South Africa,8,rsa,2,1,PROP,3,1.5,0.0143,1,,,,1.00,2
+236608,A. Ortombina,Alessandro Ortombina,Italy,6,ita,1,4,LOCK,3,2,0.0143,1,,,,2.00,2
+170612,G. Steenekamp,Gerhard Steenekamp,South Africa,8,rsa,2,1,PROP,5,3.9,0.0143,1,,,,1.00,2
+237271,E. James,Eddie James,Wales,3,wal,1,7,CENTRE,5,0.5,0,1,,,,0,2
+135933,V. Vakatawa,Virimi Vakatawa,Fiji,243,fij,2,8,BACK THREE,4.5,0.7,0,1,,,,10.00,1
+151066,X. Numia,Xavier Numia,New Zealand,7,nzl,2,1,PROP,4,0.2,0,1,,,,-1.00,2
+156422,J. Nasser,Josh Nasser,Australia,9,aus,2,2,HOOKER,4,1.4,0,1,,,,0,2
+155619,F. Marchetti,Francisco Coria Marchetti,Argentina,10,arg,2,1,PROP,3,0.2,0,1,,,,0,1
+251678,K. Sato,Kenji Sato,Japan,103,jpn,2,2,HOOKER,3,0.2,0,1,,,,10.00,1
+246860,M. Vocevoce,Mesake Vocevoce,Fiji,243,fij,2,4,LOCK,3,2.2,0.0191,1,,,,8.00,2
+254559,B. Bohan,Billy Bohan,Ireland,4,ire,1,1,PROP,2.5,0.3,0,1,,,,0,1
+177800,M. Guillard,Mickael Guillard,France,5,fra,1,4,LOCK,7,9,0.1719,1,,,,0,1
+185466,O. Nche,Ox Nche,South Africa,8,rsa,2,1,PROP,6.5,5.6,0.1719,1,,,I,0,1
+122020,J. Stockdale,Jacob Stockdale,Ireland,4,ire,1,8,BACK THREE,5,2,0.043,1,,,,0,1
+236609,L. Pani,Lorenzo Pani,Italy,6,ita,1,8,BACK THREE,4.5,1.8,0.0191,1,,,,9.00,2
+214106,E. Haangana,Esei Haangana,Japan,103,jpn,2,4,LOCK,4,0.2,0,1,,,,9.00,1
+190215,K. Hardy,Kieran Hardy,Wales,3,wal,1,5,SCRUM-HALF,4,0.1,0,1,,,,0,1
+169185,T. Williams,Teddy Williams,Wales,3,wal,1,4,LOCK,4,0.8,0.0048,1,,,,2.00,2
+222918,R. van Heerden,Ruben van Heerden,South Africa,8,rsa,2,4,LOCK,4,1.2,0.0048,1,,,,9.00,1
+109783,M. van Staden,Marco van Staden,South Africa,8,rsa,2,3,LOOSE FORWARD,4,0.3,0.0048,1,,,,3.00,2
+188115,H. Byrne,Harry Byrne,Ireland,4,ire,1,6,FLY-HALF,3.5,0.1,0,1,,,,0,1
+241806,F. Valarolo,Faustino Sanchez Valarolo,Argentina,10,arg,2,7,CENTRE,3,3.8,0.0143,1,,,,0,1
+241715,L. McConnell,Liam McConnell,Scotland,2,sco,1,3,LOOSE FORWARD,3,0.6,0,1,,,,9.00,1
+163209,G. Kloska,George Kloska,England,1,eng,1,1,PROP,2.5,0.5,0.0048,1,,,,9.00,2
+192769,I. Mendy,Ignacio Mendy,Argentina,10,arg,2,8,BACK THREE,4.5,3.6,0.0143,1,,,,0,1
+170835,J. Slipper,James Slipper,Australia,9,aus,2,1,PROP,4,0.4,0.0143,1,,,,3.00,3
+229153,Z. Nonggorr,Zane Nonggorr,Australia,9,aus,2,1,PROP,4,0,0,1,,,,8.00,1
+138498,T. Ratuva,Tevita Ratuva,Fiji,243,fij,2,4,LOCK,4,0.5,0,1,,,,0,1
+169560,B. Venter,Boan Venter,South Africa,8,rsa,2,1,PROP,4,0.9,0.0143,1,,,,0,1
+187476,M. Alo-Emile,Moses Alo-Emile,France,5,fra,1,1,PROP,3,0.3,0,1,,,,0,1
+171709,S. Matavesi,Sam Matavesi,Fiji,243,fij,2,2,HOOKER,3,0.5,0,1,,,,0.00,2
+124812,F. Botitu,Filimoni Botitu,Fiji,243,fij,2,7,CENTRE,5,0.4,0.0048,1,,,,0,1
+113831,G. Bower,George Bower,New Zealand,7,nzl,2,1,PROP,4.5,0.2,0.0048,1,,,,0,1
+250743,F. Douglas,Freddy Douglas,Scotland,2,sco,1,3,LOOSE FORWARD,4,0.7,0.0143,1,,,,7.00,1
+229255,C. Ratima,Cortez Ratima,New Zealand,7,nzl,2,5,SCRUM-HALF,4,0.4,0.0095,1,,,,1.00,3
+153525,R. Sutherland,Rory Sutherland,Scotland,2,sco,1,1,PROP,4,1.6,0,1,,,,5.00,3
+252532,S. Stephen,Seb Stephen,Scotland,2,sco,1,2,HOOKER,3,0.3,0,1,,,,7.00,1
+244760,B. Massa,Barnabe Massa,France,5,fra,1,2,HOOKER,3,0.4,0,1,,,,0,1
+174268,J. Loughman,Jeremy Loughman,Ireland,4,ire,1,1,PROP,3,0.1,0,1,,,I,7.00,2
+208272,N. Cannone,Niccolo Cannone,Italy,6,ita,1,4,LOCK,6.5,2.5,0.0095,1,,,S,0,2
+225777,B. Thomas,Ben Thomas,Wales,3,wal,1,7,CENTRE,6,0.3,0.0048,1,,,,6.00,1
+176354,N. Doak,Nathan Doak,Ireland,4,ire,1,5,SCRUM-HALF,3.5,0.1,0.0048,1,,,,0,1
+239482,A. Opoku-Fordjour,Asher Opoku-Fordjour,England,1,eng,1,1,PROP,3.5,0.1,0,1,,,,0,2
+128591,T. Hoyt,Tim Hoyt,Fiji,243,fij,2,1,PROP,3,0.8,0.0048,1,,,I,0,1
+237078,C. Moodie,Canan Moodie,South Africa,8,rsa,2,8,BACK THREE,6.5,1,0.0382,1,,,I,0,1
+249169,F. Fineanganofo,Fehi Fineanganofo,New Zealand,7,nzl,2,8,BACK THREE,5.5,0.9,0.0334,1,,,,0,1
+240455,D. Edwards,Dan Edwards,Wales,3,wal,1,6,FLY-HALF,5.5,0.9,0.0668,1,,,,-1.00,2
+186214,M.Llewellyn,Max Llewellyn,Wales,3,wal,1,7,CENTRE,4.5,0.3,0,1,,,,0.00,2
+236722,Q. Horn,Quan Horn,South Africa,8,rsa,2,8,BACK THREE,4,0.2,0,1,,,,0,1
+175403,E. Millar-Mills,Elliot Millar-Mills,Scotland,2,sco,1,1,PROP,3.5,0.5,0,1,,,I,0,1
+172959,D. Rae,Darcy Rae,Scotland,2,sco,1,1,PROP,3.5,1.2,0.0048,1,,,,5.00,1
+255091,I. Sword,Izi Sword,Japan,103,jpn,2,1,PROP,3,0,0,1,,,,5.00,1
+226261,V. Karawalevu,Vuate Karawalevu,Fiji,243,fij,2,8,BACK THREE,4,0.4,0,1,,,,0,1
+164609,S. Greene,Sam Greene,Japan,103,jpn,2,8,BACK THREE,4,0,0,1,,,,0,1
+237261,A. Samuel,Alex Samuel,Scotland,2,sco,1,4,LOCK,3.5,0.2,0,1,,,I,0,1
+192770,I. Neculai,Ion Neculai,Italy,6,ita,1,1,PROP,2.5,1.2,0.0048,1,,,,4.00,1
+241800,E. Elias,Efrain Elias,Argentina,10,arg,2,4,LOCK,5,0,0,1,,,,3.00,1
+129754,V. Tshituka,Vincent Tshituka,South Africa,8,rsa,2,3,LOOSE FORWARD,4.5,0.2,0,1,,,,0,1
+229785,M. Amatosero,Miles Amatosero,Australia,9,aus,2,4,LOCK,4,0.1,0,1,,,,3.00,1
+130283,B. Obano,Beno Obano,England,1,eng,1,1,PROP,4,0.1,0.0095,1,,,I,0,1
+237224,P.Bochaton,Pierre Bochaton,France,5,fra,1,3,LOOSE FORWARD,3.5,0.7,0,1,,,,0,1
+134407,A. Fusco,Alessandro Fusco,Italy,6,ita,1,5,SCRUM-HALF,3.5,0.1,0,1,,,,-2.00,2
+245274,D. Meredith,Declan Meredith,Australia,9,aus,2,8,BACK THREE,3.5,0.5,0.0048,1,,,,6.00,2
+236573,A. Garbisi,Alessandro Garbisi,Italy,6,ita,1,5,SCRUM-HALF,3.5,0.4,0.0048,1,,,,0.00,2
+116189,P. Tosi,Pasilio Tosi,New Zealand,7,nzl,2,1,PROP,3.5,0.1,0,1,,,,0,1
+243167,K.James,Kane James,Wales,3,wal,1,3,LOOSE FORWARD,3,0.4,0,1,,,,0,1
+241689,N. Depoortere,Nicolas Depoortere,France,5,fra,1,7,CENTRE,6,0.4,0.0095,1,,,,0,1
+237000,T. Hooper,Tom Hooper,Australia,9,aus,2,3,LOOSE FORWARD,5.5,0.6,0.0095,1,,,I,0,1
+153142,N. de Crespigny,Nick Champion de Crespigny,Australia,9,aus,2,3,LOOSE FORWARD,4,0.1,0,1,,,,0,1
+237152,J. Moro,Joaquin Moro,Argentina,10,arg,2,3,LOOSE FORWARD,4,0.2,0,1,,,,5.00,2
+196875,F. Thomas,Freddie Thomas,Wales,3,wal,1,3,LOOSE FORWARD,3.5,0,0,1,,,NIS,2.00,1
+187951,E. Iyogun,Emmanuel Iyogun,England,1,eng,1,1,PROP,3,0,0,1,,,,2.00,1
+111662,B. Spencer,Ben Spencer,England,1,eng,1,5,SCRUM-HALF,4,0.2,0.0048,1,,,,1.00,1
+229863,C. Izuchukwu,Cormac Izuchukwu,Ireland,4,ire,1,4,LOCK,4,0.2,0,1,,,,0,1
+196415,C. Ewels,Charlie Ewels,England,1,eng,1,4,LOCK,4,0.1,0,1,,,,0,1
+192297,M. Stolberg,Mike Stolberg,Japan,103,jpn,2,4,LOCK,3.5,0,0,1,,,,-2.00,2
+250771,B. Ward,Bryn Ward,Ireland,4,ire,1,3,LOOSE FORWARD,3,1.1,0.0095,1,,,,0,1
+201405,G. da Re,Giacomo da Re,Italy,6,ita,1,6,FLY-HALF,3,0.1,0.0048,1,,,,1.00,1
+255945,I. Kamimura,Itsuki Kamimura,Japan,103,jpn,2,5,SCRUM-HALF,3,0.1,0,1,,,,0,2
+199094,B. Barrett,Beauden Barrett,New Zealand,7,nzl,2,6,FLY-HALF,8,1.1,0.191,1,,,,0,0
+196989,E. Etzebeth,Eben Etzebeth,South Africa,8,rsa,2,4,LOCK,8,6,0.6636,1,,,I,0,0
+103532,L. de Jager,Lood de Jager,South Africa,8,rsa,2,4,LOCK,7,2.4,0.0477,1,,,I,0,0
+237272,D. Jenkins,Dafydd Jenkins,Wales,3,wal,1,4,LOCK,7,0.2,0,1,,,NIS,0,0
+127914,A. Esterhuizen,Andre Esterhuizen,South Africa,8,rsa,2,7,CENTRE,6.5,1.2,0.043,1,,,I,0,1
+190503,S. Kolisi,Siya Kolisi,South Africa,8,rsa,2,3,LOOSE FORWARD,6.5,4,0.4488,1,,,I,0,0
+102642,G. Ford,George Ford,England,1,eng,1,6,FLY-HALF,6,0.7,0.0955,1,,,,0,0
+245051,C. Toole,Corey Toole,Australia,9,aus,2,8,BACK THREE,6,0.2,0,1,,,,0,0
+191340,F. Mostert,Franco Mostert,South Africa,8,rsa,2,4,LOCK,6,0.4,0.0095,1,,,I,0,0
+237225,E.Gailleton,Emilien Gailleton,France,5,fra,1,7,CENTRE,6,0.2,0,1,,,,0,0
+145677,B. Mata,Bill Mata,Fiji,243,fij,2,3,LOOSE FORWARD,6,1.4,0.0143,1,,,,0,0
+187980,G. Prisciantelli,Geronimo Prisciantelli,Argentina,10,arg,2,6,FLY-HALF,5.5,0.2,0.0048,1,,,,0,0
+185102,A. Tuisue,Albert Tuisue,Fiji,243,fij,2,3,LOOSE FORWARD,5.5,0.8,0.0095,1,,,,0,0
+209105,L. Lynagh,Louis Lynagh,Italy,6,ita,1,8,BACK THREE,5,0.5,0,1,,,,2.00,2
+183880,T.Reffell,Tommy Reffell,Wales,3,wal,1,3,LOOSE FORWARD,5,0.2,0,1,,,,0.00,1
+150081,F. Steward,Freddie Steward,England,1,eng,1,8,BACK THREE,5,0.9,0.0143,1,,,,0,0
+153646,G. Furbank,George Furbank,England,1,eng,1,8,BACK THREE,5,0.8,0.0095,1,,,I,0,0
+180143,H. Paisami,Hunter Paisami,Australia,9,aus,2,7,CENTRE,5,0.8,0,1,,,I,0,0
+149322,T. Roebuck,Tom Roebuck,England,1,eng,1,8,BACK THREE,5,0.1,0,1,,,,0,0
+204878,E. van der Merwe,Edwill van der Merwe,South Africa,8,rsa,2,8,BACK THREE,5,1.1,0.0573,1,,,,0,1
+236968,P. Rubiolo,Pedro Rubiolo,Argentina,10,arg,2,4,LOCK,5,0.3,0,1,,,,0,0
+210842,T. Edmed,Tane Edmed,Australia,9,aus,2,6,FLY-HALF,4.5,0,0,1,,,,0,0
+100462,S. Nakano,Shogo Nakano,Japan,103,jpn,2,7,CENTRE,4.5,0.1,0,1,,,NIS,0,0
+103056,M. Grady,Mason Grady,Wales,3,wal,1,7,CENTRE,4.5,0.3,0,1,,,,0,0
+164229,T. Lynagh,Tom Lynagh,Australia,9,aus,2,6,FLY-HALF,4.5,0.1,0,1,,,,0,0
+189106,S. Parker,Simon Parker,New Zealand,7,nzl,2,3,LOOSE FORWARD,4.5,0.3,0.0095,1,,,,0,0
+240631,C. Cunningham-South,Chandler Cunningham-South,England,1,eng,2,3,LOOSE FORWARD,4.5,0,0,1,,,,0,0
+245231,C. Cale,Charlie Cale,Australia,9,aus,2,3,LOOSE FORWARD,4,0.2,0,1,,,,0,0
+143123,T. Plumtree,Taine Plumtree,Wales,3,wal,1,3,LOOSE FORWARD,4,0.2,0,1,,,I,0,1
+240488,E. Capilla,Esteban Capilla,France,5,fra,1,3,LOOSE FORWARD,4,0.1,0,1,,,,0,0
+244152,T. Matiu,Temo Matiu,France,5,fra,1,3,LOOSE FORWARD,4,0.1,0,1,,,,0,0
+111794,T. Dan,Theo Dan,England,1,eng,1,2,HOOKER,4,0.2,0.0048,1,,,,0,0
+175011,M. Ojomoh,Max Ojomoh,England,1,eng,1,7,CENTRE,4,0.2,0.0095,1,,,,0,0
+214265,N. McBeth,Nathan McBeth,Scotland,2,sco,1,1,PROP,4,0.1,0,1,,,,0,0
+112404,A. Ross,Aidan Ross,Australia,9,aus,2,1,PROP,4,0.1,0,1,,,,0,0
+216255,Z. Togiatama,Zuriel Togiatama,Fiji,243,fij,2,2,HOOKER,4,0.1,0,1,,,,0,1
+241855,J. Hannah,Jamie Hannah,New Zealand,7,nzl,2,4,LOCK,4,0,0,1,,,,0,0
+222754,H. Kida,Haruto Kida,Japan,103,jpn,2,8,BACK THREE,4,0,0,1,,,NIS,0,0
+244408,I. Burua,Inoke Burua,Japan,103,jpn,2,8,BACK THREE,4,1.3,0,1,,,,0,0
+218331,J. Evans,Jarrod Evans,Wales,3,wal,1,6,FLY-HALF,4,0,0,1,,,NIS,0,0
+233066,A. Cadot,Auguste Cadot,France,5,fra,1,7,CENTRE,4,0,0,1,,,,0,0
+123396,G. Bertaccini,Giulio Bertaccini,Italy,6,ita,1,7,CENTRE,4,0.1,0,1,,,,0,0
+165885,G. Hamer-Webb,Gabe Hamer-Webb,Wales,3,wal,1,8,BACK THREE,4,0,0,1,,,NIS,0,0
+229134,J. Flook,Josh Flook,Australia,9,aus,2,7,CENTRE,4,0.2,0,1,,,,0,0
+243819,M. Ferte,Mathis Ferte,France,5,fra,1,8,BACK THREE,4,0.1,0,1,,,,0,0
+216823,O. Cracknell,Olly Cracknell,Wales,3,wal,1,3,LOOSE FORWARD,4,0,0,1,,,NIS,0,0
+229854,L. Martin,Lucas Martin,France,5,fra,1,2,HOOKER,4,0.1,0,1,,,,0,0
+237266,H. Deaves,Harri Deaves,Wales,3,wal,1,3,LOOSE FORWARD,4,0,0,1,,,NIS,0,0
+177140,Y. Kamimori,Yota Kamimori,Japan,103,jpn,2,1,PROP,4,0.1,0,1,,,,0,0
+137071,L. Belcher,Liam Belcher,Wales,3,wal,1,2,HOOKER,4,0,0,1,,,NIS,0,0
+233254,A. Masivou,Aseri Masivou,Japan,103,jpn,2,3,LOOSE FORWARD,4,0,0,1,,,,0,0
+233130,B. Jauneau,Baptiste Jauneau,France,5,fra,1,5,SCRUM-HALF,4,0,0.0048,1,,,,0,0
+214922,C. Ambadiang,Christian Ambadiang,France,5,fra,1,8,BACK THREE,4,0.1,0,1,,,,0,0
+244039,D. Murray,Darragh Murray,Ireland,4,ire,1,4,LOCK,3.5,0.4,0.0143,1,,,,0,0
+237274,E.Lloyd,Evan Lloyd,Wales,3,wal,1,2,HOOKER,3.5,0.5,0,1,,,,0,0
+160844,R. Quirke,Raffi Quirke,England,1,eng,1,5,SCRUM-HALF,3.5,0,0,1,,,,0,0
+139232,G. Thomas,Gareth Thomas,Wales,3,wal,1,1,PROP,3.5,0.2,0,1,,,,0,0
+125946,T. Rogers,Tom Rogers,Wales,3,wal,1,8,BACK THREE,3.5,0,0,1,,,NIS,0,0
+241802,A. Fraga,Agustin Fraga,Argentina,10,arg,2,8,BACK THREE,3.5,0.7,0.0143,1,,,,0,0
+124901,A. Clark,Arthur Clark,England,1,eng,1,4,LOCK,3.5,0.6,0.0048,1,,,,0,0
+151450,Y. Ikeda,Yuki Ikeda,Japan,103,jpn,2,7,CENTRE,3.5,0,0,1,,,,0,0
+245930,S. Taira,Shota Taira,Japan,103,jpn,2,7,CENTRE,3.5,0,0,1,,,,0,0
+248316,K. Preston,Kyle Preston,New Zealand,7,nzl,2,5,SCRUM-HALF,3.5,0.1,0.0048,1,,,,0,0
+118907,H. Stewart,Hamish Stewart,Australia,9,aus,2,7,CENTRE,3.5,0.3,0,1,,,,0,0
+251909,J. Penoucos,Juan Penoucos,Argentina,10,arg,2,3,LOOSE FORWARD,3.5,0.2,0,1,,,,0,0
+167563,S. Wainwright,Sam Wainwright,Wales,3,wal,1,1,PROP,3.5,0.2,0,1,,,,0,0
+119506,R. Morgan-Williams,Reuben Morgan-Williams,Wales,3,wal,1,5,SCRUM-HALF,3.5,0.1,0,1,,,,0.00,1
+184945,T. Hill,Ted Hill,England,1,eng,1,4,LOCK,3.5,1.6,0.0239,1,,,,0,0
+241808,M. Soler,Mateo Soler,Argentina,10,arg,2,8,BACK THREE,3.5,0.3,0.0048,1,,,,0,0
+251916,L. Asevedo,Luciano Asevedo,Argentina,10,arg,2,4,LOCK,3.5,0.3,0,1,,,,0,0
+253159,R. Norton,Riley Norton,South Africa,8,rsa,2,4,LOCK,3.5,0,0,1,,,NIS,0,0
+196144,R. Wardi,Redi Wardi,France,5,fra,1,1,PROP,3.5,0,0,1,,,,0,0
+259352,S. Uenobo,Shunsuke Uenobo,Japan,103,jpn,2,8,BACK THREE,3.5,0.2,0,1,,,,0.00,1
+153616,P. Graou,Paul Graou,France,5,fra,1,5,SCRUM-HALF,3.5,0,0,1,,,,0,0
+109259,Z. Ward,Zac Ward,Ireland,4,ire,1,8,BACK THREE,3.5,0.2,0,1,,,,0,0
+183329,L. Oviedo,Leonel Oviedo,Argentina,10,arg,2,2,HOOKER,3.5,0.1,0,1,,,,0,0
+103136,H. Keddie,Harrison Keddie,Wales,3,wal,1,3,LOOSE FORWARD,3.5,0.1,0,1,,,,0,0
+240039,T. Forner,Theo Forner,France,5,fra,1,8,BACK THREE,3.5,0.3,0.0048,1,,,,0,0
+229398,L. Le Brun,Louis Le Brun,France,5,fra,1,6,FLY-HALF,3.5,0.1,0,1,,,,0,0
+250281,W. Raratubua,Waisake Raratubua,Japan,103,jpn,2,3,LOOSE FORWARD,3.5,0,0,1,,,NIS,0,0
+103881,I. Henry,Isaac Henry,Australia,9,aus,2,7,CENTRE,3.5,0,0,1,,,,0,0
+150610,B. Palu,Boris Palu,France,5,fra,1,4,LOCK,3.5,0.2,0,1,,,,0,0
+243881,L. Guerois,Lois Guerois,France,5,fra,1,1,PROP,3,0.1,0,1,,,,0,0
+163010,S. Falatea,Sipila Falatea,France,5,fra,1,1,PROP,3,0,0,1,,,,0,0
+170455,G. Fisilau,Greg Fisilau,England,1,eng,1,3,LOOSE FORWARD,3,0.5,0.0143,1,,,,0,0
+251071,T. Hojo,Takuro Hojo,Japan,103,jpn,2,5,SCRUM-HALF,3,0.1,0,1,,,,0,0
+251996,A.Sarelli,Agustín Sarelli,Argentina,10,arg,2,3,LOOSE FORWARD,3,1.1,0,1,,,,0,0
+241916,J. Brial,Joe Brial,Australia,9,aus,2,3,LOOSE FORWARD,3,0,0,1,,,,0,0
+246832,H. McLaughlin-Phillips,Harry McLaughlin-Phillips,Australia,9,aus,2,6,FLY-HALF,3,0,0,1,,,,0,0
+240573,R. Woodman,Ryan Woodman,Wales,3,wal,1,3,LOOSE FORWARD,3,0,0,1,,,NIS,0,0
+185802,E. Setiano,Emerick Setiano,France,5,fra,1,1,PROP,3,0.1,0,1,,,,0,0
+236858,K. Thomas,Kalani Thomas,Australia,9,aus,2,5,SCRUM-HALF,3,0.2,0,1,,,,0,0
+238037,D. Odiase,Davide Odiase,Italy,6,ita,1,3,LOOSE FORWARD,3,3.5,0.0095,1,,,,0,0
+224395,R. Davies,Rhys Davies,Wales,3,wal,1,4,LOCK,3,0.1,0,1,,,NIS,0,0
+152652,C. Sadie,Carlu Sadie,South Africa,8,rsa,2,1,PROP,3,0,0,1,,,,0,0
+193780,L. Tagi,Luke Tagi,Fiji,243,fij,2,1,PROP,3,0.2,0,1,,,,0,0
+255757,S. Komura,Shinya Komura,Japan,103,jpn,2,6,FLY-HALF,3,0.1,0,1,,,,0,0
+171483,N. Farias,Nicolas Roger Farias,Argentina,10,arg,2,6,FLY-HALF,3,0.2,0.0095,1,,,,0,0
+202399,K. Assiratti,Keiron Assiratti,Wales,3,wal,1,1,PROP,3,0,0,1,,,NIS,0,0
+208037,W. Hurd,Will Hurd,Scotland,2,sco,1,1,PROP,2.5,0.5,0,1,,,,0,1
+261213,H. Watanabe,Haruto Watanabe,Japan,103,jpn,2,5,SCRUM-HALF,2.5,2.4,0.0095,1,,,,0,0
+155277,S. Takao,Shigure Takao,Japan,103,jpn,2,1,PROP,2.5,0,0,1,,,,0,0
+239292,B. Sela,Billy Sela,England,1,eng,1,1,PROP,2.5,0.2,0,1,,,,0,0
+254488,A. Sokobale,Atunaisa Sokobale,Fiji,243,fij,2,1,PROP,2.5,5.2,0,1,,,,0,0
+240454,R. Barratt,Rhys Barratt,Wales,3,wal,1,1,PROP,2,2.9,0.0048,1,,,,0,0
+198516,L. Botia,Levani Botia,Fiji,243,fij,2,3,LOOSE FORWARD,5.5,0.7,0.0143,1,,,,0,1
+209567,N. Mchunu,Ntuthuko Mchunu,South Africa,8,rsa,2,1,PROP,3.5,0.1,0.0048,1,,,,0,1
+242515,S. Wye,Sam Wye,Fiji,243,fij,2,5,SCRUM-HALF,3,0.1,0,1,,,,-1.00,1
+251198,L. Shaw,Lachlan Shaw,Australia,9,aus,2,4,LOCK,4,0.4,0,1,,,,0,2
+161973,S. Kuruvoli,Simione Kuruvoli,Fiji,243,fij,2,5,SCRUM-HALF,4,0.2,0,1,,,S,0,2

@@ -1,0 +1,18 @@
+{
+  "per_gw_top10_capture": {
+    "gw1": {
+      "baseline_top10": 0.5261,
+      "incumbent_top10": 0.6256
+    },
+    "gw2": {
+      "baseline_top10": 0.6017,
+      "incumbent_top10": 0.6286
+    }
+  },
+  "ncr_cohort_intl_history": {
+    "median_intl_prior": 23.0,
+    "share_le_3": 0.08712871287128712,
+    "share_lt_5": 0.11089108910891089,
+    "n_thin_lt_5": 56
+  }
+}

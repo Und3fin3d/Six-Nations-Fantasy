@@ -1,0 +1,56 @@
+/Users/williamgreenfield/Documents/dev/6n/model/unified/v4/features.py:56: PerformanceWarning: DataFrame is highly fragmented.  This is usually the result of calling `frame.insert` many times, which has poor performance.  Consider joining all columns at once using pd.concat(axis=1) instead. To get a de-fragmented frame, use `newframe = frame.copy()`
+  df[f"cum_min__{event}"] = mins.fillna(0.0).groupby(
+/Users/williamgreenfield/Documents/dev/6n/model/unified/v4/features.py:62: PerformanceWarning: DataFrame is highly fragmented.  This is usually the result of calling `frame.insert` many times, which has poor performance.  Consider joining all columns at once using pd.concat(axis=1) instead. To get a de-fragmented frame, use `newframe = frame.copy()`
+  df[f"prior_per80__{event}"] = per80.groupby(group).transform(
+/Users/williamgreenfield/Documents/dev/6n/model/unified/v4/features.py:48: PerformanceWarning: DataFrame is highly fragmented.  This is usually the result of calling `frame.insert` many times, which has poor performance.  Consider joining all columns at once using pd.concat(axis=1) instead. To get a de-fragmented frame, use `newframe = frame.copy()`
+  df[f"form_per80_{level}__{event}"] = level_per80.groupby(
+/Users/williamgreenfield/Documents/dev/6n/model/unified/v4/features.py:48: PerformanceWarning: DataFrame is highly fragmented.  This is usually the result of calling `frame.insert` many times, which has poor performance.  Consider joining all columns at once using pd.concat(axis=1) instead. To get a de-fragmented frame, use `newframe = frame.copy()`
+  df[f"form_per80_{level}__{event}"] = level_per80.groupby(
+/Users/williamgreenfield/Documents/dev/6n/model/unified/v4/features.py:53: PerformanceWarning: DataFrame is highly fragmented.  This is usually the result of calling `frame.insert` many times, which has poor performance.  Consider joining all columns at once using pd.concat(axis=1) instead. To get a de-fragmented frame, use `newframe = frame.copy()`
+  df[f"cum_count__{event}"] = count.fillna(0.0).groupby(
+/Users/williamgreenfield/Documents/dev/6n/model/unified/v4/features.py:56: PerformanceWarning: DataFrame is highly fragmented.  This is usually the result of calling `frame.insert` many times, which has poor performance.  Consider joining all columns at once using pd.concat(axis=1) instead. To get a de-fragmented frame, use `newframe = frame.copy()`
+  df[f"cum_min__{event}"] = mins.fillna(0.0).groupby(
+/Users/williamgreenfield/Documents/dev/6n/model/unified/v4/features.py:62: PerformanceWarning: DataFrame is highly fragmented.  This is usually the result of calling `frame.insert` many times, which has poor performance.  Consider joining all columns at once using pd.concat(axis=1) instead. To get a de-fragmented frame, use `newframe = frame.copy()`
+  df[f"prior_per80__{event}"] = per80.groupby(group).transform(
+/Users/williamgreenfield/Documents/dev/6n/model/unified/v4/features.py:48: PerformanceWarning: DataFrame is highly fragmented.  This is usually the result of calling `frame.insert` many times, which has poor performance.  Consider joining all columns at once using pd.concat(axis=1) instead. To get a de-fragmented frame, use `newframe = frame.copy()`
+  df[f"form_per80_{level}__{event}"] = level_per80.groupby(
+/Users/williamgreenfield/Documents/dev/6n/model/unified/v4/features.py:48: PerformanceWarning: DataFrame is highly fragmented.  This is usually the result of calling `frame.insert` many times, which has poor performance.  Consider joining all columns at once using pd.concat(axis=1) instead. To get a de-fragmented frame, use `newframe = frame.copy()`
+  df[f"form_per80_{level}__{event}"] = level_per80.groupby(
+/Users/williamgreenfield/Documents/dev/6n/model/unified/v4/features.py:53: PerformanceWarning: DataFrame is highly fragmented.  This is usually the result of calling `frame.insert` many times, which has poor performance.  Consider joining all columns at once using pd.concat(axis=1) instead. To get a de-fragmented frame, use `newframe = frame.copy()`
+  df[f"cum_count__{event}"] = count.fillna(0.0).groupby(
+/Users/williamgreenfield/Documents/dev/6n/model/unified/v4/features.py:56: PerformanceWarning: DataFrame is highly fragmented.  This is usually the result of calling `frame.insert` many times, which has poor performance.  Consider joining all columns at once using pd.concat(axis=1) instead. To get a de-fragmented frame, use `newframe = frame.copy()`
+  df[f"cum_min__{event}"] = mins.fillna(0.0).groupby(
+/Users/williamgreenfield/Documents/dev/6n/model/unified/v4/features.py:62: PerformanceWarning: DataFrame is highly fragmented.  This is usually the result of calling `frame.insert` many times, which has poor performance.  Consider joining all columns at once using pd.concat(axis=1) instead. To get a de-fragmented frame, use `newframe = frame.copy()`
+  df[f"prior_per80__{event}"] = per80.groupby(group).transform(
+[6n-2025-r1] fitting A on 93,962 rows
+[6n-2025-r1] fitting B on 93,962 rows
+[6n-2025-r2] fitting A on 94,376 rows
+[6n-2025-r2] fitting B on 94,376 rows
+[6n-2025-r3] fitting A on 96,124 rows
+[6n-2025-r3] fitting B on 96,124 rows
+[6n-2025-r4] fitting A on 98,286 rows
+[6n-2025-r4] fitting B on 98,286 rows
+[6n-2025-r5] fitting A on 98,792 rows
+[6n-2025-r5] fitting B on 98,792 rows
+          config      mae  spearman  top_10_capture  top_25_capture  top_50_capture  top_100_capture  thin_mae  thin_n
+               A 7.255499  0.641908        0.653846        0.724186        0.837442         0.950352  5.940449    13.8
+               B 7.271578  0.652866        0.693152        0.748412        0.845469         0.950110  5.913771    13.8
+baseline(frozen) 7.267264  0.647335        0.662201        0.757116        0.844303         0.947411  5.973757    13.8
+{
+  "A": {
+    "mae_holds": true,
+    "spearman_improves": false,
+    "capture_improves": false,
+    "thin_n_total": 69,
+    "thin_mae": 5.940448715867467,
+    "thin_mae_baseline": 5.973756578837828
+  },
+  "B": {
+    "mae_holds": true,
+    "spearman_improves": true,
+    "capture_improves": true,
+    "thin_n_total": 69,
+    "thin_mae": 5.913770736555112,
+    "thin_mae_baseline": 5.973756578837828
+  }
+}

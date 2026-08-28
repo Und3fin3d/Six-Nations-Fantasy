@@ -54,6 +54,27 @@ SLUG_OVERRIDES: dict[str, str] = {
     "Cameron Winnett": "cam-winnett",        # RugbyPass shortens Cameron -> Cam
     "Mohamed Haouas":  "mohammed-haouas",    # RugbyPass spells it with double-m
     "Gaetan Barlot":   "gaeton-barlot",      # RugbyPass misspells Gaëtan -> Gaeton
+    # discovered in the 2026 NCR backfill sweep (see data/ncr/rp_backfill_log.txt)
+    "Andy Onyeama-Christie": "andy-christie",
+    "Cobus Reinach": "jacobus-reinach",
+    "Faf de Klerk": "francois-de-klerk",
+    "Francisco Coria Marchetti": "francisco-coria",
+    "Joe Carpenter": "joseph-carpenter",
+    "Keiran Williams": "kieran-williams",
+    "Nicholas Champion de Crespigny": "nick-champion-de-crespigny",
+    "Pete Samu": "peter-samu",
+    "Pita-Gus Sowakula": "pita-sowakula",
+    "Sacha Feinberg-Mngomezulu": "sacha-mngomezulu",
+    "Sam Whitelock": "samuel-whitelock",
+    "Sam Matavesi": "samuel-matavesi",
+    "Rob Leota": "robert-leota",
+    "Isaac Kailea": "isaac-aedo-kailea",
+    "Phepsi Buthelezi": "phendulani-buthelezi",
+    "Lood de Jager": "lodewyk-de-jager",     # base slug is a bio-only stub page
+    "Sebastian Negri": "sebastian-negri-da-ollegio",
+    "Tadhg Beirne": "tadgh-beirne",          # RugbyPass misspells Tadhg
+    "Ollie Chessum": "oliver-chessum",
+    "Mack Hansen": "mackenzie-hansen",
 }
 
 # API players confirmed to have NO RugbyPass page (irreducible misses).

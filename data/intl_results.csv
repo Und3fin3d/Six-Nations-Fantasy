@@ -413,3 +413,22 @@ date,comp,team,team_id,opponent,opponent_id,team_score,opp_score,margin,result,r
 2026-03-14,Six Nations 2026,Italy,41,Wales,33,17,31,-14,L,,True
 2026-03-14,Six Nations 2026,Scotland,35,Ireland,36,21,43,-22,L,,True
 2026-03-14,Six Nations 2026,Wales,33,Italy,41,31,17,14,W,,True
+2026-06-27,Men's Internationals 2026,Wales,33,Barbarians,54,33,31,2,W,,False
+2026-07-04,Nations Championship 2026,England,34,South Africa,39,21,45,-24,L,,False
+2026-07-04,Nations Championship 2026,France,42,New Zealand,37,32,34,-2,L,,False
+2026-07-04,Nations Championship 2026,Ireland,36,Australia,38,33,31,2,W,,False
+2026-07-04,Nations Championship 2026,Italy,41,Japan,49,10,27,-17,L,,False
+2026-07-04,Nations Championship 2026,Scotland,35,Argentina,40,47,38,9,W,,False
+2026-07-04,Nations Championship 2026,Wales,33,Fiji,46,39,24,15,W,,False
+2026-07-11,Nations Championship 2026,England,34,Fiji,46,73,8,65,W,,False
+2026-07-11,Nations Championship 2026,France,42,Australia,38,42,26,16,W,,False
+2026-07-11,Nations Championship 2026,Ireland,36,Japan,49,36,20,16,W,,False
+2026-07-11,Nations Championship 2026,Italy,41,New Zealand,37,17,47,-30,L,,False
+2026-07-11,Nations Championship 2026,Scotland,35,South Africa,39,28,42,-14,L,,False
+2026-07-11,Nations Championship 2026,Wales,33,Argentina,40,21,35,-14,L,,False
+2026-07-18,Nations Championship 2026,England,34,Argentina,40,31,24,7,W,,False
+2026-07-18,Nations Championship 2026,France,42,Japan,49,42,15,27,W,,False
+2026-07-18,Nations Championship 2026,Ireland,36,New Zealand,37,21,40,-19,L,,False
+2026-07-18,Nations Championship 2026,Italy,41,Australia,38,10,57,-47,L,,False
+2026-07-18,Nations Championship 2026,Scotland,35,Fiji,46,33,17,16,W,,False
+2026-07-18,Nations Championship 2026,Wales,33,South Africa,39,0,43,-43,L,,False

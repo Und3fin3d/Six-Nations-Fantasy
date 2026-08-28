@@ -1,0 +1,81 @@
+=== NCR RugbyPass backfill log — 2026-07-06 18:23:21 ===
+
+Source: data/ncr/ncr_player_match.csv (932 distinct player_id/player_name/team)
+Method: HTTP GET https://www.rugbypass.com/players/<slug>/ with slug candidates
+        from rugbypass_backfill.slug_candidates, ~0.35s delay, requests+bs4,
+        parsers from rugbypass_batch (extract_bio/comp_stats/match_log).
+
+COUNTS
+  uncovered at start (no players/rugbypass_*.json via candidates): 377
+  resolved by scraping (JSON written)                            : 340
+  covered by pre-existing alias file (RugbyPass spelling quirks) : 16
+  no RugbyPass page found (all candidates + manual variants 404) : 21
+  parse failures outstanding                                     : 0
+    (Lood de Jager and Sebastian Negri base slugs are bio-only stub pages;
+     full stats recovered under lodewyk-de-jager / sebastian-negri-da-ollegio)
+
+players/rugbypass_*.json files: 652 -> 986
+data/rp_compstats.csv distinct slugs: 644 -> 969  (guard >= 600 OK)
+data/rp_compstats.csv rows: 5985 -> 8334
+
+MANUAL SLUG OVERRIDES DISCOVERED (name -> RugbyPass slug):
+  Cameron Winnett                  -> cam-winnett
+  Dan Edwards                      -> daniel-edwards
+  Dave Cherry                      -> david-cherry
+  Elliot Dee                       -> elliott-dee
+  Freddy Douglas                   -> freddie-douglas
+  Gaetan Barlot                    -> gaeton-barlot
+  Jamie Bhatti                     -> jamie-bhattie
+  Keiron Assiratti                 -> kieron-assiratti
+  Mack Hansen                      -> mackenzie-hansen
+  Montanna Ioane                   -> monty-ioane
+  Ollie Chessum                    -> oliver-chessum
+  Seb Atkinson                     -> sebastien-atkinson
+  Tadhg Beirne                     -> tadgh-beirne
+  Thomas Clarkson                  -> tom-clarkson
+  Tom Farrell                      -> thomas-farrell
+  WillGriff John                   -> will-john
+  Andy Onyeama-Christie            -> andy-christie
+  Cobus Reinach                    -> jacobus-reinach
+  Faf de Klerk                     -> francois-de-klerk
+  Francisco Coria Marchetti        -> francisco-coria
+  Joe Carpenter                    -> joseph-carpenter
+  Keiran Williams                  -> kieran-williams
+  Nicholas Champion de Crespigny   -> nick-champion-de-crespigny
+  Pete Samu                        -> peter-samu
+  Pita-Gus Sowakula                -> pita-sowakula
+  Sacha Feinberg-Mngomezulu        -> sacha-mngomezulu
+  Sam Whitelock                    -> samuel-whitelock
+  Sam Matavesi                     -> samuel-matavesi
+  Rob Leota                        -> robert-leota
+  Isaac Kailea                     -> isaac-aedo-kailea
+  Phepsi Buthelezi                 -> phendulani-buthelezi
+  Lood de Jager                    -> lodewyk-de-jager
+  Sebastian Negri                  -> sebastian-negri-da-ollegio
+
+NO RUGBYPASS PAGE (irreducible misses; all naive candidates and
+hand-crafted variants returned 404):
+  Asher Opoku-Fordjour (England)
+  Bongi Mbonambi (South Africa)
+  David Havili (New Zealand)
+  Faulua Makisi (Japan)
+  Guido Petti (Argentina)
+  Herschel Jantjies (South Africa)
+  Isaiah Armstrong-Ravula (Fiji)
+  Jiwon Gu (Japan)
+  Joseph Dweba (South Africa)
+  Lukhan Salakaia-Loto (Australia)
+  Meli Derenalagi (Fiji)
+  Michael Stolberg (Japan)
+  Motikiai Murray (Fiji)
+  Noah Nene (France)
+  Philip Baselala (Fiji)
+  Pone Fa'amausili (Australia)
+  Samu Tawake (Fiji)
+  Shodai Hirao (Japan)
+  Sojiro Otsuka (Japan)
+  Waisake Raratubua (Japan)
+  Waqa Nalaga (Fiji)
+
+Candidate slugs tried per no-page player are recorded in
+data/ncr/rp_backfill_nopage.txt

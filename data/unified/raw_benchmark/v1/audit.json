@@ -1,0 +1,63 @@
+{
+  "artifacts": {
+    "catalog": "/Users/williamgreenfield/Documents/dev/6n/data/unified/raw_benchmark/v1/event_catalog.csv",
+    "coverage": "/Users/williamgreenfield/Documents/dev/6n/data/unified/raw_benchmark/v1/fixture_event_coverage.csv",
+    "store": "/Users/williamgreenfield/Documents/dev/6n/data/unified/raw_benchmark/v1/player_match.csv"
+  },
+  "cached_fixtures": 3327,
+  "canonical_fixtures": 3327,
+  "diagnostic_only_events": [
+    "lineouts_won"
+  ],
+  "eligible_international_fixtures": 362,
+  "extended_events": [
+    "dominant_tackles",
+    "tackle_turnover",
+    "tackle_try_saver",
+    "fifty_22",
+    "lineout_steals",
+    "scrums_won",
+    "kicks_retained",
+    "potm"
+  ],
+  "failures": [],
+  "international_fixtures": 458,
+  "legacy_store": "/Users/williamgreenfield/Documents/dev/6n/data/unified/player_match.csv",
+  "legacy_store_sha256": "252dd8e332301ad6efa7750decd5bbf5a044f7a71a5f153c7b191a6e15eac3c8",
+  "official": {
+    "ambiguous_keys": 0,
+    "matched_rows": 1881,
+    "official_rows": 1895
+  },
+  "passed": true,
+  "stable_events": [
+    "tries",
+    "try_assists",
+    "conversion_goals",
+    "missed_conversion_goals",
+    "penalty_goals",
+    "missed_penalty_goals",
+    "drop_goals_converted",
+    "drop_goal_missed",
+    "defenders_beaten",
+    "clean_breaks",
+    "offload",
+    "runs",
+    "tackles",
+    "missed_tackles",
+    "rucks_won",
+    "rucks_lost",
+    "passes",
+    "bad_passes",
+    "turnovers_conceded",
+    "penalties_conceded",
+    "yellow_cards",
+    "red_cards",
+    "metres"
+  ],
+  "unobserved_rubric_events": [
+    "interceptions",
+    "handling_errors",
+    "lineout_errors"
+  ]
+}

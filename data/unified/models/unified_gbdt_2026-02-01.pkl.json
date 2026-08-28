@@ -1,0 +1,15 @@
+{
+  "schema_version": 1,
+  "engine": "gbdt",
+  "asof": "2026-02-01",
+  "created_at": "2026-07-16T00:48:00.170494+00:00",
+  "training_rows": 109924,
+  "validation_rows": 22540,
+  "validation_start": "2025-05-18",
+  "store_sha256": "252dd8e332301ad6efa7750decd5bbf5a044f7a71a5f153c7b191a6e15eac3c8",
+  "seed": 17,
+  "scoring_rules": {
+    "ncr": 1,
+    "six_nations": 1
+  }
+}

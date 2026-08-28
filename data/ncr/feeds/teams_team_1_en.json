@@ -1,0 +1,165 @@
+{
+  "Data": {
+    "Value": [
+      {
+        "id": "10",
+        "name": "Argentina",
+        "official_name": "Argentina",
+        "short_name": "arg",
+        "is_active": 1,
+        "lang_id": 1,
+        "lang_code": "EN",
+        "is_national": "",
+        "country_code": "",
+        "hemisphere": 2
+      },
+      {
+        "id": "9",
+        "name": "Australia",
+        "official_name": "Australia",
+        "short_name": "aus",
+        "is_active": 1,
+        "lang_id": 1,
+        "lang_code": "EN",
+        "is_national": "",
+        "country_code": "",
+        "hemisphere": 2
+      },
+      {
+        "id": "1",
+        "name": "England",
+        "official_name": "England",
+        "short_name": "eng",
+        "is_active": 1,
+        "lang_id": 1,
+        "lang_code": "EN",
+        "is_national": "",
+        "country_code": "",
+        "hemisphere": 1
+      },
+      {
+        "id": "243",
+        "name": "Fiji",
+        "official_name": "Fiji",
+        "short_name": "fij",
+        "is_active": 1,
+        "lang_id": 1,
+        "lang_code": "EN",
+        "is_national": "",
+        "country_code": "",
+        "hemisphere": 2
+      },
+      {
+        "id": "5",
+        "name": "France",
+        "official_name": "France",
+        "short_name": "fra",
+        "is_active": 1,
+        "lang_id": 1,
+        "lang_code": "EN",
+        "is_national": "",
+        "country_code": "",
+        "hemisphere": 1
+      },
+      {
+        "id": "4",
+        "name": "Ireland",
+        "official_name": "Ireland",
+        "short_name": "ire",
+        "is_active": 1,
+        "lang_id": 1,
+        "lang_code": "EN",
+        "is_national": "",
+        "country_code": "",
+        "hemisphere": 1
+      },
+      {
+        "id": "6",
+        "name": "Italy",
+        "official_name": "Italy",
+        "short_name": "ita",
+        "is_active": 1,
+        "lang_id": 1,
+        "lang_code": "EN",
+        "is_national": "",
+        "country_code": "",
+        "hemisphere": 1
+      },
+      {
+        "id": "103",
+        "name": "Japan",
+        "official_name": "Japan",
+        "short_name": "jpn",
+        "is_active": 1,
+        "lang_id": 1,
+        "lang_code": "EN",
+        "is_national": "",
+        "country_code": "",
+        "hemisphere": 2
+      },
+      {
+        "id": "7",
+        "name": "New Zealand",
+        "official_name": "New Zealand",
+        "short_name": "nzl",
+        "is_active": 1,
+        "lang_id": 1,
+        "lang_code": "EN",
+        "is_national": "",
+        "country_code": "",
+        "hemisphere": 2
+      },
+      {
+        "id": "2",
+        "name": "Scotland",
+        "official_name": "Scotland",
+        "short_name": "sco",
+        "is_active": 1,
+        "lang_id": 1,
+        "lang_code": "EN",
+        "is_national": "",
+        "country_code": "",
+        "hemisphere": 1
+      },
+      {
+        "id": "8",
+        "name": "South Africa",
+        "official_name": "South Africa",
+        "short_name": "rsa",
+        "is_active": 1,
+        "lang_id": 1,
+        "lang_code": "EN",
+        "is_national": "",
+        "country_code": "",
+        "hemisphere": 2
+      },
+      {
+        "id": "3",
+        "name": "Wales",
+        "official_name": "Wales",
+        "short_name": "wal",
+        "is_active": 1,
+        "lang_id": 1,
+        "lang_code": "EN",
+        "is_national": "",
+        "country_code": "",
+        "hemisphere": 1
+      }
+    ],
+    "FeedTime": {
+      "UTCTime": "6/26/2026 8:07:18 AM",
+      "ISTTime": "6/26/2026 1:37:18 PM",
+      "CESTTime": "6/26/2026 10:07:18 AM"
+    }
+  },
+  "Meta": {
+    "Message": "Success",
+    "RetVal": 1,
+    "Success": true,
+    "Timestamp": {
+      "UTCTime": "6/26/2026 8:07:18 AM",
+      "ISTTime": "6/26/2026 1:37:18 PM",
+      "CESTTime": "6/26/2026 10:07:18 AM"
+    }
+  }
+}

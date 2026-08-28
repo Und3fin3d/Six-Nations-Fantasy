@@ -1,0 +1,271 @@
+competition,rubric_era,season,round,key_fixture,key_player,team,player_name,position,is_forward,official_pts,group_id,status,label_percentile,label_z,_label_row_id,predicted_points,career_matches,matched,engine
+ncr,modern,2026,1,ncr-gw1,140494,Fiji,Jiuta Wainiqolo,Back Three,False,80.0,ncr-2026-gw1,P,1.0,4.210127901651092,0,22.9275,104.0,True,gbdt_v4
+ncr,modern,2026,1,ncr-gw1,229307,New Zealand,Cam Roigard,Scrum Half,False,74.0,ncr-2026-gw1,P,0.9962962962962963,3.804561676957343,1,19.75125,71.0,True,gbdt_v4
+ncr,modern,2026,1,ncr-gw1,146480,Scotland,Sione Tuipulotu,Centre,False,60.0,ncr-2026-gw1,P,0.9888888888888888,2.858240486005263,2,14.17,118.0,True,gbdt_v4
+ncr,modern,2026,1,ncr-gw1,121353,South Africa,Malcolm Marx,Hooker,True,40.0,ncr-2026-gw1,P,0.9185185185185184,1.5063530703594348,3,34.9375,89.0,True,gbdt_v4
+ncr,modern,2026,1,ncr-gw1,123016,Wales,Jac Morgan,Loose Forward,True,62.0,ncr-2026-gw1,P,0.9925925925925926,2.993429227569846,4,31.2975,75.0,True,gbdt_v4
+ncr,modern,2026,1,ncr-gw1,244532,France,Theo Attissogbe,Back Three,False,55.0,ncr-2026-gw1,P,0.9833333333333332,2.520268632093806,5,18.96625,76.0,True,gbdt_v4
+ncr,modern,2026,1,ncr-gw1,180778,Scotland,Kyle Rowe,Back Three,False,55.0,ncr-2026-gw1,P,0.9833333333333332,2.520268632093806,6,16.51375,73.0,True,gbdt_v4
+ncr,modern,2026,1,ncr-gw1,250067,France,Fabien Brau-Boirie,Centre,False,53.0,ncr-2026-gw1,P,0.974074074074074,2.385079890529223,7,21.24875,40.0,True,gbdt_v4
+ncr,modern,2026,1,ncr-gw1,190344,France,Matthieu Jalibert,Fly Half,False,50.0,ncr-2026-gw1,P,0.9685185185185186,2.182296778182349,8,26.54625,119.0,True,gbdt_v4
+ncr,modern,2026,1,ncr-gw1,240624,Fiji,Selestino Ravutaumada,Centre,False,50.0,ncr-2026-gw1,P,0.9685185185185186,2.182296778182349,9,17.53375,71.0,True,gbdt_v4
+ncr,modern,2026,1,ncr-gw1,162344,Argentina,Julian Montoya,Hooker,True,37.0,ncr-2026-gw1,P,0.8851851851851852,1.3035699580125606,10,24.60125,126.0,True,gbdt_v4
+ncr,modern,2026,1,ncr-gw1,180443,South Africa,Damian Willemse,Back Three,False,33.0,ncr-2026-gw1,P,0.8388888888888889,1.033192474883395,11,14.98,98.0,True,gbdt_v4
+ncr,modern,2026,1,ncr-gw1,142873,Japan,Ben Gunter,Loose Forward,True,54.0,ncr-2026-gw1,P,0.9777777777777776,2.4526742613115147,12,21.99625,51.0,True,gbdt_v4
+ncr,modern,2026,1,ncr-gw1,146220,New Zealand,Will Jordan,Back Three,False,47.0,ncr-2026-gw1,P,0.9555555555555556,1.9795136658354748,13,27.0975,96.0,True,gbdt_v4
+ncr,modern,2026,1,ncr-gw1,245050,Australia,Max Jorgensen,Back Three,False,47.0,ncr-2026-gw1,P,0.9555555555555556,1.9795136658354748,14,20.15625,59.0,True,gbdt_v4
+ncr,modern,2026,1,ncr-gw1,145361,Ireland,Hugo Keenan,Back Three,False,46.0,ncr-2026-gw1,P,0.9481481481481482,1.9119192950531836,15,10.67625,90.0,True,gbdt_v4
+ncr,modern,2026,1,ncr-gw1,229505,Argentina,Lucio Cinti,Centre,False,45.0,ncr-2026-gw1,P,0.9444444444444444,1.844324924270892,16,14.3,95.0,True,gbdt_v4
+ncr,modern,2026,1,ncr-gw1,187820,Scotland,Rory Darge,Loose Forward,True,47.0,ncr-2026-gw1,P,0.9555555555555556,1.9795136658354748,17,27.8575,99.0,True,gbdt_v4
+ncr,modern,2026,1,ncr-gw1,154929,South Africa,Cheslin Kolbe,Back Three,False,42.0,ncr-2026-gw1,P,0.9296296296296296,1.6415418119240175,18,43.96,83.0,True,gbdt_v4
+ncr,modern,2026,1,ncr-gw1,126800,Ireland,Josh van der Flier,Loose Forward,True,43.0,ncr-2026-gw1,P,0.9388888888888888,1.7091361827063092,19,26.15625,119.0,True,gbdt_v4
+ncr,modern,2026,1,ncr-gw1,104346,Fiji,Tevita Ikanivere,Hooker,True,33.0,ncr-2026-gw1,P,0.8388888888888889,1.033192474883395,20,24.9425,98.0,True,gbdt_v4
+ncr,modern,2026,1,ncr-gw1,207343,South Africa,Grant Williams,Scrum Half,False,39.0,ncr-2026-gw1,P,0.9092592592592592,1.4387586995771435,21,25.1025,84.0,True,gbdt_v4
+ncr,modern,2026,1,ncr-gw1,216173,Ireland,Jamison Gibson-Park,Scrum Half,False,39.0,ncr-2026-gw1,P,0.9092592592592592,1.4387586995771435,22,13.7075,112.0,True,gbdt_v4
+ncr,modern,2026,1,ncr-gw1,105748,Ireland,Jack Conan,Loose Forward,True,40.0,ncr-2026-gw1,P,0.9185185185185184,1.5063530703594348,23,22.42625,112.0,True,gbdt_v4
+ncr,modern,2026,1,ncr-gw1,109816,Scotland,Rory Hutchinson,Centre,False,37.0,ncr-2026-gw1,P,0.8851851851851852,1.3035699580125606,24,12.9,90.0,True,gbdt_v4
+ncr,modern,2026,1,ncr-gw1,239638,Japan,Takuro Matsunaga,Back Three,False,37.0,ncr-2026-gw1,P,0.8851851851851852,1.3035699580125606,25,13.1175,41.0,True,gbdt_v4
+ncr,modern,2026,1,ncr-gw1,243815,France,Marko Gazzotti,Loose Forward,True,42.0,ncr-2026-gw1,P,0.9296296296296296,1.6415418119240175,26,20.91,67.0,True,gbdt_v4
+ncr,modern,2026,1,ncr-gw1,179379,New Zealand,Ardie Savea,Loose Forward,True,43.0,ncr-2026-gw1,P,0.9388888888888888,1.7091361827063092,27,35.32375,116.0,True,gbdt_v4
+ncr,modern,2026,1,ncr-gw1,214439,Australia,Rob Valetini,Loose Forward,True,37.0,ncr-2026-gw1,P,0.8851851851851852,1.3035699580125606,28,19.73625,128.0,True,gbdt_v4
+ncr,modern,2026,1,ncr-gw1,128023,Fiji,Salesi Rayasi,Back Three,False,35.0,ncr-2026-gw1,P,0.8666666666666667,1.168381216447978,29,16.5975,88.0,True,gbdt_v4
+ncr,modern,2026,1,ncr-gw1,165007,England,Ellis Genge,Prop,True,35.0,ncr-2026-gw1,P,0.8666666666666667,1.168381216447978,30,14.28875,123.0,True,gbdt_v4
+ncr,modern,2026,1,ncr-gw1,133457,France,Antoine Hastoy,Fly Half,False,35.0,ncr-2026-gw1,B,0.8666666666666667,1.168381216447978,31,5.2975,119.0,True,gbdt_v4
+ncr,modern,2026,1,ncr-gw1,178222,Australia,Jock Campbell,Back Three,False,34.0,ncr-2026-gw1,P,0.85,1.1007868456656864,32,13.68125,73.0,True,gbdt_v4
+ncr,modern,2026,1,ncr-gw1,185160,New Zealand,Codie Taylor,Hooker,True,25.0,ncr-2026-gw1,P,0.7351851851851852,0.4924375086250637,33,33.1125,111.0,True,gbdt_v4
+ncr,modern,2026,1,ncr-gw1,240621,Australia,Dylan Pietsch,Back Three,False,32.0,ncr-2026-gw1,P,0.8314814814814815,0.9655981041011036,34,19.9225,64.0,True,gbdt_v4
+ncr,modern,2026,1,ncr-gw1,179604,Fiji,Josua Tuisova,Centre,False,32.0,ncr-2026-gw1,P,0.8314814814814815,0.9655981041011036,35,21.07,97.0,True,gbdt_v4
+ncr,modern,2026,1,ncr-gw1,235266,Argentina,Joaquin Oviedo,Loose Forward,True,38.0,ncr-2026-gw1,P,0.9,1.371164328794852,36,27.4225,91.0,True,gbdt_v4
+ncr,modern,2026,1,ncr-gw1,245055,Fiji,Elia Canakaivata,Loose Forward,True,48.0,ncr-2026-gw1,P,0.9629629629629628,2.0471080366177663,37,19.19,73.0,True,gbdt_v4
+ncr,modern,2026,1,ncr-gw1,172351,Ireland,Stuart McCloskey,Centre,False,31.0,ncr-2026-gw1,P,0.8203703703703704,0.8980037333188121,38,21.92875,84.0,True,gbdt_v4
+ncr,modern,2026,1,ncr-gw1,137626,England,Fin Smith,Fly Half,False,31.0,ncr-2026-gw1,P,0.8203703703703704,0.8980037333188121,39,21.7975,99.0,True,gbdt_v4
+ncr,modern,2026,1,ncr-gw1,211240,Ireland,Dan Sheehan,Hooker,True,16.0,ncr-2026-gw1,P,0.5592592592592592,-0.115911828415559,40,30.43375,104.0,True,gbdt_v4
+ncr,modern,2026,1,ncr-gw1,197335,Italy,Lorenzo Cannone,Loose Forward,True,34.0,ncr-2026-gw1,P,0.85,1.1007868456656864,41,19.63125,97.0,True,gbdt_v4
+ncr,modern,2026,1,ncr-gw1,137453,Wales,Josh Adams,Back Three,False,30.0,ncr-2026-gw1,P,0.8055555555555556,0.8304093625365208,42,17.0975,85.0,True,gbdt_v4
+ncr,modern,2026,1,ncr-gw1,242264,Australia,Joseph-Aukuso Suaalii,Centre,False,29.0,ncr-2026-gw1,P,0.7962962962962963,0.7628149917542293,43,15.175,29.0,True,gbdt_v4
+ncr,modern,2026,1,ncr-gw1,238928,Japan,Warner Dearns,Lock,True,42.0,ncr-2026-gw1,P,0.9296296296296296,1.6415418119240175,44,22.24625,62.0,True,gbdt_v4
+ncr,modern,2026,1,ncr-gw1,136190,New Zealand,Luke Jacobson,Loose Forward,True,38.0,ncr-2026-gw1,P,0.9,1.371164328794852,45,21.9125,93.0,True,gbdt_v4
+ncr,modern,2026,1,ncr-gw1,110905,South Africa,Ben-Jason Dixon,Loose Forward,True,37.0,ncr-2026-gw1,B,0.8851851851851852,1.3035699580125606,46,9.5225,84.0,True,gbdt_v4
+ncr,modern,2026,1,ncr-gw1,209612,England,Ben Earl,Loose Forward,True,34.0,ncr-2026-gw1,P,0.85,1.1007868456656864,47,23.1575,125.0,True,gbdt_v4
+ncr,modern,2026,1,ncr-gw1,137153,South Africa,Jasper Wiese,Loose Forward,True,34.0,ncr-2026-gw1,P,0.85,1.1007868456656864,48,26.8675,100.0,True,gbdt_v4
+ncr,modern,2026,1,ncr-gw1,130487,Italy,Nacho Brex,Centre,False,28.0,ncr-2026-gw1,P,0.7851851851851852,0.6952206209719379,49,10.16875,116.0,True,gbdt_v4
+ncr,modern,2026,1,ncr-gw1,240799,Australia,Josh Canham,Lock,True,27.0,ncr-2026-gw1,P,0.7648148148148148,0.6276262501896465,50,18.7975,58.0,True,gbdt_v4
+ncr,modern,2026,1,ncr-gw1,206415,Japan,Mamoru Harada,Hooker,True,21.0,ncr-2026-gw1,P,0.6685185185185185,0.222060025495898,51,27.89,40.0,True,gbdt_v4
+ncr,modern,2026,1,ncr-gw1,169055,New Zealand,Jordie Barrett,Centre,False,27.0,ncr-2026-gw1,P,0.7648148148148148,0.6276262501896465,52,21.41625,128.0,True,gbdt_v4
+ncr,modern,2026,1,ncr-gw1,202239,Argentina,Tomas Albornoz,Fly Half,False,28.0,ncr-2026-gw1,P,0.7851851851851852,0.6952206209719379,53,18.70875,96.0,True,gbdt_v4
+ncr,modern,2026,1,ncr-gw1,111864,France,Max Spring,Back Three,False,27.0,ncr-2026-gw1,P,0.7648148148148148,0.6276262501896465,54,12.22375,103.0,True,gbdt_v4
+ncr,modern,2026,1,ncr-gw1,142211,England,George Martin,Lock,True,31.0,ncr-2026-gw1,P,0.8203703703703704,0.8980037333188121,55,14.25,63.0,True,gbdt_v4
+ncr,modern,2026,1,ncr-gw1,219485,Australia,Ryan Lonergan,Scrum Half,False,27.0,ncr-2026-gw1,P,0.7648148148148148,0.6276262501896465,56,12.1925,84.0,True,gbdt_v4
+ncr,modern,2026,1,ncr-gw1,229297,New Zealand,Ruben Love,Fly Half,False,27.0,ncr-2026-gw1,P,0.7648148148148148,0.6276262501896465,57,15.27375,53.0,True,gbdt_v4
+ncr,modern,2026,1,ncr-gw1,188103,Fiji,Pita Gus Sowakula,Loose Forward,True,40.0,ncr-2026-gw1,P,0.9185185185185184,1.5063530703594348,58,16.40625,89.0,True,gbdt_v4
+ncr,modern,2026,1,ncr-gw1,194110,Argentina,Rodrigo Isgro,Back Three,False,25.0,ncr-2026-gw1,P,0.7351851851851852,0.4924375086250637,59,15.3775,40.0,True,gbdt_v4
+ncr,modern,2026,1,ncr-gw1,236602,Italy,Tommaso di Bartolomeo,Hooker,True,13.0,ncr-2026-gw1,P,0.4611111111111111,-0.3186949407624332,60,26.77,50.0,True,gbdt_v4
+ncr,modern,2026,1,ncr-gw1,229557,Italy,Tommaso Menoncello,Centre,False,24.0,ncr-2026-gw1,P,0.7166666666666667,0.4248431378427723,61,19.695,97.0,True,gbdt_v4
+ncr,modern,2026,1,ncr-gw1,141860,Scotland,Ewan Ashman,Hooker,True,16.0,ncr-2026-gw1,P,0.5592592592592592,-0.115911828415559,62,37.17375,113.0,True,gbdt_v4
+ncr,modern,2026,1,ncr-gw1,173801,England,Alex Coles,Lock,True,30.0,ncr-2026-gw1,P,0.8055555555555556,0.8304093625365208,63,19.50875,90.0,True,gbdt_v4
+ncr,modern,2026,1,ncr-gw1,104572,South Africa,Thomas du Toit,Prop,True,23.0,ncr-2026-gw1,P,0.7037037037037037,0.3572487670604808,64,18.39,107.0,True,gbdt_v4
+ncr,modern,2026,1,ncr-gw1,156253,Italy,Paolo Garbisi,Fly Half,False,24.0,ncr-2026-gw1,P,0.7166666666666667,0.4248431378427723,65,10.1475,129.0,True,gbdt_v4
+ncr,modern,2026,1,ncr-gw1,238629,New Zealand,Peter Lakai,Loose Forward,True,28.0,ncr-2026-gw1,P,0.7851851851851852,0.6952206209719379,66,22.70625,59.0,True,gbdt_v4
+ncr,modern,2026,1,ncr-gw1,132322,France,Killian Tixeront,Loose Forward,True,26.0,ncr-2026-gw1,B,0.7481481481481481,0.5600318794073551,67,8.98375,105.0,True,gbdt_v4
+ncr,modern,2026,1,ncr-gw1,198565,Ireland,Cian Prendergast,Loose Forward,True,30.0,ncr-2026-gw1,P,0.8055555555555556,0.8304093625365208,68,22.10125,84.0,True,gbdt_v4
+ncr,modern,2026,1,ncr-gw1,119132,Wales,Aaron Wainwright,Loose Forward,True,26.0,ncr-2026-gw1,P,0.7481481481481481,0.5600318794073551,69,26.83875,109.0,True,gbdt_v4
+ncr,modern,2026,1,ncr-gw1,222388,France,Yoram Moefana,Centre,False,22.0,ncr-2026-gw1,P,0.6888888888888889,0.2896543962781894,70,16.39,123.0,True,gbdt_v4
+ncr,modern,2026,1,ncr-gw1,196773,Scotland,Pierre Schoeman,Prop,True,22.0,ncr-2026-gw1,P,0.6888888888888889,0.2896543962781894,71,15.47875,122.0,True,gbdt_v4
+ncr,modern,2026,1,ncr-gw1,210801,Scotland,Scott Cummings,Lock,True,28.0,ncr-2026-gw1,P,0.7851851851851852,0.6952206209719379,72,14.8025,106.0,True,gbdt_v4
+ncr,modern,2026,1,ncr-gw1,100043,France,Maxime Lucu,Scrum Half,False,22.0,ncr-2026-gw1,P,0.6888888888888889,0.2896543962781894,73,19.86625,128.0,True,gbdt_v4
+ncr,modern,2026,1,ncr-gw1,229303,New Zealand,Sam Darry,Lock,True,30.0,ncr-2026-gw1,P,0.8055555555555556,0.8304093625365208,74,21.26,53.0,True,gbdt_v4
+ncr,modern,2026,1,ncr-gw1,105949,South Africa,Damian de Allende,Centre,False,35.0,ncr-2026-gw1,P,0.8666666666666667,1.168381216447978,75,24.41,79.0,True,gbdt_v4
+ncr,modern,2026,1,ncr-gw1,133163,Wales,Tomos Williams,Scrum Half,False,20.0,ncr-2026-gw1,P,0.6537037037037037,0.1544656547136066,76,15.2975,112.0,True,gbdt_v4
+ncr,modern,2026,1,ncr-gw1,159599,Scotland,Matt Fagerson,Loose Forward,True,25.0,ncr-2026-gw1,P,0.7351851851851852,0.4924375086250637,77,24.46875,121.0,True,gbdt_v4
+ncr,modern,2026,1,ncr-gw1,226185,Fiji,Kitione Salawa,Loose Forward,True,38.0,ncr-2026-gw1,P,0.9,1.371164328794852,78,22.055,64.0,True,gbdt_v4
+ncr,modern,2026,1,ncr-gw1,119955,Wales,Rhys Carre,Prop,True,20.0,ncr-2026-gw1,P,0.6537037037037037,0.1544656547136066,79,15.79875,98.0,True,gbdt_v4
+ncr,modern,2026,1,ncr-gw1,210952,Australia,Tate McDermott,Scrum Half,False,20.0,ncr-2026-gw1,B,0.6537037037037037,0.1544656547136066,80,6.96875,106.0,True,gbdt_v4
+ncr,modern,2026,1,ncr-gw1,202316,Fiji,Frank Lomani,Scrum Half,False,22.0,ncr-2026-gw1,P,0.6888888888888889,0.2896543962781894,81,11.83125,71.0,True,gbdt_v4
+ncr,modern,2026,1,ncr-gw1,196669,Scotland,Zander Fagerson,Prop,True,19.0,ncr-2026-gw1,B,0.6314814814814815,0.0868712839313152,82,7.2225,113.0,True,gbdt_v4
+ncr,modern,2026,1,ncr-gw1,113000,Scotland,Jack Dempsey,Loose Forward,True,24.0,ncr-2026-gw1,P,0.7166666666666667,0.4248431378427723,83,22.1325,82.0,True,gbdt_v4
+ncr,modern,2026,1,ncr-gw1,103821,Fiji,Eroni Mawi,Prop,True,19.0,ncr-2026-gw1,P,0.6314814814814815,0.0868712839313152,84,12.22875,115.0,True,gbdt_v4
+ncr,modern,2026,1,ncr-gw1,182760,Argentina,Mayco Vivas,Prop,True,19.0,ncr-2026-gw1,P,0.6314814814814815,0.0868712839313152,85,12.18875,61.0,True,gbdt_v4
+ncr,modern,2026,1,ncr-gw1,240478,Scotland,Gregor Hiddleston,Hooker,True,15.0,ncr-2026-gw1,B,0.5222222222222223,-0.1835061991978504,86,15.23,49.0,True,gbdt_v4
+ncr,modern,2026,1,ncr-gw1,182170,Wales,Ryan Elias,Hooker,True,15.0,ncr-2026-gw1,B,0.5222222222222223,-0.1835061991978504,87,13.34,88.0,True,gbdt_v4
+ncr,modern,2026,1,ncr-gw1,246851,Argentina,Toms Rapetti,Prop,True,19.0,ncr-2026-gw1,B,0.6314814814814815,0.0868712839313152,88,4.78625,4.0,True,gbdt_v4
+ncr,modern,2026,1,ncr-gw1,233237,England,Immanuel Feyi-Waboso,Back Three,False,18.0,ncr-2026-gw1,P,0.6037037037037037,0.0192769131490238,89,16.41,64.0,True,gbdt_v4
+ncr,modern,2026,1,ncr-gw1,190708,Australia,Harry Wilson,Loose Forward,True,22.0,ncr-2026-gw1,P,0.6888888888888889,0.2896543962781894,90,21.89,99.0,True,gbdt_v4
+ncr,modern,2026,1,ncr-gw1,244767,France,Oscar Jegou,Loose Forward,True,24.0,ncr-2026-gw1,P,0.7166666666666667,0.4248431378427723,91,24.5725,66.0,True,gbdt_v4
+ncr,modern,2026,1,ncr-gw1,165591,Argentina,Mateo Carreras,Back Three,False,18.0,ncr-2026-gw1,P,0.6037037037037037,0.0192769131490238,92,15.82875,89.0,True,gbdt_v4
+ncr,modern,2026,1,ncr-gw1,240452,South Africa,Cameron Hanekom,Loose Forward,True,19.0,ncr-2026-gw1,P,0.6314814814814815,0.0868712839313152,93,28.13875,51.0,True,gbdt_v4
+ncr,modern,2026,1,ncr-gw1,244984,Argentina,Agustin Moyano,Scrum Half,False,18.0,ncr-2026-gw1,B,0.6037037037037037,0.0192769131490238,94,4.58,14.0,True,gbdt_v4
+ncr,modern,2026,1,ncr-gw1,246824,South Africa,Zac Porthen,Prop,True,18.0,ncr-2026-gw1,B,0.6037037037037037,0.0192769131490238,95,9.22875,18.0,True,gbdt_v4
+ncr,modern,2026,1,ncr-gw1,102468,New Zealand,Ethan de Groot,Prop,True,18.0,ncr-2026-gw1,P,0.6037037037037037,0.0192769131490238,96,13.88375,102.0,True,gbdt_v4
+ncr,modern,2026,1,ncr-gw1,144635,England,Ollie Chessum,Lock,True,27.0,ncr-2026-gw1,P,0.7648148148148148,0.6276262501896465,97,16.63875,96.0,True,gbdt_v4
+ncr,modern,2026,1,ncr-gw1,197546,Wales,Joe Hawkins,Centre,False,17.0,ncr-2026-gw1,P,0.5814814814814815,-0.0483174576332675,98,12.55875,66.0,True,gbdt_v4
+ncr,modern,2026,1,ncr-gw1,128750,Italy,Andrea Zambonin,Lock,True,31.0,ncr-2026-gw1,P,0.8203703703703704,0.8980037333188121,99,14.76875,83.0,True,gbdt_v4
+ncr,modern,2026,1,ncr-gw1,152990,Fiji,Temo Mayanavanua,Lock,True,35.0,ncr-2026-gw1,P,0.8666666666666667,1.168381216447978,100,15.20875,100.0,True,gbdt_v4
+ncr,modern,2026,1,ncr-gw1,222920,Scotland,Gregor Brown,Lock,True,21.0,ncr-2026-gw1,B,0.6685185185185185,0.222060025495898,101,10.47125,60.0,True,gbdt_v4
+ncr,modern,2026,1,ncr-gw1,171003,South Africa,Pieter-Steph du Toit,Loose Forward,True,26.0,ncr-2026-gw1,P,0.7481481481481481,0.5600318794073551,102,25.99625,41.0,True,gbdt_v4
+ncr,modern,2026,1,ncr-gw1,110910,South Africa,Jesse Kriel,Centre,False,16.0,ncr-2026-gw1,P,0.5592592592592592,-0.115911828415559,103,24.4175,72.0,True,gbdt_v4
+ncr,modern,2026,1,ncr-gw1,222623,England,Tom Curry,Loose Forward,True,20.0,ncr-2026-gw1,P,0.6537037037037037,0.1544656547136066,104,18.1075,90.0,True,gbdt_v4
+ncr,modern,2026,1,ncr-gw1,212902,Wales,Dewi Lake,Hooker,True,5.0,ncr-2026-gw1,P,0.2037037037037037,-0.8594499070207645,105,32.2925,82.0,True,gbdt_v4
+ncr,modern,2026,1,ncr-gw1,160801,England,Jamie George,Hooker,True,8.0,ncr-2026-gw1,P,0.3055555555555556,-0.6566667946738903,106,23.9575,126.0,True,gbdt_v4
+ncr,modern,2026,1,ncr-gw1,235183,Wales,Alex Mann,Loose Forward,True,19.0,ncr-2026-gw1,P,0.6314814814814815,0.0868712839313152,107,23.5475,57.0,True,gbdt_v4
+ncr,modern,2026,1,ncr-gw1,250879,Argentina,Pedro Delgado,Prop,True,16.0,ncr-2026-gw1,P,0.5592592592592592,-0.115911828415559,108,10.48,28.0,True,gbdt_v4
+ncr,modern,2026,1,ncr-gw1,146815,Australia,Angus Bell,Prop,True,15.0,ncr-2026-gw1,P,0.5222222222222223,-0.1835061991978504,109,16.2825,100.0,True,gbdt_v4
+ncr,modern,2026,1,ncr-gw1,116876,New Zealand,Fletcher Newell,Prop,True,15.0,ncr-2026-gw1,P,0.5222222222222223,-0.1835061991978504,110,15.49875,90.0,True,gbdt_v4
+ncr,modern,2026,1,ncr-gw1,135572,Japan,Jack Cornelsen,Lock,True,28.0,ncr-2026-gw1,P,0.7851851851851852,0.6952206209719379,111,19.35375,64.0,True,gbdt_v4
+ncr,modern,2026,1,ncr-gw1,246864,Fiji,Isaiah Armstrong-Ravula,Fly Half,False,15.0,ncr-2026-gw1,P,0.5222222222222223,-0.1835061991978504,112,8.81875,58.0,True,gbdt_v4
+ncr,modern,2026,1,ncr-gw1,188057,Scotland,Ben White,Scrum Half,False,15.0,ncr-2026-gw1,P,0.5222222222222223,-0.1835061991978504,113,12.4675,118.0,True,gbdt_v4
+ncr,modern,2026,1,ncr-gw1,243190,Wales,Blair Murray,Back Three,False,15.0,ncr-2026-gw1,P,0.5222222222222223,-0.1835061991978504,114,18.63625,47.0,True,gbdt_v4
+ncr,modern,2026,1,ncr-gw1,251359,Japan,Yuya Hirose,Centre,False,15.0,ncr-2026-gw1,P,0.5222222222222223,-0.1835061991978504,115,10.21625,39.0,True,gbdt_v4
+ncr,modern,2026,1,ncr-gw1,136509,Scotland,Fergus Burke,Fly Half,False,15.0,ncr-2026-gw1,B,0.5222222222222223,-0.1835061991978504,116,9.48875,81.0,True,gbdt_v4
+ncr,modern,2026,1,ncr-gw1,233260,Japan,Shuhei Takeuchi,Prop,True,15.0,ncr-2026-gw1,P,0.5222222222222223,-0.1835061991978504,117,17.58,61.0,True,gbdt_v4
+ncr,modern,2026,1,ncr-gw1,131550,Japan,Takato Okabe,Prop,True,15.0,ncr-2026-gw1,P,0.5222222222222223,-0.1835061991978504,118,12.715,43.0,True,gbdt_v4
+ncr,modern,2026,1,ncr-gw1,237803,Fiji,Kalaveti Ravouvou,Back Three,False,14.0,ncr-2026-gw1,B,0.487037037037037,-0.2511005699801418,119,7.18375,90.0,True,gbdt_v4
+ncr,modern,2026,1,ncr-gw1,193134,Ireland,Nick Timoney,Loose Forward,True,14.0,ncr-2026-gw1,B,0.487037037037037,-0.2511005699801418,120,10.45875,90.0,True,gbdt_v4
+ncr,modern,2026,1,ncr-gw1,103703,Japan,Harry Hockings,Lock,True,21.0,ncr-2026-gw1,P,0.6685185185185185,0.222060025495898,121,23.39875,38.0,True,gbdt_v4
+ncr,modern,2026,1,ncr-gw1,189190,France,Maxime Lamothe,Hooker,True,8.0,ncr-2026-gw1,P,0.3055555555555556,-0.6566667946738903,122,25.11375,120.0,True,gbdt_v4
+ncr,modern,2026,1,ncr-gw1,107059,Italy,Marco Riccioni,Prop,True,14.0,ncr-2026-gw1,P,0.487037037037037,-0.2511005699801418,123,7.6925,93.0,True,gbdt_v4
+ncr,modern,2026,1,ncr-gw1,255396,Italy,Malik Faissal,Back Three,False,14.0,ncr-2026-gw1,P,0.487037037037037,-0.2511005699801418,124,15.195,8.0,True,gbdt_v4
+ncr,modern,2026,1,ncr-gw1,111475,New Zealand,Josh Lord,Lock,True,24.0,ncr-2026-gw1,P,0.7166666666666667,0.4248431378427723,125,20.08,54.0,True,gbdt_v4
+ncr,modern,2026,1,ncr-gw1,120191,Italy,Michele Lamaro,Loose Forward,True,17.0,ncr-2026-gw1,P,0.5814814814814815,-0.0483174576332675,126,19.1425,113.0,True,gbdt_v4
+ncr,modern,2026,1,ncr-gw1,225264,South Africa,Ruan Nortje,Lock,True,24.0,ncr-2026-gw1,P,0.7166666666666667,0.4248431378427723,127,19.375,89.0,True,gbdt_v4
+ncr,modern,2026,1,ncr-gw1,177559,England,Alex Mitchell,Scrum Half,False,13.0,ncr-2026-gw1,B,0.4611111111111111,-0.3186949407624332,128,3.90875,110.0,True,gbdt_v4
+ncr,modern,2026,1,ncr-gw1,140735,Japan,Naoto Saito,Scrum Half,False,13.0,ncr-2026-gw1,P,0.4611111111111111,-0.3186949407624332,129,8.74875,65.0,True,gbdt_v4
+ncr,modern,2026,1,ncr-gw1,224426,Ireland,Tom OToole,Prop,True,13.0,ncr-2026-gw1,P,0.4611111111111111,-0.3186949407624332,130,9.5325,,False,gbdt_v4
+ncr,modern,2026,1,ncr-gw1,251673,Japan,Ryunosuke Ito,Fly Half,False,14.0,ncr-2026-gw1,P,0.487037037037037,-0.2511005699801418,131,19.545,0.0,True,gbdt_v4
+ncr,modern,2026,1,ncr-gw1,144570,Ireland,Jimmy OBrien,Back Three,False,13.0,ncr-2026-gw1,P,0.4611111111111111,-0.3186949407624332,132,15.98125,,False,gbdt_v4
+ncr,modern,2026,1,ncr-gw1,251199,Japan,Hayate Era,Hooker,True,11.0,ncr-2026-gw1,B,0.3833333333333333,-0.453883682327016,133,15.37625,38.0,True,gbdt_v4
+ncr,modern,2026,1,ncr-gw1,252801,Japan,Kazuma Ueda,Back Three,False,13.0,ncr-2026-gw1,P,0.4611111111111111,-0.3186949407624332,134,18.93,28.0,True,gbdt_v4
+ncr,modern,2026,1,ncr-gw1,185293,Australia,Len Ikitau,Centre,False,12.0,ncr-2026-gw1,P,0.424074074074074,-0.3862893115447246,135,18.8325,116.0,True,gbdt_v4
+ncr,modern,2026,1,ncr-gw1,117823,Argentina,Matias Alemanno,Lock,True,19.0,ncr-2026-gw1,P,0.6314814814814815,0.0868712839313152,136,15.3,98.0,True,gbdt_v4
+ncr,modern,2026,1,ncr-gw1,143950,Fiji,Semi Radradra,Centre,False,12.0,ncr-2026-gw1,P,0.424074074074074,-0.3862893115447246,137,22.0925,75.0,True,gbdt_v4
+ncr,modern,2026,1,ncr-gw1,127095,Argentina,Santiago Grondona,Loose Forward,True,19.0,ncr-2026-gw1,P,0.6314814814814815,0.0868712839313152,138,14.555,69.0,True,gbdt_v4
+ncr,modern,2026,1,ncr-gw1,229857,Australia,Jeremy Williams,Lock,True,18.0,ncr-2026-gw1,P,0.6037037037037037,0.0192769131490238,139,18.9475,79.0,True,gbdt_v4
+ncr,modern,2026,1,ncr-gw1,203381,Ireland,James Ryan,Lock,True,17.0,ncr-2026-gw1,P,0.5814814814814815,-0.0483174576332675,140,13.71125,112.0,True,gbdt_v4
+ncr,modern,2026,1,ncr-gw1,120076,Japan,Michael Leitch,Loose Forward,True,16.0,ncr-2026-gw1,B,0.5592592592592592,-0.115911828415559,141,10.80375,60.0,True,gbdt_v4
+ncr,modern,2026,1,ncr-gw1,195298,Scotland,Jamie Dobie,Scrum Half,False,12.0,ncr-2026-gw1,P,0.424074074074074,-0.3862893115447246,142,19.6525,82.0,True,gbdt_v4
+ncr,modern,2026,1,ncr-gw1,243508,Scotland,Tom Jordan,Centre,False,12.0,ncr-2026-gw1,P,0.424074074074074,-0.3862893115447246,143,19.6025,108.0,True,gbdt_v4
+ncr,modern,2026,1,ncr-gw1,110793,England,Cadan Murley,Back Three,False,12.0,ncr-2026-gw1,P,0.424074074074074,-0.3862893115447246,144,16.13375,79.0,True,gbdt_v4
+ncr,modern,2026,1,ncr-gw1,156422,Australia,Josh Nasser,Hooker,True,4.0,ncr-2026-gw1,P,0.1648148148148148,-0.927044277803056,145,26.11125,54.0,True,gbdt_v4
+ncr,modern,2026,1,ncr-gw1,202570,France,Tom Staniforth,Lock,True,16.0,ncr-2026-gw1,P,0.5592592592592592,-0.115911828415559,146,20.0125,73.0,True,gbdt_v4
+ncr,modern,2026,1,ncr-gw1,196853,Ireland,Thomas Clarkson,Prop,True,12.0,ncr-2026-gw1,B,0.424074074074074,-0.3862893115447246,147,6.25,76.0,True,gbdt_v4
+ncr,modern,2026,1,ncr-gw1,229690,South Africa,Jan-Hendrik Wessels,Prop,True,12.0,ncr-2026-gw1,B,0.424074074074074,-0.3862893115447246,148,9.4825,73.0,True,gbdt_v4
+ncr,modern,2026,1,ncr-gw1,143492,New Zealand,Damian McKenzie,Fly Half,False,11.0,ncr-2026-gw1,P,0.3833333333333333,-0.453883682327016,149,21.91875,108.0,True,gbdt_v4
+ncr,modern,2026,1,ncr-gw1,129616,Australia,Fraser McReight,Loose Forward,True,18.0,ncr-2026-gw1,P,0.6037037037037037,0.0192769131490238,150,25.4225,107.0,True,gbdt_v4
+ncr,modern,2026,1,ncr-gw1,134796,England,Joe Heyes,Prop,True,11.0,ncr-2026-gw1,P,0.3833333333333333,-0.453883682327016,151,15.94125,101.0,True,gbdt_v4
+ncr,modern,2026,1,ncr-gw1,189982,Argentina,Santiago Carreras,Back Three,False,12.0,ncr-2026-gw1,P,0.424074074074074,-0.3862893115447246,152,9.7175,136.0,True,gbdt_v4
+ncr,modern,2026,1,ncr-gw1,110170,Scotland,Kyle Steyn,Back Three,False,11.0,ncr-2026-gw1,P,0.3833333333333333,-0.453883682327016,153,22.86,93.0,True,gbdt_v4
+ncr,modern,2026,1,ncr-gw1,241794,New Zealand,Wallace Sititi,Loose Forward,True,16.0,ncr-2026-gw1,B,0.5592592592592592,-0.115911828415559,154,11.01375,48.0,True,gbdt_v4
+ncr,modern,2026,1,ncr-gw1,118531,Ireland,Ronan Kelleher,Hooker,True,7.0,ncr-2026-gw1,B,0.2814814814814815,-0.7242611654561817,155,12.5275,112.0,True,gbdt_v4
+ncr,modern,2026,1,ncr-gw1,143048,Australia,Allan Alaalatoa,Prop,True,12.0,ncr-2026-gw1,P,0.424074074074074,-0.3862893115447246,156,14.30375,101.0,True,gbdt_v4
+ncr,modern,2026,1,ncr-gw1,226250,Fiji,Isoa Nasilasila,Lock,True,25.0,ncr-2026-gw1,P,0.7351851851851852,0.4924375086250637,157,14.22875,94.0,True,gbdt_v4
+ncr,modern,2026,1,ncr-gw1,189326,England,Marcus Smith,Fly Half,False,11.0,ncr-2026-gw1,P,0.3833333333333333,-0.453883682327016,158,18.60375,128.0,True,gbdt_v4
+ncr,modern,2026,1,ncr-gw1,178772,Argentina,Gonzalo Garcia,Scrum Half,False,11.0,ncr-2026-gw1,P,0.3833333333333333,-0.453883682327016,159,8.42125,60.0,True,gbdt_v4
+ncr,modern,2026,1,ncr-gw1,108021,France,Jefferson Poirot,Prop,True,11.0,ncr-2026-gw1,P,0.3833333333333333,-0.453883682327016,160,13.6625,102.0,True,gbdt_v4
+ncr,modern,2026,1,ncr-gw1,151066,New Zealand,Xavier Numia,Prop,True,11.0,ncr-2026-gw1,B,0.3833333333333333,-0.453883682327016,161,9.5325,68.0,True,gbdt_v4
+ncr,modern,2026,1,ncr-gw1,166457,France,Regis Montagne,Prop,True,11.0,ncr-2026-gw1,B,0.3833333333333333,-0.453883682327016,162,7.50625,46.0,True,gbdt_v4
+ncr,modern,2026,1,ncr-gw1,123723,Italy,Danilo Fischetti,Prop,True,10.0,ncr-2026-gw1,P,0.3555555555555555,-0.5214780531093075,163,16.22375,126.0,True,gbdt_v4
+ncr,modern,2026,1,ncr-gw1,170612,South Africa,Gerhard Steenekamp,Prop,True,10.0,ncr-2026-gw1,B,0.3555555555555555,-0.5214780531093075,164,7.59625,90.0,True,gbdt_v4
+ncr,modern,2026,1,ncr-gw1,136947,Australia,Brandon Paenga-Amosa,Hooker,True,7.0,ncr-2026-gw1,B,0.2814814814814815,-0.7242611654561817,165,13.69625,83.0,True,gbdt_v4
+ncr,modern,2026,1,ncr-gw1,250678,Japan,Kippei Ishida,Back Three,False,10.0,ncr-2026-gw1,P,0.3555555555555555,-0.5214780531093075,166,17.9675,37.0,True,gbdt_v4
+ncr,modern,2026,1,ncr-gw1,239229,France,Hugo Auradou,Lock,True,22.0,ncr-2026-gw1,P,0.6888888888888889,0.2896543962781894,167,13.2025,89.0,True,gbdt_v4
+ncr,modern,2026,1,ncr-gw1,144545,Wales,Ben Carter,Lock,True,21.0,ncr-2026-gw1,P,0.6685185185185185,0.222060025495898,168,21.2025,68.0,True,gbdt_v4
+ncr,modern,2026,1,ncr-gw1,166930,Fiji,Peni Ravai Kovekalou,Prop,True,10.0,ncr-2026-gw1,B,0.3555555555555555,-0.5214780531093075,169,9.5325,,False,gbdt_v4
+ncr,modern,2026,1,ncr-gw1,236608,Italy,Alessandro Ortombina,Lock,True,15.0,ncr-2026-gw1,P,0.5222222222222223,-0.1835061991978504,170,21.69875,26.0,True,gbdt_v4
+ncr,modern,2026,1,ncr-gw1,202267,South Africa,Manie Libbok,Fly Half,False,9.0,ncr-2026-gw1,P,0.3314814814814815,-0.5890724238915989,171,22.95625,78.0,True,gbdt_v4
+ncr,modern,2026,1,ncr-gw1,177800,France,Mickael Guillard,Lock,True,13.0,ncr-2026-gw1,B,0.4611111111111111,-0.3186949407624332,172,9.175,103.0,True,gbdt_v4
+ncr,modern,2026,1,ncr-gw1,208272,Italy,Niccolo Cannone,Lock,True,12.0,ncr-2026-gw1,P,0.424074074074074,-0.3862893115447246,173,17.1625,122.0,True,gbdt_v4
+ncr,modern,2026,1,ncr-gw1,185466,South Africa,Ox Nche,Prop,True,9.0,ncr-2026-gw1,P,0.3314814814814815,-0.5890724238915989,174,11.4175,107.0,True,gbdt_v4
+ncr,modern,2026,1,ncr-gw1,223413,Ireland,Joe McCarthy,Lock,True,14.0,ncr-2026-gw1,P,0.487037037037037,-0.2511005699801418,175,21.575,83.0,True,gbdt_v4
+ncr,modern,2026,1,ncr-gw1,200003,Argentina,Pablo Matera,Loose Forward,True,17.0,ncr-2026-gw1,P,0.5814814814814815,-0.0483174576332675,176,18.85125,101.0,True,gbdt_v4
+ncr,modern,2026,1,ncr-gw1,214124,Wales,James Botham,Loose Forward,True,17.0,ncr-2026-gw1,B,0.5814814814814815,-0.0483174576332675,177,10.91625,73.0,True,gbdt_v4
+ncr,modern,2026,1,ncr-gw1,215963,Argentina,Guido Petti,Lock,True,22.0,ncr-2026-gw1,P,0.6888888888888889,0.2896543962781894,178,13.61125,108.0,True,gbdt_v4
+ncr,modern,2026,1,ncr-gw1,113444,Ireland,Tadhg Furlong,Prop,True,9.0,ncr-2026-gw1,P,0.3314814814814815,-0.5890724238915989,179,12.66375,89.0,True,gbdt_v4
+ncr,modern,2026,1,ncr-gw1,110319,Wales,Nicky Smith,Prop,True,9.0,ncr-2026-gw1,B,0.3314814814814815,-0.5890724238915989,180,8.73875,110.0,True,gbdt_v4
+ncr,modern,2026,1,ncr-gw1,113765,Fiji,Peceli Yato,Loose Forward,True,11.0,ncr-2026-gw1,B,0.3833333333333333,-0.453883682327016,181,8.885,85.0,True,gbdt_v4
+ncr,modern,2026,1,ncr-gw1,109648,England,Seb Atkinson,Centre,False,9.0,ncr-2026-gw1,P,0.3314814814814815,-0.5890724238915989,182,15.8325,79.0,True,gbdt_v4
+ncr,modern,2026,1,ncr-gw1,251438,Japan,Keijiro Tamefusa,Prop,True,9.0,ncr-2026-gw1,B,0.3314814814814815,-0.5890724238915989,183,8.61375,57.0,True,gbdt_v4
+ncr,modern,2026,1,ncr-gw1,241806,Argentina,Faustino Sanchez Valarolo,Centre,False,9.0,ncr-2026-gw1,P,0.3314814814814815,-0.5890724238915989,184,13.34625,1.0,True,gbdt_v4
+ncr,modern,2026,1,ncr-gw1,164150,Scotland,Darcy Graham,Back Three,False,8.0,ncr-2026-gw1,B,0.3055555555555556,-0.6566667946738903,185,9.2325,92.0,True,gbdt_v4
+ncr,modern,2026,1,ncr-gw1,237271,Wales,Eddie James,Centre,False,8.0,ncr-2026-gw1,P,0.3055555555555556,-0.6566667946738903,186,15.20125,56.0,True,gbdt_v4
+ncr,modern,2026,1,ncr-gw1,113737,England,Jack van Poortvliet,Scrum Half,False,8.0,ncr-2026-gw1,P,0.3055555555555556,-0.6566667946738903,187,8.925,90.0,True,gbdt_v4
+ncr,modern,2026,1,ncr-gw1,171323,Scotland,Jonny Gray,Lock,True,13.0,ncr-2026-gw1,P,0.4611111111111111,-0.3186949407624332,188,16.07625,77.0,True,gbdt_v4
+ncr,modern,2026,1,ncr-gw1,172284,Italy,Muhamed Hasa,Prop,True,8.0,ncr-2026-gw1,B,0.3055555555555556,-0.6566667946738903,189,7.3425,71.0,True,gbdt_v4
+ncr,modern,2026,1,ncr-gw1,190669,South Africa,Kurt-Lee Arendse,Back Three,False,7.0,ncr-2026-gw1,P,0.2814814814814815,-0.7242611654561817,190,23.0875,91.0,True,gbdt_v4
+ncr,modern,2026,1,ncr-gw1,174318,Italy,Monty Ioane,Back Three,False,7.0,ncr-2026-gw1,P,0.2814814814814815,-0.7242611654561817,191,13.06375,101.0,True,gbdt_v4
+ncr,modern,2026,1,ncr-gw1,150038,New Zealand,Tyrel Lomax,Prop,True,7.0,ncr-2026-gw1,B,0.2814814814814815,-0.7242611654561817,192,7.94875,97.0,True,gbdt_v4
+ncr,modern,2026,1,ncr-gw1,124812,Fiji,Filimoni Botitu,Centre,False,7.0,ncr-2026-gw1,B,0.2814814814814815,-0.7242611654561817,193,5.8575,106.0,True,gbdt_v4
+ncr,modern,2026,1,ncr-gw1,118619,Wales,Sam Costelow,Fly Half,False,7.0,ncr-2026-gw1,B,0.2814814814814815,-0.7242611654561817,194,6.85625,71.0,True,gbdt_v4
+ncr,modern,2026,1,ncr-gw1,244760,France,Barnabe Massa,Hooker,True,5.0,ncr-2026-gw1,B,0.2037037037037037,-0.8594499070207645,195,13.9625,49.0,True,gbdt_v4
+ncr,modern,2026,1,ncr-gw1,151974,New Zealand,Billy Proctor,Centre,False,6.0,ncr-2026-gw1,B,0.2518518518518518,-0.7918555362384732,196,6.33375,68.0,True,gbdt_v4
+ncr,modern,2026,1,ncr-gw1,240455,Wales,Dan Edwards,Fly Half,False,6.0,ncr-2026-gw1,P,0.2518518518518518,-0.7918555362384732,197,25.03375,64.0,True,gbdt_v4
+ncr,modern,2026,1,ncr-gw1,219828,Ireland,Garry Ringrose,Centre,False,6.0,ncr-2026-gw1,P,0.2518518518518518,-0.7918555362384732,198,11.88375,96.0,True,gbdt_v4
+ncr,modern,2026,1,ncr-gw1,237233,Italy,Ross Vintcent,Loose Forward,True,9.0,ncr-2026-gw1,B,0.3314814814814815,-0.5890724238915989,199,11.485,66.0,True,gbdt_v4
+ncr,modern,2026,1,ncr-gw1,245177,Japan,Tiennan Costley,Loose Forward,True,10.0,ncr-2026-gw1,B,0.3555555555555555,-0.5214780531093075,200,8.55125,48.0,True,gbdt_v4
+ncr,modern,2026,1,ncr-gw1,182833,Australia,Taniela Tupou,Prop,True,6.0,ncr-2026-gw1,B,0.2518518518518518,-0.7918555362384732,201,5.71875,100.0,True,gbdt_v4
+ncr,modern,2026,1,ncr-gw1,109783,South Africa,Marco van Staden,Loose Forward,True,12.0,ncr-2026-gw1,B,0.424074074074074,-0.3862893115447246,202,9.30375,97.0,True,gbdt_v4
+ncr,modern,2026,1,ncr-gw1,225770,New Zealand,Asafo Aumua,Hooker,True,5.0,ncr-2026-gw1,B,0.2037037037037037,-0.8594499070207645,203,18.51875,77.0,True,gbdt_v4
+ncr,modern,2026,1,ncr-gw1,168641,Wales,Dillon Lewis,Prop,True,6.0,ncr-2026-gw1,P,0.2518518518518518,-0.7918555362384732,204,12.5075,77.0,True,gbdt_v4
+ncr,modern,2026,1,ncr-gw1,164759,Wales,Ben Warren,Prop,True,6.0,ncr-2026-gw1,B,0.2518518518518518,-0.7918555362384732,205,7.9725,46.0,True,gbdt_v4
+ncr,modern,2026,1,ncr-gw1,128591,Fiji,Tim Hoyt,Prop,True,6.0,ncr-2026-gw1,P,0.2518518518518518,-0.7918555362384732,206,11.1375,3.0,True,gbdt_v4
+ncr,modern,2026,1,ncr-gw1,237078,South Africa,Canan Moodie,Back Three,False,5.0,ncr-2026-gw1,B,0.2037037037037037,-0.8594499070207645,207,6.8775,85.0,True,gbdt_v4
+ncr,modern,2026,1,ncr-gw1,249169,New Zealand,Fehi Fineanganofo,Back Three,False,5.0,ncr-2026-gw1,B,0.2037037037037037,-0.8594499070207645,208,7.40125,26.0,True,gbdt_v4
+ncr,modern,2026,1,ncr-gw1,208971,Argentina,Franco Molina,Lock,True,5.0,ncr-2026-gw1,B,0.2037037037037037,-0.8594499070207645,209,8.27125,45.0,True,gbdt_v4
+ncr,modern,2026,1,ncr-gw1,198661,Japan,Dylan Riley,Centre,False,5.0,ncr-2026-gw1,P,0.2037037037037037,-0.8594499070207645,210,13.845,61.0,True,gbdt_v4
+ncr,modern,2026,1,ncr-gw1,207407,France,Demba Bamba,Prop,True,5.0,ncr-2026-gw1,P,0.2037037037037037,-0.8594499070207645,211,14.5575,90.0,True,gbdt_v4
+ncr,modern,2026,1,ncr-gw1,199383,Ireland,Ciaran Frawley,Fly Half,False,5.0,ncr-2026-gw1,B,0.2037037037037037,-0.8594499070207645,212,6.64375,81.0,True,gbdt_v4
+ncr,modern,2026,1,ncr-gw1,154414,Japan,Kanji Shimokawa,Loose Forward,True,12.0,ncr-2026-gw1,P,0.424074074074074,-0.3862893115447246,213,19.105,61.0,True,gbdt_v4
+ncr,modern,2026,1,ncr-gw1,109697,France,Nolann le Garrec,Scrum Half,False,5.0,ncr-2026-gw1,B,0.2037037037037037,-0.8594499070207645,214,7.55875,109.0,True,gbdt_v4
+ncr,modern,2026,1,ncr-gw1,105892,Wales,Adam Beard,Lock,True,15.0,ncr-2026-gw1,P,0.5222222222222223,-0.1835061991978504,215,13.58125,104.0,True,gbdt_v4
+ncr,modern,2026,1,ncr-gw1,136875,Italy,Gianmarco Lucchesi,Hooker,True,1.0,ncr-2026-gw1,B,0.0833333333333333,-1.12982739014993,216,16.22625,82.0,True,gbdt_v4
+ncr,modern,2026,1,ncr-gw1,175403,Scotland,Elliot Millar-Mills,Prop,True,5.0,ncr-2026-gw1,P,0.2037037037037037,-0.8594499070207645,217,12.135,63.0,True,gbdt_v4
+ncr,modern,2026,1,ncr-gw1,134407,Italy,Alessandro Fusco,Scrum Half,False,5.0,ncr-2026-gw1,B,0.2037037037037037,-0.8594499070207645,218,4.00375,83.0,True,gbdt_v4
+ncr,modern,2026,1,ncr-gw1,239482,England,Asher Opoku-Fordjour,Prop,True,5.0,ncr-2026-gw1,B,0.2037037037037037,-0.8594499070207645,219,7.44375,53.0,True,gbdt_v4
+ncr,modern,2026,1,ncr-gw1,261209,Japan,Sojiro Otsuka,Prop,True,5.0,ncr-2026-gw1,B,0.2037037037037037,-0.8594499070207645,220,6.2775,0.0,True,gbdt_v4
+ncr,modern,2026,1,ncr-gw1,154458,Argentina,Matias Moroni,Centre,False,4.0,ncr-2026-gw1,B,0.1648148148148148,-0.927044277803056,221,6.1575,89.0,True,gbdt_v4
+ncr,modern,2026,1,ncr-gw1,241698,Ireland,Sam Prendergast,Fly Half,False,5.0,ncr-2026-gw1,P,0.2037037037037037,-0.8594499070207645,222,18.09875,66.0,True,gbdt_v4
+ncr,modern,2026,1,ncr-gw1,237231,Italy,Mirco Spagnolo,Prop,True,4.0,ncr-2026-gw1,B,0.1648148148148148,-0.927044277803056,223,9.33875,69.0,True,gbdt_v4
+ncr,modern,2026,1,ncr-gw1,237261,Scotland,Alex Samuel,Lock,True,6.0,ncr-2026-gw1,B,0.2518518518518518,-0.7918555362384732,224,6.38125,64.0,True,gbdt_v4
+ncr,modern,2026,1,ncr-gw1,110891,Italy,Stephen Varney,Scrum Half,False,3.0,ncr-2026-gw1,P,0.1425925925925926,-0.9946386485853472,225,7.765,112.0,True,gbdt_v4
+ncr,modern,2026,1,ncr-gw1,153525,Scotland,Rory Sutherland,Prop,True,3.0,ncr-2026-gw1,B,0.1425925925925926,-0.9946386485853472,226,5.39125,92.0,True,gbdt_v4
+ncr,modern,2026,1,ncr-gw1,236606,Italy,Leonardo Marin,Fly Half,False,3.0,ncr-2026-gw1,B,0.1425925925925926,-0.9946386485853472,227,5.46625,65.0,True,gbdt_v4
+ncr,modern,2026,1,ncr-gw1,240916,Argentina,Boris Wenger,Prop,True,3.0,ncr-2026-gw1,B,0.1425925925925926,-0.9946386485853472,228,7.01,18.0,True,gbdt_v4
+ncr,modern,2026,1,ncr-gw1,235935,Argentina,Ignacio Ruiz,Hooker,True,3.0,ncr-2026-gw1,B,0.1425925925925926,-0.9946386485853472,229,12.90375,87.0,True,gbdt_v4
+ncr,modern,2026,1,ncr-gw1,130283,England,Beno Obano,Prop,True,3.0,ncr-2026-gw1,B,0.1425925925925926,-0.9946386485853472,230,8.01875,81.0,True,gbdt_v4
+ncr,modern,2026,1,ncr-gw1,174208,Italy,Riccardo Favretto,Lock,True,5.0,ncr-2026-gw1,B,0.2037037037037037,-0.8594499070207645,231,9.55125,79.0,True,gbdt_v4
+ncr,modern,2026,1,ncr-gw1,170835,Australia,James Slipper,Prop,True,3.0,ncr-2026-gw1,B,0.1425925925925926,-0.9946386485853472,232,8.29,124.0,True,gbdt_v4
+ncr,modern,2026,1,ncr-gw1,237224,France,Pierre Bochaton,Loose Forward,True,5.0,ncr-2026-gw1,P,0.2037037037037037,-0.8594499070207645,233,20.4,75.0,True,gbdt_v4
+ncr,modern,2026,1,ncr-gw1,147486,Ireland,Tadhg Beirne,Lock,True,6.0,ncr-2026-gw1,B,0.2518518518518518,-0.7918555362384732,234,10.47,120.0,True,gbdt_v4
+ncr,modern,2026,1,ncr-gw1,156918,England,Tommy Freeman,Back Three,False,2.0,ncr-2026-gw1,P,0.1092592592592592,-1.0622330193676388,235,19.8575,112.0,True,gbdt_v4
+ncr,modern,2026,1,ncr-gw1,191608,South Africa,Cobus Reinach,Scrum Half,False,2.0,ncr-2026-gw1,B,0.1092592592592592,-1.0622330193676388,236,12.3,104.0,True,gbdt_v4
+ncr,modern,2026,1,ncr-gw1,241689,France,Nicolas Depoortere,Centre,False,2.0,ncr-2026-gw1,B,0.1092592592592592,-1.0622330193676388,237,9.065,87.0,True,gbdt_v4
+ncr,modern,2026,1,ncr-gw1,117646,Australia,Ben Donaldson,Fly Half,False,2.0,ncr-2026-gw1,B,0.1092592592592592,-1.0622330193676388,238,4.94875,86.0,True,gbdt_v4
+ncr,modern,2026,1,ncr-gw1,180382,Argentina,Bautista Delguy,Back Three,False,2.0,ncr-2026-gw1,B,0.1092592592592592,-1.0622330193676388,239,5.31375,110.0,True,gbdt_v4
+ncr,modern,2026,1,ncr-gw1,130282,Italy,Tommaso Allan,Fly Half,False,2.0,ncr-2026-gw1,B,0.1092592592592592,-1.0622330193676388,240,5.28375,104.0,True,gbdt_v4
+ncr,modern,2026,1,ncr-gw1,229826,Ireland,Jamie Osborne,Centre,False,2.0,ncr-2026-gw1,P,0.1092592592592592,-1.0622330193676388,241,10.81375,73.0,True,gbdt_v4
+ncr,modern,2026,1,ncr-gw1,249307,Wales,Ellis Mee,Back Three,False,2.0,ncr-2026-gw1,B,0.1092592592592592,-1.0622330193676388,242,4.13875,41.0,True,gbdt_v4
+ncr,modern,2026,1,ncr-gw1,138016,England,Henry Slade,Centre,False,2.0,ncr-2026-gw1,B,0.1092592592592592,-1.0622330193676388,243,4.99125,121.0,True,gbdt_v4
+ncr,modern,2026,1,ncr-gw1,161973,Fiji,Simione Kuruvoli,Scrum Half,False,3.0,ncr-2026-gw1,B,0.1425925925925926,-0.9946386485853472,244,5.69,58.0,True,gbdt_v4
+ncr,modern,2026,1,ncr-gw1,246860,Fiji,Mesake Vocevoce,Lock,True,4.0,ncr-2026-gw1,B,0.1648148148148148,-0.927044277803056,245,5.95875,57.0,True,gbdt_v4
+ncr,modern,2026,1,ncr-gw1,164832,New Zealand,Quinn Tupaea,Centre,False,1.0,ncr-2026-gw1,P,0.0833333333333333,-1.12982739014993,246,18.28625,84.0,True,gbdt_v4
+ncr,modern,2026,1,ncr-gw1,157406,Ireland,Bundee Aki,Centre,False,1.0,ncr-2026-gw1,B,0.0833333333333333,-1.12982739014993,247,8.665,95.0,True,gbdt_v4
+ncr,modern,2026,1,ncr-gw1,196415,England,Charlie Ewels,Lock,True,1.0,ncr-2026-gw1,B,0.0833333333333333,-1.12982739014993,248,6.97125,78.0,True,gbdt_v4
+ncr,modern,2026,1,ncr-gw1,196989,South Africa,Eben Etzebeth,Lock,True,0.0,ncr-2026-gw1,P,0.0537037037037037,-1.1974217609322215,249,15.20875,,False,gbdt_v4
+ncr,modern,2026,1,ncr-gw1,190503,South Africa,Siya Kolisi,Loose Forward,True,0.0,ncr-2026-gw1,P,0.0537037037037037,-1.1974217609322215,250,20.4,,False,gbdt_v4
+ncr,modern,2026,1,ncr-gw1,127914,South Africa,Andre Esterhuizen,Centre,False,0.0,ncr-2026-gw1,B,0.0537037037037037,-1.1974217609322215,251,10.52625,95.0,True,gbdt_v4
+ncr,modern,2026,1,ncr-gw1,156336,Australia,Tom Wright,Back Three,False,0.0,ncr-2026-gw1,B,0.0537037037037037,-1.1974217609322215,252,6.2275,111.0,True,gbdt_v4
+ncr,modern,2026,1,ncr-gw1,175150,Ireland,Robert Baloucoune,Back Three,False,0.0,ncr-2026-gw1,P,0.0537037037037037,-1.1974217609322215,253,15.98125,,False,gbdt_v4
+ncr,modern,2026,1,ncr-gw1,201684,New Zealand,Patrick Tuipulotu,Lock,True,0.0,ncr-2026-gw1,B,0.0537037037037037,-1.1974217609322215,254,15.20875,,False,gbdt_v4
+ncr,modern,2026,1,ncr-gw1,236609,Italy,Lorenzo Pani,Back Three,False,0.0,ncr-2026-gw1,P,0.0537037037037037,-1.1974217609322215,255,7.66875,48.0,True,gbdt_v4
+ncr,modern,2026,1,ncr-gw1,106142,England,Luke Cowan-Dickie,Hooker,True,-2.0,ncr-2026-gw1,B,0.0092592592592592,-1.3326105024968045,256,13.015,86.0,True,gbdt_v4
+ncr,modern,2026,1,ncr-gw1,216255,Fiji,Zuriel Togiatama,Hooker,True,-1.0,ncr-2026-gw1,B,0.0222222222222222,-1.265016131714513,257,12.2575,63.0,True,gbdt_v4
+ncr,modern,2026,1,ncr-gw1,105642,Ireland,Craig Casey,Scrum Half,False,0.0,ncr-2026-gw1,B,0.0537037037037037,-1.1974217609322215,258,5.33875,96.0,True,gbdt_v4
+ncr,modern,2026,1,ncr-gw1,224905,Scotland,George Horne,Scrum Half,False,0.0,ncr-2026-gw1,B,0.0537037037037037,-1.1974217609322215,259,7.6225,112.0,True,gbdt_v4
+ncr,modern,2026,1,ncr-gw1,143123,Wales,Taine Plumtree,Loose Forward,True,2.0,ncr-2026-gw1,B,0.1092592592592592,-1.0622330193676388,260,11.99,63.0,True,gbdt_v4
+ncr,modern,2026,1,ncr-gw1,190215,Wales,Kieran Hardy,Scrum Half,False,0.0,ncr-2026-gw1,B,0.0537037037037037,-1.1974217609322215,261,5.465,103.0,True,gbdt_v4
+ncr,modern,2026,1,ncr-gw1,174268,Ireland,Jeremy Loughman,Prop,True,0.0,ncr-2026-gw1,B,0.0537037037037037,-1.1974217609322215,262,7.3825,70.0,True,gbdt_v4
+ncr,modern,2026,1,ncr-gw1,255945,Japan,Itsuki Kamimura,Scrum Half,False,0.0,ncr-2026-gw1,B,0.0537037037037037,-1.1974217609322215,263,4.5425,28.0,True,gbdt_v4
+ncr,modern,2026,1,ncr-gw1,120767,Wales,Louis Rees-Zammit,Back Three,False,-1.0,ncr-2026-gw1,P,0.0222222222222222,-1.265016131714513,264,25.15,75.0,True,gbdt_v4
+ncr,modern,2026,1,ncr-gw1,239634,England,Henry Pollock,Loose Forward,True,-1.0,ncr-2026-gw1,B,0.0222222222222222,-1.265016131714513,265,12.04125,55.0,True,gbdt_v4
+ncr,modern,2026,1,ncr-gw1,112684,England,Guy Pepper,Loose Forward,True,-1.0,ncr-2026-gw1,B,0.0222222222222222,-1.265016131714513,266,9.04375,69.0,True,gbdt_v4
+ncr,modern,2026,1,ncr-gw1,229255,New Zealand,Cortez Ratima,Scrum Half,False,-1.0,ncr-2026-gw1,B,0.0222222222222222,-1.265016131714513,267,5.95,96.0,True,gbdt_v4
+ncr,modern,2026,1,ncr-gw1,237152,Argentina,Joaquin Moro,Loose Forward,True,-3.0,ncr-2026-gw1,B,0.0037037037037037,-1.4002048732790957,268,8.88,25.0,True,gbdt_v4
+ncr,modern,2026,1,ncr-gw1,251198,Australia,Lachlan Shaw,Lock,True,-2.0,ncr-2026-gw1,B,0.0092592592592592,-1.3326105024968045,269,7.81875,32.0,True,gbdt_v4

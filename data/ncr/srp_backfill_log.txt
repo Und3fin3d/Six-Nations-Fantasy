@@ -1,0 +1,127 @@
+[2026-07-06T18:05:58] === BACKFILL START comp=1242 seasons=[2027, 2026, 2025, 2024, 2023, 2022] ===
+[2026-07-06T18:05:58] season 2027: fixtures_cached_before=True total_fixtures=0 completed=0 already_cached=0 quota=None
+[2026-07-06T18:05:58] season 2027: DONE newly_fetched=0 has_stats=None unfetched=0 live_calls_total=0 quota=None stop=False
+[2026-07-06T18:05:58] season 2026: fixtures_cached_before=True total_fixtures=83 completed=83 already_cached=1 quota=None
+[2026-07-06T18:06:14] season 2026: progress fetched=10/82 live_calls=10 quota=1122
+[2026-07-06T18:06:31] season 2026: progress fetched=20/82 live_calls=20 quota=1108
+[2026-07-06T18:06:47] season 2026: progress fetched=30/82 live_calls=30 quota=1096
+[2026-07-06T18:07:03] season 2026: progress fetched=40/82 live_calls=40 quota=1086
+[2026-07-06T18:07:20] season 2026: progress fetched=50/82 live_calls=50 quota=1065
+[2026-07-06T18:07:22] season 2026: match 8543347 ERROR HTTP 429 for /match/8543347: {"message":"You have exceeded the rate limit per minute for your plan, PRO, by the API provider"}
+[2026-07-06T18:07:24] season 2026: match 8543365 ERROR HTTP 429 for /match/8543365: {"message":"You have exceeded the rate limit per minute for your plan, PRO, by the API provider"}
+[2026-07-06T18:07:26] season 2026: match 8543383 ERROR HTTP 429 for /match/8543383: {"message":"You have exceeded the rate limit per minute for your plan, PRO, by the API provider"}
+[2026-07-06T18:07:26] season 2026: match 8543392 ERROR HTTP 429 for /match/8543392: {"message":"You have exceeded the rate limit per minute for your plan, PRO, by the API provider"}
+[2026-07-06T18:07:29] season 2026: match 8543410 ERROR HTTP 429 for /match/8543410: {"message":"You have exceeded the rate limit per minute for your plan, PRO, by the API provider"}
+[2026-07-06T18:07:31] season 2026: match 8543428 ERROR HTTP 429 for /match/8543428: {"message":"You have exceeded the rate limit per minute for your plan, PRO, by the API provider"}
+[2026-07-06T18:07:33] season 2026: match 8543446 ERROR HTTP 429 for /match/8543446: {"message":"You have exceeded the rate limit per minute for your plan, PRO, by the API provider"}
+[2026-07-06T18:07:33] season 2026: match 8543455 ERROR HTTP 429 for /match/8543455: {"message":"You have exceeded the rate limit per minute for your plan, PRO, by the API provider"}
+[2026-07-06T18:07:36] season 2026: match 8543473 ERROR HTTP 429 for /match/8543473: {"message":"You have exceeded the rate limit per minute for your plan, PRO, by the API provider"}
+[2026-07-06T18:07:38] season 2026: match 8543491 ERROR HTTP 429 for /match/8543491: {"message":"You have exceeded the rate limit per minute for your plan, PRO, by the API provider"}
+[2026-07-06T18:07:40] season 2026: match 8543509 ERROR HTTP 429 for /match/8543509: {"message":"You have exceeded the rate limit per minute for your plan, PRO, by the API provider"}
+[2026-07-06T18:07:41] season 2026: progress fetched=60/82 live_calls=60 quota=1044
+[2026-07-06T18:07:42] season 2026: match 8543527 ERROR HTTP 429 for /match/8543527: {"message":"You have exceeded the rate limit per minute for your plan, PRO, by the API provider"}
+[2026-07-06T18:07:43] season 2026: match 8543536 ERROR HTTP 429 for /match/8543536: {"message":"You have exceeded the rate limit per minute for your plan, PRO, by the API provider"}
+[2026-07-06T18:07:45] season 2026: match 8543554 ERROR HTTP 429 for /match/8543554: {"message":"You have exceeded the rate limit per minute for your plan, PRO, by the API provider"}
+[2026-07-06T18:07:47] season 2026: match 8543572 ERROR HTTP 429 for /match/8543572: {"message":"You have exceeded the rate limit per minute for your plan, PRO, by the API provider"}
+[2026-07-06T18:07:47] season 2026: match 8543590 ERROR HTTP 429 for /match/8543590: {"message":"You have exceeded the rate limit per minute for your plan, PRO, by the API provider"}
+[2026-07-06T18:07:48] season 2026: match 8543581 ERROR HTTP 429 for /match/8543581: {"message":"You have exceeded the rate limit per minute for your plan, PRO, by the API provider"}
+[2026-07-06T18:07:48] season 2026: match 8543608 ERROR HTTP 429 for /match/8543608: {"message":"You have exceeded the rate limit per minute for your plan, PRO, by the API provider"}
+[2026-07-06T18:07:51] season 2026: match 8543617 ERROR HTTP 429 for /match/8543617: {"message":"You have exceeded the rate limit per minute for your plan, PRO, by the API provider"}
+[2026-07-06T18:07:51] season 2026: DONE newly_fetched=63 has_stats=True unfetched=19 live_calls_total=63 quota=1037 stop=False
+[2026-07-06T18:07:51] season 2025: fixtures_cached_before=True total_fixtures=83 completed=83 already_cached=0 quota=1037
+[2026-07-06T18:07:53] season 2025: match 8507392 ERROR HTTP 429 for /match/8507392: {"message":"You have exceeded the rate limit per minute for your plan, PRO, by the API provider"}
+[2026-07-06T18:07:55] season 2025: match 8507410 ERROR HTTP 429 for /match/8507410: {"message":"You have exceeded the rate limit per minute for your plan, PRO, by the API provider"}
+[2026-07-06T18:07:55] season 2025: match 8507419 ERROR HTTP 429 for /match/8507419: {"message":"You have exceeded the rate limit per minute for your plan, PRO, by the API provider"}
+[2026-07-06T18:07:57] season 2025: match 8507437 ERROR HTTP 429 for /match/8507437: {"message":"You have exceeded the rate limit per minute for your plan, PRO, by the API provider"}
+[2026-07-06T18:07:59] season 2025: match 8507455 ERROR HTTP 429 for /match/8507455: {"message":"You have exceeded the rate limit per minute for your plan, PRO, by the API provider"}
+[2026-07-06T18:08:00] season 2025: match 8507464 ERROR HTTP 429 for /match/8507464: {"message":"You have exceeded the rate limit per minute for your plan, PRO, by the API provider"}
+[2026-07-06T18:08:00] season 2025: match 8507473 ERROR HTTP 429 for /match/8507473: {"message":"You have exceeded the rate limit per minute for your plan, PRO, by the API provider"}
+[2026-07-06T18:08:01] season 2025: match 8507482 ERROR HTTP 429 for /match/8507482: {"message":"You have exceeded the rate limit per minute for your plan, PRO, by the API provider"}
+[2026-07-06T18:08:05] season 2025: match 8507509 ERROR HTTP 429 for /match/8507509: {"message":"You have exceeded the rate limit per minute for your plan, PRO, by the API provider"}
+[2026-07-06T18:08:07] season 2025: match 8507527 ERROR HTTP 429 for /match/8507527: {"message":"You have exceeded the rate limit per minute for your plan, PRO, by the API provider"}
+[2026-07-06T18:08:09] season 2025: match 8507545 ERROR HTTP 429 for /match/8507545: {"message":"You have exceeded the rate limit per minute for your plan, PRO, by the API provider"}
+[2026-07-06T18:08:11] season 2025: match 8507563 ERROR HTTP 429 for /match/8507563: {"message":"You have exceeded the rate limit per minute for your plan, PRO, by the API provider"}
+[2026-07-06T18:08:12] season 2025: progress fetched=10/83 live_calls=73 quota=1016
+[2026-07-06T18:08:13] season 2025: match 8507581 ERROR HTTP 429 for /match/8507581: {"message":"You have exceeded the rate limit per minute for your plan, PRO, by the API provider"}
+[2026-07-06T18:08:15] season 2025: match 8507599 ERROR HTTP 429 for /match/8507599: {"message":"You have exceeded the rate limit per minute for your plan, PRO, by the API provider"}
+[2026-07-06T18:08:19] season 2025: match 8507626 ERROR HTTP 429 for /match/8507626: {"message":"You have exceeded the rate limit per minute for your plan, PRO, by the API provider"}
+[2026-07-06T18:08:21] season 2025: match 8507644 ERROR HTTP 429 for /match/8507644: {"message":"You have exceeded the rate limit per minute for your plan, PRO, by the API provider"}
+[2026-07-06T18:08:23] season 2025: match 8507662 ERROR HTTP 429 for /match/8507662: {"message":"You have exceeded the rate limit per minute for your plan, PRO, by the API provider"}
+[2026-07-06T18:08:23] season 2025: match 8507671 ERROR HTTP 429 for /match/8507671: {"message":"You have exceeded the rate limit per minute for your plan, PRO, by the API provider"}
+[2026-07-06T18:08:24] season 2025: match 8507680 ERROR HTTP 429 for /match/8507680: {"message":"You have exceeded the rate limit per minute for your plan, PRO, by the API provider"}
+[2026-07-06T18:08:28] season 2025: match 8507707 ERROR HTTP 429 for /match/8507707: {"message":"You have exceeded the rate limit per minute for your plan, PRO, by the API provider"}
+[2026-07-06T18:08:30] season 2025: match 8507725 ERROR HTTP 429 for /match/8507725: {"message":"You have exceeded the rate limit per minute for your plan, PRO, by the API provider"}
+[2026-07-06T18:08:32] season 2025: match 8507743 ERROR HTTP 429 for /match/8507743: {"message":"You have exceeded the rate limit per minute for your plan, PRO, by the API provider"}
+[2026-07-06T18:08:33] season 2025: progress fetched=20/83 live_calls=83 quota=995
+[2026-07-06T18:08:34] season 2025: match 8507761 ERROR HTTP 429 for /match/8507761: {"message":"You have exceeded the rate limit per minute for your plan, PRO, by the API provider"}
+[2026-07-06T18:08:38] season 2025: match 8507797 ERROR HTTP 429 for /match/8507797: {"message":"You have exceeded the rate limit per minute for your plan, PRO, by the API provider"}
+[2026-07-06T18:08:40] season 2025: match 8507806 ERROR HTTP 429 for /match/8507806: {"message":"You have exceeded the rate limit per minute for your plan, PRO, by the API provider"}
+[2026-07-06T18:08:42] season 2025: match 8507824 ERROR HTTP 429 for /match/8507824: {"message":"You have exceeded the rate limit per minute for your plan, PRO, by the API provider"}
+[2026-07-06T18:08:42] season 2025: match 8507833 ERROR HTTP 429 for /match/8507833: {"message":"You have exceeded the rate limit per minute for your plan, PRO, by the API provider"}
+[2026-07-06T18:08:44] season 2025: match 8507851 ERROR HTTP 429 for /match/8507851: {"message":"You have exceeded the rate limit per minute for your plan, PRO, by the API provider"}
+[2026-07-06T18:08:45] season 2025: match 8507860 ERROR HTTP 429 for /match/8507860: {"message":"You have exceeded the rate limit per minute for your plan, PRO, by the API provider"}
+[2026-07-06T18:08:49] season 2025: match 8507887 ERROR HTTP 429 for /match/8507887: {"message":"You have exceeded the rate limit per minute for your plan, PRO, by the API provider"}
+[2026-07-06T18:08:51] season 2025: match 8507905 ERROR HTTP 429 for /match/8507905: {"message":"You have exceeded the rate limit per minute for your plan, PRO, by the API provider"}
+[2026-07-06T18:08:53] season 2025: match 8507923 ERROR HTTP 429 for /match/8507923: {"message":"You have exceeded the rate limit per minute for your plan, PRO, by the API provider"}
+[2026-07-06T18:08:54] season 2025: progress fetched=30/83 live_calls=93 quota=974
+[2026-07-06T18:08:55] season 2025: match 8507941 ERROR HTTP 429 for /match/8507941: {"message":"You have exceeded the rate limit per minute for your plan, PRO, by the API provider"}
+[2026-07-06T18:08:57] season 2025: match 8507959 ERROR HTTP 429 for /match/8507959: {"message":"You have exceeded the rate limit per minute for your plan, PRO, by the API provider"}
+[2026-07-06T18:08:59] season 2025: match 8507977 ERROR HTTP 429 for /match/8507977: {"message":"You have exceeded the rate limit per minute for your plan, PRO, by the API provider"}
+[2026-07-06T18:08:59] season 2025: match 8507986 ERROR HTTP 429 for /match/8507986: {"message":"You have exceeded the rate limit per minute for your plan, PRO, by the API provider"}
+[2026-07-06T18:09:00] season 2025: match 8507995 ERROR HTTP 429 for /match/8507995: {"message":"You have exceeded the rate limit per minute for your plan, PRO, by the API provider"}
+[2026-07-06T18:09:04] season 2025: match 8508022 ERROR HTTP 429 for /match/8508022: {"message":"You have exceeded the rate limit per minute for your plan, PRO, by the API provider"}
+[2026-07-06T18:09:06] season 2025: match 8508040 ERROR HTTP 429 for /match/8508040: {"message":"You have exceeded the rate limit per minute for your plan, PRO, by the API provider"}
+[2026-07-06T18:09:06] season 2025: match 8508049 ERROR HTTP 429 for /match/8508049: {"message":"You have exceeded the rate limit per minute for your plan, PRO, by the API provider"}
+[2026-07-06T18:09:07] season 2025: match 8508058 ERROR HTTP 429 for /match/8508058: {"message":"You have exceeded the rate limit per minute for your plan, PRO, by the API provider"}
+[2026-07-06T18:09:09] season 2025: match 8522476 ERROR HTTP 429 for /match/8522476: {"message":"You have exceeded the rate limit per minute for your plan, PRO, by the API provider"}
+[2026-07-06T18:09:13] season 2025: match 8522494 ERROR HTTP 429 for /match/8522494: {"message":"You have exceeded the rate limit per minute for your plan, PRO, by the API provider"}
+[2026-07-06T18:09:15] season 2025: match 8522512 ERROR HTTP 429 for /match/8522512: {"message":"You have exceeded the rate limit per minute for your plan, PRO, by the API provider"}
+[2026-07-06T18:09:15] season 2025: DONE newly_fetched=39 has_stats=True unfetched=44 live_calls_total=102 quota=954 stop=False
+[2026-07-06T18:09:15] season 2024: fixtures_cached_before=True total_fixtures=91 completed=91 already_cached=0 quota=954
+[2026-07-06T18:09:17] season 2024: match 8455525 ERROR HTTP 429 for /match/8455525: {"message":"You have exceeded the rate limit per minute for your plan, PRO, by the API provider"}
+[2026-07-06T18:09:19] season 2024: match 8455543 ERROR HTTP 429 for /match/8455543: {"message":"You have exceeded the rate limit per minute for your plan, PRO, by the API provider"}
+[2026-07-06T18:09:21] season 2024: match 8455561 ERROR HTTP 429 for /match/8455561: {"message":"You have exceeded the rate limit per minute for your plan, PRO, by the API provider"}
+[2026-07-06T18:09:25] season 2024: match 8455588 ERROR HTTP 429 for /match/8455588: {"message":"You have exceeded the rate limit per minute for your plan, PRO, by the API provider"}
+[2026-07-06T18:09:27] season 2024: match 8455606 ERROR HTTP 429 for /match/8455606: {"message":"You have exceeded the rate limit per minute for your plan, PRO, by the API provider"}
+[2026-07-06T18:09:29] season 2024: match 8455624 ERROR HTTP 429 for /match/8455624: {"message":"You have exceeded the rate limit per minute for your plan, PRO, by the API provider"}
+[2026-07-06T18:09:33] season 2024: match 8455651 ERROR HTTP 429 for /match/8455651: {"message":"You have exceeded the rate limit per minute for your plan, PRO, by the API provider"}
+[2026-07-06T18:09:34] season 2024: progress fetched=10/91 live_calls=112 quota=934
+[2026-07-06T18:09:35] season 2024: match 8455669 ERROR HTTP 429 for /match/8455669: {"message":"You have exceeded the rate limit per minute for your plan, PRO, by the API provider"}
+[2026-07-06T18:09:37] season 2024: match 8455687 ERROR HTTP 429 for /match/8455687: {"message":"You have exceeded the rate limit per minute for your plan, PRO, by the API provider"}
+[2026-07-06T18:09:39] season 2024: match 8455705 ERROR HTTP 429 for /match/8455705: {"message":"You have exceeded the rate limit per minute for your plan, PRO, by the API provider"}
+[2026-07-06T18:09:41] season 2024: match 8455723 ERROR HTTP 429 for /match/8455723: {"message":"You have exceeded the rate limit per minute for your plan, PRO, by the API provider"}
+[2026-07-06T18:09:43] season 2024: match 8455741 ERROR HTTP 429 for /match/8455741: {"message":"You have exceeded the rate limit per minute for your plan, PRO, by the API provider"}
+[2026-07-06T18:09:45] season 2024: match 8455759 ERROR HTTP 429 for /match/8455759: {"message":"You have exceeded the rate limit per minute for your plan, PRO, by the API provider"}
+[2026-07-06T18:09:49] season 2024: match 8455786 ERROR HTTP 429 for /match/8455786: {"message":"You have exceeded the rate limit per minute for your plan, PRO, by the API provider"}
+[2026-07-06T18:09:51] season 2024: match 8455804 ERROR HTTP 429 for /match/8455804: {"message":"You have exceeded the rate limit per minute for your plan, PRO, by the API provider"}
+[2026-07-06T18:09:53] season 2024: match 8455822 ERROR HTTP 429 for /match/8455822: {"message":"You have exceeded the rate limit per minute for your plan, PRO, by the API provider"}
+[2026-07-06T18:09:54] season 2024: progress fetched=20/91 live_calls=122 quota=914
+[2026-07-06T18:10:10] season 2024: progress fetched=30/91 live_calls=132 quota=904
+[2026-07-06T18:10:26] season 2024: progress fetched=40/91 live_calls=142 quota=894
+[2026-07-06T18:10:42] season 2024: progress fetched=50/91 live_calls=152 quota=884
+[2026-07-06T18:10:58] season 2024: progress fetched=60/91 live_calls=162 quota=872
+[2026-07-06T18:11:14] season 2024: progress fetched=70/91 live_calls=172 quota=861
+[2026-07-06T18:11:22] season 2024: DONE newly_fetched=75 has_stats=True unfetched=16 live_calls_total=177 quota=856 stop=False
+[2026-07-06T18:11:22] season 2023: fixtures_cached_before=True total_fixtures=91 completed=91 already_cached=0 quota=856
+[2026-07-06T18:11:36] season 2023: progress fetched=10/91 live_calls=187 quota=845
+[2026-07-06T18:11:50] season 2023: progress fetched=20/91 live_calls=197 quota=834
+[2026-07-06T18:12:04] season 2023: progress fetched=30/91 live_calls=207 quota=823
+[2026-07-06T18:12:18] season 2023: progress fetched=40/91 live_calls=217 quota=812
+[2026-07-06T18:12:33] season 2023: progress fetched=50/91 live_calls=227 quota=801
+[2026-07-06T18:12:47] season 2023: progress fetched=60/91 live_calls=237 quota=790
+[2026-07-06T18:13:01] season 2023: progress fetched=70/91 live_calls=247 quota=779
+[2026-07-06T18:13:15] season 2023: progress fetched=80/91 live_calls=257 quota=768
+[2026-07-06T18:13:30] season 2023: progress fetched=90/91 live_calls=267 quota=757
+[2026-07-06T18:13:32] season 2023: DONE newly_fetched=91 has_stats=True unfetched=0 live_calls_total=268 quota=755 stop=False
+[2026-07-06T18:13:32] season 2022: fixtures_cached_before=True total_fixtures=91 completed=91 already_cached=0 quota=755
+[2026-07-06T18:13:46] season 2022: progress fetched=10/91 live_calls=278 quota=744
+[2026-07-06T18:14:01] season 2022: progress fetched=20/91 live_calls=288 quota=733
+[2026-07-06T18:14:15] season 2022: progress fetched=30/91 live_calls=298 quota=722
+[2026-07-06T18:14:29] season 2022: progress fetched=40/91 live_calls=308 quota=711
+[2026-07-06T18:14:43] season 2022: progress fetched=50/91 live_calls=318 quota=700
+[2026-07-06T18:14:58] season 2022: progress fetched=60/91 live_calls=328 quota=689
+[2026-07-06T18:15:12] season 2022: progress fetched=70/91 live_calls=338 quota=678
+[2026-07-06T18:15:26] season 2022: progress fetched=80/91 live_calls=348 quota=667
+[2026-07-06T18:15:40] season 2022: progress fetched=90/91 live_calls=358 quota=656
+[2026-07-06T18:15:41] season 2022: DONE newly_fetched=91 has_stats=True unfetched=0 live_calls_total=359 quota=655 stop=False
+[2026-07-06T18:15:41] === BACKFILL END live_calls=359 quota=655 ===

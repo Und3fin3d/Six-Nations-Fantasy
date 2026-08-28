@@ -1,0 +1,1041 @@
+{
+  "Data": {
+    "Value": [
+      {
+        "Id": 1001,
+        "Name": "Afghanistan",
+        "ShortCode": "AFG"
+      },
+      {
+        "Id": 1002,
+        "Name": "Angola",
+        "ShortCode": "AGO"
+      },
+      {
+        "Id": 1003,
+        "Name": "Albania",
+        "ShortCode": "ALB"
+      },
+      {
+        "Id": 1004,
+        "Name": "Algeria",
+        "ShortCode": "ALG"
+      },
+      {
+        "Id": 1005,
+        "Name": "Andorra",
+        "ShortCode": "AND"
+      },
+      {
+        "Id": 1006,
+        "Name": "Netherlands Antilles",
+        "ShortCode": "ANT"
+      },
+      {
+        "Id": 1007,
+        "Name": "Argentina",
+        "ShortCode": "ARG"
+      },
+      {
+        "Id": 1008,
+        "Name": "Armenia",
+        "ShortCode": "ARM"
+      },
+      {
+        "Id": 1009,
+        "Name": "American Samoa",
+        "ShortCode": "ASA"
+      },
+      {
+        "Id": 1010,
+        "Name": "Australia",
+        "ShortCode": "AUS"
+      },
+      {
+        "Id": 1011,
+        "Name": "Austria",
+        "ShortCode": "AUT"
+      },
+      {
+        "Id": 1012,
+        "Name": "Azerbaijan",
+        "ShortCode": "AZE"
+      },
+      {
+        "Id": 1013,
+        "Name": "Bahamas",
+        "ShortCode": "BAH"
+      },
+      {
+        "Id": 1014,
+        "Name": "Barbados",
+        "ShortCode": "BAR"
+      },
+      {
+        "Id": 1015,
+        "Name": "Burundi",
+        "ShortCode": "BDI"
+      },
+      {
+        "Id": 1016,
+        "Name": "Belgium",
+        "ShortCode": "BEL"
+      },
+      {
+        "Id": 1017,
+        "Name": "Benin",
+        "ShortCode": "BEN"
+      },
+      {
+        "Id": 1018,
+        "Name": "Bermuda",
+        "ShortCode": "BER"
+      },
+      {
+        "Id": 1019,
+        "Name": "Burkina Faso",
+        "ShortCode": "BFA"
+      },
+      {
+        "Id": 1020,
+        "Name": "Bangladesh",
+        "ShortCode": "BGD"
+      },
+      {
+        "Id": 1021,
+        "Name": "Bahrain",
+        "ShortCode": "BHR"
+      },
+      {
+        "Id": 1022,
+        "Name": "Bhutan",
+        "ShortCode": "BHU"
+      },
+      {
+        "Id": 1023,
+        "Name": "Bosnia and Herzegovina",
+        "ShortCode": "BIH"
+      },
+      {
+        "Id": 1024,
+        "Name": "Belarus",
+        "ShortCode": "BLR"
+      },
+      {
+        "Id": 1025,
+        "Name": "Belize",
+        "ShortCode": "BLZ"
+      },
+      {
+        "Id": 1026,
+        "Name": "Bolivia",
+        "ShortCode": "BOL"
+      },
+      {
+        "Id": 1027,
+        "Name": "Brazil",
+        "ShortCode": "BRA"
+      },
+      {
+        "Id": 1028,
+        "Name": "Brunei Darussalam",
+        "ShortCode": "BRN"
+      },
+      {
+        "Id": 1029,
+        "Name": "Bulgaria",
+        "ShortCode": "BUL"
+      },
+      {
+        "Id": 1030,
+        "Name": "Botswana",
+        "ShortCode": "BWA"
+      },
+      {
+        "Id": 1031,
+        "Name": "Central African Republic",
+        "ShortCode": "CAF"
+      },
+      {
+        "Id": 1032,
+        "Name": "Cambodia",
+        "ShortCode": "CAM"
+      },
+      {
+        "Id": 1033,
+        "Name": "Canada",
+        "ShortCode": "CAN"
+      },
+      {
+        "Id": 1034,
+        "Name": "Cayman Island",
+        "ShortCode": "CAY"
+      },
+      {
+        "Id": 1035,
+        "Name": "Chile",
+        "ShortCode": "CHI"
+      },
+      {
+        "Id": 1036,
+        "Name": "P.R. China",
+        "ShortCode": "CHN"
+      },
+      {
+        "Id": 1037,
+        "Name": "Cote Divoire",
+        "ShortCode": "CIV"
+      },
+      {
+        "Id": 1038,
+        "Name": "Cameroon",
+        "ShortCode": "CMR"
+      },
+      {
+        "Id": 1039,
+        "Name": "The Democratic Republic Of Congo",
+        "ShortCode": "COD"
+      },
+      {
+        "Id": 1040,
+        "Name": "Cook Islands",
+        "ShortCode": "COK"
+      },
+      {
+        "Id": 1041,
+        "Name": "Colombia",
+        "ShortCode": "COL"
+      },
+      {
+        "Id": 1042,
+        "Name": "Comoros",
+        "ShortCode": "COM"
+      },
+      {
+        "Id": 1043,
+        "Name": "Cape Verde",
+        "ShortCode": "CPV"
+      },
+      {
+        "Id": 1044,
+        "Name": "Costa Rica",
+        "ShortCode": "CRC"
+      },
+      {
+        "Id": 1045,
+        "Name": "Croatia",
+        "ShortCode": "CRO"
+      },
+      {
+        "Id": 1046,
+        "Name": "Cuba",
+        "ShortCode": "CUB"
+      },
+      {
+        "Id": 1047,
+        "Name": "Cyprus",
+        "ShortCode": "CYP"
+      },
+      {
+        "Id": 1048,
+        "Name": "Czechia",
+        "ShortCode": "CZE"
+      },
+      {
+        "Id": 1049,
+        "Name": "Denmark",
+        "ShortCode": "DEN"
+      },
+      {
+        "Id": 1050,
+        "Name": "Djibouti",
+        "ShortCode": "DJI"
+      },
+      {
+        "Id": 1051,
+        "Name": "Dominica",
+        "ShortCode": "DMA"
+      },
+      {
+        "Id": 1052,
+        "Name": "Dominican Republic",
+        "ShortCode": "DOM"
+      },
+      {
+        "Id": 1053,
+        "Name": "Ecuador",
+        "ShortCode": "ECU"
+      },
+      {
+        "Id": 1054,
+        "Name": "Egypt",
+        "ShortCode": "EGY"
+      },
+      {
+        "Id": 1055,
+        "Name": "Eritrea",
+        "ShortCode": "ERI"
+      },
+      {
+        "Id": 1056,
+        "Name": "El Salvador",
+        "ShortCode": "ESA"
+      },
+      {
+        "Id": 1057,
+        "Name": "Spain",
+        "ShortCode": "ESP"
+      },
+      {
+        "Id": 1058,
+        "Name": "Estonia",
+        "ShortCode": "EST"
+      },
+      {
+        "Id": 1059,
+        "Name": "Ethiopia",
+        "ShortCode": "ETH"
+      },
+      {
+        "Id": 1060,
+        "Name": "Fiji",
+        "ShortCode": "FIJ"
+      },
+      {
+        "Id": 1061,
+        "Name": "Finland",
+        "ShortCode": "FIN"
+      },
+      {
+        "Id": 1062,
+        "Name": "International Ski Federation",
+        "ShortCode": "FIS"
+      },
+      {
+        "Id": 1063,
+        "Name": "France",
+        "ShortCode": "FRA"
+      },
+      {
+        "Id": 1064,
+        "Name": "Faroe Islands",
+        "ShortCode": "FRO"
+      },
+      {
+        "Id": 1065,
+        "Name": "FIS Refugee Team",
+        "ShortCode": "FRT"
+      },
+      {
+        "Id": 1066,
+        "Name": "Micronesia Federated States Of",
+        "ShortCode": "FSM"
+      },
+      {
+        "Id": 1067,
+        "Name": "Gabon",
+        "ShortCode": "GAB"
+      },
+      {
+        "Id": 1068,
+        "Name": "Great Britain",
+        "ShortCode": "GBR"
+      },
+      {
+        "Id": 1069,
+        "Name": "Guinea-Bissau",
+        "ShortCode": "GBS"
+      },
+      {
+        "Id": 1070,
+        "Name": "Georgia",
+        "ShortCode": "GEO"
+      },
+      {
+        "Id": 1071,
+        "Name": "Germany",
+        "ShortCode": "GER"
+      },
+      {
+        "Id": 1072,
+        "Name": "Ghana",
+        "ShortCode": "GHA"
+      },
+      {
+        "Id": 1073,
+        "Name": "Guinea",
+        "ShortCode": "GIN"
+      },
+      {
+        "Id": 1074,
+        "Name": "Equatorial Guinea",
+        "ShortCode": "GNQ"
+      },
+      {
+        "Id": 1075,
+        "Name": "Greece",
+        "ShortCode": "GRE"
+      },
+      {
+        "Id": 1076,
+        "Name": "Grenada",
+        "ShortCode": "GRN"
+      },
+      {
+        "Id": 1077,
+        "Name": "Guatemala",
+        "ShortCode": "GUA"
+      },
+      {
+        "Id": 1078,
+        "Name": "Guam",
+        "ShortCode": "GUM"
+      },
+      {
+        "Id": 1079,
+        "Name": "Guyana",
+        "ShortCode": "GUY"
+      },
+      {
+        "Id": 1080,
+        "Name": "Haiti",
+        "ShortCode": "HAI"
+      },
+      {
+        "Id": 1081,
+        "Name": "Hong Kong  China",
+        "ShortCode": "HKG"
+      },
+      {
+        "Id": 1082,
+        "Name": "Honduras",
+        "ShortCode": "HON"
+      },
+      {
+        "Id": 1083,
+        "Name": "Hungary",
+        "ShortCode": "HUN"
+      },
+      {
+        "Id": 1084,
+        "Name": "Indonesia",
+        "ShortCode": "INA"
+      },
+      {
+        "Id": 1085,
+        "Name": "India",
+        "ShortCode": "IND"
+      },
+      {
+        "Id": 1086,
+        "Name": "Iran",
+        "ShortCode": "IRI"
+      },
+      {
+        "Id": 1087,
+        "Name": "Ireland",
+        "ShortCode": "IRL"
+      },
+      {
+        "Id": 1088,
+        "Name": "Iraq",
+        "ShortCode": "IRQ"
+      },
+      {
+        "Id": 1089,
+        "Name": "Iceland",
+        "ShortCode": "ISL"
+      },
+      {
+        "Id": 1090,
+        "Name": "Israel",
+        "ShortCode": "ISR"
+      },
+      {
+        "Id": 1091,
+        "Name": "U.s. Virgin Islands",
+        "ShortCode": "ISV"
+      },
+      {
+        "Id": 1092,
+        "Name": "Italy",
+        "ShortCode": "ITA"
+      },
+      {
+        "Id": 1093,
+        "Name": "British Virgin Islands",
+        "ShortCode": "IVB"
+      },
+      {
+        "Id": 1094,
+        "Name": "Jamaica",
+        "ShortCode": "JAM"
+      },
+      {
+        "Id": 1095,
+        "Name": "Jordan",
+        "ShortCode": "JOR"
+      },
+      {
+        "Id": 1096,
+        "Name": "Japan",
+        "ShortCode": "JPN"
+      },
+      {
+        "Id": 1097,
+        "Name": "Kazakhstan",
+        "ShortCode": "KAZ"
+      },
+      {
+        "Id": 1098,
+        "Name": "Kenya",
+        "ShortCode": "KEN"
+      },
+      {
+        "Id": 1099,
+        "Name": "Kyrgyzstan",
+        "ShortCode": "KGZ"
+      },
+      {
+        "Id": 1100,
+        "Name": "Kiribati",
+        "ShortCode": "KIR"
+      },
+      {
+        "Id": 1101,
+        "Name": "Korea",
+        "ShortCode": "KOR"
+      },
+      {
+        "Id": 1102,
+        "Name": "Kosovo",
+        "ShortCode": "KOS"
+      },
+      {
+        "Id": 1103,
+        "Name": "Saudi Arabia",
+        "ShortCode": "KSA"
+      },
+      {
+        "Id": 1104,
+        "Name": "Kuwait",
+        "ShortCode": "KUW"
+      },
+      {
+        "Id": 1105,
+        "Name": "Lao Peoples Democratic Republic",
+        "ShortCode": "LAO"
+      },
+      {
+        "Id": 1106,
+        "Name": "Latvia",
+        "ShortCode": "LAT"
+      },
+      {
+        "Id": 1107,
+        "Name": "Lebanon",
+        "ShortCode": "LBN"
+      },
+      {
+        "Id": 1108,
+        "Name": "Liberia",
+        "ShortCode": "LBR"
+      },
+      {
+        "Id": 1109,
+        "Name": "Saint Lucia",
+        "ShortCode": "LCA"
+      },
+      {
+        "Id": 1110,
+        "Name": "Lesotho",
+        "ShortCode": "LES"
+      },
+      {
+        "Id": 1111,
+        "Name": "Liechtenstein",
+        "ShortCode": "LIE"
+      },
+      {
+        "Id": 1112,
+        "Name": "Lithuania",
+        "ShortCode": "LTU"
+      },
+      {
+        "Id": 1113,
+        "Name": "Luxembourg",
+        "ShortCode": "LUX"
+      },
+      {
+        "Id": 1114,
+        "Name": "Madagascar",
+        "ShortCode": "MAD"
+      },
+      {
+        "Id": 1115,
+        "Name": "Marocco",
+        "ShortCode": "MAR"
+      },
+      {
+        "Id": 1116,
+        "Name": "Malaysia",
+        "ShortCode": "MAS"
+      },
+      {
+        "Id": 1117,
+        "Name": "Moldova",
+        "ShortCode": "MDA"
+      },
+      {
+        "Id": 1118,
+        "Name": "Maldives",
+        "ShortCode": "MDV"
+      },
+      {
+        "Id": 1119,
+        "Name": "Mexico",
+        "ShortCode": "MEX"
+      },
+      {
+        "Id": 1120,
+        "Name": "Mongolia",
+        "ShortCode": "MGL"
+      },
+      {
+        "Id": 1121,
+        "Name": "Marshall Islands",
+        "ShortCode": "MHL"
+      },
+      {
+        "Id": 1122,
+        "Name": "North Macedonia",
+        "ShortCode": "MKD"
+      },
+      {
+        "Id": 1123,
+        "Name": "Mali",
+        "ShortCode": "MLI"
+      },
+      {
+        "Id": 1124,
+        "Name": "Malta",
+        "ShortCode": "MLT"
+      },
+      {
+        "Id": 1125,
+        "Name": "Myanmar",
+        "ShortCode": "MMR"
+      },
+      {
+        "Id": 1126,
+        "Name": "Montenegro",
+        "ShortCode": "MNE"
+      },
+      {
+        "Id": 1127,
+        "Name": "Monaco",
+        "ShortCode": "MON"
+      },
+      {
+        "Id": 1128,
+        "Name": "Mozambique",
+        "ShortCode": "MOZ"
+      },
+      {
+        "Id": 1129,
+        "Name": "Mauritania",
+        "ShortCode": "MRT"
+      },
+      {
+        "Id": 1130,
+        "Name": "Mauritius",
+        "ShortCode": "MUS"
+      },
+      {
+        "Id": 1131,
+        "Name": "Malawi",
+        "ShortCode": "MWI"
+      },
+      {
+        "Id": 1132,
+        "Name": "Namibia",
+        "ShortCode": "NAM"
+      },
+      {
+        "Id": 1133,
+        "Name": "Netherlands",
+        "ShortCode": "NED"
+      },
+      {
+        "Id": 1134,
+        "Name": "Nepal",
+        "ShortCode": "NEP"
+      },
+      {
+        "Id": 1135,
+        "Name": "Nigeria",
+        "ShortCode": "NGR"
+      },
+      {
+        "Id": 1136,
+        "Name": "Nicaragua",
+        "ShortCode": "NIC"
+      },
+      {
+        "Id": 1137,
+        "Name": "Niger",
+        "ShortCode": "NIG"
+      },
+      {
+        "Id": 1138,
+        "Name": "Norway",
+        "ShortCode": "NOR"
+      },
+      {
+        "Id": 1139,
+        "Name": "Nauru",
+        "ShortCode": "NRU"
+      },
+      {
+        "Id": 1140,
+        "Name": "New Zealand",
+        "ShortCode": "NZL"
+      },
+      {
+        "Id": 1141,
+        "Name": "Olympic Athletes from Russia",
+        "ShortCode": "OAR"
+      },
+      {
+        "Id": 1142,
+        "Name": "Oman",
+        "ShortCode": "OMA"
+      },
+      {
+        "Id": 1143,
+        "Name": "Pakistan",
+        "ShortCode": "PAK"
+      },
+      {
+        "Id": 1144,
+        "Name": "Panama",
+        "ShortCode": "PAN"
+      },
+      {
+        "Id": 1145,
+        "Name": "Paraguay",
+        "ShortCode": "PAR"
+      },
+      {
+        "Id": 1146,
+        "Name": "Peru",
+        "ShortCode": "PER"
+      },
+      {
+        "Id": 1147,
+        "Name": "Philippines",
+        "ShortCode": "PHI"
+      },
+      {
+        "Id": 1148,
+        "Name": "Palestine",
+        "ShortCode": "PLE"
+      },
+      {
+        "Id": 1149,
+        "Name": "Palau",
+        "ShortCode": "PLW"
+      },
+      {
+        "Id": 1150,
+        "Name": "Papua New Guinea",
+        "ShortCode": "PNG"
+      },
+      {
+        "Id": 1151,
+        "Name": "Poland",
+        "ShortCode": "POL"
+      },
+      {
+        "Id": 1152,
+        "Name": "Portugal",
+        "ShortCode": "POR"
+      },
+      {
+        "Id": 1153,
+        "Name": "D.P.R. Korea",
+        "ShortCode": "PRK"
+      },
+      {
+        "Id": 1154,
+        "Name": "Puerto Rico",
+        "ShortCode": "PUR"
+      },
+      {
+        "Id": 1155,
+        "Name": "Qatar",
+        "ShortCode": "QAT"
+      },
+      {
+        "Id": 1156,
+        "Name": "ROC",
+        "ShortCode": "ROC"
+      },
+      {
+        "Id": 1157,
+        "Name": "Romania",
+        "ShortCode": "ROU"
+      },
+      {
+        "Id": 1158,
+        "Name": "South Africa",
+        "ShortCode": "RSA"
+      },
+      {
+        "Id": 1159,
+        "Name": "RSF",
+        "ShortCode": "RSF"
+      },
+      {
+        "Id": 1160,
+        "Name": "Russia",
+        "ShortCode": "RUS"
+      },
+      {
+        "Id": 1161,
+        "Name": "Rwanda",
+        "ShortCode": "RWA"
+      },
+      {
+        "Id": 1162,
+        "Name": "Senegal",
+        "ShortCode": "SEN"
+      },
+      {
+        "Id": 1163,
+        "Name": "Singapore",
+        "ShortCode": "SGP"
+      },
+      {
+        "Id": 1164,
+        "Name": "Solomon Islands",
+        "ShortCode": "SLB"
+      },
+      {
+        "Id": 1165,
+        "Name": "Sierra Leone",
+        "ShortCode": "SLE"
+      },
+      {
+        "Id": 1166,
+        "Name": "Slovenia",
+        "ShortCode": "SLO"
+      },
+      {
+        "Id": 1167,
+        "Name": "Republic Of San Marino",
+        "ShortCode": "SMR"
+      },
+      {
+        "Id": 1168,
+        "Name": "Somalia",
+        "ShortCode": "SOM"
+      },
+      {
+        "Id": 1169,
+        "Name": "Serbia",
+        "ShortCode": "SRB"
+      },
+      {
+        "Id": 1170,
+        "Name": "Sri Lanka",
+        "ShortCode": "SRI"
+      },
+      {
+        "Id": 1171,
+        "Name": "Sao Tome And Principe",
+        "ShortCode": "STP"
+      },
+      {
+        "Id": 1172,
+        "Name": "Sudan",
+        "ShortCode": "SUD"
+      },
+      {
+        "Id": 1173,
+        "Name": "Switzerland",
+        "ShortCode": "SUI"
+      },
+      {
+        "Id": 1174,
+        "Name": "Suriname",
+        "ShortCode": "SUR"
+      },
+      {
+        "Id": 1175,
+        "Name": "Slovakia",
+        "ShortCode": "SVK"
+      },
+      {
+        "Id": 1176,
+        "Name": "Sweden",
+        "ShortCode": "SWE"
+      },
+      {
+        "Id": 1177,
+        "Name": "Swaziland",
+        "ShortCode": "SWZ"
+      },
+      {
+        "Id": 1178,
+        "Name": "Seychelles",
+        "ShortCode": "SYC"
+      },
+      {
+        "Id": 1179,
+        "Name": "Syrian Arab Republic",
+        "ShortCode": "SYR"
+      },
+      {
+        "Id": 1180,
+        "Name": "United Republic Of Tanzania",
+        "ShortCode": "TAN"
+      },
+      {
+        "Id": 1181,
+        "Name": "Chad",
+        "ShortCode": "TCD"
+      },
+      {
+        "Id": 1182,
+        "Name": "Tonga",
+        "ShortCode": "TGA"
+      },
+      {
+        "Id": 1183,
+        "Name": "Thailand",
+        "ShortCode": "THA"
+      },
+      {
+        "Id": 1184,
+        "Name": "Tajikistan",
+        "ShortCode": "TJK"
+      },
+      {
+        "Id": 1185,
+        "Name": "Turkmenistan",
+        "ShortCode": "TKM"
+      },
+      {
+        "Id": 1186,
+        "Name": "Timor-Leste",
+        "ShortCode": "TLS"
+      },
+      {
+        "Id": 1187,
+        "Name": "Togo",
+        "ShortCode": "TOG"
+      },
+      {
+        "Id": 1188,
+        "Name": "Chinese Taipei",
+        "ShortCode": "TPE"
+      },
+      {
+        "Id": 1189,
+        "Name": "Trinidad \u0026 Tobago",
+        "ShortCode": "TTO"
+      },
+      {
+        "Id": 1190,
+        "Name": "Tunisia",
+        "ShortCode": "TUN"
+      },
+      {
+        "Id": 1191,
+        "Name": "T?rkiye",
+        "ShortCode": "TUR"
+      },
+      {
+        "Id": 1192,
+        "Name": "Tuvalu",
+        "ShortCode": "TUV"
+      },
+      {
+        "Id": 1193,
+        "Name": "United Arab Emirates",
+        "ShortCode": "UAE"
+      },
+      {
+        "Id": 1194,
+        "Name": "Uganda",
+        "ShortCode": "UGA"
+      },
+      {
+        "Id": 1195,
+        "Name": "Ukraine",
+        "ShortCode": "UKR"
+      },
+      {
+        "Id": 1196,
+        "Name": "Uruguay",
+        "ShortCode": "URU"
+      },
+      {
+        "Id": 1197,
+        "Name": "United States of America",
+        "ShortCode": "USA"
+      },
+      {
+        "Id": 1198,
+        "Name": "Uzbekistan",
+        "ShortCode": "UZB"
+      },
+      {
+        "Id": 1199,
+        "Name": "Vanuatu",
+        "ShortCode": "VAN"
+      },
+      {
+        "Id": 1200,
+        "Name": "Saint Vincent And The Grenadines",
+        "ShortCode": "VCT"
+      },
+      {
+        "Id": 1201,
+        "Name": "Venezuela",
+        "ShortCode": "VEN"
+      },
+      {
+        "Id": 1202,
+        "Name": "Yemen",
+        "ShortCode": "YEM"
+      },
+      {
+        "Id": 1203,
+        "Name": "Zimbabwe",
+        "ShortCode": "ZIM"
+      },
+      {
+        "Id": 1204,
+        "Name": "Zambia",
+        "ShortCode": "ZMB"
+      }
+    ],
+    "FeedTime": {
+      "UTCTime": "6/26/2026 8:08:34 AM",
+      "ISTTime": "6/26/2026 1:38:34 PM",
+      "CESTTime": "6/26/2026 10:08:34 AM"
+    }
+  },
+  "Meta": {
+    "Message": "Success",
+    "RetVal": 1,
+    "Success": true,
+    "Timestamp": {
+      "UTCTime": "6/26/2026 8:08:34 AM",
+      "ISTTime": "6/26/2026 1:38:34 PM",
+      "CESTTime": "6/26/2026 10:08:34 AM"
+    }
+  }
+}

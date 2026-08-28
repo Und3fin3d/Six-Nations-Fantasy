@@ -1,0 +1,35 @@
+{
+  "Data": {
+    "Value": [
+      {
+        "booster_id": 1,
+        "booster_name": "CO_CAPTAIN",
+        "tour_id": 1,
+        "is_active": 1,
+        "display_order": 1
+      },
+      {
+        "booster_id": 2,
+        "booster_name": "TRIPLE_CAPTAIN",
+        "tour_id": 1,
+        "is_active": 1,
+        "display_order": 2
+      }
+    ],
+    "FeedTime": {
+      "UTCTime": "7/2/2026 7:42:09\u202FAM",
+      "ISTTime": "7/2/2026 1:12:09\u202FPM",
+      "CESTTime": "7/2/2026 9:42:09\u202FAM"
+    }
+  },
+  "Meta": {
+    "Message": "Success",
+    "RetVal": 1,
+    "Success": true,
+    "Timestamp": {
+      "UTCTime": "7/2/2026 7:42:09\u202FAM",
+      "ISTTime": "7/2/2026 1:12:09\u202FPM",
+      "CESTTime": "7/2/2026 9:42:09\u202FAM"
+    }
+  }
+}

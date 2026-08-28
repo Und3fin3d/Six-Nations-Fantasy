@@ -1,0 +1,105 @@
+{
+  "player": "juan-penoucos",
+  "csv_name": "Juan Penoucos",
+  "bio": {
+    "Position": "Back Row"
+  },
+  "competition_stats": [
+    {
+      "competition": "World Rugby Junior World Championship",
+      "season": "2024",
+      "games": 5,
+      "minutes": 322,
+      "tries": 2,
+      "try_assists": 0,
+      "points": 10,
+      "carries": 22,
+      "metres": 51,
+      "av_gain": 2.33,
+      "post_contact_metres": 40,
+      "defenders_beaten": 3,
+      "clean_breaks": 2,
+      "offloads": 1,
+      "handling_errors": 5,
+      "passes": 17,
+      "bad_passes": 2,
+      "tackles": 68,
+      "missed_tackles": 12,
+      "tackles_success_pct": 0.82,
+      "dominant_tackles": 4,
+      "turnovers_won": 3,
+      "turnovers_conceded": 5,
+      "kicks_from_hand": 2,
+      "penalties_conceded": 3,
+      "yellow_cards": 1,
+      "red_cards": 0
+    }
+  ],
+  "match_log": [
+    {
+      "competition": "World Rugby U20 Championship",
+      "match": "Australia U20 vs Argentina U20",
+      "date": "19 Jul 2024",
+      "opposition": "Australia U20",
+      "win": true,
+      "draw": false,
+      "mins": 22,
+      "tries": 0,
+      "yellow_cards": 1,
+      "red_cards": 0,
+      "conversions": 0
+    },
+    {
+      "competition": "World Rugby U20 Championship",
+      "match": "Argentina U20 vs South Africa U20",
+      "date": "14 Jul 2024",
+      "opposition": "South Africa U20",
+      "win": true,
+      "draw": false,
+      "mins": 60,
+      "tries": 0,
+      "yellow_cards": 0,
+      "red_cards": 0,
+      "conversions": 0
+    },
+    {
+      "competition": "World Rugby U20 Championship",
+      "match": "Argentina U20 vs Fiji U20",
+      "date": "9 Jul 2024",
+      "opposition": "Fiji U20",
+      "win": true,
+      "draw": false,
+      "mins": 80,
+      "tries": 0,
+      "yellow_cards": 0,
+      "red_cards": 0,
+      "conversions": 0
+    },
+    {
+      "competition": "World Rugby U20 Championship",
+      "match": "South Africa U20 vs Argentina U20",
+      "date": "4 Jul 2024",
+      "opposition": "South Africa U20",
+      "win": true,
+      "draw": false,
+      "mins": 80,
+      "tries": 1,
+      "yellow_cards": 0,
+      "red_cards": 0,
+      "conversions": 0
+    },
+    {
+      "competition": "World Rugby U20 Championship",
+      "match": "England U20 vs Argentina U20",
+      "date": "29 Jun 2024",
+      "opposition": "England U20",
+      "win": false,
+      "draw": false,
+      "mins": 80,
+      "tries": 1,
+      "yellow_cards": 0,
+      "red_cards": 0,
+      "conversions": 0
+    }
+  ]
+}

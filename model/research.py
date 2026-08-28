@@ -235,7 +235,6 @@ class Config:
     post_target_teamplay_mode: str = "raw"  # raw | aspects
     post_target_teamplay_component_features: str = "off"
     post_target_matchup_features: bool = False
-    post_target_market_features: bool = False
     post_target_teamplay_graft_mode: str = "off"
     post_target_teamplay_graft_group: str = "none"
     post_target_teamplay_graft_weight: float = 0.0
@@ -261,7 +260,6 @@ class Config:
     teamplay_aspect_adjust: str = "none"      # none | attack | defense | kicking | pressure | multi
     teamplay_aspect_weight: float = 0.0
     teamplay_aspect_clip: float = 0.20
-    market_features: bool = False
     weather_features: bool = False
     rolecert_features: bool = False
     style_features: str | bool = "off"   # off | raw/True | aspects
@@ -312,7 +310,6 @@ class Config:
     captain_upside_weight: float = 0.0
     captain_rank_weight: float = 0.0
     captain_kicker_weight: float = 0.0  # positive = floor boost, negative = floor penalty
-    captain_market_weight: float = 0.0  # favour captains on teams with higher market win probability
     # Role-certainty / fixture-shape frontier experiments.
     kicking_realloc_weight: float = 0.0
     kicking_realloc_scope: str = "all"  # all | starters | bench
@@ -332,7 +329,6 @@ def apply_config(cfg: Config):
         A.POTM_PP_WEIGHT, A.POTM_TAU_FLOOR, A.LATENT_SHRINK,
         A.OTHER_CONST_SHRINK, A.ZERO_BACK_SETPIECE,
         MD.TEAMPLAY_ENABLED, MD.TEAMPLAY_MODE,
-        MD.MARKET_FEATURES_ENABLED, MD.WEATHER_FEATURES_ENABLED,
         MD.ROLECERT_FEATURES_ENABLED, MD.STYLE_FEATURES_ENABLED,
         MD.STYLE_FEATURES_MODE, MD.MATCHUP_FEATURES_ENABLED,
     )
@@ -345,7 +341,6 @@ def apply_config(cfg: Config):
     A.ZERO_BACK_SETPIECE = cfg.zero_back_setpiece
     MD.TEAMPLAY_MODE = _normalise_teamplay_mode(cfg.teamplay_features)
     MD.TEAMPLAY_ENABLED = MD.TEAMPLAY_MODE != "off"
-    MD.MARKET_FEATURES_ENABLED = bool(cfg.market_features)
     MD.WEATHER_FEATURES_ENABLED = bool(cfg.weather_features)
     MD.ROLECERT_FEATURES_ENABLED = bool(cfg.rolecert_features)
     MD.MATCHUP_FEATURES_ENABLED = bool(cfg.matchup_features)
@@ -364,7 +359,6 @@ def apply_config(cfg: Config):
          A.POTM_PP_WEIGHT, A.POTM_TAU_FLOOR, A.LATENT_SHRINK,
          A.OTHER_CONST_SHRINK, A.ZERO_BACK_SETPIECE,
          MD.TEAMPLAY_ENABLED, MD.TEAMPLAY_MODE,
-         MD.MARKET_FEATURES_ENABLED, MD.WEATHER_FEATURES_ENABLED,
          MD.ROLECERT_FEATURES_ENABLED, MD.STYLE_FEATURES_ENABLED,
          MD.STYLE_FEATURES_MODE, MD.MATCHUP_FEATURES_ENABLED) = saved
 
@@ -773,12 +767,6 @@ def _add_selector_score(
                 + 3.0 * out["hat_penalty_goals"].to_numpy(float)
             )
             cap = cap + cfg.captain_kicker_weight * _zscore(kick)
-        if not np.isclose(cfg.captain_market_weight, 0.0):
-            if "market_win_prob" not in out.columns:
-                raise ValueError("captain_market_weight requires market_win_prob")
-            cap = cap + cfg.captain_market_weight * _zscore(
-                out["market_win_prob"].to_numpy(float)
-            )
         out["captain_score"] = cap
     return out, sel_col
 
@@ -1837,12 +1825,6 @@ def _refresh_post_target_role_scores(pred: pd.DataFrame, cfg: Config) -> tuple[p
                 + 3.0 * out["hat_penalty_goals"].to_numpy(float)
             )
             cap = cap + cfg.captain_kicker_weight * _zscore(kick)
-        if not np.isclose(cfg.captain_market_weight, 0.0):
-            if "market_win_prob" not in out.columns:
-                raise ValueError("captain_market_weight requires market_win_prob")
-            cap = cap + cfg.captain_market_weight * _zscore(
-                out["market_win_prob"].to_numpy(float)
-            )
         out["captain_score"] = cap
     return out, sel_col
 
@@ -2310,6 +2292,20 @@ def _apply_upside_head(
     return out
 
 
+def config_from_dict(d: dict) -> "Config":
+    """Build a Config, dropping keys it no longer knows about.
+
+    Archived promoted_config.prev_*.json files still carry the removed betting-market
+    knobs (market_features, post_target_market_features, captain_market_weight). They
+    are historical records; loading one must not explode.
+    """
+    known = {f.name for f in dataclasses.fields(Config)}
+    dropped = sorted(set(d) - known)
+    if dropped:
+        print(f"  note: ignoring retired config keys: {', '.join(dropped)}")
+    return Config(**{k: v for k, v in d.items() if k in known})
+
+
 def _predict_config(
     df: pd.DataFrame, cfg: Config, season: int,
     train_mask: np.ndarray | None = None,
@@ -2349,7 +2345,6 @@ def _predict_config(
             "rolecert_bench_fh_kick_share",
             "rolecert_bench_kick_takeover_risk",
             "rolecert_replacement_role_uncertainty",
-            "market_win_prob",
         ):
             if meta_col in sub.columns:
                 pred[meta_col] = sub[meta_col].to_numpy()
@@ -2410,7 +2405,6 @@ def _predict_config(
                 matchup_features=(
                     cfg.post_target_matchup_features or cfg.matchup_features
                 ),
-                market_features=cfg.post_target_market_features or cfg.market_features,
                 teamplay_graft_mode=cfg.post_target_teamplay_graft_mode,
                 teamplay_graft_group=cfg.post_target_teamplay_graft_group,
                 teamplay_graft_weight=cfg.post_target_teamplay_graft_weight,
@@ -3770,45 +3764,10 @@ EXTERNAL_DATA_CANDIDATES = [
     # These are inert until the optional data/external_*.csv files are populated
     # and build_features.py has been rerun.  They are kept explicit so new data
     # enters as a controlled experiment rather than silently changing every model.
-    ("external_market_features_on", "use optional market odds / team-total fixture features",
-     dict(market_features=True)),
     ("external_weather_features_on", "use optional weather and venue-condition features",
      dict(weather_features=True)),
     ("external_rolecert_features_on", "use optional named-role certainty features",
      dict(rolecert_features=True)),
-    ("external_market_weather_on", "combine market fixture strength with weather features",
-     dict(market_features=True, weather_features=True)),
-    ("external_market_rolecert_on", "combine market fixture strength with named-role certainty",
-     dict(market_features=True, rolecert_features=True)),
-    ("external_all_data_on", "market, weather, and named-role certainty features together",
-     dict(market_features=True, weather_features=True, rolecert_features=True)),
-    ("external_market_teamplay_aspects", "market features plus existing team-play aspects",
-     dict(market_features=True, teamplay_component_features="aspects")),
-    ("external_market_post_target_only", "market shape only inside frozen post-target specialist",
-     dict(market_features=False, post_target_market_features=True,
-          post_target_selector_delta_weight=0.0)),
-    ("external_market_post_target_delta0025", "market post-target specialist plus tiny selector delta",
-     dict(market_features=False, post_target_market_features=True,
-          post_target_selector_delta_weight=0.025)),
-    ("external_market_post_target_delta005", "market post-target specialist plus small selector delta",
-     dict(market_features=False, post_target_market_features=True,
-          post_target_selector_delta_weight=0.05)),
-    ("external_market_post_target_delta010", "market post-target specialist plus promoted selector delta",
-     dict(market_features=False, post_target_market_features=True,
-          post_target_selector_delta_weight=0.10)),
-    ("external_market_post_target_delta020", "market post-target specialist plus larger selector delta",
-     dict(market_features=False, post_target_market_features=True,
-          post_target_selector_delta_weight=0.20)),
-    ("captain_market_winprob_050", "captain tilt toward market win probability at 0.50",
-     dict(captain_market_weight=0.50)),
-    ("captain_market_winprob_075", "captain tilt toward market win probability at 0.75",
-     dict(captain_market_weight=0.75)),
-    ("captain_market_winprob_100", "captain tilt toward market win probability at 1.00",
-     dict(captain_market_weight=1.00)),
-    ("captain_market_winprob_125", "captain tilt toward market win probability at 1.25",
-     dict(captain_market_weight=1.25)),
-    ("captain_market_winprob_150", "captain tilt toward market win probability at 1.50",
-     dict(captain_market_weight=1.50)),
     ("external_style_features_on", "use optional tactical-style priors",
      dict(style_features=True)),
     ("external_style_aspects_on", "use only compact tactical-style aspect priors",
@@ -4110,7 +4069,7 @@ def main() -> None:
                 f"{opinion.get('recommendation', '')}".rstrip()
             )
         print(f"Sealing config from {cfg_path.relative_to(ROOT)}")
-        cfg = Config(**json.loads(cfg_path.read_text()))
+        cfg = config_from_dict(json.loads(cfg_path.read_text()))
         seal_2026(cfg, persist_predictions=(cfg_path == PROMOTED_CONFIG))
     else:
         base_cfg = _load_base_config(args.base_config)
@@ -4130,7 +4089,7 @@ def _load_base_config(which: str) -> Config:
     cfg_path = PROMOTED_CONFIG if which == "promoted" else BEST_CONFIG
     if not cfg_path.exists():
         raise FileNotFoundError(f"{cfg_path.relative_to(ROOT)} does not exist")
-    return Config(**json.loads(cfg_path.read_text()))
+    return config_from_dict(json.loads(cfg_path.read_text()))
 
 
 if __name__ == "__main__":

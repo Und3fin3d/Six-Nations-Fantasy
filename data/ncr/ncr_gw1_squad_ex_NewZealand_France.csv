@@ -1,0 +1,17 @@
+id,name,team,hemi,pos,value,sel,status,opp,home,n_hist,rp_min,mkt_margin,weather_att,per80,exp_min,starter_exp,supersub_exp,in_squad,is_sub,is_capt,role,proj,po
+168641,Dillon Lewis,Wales,1,Prop,3.5,2.2,P,Fiji,False,4,0,-8.9,0.989,22.94,73.0,22.89,10.47,True,False,False,Starter,22.89,0
+196773,Pierre Schoeman,Scotland,1,Prop,6.0,5.7,P,Argentina,False,25,0,-9.7,1.0,22.12,58.8,17.92,8.12,True,False,False,Starter,17.92,0
+141860,Ewan Ashman,Scotland,1,Hooker,5.5,2.7,P,Argentina,False,25,0,-9.7,1.0,25.2,55.5,19.31,8.75,True,False,False,Starter,19.31,1
+142211,George Martin,England,1,Lock,4.0,6.4,P,South Africa,False,14,0,-24.9,1.0,25.28,71.9,24.67,11.36,True,False,False,Starter,24.67,2
+173801,Alex Coles,England,1,Lock,5.0,4.2,P,South Africa,False,16,0,-24.9,1.0,22.13,72.4,21.98,10.01,True,False,False,Starter,21.98,2
+123016,Jac Morgan,Wales,1,Loose Forward,7.0,17.3,P,Fiji,False,11,0,-8.9,0.989,29.37,75.6,29.7,13.88,True,False,True,CAPTAIN,59.4,3
+187820,Rory Darge,Scotland,1,Loose Forward,6.5,4.7,P,Argentina,False,28,0,-9.7,1.0,26.72,72.6,26.22,12.13,True,False,False,Starter,26.22,3
+209612,Ben Earl,England,1,Loose Forward,8.0,14.0,P,South Africa,False,29,0,-24.9,1.0,24.29,73.4,24.23,11.14,True,False,False,Starter,24.23,3
+207343,Grant Williams,South Africa,2,Scrum Half,7.0,5.1,P,England,True,21,0,24.9,1.0,24.65,60.2,20.47,9.27,True,False,False,Starter,20.47,4
+202239,Tomas Albornoz,Argentina,2,Fly Half,7.0,5.9,P,Scotland,True,17,0,9.7,1.0,25.79,59.3,21.06,9.56,True,False,False,Starter,21.06,5
+229557,Tommaso Menoncello,Italy,1,Centre,8.0,43.1,P,Japan,False,29,0,7.9,0.992,24.65,78.4,26.12,12.09,True,False,False,Starter,26.12,6
+241806,Faustino Sanchez Valarolo,Argentina,2,Centre,3.0,7.8,P,Scotland,True,1,0,9.7,1.0,26.09,72.0,25.43,11.74,True,False,False,Starter,25.43,6
+189982,Santiago Carreras,Argentina,2,Back Three,6.5,13.9,P,Scotland,True,23,0,9.7,1.0,31.68,70.0,29.65,13.85,True,False,False,Starter,29.65,7
+190669,Kurt-Lee Arendse,South Africa,2,Back Three,6.5,11.9,P,England,True,17,0,24.9,1.0,27.57,73.5,27.29,12.67,True,False,False,Starter,27.29,7
+180443,Damian Willemse,South Africa,2,Back Three,5.5,8.1,P,England,True,13,0,24.9,1.0,23.55,74.9,24.0,11.02,True,False,False,Starter,24.0,7
+214124,James Botham,Wales,1,Loose Forward,6.0,0.3,B,Fiji,False,12,0,-8.9,0.989,24.54,35.0,11.48,32.2,True,True,False,SUPER SUB,32.2,3

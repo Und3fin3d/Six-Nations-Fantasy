@@ -1,0 +1,15 @@
+{
+  "admitted": {
+    "wr": true,
+    "roles": true,
+    "style": false,
+    "weather": false
+  },
+  "objective_delta_with_block": {
+    "wr": -0.00034774390627005197,
+    "roles": -0.0007246424652569416,
+    "style": 0.0001430470308012577,
+    "weather": null
+  },
+  "rule": "admit only when the paired rolling-fold objective delta is negative"
+}

@@ -1,0 +1,166 @@
+{
+  "date": "2026-06-29",
+  "decision": "revert_invalid_promotion",
+  "invalidated_config": "captain_market_winprob_100",
+  "new_promoted": "orchestrator_resid030_delta_overlay_010",
+  "reason": "The market specialist used historical closing odds retrospectively stamped to the prior evening. For rounds whose fantasy lock preceded later fixtures, those prices were unavailable at decision time. Timestamped opening-odds reruns did not clear the predeclared promotion gate.",
+  "promoted_metrics": {
+    "dev_2025": {
+      "mae": 7.406337196819871,
+      "value_team": 0.7136315045676115,
+      "value_xv": 0.7138887178569575,
+      "bench_mae": 5.3731753676480505,
+      "top15": 0.3866666666666666,
+      "top30": 0.5733333333333333,
+      "capt_top3": 0.2,
+      "spearman_sel": 0.5083971175499208
+    },
+    "sealed_2026": {
+      "mae": 7.302860979554838,
+      "value_team": 0.7001692097737747,
+      "value_xv": 0.718337051408284,
+      "bench_mae": 4.311964689302295,
+      "top15": 0.3866666666666666,
+      "top30": 0.5533333333333333,
+      "capt_top3": 0.4,
+      "spearman_sel": 0.588234227880655
+    }
+  },
+  "pit_safe_market_checks": {
+    "opening_market_captain_100": {
+      "dev_2025": {
+        "mae": 7.406337196819871,
+        "value_team": 0.715428717,
+        "value_xv": 0.7138887178569575
+      },
+      "delta_vs_clean": {
+        "mae": 0.0,
+        "value_team": 0.0017972124323885,
+        "value_xv": 0.0
+      },
+      "decision": "research_only_below_gate",
+      "note": "One captain decision changed."
+    },
+    "opening_market_post_target_delta000": {
+      "dev_2025": {
+        "mae": 7.426163175,
+        "value_team": 0.716772992,
+        "value_xv": 0.715841234
+      },
+      "delta_vs_clean": {
+        "mae": 0.0198259781801293,
+        "value_team": 0.0031414874323885,
+        "value_xv": 0.0019525161430425
+      },
+      "decision": "reject_round_robustness_and_stability",
+      "round_direction": {
+        "better": 2,
+        "same": 1,
+        "worse": 2
+      },
+      "stability": {
+        "round_drop": "1/5",
+        "team_drop": "2/6",
+        "position_drop": "5/5",
+        "minutes_perturb": "0/4"
+      }
+    },
+    "line_movement": {
+      "starter_residual_spearman_2025": -0.071,
+      "starter_residual_spearman_2026": 0.338,
+      "decision": "drop_non_generalising"
+    }
+  },
+  "big_moves_audit": {
+    "branch": "cdx-bigmoves",
+    "decision": "do_not_merge",
+    "elo_bug": "intl_results.csv contains mirrored team-side rows. model/elo.py updated duplicated fixtures twice, making one side's labelled pre-match rating post-result.",
+    "correction_impact": {
+      "ratings_changed": "180/180",
+      "mean_absolute_elo": 35.171,
+      "max_absolute_elo": 105.584
+    },
+    "corrected_result": "Forecast Elo helped 2025 but hurt 2026 at every tested weight. Selector and supersub Elo were also harmful.",
+    "portable_change": "None. Keep only the general hypothesis that fixture context can inform captain choice."
+  },
+  "independent_second_opinion": {
+    "tool": "Claude Code 2.1.178",
+    "role": "reasoning review, not verification",
+    "conclusion": "Drop the leaky promotion, retain the sub-threshold opening captain signal as research-only, restore the clean orchestrator, and reject the Elo branch.",
+    "artifact": "research/CLAUDE_SECOND_OPINION_2026-06-29.md"
+  },
+  "latest_sealed_veto": {
+    "date": "2026-06-30",
+    "candidate": "orchestrator_selector_signal_xgb0",
+    "mechanism": "Keep the promoted point forecast but derive the selector delta from a separately generated no-XGB post-target signal.",
+    "dev_2025": {
+      "previous_value_team": 0.7136315045676115,
+      "candidate_value_team": 0.7197007742497024,
+      "previous_value_xv": 0.7138887178569575,
+      "candidate_value_xv": 0.721658955271143,
+      "mae": 7.406337196819871,
+      "stability": {
+        "round_drop": "5/5",
+        "team_drop": "6/6",
+        "position_drop": "5/5",
+        "minutes_perturb": "4/4"
+      }
+    },
+    "sealed_2026": {
+      "previous_value_team": 0.7001692097737747,
+      "candidate_value_team": 0.6989686531552233,
+      "previous_value_xv": 0.718337051408284,
+      "candidate_value_xv": 0.7169079562786258,
+      "mae_unchanged": 7.302860979554838
+    },
+    "decision": "veto_and_close_family",
+    "reason": "The clean 2025 selector gain did not generalise. Nearby selector-XGB weights will not be tuned after opening 2026."
+  },
+  "latest_dev_batch": {
+    "date": "2026-06-30",
+    "decision": "keep_promoted",
+    "champion": "orchestrator_resid030_delta_overlay_010",
+    "supersub_context_slot_only": {
+      "dev_2025_value_team": 0.7373049739553666,
+      "dev_2025_mae": 7.406337196819871,
+      "stability": "passed_all",
+      "sealed_2026": "exactly_flat",
+      "decision": "research_only_no_sealed_improvement"
+    },
+    "supersub_replacement_context": {
+      "dev_2025_value_team": 0.6649828559189628,
+      "decision": "reject"
+    },
+    "supersub_player_bench_history": {
+      "dev_2025_value_team": 0.6466679288076019,
+      "dev_2025_mae": 7.406337196819871,
+      "supersub_regret_before": 51.0,
+      "supersub_regret_after": 131.0,
+      "decision": "reject_and_close"
+    },
+    "supersub_team_slot_history": {
+      "dev_2025_value_team": 0.7074538983900054,
+      "dev_2025_mae": 7.406337196819871,
+      "supersub_regret_before": 51.0,
+      "supersub_regret_after": 59.0,
+      "decision": "reject_and_close"
+    },
+    "target_only_matchup100_starters": {
+      "dev_2025_value_team": 0.7136315045676115,
+      "dev_2025_mae": 7.458051,
+      "minority_blend_mae_delta": {
+        "0.10": 0.003578,
+        "0.25": 0.010618,
+        "0.50": 0.022647,
+        "0.75": 0.036119
+      },
+      "decision": "reject_and_close"
+    }
+  },
+  "next_research": [
+    "Collect confirmed team-sheet and bench-role snapshots prospectively.",
+    "Model meaningful bench minutes and coach-by-position substitution tendencies directly.",
+    "Snapshot official fantasy ownership and price at each lock.",
+    "Keep opening odds as prospective context, not a production input until new-season validation."
+  ]
+}

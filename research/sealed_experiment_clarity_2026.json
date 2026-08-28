@@ -1,0 +1,3291 @@
+{
+  "date": "2026-06-18",
+  "sealed_season": 2026,
+  "purpose": "Clarity check requested by user: evaluate every specialist-team-selection candidate on sealed 2026 from the original points_lgbm80_xgb20 batch base. This is retrospective analysis, not promotion policy.",
+  "old_base_config": "points_lgbm80_xgb20",
+  "old_base": {
+    "value_team": 0.6776672749715337,
+    "value_xv": 0.7144594778697986,
+    "mae": 7.348994791544289,
+    "bench_mae": 4.316175718684459,
+    "top15": 0.3866666666666666,
+    "top30": 0.5466666666666666,
+    "spearman_sel": 0.587103050538006,
+    "round_team": [
+      0.7604306864064603,
+      0.6675257731958762,
+      0.6036269430051814,
+      0.6272965879265092,
+      0.729456384323641
+    ]
+  },
+  "current_promoted_config": "supersub_two_stage_minutes",
+  "current_promoted": {
+    "value_team": 0.6875127745483398,
+    "value_xv": 0.7144594778697986,
+    "mae": 7.348994791544289,
+    "bench_mae": 4.316175718684459,
+    "top15": 0.3866666666666666,
+    "top30": 0.5466666666666666,
+    "spearman_sel": 0.587103050538006,
+    "round_team": [
+      0.7362045760430687,
+      0.740979381443299,
+      0.6036269430051814,
+      0.6272965879265092,
+      0.729456384323641
+    ]
+  },
+  "candidates": [
+    {
+      "name": "supersub_bench_ridge_025",
+      "note": "learned Ridge bench supersub overlay 0.25",
+      "value_team": 0.6776518390236875,
+      "value_xv": 0.7144594778697986,
+      "mae": 7.348994791544289,
+      "bench_mae": 4.316175718684459,
+      "top15": 0.3866666666666666,
+      "top30": 0.5466666666666666,
+      "spearman_sel": 0.587103050538006,
+      "capt_top3": 0.2,
+      "dvalue_team_vs_old_base": -1.5435947846142994e-05,
+      "dvalue_xv_vs_old_base": 0.0,
+      "dmae_vs_old_base": 0.0,
+      "round_team_up_vs_old_base": 1,
+      "sealed_pareto_vs_old_base": false,
+      "round_team": [
+        0.7362045760430687,
+        0.740979381443299,
+        0.6036269430051814,
+        0.6272965879265092,
+        0.6801517067003793
+      ],
+      "selection_diagnostics": {
+        "rounds": [
+          {
+            "round": 1,
+            "captain": "Thomas Ramos",
+            "best_captain_in_xv": "Matthieu Jalibert",
+            "captain_regret": 6.0,
+            "supersub": "Henry Pollock",
+            "best_supersub": "Nick Timoney",
+            "best_supersub_rank": 8,
+            "supersub_regret": 30.0
+          },
+          {
+            "round": 2,
+            "captain": "Thomas Ramos",
+            "best_captain_in_xv": "Matthieu Jalibert",
+            "captain_regret": 39.0,
+            "supersub": "Henry Pollock",
+            "best_supersub": "Henry Pollock",
+            "best_supersub_rank": 1,
+            "supersub_regret": 0.0
+          },
+          {
+            "round": 3,
+            "captain": "Thomas Ramos",
+            "best_captain_in_xv": "Thomas Ramos",
+            "captain_regret": 0.0,
+            "supersub": "Marcus Smith",
+            "best_supersub": "James Botham",
+            "best_supersub_rank": 7,
+            "supersub_regret": 9.0
+          },
+          {
+            "round": 4,
+            "captain": "Thomas Ramos",
+            "best_captain_in_xv": "Jack Conan",
+            "captain_regret": 23.0,
+            "supersub": "Henry Pollock",
+            "best_supersub": "Tom Jordan",
+            "best_supersub_rank": 9,
+            "supersub_regret": 19.0
+          },
+          {
+            "round": 5,
+            "captain": "Thomas Ramos",
+            "best_captain_in_xv": "Louis Bielle-Biarrey",
+            "captain_regret": 38.0,
+            "supersub": "Henry Pollock",
+            "best_supersub": "Darragh Murray",
+            "best_supersub_rank": 25,
+            "supersub_regret": 18.0
+          }
+        ],
+        "captain_regret_total": 106.0,
+        "supersub_regret_total": 76.0,
+        "selected_bias": {
+          "Back-row": {
+            "n": 19,
+            "pred_mean": 23.964422185609372,
+            "actual_mean": 28.94736842105263,
+            "bias": 4.98294623544326
+          },
+          "Back-three": {
+            "n": 15,
+            "pred_mean": 30.77016229280675,
+            "actual_mean": 39.266666666666666,
+            "bias": 8.496504373859915
+          },
+          "Centre": {
+            "n": 10,
+            "pred_mean": 25.37890931318139,
+            "actual_mean": 29.3,
+            "bias": 3.9210906868186095
+          },
+          "Fly-half": {
+            "n": 6,
+            "pred_mean": 24.761056832100873,
+            "actual_mean": 39.166666666666664,
+            "bias": 14.405609834565796
+          },
+          "Hooker": {
+            "n": 5,
+            "pred_mean": 19.090976164947442,
+            "actual_mean": 23.2,
+            "bias": 4.109023835052562
+          },
+          "Prop": {
+            "n": 10,
+            "pred_mean": 15.68795969742169,
+            "actual_mean": 10.4,
+            "bias": -5.287959697421689
+          },
+          "Scrum-half": {
+            "n": 5,
+            "pred_mean": 27.413964646743455,
+            "actual_mean": 31.0,
+            "bias": 3.5860353532565457
+          },
+          "Second-row": {
+            "n": 10,
+            "pred_mean": 21.97513004050962,
+            "actual_mean": 23.5,
+            "bias": 1.52486995949038
+          }
+        }
+      }
+    },
+    {
+      "name": "supersub_bench_ridge_050",
+      "note": "learned Ridge bench supersub overlay 0.50",
+      "value_team": 0.6722114245159154,
+      "value_xv": 0.7144594778697986,
+      "mae": 7.348994791544289,
+      "bench_mae": 4.316175718684459,
+      "top15": 0.3866666666666666,
+      "top30": 0.5466666666666666,
+      "spearman_sel": 0.587103050538006,
+      "capt_top3": 0.2,
+      "dvalue_team_vs_old_base": -0.00545585045561825,
+      "dvalue_xv_vs_old_base": 0.0,
+      "dmae_vs_old_base": 0.0,
+      "round_team_up_vs_old_base": 1,
+      "sealed_pareto_vs_old_base": false,
+      "round_team": [
+        0.7362045760430687,
+        0.740979381443299,
+        0.5764248704663213,
+        0.6272965879265092,
+        0.6801517067003793
+      ],
+      "selection_diagnostics": {
+        "rounds": [
+          {
+            "round": 1,
+            "captain": "Thomas Ramos",
+            "best_captain_in_xv": "Matthieu Jalibert",
+            "captain_regret": 6.0,
+            "supersub": "Henry Pollock",
+            "best_supersub": "Nick Timoney",
+            "best_supersub_rank": 9,
+            "supersub_regret": 30.0
+          },
+          {
+            "round": 2,
+            "captain": "Thomas Ramos",
+            "best_captain_in_xv": "Matthieu Jalibert",
+            "captain_regret": 39.0,
+            "supersub": "Henry Pollock",
+            "best_supersub": "Henry Pollock",
+            "best_supersub_rank": 1,
+            "supersub_regret": 0.0
+          },
+          {
+            "round": 3,
+            "captain": "Thomas Ramos",
+            "best_captain_in_xv": "Thomas Ramos",
+            "captain_regret": 0.0,
+            "supersub": "Pablo Dimcheff",
+            "best_supersub": "James Botham",
+            "best_supersub_rank": 4,
+            "supersub_regret": 16.0
+          },
+          {
+            "round": 4,
+            "captain": "Thomas Ramos",
+            "best_captain_in_xv": "Jack Conan",
+            "captain_regret": 23.0,
+            "supersub": "Henry Pollock",
+            "best_supersub": "Tom Jordan",
+            "best_supersub_rank": 8,
+            "supersub_regret": 19.0
+          },
+          {
+            "round": 5,
+            "captain": "Thomas Ramos",
+            "best_captain_in_xv": "Louis Bielle-Biarrey",
+            "captain_regret": 38.0,
+            "supersub": "Henry Pollock",
+            "best_supersub": "Darragh Murray",
+            "best_supersub_rank": 27,
+            "supersub_regret": 18.0
+          }
+        ],
+        "captain_regret_total": 106.0,
+        "supersub_regret_total": 83.0,
+        "selected_bias": {
+          "Back-row": {
+            "n": 19,
+            "pred_mean": 23.964422185609372,
+            "actual_mean": 28.94736842105263,
+            "bias": 4.98294623544326
+          },
+          "Back-three": {
+            "n": 15,
+            "pred_mean": 30.77016229280675,
+            "actual_mean": 39.266666666666666,
+            "bias": 8.496504373859915
+          },
+          "Centre": {
+            "n": 10,
+            "pred_mean": 25.37890931318139,
+            "actual_mean": 29.3,
+            "bias": 3.9210906868186095
+          },
+          "Fly-half": {
+            "n": 5,
+            "pred_mean": 27.256188807962424,
+            "actual_mean": 43.4,
+            "bias": 16.14381119203758
+          },
+          "Hooker": {
+            "n": 6,
+            "pred_mean": 17.042681630300496,
+            "actual_mean": 21.166666666666668,
+            "bias": 4.123985036366169
+          },
+          "Prop": {
+            "n": 10,
+            "pred_mean": 15.68795969742169,
+            "actual_mean": 10.4,
+            "bias": -5.287959697421689
+          },
+          "Scrum-half": {
+            "n": 5,
+            "pred_mean": 27.413964646743455,
+            "actual_mean": 31.0,
+            "bias": 3.5860353532565457
+          },
+          "Second-row": {
+            "n": 10,
+            "pred_mean": 21.97513004050962,
+            "actual_mean": 23.5,
+            "bias": 1.52486995949038
+          }
+        }
+      }
+    },
+    {
+      "name": "supersub_bench_lgbm_025",
+      "note": "learned LightGBM bench supersub overlay 0.25",
+      "value_team": 0.6875127745483398,
+      "value_xv": 0.7144594778697986,
+      "mae": 7.348994791544289,
+      "bench_mae": 4.316175718684459,
+      "top15": 0.3866666666666666,
+      "top30": 0.5466666666666666,
+      "spearman_sel": 0.587103050538006,
+      "capt_top3": 0.2,
+      "dvalue_team_vs_old_base": 0.009845499576806138,
+      "dvalue_xv_vs_old_base": 0.0,
+      "dmae_vs_old_base": 0.0,
+      "round_team_up_vs_old_base": 1,
+      "sealed_pareto_vs_old_base": true,
+      "round_team": [
+        0.7362045760430687,
+        0.740979381443299,
+        0.6036269430051814,
+        0.6272965879265092,
+        0.729456384323641
+      ],
+      "selection_diagnostics": {
+        "rounds": [
+          {
+            "round": 1,
+            "captain": "Thomas Ramos",
+            "best_captain_in_xv": "Matthieu Jalibert",
+            "captain_regret": 6.0,
+            "supersub": "Henry Pollock",
+            "best_supersub": "Nick Timoney",
+            "best_supersub_rank": 7,
+            "supersub_regret": 30.0
+          },
+          {
+            "round": 2,
+            "captain": "Thomas Ramos",
+            "best_captain_in_xv": "Matthieu Jalibert",
+            "captain_regret": 39.0,
+            "supersub": "Henry Pollock",
+            "best_supersub": "Henry Pollock",
+            "best_supersub_rank": 1,
+            "supersub_regret": 0.0
+          },
+          {
+            "round": 3,
+            "captain": "Thomas Ramos",
+            "best_captain_in_xv": "Thomas Ramos",
+            "captain_regret": 0.0,
+            "supersub": "Marcus Smith",
+            "best_supersub": "James Botham",
+            "best_supersub_rank": 9,
+            "supersub_regret": 9.0
+          },
+          {
+            "round": 4,
+            "captain": "Thomas Ramos",
+            "best_captain_in_xv": "Jack Conan",
+            "captain_regret": 23.0,
+            "supersub": "Henry Pollock",
+            "best_supersub": "Tom Jordan",
+            "best_supersub_rank": 8,
+            "supersub_regret": 19.0
+          },
+          {
+            "round": 5,
+            "captain": "Thomas Ramos",
+            "best_captain_in_xv": "Louis Bielle-Biarrey",
+            "captain_regret": 38.0,
+            "supersub": "Marcus Smith",
+            "best_supersub": "Darragh Murray",
+            "best_supersub_rank": 30,
+            "supersub_regret": 5.0
+          }
+        ],
+        "captain_regret_total": 106.0,
+        "supersub_regret_total": 63.0,
+        "selected_bias": {
+          "Back-row": {
+            "n": 18,
+            "pred_mean": 24.727276928501325,
+            "actual_mean": 30.11111111111111,
+            "bias": 5.383834182609785
+          },
+          "Back-three": {
+            "n": 15,
+            "pred_mean": 30.77016229280675,
+            "actual_mean": 39.266666666666666,
+            "bias": 8.496504373859915
+          },
+          "Centre": {
+            "n": 10,
+            "pred_mean": 25.37890931318139,
+            "actual_mean": 29.3,
+            "bias": 3.9210906868186095
+          },
+          "Fly-half": {
+            "n": 7,
+            "pred_mean": 22.975085952942916,
+            "actual_mean": 36.57142857142857,
+            "bias": 13.59634261848566
+          },
+          "Hooker": {
+            "n": 5,
+            "pred_mean": 19.090976164947442,
+            "actual_mean": 23.2,
+            "bias": 4.109023835052562
+          },
+          "Prop": {
+            "n": 10,
+            "pred_mean": 15.68795969742169,
+            "actual_mean": 10.4,
+            "bias": -5.287959697421689
+          },
+          "Scrum-half": {
+            "n": 5,
+            "pred_mean": 27.413964646743455,
+            "actual_mean": 31.0,
+            "bias": 3.5860353532565457
+          },
+          "Second-row": {
+            "n": 10,
+            "pred_mean": 21.97513004050962,
+            "actual_mean": 23.5,
+            "bias": 1.52486995949038
+          }
+        }
+      }
+    },
+    {
+      "name": "supersub_bench_lgbm_050",
+      "note": "learned LightGBM bench supersub overlay 0.50",
+      "value_team": 0.6875127745483398,
+      "value_xv": 0.7144594778697986,
+      "mae": 7.348994791544289,
+      "bench_mae": 4.316175718684459,
+      "top15": 0.3866666666666666,
+      "top30": 0.5466666666666666,
+      "spearman_sel": 0.587103050538006,
+      "capt_top3": 0.2,
+      "dvalue_team_vs_old_base": 0.009845499576806138,
+      "dvalue_xv_vs_old_base": 0.0,
+      "dmae_vs_old_base": 0.0,
+      "round_team_up_vs_old_base": 1,
+      "sealed_pareto_vs_old_base": true,
+      "round_team": [
+        0.7362045760430687,
+        0.740979381443299,
+        0.6036269430051814,
+        0.6272965879265092,
+        0.729456384323641
+      ],
+      "selection_diagnostics": {
+        "rounds": [
+          {
+            "round": 1,
+            "captain": "Thomas Ramos",
+            "best_captain_in_xv": "Matthieu Jalibert",
+            "captain_regret": 6.0,
+            "supersub": "Henry Pollock",
+            "best_supersub": "Nick Timoney",
+            "best_supersub_rank": 8,
+            "supersub_regret": 30.0
+          },
+          {
+            "round": 2,
+            "captain": "Thomas Ramos",
+            "best_captain_in_xv": "Matthieu Jalibert",
+            "captain_regret": 39.0,
+            "supersub": "Henry Pollock",
+            "best_supersub": "Henry Pollock",
+            "best_supersub_rank": 1,
+            "supersub_regret": 0.0
+          },
+          {
+            "round": 3,
+            "captain": "Thomas Ramos",
+            "best_captain_in_xv": "Thomas Ramos",
+            "captain_regret": 0.0,
+            "supersub": "Marcus Smith",
+            "best_supersub": "James Botham",
+            "best_supersub_rank": 9,
+            "supersub_regret": 9.0
+          },
+          {
+            "round": 4,
+            "captain": "Thomas Ramos",
+            "best_captain_in_xv": "Jack Conan",
+            "captain_regret": 23.0,
+            "supersub": "Henry Pollock",
+            "best_supersub": "Tom Jordan",
+            "best_supersub_rank": 8,
+            "supersub_regret": 19.0
+          },
+          {
+            "round": 5,
+            "captain": "Thomas Ramos",
+            "best_captain_in_xv": "Louis Bielle-Biarrey",
+            "captain_regret": 38.0,
+            "supersub": "Marcus Smith",
+            "best_supersub": "Darragh Murray",
+            "best_supersub_rank": 38,
+            "supersub_regret": 5.0
+          }
+        ],
+        "captain_regret_total": 106.0,
+        "supersub_regret_total": 63.0,
+        "selected_bias": {
+          "Back-row": {
+            "n": 18,
+            "pred_mean": 24.727276928501325,
+            "actual_mean": 30.11111111111111,
+            "bias": 5.383834182609785
+          },
+          "Back-three": {
+            "n": 15,
+            "pred_mean": 30.77016229280675,
+            "actual_mean": 39.266666666666666,
+            "bias": 8.496504373859915
+          },
+          "Centre": {
+            "n": 10,
+            "pred_mean": 25.37890931318139,
+            "actual_mean": 29.3,
+            "bias": 3.9210906868186095
+          },
+          "Fly-half": {
+            "n": 7,
+            "pred_mean": 22.975085952942916,
+            "actual_mean": 36.57142857142857,
+            "bias": 13.59634261848566
+          },
+          "Hooker": {
+            "n": 5,
+            "pred_mean": 19.090976164947442,
+            "actual_mean": 23.2,
+            "bias": 4.109023835052562
+          },
+          "Prop": {
+            "n": 10,
+            "pred_mean": 15.68795969742169,
+            "actual_mean": 10.4,
+            "bias": -5.287959697421689
+          },
+          "Scrum-half": {
+            "n": 5,
+            "pred_mean": 27.413964646743455,
+            "actual_mean": 31.0,
+            "bias": 3.5860353532565457
+          },
+          "Second-row": {
+            "n": 10,
+            "pred_mean": 21.97513004050962,
+            "actual_mean": 23.5,
+            "bias": 1.52486995949038
+          }
+        }
+      }
+    },
+    {
+      "name": "supersub_two_stage_minutes",
+      "note": "two-stage bench minutes supersub overlay",
+      "value_team": 0.6875127745483398,
+      "value_xv": 0.7144594778697986,
+      "mae": 7.348994791544289,
+      "bench_mae": 4.316175718684459,
+      "top15": 0.3866666666666666,
+      "top30": 0.5466666666666666,
+      "spearman_sel": 0.587103050538006,
+      "capt_top3": 0.2,
+      "dvalue_team_vs_old_base": 0.009845499576806138,
+      "dvalue_xv_vs_old_base": 0.0,
+      "dmae_vs_old_base": 0.0,
+      "round_team_up_vs_old_base": 1,
+      "sealed_pareto_vs_old_base": true,
+      "round_team": [
+        0.7362045760430687,
+        0.740979381443299,
+        0.6036269430051814,
+        0.6272965879265092,
+        0.729456384323641
+      ],
+      "selection_diagnostics": {
+        "rounds": [
+          {
+            "round": 1,
+            "captain": "Thomas Ramos",
+            "best_captain_in_xv": "Matthieu Jalibert",
+            "captain_regret": 6.0,
+            "supersub": "Henry Pollock",
+            "best_supersub": "Nick Timoney",
+            "best_supersub_rank": 8,
+            "supersub_regret": 30.0
+          },
+          {
+            "round": 2,
+            "captain": "Thomas Ramos",
+            "best_captain_in_xv": "Matthieu Jalibert",
+            "captain_regret": 39.0,
+            "supersub": "Henry Pollock",
+            "best_supersub": "Henry Pollock",
+            "best_supersub_rank": 1,
+            "supersub_regret": 0.0
+          },
+          {
+            "round": 3,
+            "captain": "Thomas Ramos",
+            "best_captain_in_xv": "Thomas Ramos",
+            "captain_regret": 0.0,
+            "supersub": "Marcus Smith",
+            "best_supersub": "James Botham",
+            "best_supersub_rank": 24,
+            "supersub_regret": 9.0
+          },
+          {
+            "round": 4,
+            "captain": "Thomas Ramos",
+            "best_captain_in_xv": "Jack Conan",
+            "captain_regret": 23.0,
+            "supersub": "Henry Pollock",
+            "best_supersub": "Tom Jordan",
+            "best_supersub_rank": 7,
+            "supersub_regret": 19.0
+          },
+          {
+            "round": 5,
+            "captain": "Thomas Ramos",
+            "best_captain_in_xv": "Louis Bielle-Biarrey",
+            "captain_regret": 38.0,
+            "supersub": "Marcus Smith",
+            "best_supersub": "Darragh Murray",
+            "best_supersub_rank": 31,
+            "supersub_regret": 5.0
+          }
+        ],
+        "captain_regret_total": 106.0,
+        "supersub_regret_total": 63.0,
+        "selected_bias": {
+          "Back-row": {
+            "n": 18,
+            "pred_mean": 24.727276928501325,
+            "actual_mean": 30.11111111111111,
+            "bias": 5.383834182609785
+          },
+          "Back-three": {
+            "n": 15,
+            "pred_mean": 30.77016229280675,
+            "actual_mean": 39.266666666666666,
+            "bias": 8.496504373859915
+          },
+          "Centre": {
+            "n": 10,
+            "pred_mean": 25.37890931318139,
+            "actual_mean": 29.3,
+            "bias": 3.9210906868186095
+          },
+          "Fly-half": {
+            "n": 7,
+            "pred_mean": 22.975085952942916,
+            "actual_mean": 36.57142857142857,
+            "bias": 13.59634261848566
+          },
+          "Hooker": {
+            "n": 5,
+            "pred_mean": 19.090976164947442,
+            "actual_mean": 23.2,
+            "bias": 4.109023835052562
+          },
+          "Prop": {
+            "n": 10,
+            "pred_mean": 15.68795969742169,
+            "actual_mean": 10.4,
+            "bias": -5.287959697421689
+          },
+          "Scrum-half": {
+            "n": 5,
+            "pred_mean": 27.413964646743455,
+            "actual_mean": 31.0,
+            "bias": 3.5860353532565457
+          },
+          "Second-row": {
+            "n": 10,
+            "pred_mean": 21.97513004050962,
+            "actual_mean": 23.5,
+            "bias": 1.52486995949038
+          }
+        }
+      }
+    },
+    {
+      "name": "supersub_minutes_uncertainty_025",
+      "note": "two-stage bench minutes with uncertainty penalty",
+      "value_team": 0.6875127745483398,
+      "value_xv": 0.7144594778697986,
+      "mae": 7.348994791544289,
+      "bench_mae": 4.316175718684459,
+      "top15": 0.3866666666666666,
+      "top30": 0.5466666666666666,
+      "spearman_sel": 0.587103050538006,
+      "capt_top3": 0.2,
+      "dvalue_team_vs_old_base": 0.009845499576806138,
+      "dvalue_xv_vs_old_base": 0.0,
+      "dmae_vs_old_base": 0.0,
+      "round_team_up_vs_old_base": 1,
+      "sealed_pareto_vs_old_base": true,
+      "round_team": [
+        0.7362045760430687,
+        0.740979381443299,
+        0.6036269430051814,
+        0.6272965879265092,
+        0.729456384323641
+      ],
+      "selection_diagnostics": {
+        "rounds": [
+          {
+            "round": 1,
+            "captain": "Thomas Ramos",
+            "best_captain_in_xv": "Matthieu Jalibert",
+            "captain_regret": 6.0,
+            "supersub": "Henry Pollock",
+            "best_supersub": "Nick Timoney",
+            "best_supersub_rank": 10,
+            "supersub_regret": 30.0
+          },
+          {
+            "round": 2,
+            "captain": "Thomas Ramos",
+            "best_captain_in_xv": "Matthieu Jalibert",
+            "captain_regret": 39.0,
+            "supersub": "Henry Pollock",
+            "best_supersub": "Henry Pollock",
+            "best_supersub_rank": 1,
+            "supersub_regret": 0.0
+          },
+          {
+            "round": 3,
+            "captain": "Thomas Ramos",
+            "best_captain_in_xv": "Thomas Ramos",
+            "captain_regret": 0.0,
+            "supersub": "Marcus Smith",
+            "best_supersub": "James Botham",
+            "best_supersub_rank": 23,
+            "supersub_regret": 9.0
+          },
+          {
+            "round": 4,
+            "captain": "Thomas Ramos",
+            "best_captain_in_xv": "Jack Conan",
+            "captain_regret": 23.0,
+            "supersub": "Henry Pollock",
+            "best_supersub": "Tom Jordan",
+            "best_supersub_rank": 7,
+            "supersub_regret": 19.0
+          },
+          {
+            "round": 5,
+            "captain": "Thomas Ramos",
+            "best_captain_in_xv": "Louis Bielle-Biarrey",
+            "captain_regret": 38.0,
+            "supersub": "Marcus Smith",
+            "best_supersub": "Darragh Murray",
+            "best_supersub_rank": 41,
+            "supersub_regret": 5.0
+          }
+        ],
+        "captain_regret_total": 106.0,
+        "supersub_regret_total": 63.0,
+        "selected_bias": {
+          "Back-row": {
+            "n": 18,
+            "pred_mean": 24.727276928501325,
+            "actual_mean": 30.11111111111111,
+            "bias": 5.383834182609785
+          },
+          "Back-three": {
+            "n": 15,
+            "pred_mean": 30.77016229280675,
+            "actual_mean": 39.266666666666666,
+            "bias": 8.496504373859915
+          },
+          "Centre": {
+            "n": 10,
+            "pred_mean": 25.37890931318139,
+            "actual_mean": 29.3,
+            "bias": 3.9210906868186095
+          },
+          "Fly-half": {
+            "n": 7,
+            "pred_mean": 22.975085952942916,
+            "actual_mean": 36.57142857142857,
+            "bias": 13.59634261848566
+          },
+          "Hooker": {
+            "n": 5,
+            "pred_mean": 19.090976164947442,
+            "actual_mean": 23.2,
+            "bias": 4.109023835052562
+          },
+          "Prop": {
+            "n": 10,
+            "pred_mean": 15.68795969742169,
+            "actual_mean": 10.4,
+            "bias": -5.287959697421689
+          },
+          "Scrum-half": {
+            "n": 5,
+            "pred_mean": 27.413964646743455,
+            "actual_mean": 31.0,
+            "bias": 3.5860353532565457
+          },
+          "Second-row": {
+            "n": 10,
+            "pred_mean": 21.97513004050962,
+            "actual_mean": 23.5,
+            "bias": 1.52486995949038
+          }
+        }
+      }
+    },
+    {
+      "name": "supersub_value_minus_risk_025",
+      "note": "bench value overlay minus learned minutes risk",
+      "value_team": 0.6776518390236875,
+      "value_xv": 0.7144594778697986,
+      "mae": 7.348994791544289,
+      "bench_mae": 4.316175718684459,
+      "top15": 0.3866666666666666,
+      "top30": 0.5466666666666666,
+      "spearman_sel": 0.587103050538006,
+      "capt_top3": 0.2,
+      "dvalue_team_vs_old_base": -1.5435947846142994e-05,
+      "dvalue_xv_vs_old_base": 0.0,
+      "dmae_vs_old_base": 0.0,
+      "round_team_up_vs_old_base": 1,
+      "sealed_pareto_vs_old_base": false,
+      "round_team": [
+        0.7362045760430687,
+        0.740979381443299,
+        0.6036269430051814,
+        0.6272965879265092,
+        0.6801517067003793
+      ],
+      "selection_diagnostics": {
+        "rounds": [
+          {
+            "round": 1,
+            "captain": "Thomas Ramos",
+            "best_captain_in_xv": "Matthieu Jalibert",
+            "captain_regret": 6.0,
+            "supersub": "Henry Pollock",
+            "best_supersub": "Nick Timoney",
+            "best_supersub_rank": 11,
+            "supersub_regret": 30.0
+          },
+          {
+            "round": 2,
+            "captain": "Thomas Ramos",
+            "best_captain_in_xv": "Matthieu Jalibert",
+            "captain_regret": 39.0,
+            "supersub": "Henry Pollock",
+            "best_supersub": "Henry Pollock",
+            "best_supersub_rank": 1,
+            "supersub_regret": 0.0
+          },
+          {
+            "round": 3,
+            "captain": "Thomas Ramos",
+            "best_captain_in_xv": "Thomas Ramos",
+            "captain_regret": 0.0,
+            "supersub": "Marcus Smith",
+            "best_supersub": "James Botham",
+            "best_supersub_rank": 6,
+            "supersub_regret": 9.0
+          },
+          {
+            "round": 4,
+            "captain": "Thomas Ramos",
+            "best_captain_in_xv": "Jack Conan",
+            "captain_regret": 23.0,
+            "supersub": "Henry Pollock",
+            "best_supersub": "Tom Jordan",
+            "best_supersub_rank": 9,
+            "supersub_regret": 19.0
+          },
+          {
+            "round": 5,
+            "captain": "Thomas Ramos",
+            "best_captain_in_xv": "Louis Bielle-Biarrey",
+            "captain_regret": 38.0,
+            "supersub": "Henry Pollock",
+            "best_supersub": "Darragh Murray",
+            "best_supersub_rank": 40,
+            "supersub_regret": 18.0
+          }
+        ],
+        "captain_regret_total": 106.0,
+        "supersub_regret_total": 76.0,
+        "selected_bias": {
+          "Back-row": {
+            "n": 19,
+            "pred_mean": 23.964422185609372,
+            "actual_mean": 28.94736842105263,
+            "bias": 4.98294623544326
+          },
+          "Back-three": {
+            "n": 15,
+            "pred_mean": 30.77016229280675,
+            "actual_mean": 39.266666666666666,
+            "bias": 8.496504373859915
+          },
+          "Centre": {
+            "n": 10,
+            "pred_mean": 25.37890931318139,
+            "actual_mean": 29.3,
+            "bias": 3.9210906868186095
+          },
+          "Fly-half": {
+            "n": 6,
+            "pred_mean": 24.761056832100873,
+            "actual_mean": 39.166666666666664,
+            "bias": 14.405609834565796
+          },
+          "Hooker": {
+            "n": 5,
+            "pred_mean": 19.090976164947442,
+            "actual_mean": 23.2,
+            "bias": 4.109023835052562
+          },
+          "Prop": {
+            "n": 10,
+            "pred_mean": 15.68795969742169,
+            "actual_mean": 10.4,
+            "bias": -5.287959697421689
+          },
+          "Scrum-half": {
+            "n": 5,
+            "pred_mean": 27.413964646743455,
+            "actual_mean": 31.0,
+            "bias": 3.5860353532565457
+          },
+          "Second-row": {
+            "n": 10,
+            "pred_mean": 21.97513004050962,
+            "actual_mean": 23.5,
+            "bias": 1.52486995949038
+          }
+        }
+      }
+    },
+    {
+      "name": "bench_kick_shrink_25",
+      "note": "bench supersub overlay with 25% bench kick shrink",
+      "value_team": 0.6776518390236875,
+      "value_xv": 0.7144594778697986,
+      "mae": 7.348994791544289,
+      "bench_mae": 4.316175718684459,
+      "top15": 0.3866666666666666,
+      "top30": 0.5466666666666666,
+      "spearman_sel": 0.587103050538006,
+      "capt_top3": 0.2,
+      "dvalue_team_vs_old_base": -1.5435947846142994e-05,
+      "dvalue_xv_vs_old_base": 0.0,
+      "dmae_vs_old_base": 0.0,
+      "round_team_up_vs_old_base": 1,
+      "sealed_pareto_vs_old_base": false,
+      "round_team": [
+        0.7362045760430687,
+        0.740979381443299,
+        0.6036269430051814,
+        0.6272965879265092,
+        0.6801517067003793
+      ],
+      "selection_diagnostics": {
+        "rounds": [
+          {
+            "round": 1,
+            "captain": "Thomas Ramos",
+            "best_captain_in_xv": "Matthieu Jalibert",
+            "captain_regret": 6.0,
+            "supersub": "Henry Pollock",
+            "best_supersub": "Nick Timoney",
+            "best_supersub_rank": 8,
+            "supersub_regret": 30.0
+          },
+          {
+            "round": 2,
+            "captain": "Thomas Ramos",
+            "best_captain_in_xv": "Matthieu Jalibert",
+            "captain_regret": 39.0,
+            "supersub": "Henry Pollock",
+            "best_supersub": "Henry Pollock",
+            "best_supersub_rank": 1,
+            "supersub_regret": 0.0
+          },
+          {
+            "round": 3,
+            "captain": "Thomas Ramos",
+            "best_captain_in_xv": "Thomas Ramos",
+            "captain_regret": 0.0,
+            "supersub": "Marcus Smith",
+            "best_supersub": "James Botham",
+            "best_supersub_rank": 7,
+            "supersub_regret": 9.0
+          },
+          {
+            "round": 4,
+            "captain": "Thomas Ramos",
+            "best_captain_in_xv": "Jack Conan",
+            "captain_regret": 23.0,
+            "supersub": "Henry Pollock",
+            "best_supersub": "Tom Jordan",
+            "best_supersub_rank": 10,
+            "supersub_regret": 19.0
+          },
+          {
+            "round": 5,
+            "captain": "Thomas Ramos",
+            "best_captain_in_xv": "Louis Bielle-Biarrey",
+            "captain_regret": 38.0,
+            "supersub": "Henry Pollock",
+            "best_supersub": "Darragh Murray",
+            "best_supersub_rank": 25,
+            "supersub_regret": 18.0
+          }
+        ],
+        "captain_regret_total": 106.0,
+        "supersub_regret_total": 76.0,
+        "selected_bias": {
+          "Back-row": {
+            "n": 19,
+            "pred_mean": 23.964422185609372,
+            "actual_mean": 28.94736842105263,
+            "bias": 4.98294623544326
+          },
+          "Back-three": {
+            "n": 15,
+            "pred_mean": 30.77016229280675,
+            "actual_mean": 39.266666666666666,
+            "bias": 8.496504373859915
+          },
+          "Centre": {
+            "n": 10,
+            "pred_mean": 25.37890931318139,
+            "actual_mean": 29.3,
+            "bias": 3.9210906868186095
+          },
+          "Fly-half": {
+            "n": 6,
+            "pred_mean": 24.761056832100873,
+            "actual_mean": 39.166666666666664,
+            "bias": 14.405609834565796
+          },
+          "Hooker": {
+            "n": 5,
+            "pred_mean": 19.090976164947442,
+            "actual_mean": 23.2,
+            "bias": 4.109023835052562
+          },
+          "Prop": {
+            "n": 10,
+            "pred_mean": 15.68795969742169,
+            "actual_mean": 10.4,
+            "bias": -5.287959697421689
+          },
+          "Scrum-half": {
+            "n": 5,
+            "pred_mean": 27.413964646743455,
+            "actual_mean": 31.0,
+            "bias": 3.5860353532565457
+          },
+          "Second-row": {
+            "n": 10,
+            "pred_mean": 21.97513004050962,
+            "actual_mean": 23.5,
+            "bias": 1.52486995949038
+          }
+        }
+      }
+    },
+    {
+      "name": "bench_kick_shrink_50",
+      "note": "bench supersub overlay with 50% bench kick shrink",
+      "value_team": 0.6776518390236875,
+      "value_xv": 0.7144594778697986,
+      "mae": 7.348994791544289,
+      "bench_mae": 4.316175718684459,
+      "top15": 0.3866666666666666,
+      "top30": 0.5466666666666666,
+      "spearman_sel": 0.587103050538006,
+      "capt_top3": 0.2,
+      "dvalue_team_vs_old_base": -1.5435947846142994e-05,
+      "dvalue_xv_vs_old_base": 0.0,
+      "dmae_vs_old_base": 0.0,
+      "round_team_up_vs_old_base": 1,
+      "sealed_pareto_vs_old_base": false,
+      "round_team": [
+        0.7362045760430687,
+        0.740979381443299,
+        0.6036269430051814,
+        0.6272965879265092,
+        0.6801517067003793
+      ],
+      "selection_diagnostics": {
+        "rounds": [
+          {
+            "round": 1,
+            "captain": "Thomas Ramos",
+            "best_captain_in_xv": "Matthieu Jalibert",
+            "captain_regret": 6.0,
+            "supersub": "Henry Pollock",
+            "best_supersub": "Nick Timoney",
+            "best_supersub_rank": 8,
+            "supersub_regret": 30.0
+          },
+          {
+            "round": 2,
+            "captain": "Thomas Ramos",
+            "best_captain_in_xv": "Matthieu Jalibert",
+            "captain_regret": 39.0,
+            "supersub": "Henry Pollock",
+            "best_supersub": "Henry Pollock",
+            "best_supersub_rank": 1,
+            "supersub_regret": 0.0
+          },
+          {
+            "round": 3,
+            "captain": "Thomas Ramos",
+            "best_captain_in_xv": "Thomas Ramos",
+            "captain_regret": 0.0,
+            "supersub": "Marcus Smith",
+            "best_supersub": "James Botham",
+            "best_supersub_rank": 7,
+            "supersub_regret": 9.0
+          },
+          {
+            "round": 4,
+            "captain": "Thomas Ramos",
+            "best_captain_in_xv": "Jack Conan",
+            "captain_regret": 23.0,
+            "supersub": "Henry Pollock",
+            "best_supersub": "Tom Jordan",
+            "best_supersub_rank": 10,
+            "supersub_regret": 19.0
+          },
+          {
+            "round": 5,
+            "captain": "Thomas Ramos",
+            "best_captain_in_xv": "Louis Bielle-Biarrey",
+            "captain_regret": 38.0,
+            "supersub": "Henry Pollock",
+            "best_supersub": "Darragh Murray",
+            "best_supersub_rank": 25,
+            "supersub_regret": 18.0
+          }
+        ],
+        "captain_regret_total": 106.0,
+        "supersub_regret_total": 76.0,
+        "selected_bias": {
+          "Back-row": {
+            "n": 19,
+            "pred_mean": 23.964422185609372,
+            "actual_mean": 28.94736842105263,
+            "bias": 4.98294623544326
+          },
+          "Back-three": {
+            "n": 15,
+            "pred_mean": 30.77016229280675,
+            "actual_mean": 39.266666666666666,
+            "bias": 8.496504373859915
+          },
+          "Centre": {
+            "n": 10,
+            "pred_mean": 25.37890931318139,
+            "actual_mean": 29.3,
+            "bias": 3.9210906868186095
+          },
+          "Fly-half": {
+            "n": 6,
+            "pred_mean": 24.761056832100873,
+            "actual_mean": 39.166666666666664,
+            "bias": 14.405609834565796
+          },
+          "Hooker": {
+            "n": 5,
+            "pred_mean": 19.090976164947442,
+            "actual_mean": 23.2,
+            "bias": 4.109023835052562
+          },
+          "Prop": {
+            "n": 10,
+            "pred_mean": 15.68795969742169,
+            "actual_mean": 10.4,
+            "bias": -5.287959697421689
+          },
+          "Scrum-half": {
+            "n": 5,
+            "pred_mean": 27.413964646743455,
+            "actual_mean": 31.0,
+            "bias": 3.5860353532565457
+          },
+          "Second-row": {
+            "n": 10,
+            "pred_mean": 21.97513004050962,
+            "actual_mean": 23.5,
+            "bias": 1.52486995949038
+          }
+        }
+      }
+    },
+    {
+      "name": "bench_kick_learned_gate",
+      "note": "bench supersub overlay with learned Ridge kick replacement",
+      "value_team": 0.6776518390236875,
+      "value_xv": 0.7144594778697986,
+      "mae": 7.348994791544289,
+      "bench_mae": 4.316175718684459,
+      "top15": 0.3866666666666666,
+      "top30": 0.5466666666666666,
+      "spearman_sel": 0.587103050538006,
+      "capt_top3": 0.2,
+      "dvalue_team_vs_old_base": -1.5435947846142994e-05,
+      "dvalue_xv_vs_old_base": 0.0,
+      "dmae_vs_old_base": 0.0,
+      "round_team_up_vs_old_base": 1,
+      "sealed_pareto_vs_old_base": false,
+      "round_team": [
+        0.7362045760430687,
+        0.740979381443299,
+        0.6036269430051814,
+        0.6272965879265092,
+        0.6801517067003793
+      ],
+      "selection_diagnostics": {
+        "rounds": [
+          {
+            "round": 1,
+            "captain": "Thomas Ramos",
+            "best_captain_in_xv": "Matthieu Jalibert",
+            "captain_regret": 6.0,
+            "supersub": "Henry Pollock",
+            "best_supersub": "Nick Timoney",
+            "best_supersub_rank": 7,
+            "supersub_regret": 30.0
+          },
+          {
+            "round": 2,
+            "captain": "Thomas Ramos",
+            "best_captain_in_xv": "Matthieu Jalibert",
+            "captain_regret": 39.0,
+            "supersub": "Henry Pollock",
+            "best_supersub": "Henry Pollock",
+            "best_supersub_rank": 1,
+            "supersub_regret": 0.0
+          },
+          {
+            "round": 3,
+            "captain": "Thomas Ramos",
+            "best_captain_in_xv": "Thomas Ramos",
+            "captain_regret": 0.0,
+            "supersub": "Marcus Smith",
+            "best_supersub": "James Botham",
+            "best_supersub_rank": 7,
+            "supersub_regret": 9.0
+          },
+          {
+            "round": 4,
+            "captain": "Thomas Ramos",
+            "best_captain_in_xv": "Jack Conan",
+            "captain_regret": 23.0,
+            "supersub": "Henry Pollock",
+            "best_supersub": "Tom Jordan",
+            "best_supersub_rank": 10,
+            "supersub_regret": 19.0
+          },
+          {
+            "round": 5,
+            "captain": "Thomas Ramos",
+            "best_captain_in_xv": "Louis Bielle-Biarrey",
+            "captain_regret": 38.0,
+            "supersub": "Henry Pollock",
+            "best_supersub": "Darragh Murray",
+            "best_supersub_rank": 24,
+            "supersub_regret": 18.0
+          }
+        ],
+        "captain_regret_total": 106.0,
+        "supersub_regret_total": 76.0,
+        "selected_bias": {
+          "Back-row": {
+            "n": 19,
+            "pred_mean": 23.964422185609372,
+            "actual_mean": 28.94736842105263,
+            "bias": 4.98294623544326
+          },
+          "Back-three": {
+            "n": 15,
+            "pred_mean": 30.77016229280675,
+            "actual_mean": 39.266666666666666,
+            "bias": 8.496504373859915
+          },
+          "Centre": {
+            "n": 10,
+            "pred_mean": 25.37890931318139,
+            "actual_mean": 29.3,
+            "bias": 3.9210906868186095
+          },
+          "Fly-half": {
+            "n": 6,
+            "pred_mean": 24.761056832100873,
+            "actual_mean": 39.166666666666664,
+            "bias": 14.405609834565796
+          },
+          "Hooker": {
+            "n": 5,
+            "pred_mean": 19.090976164947442,
+            "actual_mean": 23.2,
+            "bias": 4.109023835052562
+          },
+          "Prop": {
+            "n": 10,
+            "pred_mean": 15.68795969742169,
+            "actual_mean": 10.4,
+            "bias": -5.287959697421689
+          },
+          "Scrum-half": {
+            "n": 5,
+            "pred_mean": 27.413964646743455,
+            "actual_mean": 31.0,
+            "bias": 3.5860353532565457
+          },
+          "Second-row": {
+            "n": 10,
+            "pred_mean": 21.97513004050962,
+            "actual_mean": 23.5,
+            "bias": 1.52486995949038
+          }
+        }
+      }
+    },
+    {
+      "name": "bench_kick_ridge_share",
+      "note": "heavier supersub overlay with learned Ridge bench kick share",
+      "value_team": 0.6722114245159154,
+      "value_xv": 0.7144594778697986,
+      "mae": 7.348994791544289,
+      "bench_mae": 4.316175718684459,
+      "top15": 0.3866666666666666,
+      "top30": 0.5466666666666666,
+      "spearman_sel": 0.587103050538006,
+      "capt_top3": 0.2,
+      "dvalue_team_vs_old_base": -0.00545585045561825,
+      "dvalue_xv_vs_old_base": 0.0,
+      "dmae_vs_old_base": 0.0,
+      "round_team_up_vs_old_base": 1,
+      "sealed_pareto_vs_old_base": false,
+      "round_team": [
+        0.7362045760430687,
+        0.740979381443299,
+        0.5764248704663213,
+        0.6272965879265092,
+        0.6801517067003793
+      ],
+      "selection_diagnostics": {
+        "rounds": [
+          {
+            "round": 1,
+            "captain": "Thomas Ramos",
+            "best_captain_in_xv": "Matthieu Jalibert",
+            "captain_regret": 6.0,
+            "supersub": "Henry Pollock",
+            "best_supersub": "Nick Timoney",
+            "best_supersub_rank": 9,
+            "supersub_regret": 30.0
+          },
+          {
+            "round": 2,
+            "captain": "Thomas Ramos",
+            "best_captain_in_xv": "Matthieu Jalibert",
+            "captain_regret": 39.0,
+            "supersub": "Henry Pollock",
+            "best_supersub": "Henry Pollock",
+            "best_supersub_rank": 1,
+            "supersub_regret": 0.0
+          },
+          {
+            "round": 3,
+            "captain": "Thomas Ramos",
+            "best_captain_in_xv": "Thomas Ramos",
+            "captain_regret": 0.0,
+            "supersub": "Pablo Dimcheff",
+            "best_supersub": "James Botham",
+            "best_supersub_rank": 5,
+            "supersub_regret": 16.0
+          },
+          {
+            "round": 4,
+            "captain": "Thomas Ramos",
+            "best_captain_in_xv": "Jack Conan",
+            "captain_regret": 23.0,
+            "supersub": "Henry Pollock",
+            "best_supersub": "Tom Jordan",
+            "best_supersub_rank": 12,
+            "supersub_regret": 19.0
+          },
+          {
+            "round": 5,
+            "captain": "Thomas Ramos",
+            "best_captain_in_xv": "Louis Bielle-Biarrey",
+            "captain_regret": 38.0,
+            "supersub": "Henry Pollock",
+            "best_supersub": "Darragh Murray",
+            "best_supersub_rank": 26,
+            "supersub_regret": 18.0
+          }
+        ],
+        "captain_regret_total": 106.0,
+        "supersub_regret_total": 83.0,
+        "selected_bias": {
+          "Back-row": {
+            "n": 19,
+            "pred_mean": 23.964422185609372,
+            "actual_mean": 28.94736842105263,
+            "bias": 4.98294623544326
+          },
+          "Back-three": {
+            "n": 15,
+            "pred_mean": 30.77016229280675,
+            "actual_mean": 39.266666666666666,
+            "bias": 8.496504373859915
+          },
+          "Centre": {
+            "n": 10,
+            "pred_mean": 25.37890931318139,
+            "actual_mean": 29.3,
+            "bias": 3.9210906868186095
+          },
+          "Fly-half": {
+            "n": 5,
+            "pred_mean": 27.256188807962424,
+            "actual_mean": 43.4,
+            "bias": 16.14381119203758
+          },
+          "Hooker": {
+            "n": 6,
+            "pred_mean": 17.042681630300496,
+            "actual_mean": 21.166666666666668,
+            "bias": 4.123985036366169
+          },
+          "Prop": {
+            "n": 10,
+            "pred_mean": 15.68795969742169,
+            "actual_mean": 10.4,
+            "bias": -5.287959697421689
+          },
+          "Scrum-half": {
+            "n": 5,
+            "pred_mean": 27.413964646743455,
+            "actual_mean": 31.0,
+            "bias": 3.5860353532565457
+          },
+          "Second-row": {
+            "n": 10,
+            "pred_mean": 21.97513004050962,
+            "actual_mean": 23.5,
+            "bias": 1.52486995949038
+          }
+        }
+      }
+    },
+    {
+      "name": "bench_kick_lgbm_share",
+      "note": "bench supersub overlay with learned LightGBM kick share",
+      "value_team": 0.6776518390236875,
+      "value_xv": 0.7144594778697986,
+      "mae": 7.348994791544289,
+      "bench_mae": 4.316175718684459,
+      "top15": 0.3866666666666666,
+      "top30": 0.5466666666666666,
+      "spearman_sel": 0.587103050538006,
+      "capt_top3": 0.2,
+      "dvalue_team_vs_old_base": -1.5435947846142994e-05,
+      "dvalue_xv_vs_old_base": 0.0,
+      "dmae_vs_old_base": 0.0,
+      "round_team_up_vs_old_base": 1,
+      "sealed_pareto_vs_old_base": false,
+      "round_team": [
+        0.7362045760430687,
+        0.740979381443299,
+        0.6036269430051814,
+        0.6272965879265092,
+        0.6801517067003793
+      ],
+      "selection_diagnostics": {
+        "rounds": [
+          {
+            "round": 1,
+            "captain": "Thomas Ramos",
+            "best_captain_in_xv": "Matthieu Jalibert",
+            "captain_regret": 6.0,
+            "supersub": "Henry Pollock",
+            "best_supersub": "Nick Timoney",
+            "best_supersub_rank": 7,
+            "supersub_regret": 30.0
+          },
+          {
+            "round": 2,
+            "captain": "Thomas Ramos",
+            "best_captain_in_xv": "Matthieu Jalibert",
+            "captain_regret": 39.0,
+            "supersub": "Henry Pollock",
+            "best_supersub": "Henry Pollock",
+            "best_supersub_rank": 1,
+            "supersub_regret": 0.0
+          },
+          {
+            "round": 3,
+            "captain": "Thomas Ramos",
+            "best_captain_in_xv": "Thomas Ramos",
+            "captain_regret": 0.0,
+            "supersub": "Marcus Smith",
+            "best_supersub": "James Botham",
+            "best_supersub_rank": 7,
+            "supersub_regret": 9.0
+          },
+          {
+            "round": 4,
+            "captain": "Thomas Ramos",
+            "best_captain_in_xv": "Jack Conan",
+            "captain_regret": 23.0,
+            "supersub": "Henry Pollock",
+            "best_supersub": "Tom Jordan",
+            "best_supersub_rank": 10,
+            "supersub_regret": 19.0
+          },
+          {
+            "round": 5,
+            "captain": "Thomas Ramos",
+            "best_captain_in_xv": "Louis Bielle-Biarrey",
+            "captain_regret": 38.0,
+            "supersub": "Henry Pollock",
+            "best_supersub": "Darragh Murray",
+            "best_supersub_rank": 24,
+            "supersub_regret": 18.0
+          }
+        ],
+        "captain_regret_total": 106.0,
+        "supersub_regret_total": 76.0,
+        "selected_bias": {
+          "Back-row": {
+            "n": 19,
+            "pred_mean": 23.964422185609372,
+            "actual_mean": 28.94736842105263,
+            "bias": 4.98294623544326
+          },
+          "Back-three": {
+            "n": 15,
+            "pred_mean": 30.77016229280675,
+            "actual_mean": 39.266666666666666,
+            "bias": 8.496504373859915
+          },
+          "Centre": {
+            "n": 10,
+            "pred_mean": 25.37890931318139,
+            "actual_mean": 29.3,
+            "bias": 3.9210906868186095
+          },
+          "Fly-half": {
+            "n": 6,
+            "pred_mean": 24.761056832100873,
+            "actual_mean": 39.166666666666664,
+            "bias": 14.405609834565796
+          },
+          "Hooker": {
+            "n": 5,
+            "pred_mean": 19.090976164947442,
+            "actual_mean": 23.2,
+            "bias": 4.109023835052562
+          },
+          "Prop": {
+            "n": 10,
+            "pred_mean": 15.68795969742169,
+            "actual_mean": 10.4,
+            "bias": -5.287959697421689
+          },
+          "Scrum-half": {
+            "n": 5,
+            "pred_mean": 27.413964646743455,
+            "actual_mean": 31.0,
+            "bias": 3.5860353532565457
+          },
+          "Second-row": {
+            "n": 10,
+            "pred_mean": 21.97513004050962,
+            "actual_mean": 23.5,
+            "bias": 1.52486995949038
+          }
+        }
+      }
+    },
+    {
+      "name": "captain_mean_only",
+      "note": "choose captain by calibrated points only",
+      "value_team": 0.6776672749715337,
+      "value_xv": 0.7144594778697986,
+      "mae": 7.348994791544289,
+      "bench_mae": 4.316175718684459,
+      "top15": 0.3866666666666666,
+      "top30": 0.5466666666666666,
+      "spearman_sel": 0.587103050538006,
+      "capt_top3": 0.2,
+      "dvalue_team_vs_old_base": 0.0,
+      "dvalue_xv_vs_old_base": 0.0,
+      "dmae_vs_old_base": 0.0,
+      "round_team_up_vs_old_base": 0,
+      "sealed_pareto_vs_old_base": false,
+      "round_team": [
+        0.7604306864064603,
+        0.6675257731958762,
+        0.6036269430051814,
+        0.6272965879265092,
+        0.729456384323641
+      ],
+      "selection_diagnostics": {
+        "rounds": [
+          {
+            "round": 1,
+            "captain": "Thomas Ramos",
+            "best_captain_in_xv": "Matthieu Jalibert",
+            "captain_regret": 6.0,
+            "supersub": "Marcus Smith",
+            "best_supersub": "Nick Timoney",
+            "best_supersub_rank": 6,
+            "supersub_regret": 24.0
+          },
+          {
+            "round": 2,
+            "captain": "Thomas Ramos",
+            "best_captain_in_xv": "Matthieu Jalibert",
+            "captain_regret": 39.0,
+            "supersub": "Fin Smith",
+            "best_supersub": "Henry Pollock",
+            "best_supersub_rank": 2,
+            "supersub_regret": 19.0
+          },
+          {
+            "round": 3,
+            "captain": "Thomas Ramos",
+            "best_captain_in_xv": "Thomas Ramos",
+            "captain_regret": 0.0,
+            "supersub": "Marcus Smith",
+            "best_supersub": "James Botham",
+            "best_supersub_rank": 14,
+            "supersub_regret": 9.0
+          },
+          {
+            "round": 4,
+            "captain": "Thomas Ramos",
+            "best_captain_in_xv": "Jack Conan",
+            "captain_regret": 23.0,
+            "supersub": "Henry Pollock",
+            "best_supersub": "Tom Jordan",
+            "best_supersub_rank": 8,
+            "supersub_regret": 19.0
+          },
+          {
+            "round": 5,
+            "captain": "Thomas Ramos",
+            "best_captain_in_xv": "Louis Bielle-Biarrey",
+            "captain_regret": 38.0,
+            "supersub": "Marcus Smith",
+            "best_supersub": "Darragh Murray",
+            "best_supersub_rank": 18,
+            "supersub_regret": 5.0
+          }
+        ],
+        "captain_regret_total": 106.0,
+        "supersub_regret_total": 76.0,
+        "selected_bias": {
+          "Back-row": {
+            "n": 16,
+            "pred_mean": 26.04666791662799,
+            "actual_mean": 32.3125,
+            "bias": 6.265832083372013
+          },
+          "Back-three": {
+            "n": 15,
+            "pred_mean": 30.77016229280675,
+            "actual_mean": 39.266666666666666,
+            "bias": 8.496504373859915
+          },
+          "Centre": {
+            "n": 10,
+            "pred_mean": 25.37890931318139,
+            "actual_mean": 29.3,
+            "bias": 3.9210906868186095
+          },
+          "Fly-half": {
+            "n": 9,
+            "pred_mean": 21.07981071391949,
+            "actual_mean": 29.77777777777778,
+            "bias": 8.697967063858288
+          },
+          "Hooker": {
+            "n": 5,
+            "pred_mean": 19.090976164947442,
+            "actual_mean": 23.2,
+            "bias": 4.109023835052562
+          },
+          "Prop": {
+            "n": 10,
+            "pred_mean": 15.68795969742169,
+            "actual_mean": 10.4,
+            "bias": -5.287959697421689
+          },
+          "Scrum-half": {
+            "n": 5,
+            "pred_mean": 27.413964646743455,
+            "actual_mean": 31.0,
+            "bias": 3.5860353532565457
+          },
+          "Second-row": {
+            "n": 10,
+            "pred_mean": 21.97513004050962,
+            "actual_mean": 23.5,
+            "bias": 1.52486995949038
+          }
+        }
+      }
+    },
+    {
+      "name": "captain_mean_plus_upside_010",
+      "note": "captain mean plus 0.10 upside",
+      "value_team": 0.6776672749715337,
+      "value_xv": 0.7144594778697986,
+      "mae": 7.348994791544289,
+      "bench_mae": 4.316175718684459,
+      "top15": 0.3866666666666666,
+      "top30": 0.5466666666666666,
+      "spearman_sel": 0.587103050538006,
+      "capt_top3": 0.2,
+      "dvalue_team_vs_old_base": 0.0,
+      "dvalue_xv_vs_old_base": 0.0,
+      "dmae_vs_old_base": 0.0,
+      "round_team_up_vs_old_base": 0,
+      "sealed_pareto_vs_old_base": false,
+      "round_team": [
+        0.7604306864064603,
+        0.6675257731958762,
+        0.6036269430051814,
+        0.6272965879265092,
+        0.729456384323641
+      ],
+      "selection_diagnostics": {
+        "rounds": [
+          {
+            "round": 1,
+            "captain": "Thomas Ramos",
+            "best_captain_in_xv": "Matthieu Jalibert",
+            "captain_regret": 6.0,
+            "supersub": "Marcus Smith",
+            "best_supersub": "Nick Timoney",
+            "best_supersub_rank": 6,
+            "supersub_regret": 24.0
+          },
+          {
+            "round": 2,
+            "captain": "Thomas Ramos",
+            "best_captain_in_xv": "Matthieu Jalibert",
+            "captain_regret": 39.0,
+            "supersub": "Fin Smith",
+            "best_supersub": "Henry Pollock",
+            "best_supersub_rank": 2,
+            "supersub_regret": 19.0
+          },
+          {
+            "round": 3,
+            "captain": "Thomas Ramos",
+            "best_captain_in_xv": "Thomas Ramos",
+            "captain_regret": 0.0,
+            "supersub": "Marcus Smith",
+            "best_supersub": "James Botham",
+            "best_supersub_rank": 14,
+            "supersub_regret": 9.0
+          },
+          {
+            "round": 4,
+            "captain": "Thomas Ramos",
+            "best_captain_in_xv": "Jack Conan",
+            "captain_regret": 23.0,
+            "supersub": "Henry Pollock",
+            "best_supersub": "Tom Jordan",
+            "best_supersub_rank": 8,
+            "supersub_regret": 19.0
+          },
+          {
+            "round": 5,
+            "captain": "Thomas Ramos",
+            "best_captain_in_xv": "Louis Bielle-Biarrey",
+            "captain_regret": 38.0,
+            "supersub": "Marcus Smith",
+            "best_supersub": "Darragh Murray",
+            "best_supersub_rank": 18,
+            "supersub_regret": 5.0
+          }
+        ],
+        "captain_regret_total": 106.0,
+        "supersub_regret_total": 76.0,
+        "selected_bias": {
+          "Back-row": {
+            "n": 16,
+            "pred_mean": 26.04666791662799,
+            "actual_mean": 32.3125,
+            "bias": 6.265832083372013
+          },
+          "Back-three": {
+            "n": 15,
+            "pred_mean": 30.77016229280675,
+            "actual_mean": 39.266666666666666,
+            "bias": 8.496504373859915
+          },
+          "Centre": {
+            "n": 10,
+            "pred_mean": 25.37890931318139,
+            "actual_mean": 29.3,
+            "bias": 3.9210906868186095
+          },
+          "Fly-half": {
+            "n": 9,
+            "pred_mean": 21.07981071391949,
+            "actual_mean": 29.77777777777778,
+            "bias": 8.697967063858288
+          },
+          "Hooker": {
+            "n": 5,
+            "pred_mean": 19.090976164947442,
+            "actual_mean": 23.2,
+            "bias": 4.109023835052562
+          },
+          "Prop": {
+            "n": 10,
+            "pred_mean": 15.68795969742169,
+            "actual_mean": 10.4,
+            "bias": -5.287959697421689
+          },
+          "Scrum-half": {
+            "n": 5,
+            "pred_mean": 27.413964646743455,
+            "actual_mean": 31.0,
+            "bias": 3.5860353532565457
+          },
+          "Second-row": {
+            "n": 10,
+            "pred_mean": 21.97513004050962,
+            "actual_mean": 23.5,
+            "bias": 1.52486995949038
+          }
+        }
+      }
+    },
+    {
+      "name": "captain_mean_plus_upside_020",
+      "note": "captain mean plus 0.20 upside",
+      "value_team": 0.6776672749715337,
+      "value_xv": 0.7144594778697986,
+      "mae": 7.348994791544289,
+      "bench_mae": 4.316175718684459,
+      "top15": 0.3866666666666666,
+      "top30": 0.5466666666666666,
+      "spearman_sel": 0.587103050538006,
+      "capt_top3": 0.2,
+      "dvalue_team_vs_old_base": 0.0,
+      "dvalue_xv_vs_old_base": 0.0,
+      "dmae_vs_old_base": 0.0,
+      "round_team_up_vs_old_base": 0,
+      "sealed_pareto_vs_old_base": false,
+      "round_team": [
+        0.7604306864064603,
+        0.6675257731958762,
+        0.6036269430051814,
+        0.6272965879265092,
+        0.729456384323641
+      ],
+      "selection_diagnostics": {
+        "rounds": [
+          {
+            "round": 1,
+            "captain": "Thomas Ramos",
+            "best_captain_in_xv": "Matthieu Jalibert",
+            "captain_regret": 6.0,
+            "supersub": "Marcus Smith",
+            "best_supersub": "Nick Timoney",
+            "best_supersub_rank": 6,
+            "supersub_regret": 24.0
+          },
+          {
+            "round": 2,
+            "captain": "Thomas Ramos",
+            "best_captain_in_xv": "Matthieu Jalibert",
+            "captain_regret": 39.0,
+            "supersub": "Fin Smith",
+            "best_supersub": "Henry Pollock",
+            "best_supersub_rank": 2,
+            "supersub_regret": 19.0
+          },
+          {
+            "round": 3,
+            "captain": "Thomas Ramos",
+            "best_captain_in_xv": "Thomas Ramos",
+            "captain_regret": 0.0,
+            "supersub": "Marcus Smith",
+            "best_supersub": "James Botham",
+            "best_supersub_rank": 14,
+            "supersub_regret": 9.0
+          },
+          {
+            "round": 4,
+            "captain": "Thomas Ramos",
+            "best_captain_in_xv": "Jack Conan",
+            "captain_regret": 23.0,
+            "supersub": "Henry Pollock",
+            "best_supersub": "Tom Jordan",
+            "best_supersub_rank": 8,
+            "supersub_regret": 19.0
+          },
+          {
+            "round": 5,
+            "captain": "Thomas Ramos",
+            "best_captain_in_xv": "Louis Bielle-Biarrey",
+            "captain_regret": 38.0,
+            "supersub": "Marcus Smith",
+            "best_supersub": "Darragh Murray",
+            "best_supersub_rank": 18,
+            "supersub_regret": 5.0
+          }
+        ],
+        "captain_regret_total": 106.0,
+        "supersub_regret_total": 76.0,
+        "selected_bias": {
+          "Back-row": {
+            "n": 16,
+            "pred_mean": 26.04666791662799,
+            "actual_mean": 32.3125,
+            "bias": 6.265832083372013
+          },
+          "Back-three": {
+            "n": 15,
+            "pred_mean": 30.77016229280675,
+            "actual_mean": 39.266666666666666,
+            "bias": 8.496504373859915
+          },
+          "Centre": {
+            "n": 10,
+            "pred_mean": 25.37890931318139,
+            "actual_mean": 29.3,
+            "bias": 3.9210906868186095
+          },
+          "Fly-half": {
+            "n": 9,
+            "pred_mean": 21.07981071391949,
+            "actual_mean": 29.77777777777778,
+            "bias": 8.697967063858288
+          },
+          "Hooker": {
+            "n": 5,
+            "pred_mean": 19.090976164947442,
+            "actual_mean": 23.2,
+            "bias": 4.109023835052562
+          },
+          "Prop": {
+            "n": 10,
+            "pred_mean": 15.68795969742169,
+            "actual_mean": 10.4,
+            "bias": -5.287959697421689
+          },
+          "Scrum-half": {
+            "n": 5,
+            "pred_mean": 27.413964646743455,
+            "actual_mean": 31.0,
+            "bias": 3.5860353532565457
+          },
+          "Second-row": {
+            "n": 10,
+            "pred_mean": 21.97513004050962,
+            "actual_mean": 23.5,
+            "bias": 1.52486995949038
+          }
+        }
+      }
+    },
+    {
+      "name": "captain_kicker_floor_plus_upside",
+      "note": "captain mean plus kicker floor and upside",
+      "value_team": 0.6776672749715337,
+      "value_xv": 0.7144594778697986,
+      "mae": 7.348994791544289,
+      "bench_mae": 4.316175718684459,
+      "top15": 0.3866666666666666,
+      "top30": 0.5466666666666666,
+      "spearman_sel": 0.587103050538006,
+      "capt_top3": 0.2,
+      "dvalue_team_vs_old_base": 0.0,
+      "dvalue_xv_vs_old_base": 0.0,
+      "dmae_vs_old_base": 0.0,
+      "round_team_up_vs_old_base": 0,
+      "sealed_pareto_vs_old_base": false,
+      "round_team": [
+        0.7604306864064603,
+        0.6675257731958762,
+        0.6036269430051814,
+        0.6272965879265092,
+        0.729456384323641
+      ],
+      "selection_diagnostics": {
+        "rounds": [
+          {
+            "round": 1,
+            "captain": "Thomas Ramos",
+            "best_captain_in_xv": "Matthieu Jalibert",
+            "captain_regret": 6.0,
+            "supersub": "Marcus Smith",
+            "best_supersub": "Nick Timoney",
+            "best_supersub_rank": 6,
+            "supersub_regret": 24.0
+          },
+          {
+            "round": 2,
+            "captain": "Thomas Ramos",
+            "best_captain_in_xv": "Matthieu Jalibert",
+            "captain_regret": 39.0,
+            "supersub": "Fin Smith",
+            "best_supersub": "Henry Pollock",
+            "best_supersub_rank": 2,
+            "supersub_regret": 19.0
+          },
+          {
+            "round": 3,
+            "captain": "Thomas Ramos",
+            "best_captain_in_xv": "Thomas Ramos",
+            "captain_regret": 0.0,
+            "supersub": "Marcus Smith",
+            "best_supersub": "James Botham",
+            "best_supersub_rank": 14,
+            "supersub_regret": 9.0
+          },
+          {
+            "round": 4,
+            "captain": "Thomas Ramos",
+            "best_captain_in_xv": "Jack Conan",
+            "captain_regret": 23.0,
+            "supersub": "Henry Pollock",
+            "best_supersub": "Tom Jordan",
+            "best_supersub_rank": 8,
+            "supersub_regret": 19.0
+          },
+          {
+            "round": 5,
+            "captain": "Thomas Ramos",
+            "best_captain_in_xv": "Louis Bielle-Biarrey",
+            "captain_regret": 38.0,
+            "supersub": "Marcus Smith",
+            "best_supersub": "Darragh Murray",
+            "best_supersub_rank": 18,
+            "supersub_regret": 5.0
+          }
+        ],
+        "captain_regret_total": 106.0,
+        "supersub_regret_total": 76.0,
+        "selected_bias": {
+          "Back-row": {
+            "n": 16,
+            "pred_mean": 26.04666791662799,
+            "actual_mean": 32.3125,
+            "bias": 6.265832083372013
+          },
+          "Back-three": {
+            "n": 15,
+            "pred_mean": 30.77016229280675,
+            "actual_mean": 39.266666666666666,
+            "bias": 8.496504373859915
+          },
+          "Centre": {
+            "n": 10,
+            "pred_mean": 25.37890931318139,
+            "actual_mean": 29.3,
+            "bias": 3.9210906868186095
+          },
+          "Fly-half": {
+            "n": 9,
+            "pred_mean": 21.07981071391949,
+            "actual_mean": 29.77777777777778,
+            "bias": 8.697967063858288
+          },
+          "Hooker": {
+            "n": 5,
+            "pred_mean": 19.090976164947442,
+            "actual_mean": 23.2,
+            "bias": 4.109023835052562
+          },
+          "Prop": {
+            "n": 10,
+            "pred_mean": 15.68795969742169,
+            "actual_mean": 10.4,
+            "bias": -5.287959697421689
+          },
+          "Scrum-half": {
+            "n": 5,
+            "pred_mean": 27.413964646743455,
+            "actual_mean": 31.0,
+            "bias": 3.5860353532565457
+          },
+          "Second-row": {
+            "n": 10,
+            "pred_mean": 21.97513004050962,
+            "actual_mean": 23.5,
+            "bias": 1.52486995949038
+          }
+        }
+      }
+    },
+    {
+      "name": "captain_rank_overlay_025",
+      "note": "captain mean plus rank overlay",
+      "value_team": 0.6776672749715337,
+      "value_xv": 0.7144594778697986,
+      "mae": 7.348994791544289,
+      "bench_mae": 4.316175718684459,
+      "top15": 0.3866666666666666,
+      "top30": 0.5466666666666666,
+      "spearman_sel": 0.587103050538006,
+      "capt_top3": 0.2,
+      "dvalue_team_vs_old_base": 0.0,
+      "dvalue_xv_vs_old_base": 0.0,
+      "dmae_vs_old_base": 0.0,
+      "round_team_up_vs_old_base": 0,
+      "sealed_pareto_vs_old_base": false,
+      "round_team": [
+        0.7604306864064603,
+        0.6675257731958762,
+        0.6036269430051814,
+        0.6272965879265092,
+        0.729456384323641
+      ],
+      "selection_diagnostics": {
+        "rounds": [
+          {
+            "round": 1,
+            "captain": "Thomas Ramos",
+            "best_captain_in_xv": "Matthieu Jalibert",
+            "captain_regret": 6.0,
+            "supersub": "Marcus Smith",
+            "best_supersub": "Nick Timoney",
+            "best_supersub_rank": 6,
+            "supersub_regret": 24.0
+          },
+          {
+            "round": 2,
+            "captain": "Thomas Ramos",
+            "best_captain_in_xv": "Matthieu Jalibert",
+            "captain_regret": 39.0,
+            "supersub": "Fin Smith",
+            "best_supersub": "Henry Pollock",
+            "best_supersub_rank": 2,
+            "supersub_regret": 19.0
+          },
+          {
+            "round": 3,
+            "captain": "Thomas Ramos",
+            "best_captain_in_xv": "Thomas Ramos",
+            "captain_regret": 0.0,
+            "supersub": "Marcus Smith",
+            "best_supersub": "James Botham",
+            "best_supersub_rank": 14,
+            "supersub_regret": 9.0
+          },
+          {
+            "round": 4,
+            "captain": "Thomas Ramos",
+            "best_captain_in_xv": "Jack Conan",
+            "captain_regret": 23.0,
+            "supersub": "Henry Pollock",
+            "best_supersub": "Tom Jordan",
+            "best_supersub_rank": 8,
+            "supersub_regret": 19.0
+          },
+          {
+            "round": 5,
+            "captain": "Thomas Ramos",
+            "best_captain_in_xv": "Louis Bielle-Biarrey",
+            "captain_regret": 38.0,
+            "supersub": "Marcus Smith",
+            "best_supersub": "Darragh Murray",
+            "best_supersub_rank": 18,
+            "supersub_regret": 5.0
+          }
+        ],
+        "captain_regret_total": 106.0,
+        "supersub_regret_total": 76.0,
+        "selected_bias": {
+          "Back-row": {
+            "n": 16,
+            "pred_mean": 26.04666791662799,
+            "actual_mean": 32.3125,
+            "bias": 6.265832083372013
+          },
+          "Back-three": {
+            "n": 15,
+            "pred_mean": 30.77016229280675,
+            "actual_mean": 39.266666666666666,
+            "bias": 8.496504373859915
+          },
+          "Centre": {
+            "n": 10,
+            "pred_mean": 25.37890931318139,
+            "actual_mean": 29.3,
+            "bias": 3.9210906868186095
+          },
+          "Fly-half": {
+            "n": 9,
+            "pred_mean": 21.07981071391949,
+            "actual_mean": 29.77777777777778,
+            "bias": 8.697967063858288
+          },
+          "Hooker": {
+            "n": 5,
+            "pred_mean": 19.090976164947442,
+            "actual_mean": 23.2,
+            "bias": 4.109023835052562
+          },
+          "Prop": {
+            "n": 10,
+            "pred_mean": 15.68795969742169,
+            "actual_mean": 10.4,
+            "bias": -5.287959697421689
+          },
+          "Scrum-half": {
+            "n": 5,
+            "pred_mean": 27.413964646743455,
+            "actual_mean": 31.0,
+            "bias": 3.5860353532565457
+          },
+          "Second-row": {
+            "n": 10,
+            "pred_mean": 21.97513004050962,
+            "actual_mean": 23.5,
+            "bias": 1.52486995949038
+          }
+        }
+      }
+    },
+    {
+      "name": "selector_upside_backthree_025",
+      "note": "XV selector upside overlay for back-three",
+      "value_team": 0.674127451962684,
+      "value_xv": 0.7101183925984808,
+      "mae": 7.348994791544289,
+      "bench_mae": 4.316175718684459,
+      "top15": 0.36,
+      "top30": 0.54,
+      "spearman_sel": 0.5852575286014784,
+      "capt_top3": 0.2,
+      "dvalue_team_vs_old_base": -0.0035398230088496963,
+      "dvalue_xv_vs_old_base": -0.004341085271317824,
+      "dmae_vs_old_base": 0.0,
+      "round_team_up_vs_old_base": 0,
+      "sealed_pareto_vs_old_base": false,
+      "round_team": [
+        0.7604306864064603,
+        0.6675257731958762,
+        0.6036269430051814,
+        0.6272965879265092,
+        0.7117572692793932
+      ],
+      "selection_diagnostics": {
+        "rounds": [
+          {
+            "round": 1,
+            "captain": "Thomas Ramos",
+            "best_captain_in_xv": "Matthieu Jalibert",
+            "captain_regret": 6.0,
+            "supersub": "Marcus Smith",
+            "best_supersub": "Nick Timoney",
+            "best_supersub_rank": 6,
+            "supersub_regret": 24.0
+          },
+          {
+            "round": 2,
+            "captain": "Thomas Ramos",
+            "best_captain_in_xv": "Matthieu Jalibert",
+            "captain_regret": 39.0,
+            "supersub": "Fin Smith",
+            "best_supersub": "Henry Pollock",
+            "best_supersub_rank": 2,
+            "supersub_regret": 19.0
+          },
+          {
+            "round": 3,
+            "captain": "Thomas Ramos",
+            "best_captain_in_xv": "Thomas Ramos",
+            "captain_regret": 0.0,
+            "supersub": "Marcus Smith",
+            "best_supersub": "James Botham",
+            "best_supersub_rank": 13,
+            "supersub_regret": 9.0
+          },
+          {
+            "round": 4,
+            "captain": "Thomas Ramos",
+            "best_captain_in_xv": "Jack Conan",
+            "captain_regret": 23.0,
+            "supersub": "Henry Pollock",
+            "best_supersub": "Tom Jordan",
+            "best_supersub_rank": 8,
+            "supersub_regret": 19.0
+          },
+          {
+            "round": 5,
+            "captain": "Thomas Ramos",
+            "best_captain_in_xv": "Louis Bielle-Biarrey",
+            "captain_regret": 38.0,
+            "supersub": "Marcus Smith",
+            "best_supersub": "Darragh Murray",
+            "best_supersub_rank": 17,
+            "supersub_regret": 5.0
+          }
+        ],
+        "captain_regret_total": 106.0,
+        "supersub_regret_total": 76.0,
+        "selected_bias": {
+          "Back-row": {
+            "n": 16,
+            "pred_mean": 26.04666791662799,
+            "actual_mean": 32.3125,
+            "bias": 6.265832083372013
+          },
+          "Back-three": {
+            "n": 15,
+            "pred_mean": 30.647383223657865,
+            "actual_mean": 38.333333333333336,
+            "bias": 7.685950109675465
+          },
+          "Centre": {
+            "n": 10,
+            "pred_mean": 25.37890931318139,
+            "actual_mean": 29.3,
+            "bias": 3.9210906868186095
+          },
+          "Fly-half": {
+            "n": 9,
+            "pred_mean": 21.07981071391949,
+            "actual_mean": 29.77777777777778,
+            "bias": 8.697967063858288
+          },
+          "Hooker": {
+            "n": 5,
+            "pred_mean": 19.090976164947442,
+            "actual_mean": 23.2,
+            "bias": 4.109023835052562
+          },
+          "Prop": {
+            "n": 10,
+            "pred_mean": 15.68795969742169,
+            "actual_mean": 10.4,
+            "bias": -5.287959697421689
+          },
+          "Scrum-half": {
+            "n": 5,
+            "pred_mean": 27.413964646743455,
+            "actual_mean": 31.0,
+            "bias": 3.5860353532565457
+          },
+          "Second-row": {
+            "n": 10,
+            "pred_mean": 21.97513004050962,
+            "actual_mean": 23.5,
+            "bias": 1.52486995949038
+          }
+        }
+      }
+    },
+    {
+      "name": "selector_upside_backrow_backs_025",
+      "note": "XV selector upside overlay for back-row and outside backs",
+      "value_team": 0.673874607462052,
+      "value_xv": 0.7098083150791009,
+      "mae": 7.348994791544289,
+      "bench_mae": 4.316175718684459,
+      "top15": 0.3333333333333333,
+      "top30": 0.5399999999999999,
+      "spearman_sel": 0.5869381572830873,
+      "capt_top3": 0.2,
+      "dvalue_team_vs_old_base": -0.0037926675094817064,
+      "dvalue_xv_vs_old_base": -0.0046511627906976605,
+      "dmae_vs_old_base": 0.0,
+      "round_team_up_vs_old_base": 0,
+      "sealed_pareto_vs_old_base": false,
+      "round_team": [
+        0.7604306864064603,
+        0.6675257731958762,
+        0.6036269430051814,
+        0.6272965879265092,
+        0.7104930467762326
+      ],
+      "selection_diagnostics": {
+        "rounds": [
+          {
+            "round": 1,
+            "captain": "Thomas Ramos",
+            "best_captain_in_xv": "Matthieu Jalibert",
+            "captain_regret": 6.0,
+            "supersub": "Marcus Smith",
+            "best_supersub": "Nick Timoney",
+            "best_supersub_rank": 7,
+            "supersub_regret": 24.0
+          },
+          {
+            "round": 2,
+            "captain": "Thomas Ramos",
+            "best_captain_in_xv": "Matthieu Jalibert",
+            "captain_regret": 39.0,
+            "supersub": "Fin Smith",
+            "best_supersub": "Henry Pollock",
+            "best_supersub_rank": 2,
+            "supersub_regret": 19.0
+          },
+          {
+            "round": 3,
+            "captain": "Thomas Ramos",
+            "best_captain_in_xv": "Thomas Ramos",
+            "captain_regret": 0.0,
+            "supersub": "Marcus Smith",
+            "best_supersub": "James Botham",
+            "best_supersub_rank": 37,
+            "supersub_regret": 9.0
+          },
+          {
+            "round": 4,
+            "captain": "Thomas Ramos",
+            "best_captain_in_xv": "Jack Conan",
+            "captain_regret": 23.0,
+            "supersub": "Marcus Smith",
+            "best_supersub": "Tom Jordan",
+            "best_supersub_rank": 8,
+            "supersub_regret": 19.0
+          },
+          {
+            "round": 5,
+            "captain": "Thomas Ramos",
+            "best_captain_in_xv": "Louis Bielle-Biarrey",
+            "captain_regret": 38.0,
+            "supersub": "Marcus Smith",
+            "best_supersub": "Darragh Murray",
+            "best_supersub_rank": 15,
+            "supersub_regret": 5.0
+          }
+        ],
+        "captain_regret_total": 106.0,
+        "supersub_regret_total": 76.0,
+        "selected_bias": {
+          "Back-row": {
+            "n": 15,
+            "pred_mean": 26.84296297681651,
+            "actual_mean": 34.4,
+            "bias": 7.557037023183496
+          },
+          "Back-three": {
+            "n": 15,
+            "pred_mean": 30.647383223657865,
+            "actual_mean": 38.333333333333336,
+            "bias": 7.685950109675465
+          },
+          "Centre": {
+            "n": 10,
+            "pred_mean": 25.37890931318139,
+            "actual_mean": 29.3,
+            "bias": 3.9210906868186095
+          },
+          "Fly-half": {
+            "n": 10,
+            "pred_mean": 20.296816627346196,
+            "actual_mean": 26.8,
+            "bias": 6.503183372653808
+          },
+          "Hooker": {
+            "n": 5,
+            "pred_mean": 19.090976164947442,
+            "actual_mean": 23.2,
+            "bias": 4.109023835052562
+          },
+          "Prop": {
+            "n": 10,
+            "pred_mean": 15.68795969742169,
+            "actual_mean": 10.4,
+            "bias": -5.287959697421689
+          },
+          "Scrum-half": {
+            "n": 5,
+            "pred_mean": 27.413964646743455,
+            "actual_mean": 31.0,
+            "bias": 3.5860353532565457
+          },
+          "Second-row": {
+            "n": 10,
+            "pred_mean": 21.97513004050962,
+            "actual_mean": 23.5,
+            "bias": 1.52486995949038
+          }
+        }
+      }
+    },
+    {
+      "name": "selector_upside_halfbacks_backs_025",
+      "note": "XV selector upside overlay for halfbacks and backs",
+      "value_team": 0.6923579966210183,
+      "value_xv": 0.7144594778697986,
+      "mae": 7.348994791544289,
+      "bench_mae": 4.316175718684459,
+      "top15": 0.3466666666666666,
+      "top30": 0.5266666666666666,
+      "spearman_sel": 0.5873844033431567,
+      "capt_top3": 0.2,
+      "dvalue_team_vs_old_base": 0.014690721649484595,
+      "dvalue_xv_vs_old_base": 0.0,
+      "dmae_vs_old_base": 0.0,
+      "round_team_up_vs_old_base": 1,
+      "sealed_pareto_vs_old_base": true,
+      "round_team": [
+        0.7604306864064603,
+        0.740979381443299,
+        0.6036269430051814,
+        0.6272965879265092,
+        0.729456384323641
+      ],
+      "selection_diagnostics": {
+        "rounds": [
+          {
+            "round": 1,
+            "captain": "Thomas Ramos",
+            "best_captain_in_xv": "Matthieu Jalibert",
+            "captain_regret": 6.0,
+            "supersub": "Marcus Smith",
+            "best_supersub": "Nick Timoney",
+            "best_supersub_rank": 6,
+            "supersub_regret": 24.0
+          },
+          {
+            "round": 2,
+            "captain": "Thomas Ramos",
+            "best_captain_in_xv": "Matthieu Jalibert",
+            "captain_regret": 39.0,
+            "supersub": "Henry Pollock",
+            "best_supersub": "Henry Pollock",
+            "best_supersub_rank": 1,
+            "supersub_regret": 0.0
+          },
+          {
+            "round": 3,
+            "captain": "Thomas Ramos",
+            "best_captain_in_xv": "Thomas Ramos",
+            "captain_regret": 0.0,
+            "supersub": "Marcus Smith",
+            "best_supersub": "James Botham",
+            "best_supersub_rank": 13,
+            "supersub_regret": 9.0
+          },
+          {
+            "round": 4,
+            "captain": "Thomas Ramos",
+            "best_captain_in_xv": "Jack Conan",
+            "captain_regret": 23.0,
+            "supersub": "Henry Pollock",
+            "best_supersub": "Tom Jordan",
+            "best_supersub_rank": 10,
+            "supersub_regret": 19.0
+          },
+          {
+            "round": 5,
+            "captain": "Thomas Ramos",
+            "best_captain_in_xv": "Louis Bielle-Biarrey",
+            "captain_regret": 38.0,
+            "supersub": "Marcus Smith",
+            "best_supersub": "Darragh Murray",
+            "best_supersub_rank": 16,
+            "supersub_regret": 5.0
+          }
+        ],
+        "captain_regret_total": 106.0,
+        "supersub_regret_total": 57.0,
+        "selected_bias": {
+          "Back-row": {
+            "n": 17,
+            "pred_mean": 25.344026339824136,
+            "actual_mean": 31.705882352941178,
+            "bias": 6.361856013117039
+          },
+          "Back-three": {
+            "n": 15,
+            "pred_mean": 30.77016229280675,
+            "actual_mean": 39.266666666666666,
+            "bias": 8.496504373859915
+          },
+          "Centre": {
+            "n": 10,
+            "pred_mean": 25.37890931318139,
+            "actual_mean": 29.3,
+            "bias": 3.9210906868186095
+          },
+          "Fly-half": {
+            "n": 8,
+            "pred_mean": 21.91866206894241,
+            "actual_mean": 33.125,
+            "bias": 11.206337931057591
+          },
+          "Hooker": {
+            "n": 5,
+            "pred_mean": 19.090976164947442,
+            "actual_mean": 23.2,
+            "bias": 4.109023835052562
+          },
+          "Prop": {
+            "n": 10,
+            "pred_mean": 15.68795969742169,
+            "actual_mean": 10.4,
+            "bias": -5.287959697421689
+          },
+          "Scrum-half": {
+            "n": 5,
+            "pred_mean": 27.413964646743455,
+            "actual_mean": 31.0,
+            "bias": 3.5860353532565457
+          },
+          "Second-row": {
+            "n": 10,
+            "pred_mean": 21.97513004050962,
+            "actual_mean": 23.5,
+            "bias": 1.52486995949038
+          }
+        }
+      }
+    },
+    {
+      "name": "selector_mean_plus_upside_010",
+      "note": "XV selector mean plus 0.10 upside overlay",
+      "value_team": 0.6776672749715337,
+      "value_xv": 0.7144594778697986,
+      "mae": 7.348994791544289,
+      "bench_mae": 4.316175718684459,
+      "top15": 0.3733333333333333,
+      "top30": 0.5466666666666666,
+      "spearman_sel": 0.5865407493034307,
+      "capt_top3": 0.2,
+      "dvalue_team_vs_old_base": 0.0,
+      "dvalue_xv_vs_old_base": 0.0,
+      "dmae_vs_old_base": 0.0,
+      "round_team_up_vs_old_base": 0,
+      "sealed_pareto_vs_old_base": false,
+      "round_team": [
+        0.7604306864064603,
+        0.6675257731958762,
+        0.6036269430051814,
+        0.6272965879265092,
+        0.729456384323641
+      ],
+      "selection_diagnostics": {
+        "rounds": [
+          {
+            "round": 1,
+            "captain": "Thomas Ramos",
+            "best_captain_in_xv": "Matthieu Jalibert",
+            "captain_regret": 6.0,
+            "supersub": "Marcus Smith",
+            "best_supersub": "Nick Timoney",
+            "best_supersub_rank": 6,
+            "supersub_regret": 24.0
+          },
+          {
+            "round": 2,
+            "captain": "Thomas Ramos",
+            "best_captain_in_xv": "Matthieu Jalibert",
+            "captain_regret": 39.0,
+            "supersub": "Fin Smith",
+            "best_supersub": "Henry Pollock",
+            "best_supersub_rank": 2,
+            "supersub_regret": 19.0
+          },
+          {
+            "round": 3,
+            "captain": "Thomas Ramos",
+            "best_captain_in_xv": "Thomas Ramos",
+            "captain_regret": 0.0,
+            "supersub": "Marcus Smith",
+            "best_supersub": "James Botham",
+            "best_supersub_rank": 17,
+            "supersub_regret": 9.0
+          },
+          {
+            "round": 4,
+            "captain": "Thomas Ramos",
+            "best_captain_in_xv": "Jack Conan",
+            "captain_regret": 23.0,
+            "supersub": "Henry Pollock",
+            "best_supersub": "Tom Jordan",
+            "best_supersub_rank": 6,
+            "supersub_regret": 19.0
+          },
+          {
+            "round": 5,
+            "captain": "Thomas Ramos",
+            "best_captain_in_xv": "Louis Bielle-Biarrey",
+            "captain_regret": 38.0,
+            "supersub": "Marcus Smith",
+            "best_supersub": "Darragh Murray",
+            "best_supersub_rank": 18,
+            "supersub_regret": 5.0
+          }
+        ],
+        "captain_regret_total": 106.0,
+        "supersub_regret_total": 76.0,
+        "selected_bias": {
+          "Back-row": {
+            "n": 16,
+            "pred_mean": 26.04666791662799,
+            "actual_mean": 32.3125,
+            "bias": 6.265832083372013
+          },
+          "Back-three": {
+            "n": 15,
+            "pred_mean": 30.77016229280675,
+            "actual_mean": 39.266666666666666,
+            "bias": 8.496504373859915
+          },
+          "Centre": {
+            "n": 10,
+            "pred_mean": 25.37890931318139,
+            "actual_mean": 29.3,
+            "bias": 3.9210906868186095
+          },
+          "Fly-half": {
+            "n": 9,
+            "pred_mean": 21.07981071391949,
+            "actual_mean": 29.77777777777778,
+            "bias": 8.697967063858288
+          },
+          "Hooker": {
+            "n": 5,
+            "pred_mean": 19.090976164947442,
+            "actual_mean": 23.2,
+            "bias": 4.109023835052562
+          },
+          "Prop": {
+            "n": 10,
+            "pred_mean": 15.68795969742169,
+            "actual_mean": 10.4,
+            "bias": -5.287959697421689
+          },
+          "Scrum-half": {
+            "n": 5,
+            "pred_mean": 27.413964646743455,
+            "actual_mean": 31.0,
+            "bias": 3.5860353532565457
+          },
+          "Second-row": {
+            "n": 10,
+            "pred_mean": 21.97513004050962,
+            "actual_mean": 23.5,
+            "bias": 1.52486995949038
+          }
+        }
+      }
+    },
+    {
+      "name": "selector_mean_plus_upside_020",
+      "note": "XV selector mean plus 0.20 upside overlay",
+      "value_team": 0.6774144304709016,
+      "value_xv": 0.7141494003504187,
+      "mae": 7.348994791544289,
+      "bench_mae": 4.316175718684459,
+      "top15": 0.3333333333333333,
+      "top30": 0.5466666666666666,
+      "spearman_sel": 0.5868813864332041,
+      "capt_top3": 0.2,
+      "dvalue_team_vs_old_base": -0.00025284450063212116,
+      "dvalue_xv_vs_old_base": -0.00031007751937983663,
+      "dmae_vs_old_base": 0.0,
+      "round_team_up_vs_old_base": 0,
+      "sealed_pareto_vs_old_base": false,
+      "round_team": [
+        0.7604306864064603,
+        0.6675257731958762,
+        0.6036269430051814,
+        0.6272965879265092,
+        0.7281921618204804
+      ],
+      "selection_diagnostics": {
+        "rounds": [
+          {
+            "round": 1,
+            "captain": "Thomas Ramos",
+            "best_captain_in_xv": "Matthieu Jalibert",
+            "captain_regret": 6.0,
+            "supersub": "Marcus Smith",
+            "best_supersub": "Nick Timoney",
+            "best_supersub_rank": 7,
+            "supersub_regret": 24.0
+          },
+          {
+            "round": 2,
+            "captain": "Thomas Ramos",
+            "best_captain_in_xv": "Matthieu Jalibert",
+            "captain_regret": 39.0,
+            "supersub": "Fin Smith",
+            "best_supersub": "Henry Pollock",
+            "best_supersub_rank": 2,
+            "supersub_regret": 19.0
+          },
+          {
+            "round": 3,
+            "captain": "Thomas Ramos",
+            "best_captain_in_xv": "Thomas Ramos",
+            "captain_regret": 0.0,
+            "supersub": "Marcus Smith",
+            "best_supersub": "James Botham",
+            "best_supersub_rank": 20,
+            "supersub_regret": 9.0
+          },
+          {
+            "round": 4,
+            "captain": "Thomas Ramos",
+            "best_captain_in_xv": "Jack Conan",
+            "captain_regret": 23.0,
+            "supersub": "Marcus Smith",
+            "best_supersub": "Tom Jordan",
+            "best_supersub_rank": 6,
+            "supersub_regret": 19.0
+          },
+          {
+            "round": 5,
+            "captain": "Thomas Ramos",
+            "best_captain_in_xv": "Louis Bielle-Biarrey",
+            "captain_regret": 38.0,
+            "supersub": "Marcus Smith",
+            "best_supersub": "Darragh Murray",
+            "best_supersub_rank": 19,
+            "supersub_regret": 5.0
+          }
+        ],
+        "captain_regret_total": 106.0,
+        "supersub_regret_total": 76.0,
+        "selected_bias": {
+          "Back-row": {
+            "n": 15,
+            "pred_mean": 26.84296297681651,
+            "actual_mean": 34.4,
+            "bias": 7.557037023183496
+          },
+          "Back-three": {
+            "n": 15,
+            "pred_mean": 30.77016229280675,
+            "actual_mean": 39.266666666666666,
+            "bias": 8.496504373859915
+          },
+          "Centre": {
+            "n": 10,
+            "pred_mean": 25.37890931318139,
+            "actual_mean": 29.3,
+            "bias": 3.9210906868186095
+          },
+          "Fly-half": {
+            "n": 10,
+            "pred_mean": 20.296816627346196,
+            "actual_mean": 26.8,
+            "bias": 6.503183372653808
+          },
+          "Hooker": {
+            "n": 5,
+            "pred_mean": 19.090976164947442,
+            "actual_mean": 23.2,
+            "bias": 4.109023835052562
+          },
+          "Prop": {
+            "n": 10,
+            "pred_mean": 15.68795969742169,
+            "actual_mean": 10.4,
+            "bias": -5.287959697421689
+          },
+          "Scrum-half": {
+            "n": 5,
+            "pred_mean": 27.413964646743455,
+            "actual_mean": 31.0,
+            "bias": 3.5860353532565457
+          },
+          "Second-row": {
+            "n": 10,
+            "pred_mean": 21.97513004050962,
+            "actual_mean": 23.5,
+            "bias": 1.52486995949038
+          }
+        }
+      }
+    },
+    {
+      "name": "team_specialist_bench025_capt010",
+      "note": "bench 0.25 plus captain upside 0.10",
+      "value_team": 0.6776518390236875,
+      "value_xv": 0.7144594778697986,
+      "mae": 7.348994791544289,
+      "bench_mae": 4.316175718684459,
+      "top15": 0.3866666666666666,
+      "top30": 0.5466666666666666,
+      "spearman_sel": 0.587103050538006,
+      "capt_top3": 0.2,
+      "dvalue_team_vs_old_base": -1.5435947846142994e-05,
+      "dvalue_xv_vs_old_base": 0.0,
+      "dmae_vs_old_base": 0.0,
+      "round_team_up_vs_old_base": 1,
+      "sealed_pareto_vs_old_base": false,
+      "round_team": [
+        0.7362045760430687,
+        0.740979381443299,
+        0.6036269430051814,
+        0.6272965879265092,
+        0.6801517067003793
+      ],
+      "selection_diagnostics": {
+        "rounds": [
+          {
+            "round": 1,
+            "captain": "Thomas Ramos",
+            "best_captain_in_xv": "Matthieu Jalibert",
+            "captain_regret": 6.0,
+            "supersub": "Henry Pollock",
+            "best_supersub": "Nick Timoney",
+            "best_supersub_rank": 8,
+            "supersub_regret": 30.0
+          },
+          {
+            "round": 2,
+            "captain": "Thomas Ramos",
+            "best_captain_in_xv": "Matthieu Jalibert",
+            "captain_regret": 39.0,
+            "supersub": "Henry Pollock",
+            "best_supersub": "Henry Pollock",
+            "best_supersub_rank": 1,
+            "supersub_regret": 0.0
+          },
+          {
+            "round": 3,
+            "captain": "Thomas Ramos",
+            "best_captain_in_xv": "Thomas Ramos",
+            "captain_regret": 0.0,
+            "supersub": "Marcus Smith",
+            "best_supersub": "James Botham",
+            "best_supersub_rank": 7,
+            "supersub_regret": 9.0
+          },
+          {
+            "round": 4,
+            "captain": "Thomas Ramos",
+            "best_captain_in_xv": "Jack Conan",
+            "captain_regret": 23.0,
+            "supersub": "Henry Pollock",
+            "best_supersub": "Tom Jordan",
+            "best_supersub_rank": 9,
+            "supersub_regret": 19.0
+          },
+          {
+            "round": 5,
+            "captain": "Thomas Ramos",
+            "best_captain_in_xv": "Louis Bielle-Biarrey",
+            "captain_regret": 38.0,
+            "supersub": "Henry Pollock",
+            "best_supersub": "Darragh Murray",
+            "best_supersub_rank": 25,
+            "supersub_regret": 18.0
+          }
+        ],
+        "captain_regret_total": 106.0,
+        "supersub_regret_total": 76.0,
+        "selected_bias": {
+          "Back-row": {
+            "n": 19,
+            "pred_mean": 23.964422185609372,
+            "actual_mean": 28.94736842105263,
+            "bias": 4.98294623544326
+          },
+          "Back-three": {
+            "n": 15,
+            "pred_mean": 30.77016229280675,
+            "actual_mean": 39.266666666666666,
+            "bias": 8.496504373859915
+          },
+          "Centre": {
+            "n": 10,
+            "pred_mean": 25.37890931318139,
+            "actual_mean": 29.3,
+            "bias": 3.9210906868186095
+          },
+          "Fly-half": {
+            "n": 6,
+            "pred_mean": 24.761056832100873,
+            "actual_mean": 39.166666666666664,
+            "bias": 14.405609834565796
+          },
+          "Hooker": {
+            "n": 5,
+            "pred_mean": 19.090976164947442,
+            "actual_mean": 23.2,
+            "bias": 4.109023835052562
+          },
+          "Prop": {
+            "n": 10,
+            "pred_mean": 15.68795969742169,
+            "actual_mean": 10.4,
+            "bias": -5.287959697421689
+          },
+          "Scrum-half": {
+            "n": 5,
+            "pred_mean": 27.413964646743455,
+            "actual_mean": 31.0,
+            "bias": 3.5860353532565457
+          },
+          "Second-row": {
+            "n": 10,
+            "pred_mean": 21.97513004050962,
+            "actual_mean": 23.5,
+            "bias": 1.52486995949038
+          }
+        }
+      }
+    },
+    {
+      "name": "team_specialist_bench025_upside010",
+      "note": "bench 0.25 plus XV upside 0.10",
+      "value_team": 0.6776518390236875,
+      "value_xv": 0.7144594778697986,
+      "mae": 7.348994791544289,
+      "bench_mae": 4.316175718684459,
+      "top15": 0.3733333333333333,
+      "top30": 0.5466666666666666,
+      "spearman_sel": 0.5865407493034307,
+      "capt_top3": 0.2,
+      "dvalue_team_vs_old_base": -1.5435947846142994e-05,
+      "dvalue_xv_vs_old_base": 0.0,
+      "dmae_vs_old_base": 0.0,
+      "round_team_up_vs_old_base": 1,
+      "sealed_pareto_vs_old_base": false,
+      "round_team": [
+        0.7362045760430687,
+        0.740979381443299,
+        0.6036269430051814,
+        0.6272965879265092,
+        0.6801517067003793
+      ],
+      "selection_diagnostics": {
+        "rounds": [
+          {
+            "round": 1,
+            "captain": "Thomas Ramos",
+            "best_captain_in_xv": "Matthieu Jalibert",
+            "captain_regret": 6.0,
+            "supersub": "Henry Pollock",
+            "best_supersub": "Nick Timoney",
+            "best_supersub_rank": 7,
+            "supersub_regret": 30.0
+          },
+          {
+            "round": 2,
+            "captain": "Thomas Ramos",
+            "best_captain_in_xv": "Matthieu Jalibert",
+            "captain_regret": 39.0,
+            "supersub": "Henry Pollock",
+            "best_supersub": "Henry Pollock",
+            "best_supersub_rank": 1,
+            "supersub_regret": 0.0
+          },
+          {
+            "round": 3,
+            "captain": "Thomas Ramos",
+            "best_captain_in_xv": "Thomas Ramos",
+            "captain_regret": 0.0,
+            "supersub": "Marcus Smith",
+            "best_supersub": "James Botham",
+            "best_supersub_rank": 8,
+            "supersub_regret": 9.0
+          },
+          {
+            "round": 4,
+            "captain": "Thomas Ramos",
+            "best_captain_in_xv": "Jack Conan",
+            "captain_regret": 23.0,
+            "supersub": "Henry Pollock",
+            "best_supersub": "Tom Jordan",
+            "best_supersub_rank": 7,
+            "supersub_regret": 19.0
+          },
+          {
+            "round": 5,
+            "captain": "Thomas Ramos",
+            "best_captain_in_xv": "Louis Bielle-Biarrey",
+            "captain_regret": 38.0,
+            "supersub": "Henry Pollock",
+            "best_supersub": "Darragh Murray",
+            "best_supersub_rank": 24,
+            "supersub_regret": 18.0
+          }
+        ],
+        "captain_regret_total": 106.0,
+        "supersub_regret_total": 76.0,
+        "selected_bias": {
+          "Back-row": {
+            "n": 19,
+            "pred_mean": 23.964422185609372,
+            "actual_mean": 28.94736842105263,
+            "bias": 4.98294623544326
+          },
+          "Back-three": {
+            "n": 15,
+            "pred_mean": 30.77016229280675,
+            "actual_mean": 39.266666666666666,
+            "bias": 8.496504373859915
+          },
+          "Centre": {
+            "n": 10,
+            "pred_mean": 25.37890931318139,
+            "actual_mean": 29.3,
+            "bias": 3.9210906868186095
+          },
+          "Fly-half": {
+            "n": 6,
+            "pred_mean": 24.761056832100873,
+            "actual_mean": 39.166666666666664,
+            "bias": 14.405609834565796
+          },
+          "Hooker": {
+            "n": 5,
+            "pred_mean": 19.090976164947442,
+            "actual_mean": 23.2,
+            "bias": 4.109023835052562
+          },
+          "Prop": {
+            "n": 10,
+            "pred_mean": 15.68795969742169,
+            "actual_mean": 10.4,
+            "bias": -5.287959697421689
+          },
+          "Scrum-half": {
+            "n": 5,
+            "pred_mean": 27.413964646743455,
+            "actual_mean": 31.0,
+            "bias": 3.5860353532565457
+          },
+          "Second-row": {
+            "n": 10,
+            "pred_mean": 21.97513004050962,
+            "actual_mean": 23.5,
+            "bias": 1.52486995949038
+          }
+        }
+      }
+    },
+    {
+      "name": "team_specialist_bench025_capt010_upside010",
+      "note": "bench, captain, and XV upside specialists",
+      "value_team": 0.6776518390236875,
+      "value_xv": 0.7144594778697986,
+      "mae": 7.348994791544289,
+      "bench_mae": 4.316175718684459,
+      "top15": 0.3733333333333333,
+      "top30": 0.5466666666666666,
+      "spearman_sel": 0.5865407493034307,
+      "capt_top3": 0.2,
+      "dvalue_team_vs_old_base": -1.5435947846142994e-05,
+      "dvalue_xv_vs_old_base": 0.0,
+      "dmae_vs_old_base": 0.0,
+      "round_team_up_vs_old_base": 1,
+      "sealed_pareto_vs_old_base": false,
+      "round_team": [
+        0.7362045760430687,
+        0.740979381443299,
+        0.6036269430051814,
+        0.6272965879265092,
+        0.6801517067003793
+      ],
+      "selection_diagnostics": {
+        "rounds": [
+          {
+            "round": 1,
+            "captain": "Thomas Ramos",
+            "best_captain_in_xv": "Matthieu Jalibert",
+            "captain_regret": 6.0,
+            "supersub": "Henry Pollock",
+            "best_supersub": "Nick Timoney",
+            "best_supersub_rank": 7,
+            "supersub_regret": 30.0
+          },
+          {
+            "round": 2,
+            "captain": "Thomas Ramos",
+            "best_captain_in_xv": "Matthieu Jalibert",
+            "captain_regret": 39.0,
+            "supersub": "Henry Pollock",
+            "best_supersub": "Henry Pollock",
+            "best_supersub_rank": 1,
+            "supersub_regret": 0.0
+          },
+          {
+            "round": 3,
+            "captain": "Thomas Ramos",
+            "best_captain_in_xv": "Thomas Ramos",
+            "captain_regret": 0.0,
+            "supersub": "Marcus Smith",
+            "best_supersub": "James Botham",
+            "best_supersub_rank": 8,
+            "supersub_regret": 9.0
+          },
+          {
+            "round": 4,
+            "captain": "Thomas Ramos",
+            "best_captain_in_xv": "Jack Conan",
+            "captain_regret": 23.0,
+            "supersub": "Henry Pollock",
+            "best_supersub": "Tom Jordan",
+            "best_supersub_rank": 7,
+            "supersub_regret": 19.0
+          },
+          {
+            "round": 5,
+            "captain": "Thomas Ramos",
+            "best_captain_in_xv": "Louis Bielle-Biarrey",
+            "captain_regret": 38.0,
+            "supersub": "Henry Pollock",
+            "best_supersub": "Darragh Murray",
+            "best_supersub_rank": 24,
+            "supersub_regret": 18.0
+          }
+        ],
+        "captain_regret_total": 106.0,
+        "supersub_regret_total": 76.0,
+        "selected_bias": {
+          "Back-row": {
+            "n": 19,
+            "pred_mean": 23.964422185609372,
+            "actual_mean": 28.94736842105263,
+            "bias": 4.98294623544326
+          },
+          "Back-three": {
+            "n": 15,
+            "pred_mean": 30.77016229280675,
+            "actual_mean": 39.266666666666666,
+            "bias": 8.496504373859915
+          },
+          "Centre": {
+            "n": 10,
+            "pred_mean": 25.37890931318139,
+            "actual_mean": 29.3,
+            "bias": 3.9210906868186095
+          },
+          "Fly-half": {
+            "n": 6,
+            "pred_mean": 24.761056832100873,
+            "actual_mean": 39.166666666666664,
+            "bias": 14.405609834565796
+          },
+          "Hooker": {
+            "n": 5,
+            "pred_mean": 19.090976164947442,
+            "actual_mean": 23.2,
+            "bias": 4.109023835052562
+          },
+          "Prop": {
+            "n": 10,
+            "pred_mean": 15.68795969742169,
+            "actual_mean": 10.4,
+            "bias": -5.287959697421689
+          },
+          "Scrum-half": {
+            "n": 5,
+            "pred_mean": 27.413964646743455,
+            "actual_mean": 31.0,
+            "bias": 3.5860353532565457
+          },
+          "Second-row": {
+            "n": 10,
+            "pred_mean": 21.97513004050962,
+            "actual_mean": 23.5,
+            "bias": 1.52486995949038
+          }
+        }
+      }
+    }
+  ]
+}

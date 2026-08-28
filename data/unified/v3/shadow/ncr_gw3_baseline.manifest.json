@@ -1,0 +1,13 @@
+{
+  "competition": "ncr",
+  "created_at": "2026-07-16T20:31:22.977422+00:00",
+  "engine": "baseline",
+  "immutable": true,
+  "lock_at": "2026-07-18T06:40:00+00:00",
+  "model_path": "data/unified/v3/models/baseline_gw3.pkl",
+  "model_sha256": "ca4cbf418c167259d7261349cc5b804f9abe06cb244a89b6e1cf8e8db9b4cd8e",
+  "prediction_sha256": "e3730cbeac41b30559981507276dbf1bdafe6d306cfd39ab50531be8a051a092",
+  "round": 3,
+  "rows": 270,
+  "schema_version": 1
+}

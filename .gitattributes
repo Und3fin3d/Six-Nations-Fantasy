@@ -1,0 +1,4 @@
+data/**/*.pkl filter=lfs diff=lfs merge=lfs -text
+data/unified/raw_benchmark/v1/player_match.csv filter=lfs diff=lfs merge=lfs -text
+data/unified/player_match.csv filter=lfs diff=lfs merge=lfs -text
+data/ncr/club_player_match.csv filter=lfs diff=lfs merge=lfs -text

@@ -90,6 +90,13 @@ def main():
 
     df = pd.DataFrame(rows)
     out = BASE / "data" / "wr_rankings.csv"
+    # MERGE, never clobber: a `--dates` run used to REPLACE the whole table, silently
+    # discarding every snapshot it wasn't asked for. Union on (snapshot_date, team).
+    if out.exists():
+        prev = pd.read_csv(out)
+        df = (pd.concat([prev, df], ignore_index=True)
+                .drop_duplicates(["snapshot_date", "team"], keep="last")
+                .sort_values(["snapshot_date", "wr_pos"]))
     df.to_csv(out, index=False)
     print(f"\n✅  {len(df)} rows, {df.snapshot_date.nunique()} snapshots, "
           f"{df.team.nunique()} teams")

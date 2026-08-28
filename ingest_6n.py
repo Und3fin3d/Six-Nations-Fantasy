@@ -205,9 +205,14 @@ def ingest(seasons: list[int], comps: list[int] | None = None) -> pd.DataFrame:
                             "minutes": player_minutes(pid, started, off, on),
                             "yellow_cards": cards[pid]["yellow_cards"],
                             "red_cards": cards[pid]["red_cards"],
+                            "available__minutes": True,
+                            "available__yellow_cards": True,
+                            "available__red_cards": True,
                         }
                         for f in STAT_FIELDS:
-                            rec[f] = _num(ms.get(f, 0))
+                            present = f in ms
+                            rec[f] = _num(ms[f]) if present else None
+                            rec[f"available__{f}"] = present
                         rows.append(rec)
 
     except QuotaExhausted as e:

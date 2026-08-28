@@ -1,0 +1,34 @@
+{
+  "context": {
+    "roles": {
+      "pit_safe": true,
+      "reason": "builder uses shifted role/form features and named team sheet"
+    },
+    "style": {
+      "pit_safe": true,
+      "reason": "builder filters team history strictly before fixture date"
+    },
+    "weather": {
+      "pit_safe": false,
+      "reason": "current file uses archived observed daily weather, not a pre-lock forecast",
+      "rows": 60
+    },
+    "wr": {
+      "pit_safe": true,
+      "reason": "snapshot_date is joined backward at fixture date"
+    }
+  },
+  "match_rate": 0.9855923159018143,
+  "matched_label_rows": 1847,
+  "observable_official_spearman_min": 0.8586886494767062,
+  "observable_points_enabled": true,
+  "official_label_rows": 1874,
+  "reconstruction_weighted_mae": 4.1570113697888464,
+  "schema_version": 1,
+  "zero_minutes": {
+    "appearance_head_enabled": true,
+    "zero_minute_jersey_1_23_share": 1.0,
+    "zero_minute_rows": 3461,
+    "zero_minute_started_share": 0.005489742848887605
+  }
+}

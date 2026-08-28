@@ -1,0 +1,446 @@
+fantasy_id,full_name,team,skill_desc,value,api_player_id,rp_slug,in_api,in_rp
+171003,Pieter-Steph du Toit,South Africa,LOOSE FORWARD,8.5,118428.0,pieter-steph-du-toit,True,True
+179379,Ardie Savea,New Zealand,LOOSE FORWARD,8.5,120396.0,ardie-savea,True,True
+121353,Malcolm Marx,South Africa,HOOKER,8.5,128814.0,malcolm-marx,True,True
+143492,Damian McKenzie,New Zealand,FLY-HALF,8.5,130452.0,damian-mckenzie,True,True
+146220,Will Jordan,New Zealand,BACK THREE,8.5,168972.0,will-jordan,True,True
+157863,Finn Russell,Scotland,FLY-HALF,8.5,117894.0,finn-russell,True,True
+219771,Handre Pollard,South Africa,FLY-HALF,8.0,119340.0,handre-pollard,True,True
+154929,Cheslin Kolbe,South Africa,BACK THREE,8.0,123516.0,cheslin-kolbe,True,True
+209612,Ben Earl,England,LOOSE FORWARD,8.0,142404.0,ben-earl,True,True
+169055,Jordie Barrett,New Zealand,CENTRE,8.0,149694.0,jordie-barrett,True,True
+196989,Eben Etzebeth,South Africa,LOCK,8.0,113430.0,eben-etzebeth,True,True
+229307,Cam Roigard,New Zealand,SCRUM-HALF,8.0,225594.0,cam-roigard,True,True
+190344,Matthieu Jalibert,France,FLY-HALF,8.0,169662.0,matthieu-jalibert,True,True
+211240,Dan Sheehan,Ireland,HOOKER,8.0,186096.0,dan-sheehan,True,True
+199094,Beauden Barrett,New Zealand,FLY-HALF,8.0,69684.0,beauden-barrett,True,True
+229557,Tommaso Menoncello,Italy,CENTRE,8.0,226818.0,tommaso-menoncello,True,True
+196687,Damian Penaud,France,BACK THREE,7.5,139668.0,damian-penaud,True,True
+242264,Joseph-Aukuso Suaalii,Australia,CENTRE,7.5,213924.0,joseph-aukuso-suaalii,True,True
+147486,Tadhg Beirne,Ireland,LOCK,7.5,117954.0,tadgh-beirne,True,True
+185160,Codie Taylor,New Zealand,HOOKER,7.5,112860.0,codie-taylor,True,True
+245050,Max Jorgensen,Australia,BACK THREE,7.5,346554.0,max-jorgensen,True,True
+162344,Julian Montoya,Argentina,HOOKER,7.5,124668.0,julian-montoya,True,True
+146480,Sione Tuipulotu,Scotland,CENTRE,7.5,139998.0,sione-tuipulotu,True,True
+102468,Ethan de Groot,New Zealand,PROP,7.0,196176.0,ethan-de-groot,True,True
+104572,Thomas du Toit,South Africa,PROP,7.0,130242.0,thomas-du-toit,True,True
+129616,Fraser McReight,Australia,LOOSE FORWARD,7.0,154110.0,fraser-mcreight,True,True
+216173,Jamison Gibson-Park,Ireland,SCRUM-HALF,7.0,120504.0,jamison-gibson-park,True,True
+105949,Damian de Allende,South Africa,CENTRE,7.0,120234.0,damian-de-allende,True,True
+105748,Jack Conan,Ireland,LOOSE FORWARD,7.0,117936.0,jack-conan,True,True
+202239,Tomas Albornoz,Argentina,FLY-HALF,7.0,169434.0,tomas-albornoz,True,True
+207343,Grant Williams,South Africa,SCRUM-HALF,7.0,178674.0,grant-williams,True,True
+110910,Jesse Kriel,South Africa,CENTRE,7.0,124026.0,jesse-kriel,True,True
+123016,Jac Morgan,Wales,LOOSE FORWARD,7.0,203070.0,jac-morgan,True,True
+237272,Dafydd Jenkins,Wales,LOCK,7.0,232104.0,dafydd-jenkins,True,True
+156253,Paolo Garbisi,Italy,FLY-HALF,7.0,203034.0,paolo-garbisi,True,True
+156918,Tommy Freeman,England,BACK THREE,7.0,213192.0,tommy-freeman,True,True
+103532,Lood de Jager,South Africa,LOCK,7.0,123156.0,lodewyk-de-jager,True,True
+177800,Mickael Guillard,France,LOCK,7.0,219930.0,mickael-guillard,True,True
+164150,Darcy Graham,Scotland,BACK THREE,7.0,146754.0,darcy-graham,True,True
+146815,Angus Bell,Australia,PROP,7.0,192666.0,angus-bell,True,True
+202267,Manie Libbok,South Africa,FLY-HALF,7.0,149070.0,manie-libbok,True,True
+100043,Maxime Lucu,France,SCRUM-HALF,6.5,186162.0,maxime-lucu,True,True
+110170,Kyle Steyn,Scotland,BACK THREE,6.5,171582.0,kyle-steyn,True,True
+185293,Len Ikitau,Australia,CENTRE,6.5,153318.0,len-ikitau,True,True
+241794,Wallace Sititi,New Zealand,LOOSE FORWARD,6.5,337404.0,wallace-sititi,True,True
+240621,Dylan Pietsch,Australia,BACK THREE,6.5,164262.0,dylan-pietsch,True,True
+214439,Rob Valetini,Australia,LOOSE FORWARD,6.5,161946.0,rob-valetini,True,True
+119132,Aaron Wainwright,Wales,LOOSE FORWARD,6.5,176652.0,aaron-wainwright,True,True
+237803,Kalaveti Ravouvou,Fiji,BACK THREE,6.5,243102.0,kalaveti-ravouvou,True,True
+189982,Santiago Carreras,Argentina,BACK THREE,6.5,169440.0,santiago-carreras,True,True
+191608,Cobus Reinach,South Africa,SCRUM-HALF,6.5,114744.0,jacobus-reinach,True,True
+127914,Andre Esterhuizen,South Africa,CENTRE,6.5,128820.0,andre-esterhuizen,True,True
+237078,Canan Moodie,South Africa,BACK THREE,6.5,234822.0,canan-moodie,True,True
+200003,Pablo Matera,Argentina,LOOSE FORWARD,6.5,118578.0,pablo-matera,True,True
+128023,Salesi Rayasi,Fiji,BACK THREE,6.5,162444.0,salesi-rayasi,True,True
+134796,Joe Heyes,England,PROP,6.5,178806.0,joe-heyes,True,True
+144635,Ollie Chessum,England,LOCK,6.5,218742.0,oliver-chessum,True,True
+196669,Zander Fagerson,Scotland,PROP,6.5,130530.0,zander-fagerson,True,True
+233237,Immanuel Feyi-Waboso,England,BACK THREE,6.5,230898.0,immanuel-feyi-waboso,True,True
+208272,Niccolo Cannone,Italy,LOCK,6.5,167196.0,niccolo-cannone,True,True
+238928,Warner Dearns,Japan,LOCK,6.5,242406.0,warner-dearns,True,True
+222388,Yoram Moefana,France,CENTRE,6.5,196152.0,yoram-moefana,True,True
+244532,Theo Attissogbe,France,BACK THREE,6.5,339450.0,theo-attissogbe,True,True
+223413,Joe McCarthy,Ireland,LOCK,6.5,220194.0,joe-mccarthy,True,True
+190503,Siya Kolisi,South Africa,LOOSE FORWARD,6.5,102654.0,siya-kolisi,True,True
+137153,Jasper Wiese,South Africa,LOOSE FORWARD,6.5,149256.0,jasper-wiese,True,True
+164832,Quinn Tupaea,New Zealand,CENTRE,6.5,188928.0,quinn-tupaea,True,True
+185466,Ox Nche,South Africa,PROP,6.5,140238.0,ox-nche,True,True
+190669,Kurt-Lee Arendse,South Africa,BACK THREE,6.5,204516.0,kurt-lee-arendse,True,True
+172351,Stuart McCloskey,Ireland,CENTRE,6.5,129840.0,stuart-mccloskey,True,True
+187820,Rory Darge,Scotland,LOOSE FORWARD,6.5,180222.0,rory-darge,True,True
+113000,Jack Dempsey,Scotland,LOOSE FORWARD,6.5,124308.0,jack-dempsey,True,True
+111475,Josh Lord,New Zealand,LOCK,6.0,197916.0,josh-lord,True,True
+225264,Ruan Nortje,South Africa,LOCK,6.0,185688.0,ruan-nortje,True,True
+157406,Bundee Aki,Ireland,CENTRE,6.0,114804.0,bundee-aki,True,True
+222623,Tom Curry,England,LOOSE FORWARD,6.0,155892.0,tom-curry,True,True
+156336,Tom Wright,Australia,BACK THREE,6.0,201012.0,tom-wright,True,True
+237225,Emilien Gailleton,France,CENTRE,6.0,231696.0,emilien-gailleton,True,True
+196773,Pierre Schoeman,Scotland,PROP,6.0,130290.0,pierre-schoeman,True,True
+204526,Marcos Kremer,Argentina,LOOSE FORWARD,6.0,150576.0,marcos-kremer,True,True
+225671,Samisoni Taukeiaho,New Zealand,HOOKER,6.0,,samisoni-taukeiaho,False,True
+145677,Bill Mata,Fiji,LOOSE FORWARD,6.0,144918.0,viliame-mata,True,True
+208620,Carlo Tizzano,Australia,LOOSE FORWARD,6.0,193992.0,carlo-tizzano,True,True
+210801,Scott Cummings,Scotland,LOCK,6.0,136596.0,scott-cummings,True,True
+190708,Harry Wilson,Australia,LOOSE FORWARD,6.0,153066.0,harry-wilson,True,True
+118531,Ronan Kelleher,Ireland,HOOKER,6.0,148644.0,ronan-kelleher,True,True
+151974,Billy Proctor,New Zealand,CENTRE,6.0,176550.0,billy-proctor,True,True
+126800,Josh van der Flier,Ireland,LOOSE FORWARD,6.0,118518.0,josh-van-der-flier,True,True
+116876,Fletcher Newell,New Zealand,PROP,6.0,206700.0,fletcher-newell,True,True
+238629,Peter Lakai,New Zealand,LOOSE FORWARD,6.0,241614.0,peter-lakai,True,True
+225777,Ben Thomas,Wales,CENTRE,6.0,154968.0,ben-thomas,True,True
+244767,Oscar Jegou,France,LOOSE FORWARD,6.0,242478.0,oscar-jegou,True,True
+250067,Fabien Brau-Boirie,France,CENTRE,6.0,354888.0,fabien-brau-boirie,True,True
+241689,Nicolas Depoortere,France,CENTRE,6.0,262248.0,nicolas-depoortere,True,True
+245051,Corey Toole,Australia,BACK THREE,6.0,193038.0,corey-toole,True,True
+102642,George Ford,England,FLY-HALF,6.0,66258.0,george-ford,True,True
+191340,Franco Mostert,South Africa,LOCK,6.0,120594.0,franco-mostert,True,True
+120191,Michele Lamaro,Italy,LOOSE FORWARD,6.0,164220.0,michele-lamaro,True,True
+197335,Lorenzo Cannone,Italy,LOOSE FORWARD,6.0,220140.0,lorenzo-cannone,True,True
+130487,Nacho Brex,Italy,CENTRE,6.0,118614.0,juan-ignacio-brex,True,True
+143950,Semi Radradra,Fiji,CENTRE,6.0,172098.0,semi-radradra,True,True
+117823,Matias Alemanno,Argentina,LOCK,6.0,112962.0,matias-alemanno,True,True
+212902,Dewi Lake,Wales,HOOKER,6.0,178848.0,dewi-lake,True,True
+197546,Joe Hawkins,Wales,CENTRE,6.0,220962.0,joe-hawkins,True,True
+120767,Louis Rees-Zammit,Wales,BACK THREE,6.0,187290.0,louis-rees-zammit,True,True
+214124,James Botham,Wales,LOOSE FORWARD,6.0,154938.0,james-botham,True,True
+229505,Lucio Cinti,Argentina,CENTRE,6.0,201528.0,lucio-cinti,True,True
+135572,Jack Cornelsen,Japan,LOCK,5.5,142194.0,jack-cornelsen,True,True
+140494,Jiuta Wainiqolo,Fiji,BACK THREE,5.5,211638.0,jiuta-wainiqolo,True,True
+141860,Ewan Ashman,Scotland,HOOKER,5.5,187422.0,ewan-ashman,True,True
+195116,Harry Potter,Australia,BACK THREE,5.5,182334.0,harry-potter,True,True
+215963,Guido Petti,Argentina,LOCK,5.5,124686.0,,True,False
+203381,James Ryan,Ireland,LOCK,5.5,143604.0,james-ryan,True,True
+229303,Sam Darry,New Zealand,LOCK,5.5,197832.0,sam-darry,True,True
+235183,Alex Mann,Wales,LOOSE FORWARD,5.5,232110.0,alex-mann,True,True
+123723,Danilo Fischetti,Italy,PROP,5.5,164232.0,danilo-fischetti,True,True
+114362,Evan Roos,South Africa,LOOSE FORWARD,5.5,210300.0,evan-roos,True,True
+187980,Geronimo Prisciantelli,Argentina,FLY-HALF,5.5,207258.0,geronimo-prisciantelli,True,True
+249169,Fehi Fineanganofo,New Zealand,BACK THREE,5.5,353082.0,fehi-fineanganofo,True,True
+128750,Andrea Zambonin,Italy,LOCK,5.5,208140.0,andrea-zambonin,True,True
+180778,Kyle Rowe,Scotland,BACK THREE,5.5,179370.0,kyle-rowe,True,True
+153215,Aphelele Fassi,South Africa,BACK THREE,5.5,190890.0,aphelele-fassi,True,True
+185102,Albert Tuisue,Fiji,LOOSE FORWARD,5.5,161190.0,albert-tuisue,True,True
+117646,Ben Donaldson,Australia,FLY-HALF,5.5,187842.0,ben-donaldson,True,True
+143048,Allan Alaalatoa,Australia,PROP,5.5,118890.0,allan-alaalatoa,True,True
+159599,Matt Fagerson,Scotland,LOOSE FORWARD,5.5,161856.0,matt-fagerson,True,True
+237000,Tom Hooper,Australia,LOOSE FORWARD,5.5,190848.0,tom-hooper,True,True
+180443,Damian Willemse,South Africa,BACK THREE,5.5,161226.0,damian-willemse,True,True
+235266,Joaquin Oviedo,Argentina,LOOSE FORWARD,5.5,226080.0,joaquin-oviedo,True,True
+103440,Federico Ruzza,Italy,LOCK,5.5,129234.0,federico-ruzza,True,True
+154458,Matias Moroni,Argentina,CENTRE,5.5,113040.0,matias-moroni,True,True
+229857,Jeremy Williams,Australia,LOCK,5.5,192618.0,jeremy-williams,True,True
+177559,Alex Mitchell,England,SCRUM-HALF,5.5,142356.0,alex-mitchell,True,True
+239634,Henry Pollock,England,LOOSE FORWARD,5.5,342324.0,henry-pollock,True,True
+194110,Rodrigo Isgro,Argentina,BACK THREE,5.5,207228.0,rodrigo-isgro,True,True
+133163,Tomos Williams,Wales,SCRUM-HALF,5.5,128628.0,tomos-williams,True,True
+219828,Garry Ringrose,Ireland,CENTRE,5.5,129372.0,garry-ringrose,True,True
+240455,Dan Edwards,Wales,FLY-HALF,5.5,263442.0,,True,False
+198516,Levani Botia,Fiji,LOOSE FORWARD,5.5,128238.0,levani-botia,True,True
+145361,Hugo Keenan,Ireland,BACK THREE,5.5,143496.0,hugo-keenan,True,True
+102792,Anton Lienert-Brown,New Zealand,CENTRE,5.5,128790.0,anton-lienert-brown,True,True
+127095,Santiago Grondona,Argentina,LOOSE FORWARD,5.5,185502.0,santiago-grondona,True,True
+165007,Ellis Genge,England,PROP,5.5,136680.0,ellis-genge,True,True
+160801,Jamie George,England,HOOKER,5.5,61134.0,jamie-george,True,True
+179604,Josua Tuisova,Fiji,CENTRE,5.5,126930.0,josua-tuisova,True,True
+195298,Jamie Dobie,Scotland,SCRUM-HALF,5.0,214146.0,jamie-dobie,True,True
+172024,Josh Moorby,New Zealand,BACK THREE,5.0,,,False,False
+173763,Leroy Carter,New Zealand,BACK THREE,5.0,206718.0,leroy-carter,True,True
+183880,Tommy Reffell,Wales,LOOSE FORWARD,5.0,155826.0,tommy-reffell,True,True
+150038,Tyrel Lomax,New Zealand,PROP,5.0,140004.0,tyrel-lomax,True,True
+229297,Ruben Love,New Zealand,FLY-HALF,5.0,216096.0,ruben-love,True,True
+177342,Johan Grobbelaar,South Africa,HOOKER,5.0,156558.0,johan-grobbelaar,True,True
+251584,Simon Benitez Cruz,Argentina,SCRUM-HALF,5.0,349518.0,simon-benitez-cruz,True,True
+170612,Gerhard Steenekamp,South Africa,PROP,5.0,156564.0,gerhard-steenekamp,True,True
+180382,Bautista Delguy,Argentina,BACK THREE,5.0,148386.0,bautista-delguy,True,True
+182650,Caleb Muntz,Fiji,FLY-HALF,5.0,184806.0,caleb-muntz,True,True
+180143,Hunter Paisami,Australia,CENTRE,5.0,166500.0,hunter-paisami,True,True
+172455,Duhan van der Merwe,Scotland,BACK THREE,5.0,131400.0,duhan-van-der-merwe,True,True
+120076,Michael Leitch,Japan,LOOSE FORWARD,5.0,67848.0,michael-leitch,True,True
+198661,Dylan Riley,Japan,CENTRE,5.0,165924.0,dylan-riley,True,True
+204878,Edwill van der Merwe,South Africa,BACK THREE,5.0,150096.0,edwill-van-der-merwe,True,True
+217606,Benhard Janse van Rensburg,England,CENTRE,5.0,,benhard-janse-van-rensburg,False,True
+153646,George Furbank,England,BACK THREE,5.0,155724.0,george-furbank,True,True
+237271,Eddie James,Wales,CENTRE,5.0,232158.0,eddie-james,True,True
+208971,Franco Molina,Argentina,LOCK,5.0,150600.0,franco-molina,True,True
+174318,Monty Ioane,Italy,BACK THREE,5.0,134016.0,monty-ioane,True,True
+122020,Jacob Stockdale,Ireland,BACK THREE,5.0,136848.0,jacob-stockdale,True,True
+193134,Nick Timoney,Ireland,LOOSE FORWARD,5.0,136878.0,nick-timoney,True,True
+130282,Tommaso Allan,Italy,FLY-HALF,5.0,117834.0,tommaso-allan,True,True
+236968,Pedro Rubiolo,Argentina,LOCK,5.0,230970.0,pedro-rubiolo,True,True
+137626,Fin Smith,England,FLY-HALF,5.0,227772.0,fin-smith,True,True
+173801,Alex Coles,England,LOCK,5.0,198696.0,alex-coles,True,True
+103821,Eroni Mawi,Fiji,PROP,5.0,175848.0,eroni-mawi,True,True
+104346,Tevita Ikanivere,Fiji,HOOKER,5.0,206742.0,tevita-ikanivere,True,True
+152990,Temo Mayanavanua,Fiji,LOCK,5.0,169128.0,temo-mayanavanua,True,True
+246864,Isaiah Armstrong-Ravula,Fiji,FLY-HALF,5.0,215232.0,,True,False
+240624,Selestino Ravutaumada,Fiji,CENTRE,5.0,264132.0,selestino-ravutaumada,True,True
+186092,Filipo Daugunu,Australia,BACK THREE,5.0,173220.0,filipo-daugunu,True,True
+164116,Robbie Henshaw,Ireland,CENTRE,5.0,120702.0,robbie-henshaw,True,True
+124812,Filimoni Botitu,Fiji,CENTRE,5.0,169026.0,vilimoni-botitu,True,True
+165591,Mateo Carreras,Argentina,BACK THREE,5.0,185478.0,mateo-carreras,True,True
+101634,Tupou Vaai,New Zealand,LOCK,5.0,,tupou-vaai,False,True
+175150,Robert Baloucoune,Ireland,BACK THREE,5.0,186198.0,robert-baloucoune,True,True
+244170,Lenni Nouchi,France,LOOSE FORWARD,5.0,238116.0,lenni-nouchi,True,True
+113444,Tadhg Furlong,Ireland,PROP,5.0,112374.0,tadhg-furlong,True,True
+209105,Louis Lynagh,Italy,BACK THREE,5.0,213750.0,louis-lynagh,True,True
+165194,Alexandre Roumat,France,LOOSE FORWARD,5.0,146952.0,alexandre-roumat,True,True
+241698,Sam Prendergast,Ireland,FLY-HALF,5.0,337638.0,sam-prendergast,True,True
+229826,Jamie Osborne,Ireland,CENTRE,5.0,227658.0,jamie-osborne,True,True
+150081,Freddie Steward,England,BACK THREE,5.0,203496.0,freddie-steward,True,True
+140735,Naoto Saito,Japan,SCRUM-HALF,4.5,150960.0,naoto-saito,True,True
+137453,Josh Adams,Wales,BACK THREE,4.5,129096.0,josh-adams,True,True
+110319,Nicky Smith,Wales,PROP,4.5,121974.0,nicky-smith,True,True
+189190,Maxime Lamothe,France,HOOKER,4.5,178824.0,maxime-lamothe,True,True
+142873,Ben Gunter,Japan,LOOSE FORWARD,4.5,157710.0,ben-gunter,True,True
+192769,Ignacio Mendy,Argentina,BACK THREE,4.5,185436.0,ignacio-mendy,True,True
+243508,Tom Jordan,Scotland,CENTRE,4.5,242766.0,tom-jordan,True,True
+186214,Max Llewellyn,Wales,CENTRE,4.5,177912.0,max-llewellyn,True,True
+106142,Luke Cowan-Dickie,England,HOOKER,4.5,115452.0,luke-cowan-dickie,True,True
+103703,Harry Hockings,Japan,LOCK,4.5,149754.0,harry-hockings,True,True
+113831,George Bower,New Zealand,PROP,4.5,134226.0,george-bower,True,True
+112684,Guy Pepper,England,LOOSE FORWARD,4.5,239076.0,guy-pepper,True,True
+236609,Lorenzo Pani,Italy,BACK THREE,4.5,231744.0,lorenzo-pani,True,True
+237233,Ross Vintcent,Italy,LOOSE FORWARD,4.5,231840.0,ross-vintcent,True,True
+210842,Tane Edmed,Australia,FLY-HALF,4.5,192528.0,tane-edmed,True,True
+189326,Marcus Smith,England,FLY-HALF,4.5,156288.0,marcus-smith,True,True
+240799,Josh Canham,Australia,LOCK,4.5,193422.0,josh-canham,True,True
+119955,Rhys Carre,Wales,PROP,4.5,162870.0,rhys-carre,True,True
+189106,Simon Parker,New Zealand,LOOSE FORWARD,4.5,197838.0,simon-parker,True,True
+188057,Ben White,Scotland,SCRUM-HALF,4.5,142476.0,ben-white,True,True
+100462,Shogo Nakano,Japan,CENTRE,4.5,220512.0,shogo-nakano,True,True
+222920,Gregor Brown,Scotland,LOCK,4.5,220296.0,gregor-brown,True,True
+182760,Mayco Vivas,Argentina,PROP,4.5,169530.0,mayco-vivas,True,True
+156550,Magnus Bradbury,Scotland,LOOSE FORWARD,4.5,129396.0,magnus-bradbury,True,True
+164229,Tom Lynagh,Australia,FLY-HALF,4.5,243174.0,tom-lynagh,True,True
+103056,Mason Grady,Wales,CENTRE,4.5,220956.0,mason-grady,True,True
+207407,Demba Bamba,France,PROP,4.5,178656.0,demba-bamba,True,True
+243190,Blair Murray,Wales,BACK THREE,4.5,197892.0,blair-murray-1,True,True
+226250,Isoa Nasilasila,Fiji,LOCK,4.5,197268.0,isoa-nasilasila,True,True
+201684,Patrick Tuipulotu,New Zealand,LOCK,4.5,124602.0,patrick-tuipulotu,True,True
+129754,Vincent Tshituka,South Africa,LOOSE FORWARD,4.5,193200.0,vincent-tshituka,True,True
+226185,Kitione Salawa,Fiji,LOOSE FORWARD,4.5,214050.0,kitione-salawa,True,True
+249307,Ellis Mee,Wales,BACK THREE,4.5,363636.0,ellis-mee,True,True
+245177,Tiennan Costley,Japan,LOOSE FORWARD,4.5,353844.0,tiennan-costley,True,True
+199383,Ciaran Frawley,Ireland,FLY-HALF,4.5,148890.0,ciaran-frawley,True,True
+190215,Kieran Hardy,Wales,SCRUM-HALF,4.0,135900.0,kieran-hardy,True,True
+170835,James Slipper,Australia,PROP,4.0,66978.0,james-slipper,True,True
+182833,Taniela Tupou,Australia,PROP,4.0,131862.0,taniela-tupou,True,True
+251198,Lachlan Shaw,Australia,LOCK,4.0,368232.0,lachlan-shaw,True,True
+210952,Tate McDermott,Australia,SCRUM-HALF,4.0,164268.0,tate-mcdermott,True,True
+105642,Craig Casey,Ireland,SCRUM-HALF,4.0,203124.0,craig-casey,True,True
+225770,Asafo Aumua,New Zealand,HOOKER,4.0,149706.0,asafo-aumua,True,True
+151066,Xavier Numia,New Zealand,PROP,4.0,185508.0,xavier-numia,True,True
+229255,Cortez Ratima,New Zealand,SCRUM-HALF,4.0,225720.0,cortez-ratima,True,True
+132322,Killian Tixeront,France,LOOSE FORWARD,4.0,224352.0,killian-tixeront,True,True
+109697,Nolann le Garrec,France,SCRUM-HALF,4.0,219972.0,nolann-le-garrec,True,True
+133457,Antoine Hastoy,France,FLY-HALF,4.0,150468.0,antoine-hastoy,True,True
+237231,Mirco Spagnolo,Italy,PROP,4.0,231804.0,mirco-spagnolo,True,True
+174208,Riccardo Favretto,Italy,LOCK,4.0,220128.0,riccardo-favretto,True,True
+178772,Gonzalo Garcia,Argentina,SCRUM-HALF,4.0,169464.0,gonzalo-garcia,True,True
+235935,Ignacio Ruiz,Argentina,HOOKER,4.0,208518.0,ignacio-ruiz,True,True
+240916,Boris Wenger,Argentina,PROP,4.0,337350.0,boris-wenger,True,True
+237152,Joaquin Moro,Argentina,LOOSE FORWARD,4.0,383400.0,joaquin-moro,True,True
+171323,Jonny Gray,Scotland,LOCK,4.0,117852.0,jonny-gray,True,True
+109816,Rory Hutchinson,Scotland,CENTRE,4.0,130554.0,rory-hutchinson,True,True
+156422,Josh Nasser,Australia,HOOKER,4.0,153054.0,josh-nasser,True,True
+219485,Ryan Lonergan,Australia,SCRUM-HALF,4.0,163734.0,ryan-lonergan,True,True
+148312,Carter Gordon,Australia,FLY-HALF,4.0,191412.0,carter-gordon,True,True
+178222,Jock Campbell,Australia,BACK THREE,4.0,173226.0,jock-campbell,True,True
+224426,Tom OToole,Ireland,PROP,4.0,,tom-otoole,False,True
+198565,Cian Prendergast,Ireland,LOOSE FORWARD,4.0,201978.0,cian-prendergast,True,True
+136190,Luke Jacobson,New Zealand,LOOSE FORWARD,4.0,149676.0,luke-jacobson,True,True
+108021,Jefferson Poirot,France,PROP,4.0,116592.0,jefferson-poirot,True,True
+239229,Hugo Auradou,France,LOCK,4.0,238278.0,hugo-auradou,True,True
+243815,Marko Gazzotti,France,LOOSE FORWARD,4.0,340140.0,marko-gazzotti,True,True
+111864,Max Spring,France,BACK THREE,4.0,223356.0,max-spring,True,True
+206415,Mamoru Harada,Japan,HOOKER,4.0,206910.0,mamoru-harada,True,True
+233260,Shuhei Takeuchi,Japan,PROP,4.0,227256.0,shuhei-takeuchi-1,True,True
+154414,Kanji Shimokawa,Japan,LOOSE FORWARD,4.0,185784.0,kanji-shimokawa-1,True,True
+251673,Ryunosuke Ito,Japan,FLY-HALF,4.0,371430.0,ryunosuke-ito,True,True
+250678,Kippei Ishida,Japan,BACK THREE,4.0,204228.0,kippei-ishida,True,True
+251359,Yuya Hirose,Japan,CENTRE,4.0,371544.0,yuya-hirose,True,True
+110891,Stephen Varney,Italy,SCRUM-HALF,4.0,213144.0,stephen-varney,True,True
+236606,Leonardo Marin,Italy,FLY-HALF,4.0,231834.0,leonardo-marin,True,True
+240478,Gregor Hiddleston,Scotland,HOOKER,4.0,263268.0,gregor-hiddleston,True,True
+153525,Rory Sutherland,Scotland,PROP,4.0,134172.0,rory-sutherland,True,True
+224905,George Horne,Scotland,SCRUM-HALF,4.0,129792.0,george-horne,True,True
+136509,Fergus Burke,Scotland,FLY-HALF,4.0,206712.0,fergus-burke,True,True
+188103,Pita Gus Sowakula,Fiji,LOOSE FORWARD,4.0,173826.0,,True,False
+245055,Elia Canakaivata,Fiji,LOOSE FORWARD,4.0,207894.0,elia-canakaivata,True,True
+216255,Zuriel Togiatama,Fiji,HOOKER,4.0,209904.0,zuriel-togiatama,True,True
+113765,Peceli Yato,Fiji,LOOSE FORWARD,4.0,124464.0,peceli-yato,True,True
+161973,Simione Kuruvoli,Fiji,SCRUM-HALF,4.0,206814.0,simione-kuruvoli,True,True
+144545,Ben Carter,Wales,LOCK,4.0,219996.0,ben-carter,True,True
+105892,Adam Beard,Wales,LOCK,4.0,129576.0,adam-beard,True,True
+182170,Ryan Elias,Wales,HOOKER,4.0,128574.0,ryan-elias,True,True
+143123,Taine Plumtree,Wales,LOOSE FORWARD,4.0,206706.0,taine-plumtree,True,True
+136947,Brandon Paenga-Amosa,Australia,HOOKER,4.0,161034.0,brandon-paenga-amosa,True,True
+118619,Sam Costelow,Wales,FLY-HALF,4.0,203076.0,sam-costelow,True,True
+109783,Marco van Staden,South Africa,LOOSE FORWARD,4.0,156420.0,marco-van-staden,True,True
+240452,Cameron Hanekom,South Africa,LOOSE FORWARD,4.0,234816.0,cameron-hanekom,True,True
+142211,George Martin,England,LOCK,4.0,213798.0,george-martin,True,True
+113737,Jack van Poortvliet,England,SCRUM-HALF,4.0,213786.0,jack-van-poortvliet,True,True
+110793,Cadan Murley,England,BACK THREE,4.0,172428.0,cadan-murley,True,True
+109648,Seb Atkinson,England,CENTRE,4.0,232032.0,,True,False
+130283,Beno Obano,England,PROP,4.0,137016.0,beno-obano,True,True
+196415,Charlie Ewels,England,LOCK,4.0,127014.0,charlie-ewels,True,True
+240488,Esteban Capilla,France,LOOSE FORWARD,4.0,,esteban-capilla,False,True
+219226,Herschel Jantjies,South Africa,SCRUM-HALF,4.0,151464.0,,True,False
+110905,Ben-Jason Dixon,South Africa,LOOSE FORWARD,4.0,185646.0,ben-jason-dixon,True,True
+244152,Temo Matiu,France,LOOSE FORWARD,4.0,342990.0,temo-matiu,True,True
+229785,Miles Amatosero,Australia,LOCK,4.0,,miles-amatosero,False,True
+138498,Tevita Ratuva,Fiji,LOCK,4.0,177156.0,tevita-ratuva,True,True
+193699,Embrose Papier,South Africa,SCRUM-HALF,4.0,,embrose-papier,False,True
+229863,Cormac Izuchukwu,Ireland,LOCK,4.0,208038.0,cormac-izuchukwu,True,True
+111794,Theo Dan,England,HOOKER,4.0,218844.0,theo-dan,True,True
+175011,Max Ojomoh,England,CENTRE,4.0,213540.0,max-ojomoh,True,True
+214265,Nathan McBeth,Scotland,PROP,4.0,179394.0,nathan-mcbeth,True,True
+112404,Aidan Ross,Australia,PROP,4.0,140022.0,aidan-ross,True,True
+138016,Henry Slade,England,CENTRE,4.0,114534.0,henry-slade,True,True
+252989,Noah Caluori,England,BACK THREE,4.0,,noah-caluori,False,True
+169185,Teddy Williams,Wales,LOCK,4.0,203082.0,teddy-williams,True,True
+218331,Jarrod Evans,Wales,FLY-HALF,4.0,139716.0,jarrod-evans,True,True
+197246,Tom Stewart,Ireland,HOOKER,4.0,201792.0,tom-stewart,True,True
+169560,Boan Venter,South Africa,PROP,4.0,207024.0,boan-venter,True,True
+123396,Giulio Bertaccini,Italy,CENTRE,4.0,207444.0,giulio-bertaccini,True,True
+236722,Quan Horn,South Africa,BACK THREE,4.0,235254.0,quan-horn,True,True
+153142,Nick Champion de Crespigny,Australia,LOOSE FORWARD,4.0,182262.0,nick-champion-de-crespigny,True,True
+236957,Max Williamson,Scotland,LOCK,4.0,231570.0,max-williamson,True,True
+229134,Josh Flook,Australia,CENTRE,4.0,192672.0,josh-flook,True,True
+237062,Billy Pollard,Australia,HOOKER,4.0,192480.0,billy-pollard,True,True
+222918,Ruben van Heerden,South Africa,LOCK,4.0,,ruben-van-heerden,False,True
+111662,Ben Spencer,England,SCRUM-HALF,4.0,116268.0,ben-spencer,True,True
+149746,Stafford McDowall,Scotland,CENTRE,4.0,163866.0,stafford-mcdowall,True,True
+216823,Olly Cracknell,Wales,LOOSE FORWARD,4.0,129894.0,olly-cracknell,True,True
+250743,Freddy Douglas,Scotland,LOOSE FORWARD,4.0,366438.0,,True,False
+100192,Josh Bayliss,Scotland,LOOSE FORWARD,4.0,141990.0,josh-bayliss,True,True
+229854,Lucas Martin,France,HOOKER,4.0,,lucas-martin,False,True
+122465,Lekima Tagitagivalu,Fiji,LOOSE FORWARD,4.0,176772.0,lekima-tagitagivalu,True,True
+237266,Harri Deaves,Wales,LOOSE FORWARD,4.0,232122.0,harri-deaves,True,True
+177140,Yota Kamimori,Japan,PROP,4.0,206976.0,yota-kamimori,True,True
+137071,Liam Belcher,Wales,HOOKER,4.0,136062.0,liam-belcher,True,True
+214106,Esei Haangana,Japan,LOCK,4.0,,esei-haangana,False,True
+233130,Baptiste Jauneau,France,SCRUM-HALF,4.0,223626.0,baptiste-jauneau,True,True
+229153,Zane Nonggorr,Australia,PROP,4.0,191460.0,zane-nonggorr,True,True
+229431,Anton Segner,New Zealand,LOOSE FORWARD,4.0,,anton-segner,False,True
+214922,Christian Ambadiang,France,BACK THREE,4.0,,christian-ambadiang,False,True
+144570,Jimmy OBrien,Ireland,BACK THREE,4.0,,jimmy-obrien,False,True
+245231,Charlie Cale,Australia,LOOSE FORWARD,4.0,215670.0,charlie-cale,True,True
+223308,Aaron Grandidier-Nkanang,France,BACK THREE,4.0,,aaron-grandidier-nkanang,False,True
+222754,Haruto Kida,Japan,BACK THREE,4.0,206868.0,haruto-kida,True,True
+244408,Inoke Burua,Japan,BACK THREE,4.0,,inoke-burua,False,True
+226014,Cobus Wiese,South Africa,LOCK,4.0,150120.0,cobus-wiese,True,True
+144180,Ollie Smith,Scotland,CENTRE,4.0,202194.0,ollie-smith,True,True
+226261,Vuate Karawalevu,Fiji,BACK THREE,4.0,359628.0,vuate-karawalevu,True,True
+165885,Gabe Hamer-Webb,Wales,BACK THREE,4.0,213756.0,gabriel-hamer-webb,True,True
+243819,Mathis Ferte,France,BACK THREE,4.0,,mathis-ferte,False,True
+241802,Agustin Fraga,Argentina,BACK THREE,3.5,,agustin-fraga,False,True
+237274,Evan Lloyd,Wales,HOOKER,3.5,232134.0,evan-lloyd,True,True
+168641,Dillon Lewis,Wales,PROP,3.5,135306.0,dillon-lewis,True,True
+250281,Waisake Raratubua,Japan,LOOSE FORWARD,3.5,184788.0,,True,False
+251909,Juan Penoucos,Argentina,LOOSE FORWARD,3.5,,juan-penoucos,False,True
+229852,Tevita Tatafu,France,PROP,3.5,227784.0,tevita-tatafu,True,True
+196875,Freddie Thomas,Wales,LOOSE FORWARD,3.5,226926.0,freddie-thomas,True,True
+183329,Leonel Oviedo,Argentina,HOOKER,3.5,226080.0,leonel-oviedo,True,True
+166930,Peni Ravai Kovekalou,Fiji,PROP,3.5,,,False,False
+202316,Frank Lomani,Fiji,SCRUM-HALF,3.5,171126.0,frank-lomani,True,True
+237261,Alex Samuel,Scotland,LOCK,3.5,231564.0,alex-samuel,True,True
+172284,Muhamed Hasa,Italy,PROP,3.5,220782.0,muhamed-hasa,True,True
+134407,Alessandro Fusco,Italy,SCRUM-HALF,3.5,180450.0,alessandro-fusco,True,True
+255396,Malik Faissal,Italy,BACK THREE,3.5,421050.0,malik-faissal,True,True
+136875,Gianmarco Lucchesi,Italy,HOOKER,3.5,202980.0,gianmarcolucchesi,True,True
+107059,Marco Riccioni,Italy,PROP,3.5,144684.0,marco-riccioni,True,True
+236602,Tommaso di Bartolomeo,Italy,HOOKER,3.5,231714.0,tommaso-di-bartolomeo,True,True
+239638,Takuro Matsunaga,Japan,BACK THREE,3.5,229884.0,takuro-matsunaga,True,True
+252801,Kazuma Ueda,Japan,BACK THREE,3.5,350934.0,kazuma-ueda,True,True
+237224,Pierre Bochaton,France,LOOSE FORWARD,3.5,231690.0,pierre-bochaton,True,True
+167563,Sam Wainwright,Wales,PROP,3.5,178896.0,sam-wainwright,True,True
+176354,Nathan Doak,Ireland,SCRUM-HALF,3.5,201750.0,nathan-doak,True,True
+248316,Kyle Preston,New Zealand,SCRUM-HALF,3.5,360858.0,kyle-preston,True,True
+202570,Tom Staniforth,France,LOCK,3.5,124296.0,tom-staniforth,True,True
+237049,Andre-Hugo Venter,South Africa,HOOKER,3.5,231474.0,andre-hugo-venter,True,True
+251199,Hayate Era,Japan,HOOKER,3.5,371742.0,hayate-era,True,True
+206390,Pablo Dimcheff,Italy,HOOKER,3.5,207198.0,pablo-dimcheff,True,True
+175403,Elliot Millar-Mills,Scotland,PROP,3.5,178038.0,elliot-millar-mills,True,True
+244039,Darragh Murray,Ireland,LOCK,3.5,231906.0,darragh-murray,True,True
+244984,Agustin Moyano,Argentina,SCRUM-HALF,3.5,346278.0,agustin-moyano,True,True
+241018,Sean Jansen,Ireland,LOOSE FORWARD,3.5,,sean-jansen,False,True
+124901,Arthur Clark,England,LOCK,3.5,232002.0,arthur-clark,True,True
+103136,Harrison Keddie,Wales,LOOSE FORWARD,3.5,,harrison-keddie,False,True
+245274,Declan Meredith,Australia,BACK THREE,3.5,,declan-meredith,False,True
+118907,Hamish Stewart,Australia,CENTRE,3.5,165906.0,hamish-stewart,True,True
+153725,Paolo Odogwu,Italy,BACK THREE,3.5,142488.0,paolo-odogwu,True,True
+215827,Samisoni Tua,Japan,CENTRE,3.5,219498.0,samisoni-tua,True,True
+236573,Alessandro Garbisi,Italy,SCRUM-HALF,3.5,231774.0,alessandro-garbisi,True,True
+109259,Zac Ward,Ireland,BACK THREE,3.5,,zac-ward,False,True
+150610,Boris Palu,France,LOCK,3.5,,boris-palu,False,True
+184945,Ted Hill,England,LOCK,3.5,155868.0,ted-hill,True,True
+188115,Harry Byrne,Ireland,FLY-HALF,3.5,179142.0,harry-byrne,True,True
+241808,Mateo Soler,Argentina,BACK THREE,3.5,,mateo-soler,False,True
+116189,Pasilio Tosi,New Zealand,PROP,3.5,198180.0,pasilio-tosi,True,True
+251916,Luciano Asevedo,Argentina,LOCK,3.5,,,False,False
+253159,Riley Norton,South Africa,LOCK,3.5,,riley-norton,False,True
+125946,Tom Rogers,Wales,BACK THREE,3.5,177600.0,tom-rogers,True,True
+119506,Reuben Morgan-Williams,Wales,SCRUM-HALF,3.5,141750.0,reuben-morgan-williams,True,True
+196853,Thomas Clarkson,Ireland,PROP,3.5,203208.0,,True,False
+253176,Vusi Moyo,South Africa,FLY-HALF,3.5,,,False,False
+259352,Shunsuke Uenobo,Japan,BACK THREE,3.5,,,False,False
+166457,Regis Montagne,France,PROP,3.5,207432.0,regis-montagne,True,True
+239482,Asher Opoku-Fordjour,England,PROP,3.5,348570.0,,True,False
+139232,Gareth Thomas,Wales,PROP,3.5,119118.0,gareth-thomas,True,True
+172959,Darcy Rae,Scotland,PROP,3.5,122784.0,darcy-rae,True,True
+229690,Jan-Hendrik Wessels,South Africa,PROP,3.5,225984.0,jan-hendrik-wessels,True,True
+209567,Ntuthuko Mchunu,South Africa,PROP,3.5,227988.0,ntuthuko-mchunu,True,True
+252481,Jaco Williams,South Africa,BACK THREE,3.5,178674.0,jaco-williams,True,True
+240039,Theo Forner,France,BACK THREE,3.5,,theo-forner,False,True
+229398,Louis Le Brun,France,FLY-HALF,3.5,,louis-le-brun,False,True
+238037,Davide Odiase,Italy,LOOSE FORWARD,3.0,263016.0,david-odiase,True,True
+242515,Sam Wye,Fiji,SCRUM-HALF,3.0,234792.0,sam-wye,True,True
+255757,Shinya Komura,Japan,FLY-HALF,3.0,371826.0,shinya-komura,True,True
+171483,Nicolas Roger Farias,Argentina,FLY-HALF,3.0,,,False,False
+244760,Barnabe Massa,France,HOOKER,3.0,243636.0,barnabe-massa,True,True
+193780,Luke Tagi,Fiji,PROP,3.0,169056.0,luke-tagi,True,True
+224395,Rhys Davies,Wales,LOCK,3.0,178878.0,rhys-davies,True,True
+131550,Takato Okabe,Japan,PROP,3.0,193938.0,takato-okabe,True,True
+185802,Emerick Setiano,France,PROP,3.0,,emerick-setiano,False,True
+241806,Faustino Sanchez Valarolo,Argentina,CENTRE,3.0,337308.0,faustino-sanchez-valarolo,True,True
+255945,Itsuki Kamimura,Japan,SCRUM-HALF,3.0,372078.0,itsuki-kamimura,True,True
+246851,Toms Rapetti,Argentina,PROP,3.0,359274.0,tomas-rapetti,True,True
+243167,Kane James,Wales,LOOSE FORWARD,3.0,232158.0,kane-james,True,True
+241715,Liam McConnell,Scotland,LOOSE FORWARD,3.0,337710.0,liam-mcconnell,True,True
+251438,Keijiro Tamefusa,Japan,PROP,3.0,371586.0,keijiro-tamefusa,True,True
+246824,Zac Porthen,South Africa,PROP,3.0,342540.0,zachary-porthen,True,True
+261209,Sojiro Otsuka,Japan,PROP,3.0,370146.0,,True,False
+250771,Bryn Ward,Ireland,LOOSE FORWARD,3.0,,bryn-ward,False,True
+201405,Giacomo da Re,Italy,FLY-HALF,3.0,202974.0,giacomo-da-re,True,True
+251678,Kenji Sato,Japan,HOOKER,3.0,370344.0,kenji-sato,True,True
+255091,Izi Sword,Japan,PROP,3.0,,izi-sword-1,False,True
+164759,Ben Warren,Wales,PROP,3.0,203046.0,ben-warren,True,True
+251996,Agustín Sarelli,Argentina,LOOSE FORWARD,3.0,,agustin-sarelli,False,True
+250879,Pedro Delgado,Argentina,PROP,3.0,411264.0,pedro-delgado,True,True
+171709,Sam Matavesi,Fiji,HOOKER,3.0,124944.0,samuel-matavesi,True,True
+174268,Jeremy Loughman,Ireland,PROP,3.0,136854.0,jeremy-loughman,True,True
+246860,Mesake Vocevoce,Fiji,LOCK,3.0,358770.0,mesake-vocevoce,True,True
+187476,Moses Alo-Emile,France,PROP,3.0,,moses-alo-emile,False,True
+243881,Lois Guerois,France,PROP,3.0,,,False,False
+251071,Takuro Hojo,Japan,SCRUM-HALF,3.0,,takuro-hojo,False,True
+128591,Tim Hoyt,Fiji,PROP,3.0,238038.0,tim-hoyt,True,True
+240573,Ryan Woodman,Wales,LOOSE FORWARD,3.0,,ryan-woodman,False,True
+155619,Francisco Coria Marchetti,Argentina,PROP,3.0,207192.0,francisco-coria,True,True
+252532,Seb Stephen,Scotland,HOOKER,3.0,,seb-stephen,False,True
+170455,Greg Fisilau,England,LOOSE FORWARD,3.0,,greg-fisilau,False,True
+202399,Keiron Assiratti,Wales,PROP,3.0,144480.0,,True,False
+236608,Alessandro Ortombina,Italy,LOCK,3.0,263058.0,alessandro-ortombina,True,True
+236858,Kalani Thomas,Australia,SCRUM-HALF,3.0,199776.0,kalani-thomas,True,True
+165888,Wilco Louw,South Africa,PROP,3.0,130260.0,wilco-louw,True,True
+192770,Ion Neculai,Italy,PROP,2.5,220116.0,ion-neculai,True,True
+254488,Atunaisa Sokobale,Fiji,PROP,2.5,364308.0,atunaisa-sokobale,True,True
+254559,Billy Bohan,Ireland,PROP,2.5,,billy-bohan,False,True
+239292,Billy Sela,England,PROP,2.5,,billy-sela,False,True
+261213,Haruto Watanabe,Japan,SCRUM-HALF,2.5,,haruto-watanabe,False,True
+163209,George Kloska,England,PROP,2.5,,george-kloska,False,True
+237237,Sam Illo,Ireland,PROP,2.5,,sam-illo,False,True
+208037,Will Hurd,Scotland,PROP,2.5,203400.0,will-hurd,True,True
+240454,Rhys Barratt,Wales,PROP,2.0,,rhys-barratt,False,True

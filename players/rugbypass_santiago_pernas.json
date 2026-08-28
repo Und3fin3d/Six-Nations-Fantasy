@@ -1,0 +1,69 @@
+{
+  "player": "santiago-pernas",
+  "csv_name": "Santiago Pernas",
+  "bio": {
+    "Age": "22",
+    "Position": "Outside Back",
+    "Height": "180cm",
+    "Weight": "91kg"
+  },
+  "competition_stats": [
+    {
+      "competition": "Rugby Hybrid Friendlies",
+      "season": "2024/2025",
+      "games": 1,
+      "minutes": 80,
+      "tries": 1,
+      "try_assists": 0,
+      "points": 5,
+      "carries": 12,
+      "metres": 110,
+      "av_gain": 9.19,
+      "post_contact_metres": 64,
+      "defenders_beaten": 12,
+      "clean_breaks": 2,
+      "offloads": 0,
+      "handling_errors": 1,
+      "passes": 2,
+      "bad_passes": 1,
+      "tackles": 9,
+      "missed_tackles": 2,
+      "tackles_success_pct": 0.69,
+      "dominant_tackles": 0,
+      "turnovers_won": 0,
+      "turnovers_conceded": 1,
+      "kicks_from_hand": 3,
+      "penalties_conceded": 0,
+      "yellow_cards": 0,
+      "red_cards": 0
+    }
+  ],
+  "match_log": [
+    {
+      "competition": "Internationals",
+      "match": "Argentina vs Uruguay",
+      "date": "19 Jul 2025",
+      "opposition": "Uruguay",
+      "win": true,
+      "draw": false,
+      "mins": 41,
+      "tries": 0,
+      "yellow_cards": 0,
+      "red_cards": 0,
+      "conversions": 0
+    },
+    {
+      "competition": "Rugby Union Hybrid Friendlies",
+      "match": "Munster vs Argentina XV",
+      "date": "1 Nov 2025",
+      "opposition": "Munster",
+      "win": false,
+      "draw": false,
+      "mins": 80,
+      "tries": 1,
+      "yellow_cards": 0,
+      "red_cards": 0,
+      "conversions": 0
+    }
+  ]
+}

@@ -1,0 +1,37 @@
+[selection] v5 6n-2025-r1: train 93,962
+    -> MAE 8.66  rho 0.653  top10 56.1%
+[selection] v5 6n-2025-r2: train 94,376
+    -> MAE 7.40  rho 0.578  top10 65.5%
+[selection] v5 6n-2025-r3: train 96,124
+    -> MAE 7.26  rho 0.677  top10 72.3%
+[selection] v5 6n-2025-r4: train 98,286
+    -> MAE 9.06  rho 0.517  top10 62.7%
+[selection] v5 6n-2025-r5: train 98,792
+    -> MAE 7.82  rho 0.563  top10 55.6%
+[retrospective_reference] v5 6n-2026-r1: train 132,510
+    -> MAE 8.12  rho 0.625  top10 70.8%
+[retrospective_reference] v5 6n-2026-r2: train 133,016
+    -> MAE 8.45  rho 0.668  top10 69.7%
+[retrospective_reference] v5 6n-2026-r3: train 133,936
+    -> MAE 7.88  rho 0.579  top10 67.5%
+[retrospective_reference] v5 6n-2026-r4: train 135,776
+    -> MAE 7.63  rho 0.721  top10 58.5%
+[retrospective_reference] v5 6n-2026-r5: train 136,328
+    -> MAE 7.88  rho 0.726  top10 71.9%
+[retrospective_reference] v5 ncr-2026-gw1: train 150,312
+    -> MAE 10.22  rho 0.525  top10 32.0%
+[retrospective_reference] v5 ncr-2026-gw2: train 150,588
+    -> MAE 8.88  rho 0.449  top10 43.5%
+competition  season  round     group_id                   phase model   n       mae  spearman  top_10_overlap  top_10_capture  top_25_overlap  top_25_capture  top_50_overlap  top_50_capture  top_100_overlap  top_100_capture  pearson
+six_nations    2025      1   6n-2025-r1               selection    v5 131  8.657300  0.652806             0.2        0.560976        0.400000        0.707165        0.626667        0.827013         0.910000         0.978170 0.566307
+six_nations    2025      2   6n-2025-r2               selection    v5 134  7.397174  0.578046             0.4        0.654545        0.530000        0.742353        0.582857        0.804641         0.862000         0.932222 0.563604
+six_nations    2025      3   6n-2025-r3               selection    v5 136  7.264881  0.677370             0.4        0.722555        0.480000        0.675365        0.693333        0.865107         0.867500         0.945535 0.632192
+six_nations    2025      4   6n-2025-r4               selection    v5 137  9.062710  0.517164             0.3        0.627155        0.510000        0.668357        0.610000        0.810367         0.850000         0.912039 0.498380
+six_nations    2025      5   6n-2025-r5               selection    v5 136  7.824688  0.562854             0.2        0.556025        0.380000        0.649667        0.620000        0.790055         0.884000         0.957031 0.452445
+six_nations    2026      1   6n-2026-r1 retrospective_reference    v5 131  8.118540  0.625267             0.5        0.707983        0.540000        0.770576        0.600000        0.811662         0.880000         0.936585 0.620216
+six_nations    2026      2   6n-2026-r2 retrospective_reference    v5 131  8.447710  0.668276             0.3        0.697446        0.573333        0.789575        0.730000        0.880952         0.882000         0.961967 0.668626
+six_nations    2026      3   6n-2026-r3 retrospective_reference    v5 136  7.876333  0.579273             0.4        0.675105        0.540000        0.768737        0.646667        0.814664         0.830000         0.920520 0.573319
+six_nations    2026      4   6n-2026-r4 retrospective_reference    v5 135  7.631102  0.720949             0.2        0.584980        0.500000        0.767894        0.673333        0.859856         0.874000         0.953402 0.649385
+six_nations    2026      5   6n-2026-r5 retrospective_reference    v5 135  7.879111  0.726384             0.3        0.719192        0.466667        0.780412        0.610000        0.840156         0.916667         0.981752 0.680441
+        ncr    2026      1 ncr-2026-gw1 retrospective_reference    v5 270 10.222310  0.524824             0.0        0.320405        0.160000        0.460611        0.340000        0.565217         0.575000         0.715013 0.434802
+        ncr    2026      2 ncr-2026-gw2 retrospective_reference    v5 262  8.883509  0.449103             0.2        0.435294        0.280000        0.514286        0.360000        0.692027         0.565833         0.738503 0.411505

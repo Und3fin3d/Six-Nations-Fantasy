@@ -1,0 +1,8 @@
+# Pinned numerical stack used by the model research ledgers.
+# Python 3.11 is required; the historical runs used Python 3.11.5.
+numpy==1.24.3
+pandas==2.1.0
+scipy==1.11.2
+scikit-learn==1.3.1
+lightgbm==4.6.0
+xgboost==3.2.0

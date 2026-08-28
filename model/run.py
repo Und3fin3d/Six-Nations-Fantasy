@@ -187,11 +187,11 @@ def _persist_promoted_research_config(df, seasons: list[int]) -> None:
     `model.run` still prints the full diagnostic table, but the branch's deployable
     config may include research-only assembly/selection knobs such as `sel_score`.
     """
-    from model.research import Config, PROMOTED_CONFIG, _predict_config
+    from model.research import PROMOTED_CONFIG, _predict_config, config_from_dict
 
     if not PROMOTED_CONFIG.exists():
         return
-    cfg = Config(**json.loads(PROMOTED_CONFIG.read_text()))
+    cfg = config_from_dict(json.loads(PROMOTED_CONFIG.read_text()))
     for season in seasons:
         pred, _, _ = _predict_config(df, cfg, season)
         out = DATA / f"model_predictions_{season}.csv"

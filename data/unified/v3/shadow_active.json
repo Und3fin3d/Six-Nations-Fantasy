@@ -1,0 +1,7 @@
+{
+  "artifact_sha256": "ca4cbf418c167259d7261349cc5b804f9abe06cb244a89b6e1cf8e8db9b4cd8e",
+  "engine": "baseline",
+  "exclusive_cutoff": "2026-07-18T06:40:00+00:00",
+  "model": "data/unified/v3/models/baseline_gw3.pkl",
+  "target_gw": 3
+}

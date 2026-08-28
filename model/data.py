@@ -13,10 +13,12 @@ Feature families (91+ cols, by prefix):
   CLASS 18 (class*)   FORM 23 (form*)   ROLE 7 (role*)   OWNTEAM 11 (ownteam*)
   BIO 4 (bio*)        FIXTURE 28 (opp_* / h2h_* / team_wr* / wr_*)
   TEAMPLAY (teamplay_*) explicit team edge / game-script predictions
-  MARKET (market_*) optional external betting/market fixture-strength features
   WEATHER (weather_*) optional venue/weather features
   ROLECERT (rolecert_*) optional named-role certainty features
   STYLE (style_*) optional tactical-style priors
+
+Betting-market features were REMOVED: a model that reads the bookmakers is laundering
+their forecast, not making one. The research ledger had already rejected them.
 
 Everything that is a TARGET, LABEL, or realised-outcome (y_*, recon_pts,
 official_pts, lat_*, target_pts, latent_total, team_scrums_won,
@@ -35,7 +37,6 @@ DATA = BASE / "data"
 # exploratory snippets working.
 TEAMPLAY_ENABLED = False
 TEAMPLAY_MODE = "off"  # off | raw | aspects
-MARKET_FEATURES_ENABLED = False
 WEATHER_FEATURES_ENABLED = False
 ROLECERT_FEATURES_ENABLED = False
 STYLE_FEATURES_ENABLED = False
@@ -65,7 +66,7 @@ CATEGORICAL_COLS = ["bio_position"]
 _FEATURE_PREFIXES = (
     "class", "form", "role", "ownteam", "bio",
     "opp_", "h2h_", "team_wr", "wr_", "teamplay_",
-    "market_", "weather_", "rolecert_", "style_",
+    "weather_", "rolecert_", "style_",
     "matchup_",
 )
 
@@ -161,7 +162,6 @@ def feature_view(df: pd.DataFrame, mode: str) -> list[str]:
     else:
         cols = [c for c in cols if not c.startswith("teamplay_")]
     optional_families = [
-        ("MARKET_FEATURES_ENABLED", MARKET_FEATURES_ENABLED, "market_"),
         ("WEATHER_FEATURES_ENABLED", WEATHER_FEATURES_ENABLED, "weather_"),
         ("ROLECERT_FEATURES_ENABLED", ROLECERT_FEATURES_ENABLED, "rolecert_"),
         ("MATCHUP_FEATURES_ENABLED", MATCHUP_FEATURES_ENABLED, "matchup_"),
@@ -206,7 +206,6 @@ def _selfcheck() -> None:
     fams = {}
     for c in FEATURE_COLS:
         fam = ("TEAMPLAY" if c.startswith("teamplay_")
-               else "MARKET" if c.startswith("market_")
                else "WEATHER" if c.startswith("weather_")
                else "ROLECERT" if c.startswith("rolecert_")
                else "STYLE" if c.startswith("style_")

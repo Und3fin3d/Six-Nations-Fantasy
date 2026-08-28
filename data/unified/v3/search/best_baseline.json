@@ -1,0 +1,7 @@
+{
+  "weighting": "natural",
+  "time_half_life_days": null,
+  "n_estimators": 180,
+  "num_leaves": 23,
+  "seed": 17
+}

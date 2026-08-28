@@ -1,0 +1,15 @@
+{
+  "learning_rate": 0.045,
+  "n_estimators": 220,
+  "num_leaves": 23,
+  "min_child_samples": 45,
+  "reg_lambda": 2.0,
+  "subsample": 0.9,
+  "colsample_bytree": 0.85,
+  "weighting": "natural",
+  "time_half_life_days": null,
+  "rate_cap_quantile": 0.995,
+  "use_appearance": true,
+  "context_blocks": [],
+  "seed": 17
+}

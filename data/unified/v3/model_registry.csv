@@ -1,0 +1,2 @@
+created_at,engine,exclusive_cutoff,artifact,artifact_sha256,status
+2026-07-16T20:30:10.256472+00:00,baseline,2026-07-18T06:40:00+00:00,data/unified/v3/models/baseline_gw3.pkl,ca4cbf418c167259d7261349cc5b804f9abe06cb244a89b6e1cf8e8db9b4cd8e,shadow_only

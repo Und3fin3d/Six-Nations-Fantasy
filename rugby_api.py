@@ -9,9 +9,8 @@ match call returns all 46 players, so we never want to re-fetch a match we
 already have. Every successful GET is written to data/cache/ keyed by its path;
 subsequent calls for the same path are served from disk for free.
 
-Auth: reads the API key from the RUGBY_API_KEY env var. Falls back to the key
-shared during development with a printed warning — move it to the env / a
-gitignored secret before this is committed or shared.
+Auth: reads the API key from the RUGBY_API_KEY environment variable. The client
+stops before making a request when the variable is not set.
 
 Usage:
     from rugby_api import RugbyAPI
@@ -27,7 +26,6 @@ from __future__ import annotations
 import json
 import os
 import re
-import sys
 import time
 from pathlib import Path
 from urllib.parse import quote
@@ -38,18 +36,19 @@ import urllib.error
 HOST = "rugby-live-data.p.rapidapi.com"
 BASE = f"https://{HOST}"
 CACHE_DIR = Path(__file__).parent / "data" / "cache"
-
-# Dev fallback key — prefer RUGBY_API_KEY env var. Do not commit a real key.
-_FALLBACK_KEY = "698a86217dmshb0d6915ff47277dp1e3448jsnbe292bf3b18f"
-
+USER_AGENT = (
+    "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) "
+    "AppleWebKit/537.36 (KHTML, like Gecko) Chrome/124 Safari/537.36"
+)
 
 class RugbyAPI:
     def __init__(self, key: str | None = None, cache_dir: Path = CACHE_DIR,
                  min_interval: float = 0.4, verbose: bool = True):
-        self.key = key or os.environ.get("RUGBY_API_KEY") or _FALLBACK_KEY
-        if not os.environ.get("RUGBY_API_KEY") and not key:
-            print("⚠️  Using fallback API key — set RUGBY_API_KEY in your env.",
-                  file=sys.stderr)
+        self.key = key or os.environ.get("RUGBY_API_KEY")
+        if not self.key:
+            raise RuntimeError(
+                "RUGBY_API_KEY is not set. Export the RapidAPI key before running this command."
+            )
         self.cache_dir = Path(cache_dir)
         self.cache_dir.mkdir(parents=True, exist_ok=True)
         self.min_interval = min_interval
@@ -78,6 +77,7 @@ class RugbyAPI:
             "x-rapidapi-host": HOST,
             "x-rapidapi-key": self.key,
             "Content-Type": "application/json",
+            "User-Agent": USER_AGENT,
         })
         try:
             with urllib.request.urlopen(req, timeout=30) as resp:

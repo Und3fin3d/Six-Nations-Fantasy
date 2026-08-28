@@ -1,0 +1,957 @@
+{
+  "audit": "orchestrator_swap_audit",
+  "seasons": [
+    {
+      "season": 2025,
+      "old_config": "target_only_teamplay_component_aspect100_starters",
+      "new_config": "orchestrator_resid030_delta_overlay_010",
+      "rounds": [
+        {
+          "round": 1,
+          "old_actual_total": 595.0,
+          "new_actual_total": 580.0,
+          "delta_actual_total": -15.0,
+          "old_captain": {
+            "player_id": 129822,
+            "name": "Thomas Ramos",
+            "pos": "Back-three",
+            "team": "France",
+            "started": true,
+            "actual": 37.0,
+            "target": 30.504564921751143,
+            "sel": 2.6681222118761676,
+            "captain_score": 4.164603975287797,
+            "supersub_score": 1.8110893884583275
+          },
+          "new_captain": {
+            "player_id": 129822,
+            "name": "Thomas Ramos",
+            "pos": "Back-three",
+            "team": "France",
+            "started": true,
+            "actual": 37.0,
+            "target": 30.504564921751143,
+            "sel": 2.7264327847926326,
+            "captain_score": 4.164603975287797,
+            "supersub_score": 1.8110893884583275
+          },
+          "old_supersub": {
+            "player_id": 124308,
+            "name": "Jack Dempsey",
+            "pos": "Back-row",
+            "team": "Scotland",
+            "started": false,
+            "actual": 17.0,
+            "target": 7.361849245901356,
+            "sel": -1.1064802258056385,
+            "captain_score": -0.6354471109991163,
+            "supersub_score": -0.7293628233388931
+          },
+          "new_supersub": {
+            "player_id": 124308,
+            "name": "Jack Dempsey",
+            "pos": "Back-row",
+            "team": "Scotland",
+            "started": false,
+            "actual": 17.0,
+            "target": 7.361849245901356,
+            "sel": -1.1790221779665204,
+            "captain_score": -0.6354471109991163,
+            "supersub_score": -0.7293628233388931
+          },
+          "xv_in": [
+            {
+              "player_id": 232134,
+              "name": "Evan Lloyd",
+              "pos": "Hooker",
+              "team": "Wales",
+              "started": true,
+              "actual": 8.0,
+              "target": 15.568591322160684,
+              "sel": 0.05849549935464651,
+              "captain_score": 0.3795752370973192,
+              "supersub_score": -0.5120602728517496
+            }
+          ],
+          "xv_out": [
+            {
+              "player_id": 148644,
+              "name": "Ronan Kelleher",
+              "pos": "Hooker",
+              "team": "Ireland",
+              "started": true,
+              "actual": 23.0,
+              "target": 12.86961578806335,
+              "sel": -0.12440626723173843,
+              "captain_score": -0.7266547718091151,
+              "supersub_score": -0.9043886524425708
+            }
+          ]
+        },
+        {
+          "round": 2,
+          "old_actual_total": 404.0,
+          "new_actual_total": 388.0,
+          "delta_actual_total": -16.0,
+          "old_captain": {
+            "player_id": 129822,
+            "name": "Thomas Ramos",
+            "pos": "Back-three",
+            "team": "France",
+            "started": true,
+            "actual": 34.0,
+            "target": 32.34806046413056,
+            "sel": 2.948880725154723,
+            "captain_score": 4.218060359519783,
+            "supersub_score": 2.8179636567300457
+          },
+          "new_captain": {
+            "player_id": 129822,
+            "name": "Thomas Ramos",
+            "pos": "Back-three",
+            "team": "France",
+            "started": true,
+            "actual": 34.0,
+            "target": 34.14806046413056,
+            "sel": 3.1546046267400913,
+            "captain_score": 4.218060359519783,
+            "supersub_score": 2.8179636567300457
+          },
+          "old_supersub": {
+            "player_id": 117936,
+            "name": "Jack Conan",
+            "pos": "Back-row",
+            "team": "Ireland",
+            "started": false,
+            "actual": 30.0,
+            "target": 7.790612637472014,
+            "sel": -1.0642798687620356,
+            "captain_score": -1.0398204681108774,
+            "supersub_score": 0.5204927036888419
+          },
+          "new_supersub": {
+            "player_id": 117936,
+            "name": "Jack Conan",
+            "pos": "Back-row",
+            "team": "Ireland",
+            "started": false,
+            "actual": 30.0,
+            "target": 7.790612637472014,
+            "sel": -1.1368218209229175,
+            "captain_score": -1.0398204681108774,
+            "supersub_score": 0.5204927036888419
+          },
+          "xv_in": [
+            {
+              "player_id": 66186,
+              "name": "Taulupe Faletau",
+              "pos": "Back-row",
+              "team": "Wales",
+              "started": true,
+              "actual": 25.0,
+              "target": 26.005266010904986,
+              "sel": 2.0200294933169904,
+              "captain_score": 3.0028212043313562,
+              "supersub_score": 2.0357036467707763
+            },
+            {
+              "player_id": 119118,
+              "name": "Gareth Thomas",
+              "pos": "Prop",
+              "team": "Wales",
+              "started": true,
+              "actual": 7.0,
+              "target": 17.300465212141976,
+              "sel": 0.3889290458127964,
+              "captain_score": -0.11184736699324516,
+              "supersub_score": 0.32655072889430603
+            }
+          ],
+          "xv_out": [
+            {
+              "player_id": 142404,
+              "name": "Ben Earl",
+              "pos": "Back-row",
+              "team": "England",
+              "started": true,
+              "actual": 33.0,
+              "target": 25.363737396943876,
+              "sel": 1.9116311904337522,
+              "captain_score": 3.531673884573557,
+              "supersub_score": 3.3334393563800706
+            },
+            {
+              "player_id": 130530,
+              "name": "Zander Fagerson",
+              "pos": "Prop",
+              "team": "Scotland",
+              "started": true,
+              "actual": 15.0,
+              "target": 15.719298388022882,
+              "sel": 0.3516624647754223,
+              "captain_score": -0.552467568803549,
+              "supersub_score": 0.18334075818802992
+            }
+          ]
+        },
+        {
+          "round": 3,
+          "old_actual_total": 519.0,
+          "new_actual_total": 519.0,
+          "delta_actual_total": 0.0,
+          "old_captain": {
+            "player_id": 224724,
+            "name": "Leo Barre",
+            "pos": "Back-three",
+            "team": "France",
+            "started": true,
+            "actual": 56.0,
+            "target": 25.92887732309681,
+            "sel": 2.363533086702128,
+            "captain_score": 5.427372278255936,
+            "supersub_score": 1.0579281149290045
+          },
+          "new_captain": {
+            "player_id": 224724,
+            "name": "Leo Barre",
+            "pos": "Back-three",
+            "team": "France",
+            "started": true,
+            "actual": 56.0,
+            "target": 27.72887732309681,
+            "sel": 2.305718917599181,
+            "captain_score": 5.427372278255936,
+            "supersub_score": 1.0579281149290045
+          },
+          "old_supersub": {
+            "player_id": 231840,
+            "name": "Ross Vintcent",
+            "pos": "Back-row",
+            "team": "Italy",
+            "started": false,
+            "actual": 9.0,
+            "target": 9.620788193467206,
+            "sel": -0.8423771224941157,
+            "captain_score": -0.2865280593722294,
+            "supersub_score": 0.27371679212965305
+          },
+          "new_supersub": {
+            "player_id": 231840,
+            "name": "Ross Vintcent",
+            "pos": "Back-row",
+            "team": "Italy",
+            "started": false,
+            "actual": 9.0,
+            "target": 9.620788193467206,
+            "sel": -0.9149190746549976,
+            "captain_score": -0.2865280593722294,
+            "supersub_score": 0.27371679212965305
+          },
+          "xv_in": [],
+          "xv_out": []
+        },
+        {
+          "round": 4,
+          "old_actual_total": 518.0,
+          "new_actual_total": 504.0,
+          "delta_actual_total": -14.0,
+          "old_captain": {
+            "player_id": 129822,
+            "name": "Thomas Ramos",
+            "pos": "Back-three",
+            "team": "France",
+            "started": true,
+            "actual": 36.0,
+            "target": 33.05430542782227,
+            "sel": 3.3988795998729167,
+            "captain_score": 5.002184399123628,
+            "supersub_score": 3.592763057539292
+          },
+          "new_captain": {
+            "player_id": 129822,
+            "name": "Thomas Ramos",
+            "pos": "Back-three",
+            "team": "France",
+            "started": true,
+            "actual": 36.0,
+            "target": 34.85430542782227,
+            "sel": 3.402736802794252,
+            "captain_score": 5.002184399123628,
+            "supersub_score": 3.592763057539292
+          },
+          "old_supersub": {
+            "player_id": 220140,
+            "name": "Lorenzo Cannone",
+            "pos": "Back-row",
+            "team": "Italy",
+            "started": false,
+            "actual": 7.0,
+            "target": 13.597896227843389,
+            "sel": -0.2205267941267197,
+            "captain_score": -0.5858649591982678,
+            "supersub_score": 1.2786662999529654
+          },
+          "new_supersub": {
+            "player_id": 220140,
+            "name": "Lorenzo Cannone",
+            "pos": "Back-row",
+            "team": "Italy",
+            "started": false,
+            "actual": 7.0,
+            "target": 13.597896227843389,
+            "sel": -0.29306874628760154,
+            "captain_score": -0.5858649591982678,
+            "supersub_score": 1.2786662999529654
+          },
+          "xv_in": [
+            {
+              "player_id": 139668,
+              "name": "Damian Penaud",
+              "pos": "Back-three",
+              "team": "France",
+              "started": true,
+              "actual": 37.0,
+              "target": 23.919001758932833,
+              "sel": 1.603527164165833,
+              "captain_score": 3.3204307082650564,
+              "supersub_score": 0.896876667205258
+            },
+            {
+              "player_id": 220194,
+              "name": "Joe McCarthy",
+              "pos": "Second-row",
+              "team": "Ireland",
+              "started": true,
+              "actual": 7.0,
+              "target": 20.259816870143425,
+              "sel": 0.986193193999267,
+              "captain_score": 0.7278367212792423,
+              "supersub_score": 0.8509563757594549
+            }
+          ],
+          "xv_out": [
+            {
+              "player_id": 213192,
+              "name": "Tommy Freeman",
+              "pos": "Back-three",
+              "team": "England",
+              "started": true,
+              "actual": 43.0,
+              "target": 21.12571043362655,
+              "sel": 1.4694759792153465,
+              "captain_score": 2.8331166893739903,
+              "supersub_score": 1.4645607668071678
+            },
+            {
+              "player_id": 213072,
+              "name": "Thibaud Flament",
+              "pos": "Second-row",
+              "team": "France",
+              "started": true,
+              "actual": 15.0,
+              "target": 18.748274934452645,
+              "sel": 1.097821750892496,
+              "captain_score": 1.1449732175985408,
+              "supersub_score": 1.0820740014302075
+            }
+          ]
+        },
+        {
+          "round": 5,
+          "old_actual_total": 594.0,
+          "new_actual_total": 635.0,
+          "delta_actual_total": 41.0,
+          "old_captain": {
+            "player_id": 129822,
+            "name": "Thomas Ramos",
+            "pos": "Back-three",
+            "team": "France",
+            "started": true,
+            "actual": 36.0,
+            "target": 36.01568324294796,
+            "sel": 3.870586055430167,
+            "captain_score": 5.630415990936324,
+            "supersub_score": 4.1246620535467455
+          },
+          "new_captain": {
+            "player_id": 129822,
+            "name": "Thomas Ramos",
+            "pos": "Back-three",
+            "team": "France",
+            "started": true,
+            "actual": 36.0,
+            "target": 37.815683242947955,
+            "sel": 3.8853539675930078,
+            "captain_score": 5.630415990936324,
+            "supersub_score": 4.1246620535467455
+          },
+          "old_supersub": {
+            "player_id": 264444,
+            "name": "Chandler Cunningham-South",
+            "pos": "Back-row",
+            "team": "England",
+            "started": false,
+            "actual": 50.0,
+            "target": 9.223666883133742,
+            "sel": -0.900268375048815,
+            "captain_score": -1.7276387239616886,
+            "supersub_score": 0.9465492473288304
+          },
+          "new_supersub": {
+            "player_id": 264444,
+            "name": "Chandler Cunningham-South",
+            "pos": "Back-row",
+            "team": "England",
+            "started": false,
+            "actual": 50.0,
+            "target": 9.223666883133742,
+            "sel": -0.9728103272096968,
+            "captain_score": -1.7276387239616886,
+            "supersub_score": 0.9465492473288304
+          },
+          "xv_in": [
+            {
+              "player_id": 203070,
+              "name": "Jac Morgan",
+              "pos": "Back-row",
+              "team": "Wales",
+              "started": true,
+              "actual": 24.0,
+              "target": 27.246752662898633,
+              "sel": 2.049053848919253,
+              "captain_score": 1.932343464439614,
+              "supersub_score": 2.279028292567305
+            },
+            {
+              "player_id": 196152,
+              "name": "Yoram Moefana",
+              "pos": "Centre",
+              "team": "France",
+              "started": true,
+              "actual": 63.0,
+              "target": 21.01564988930764,
+              "sel": 1.356037476351809,
+              "captain_score": 1.383858445386875,
+              "supersub_score": 1.2726166868018032
+            },
+            {
+              "player_id": 164232,
+              "name": "Danilo Fischetti",
+              "pos": "Prop",
+              "team": "Italy",
+              "started": true,
+              "actual": 15.0,
+              "target": 15.510862570871215,
+              "sel": 0.15892416053040487,
+              "captain_score": -1.1054504594844106,
+              "supersub_score": 0.47289995462188905
+            }
+          ],
+          "xv_out": [
+            {
+              "player_id": 220140,
+              "name": "Lorenzo Cannone",
+              "pos": "Back-row",
+              "team": "Italy",
+              "started": true,
+              "actual": 15.0,
+              "target": 25.764747048899103,
+              "sel": 1.9603612273901254,
+              "captain_score": 1.6385330623917957,
+              "supersub_score": 2.5039167604416375
+            },
+            {
+              "player_id": 119154,
+              "name": "Gael Fickou",
+              "pos": "Centre",
+              "team": "France",
+              "started": true,
+              "actual": 22.0,
+              "target": 19.77470083098202,
+              "sel": 1.3682437322000869,
+              "captain_score": 1.9889194821757543,
+              "supersub_score": 0.8516989015081442
+            },
+            {
+              "player_id": 130530,
+              "name": "Zander Fagerson",
+              "pos": "Prop",
+              "team": "Scotland",
+              "started": true,
+              "actual": 24.0,
+              "target": 14.801191493674814,
+              "sel": 0.1466241574566063,
+              "captain_score": -0.8196560187501927,
+              "supersub_score": 0.0933456738597355
+            }
+          ]
+        }
+      ],
+      "total_delta_actual": -4.0
+    },
+    {
+      "season": 2026,
+      "old_config": "target_only_teamplay_component_aspect100_starters",
+      "new_config": "orchestrator_resid030_delta_overlay_010",
+      "rounds": [
+        {
+          "round": 1,
+          "old_actual_total": 547.0,
+          "new_actual_total": 544.0,
+          "delta_actual_total": -3.0,
+          "old_captain": {
+            "player_id": 129822,
+            "name": "Thomas Ramos",
+            "pos": "Back-three",
+            "team": "France",
+            "started": true,
+            "actual": 46.0,
+            "target": 36.97155612986363,
+            "sel": 3.8289420698970873,
+            "captain_score": 4.853485307128018,
+            "supersub_score": 4.387578528425816
+          },
+          "new_captain": {
+            "player_id": 129822,
+            "name": "Thomas Ramos",
+            "pos": "Back-three",
+            "team": "France",
+            "started": true,
+            "actual": 46.0,
+            "target": 36.97155612986363,
+            "sel": 3.8582016300820925,
+            "captain_score": 4.853485307128018,
+            "supersub_score": 4.387578528425816
+          },
+          "old_supersub": {
+            "player_id": 342324,
+            "name": "Henry Pollock",
+            "pos": "Back-row",
+            "team": "England",
+            "started": false,
+            "actual": 3.0,
+            "target": 15.235114568848777,
+            "sel": -0.03237102113434476,
+            "captain_score": 0.6726438007556199,
+            "supersub_score": 1.7333144916689978
+          },
+          "new_supersub": {
+            "player_id": 342324,
+            "name": "Henry Pollock",
+            "pos": "Back-row",
+            "team": "England",
+            "started": false,
+            "actual": 3.0,
+            "target": 15.235114568848777,
+            "sel": -0.08752647631968918,
+            "captain_score": 0.6726438007556199,
+            "supersub_score": 1.7333144916689978
+          },
+          "xv_in": [
+            {
+              "player_id": 242478,
+              "name": "Oscar Jegou",
+              "pos": "Back-row",
+              "team": "France",
+              "started": true,
+              "actual": 31.0,
+              "target": 23.524753366705323,
+              "sel": 1.6466539872887618,
+              "captain_score": 1.2991085418090371,
+              "supersub_score": 0.9574699479890989
+            }
+          ],
+          "xv_out": [
+            {
+              "player_id": 148680,
+              "name": "Caelan Doris",
+              "pos": "Back-row",
+              "team": "Ireland",
+              "started": true,
+              "actual": 34.0,
+              "target": 25.125825297105614,
+              "sel": 1.6491485125367584,
+              "captain_score": 1.809009724186181,
+              "supersub_score": 1.4603787176315899
+            }
+          ]
+        },
+        {
+          "round": 2,
+          "old_actual_total": 575.0,
+          "new_actual_total": 575.0,
+          "delta_actual_total": 0.0,
+          "old_captain": {
+            "player_id": 129822,
+            "name": "Thomas Ramos",
+            "pos": "Back-three",
+            "team": "France",
+            "started": true,
+            "actual": 48.0,
+            "target": 40.320400065904806,
+            "sel": 4.073147008049313,
+            "captain_score": 6.197722263499282,
+            "supersub_score": 4.838022781640626
+          },
+          "new_captain": {
+            "player_id": 129822,
+            "name": "Thomas Ramos",
+            "pos": "Back-three",
+            "team": "France",
+            "started": true,
+            "actual": 48.0,
+            "target": 42.1204000659048,
+            "sel": 4.3944934968945475,
+            "captain_score": 6.197722263499282,
+            "supersub_score": 4.838022781640626
+          },
+          "old_supersub": {
+            "player_id": 342324,
+            "name": "Henry Pollock",
+            "pos": "Back-row",
+            "team": "England",
+            "started": false,
+            "actual": 22.0,
+            "target": 15.673472856155518,
+            "sel": 0.014743301742400766,
+            "captain_score": 0.5454677784235548,
+            "supersub_score": 2.283573707751158
+          },
+          "new_supersub": {
+            "player_id": 342324,
+            "name": "Henry Pollock",
+            "pos": "Back-row",
+            "team": "England",
+            "started": false,
+            "actual": 22.0,
+            "target": 15.673472856155518,
+            "sel": -0.04041215344294365,
+            "captain_score": 0.5454677784235548,
+            "supersub_score": 2.283573707751158
+          },
+          "xv_in": [],
+          "xv_out": []
+        },
+        {
+          "round": 3,
+          "old_actual_total": 466.0,
+          "new_actual_total": 468.0,
+          "delta_actual_total": 2.0,
+          "old_captain": {
+            "player_id": 129822,
+            "name": "Thomas Ramos",
+            "pos": "Back-three",
+            "team": "France",
+            "started": true,
+            "actual": 56.0,
+            "target": 36.08083769791867,
+            "sel": 3.3135974382154187,
+            "captain_score": 5.06338286753893,
+            "supersub_score": 4.010365956441184
+          },
+          "new_captain": {
+            "player_id": 129822,
+            "name": "Thomas Ramos",
+            "pos": "Back-three",
+            "team": "France",
+            "started": true,
+            "actual": 56.0,
+            "target": 37.880837697918665,
+            "sel": 3.6921856166255065,
+            "captain_score": 5.06338286753893,
+            "supersub_score": 4.010365956441184
+          },
+          "old_supersub": {
+            "player_id": 156288,
+            "name": "Marcus Smith",
+            "pos": "Fly-half",
+            "team": "England",
+            "started": false,
+            "actual": 18.0,
+            "target": 13.53179395880215,
+            "sel": -0.2112633777451205,
+            "captain_score": 0.30641567904786915,
+            "supersub_score": 1.5876618584419082
+          },
+          "new_supersub": {
+            "player_id": 156288,
+            "name": "Marcus Smith",
+            "pos": "Fly-half",
+            "team": "England",
+            "started": false,
+            "actual": 18.0,
+            "target": 13.53179395880215,
+            "sel": -0.2664188329304649,
+            "captain_score": 0.30641567904786915,
+            "supersub_score": 1.5876618584419082
+          },
+          "xv_in": [
+            {
+              "player_id": 339450,
+              "name": "Theo Attissogbe",
+              "pos": "Back-three",
+              "team": "France",
+              "started": true,
+              "actual": 20.0,
+              "target": 32.92480143988562,
+              "sel": 2.869356420276906,
+              "captain_score": 4.801683085671543,
+              "supersub_score": 3.037042981892114
+            }
+          ],
+          "xv_out": [
+            {
+              "player_id": 213192,
+              "name": "Tommy Freeman",
+              "pos": "Back-three",
+              "team": "England",
+              "started": true,
+              "actual": 18.0,
+              "target": 28.570677314174432,
+              "sel": 2.681873649457293,
+              "captain_score": 4.885418302297055,
+              "supersub_score": 3.2422789395154794
+            }
+          ]
+        },
+        {
+          "round": 4,
+          "old_actual_total": 478.0,
+          "new_actual_total": 457.0,
+          "delta_actual_total": -21.0,
+          "old_captain": {
+            "player_id": 129822,
+            "name": "Thomas Ramos",
+            "pos": "Back-three",
+            "team": "France",
+            "started": true,
+            "actual": 45.0,
+            "target": 35.18185254206678,
+            "sel": 3.534518619466918,
+            "captain_score": 4.797422457017966,
+            "supersub_score": 3.947720181614137
+          },
+          "new_captain": {
+            "player_id": 129822,
+            "name": "Thomas Ramos",
+            "pos": "Back-three",
+            "team": "France",
+            "started": true,
+            "actual": 45.0,
+            "target": 36.981852542066775,
+            "sel": 3.7378119442266464,
+            "captain_score": 4.797422457017966,
+            "supersub_score": 3.947720181614137
+          },
+          "old_supersub": {
+            "player_id": 342324,
+            "name": "Henry Pollock",
+            "pos": "Back-row",
+            "team": "England",
+            "started": false,
+            "actual": 0.0,
+            "target": 15.592648885680742,
+            "sel": 0.026948812512075676,
+            "captain_score": 0.380534462062903,
+            "supersub_score": 2.2591403317840846
+          },
+          "new_supersub": {
+            "player_id": 342324,
+            "name": "Henry Pollock",
+            "pos": "Back-row",
+            "team": "England",
+            "started": false,
+            "actual": 0.0,
+            "target": 15.592648885680742,
+            "sel": -0.028206642673268743,
+            "captain_score": 0.380534462062903,
+            "supersub_score": 2.2591403317840846
+          },
+          "xv_in": [
+            {
+              "player_id": 242478,
+              "name": "Oscar Jegou",
+              "pos": "Back-row",
+              "team": "France",
+              "started": true,
+              "actual": 47.0,
+              "target": 25.829455756752363,
+              "sel": 2.072545280936094,
+              "captain_score": 1.4754887854409728,
+              "supersub_score": 1.4017330416252687
+            }
+          ],
+          "xv_out": [
+            {
+              "player_id": 117936,
+              "name": "Jack Conan",
+              "pos": "Back-row",
+              "team": "Ireland",
+              "started": true,
+              "actual": 68.0,
+              "target": 26.191010122228533,
+              "sel": 2.0713356853290206,
+              "captain_score": 2.5347411956577206,
+              "supersub_score": 2.522272791764227
+            }
+          ]
+        },
+        {
+          "round": 5,
+          "old_actual_total": 615.0,
+          "new_actual_total": 650.0,
+          "delta_actual_total": 35.0,
+          "old_captain": {
+            "player_id": 231684,
+            "name": "Louis Bielle-Biarrey",
+            "pos": "Back-three",
+            "team": "France",
+            "started": true,
+            "actual": 68.0,
+            "target": 26.275094669525675,
+            "sel": 2.4397217213641116,
+            "captain_score": 4.681773301335122,
+            "supersub_score": 2.473257934983631
+          },
+          "new_captain": {
+            "player_id": 231684,
+            "name": "Louis Bielle-Biarrey",
+            "pos": "Back-three",
+            "team": "France",
+            "started": true,
+            "actual": 68.0,
+            "target": 28.075094669525676,
+            "sel": 2.3656437401890265,
+            "captain_score": 4.681773301335122,
+            "supersub_score": 2.473257934983631
+          },
+          "old_supersub": {
+            "player_id": 156288,
+            "name": "Marcus Smith",
+            "pos": "Fly-half",
+            "team": "England",
+            "started": false,
+            "actual": 21.0,
+            "target": 13.553508121362901,
+            "sel": -0.23655657928776203,
+            "captain_score": 0.40712424926290647,
+            "supersub_score": 1.6077326541695924
+          },
+          "new_supersub": {
+            "player_id": 156288,
+            "name": "Marcus Smith",
+            "pos": "Fly-half",
+            "team": "England",
+            "started": false,
+            "actual": 21.0,
+            "target": 13.553508121362901,
+            "sel": -0.29171203447310645,
+            "captain_score": 0.40712424926290647,
+            "supersub_score": 1.6077326541695924
+          },
+          "xv_in": [
+            {
+              "player_id": 117936,
+              "name": "Jack Conan",
+              "pos": "Back-row",
+              "team": "Ireland",
+              "started": true,
+              "actual": 24.0,
+              "target": 27.824076832469544,
+              "sel": 2.0273065400527748,
+              "captain_score": 2.9163323962432557,
+              "supersub_score": 1.4816327843458972
+            },
+            {
+              "player_id": 139902,
+              "name": "Blair Kinghorn",
+              "pos": "Back-three",
+              "team": "Scotland",
+              "started": true,
+              "actual": 19.0,
+              "target": 25.33699092428216,
+              "sel": 1.9437232520589185,
+              "captain_score": 3.46274744796278,
+              "supersub_score": 1.5067986935269437
+            },
+            {
+              "player_id": 129840,
+              "name": "Stuart McCloskey",
+              "pos": "Centre",
+              "team": "Ireland",
+              "started": true,
+              "actual": 36.0,
+              "target": 21.95079584447687,
+              "sel": 1.156275886390084,
+              "captain_score": 1.4675609802249734,
+              "supersub_score": 0.35567498895703475
+            },
+            {
+              "player_id": 148650,
+              "name": "Tom O'Toole",
+              "pos": "Prop",
+              "team": "Ireland",
+              "started": true,
+              "actual": 32.0,
+              "target": 15.013268802339404,
+              "sel": -0.1641921716147021,
+              "captain_score": -1.065905797682818,
+              "supersub_score": -0.5510380028985173
+            }
+          ],
+          "xv_out": [
+            {
+              "player_id": 142404,
+              "name": "Ben Earl",
+              "pos": "Back-row",
+              "team": "England",
+              "started": true,
+              "actual": 13.0,
+              "target": 26.972426065202846,
+              "sel": 1.9527002596465701,
+              "captain_score": 2.7190391156989553,
+              "supersub_score": 2.3085911046824963
+            },
+            {
+              "player_id": 213192,
+              "name": "Tommy Freeman",
+              "pos": "Back-three",
+              "team": "England",
+              "started": true,
+              "actual": 33.0,
+              "target": 23.946734366380845,
+              "sel": 1.9502063272387857,
+              "captain_score": 3.3663619607562323,
+              "supersub_score": 2.0353046854915875
+            },
+            {
+              "player_id": 232032,
+              "name": "Seb Atkinson",
+              "pos": "Centre",
+              "team": "England",
+              "started": true,
+              "actual": 14.0,
+              "target": 20.84178683848275,
+              "sel": 1.2644248443464272,
+              "captain_score": 1.756674871857168,
+              "supersub_score": 0.6699659963174946
+            },
+            {
+              "player_id": 130290,
+              "name": "Pierre Schoeman",
+              "pos": "Prop",
+              "team": "Scotland",
+              "started": true,
+              "actual": 16.0,
+              "target": 14.741641657939436,
+              "sel": -0.14487342241174958,
+              "captain_score": -0.6932502081588979,
+              "supersub_score": -0.29426555343036703
+            }
+          ]
+        }
+      ],
+      "total_delta_actual": 13.0
+    }
+  ]
+}

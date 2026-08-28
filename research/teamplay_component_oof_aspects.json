@@ -1,0 +1,59 @@
+{
+  "date": "2026-06-19",
+  "mode": "aspects",
+  "min_gain": 0.01,
+  "winners": [
+    "offload",
+    "try_assists"
+  ],
+  "components": {
+    "tackle_turnover": {
+      "base_oof_mae": 0.2522068364264379,
+      "teamplay_oof_mae": 0.251313690015764,
+      "relative_gain": 0.0035413251414158076,
+      "accepted": false
+    },
+    "defenders_beaten": {
+      "base_oof_mae": 1.3952459551805036,
+      "teamplay_oof_mae": 1.4035441576240577,
+      "relative_gain": -0.0059474836051256474,
+      "accepted": false
+    },
+    "penalties_conceded": {
+      "base_oof_mae": 0.9073768523065127,
+      "teamplay_oof_mae": 0.9046108006385759,
+      "relative_gain": 0.0030484044869620863,
+      "accepted": false
+    },
+    "offload": {
+      "base_oof_mae": 0.639087823334657,
+      "teamplay_oof_mae": 0.6295091288615687,
+      "relative_gain": 0.014988072254464413,
+      "accepted": true
+    },
+    "metres": {
+      "base_oof_mae": 17.143086870307737,
+      "teamplay_oof_mae": 17.2722696099615,
+      "relative_gain": -0.007535558830860989,
+      "accepted": false
+    },
+    "tackles": {
+      "base_oof_mae": 4.893048621875964,
+      "teamplay_oof_mae": 4.8675687971411215,
+      "relative_gain": 0.005207351633688462,
+      "accepted": false
+    },
+    "try_assists": {
+      "base_oof_mae": 0.22531087858611398,
+      "teamplay_oof_mae": 0.22302656336111099,
+      "relative_gain": 0.010138503916622632,
+      "accepted": true
+    },
+    "tries": {
+      "base_oof_mae": 0.3078139517787711,
+      "teamplay_oof_mae": 0.31037302163352254,
+      "relative_gain": -0.008313690266354978,
+      "accepted": false
+    }
+  }
+}

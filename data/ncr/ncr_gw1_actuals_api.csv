@@ -1,0 +1,277 @@
+date,comp_id,comp_name,fixture_id,team,team_id,opponent,opponent_id,team_score,opp_score,player_id,player_name,jersey,started,minutes,yellow_cards,red_cards,tries,try_assists,conversion_goals,penalty_goals,drop_goals_converted,metres,defenders_beaten,clean_breaks,offload,runs,tackles,missed_tackles,dominant_tackles,tackle_success,tackle_turnover,tackle_try_saver,rucks_won,rucks_lost,passes,bad_passes,lineouts_won,turnovers_conceded,penalties_conceded,missed_conversion_goals,missed_penalty_goals,drop_goal_missed,points
+2026-07-04,696,Nations Championship,8546083,New Zealand,2567,France,1967,34,32,130452,Damian McKenzie,15,True,80,0,0,0,0,0,0,0,35,2,1,0,9,5,3,0,0.63,0,0,4,0,17,2,1,3,0,1,0,0,0
+2026-07-04,696,Nations Championship,8546083,New Zealand,2567,France,1967,34,32,168972,Will Jordan,14,True,80,0,0,2,0,0,0,0,63,0,2,0,11,8,0,0,0.89,0,0,8,0,7,1,0,1,0,0,0,0,10
+2026-07-04,696,Nations Championship,8546083,New Zealand,2567,France,1967,34,32,188928,Quinn Tupaea,13,True,59,0,0,0,0,0,0,0,14,1,0,0,9,6,3,0,0.55,0,0,9,0,8,1,0,1,1,0,0,0,0
+2026-07-04,696,Nations Championship,8546083,New Zealand,2567,France,1967,34,32,149694,Jordie Barrett,12,True,80,0,0,0,2,0,0,0,26,0,1,2,9,11,2,2,0.85,0,0,6,0,24,1,0,2,1,0,0,0,0
+2026-07-04,696,Nations Championship,8546083,New Zealand,2567,France,1967,34,32,168948,Caleb Clarke,11,True,68,0,0,0,1,0,0,0,54,3,1,0,10,3,1,0,0.38,0,0,8,0,3,0,0,1,0,0,0,0,0
+2026-07-04,696,Nations Championship,8546083,New Zealand,2567,France,1967,34,32,216096,Ruben Love,10,True,80,1,0,0,0,3,1,0,50,5,1,1,4,4,1,0,0.57,0,0,4,0,19,1,0,0,1,1,0,0,9
+2026-07-04,696,Nations Championship,8546083,New Zealand,2567,France,1967,34,32,225594,Cam Roigard,9,True,75,0,0,2,0,0,0,0,49,6,2,1,8,7,1,0,0.78,0,0,4,0,92,4,0,0,0,0,0,0,10
+2026-07-04,696,Nations Championship,8546083,New Zealand,2567,France,1967,34,32,196176,Ethan de Groot,1,True,53,0,0,0,0,0,0,0,7,1,0,0,5,13,0,1,0.93,0,0,4,0,5,0,0,1,1,0,0,0,0
+2026-07-04,696,Nations Championship,8546083,New Zealand,2567,France,1967,34,32,112860,Codie Taylor,2,True,59,0,0,0,0,0,0,0,39,0,0,0,10,11,1,0,0.92,0,0,10,0,2,0,7,0,0,0,0,0,0
+2026-07-04,696,Nations Championship,8546083,New Zealand,2567,France,1967,34,32,206700,Fletcher Newell,3,True,53,0,0,0,0,0,0,0,5,0,0,0,4,13,0,0,0.93,0,0,4,0,2,0,0,0,1,0,0,0,0
+2026-07-04,696,Nations Championship,8546083,New Zealand,2567,France,1967,34,32,197916,Josh Lord,4,True,68,0,0,0,0,0,0,0,12,0,1,0,4,10,1,0,0.71,0,0,4,0,3,0,0,0,0,0,0,0,0
+2026-07-04,696,Nations Championship,8546083,New Zealand,2567,France,1967,34,32,197832,Sam Darry,5,True,80,0,0,0,0,0,0,0,14,1,0,0,11,21,2,2,0.91,0,0,10,0,7,0,0,0,1,0,0,0,0
+2026-07-04,696,Nations Championship,8546083,New Zealand,2567,France,1967,34,32,241614,Peter Lakai,6,True,53,0,0,1,0,0,0,0,25,0,0,0,7,6,2,0,0.75,0,0,6,0,5,1,0,0,0,0,0,0,5
+2026-07-04,696,Nations Championship,8546083,New Zealand,2567,France,1967,34,32,149676,Luke Jacobson,7,True,80,0,0,0,1,0,0,0,12,3,0,1,7,21,1,2,0.84,0,0,6,0,4,1,0,0,2,0,0,0,0
+2026-07-04,696,Nations Championship,8546083,New Zealand,2567,France,1967,34,32,120396,Ardie Savea,8,True,80,0,0,0,0,0,0,0,40,2,1,0,13,16,1,0,0.89,0,0,13,0,4,0,0,1,1,0,0,0,0
+2026-07-04,696,Nations Championship,8546083,New Zealand,2567,France,1967,34,32,149706,Asafo Aumua,16,False,21,0,0,0,0,0,0,0,0,0,0,0,2,5,0,0,0.83,0,0,2,0,1,0,1,0,0,0,0,0,0
+2026-07-04,696,Nations Championship,8546083,New Zealand,2567,France,1967,34,32,185508,Xavier Numia,17,False,27,0,0,0,0,0,0,0,6,0,0,1,5,7,2,0,0.78,0,0,4,0,2,0,0,0,0,0,0,0,0
+2026-07-04,696,Nations Championship,8546083,New Zealand,2567,France,1967,34,32,140004,Tyrel Lomax,18,False,27,0,0,0,0,0,0,0,1,0,0,0,3,4,1,0,0.8,0,0,2,0,0,0,0,1,0,0,0,0,0
+2026-07-04,696,Nations Championship,8546083,New Zealand,2567,France,1967,34,32,214296,Jamie Hannah,19,False,12,0,0,0,0,0,0,0,7,0,0,0,3,5,1,0,0.83,0,0,2,0,1,1,0,1,0,0,0,0,0
+2026-07-04,696,Nations Championship,8546083,New Zealand,2567,France,1967,34,32,337404,Wallace Sititi,20,False,27,0,0,0,0,0,0,0,21,1,0,1,7,2,0,0,1.0,0,0,6,0,2,0,0,0,0,0,0,0,0
+2026-07-04,696,Nations Championship,8546083,New Zealand,2567,France,1967,34,32,225720,Cortez Ratima,21,False,5,0,0,0,0,0,0,0,2,0,0,0,1,0,0,0,0.0,0,0,1,0,9,0,0,0,0,0,0,0,0
+2026-07-04,696,Nations Championship,8546083,New Zealand,2567,France,1967,34,32,176550,Billy Proctor,22,False,21,0,0,0,0,0,0,0,2,0,0,0,1,1,0,0,1.0,0,0,1,0,2,0,0,1,0,0,0,0,0
+2026-07-04,696,Nations Championship,8546083,New Zealand,2567,France,1967,34,32,353082,Fehi Fineanganofo,23,False,12,0,0,0,0,0,0,0,13,1,0,0,2,3,0,0,1.0,0,0,2,0,0,0,0,0,0,0,0,0,0
+2026-07-04,696,Nations Championship,8546083,France,1967,New Zealand,2567,32,34,223356,Max Spring,15,True,6,0,0,0,0,0,0,0,51,1,2,1,7,5,3,1,0.63,0,0,5,0,3,0,0,2,0,0,0,0,0
+2026-07-04,696,Nations Championship,8546083,France,1967,New Zealand,2567,32,34,139668,Damian Penaud,14,True,40,0,0,1,0,0,0,0,26,1,3,1,4,2,1,0,0.67,0,0,1,0,6,2,0,0,0,0,0,0,5
+2026-07-04,696,Nations Championship,8546083,France,1967,New Zealand,2567,32,34,354888,Fabien Brau-Boirie,13,True,68,0,0,0,1,0,0,0,86,3,2,3,11,16,2,1,0.89,1,0,6,0,8,0,0,1,0,0,0,0,0
+2026-07-04,696,Nations Championship,8546083,France,1967,New Zealand,2567,32,34,196152,Yoram Moefana,12,True,80,0,0,0,0,0,0,0,28,1,0,0,10,19,0,5,0.9,0,0,9,1,3,0,0,1,0,0,0,0,0
+2026-07-04,696,Nations Championship,8546083,France,1967,New Zealand,2567,32,34,339450,Theo Attissogbe,11,True,80,0,0,1,1,0,0,0,54,4,1,1,10,14,0,1,0.93,0,0,7,0,5,0,0,0,0,0,0,0,5
+2026-07-04,696,Nations Championship,8546083,France,1967,New Zealand,2567,32,34,169662,Matthieu Jalibert,10,True,80,0,0,1,1,0,0,0,73,4,2,3,12,4,2,0,0.57,0,0,3,0,32,3,0,2,0,0,0,0,5
+2026-07-04,696,Nations Championship,8546083,France,1967,New Zealand,2567,32,34,186162,Maxime Lucu,9,True,75,0,0,0,0,2,2,0,5,1,0,0,2,14,3,0,0.78,0,0,1,0,80,4,0,1,0,1,0,0,10
+2026-07-04,696,Nations Championship,8546083,France,1967,New Zealand,2567,32,34,116592,Jefferson Poirot,1,True,55,0,0,0,0,0,0,0,8,0,0,0,5,9,0,1,0.9,0,0,5,0,0,0,0,0,1,0,0,0,0
+2026-07-04,696,Nations Championship,8546083,France,1967,New Zealand,2567,32,34,178824,Maxime Lamothe,2,True,62,0,0,0,0,0,0,0,0,0,0,0,4,11,0,0,0.92,0,0,4,0,3,1,6,0,1,0,0,0,0
+2026-07-04,696,Nations Championship,8546083,France,1967,New Zealand,2567,32,34,178656,Demba Bamba,3,True,47,0,0,0,0,0,0,0,2,0,0,0,3,7,2,0,0.78,0,0,3,0,0,0,0,0,4,0,0,0,0
+2026-07-04,696,Nations Championship,8546083,France,1967,New Zealand,2567,32,34,238278,Hugo Auradou,4,True,80,0,0,0,0,0,0,0,15,0,0,0,7,10,1,2,0.91,0,0,7,0,7,1,0,0,0,0,0,0,0
+2026-07-04,696,Nations Championship,8546083,France,1967,New Zealand,2567,32,34,124296,Tom Staniforth,5,True,55,0,0,0,0,0,0,0,11,0,0,1,14,13,1,1,0.93,0,0,13,1,2,0,0,0,0,0,0,0,0
+2026-07-04,696,Nations Championship,8546083,France,1967,New Zealand,2567,32,34,231690,Pierre Bochaton,6,True,33,0,0,0,0,0,0,0,7,1,0,0,5,6,0,0,0.86,0,0,4,1,0,0,0,0,1,0,0,0,0
+2026-07-04,696,Nations Championship,8546083,France,1967,New Zealand,2567,32,34,242478,Oscar Jegou,7,True,80,0,0,0,0,0,0,0,6,1,0,1,8,12,2,1,0.86,0,0,7,0,7,0,0,1,1,0,0,0,0
+2026-07-04,696,Nations Championship,8546083,France,1967,New Zealand,2567,32,34,340140,Marko Gazzotti,8,True,80,0,0,0,0,0,0,0,22,2,0,1,12,17,1,1,0.89,1,0,11,0,8,0,0,0,1,0,0,0,0
+2026-07-04,696,Nations Championship,8546083,France,1967,New Zealand,2567,32,34,243636,Barnabe Massa,16,False,18,0,0,0,0,0,0,0,4,1,0,0,1,5,1,0,0.83,0,0,1,0,2,0,2,0,0,0,0,0,0
+2026-07-04,696,Nations Championship,8546083,France,1967,New Zealand,2567,32,34,189984,Reda Wardi,17,False,25,0,0,0,0,0,0,0,0,0,0,0,2,4,2,0,0.67,0,0,2,0,2,0,0,0,0,0,0,0,0
+2026-07-04,696,Nations Championship,8546083,France,1967,New Zealand,2567,32,34,207432,Regis Montagne,18,False,33,0,0,0,0,0,0,0,6,1,0,0,4,5,2,1,0.71,0,0,4,0,1,0,0,0,0,0,0,0,0
+2026-07-04,696,Nations Championship,8546083,France,1967,New Zealand,2567,32,34,219930,Mickael Guillard,19,False,47,0,0,0,0,0,0,0,8,0,0,0,8,9,0,0,0.9,0,0,7,0,2,0,0,0,0,0,0,0,0
+2026-07-04,696,Nations Championship,8546083,France,1967,New Zealand,2567,32,34,224352,Killian Tixeront,20,False,25,0,0,0,0,0,0,0,14,1,1,0,2,9,0,1,0.9,0,0,2,0,0,0,0,0,0,0,0,0,0
+2026-07-04,696,Nations Championship,8546083,France,1967,New Zealand,2567,32,34,219972,Nolann Le Garrec,21,False,5,0,0,0,1,0,0,0,4,0,0,0,1,0,0,0,0.0,0,0,0,0,11,0,0,0,0,0,0,0,0
+2026-07-04,696,Nations Championship,8546083,France,1967,New Zealand,2567,32,34,150468,Antoine Hastoy,22,False,15,0,0,1,0,1,0,0,43,3,1,0,12,0,2,0,0.0,0,0,9,0,4,1,0,0,0,0,0,0,7
+2026-07-04,696,Nations Championship,8546083,France,1967,New Zealand,2567,32,34,262248,Nicolas Depoortere,23,False,12,0,0,0,0,0,0,0,4,0,0,0,3,1,1,0,0.5,0,0,2,1,0,0,0,1,0,0,0,0,0
+2026-07-04,696,Nations Championship,8546092,Japan,9017,Italy,2873,27,10,229884,Takuro Matsunaga,15,True,80,0,0,1,0,3,2,0,49,1,0,0,7,3,0,0,1.0,0,0,7,0,3,0,1,1,0,0,0,0,17
+2026-07-04,696,Nations Championship,8546092,Japan,9017,Italy,2873,27,10,350934,Kazuma Ueda,14,True,80,0,0,0,0,0,0,0,21,2,1,0,5,4,0,0,1.0,0,0,6,0,2,0,0,1,0,0,0,0,0
+2026-07-04,696,Nations Championship,8546092,Japan,9017,Italy,2873,27,10,165924,Dylan Riley,13,True,80,0,0,0,0,0,0,0,2,0,0,0,3,8,3,0,0.73,0,0,2,0,4,2,0,0,0,0,0,0,0
+2026-07-04,696,Nations Championship,8546092,Japan,9017,Italy,2873,27,10,371544,Yuya Hirose,12,True,80,0,0,0,1,0,0,0,10,2,1,0,4,7,1,0,0.7,0,0,3,0,7,0,0,0,1,0,0,0,0
+2026-07-04,696,Nations Championship,8546092,Japan,9017,Italy,2873,27,10,204228,Kippei Ishida,11,True,80,0,0,0,0,0,0,0,23,0,0,0,5,5,1,0,0.71,1,0,3,1,3,0,0,0,1,0,0,0,0
+2026-07-04,696,Nations Championship,8546092,Japan,9017,Italy,2873,27,10,371430,Ryunosuke Ito,10,True,80,0,0,0,0,0,0,0,34,3,0,1,11,1,0,0,0.5,0,0,4,0,28,2,0,0,1,0,0,0,0
+2026-07-04,696,Nations Championship,8546092,Japan,9017,Italy,2873,27,10,150960,Naoto Saito,9,True,74,0,0,0,2,0,0,0,15,0,0,1,3,3,1,0,0.5,0,0,0,0,79,2,0,0,0,0,0,1,0
+2026-07-04,696,Nations Championship,8546092,Japan,9017,Italy,2873,27,10,193938,Takato Okabe,1,True,59,0,0,0,0,0,0,0,12,0,1,0,4,9,0,0,1.0,0,0,5,0,1,0,0,0,2,0,0,0,0
+2026-07-04,696,Nations Championship,8546092,Japan,9017,Italy,2873,27,10,206910,Mamoru Harada,2,True,56,0,0,0,0,0,0,0,10,1,0,0,5,13,1,0,0.93,0,0,7,0,2,0,7,0,1,0,0,0,0
+2026-07-04,696,Nations Championship,8546092,Japan,9017,Italy,2873,27,10,227256,Shuhei Takeuchi,3,True,56,0,0,0,0,0,0,0,17,0,0,0,9,10,1,0,0.91,0,0,9,0,2,0,0,0,1,0,0,0,0
+2026-07-04,696,Nations Championship,8546092,Japan,9017,Italy,2873,27,10,149754,Harry Hockings,4,True,59,0,0,0,0,0,0,0,23,0,0,1,9,13,0,0,0.93,0,0,9,0,2,0,0,0,1,0,0,0,0
+2026-07-04,696,Nations Championship,8546092,Japan,9017,Italy,2873,27,10,242406,Warner Dearns,5,True,80,0,0,1,0,0,0,0,25,1,0,0,15,8,0,0,1.0,0,0,16,0,3,0,0,0,0,0,0,0,5
+2026-07-04,696,Nations Championship,8546092,Japan,9017,Italy,2873,27,10,157710,Ben Gunter,6,True,64,0,0,1,0,0,0,0,6,0,0,0,8,19,1,0,0.95,1,0,8,0,0,0,0,0,0,0,0,0,5
+2026-07-04,696,Nations Championship,8546092,Japan,9017,Italy,2873,27,10,185784,Kanji Shimokawa,7,True,51,0,0,0,0,0,0,0,4,0,0,0,2,6,0,0,1.0,0,0,2,0,3,0,0,0,0,0,0,0,0
+2026-07-04,696,Nations Championship,8546092,Japan,9017,Italy,2873,27,10,142194,Jack Cornelsen,8,True,80,0,0,0,0,0,0,0,7,1,0,0,5,12,3,0,0.75,0,0,6,0,2,0,0,1,0,0,0,0,0
+2026-07-04,696,Nations Championship,8546092,Japan,9017,Italy,2873,27,10,371742,Hayate Era,16,False,24,0,0,0,0,0,0,0,4,1,0,0,5,6,0,0,0.86,1,0,6,0,1,0,2,2,0,0,0,0,0
+2026-07-04,696,Nations Championship,8546092,Japan,9017,Italy,2873,27,10,370146,Sojiro Otsuka,17,False,21,0,0,0,0,0,0,0,1,0,0,0,2,2,0,0,1.0,0,0,3,0,0,0,0,0,0,0,0,0,0
+2026-07-04,696,Nations Championship,8546092,Japan,9017,Italy,2873,27,10,371586,Keijiro Tamefusa,18,False,24,0,0,0,0,0,0,0,3,0,0,0,3,6,0,0,1.0,0,0,4,0,0,0,0,0,0,0,0,0,0
+2026-07-04,696,Nations Championship,8546092,Japan,9017,Italy,2873,27,10,133026,Michael Stolberg,19,False,21,0,0,0,0,0,0,0,8,0,0,0,2,2,1,0,0.5,0,0,1,0,0,0,0,0,0,0,0,0,0
+2026-07-04,696,Nations Championship,8546092,Japan,9017,Italy,2873,27,10,67848,Michael Leitch,20,False,29,0,0,0,0,0,0,0,4,1,0,0,5,11,2,0,0.85,0,0,5,0,1,1,0,2,1,0,0,0,0
+2026-07-04,696,Nations Championship,8546092,Japan,9017,Italy,2873,27,10,353844,Tiennan Costley,21,False,16,0,0,0,0,0,0,0,3,0,0,1,2,4,0,0,1.0,0,0,1,0,2,0,0,0,0,0,0,0,0
+2026-07-04,696,Nations Championship,8546092,Japan,9017,Italy,2873,27,10,372078,Itsuki Kamimura,22,False,6,0,0,0,0,0,0,0,4,0,0,0,1,0,1,0,0.0,0,0,1,0,5,1,0,0,0,0,0,0,0
+2026-07-04,696,Nations Championship,8546092,Japan,9017,Italy,2873,27,10,135648,Sam Greene,23,False,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0.0,0,0,0,0,0,0,0,0,0,0,0,0,0
+2026-07-04,696,Nations Championship,8546092,Italy,2873,Japan,9017,10,27,231744,Lorenzo Pani,15,True,12,0,0,0,0,0,0,0,0,0,0,0,1,0,0,0,0.0,0,0,1,0,0,0,0,1,0,0,0,0,0
+2026-07-04,696,Nations Championship,8546092,Italy,2873,Japan,9017,10,27,421050,Malik Faissal,14,True,80,0,0,0,0,0,0,0,28,0,1,0,6,7,0,0,0.88,0,0,3,0,0,0,0,3,0,0,0,0,0
+2026-07-04,696,Nations Championship,8546092,Italy,2873,Japan,9017,10,27,118614,Juan Ignacio Brex,13,True,60,0,0,1,0,0,0,0,46,2,2,1,8,3,1,0,0.6,0,0,6,0,12,1,0,1,0,0,0,0,5
+2026-07-04,696,Nations Championship,8546092,Italy,2873,Japan,9017,10,27,226818,Tommaso Menoncello,12,True,80,0,0,0,0,0,0,0,57,3,1,1,13,5,0,0,0.83,0,0,9,0,5,0,0,4,1,0,0,0,0
+2026-07-04,696,Nations Championship,8546092,Italy,2873,Japan,9017,10,27,134016,Monty Ioane,11,True,80,0,0,0,0,0,0,0,30,2,0,0,10,2,2,0,0.5,0,0,8,0,1,1,0,2,0,0,0,0,0
+2026-07-04,696,Nations Championship,8546092,Italy,2873,Japan,9017,10,27,203034,Paolo Garbisi,10,True,80,0,0,0,1,1,1,0,20,2,0,0,4,6,1,0,0.67,0,0,3,0,23,4,0,2,0,0,0,0,5
+2026-07-04,696,Nations Championship,8546092,Italy,2873,Japan,9017,10,27,213144,Stephen Varney,9,True,60,0,0,0,0,0,0,0,5,0,0,0,3,4,0,0,0.57,0,0,0,0,69,0,0,2,0,0,0,0,0
+2026-07-04,696,Nations Championship,8546092,Italy,2873,Japan,9017,10,27,164232,Danilo Fischetti,1,True,60,0,0,0,0,0,0,0,0,1,0,0,6,7,0,0,1.0,0,0,6,0,1,0,0,1,1,0,0,0,0
+2026-07-04,696,Nations Championship,8546092,Italy,2873,Japan,9017,10,27,231714,Tommaso Di Bartolomeo,2,True,47,0,0,0,0,0,0,0,6,0,0,0,6,12,0,0,1.0,0,0,5,0,1,0,12,0,0,0,0,0,0
+2026-07-04,696,Nations Championship,8546092,Italy,2873,Japan,9017,10,27,144684,Marco Riccioni,3,True,60,0,0,0,0,0,0,0,5,0,0,0,4,13,1,0,0.87,0,0,4,0,0,0,0,0,0,0,0,0,0
+2026-07-04,696,Nations Championship,8546092,Italy,2873,Japan,9017,10,27,167196,Niccolo Cannone,4,True,67,0,0,0,0,0,0,0,0,0,0,0,7,10,0,0,0.91,0,0,7,0,3,0,0,1,1,0,0,0,0
+2026-07-04,696,Nations Championship,8546092,Italy,2873,Japan,9017,10,27,208140,Andrea Zambonin,5,True,80,0,0,0,0,0,0,0,8,1,0,0,6,13,2,0,0.87,0,1,6,0,2,0,0,2,0,0,0,0,0
+2026-07-04,696,Nations Championship,8546092,Italy,2873,Japan,9017,10,27,263058,Alessandro Ortombina,6,True,47,0,0,0,0,0,0,0,1,0,0,0,2,12,1,0,0.92,0,0,2,0,2,0,0,0,0,0,0,0,0
+2026-07-04,696,Nations Championship,8546092,Italy,2873,Japan,9017,10,27,164220,Michele Lamaro,7,True,80,0,0,0,0,0,0,0,3,0,0,0,5,19,1,0,0.95,0,0,4,0,6,1,0,1,0,0,0,0,0
+2026-07-04,696,Nations Championship,8546092,Italy,2873,Japan,9017,10,27,220140,Lorenzo Cannone,8,True,80,0,0,0,0,0,0,0,69,4,0,0,18,16,0,0,1.0,0,0,15,0,2,0,0,0,1,0,0,0,0
+2026-07-04,696,Nations Championship,8546092,Italy,2873,Japan,9017,10,27,202980,Gianmarco Lucchesi,16,False,33,0,0,0,0,0,0,0,5,0,0,0,3,7,0,0,1.0,0,0,2,0,4,1,4,1,2,0,0,0,0
+2026-07-04,696,Nations Championship,8546092,Italy,2873,Japan,9017,10,27,231804,Mirco Spagnolo,17,False,20,0,0,0,0,0,0,0,5,0,0,1,1,5,2,0,0.71,0,0,0,0,1,0,0,0,0,0,0,0,0
+2026-07-04,696,Nations Championship,8546092,Italy,2873,Japan,9017,10,27,220782,Muhamed Hasa,18,False,20,0,0,0,0,0,0,0,0,0,0,0,2,7,0,0,1.0,0,0,2,0,0,0,0,0,0,0,0,0,0
+2026-07-04,696,Nations Championship,8546092,Italy,2873,Japan,9017,10,27,220128,Riccardo Favretto,19,False,13,0,0,0,0,0,0,0,0,0,0,0,1,2,1,0,0.67,0,0,1,0,0,0,0,0,0,0,0,0,0
+2026-07-04,696,Nations Championship,8546092,Italy,2873,Japan,9017,10,27,231840,Ross Vintcent,20,False,33,0,0,0,0,0,0,0,0,0,0,0,0,7,0,0,0.88,0,0,0,0,1,0,0,1,0,0,0,0,0
+2026-07-04,696,Nations Championship,8546092,Italy,2873,Japan,9017,10,27,180450,Alessandro Fusco,21,False,20,0,0,0,0,0,0,0,21,0,0,0,1,3,0,0,1.0,0,0,1,0,12,1,1,0,0,0,0,0,0
+2026-07-04,696,Nations Championship,8546092,Italy,2873,Japan,9017,10,27,231834,Leonardo Marin,22,False,20,0,0,0,0,0,0,0,3,1,0,0,2,2,0,0,0.67,0,1,2,0,2,1,0,1,0,0,0,0,0
+2026-07-04,696,Nations Championship,8546092,Italy,2873,Japan,9017,10,27,117834,Tommaso Allan,23,False,68,0,0,0,0,0,0,0,10,0,0,2,5,2,1,0,0.67,0,0,2,0,5,1,0,1,0,0,0,0,0
+2026-07-04,696,Nations Championship,8546110,Australia,317,Ireland,1817,31,33,173226,Jock Campbell,15,True,77,0,0,1,1,0,0,0,67,2,1,1,6,5,0,0,0.83,0,0,2,0,6,0,0,0,2,0,0,0,5
+2026-07-04,696,Nations Championship,8546110,Australia,317,Ireland,1817,31,33,346554,Max Jorgensen,14,True,80,0,0,0,1,0,0,0,76,6,3,0,6,6,2,0,0.67,1,0,3,0,4,1,0,3,0,0,0,0,0
+2026-07-04,696,Nations Championship,8546110,Australia,317,Ireland,1817,31,33,213924,Joseph-Aukuso Suaalii,13,True,80,0,0,0,0,0,0,0,48,5,1,2,11,7,1,0,0.78,0,0,6,0,7,2,0,1,1,0,0,0,0
+2026-07-04,696,Nations Championship,8546110,Australia,317,Ireland,1817,31,33,153318,Len Ikitau,12,True,80,0,0,0,1,0,0,0,10,1,0,1,8,8,4,1,0.57,0,0,5,0,17,0,0,0,0,0,0,0,0
+2026-07-04,696,Nations Championship,8546110,Australia,317,Ireland,1817,31,33,164262,Dylan Pietsch,11,True,80,0,0,1,0,0,0,0,24,2,2,0,10,11,0,1,0.85,0,0,8,0,0,0,0,1,0,0,0,0,5
+2026-07-04,696,Nations Championship,8546110,Australia,317,Ireland,1817,31,33,191412,Carter Gordon,10,True,57,0,0,0,0,3,0,0,30,1,1,1,2,0,1,0,0.0,0,0,1,0,17,1,0,0,0,2,0,0,6
+2026-07-04,696,Nations Championship,8546110,Australia,317,Ireland,1817,31,33,163734,Ryan Lonergan,9,True,33,0,0,1,0,0,0,0,39,1,0,0,2,3,0,0,1.0,0,0,1,0,36,0,0,0,0,0,0,0,5
+2026-07-04,696,Nations Championship,8546110,Australia,317,Ireland,1817,31,33,192666,Angus Bell,1,True,54,0,0,0,0,0,0,0,14,1,0,0,10,12,0,0,1.0,0,0,10,0,2,0,0,0,0,0,0,0,0
+2026-07-04,696,Nations Championship,8546110,Australia,317,Ireland,1817,31,33,153054,Josh Nasser,2,True,54,0,0,0,0,0,0,0,12,2,0,0,3,4,1,1,0.67,0,0,3,0,4,1,8,0,1,0,0,0,0
+2026-07-04,696,Nations Championship,8546110,Australia,317,Ireland,1817,31,33,118890,Allan Alaalatoa,3,True,54,0,0,0,0,0,0,0,1,0,0,0,4,12,1,0,0.92,0,0,5,0,1,0,0,0,0,0,0,0,0
+2026-07-04,696,Nations Championship,8546110,Australia,317,Ireland,1817,31,33,193422,Josh Canham,4,True,58,0,0,1,0,0,0,0,5,0,0,1,6,9,2,0,0.64,0,0,4,0,9,0,0,0,1,0,0,0,5
+2026-07-04,696,Nations Championship,8546110,Australia,317,Ireland,1817,31,33,192618,Jeremy Williams,5,True,80,0,0,0,0,0,0,0,15,1,0,0,8,8,0,0,0.8,0,0,9,0,5,0,0,1,3,0,0,0,0
+2026-07-04,696,Nations Championship,8546110,Australia,317,Ireland,1817,31,33,161946,Rob Valetini,6,True,68,0,0,0,0,0,0,0,34,6,2,0,19,10,0,0,0.91,0,0,17,0,3,0,0,1,1,0,0,0,0
+2026-07-04,696,Nations Championship,8546110,Australia,317,Ireland,1817,31,33,154110,Fraser McReight,7,True,80,0,0,0,0,0,0,0,17,0,1,0,13,12,1,2,0.86,0,0,12,1,6,0,0,1,2,0,0,0,0
+2026-07-04,696,Nations Championship,8546110,Australia,317,Ireland,1817,31,33,153066,Harry Wilson,8,True,80,0,0,0,0,0,0,0,12,1,0,0,13,21,0,1,0.91,0,0,11,0,9,2,0,1,0,0,0,0,0
+2026-07-04,696,Nations Championship,8546110,Australia,317,Ireland,1817,31,33,161034,Brandon Paenga-Amosa,16,False,26,0,0,0,0,0,0,0,3,0,0,0,2,8,0,1,1.0,0,0,2,0,3,0,3,0,0,0,0,0,0
+2026-07-04,696,Nations Championship,8546110,Australia,317,Ireland,1817,31,33,66978,James Slipper,17,False,26,0,0,0,0,0,0,0,0,0,0,0,2,3,1,0,0.75,0,0,2,0,0,0,0,0,0,0,0,0,0
+2026-07-04,696,Nations Championship,8546110,Australia,317,Ireland,1817,31,33,131862,Taniela Tupou,18,False,26,0,0,0,0,0,0,0,4,0,0,0,3,5,0,0,1.0,0,0,3,0,1,0,0,0,0,0,0,0,0
+2026-07-04,696,Nations Championship,8546110,Australia,317,Ireland,1817,31,33,368232,Lachlan Shaw,19,False,22,1,0,0,0,0,0,0,0,0,0,0,0,3,1,0,0.75,0,0,0,0,2,0,0,0,1,0,0,0,0
+2026-07-04,696,Nations Championship,8546110,Australia,317,Ireland,1817,31,33,190848,Tom Hooper,20,False,12,0,0,0,0,0,0,0,1,0,0,0,1,4,1,0,0.8,0,0,1,0,1,0,0,0,0,0,0,0,0
+2026-07-04,696,Nations Championship,8546110,Australia,317,Ireland,1817,31,33,164268,Tate McDermott,21,False,47,0,0,1,0,0,0,0,24,2,0,0,8,1,1,0,0.33,0,0,6,0,48,0,0,0,0,0,0,0,5
+2026-07-04,696,Nations Championship,8546110,Australia,317,Ireland,1817,31,33,187842,Ben Donaldson,22,False,23,0,0,0,0,0,0,0,6,0,0,1,2,0,1,0,0.0,0,0,1,0,9,0,0,1,0,0,2,0,0
+2026-07-04,696,Nations Championship,8546110,Australia,317,Ireland,1817,31,33,201012,Tom Wright,23,False,3,0,0,0,0,0,0,0,4,0,0,0,2,0,0,0,0.0,0,0,2,0,2,0,0,0,0,0,0,0,0
+2026-07-04,696,Nations Championship,8546110,Ireland,1817,Australia,317,33,31,143496,Hugo Keenan,15,True,80,0,0,1,0,0,0,0,46,3,1,1,10,6,2,0,0.6,1,0,7,1,7,0,0,0,1,0,0,0,5
+2026-07-04,696,Nations Championship,8546110,Ireland,1817,Australia,317,33,31,143514,Jimmy O'Brien,14,True,80,0,0,0,0,0,0,0,33,1,0,0,10,8,0,0,0.89,0,0,6,0,8,2,0,2,1,0,0,0,0
+2026-07-04,696,Nations Championship,8546110,Ireland,1817,Australia,317,33,31,129372,Garry Ringrose,13,True,58,0,0,0,1,0,0,0,3,0,0,0,2,7,2,1,0.78,0,0,3,0,4,0,0,0,0,0,0,0,0
+2026-07-04,696,Nations Championship,8546110,Ireland,1817,Australia,317,33,31,129840,Stuart McCloskey,12,True,80,0,0,0,0,0,0,0,44,4,1,2,8,6,2,0,0.55,0,0,6,0,13,1,0,0,0,0,0,0,0
+2026-07-04,696,Nations Championship,8546110,Ireland,1817,Australia,317,33,31,227658,Jamie Osborne,11,True,58,0,0,0,0,0,0,0,6,0,0,0,2,3,0,0,1.0,0,0,1,1,0,0,0,0,1,0,0,0,0
+2026-07-04,696,Nations Championship,8546110,Ireland,1817,Australia,317,33,31,337638,Sam Prendergast,10,True,80,0,0,0,0,4,0,0,14,0,0,1,5,5,6,0,0.38,0,0,1,0,35,2,0,1,0,1,0,0,8
+2026-07-04,696,Nations Championship,8546110,Ireland,1817,Australia,317,33,31,120504,Jamison Gibson-Park,9,True,80,0,0,1,1,0,0,0,36,1,1,1,4,9,3,0,0.75,0,0,1,0,80,2,1,1,0,0,0,0,5
+2026-07-04,696,Nations Championship,8546110,Ireland,1817,Australia,317,33,31,148650,Tom O'Toole,1,True,51,0,0,0,0,0,0,0,6,0,0,0,10,13,0,0,1.0,0,0,10,0,3,1,0,0,2,0,0,0,0
+2026-07-04,696,Nations Championship,8546110,Ireland,1817,Australia,317,33,31,186096,Dan Sheehan,2,True,60,0,0,0,1,0,0,0,17,0,0,0,7,15,4,1,0.79,0,0,6,0,3,0,13,0,1,0,0,0,0
+2026-07-04,696,Nations Championship,8546110,Ireland,1817,Australia,317,33,31,112374,Tadhg Furlong,3,True,51,0,0,0,0,0,0,0,4,0,0,0,5,7,1,0,0.78,0,0,5,0,2,0,0,0,1,0,0,0,0
+2026-07-04,696,Nations Championship,8546110,Ireland,1817,Australia,317,33,31,220194,Joe McCarthy,4,True,80,0,0,0,0,0,0,0,4,1,0,0,7,14,2,0,0.82,0,0,8,0,7,0,0,1,1,0,0,0,0
+2026-07-04,696,Nations Championship,8546110,Ireland,1817,Australia,317,33,31,143604,James Ryan,5,True,80,0,0,0,0,0,0,0,2,0,0,0,7,11,2,1,0.85,0,0,7,0,2,0,0,2,1,0,0,0,0
+2026-07-04,696,Nations Championship,8546110,Ireland,1817,Australia,317,33,31,201978,Cian Prendergast,6,True,51,0,0,1,0,0,0,0,2,0,0,0,3,17,1,0,0.89,0,0,1,0,3,0,0,0,0,0,0,0,5
+2026-07-04,696,Nations Championship,8546110,Ireland,1817,Australia,317,33,31,118518,Josh van der Flier,7,True,51,0,0,1,0,0,0,0,17,1,0,0,7,19,1,0,0.95,0,0,6,0,4,0,0,0,0,0,0,0,5
+2026-07-04,696,Nations Championship,8546110,Ireland,1817,Australia,317,33,31,117936,Jack Conan,8,True,80,0,0,0,1,0,0,0,36,2,0,1,16,18,0,0,0.9,0,0,15,0,6,0,0,1,0,0,0,0,0
+2026-07-04,696,Nations Championship,8546110,Ireland,1817,Australia,317,33,31,148644,Ronan Kelleher,16,False,20,0,0,0,0,0,0,0,14,0,0,0,4,2,0,0,1.0,0,0,4,0,0,0,4,0,0,0,0,0,0
+2026-07-04,696,Nations Championship,8546110,Ireland,1817,Australia,317,33,31,136854,Jeremy Loughman,17,False,8,0,0,0,0,0,0,0,0,0,0,0,0,1,1,0,0.5,0,0,0,0,0,0,0,0,0,0,0,0,0
+2026-07-04,696,Nations Championship,8546110,Ireland,1817,Australia,317,33,31,203208,Thomas Clarkson,18,False,29,0,0,1,0,0,0,0,4,0,0,0,2,2,0,0,1.0,0,0,1,0,2,0,0,0,0,0,0,0,5
+2026-07-04,696,Nations Championship,8546110,Ireland,1817,Australia,317,33,31,117954,Tadhg Beirne,19,False,29,0,0,0,0,0,0,0,1,0,0,0,4,2,0,0,1.0,0,0,4,0,4,0,0,0,0,0,0,0,0
+2026-07-04,696,Nations Championship,8546110,Ireland,1817,Australia,317,33,31,136878,Nick Timoney,20,False,29,0,0,0,0,0,0,0,38,4,0,0,8,6,0,0,1.0,0,0,7,0,1,0,0,0,0,0,0,0,0
+2026-07-04,696,Nations Championship,8546110,Ireland,1817,Australia,317,33,31,203124,Craig Casey,21,False,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0.0,0,0,0,0,0,0,0,0,0,0,0,0,0
+2026-07-04,696,Nations Championship,8546110,Ireland,1817,Australia,317,33,31,148890,Ciaran Frawley,22,False,22,0,0,0,0,0,0,0,38,1,0,0,3,1,0,0,1.0,0,0,3,0,0,0,0,0,0,0,0,0,0
+2026-07-04,696,Nations Championship,8546110,Ireland,1817,Australia,317,33,31,114804,Bundee Aki,23,False,22,0,0,0,0,0,0,0,0,0,0,1,1,2,4,0,0.33,0,0,0,0,2,0,0,0,1,0,0,0,0
+2026-07-04,696,Nations Championship,8546119,Fiji,2879,Wales,1517,24,39,162444,Salesi Rayasi,15,True,80,0,0,0,0,0,0,0,112,7,1,4,13,1,2,0,0.33,0,0,5,1,18,1,0,1,2,0,0,0,0
+2026-07-04,696,Nations Championship,8546119,Fiji,2879,Wales,1517,24,39,264132,Selestino Ravutaumada,14,True,64,0,0,1,0,0,0,0,75,4,2,3,12,4,2,0,0.57,0,0,7,0,6,0,0,0,0,0,0,0,5
+2026-07-04,696,Nations Championship,8546119,Fiji,2879,Wales,1517,24,39,172098,Semi Radradra,13,True,28,0,0,0,0,0,0,0,37,1,0,3,6,2,0,0,1.0,0,0,2,1,5,0,0,1,1,0,0,0,0
+2026-07-04,696,Nations Championship,8546119,Fiji,2879,Wales,1517,24,39,126930,Josua Tuisova,12,True,80,0,0,0,0,0,0,0,55,5,0,2,14,3,0,0,1.0,0,0,6,1,10,3,0,1,0,0,0,0,0
+2026-07-04,696,Nations Championship,8546119,Fiji,2879,Wales,1517,24,39,211638,Jiuta Wainiqolo,11,True,80,0,0,0,0,0,0,0,167,17,2,5,15,5,0,0,0.71,0,0,5,0,12,1,0,1,1,0,0,0,0
+2026-07-04,696,Nations Championship,8546119,Fiji,2879,Wales,1517,24,39,215232,Isaiah Armstrong-Ravula,10,True,76,0,0,0,0,3,1,0,19,0,0,1,7,2,0,0,1.0,0,0,5,0,31,2,0,1,0,0,0,0,9
+2026-07-04,696,Nations Championship,8546119,Fiji,2879,Wales,1517,24,39,171126,Frank Lomani,9,True,55,0,0,0,1,0,0,0,13,0,0,1,1,4,0,0,1.0,1,0,0,0,55,0,0,0,1,0,0,0,0
+2026-07-04,696,Nations Championship,8546119,Fiji,2879,Wales,1517,24,39,175848,Eroni Mawi,1,True,55,0,0,0,0,0,0,0,4,0,0,1,4,6,0,0,1.0,0,0,2,0,2,0,0,1,1,0,0,0,0
+2026-07-04,696,Nations Championship,8546119,Fiji,2879,Wales,1517,24,39,206742,Tevita Ikanivere,2,True,70,0,0,0,0,0,0,0,14,0,0,1,8,6,0,0,1.0,0,0,7,1,6,2,7,2,2,0,0,0,0
+2026-07-04,696,Nations Championship,8546119,Fiji,2879,Wales,1517,24,39,238038,Tim Hoyt,3,True,34,0,0,0,0,0,0,0,2,0,0,0,2,2,0,0,1.0,0,0,2,0,0,0,0,1,0,0,0,0,0
+2026-07-04,696,Nations Championship,8546119,Fiji,2879,Wales,1517,24,39,197268,Isoa Nasilasila,4,True,58,0,0,0,0,0,0,0,19,0,0,1,8,4,0,0,1.0,0,0,7,0,5,0,0,0,0,0,0,0,0
+2026-07-04,696,Nations Championship,8546119,Fiji,2879,Wales,1517,24,39,169128,Temo Mayanavanua,5,True,80,0,0,0,0,0,0,0,9,0,0,2,6,6,2,0,0.75,1,0,5,0,6,0,0,0,0,0,0,0,0
+2026-07-04,696,Nations Championship,8546119,Fiji,2879,Wales,1517,24,39,173826,Pita-Gus Sowakula,6,True,58,0,0,1,0,0,0,0,38,0,0,2,9,2,1,0,0.5,0,0,3,0,9,3,0,1,0,0,0,0,5
+2026-07-04,696,Nations Championship,8546119,Fiji,2879,Wales,1517,24,39,214050,Kitione Salawa,7,True,80,0,0,0,0,0,0,0,31,0,0,1,11,5,1,0,0.83,0,0,6,1,5,3,0,2,2,0,0,0,0
+2026-07-04,696,Nations Championship,8546119,Fiji,2879,Wales,1517,24,39,207894,Elia Canakaivata,8,True,80,0,0,1,0,0,0,0,28,4,0,1,11,5,0,0,0.83,0,0,9,0,3,0,0,0,0,0,0,0,5
+2026-07-04,696,Nations Championship,8546119,Fiji,2879,Wales,1517,24,39,209904,Zuriel Togiatama,16,False,10,0,0,0,0,0,0,0,0,0,0,0,1,2,0,0,1.0,0,0,0,1,1,1,1,0,1,0,0,0,0
+2026-07-04,696,Nations Championship,8546119,Fiji,2879,Wales,1517,24,39,206754,Livai Natave,17,False,25,0,0,0,0,0,0,0,1,0,0,0,1,5,2,0,0.71,0,0,1,0,0,0,0,1,0,0,0,0,0
+2026-07-04,696,Nations Championship,8546119,Fiji,2879,Wales,1517,24,39,128226,Peni Ravai,18,False,46,0,0,0,0,0,0,0,0,0,0,0,1,2,0,0,0.67,0,0,2,0,0,0,0,0,1,0,0,0,0
+2026-07-04,696,Nations Championship,8546119,Fiji,2879,Wales,1517,24,39,358770,Mesake Vocevoce,19,False,22,0,0,0,0,0,0,0,0,0,0,0,2,2,0,0,1.0,0,0,1,1,0,0,0,0,0,0,0,0,0
+2026-07-04,696,Nations Championship,8546119,Fiji,2879,Wales,1517,24,39,124464,Peceli Yato,20,False,22,0,0,0,0,0,0,0,2,0,0,1,2,5,0,0,1.0,0,0,1,0,1,0,0,0,1,0,0,0,0
+2026-07-04,696,Nations Championship,8546119,Fiji,2879,Wales,1517,24,39,206814,Simione Kuruvoli,21,False,25,0,0,0,0,0,0,0,1,0,0,1,1,3,0,0,0.75,0,0,0,0,19,0,0,0,0,0,0,0,0
+2026-07-04,696,Nations Championship,8546119,Fiji,2879,Wales,1517,24,39,169026,Vilimoni Botitu,22,False,12,0,0,0,0,0,0,0,29,1,0,0,4,0,0,0,0.0,0,0,3,0,3,0,0,2,0,0,0,0,0
+2026-07-04,696,Nations Championship,8546119,Fiji,2879,Wales,1517,24,39,243102,Kalaveti Ravouvou,23,False,52,0,0,0,1,0,0,0,34,0,0,2,8,1,1,0,0.33,0,0,6,0,4,0,0,1,0,0,0,0,0
+2026-07-04,696,Nations Championship,8546119,Wales,1517,Fiji,2879,39,24,197892,Blair Murray,15,True,80,0,0,0,0,0,0,0,64,2,1,0,9,10,4,0,0.48,0,0,3,0,5,0,0,0,0,0,0,0,0
+2026-07-04,696,Nations Championship,8546119,Wales,1517,Fiji,2879,39,24,187290,Louis Rees-Zammit,14,True,55,0,0,0,0,0,0,0,10,0,0,0,2,5,2,1,0.56,0,0,0,0,2,0,0,1,0,0,0,0,0
+2026-07-04,696,Nations Championship,8546119,Wales,1517,Fiji,2879,39,24,232158,Eddie James,13,True,80,0,0,1,0,0,0,0,16,0,0,0,5,9,5,0,0.43,0,0,3,0,3,1,0,2,0,0,0,0,5
+2026-07-04,696,Nations Championship,8546119,Wales,1517,Fiji,2879,39,24,220962,Joe Hawkins,12,True,80,0,0,0,2,0,0,0,4,0,0,0,2,12,5,0,0.6,0,0,0,0,11,2,0,1,1,0,0,0,0
+2026-07-04,696,Nations Championship,8546119,Wales,1517,Fiji,2879,39,24,129096,Josh Adams,11,True,80,0,0,1,0,0,0,0,16,2,0,2,6,8,2,1,0.67,0,0,2,0,3,0,0,0,0,0,0,0,5
+2026-07-04,696,Nations Championship,8546119,Wales,1517,Fiji,2879,39,24,263442,Dan Edwards,10,True,62,0,0,0,0,1,1,0,0,0,0,0,0,8,1,0,0.8,0,0,0,0,8,0,0,0,0,3,0,0,5
+2026-07-04,696,Nations Championship,8546119,Wales,1517,Fiji,2879,39,24,128628,Tomos Williams,9,True,80,0,0,0,0,0,0,0,20,1,0,0,4,10,6,0,0.59,0,0,3,0,38,1,0,2,0,0,0,0,0
+2026-07-04,696,Nations Championship,8546119,Wales,1517,Fiji,2879,39,24,162870,Rhys Carre,1,True,46,0,0,1,0,0,0,0,4,1,0,0,3,7,1,0,0.78,0,0,1,0,2,0,0,0,0,0,0,0,5
+2026-07-04,696,Nations Championship,8546119,Wales,1517,Fiji,2879,39,24,178848,Dewi Lake,2,True,62,0,0,0,0,0,0,0,16,0,0,0,6,10,4,0,0.59,0,0,7,0,3,0,11,1,0,0,0,0,0
+2026-07-04,696,Nations Championship,8546119,Wales,1517,Fiji,2879,39,24,135306,Dillon Lewis,3,True,46,0,0,0,0,0,0,0,0,0,0,0,0,8,1,0,0.73,0,0,2,0,0,0,0,0,0,0,0,0,0
+2026-07-04,696,Nations Championship,8546119,Wales,1517,Fiji,2879,39,24,219996,Ben Carter,4,True,80,0,0,0,0,0,0,0,4,0,0,0,5,14,0,0,0.88,0,0,5,0,1,0,0,1,0,0,0,0,0
+2026-07-04,696,Nations Championship,8546119,Wales,1517,Fiji,2879,39,24,129576,Adam Beard,5,True,80,0,0,0,0,0,0,0,11,0,0,0,4,13,2,1,0.76,1,0,1,1,3,0,0,0,3,0,0,0,0
+2026-07-04,696,Nations Championship,8546119,Wales,1517,Fiji,2879,39,24,232110,Alex Mann,6,True,4,0,0,0,0,0,0,0,11,0,0,0,3,11,1,0,0.79,0,0,2,0,6,2,0,3,1,0,0,0,0
+2026-07-04,696,Nations Championship,8546119,Wales,1517,Fiji,2879,39,24,203070,Jac Morgan,7,True,80,0,0,2,0,0,0,0,14,0,0,0,6,17,2,0,0.71,0,0,4,0,3,0,0,0,0,0,0,0,10
+2026-07-04,696,Nations Championship,8546119,Wales,1517,Fiji,2879,39,24,176652,Aaron Wainwright,8,True,72,0,0,0,0,0,0,0,34,2,0,0,9,12,2,0,0.8,1,0,7,2,1,0,0,2,1,0,0,0,0
+2026-07-04,696,Nations Championship,8546119,Wales,1517,Fiji,2879,39,24,128574,Ryan Elias,16,False,18,0,0,1,0,0,0,0,1,0,0,0,3,1,0,0,1.0,0,0,2,0,0,0,4,0,0,0,0,0,5
+2026-07-04,696,Nations Championship,8546119,Wales,1517,Fiji,2879,39,24,121974,Nicky Smith,17,False,34,0,0,0,0,0,0,0,2,1,0,0,2,3,0,0,1.0,0,0,2,0,0,0,0,0,0,0,0,0,0
+2026-07-04,696,Nations Championship,8546119,Wales,1517,Fiji,2879,39,24,203046,Ben Warren,18,False,34,0,0,0,0,0,0,0,0,0,0,0,0,3,0,0,1.0,0,0,0,0,0,0,0,0,0,0,0,0,0
+2026-07-04,696,Nations Championship,8546119,Wales,1517,Fiji,2879,39,24,206706,Taine Plumtree,19,False,8,0,0,0,0,0,0,0,2,0,0,0,1,1,0,0,1.0,1,0,0,1,0,0,0,0,0,0,0,0,0
+2026-07-04,696,Nations Championship,8546119,Wales,1517,Fiji,2879,39,24,154938,James Botham,20,False,11,0,0,0,0,0,0,0,7,0,0,0,4,3,0,0,1.0,0,0,3,1,1,0,0,0,0,0,0,0,0
+2026-07-04,696,Nations Championship,8546119,Wales,1517,Fiji,2879,39,24,135900,Kieran Hardy,21,False,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0.0,0,0,0,0,0,0,0,0,0,0,0,0,0
+2026-07-04,696,Nations Championship,8546119,Wales,1517,Fiji,2879,39,24,203076,Sam Costelow,22,False,18,0,0,0,0,2,0,0,18,1,1,0,2,1,0,0,1.0,0,0,1,0,1,1,0,1,0,0,0,0,4
+2026-07-04,696,Nations Championship,8546119,Wales,1517,Fiji,2879,39,24,363636,Ellis Mee,23,False,25,0,0,0,0,0,0,0,22,1,0,0,3,2,1,0,0.5,0,0,1,1,1,1,0,1,0,0,0,0,0
+2026-07-04,696,Nations Championship,8546101,South Africa,2717,England,1667,45,21,161226,Damian Willemse,15,True,80,0,0,0,1,0,0,0,57,1,1,2,13,8,0,0,0.89,0,0,12,0,4,0,0,0,0,0,0,0,0
+2026-07-04,696,Nations Championship,8546101,South Africa,2717,England,1667,45,21,123516,Cheslin Kolbe,14,True,80,0,0,1,0,5,0,0,27,2,1,0,4,9,0,0,0.9,0,0,3,0,1,0,0,0,0,2,0,0,15
+2026-07-04,696,Nations Championship,8546101,South Africa,2717,England,1667,45,21,124026,Jesse Kriel,13,True,80,0,0,1,0,0,0,0,32,1,1,0,8,5,2,0,0.63,0,0,6,0,5,0,0,1,0,0,0,0,5
+2026-07-04,696,Nations Championship,8546101,South Africa,2717,England,1667,45,21,120234,Damian de Allende,12,True,80,0,0,0,1,0,0,0,12,1,0,0,5,14,2,0,0.82,0,0,4,0,4,0,0,0,0,0,0,0,0
+2026-07-04,696,Nations Championship,8546101,South Africa,2717,England,1667,45,21,204516,Kurt-Lee Arendse,11,True,67,1,0,1,0,0,0,0,1,0,0,0,2,2,2,0,0.5,0,0,1,0,1,0,0,0,1,0,0,0,5
+2026-07-04,696,Nations Championship,8546101,South Africa,2717,England,1667,45,21,149070,Manie Libbok,10,True,80,0,0,0,0,0,0,0,16,1,0,0,2,7,0,0,1.0,0,0,1,0,12,0,0,1,1,0,0,0,0
+2026-07-04,696,Nations Championship,8546101,South Africa,2717,England,1667,45,21,178674,Grant Williams,9,True,66,0,0,1,0,0,0,0,38,4,2,0,2,7,2,0,0.78,0,0,0,0,59,2,0,2,0,0,0,0,5
+2026-07-04,696,Nations Championship,8546101,South Africa,2717,England,1667,45,21,140238,Ox Nche,1,True,8,0,0,0,0,0,0,0,24,2,1,0,2,0,0,0,0.0,0,0,2,0,0,0,0,0,0,0,0,0,0
+2026-07-04,696,Nations Championship,8546101,South Africa,2717,England,1667,45,21,128814,Malcolm Marx,2,True,80,0,0,1,1,0,0,0,4,1,0,1,8,17,1,0,0.94,0,0,5,0,3,0,16,2,0,0,0,0,5
+2026-07-04,696,Nations Championship,8546101,South Africa,2717,England,1667,45,21,130242,Thomas du Toit,3,True,49,0,0,1,0,0,0,0,2,0,0,0,4,12,2,0,0.86,0,0,3,0,1,0,0,0,0,0,0,0,5
+2026-07-04,696,Nations Championship,8546101,South Africa,2717,England,1667,45,21,118428,Pieter-Steph du Toit,4,True,80,0,0,0,0,0,0,0,40,0,2,0,12,14,7,0,0.64,0,0,10,0,6,2,0,2,0,0,0,0,0
+2026-07-04,696,Nations Championship,8546101,South Africa,2717,England,1667,45,21,185688,Ruan Nortje,5,True,80,0,0,0,0,0,0,0,6,0,0,0,6,17,1,0,0.94,0,0,6,0,6,0,0,1,1,0,0,0,0
+2026-07-04,696,Nations Championship,8546101,South Africa,2717,England,1667,45,21,265758,Paul de Villiers,6,True,45,0,0,0,0,0,0,0,33,1,0,0,6,10,2,0,0.83,0,0,6,0,4,0,0,0,2,0,0,0,0
+2026-07-04,696,Nations Championship,8546101,South Africa,2717,England,1667,45,21,234816,Cameron Hanekom,7,True,45,0,0,0,0,0,0,0,22,3,1,0,8,10,1,0,0.91,0,0,7,0,1,0,0,1,0,0,0,0,0
+2026-07-04,696,Nations Championship,8546101,South Africa,2717,England,1667,45,21,149256,Jasper Wiese,8,True,65,0,0,0,0,0,0,0,27,3,0,1,16,11,3,0,0.73,0,0,14,0,2,0,0,0,0,0,0,0,0
+2026-07-04,696,Nations Championship,8546101,South Africa,2717,England,1667,45,21,225984,Jan-Hendrik Wessels,16,False,15,0,0,0,0,0,0,0,22,0,1,0,2,2,1,0,0.67,0,0,2,0,1,0,0,0,0,0,0,0,0
+2026-07-04,696,Nations Championship,8546101,South Africa,2717,England,1667,45,21,156564,Gerhard Steenekamp,17,False,57,0,0,0,0,0,0,0,2,0,0,0,5,10,0,0,0.91,0,0,5,0,0,0,0,1,0,0,0,0,0
+2026-07-04,696,Nations Championship,8546101,South Africa,2717,England,1667,45,21,342540,Zachary Porthen,18,False,31,0,0,0,0,0,0,0,11,3,0,0,4,3,0,1,1.0,0,0,3,0,1,1,0,0,0,0,0,0,0
+2026-07-04,696,Nations Championship,8546101,South Africa,2717,England,1667,45,21,156420,Marco van Staden,19,False,35,0,0,0,0,0,0,0,5,0,0,0,3,6,0,0,0.86,0,0,3,0,0,0,0,0,0,0,0,0,0
+2026-07-04,696,Nations Championship,8546101,South Africa,2717,England,1667,45,21,185646,Ben-Jason Dixon,20,False,35,0,0,1,0,0,0,0,11,3,0,0,3,8,1,0,0.89,0,0,2,0,1,0,0,0,0,0,0,0,5
+2026-07-04,696,Nations Championship,8546101,South Africa,2717,England,1667,45,21,114744,Cobus Reinach,21,False,14,0,0,0,0,0,0,0,0,0,0,1,1,2,0,0,0.67,0,0,0,0,14,1,0,0,0,0,0,0,0
+2026-07-04,696,Nations Championship,8546101,South Africa,2717,England,1667,45,21,128820,Andre Esterhuizen,22,False,10,0,0,0,0,0,0,0,0,0,0,0,1,2,1,0,0.67,0,0,1,0,0,0,0,0,1,0,0,0,0
+2026-07-04,696,Nations Championship,8546101,South Africa,2717,England,1667,45,21,234822,Canan Moodie,23,False,13,0,0,0,0,0,0,0,23,1,0,0,2,1,0,0,1.0,0,0,2,0,0,0,0,0,0,0,0,0,0
+2026-07-04,696,Nations Championship,8546101,England,1667,South Africa,2717,21,45,156288,Marcus Smith,15,True,80,0,0,0,0,0,0,0,23,4,0,1,10,2,0,0,0.5,0,0,8,0,4,1,0,1,0,0,0,0,0
+2026-07-04,696,Nations Championship,8546101,England,1667,South Africa,2717,21,45,230898,Immanuel Feyi-Waboso,14,True,80,0,0,0,0,0,0,0,25,4,0,0,7,9,0,0,1.0,0,0,6,1,1,0,0,0,1,0,0,0,0
+2026-07-04,696,Nations Championship,8546101,England,1667,South Africa,2717,21,45,213192,Tommy Freeman,13,True,80,1,0,0,0,0,0,0,8,1,0,0,7,4,0,1,1.0,0,0,5,1,5,2,0,0,2,0,0,0,0
+2026-07-04,696,Nations Championship,8546101,England,1667,South Africa,2717,21,45,232032,Seb Atkinson,12,True,80,0,0,0,0,0,0,0,11,1,0,0,6,9,0,0,1.0,0,0,6,0,4,0,0,1,0,0,0,0,0
+2026-07-04,696,Nations Championship,8546101,England,1667,South Africa,2717,21,45,172428,Cadan Murley,11,True,54,0,0,0,0,0,0,0,42,2,2,0,6,3,2,0,0.6,0,0,5,1,1,0,0,0,2,0,0,0,0
+2026-07-04,696,Nations Championship,8546101,England,1667,South Africa,2717,21,45,227772,Fin Smith,10,True,80,0,0,0,0,3,0,0,27,3,2,0,5,10,2,0,0.77,0,0,4,0,20,2,0,0,0,0,0,0,6
+2026-07-04,696,Nations Championship,8546101,England,1667,South Africa,2717,21,45,213786,Jack van Poortvliet,9,True,54,0,0,0,0,0,0,0,4,0,0,1,2,6,0,0,1.0,0,0,1,1,56,1,0,1,1,0,0,0,0
+2026-07-04,696,Nations Championship,8546101,England,1667,South Africa,2717,21,45,136680,Ellis Genge,1,True,58,0,0,1,0,0,0,0,18,3,0,0,6,12,1,0,0.8,0,0,5,0,0,0,0,0,1,0,0,0,5
+2026-07-04,696,Nations Championship,8546101,England,1667,South Africa,2717,21,45,61134,Jamie George,2,True,55,0,0,0,0,0,0,0,2,0,0,0,4,11,1,0,0.79,0,0,3,0,1,0,8,0,1,0,0,0,0
+2026-07-04,696,Nations Championship,8546101,England,1667,South Africa,2717,21,45,178806,Joe Heyes,3,True,65,0,0,0,0,0,0,0,7,1,0,0,4,8,1,0,0.89,0,0,4,0,1,0,0,0,0,0,0,0,0
+2026-07-04,696,Nations Championship,8546101,England,1667,South Africa,2717,21,45,198696,Alex Coles,4,True,74,0,0,1,0,0,0,0,13,0,0,0,8,15,1,0,0.94,0,0,7,0,3,1,0,0,0,0,0,0,5
+2026-07-04,696,Nations Championship,8546101,England,1667,South Africa,2717,21,45,213798,George Martin,5,True,58,0,0,1,0,0,0,0,25,1,0,0,11,10,1,0,0.83,0,0,10,0,3,1,0,0,0,0,0,0,5
+2026-07-04,696,Nations Championship,8546101,England,1667,South Africa,2717,21,45,218742,Ollie Chessum,6,True,80,0,0,0,1,0,0,0,6,2,0,0,5,9,4,0,0.64,0,0,5,0,9,0,0,1,1,0,0,0,0
+2026-07-04,696,Nations Championship,8546101,England,1667,South Africa,2717,21,45,155892,Tom Curry,7,True,54,0,0,0,0,0,0,0,0,0,0,0,3,16,1,0,0.94,0,0,3,0,3,0,0,0,1,0,0,0,0
+2026-07-04,696,Nations Championship,8546101,England,1667,South Africa,2717,21,45,142404,Ben Earl,8,True,80,0,0,0,0,0,0,0,58,1,0,0,21,17,4,0,0.81,1,0,21,0,4,0,0,0,0,0,0,0,0
+2026-07-04,696,Nations Championship,8546101,England,1667,South Africa,2717,21,45,115452,Luke Cowan-Dickie,16,False,25,0,0,0,0,0,0,0,8,1,0,0,2,3,2,0,0.6,0,0,2,1,0,0,2,1,1,0,0,0,0
+2026-07-04,696,Nations Championship,8546101,England,1667,South Africa,2717,21,45,137016,Beno Obano,17,False,22,0,0,0,0,0,0,0,0,0,0,0,0,4,0,0,0.8,0,0,1,0,0,0,0,0,1,0,0,0,0
+2026-07-04,696,Nations Championship,8546101,England,1667,South Africa,2717,21,45,348570,Asher Opoku-Fordjour,18,False,15,0,0,0,0,0,0,0,5,2,0,0,2,3,2,0,0.6,0,0,2,0,0,0,0,0,0,0,0,0,0
+2026-07-04,696,Nations Championship,8546101,England,1667,South Africa,2717,21,45,127014,Charlie Ewels,19,False,6,0,0,0,0,0,0,0,0,0,0,0,0,3,1,0,0.75,0,0,0,0,0,0,0,0,0,0,0,0,0
+2026-07-04,696,Nations Championship,8546101,England,1667,South Africa,2717,21,45,239076,Guy Pepper,20,False,26,1,0,0,0,0,0,0,0,0,0,0,1,5,1,0,0.83,0,0,1,0,1,0,0,0,1,0,0,0,0
+2026-07-04,696,Nations Championship,8546101,England,1667,South Africa,2717,21,45,342324,Henry Pollock,21,False,22,0,0,0,0,0,0,0,1,0,0,0,4,2,1,0,0.33,0,0,4,0,3,0,0,0,0,0,0,0,0
+2026-07-04,696,Nations Championship,8546101,England,1667,South Africa,2717,21,45,142356,Alex Mitchell,22,False,26,0,0,0,1,0,0,0,7,0,0,0,3,1,2,0,0.33,0,0,2,0,18,1,0,0,0,0,0,0,0
+2026-07-04,696,Nations Championship,8546101,England,1667,South Africa,2717,21,45,114534,Henry Slade,23,False,26,0,0,0,0,0,0,0,7,2,0,0,1,0,0,0,0.0,0,0,1,0,1,0,0,0,0,0,0,0,0
+2026-07-04,696,Nations Championship,8546128,Argentina,2417,Scotland,2117,38,47,169440,Santiago Carreras,15,True,80,0,0,0,1,0,0,0,25,3,0,0,11,1,5,0,0.17,0,0,6,1,6,0,1,1,1,0,0,0,0
+2026-07-04,696,Nations Championship,8546128,Argentina,2417,Scotland,2117,38,47,207228,Rodrigo Isgro,14,True,45,0,0,1,0,0,0,0,13,1,0,1,3,3,0,0,1.0,0,0,1,0,2,0,0,0,0,0,0,0,5
+2026-07-04,696,Nations Championship,8546128,Argentina,2417,Scotland,2117,38,47,201528,Lucio Cinti,13,True,80,0,0,1,0,0,0,0,61,7,2,1,12,13,2,0,0.87,0,0,6,0,4,0,0,1,0,0,0,0,5
+2026-07-04,696,Nations Championship,8546128,Argentina,2417,Scotland,2117,38,47,337308,Faustino Sanchez Valarolo,12,True,60,0,0,0,0,0,0,0,5,0,0,0,9,14,1,1,0.82,0,0,7,0,7,0,0,0,0,0,0,0,0
+2026-07-04,696,Nations Championship,8546128,Argentina,2417,Scotland,2117,38,47,185478,Mateo Carreras,11,True,80,0,0,0,0,0,0,0,58,1,1,1,12,9,2,0,0.82,0,0,8,1,3,0,0,0,2,0,0,0,0
+2026-07-04,696,Nations Championship,8546128,Argentina,2417,Scotland,2117,38,47,169434,Tomas Albornoz,10,True,80,0,0,0,0,5,1,0,62,1,0,1,14,4,1,0,0.57,0,0,8,2,28,0,1,0,2,0,0,0,13
+2026-07-04,696,Nations Championship,8546128,Argentina,2417,Scotland,2117,38,47,169464,Gonzalo Garcia,9,True,15,0,0,0,0,0,0,0,40,0,0,1,10,6,2,0,0.75,0,0,4,0,65,1,0,1,0,0,0,0,0
+2026-07-04,696,Nations Championship,8546128,Argentina,2417,Scotland,2117,38,47,169530,Mayco Vivas,1,True,46,0,0,0,0,0,0,0,0,0,0,0,1,13,0,0,0.93,0,0,1,0,1,0,0,0,0,0,0,0,0
+2026-07-04,696,Nations Championship,8546128,Argentina,2417,Scotland,2117,38,47,124668,Julian Montoya,2,True,80,0,0,0,0,0,0,0,9,0,0,0,8,25,1,0,0.93,1,0,7,0,8,0,11,0,0,0,0,0,0
+2026-07-04,696,Nations Championship,8546128,Argentina,2417,Scotland,2117,38,47,411264,Pedro Delgado,3,True,46,0,0,0,0,0,0,0,0,0,0,0,9,9,2,0,0.82,0,0,8,0,1,0,0,1,1,0,0,0,0
+2026-07-04,696,Nations Championship,8546128,Argentina,2417,Scotland,2117,38,47,124686,Guido Petti,4,True,80,0,0,0,0,0,0,0,10,0,0,0,4,8,2,0,0.8,0,0,4,0,6,0,0,0,0,0,0,0,0
+2026-07-04,696,Nations Championship,8546128,Argentina,2417,Scotland,2117,38,47,112962,Matias Alemanno,5,True,54,0,0,0,0,0,0,0,6,0,0,0,3,6,0,0,0.75,1,0,3,0,6,0,0,0,0,0,0,0,0
+2026-07-04,696,Nations Championship,8546128,Argentina,2417,Scotland,2117,38,47,118578,Pablo Matera,6,True,69,0,0,0,0,0,0,0,11,2,0,0,3,11,3,0,0.79,0,0,3,0,3,0,0,0,0,0,0,0,0
+2026-07-04,696,Nations Championship,8546128,Argentina,2417,Scotland,2117,38,47,185502,Santiago Grondona,7,True,60,0,0,0,0,0,0,0,10,0,0,0,4,10,1,0,0.83,0,0,3,0,5,1,0,1,0,0,0,0,0
+2026-07-04,696,Nations Championship,8546128,Argentina,2417,Scotland,2117,38,47,226080,Joaquin Oviedo,8,True,80,0,0,1,0,0,0,0,39,2,0,0,14,15,1,0,0.83,0,0,12,0,6,0,0,0,0,0,0,0,5
+2026-07-04,696,Nations Championship,8546128,Argentina,2417,Scotland,2117,38,47,208518,Ignacio Ruiz,16,False,11,0,0,0,0,0,0,0,4,0,0,0,2,3,0,0,1.0,0,0,2,0,1,0,0,0,0,0,0,0,0
+2026-07-04,696,Nations Championship,8546128,Argentina,2417,Scotland,2117,38,47,337350,Boris Wenger,17,False,34,0,0,0,0,0,0,0,3,0,0,0,1,5,0,0,1.0,0,0,1,0,1,0,0,0,1,0,0,0,0
+2026-07-04,696,Nations Championship,8546128,Argentina,2417,Scotland,2117,38,47,359274,Tomas Rapetti,18,False,34,0,0,1,0,0,0,0,2,1,0,0,2,6,0,0,1.0,0,0,0,0,1,0,0,1,0,0,0,0,5
+2026-07-04,696,Nations Championship,8546128,Argentina,2417,Scotland,2117,38,47,150600,Franco Molina,19,False,26,0,0,0,0,0,0,0,2,0,0,0,3,5,0,0,1.0,0,0,3,0,1,0,0,0,1,0,0,0,0
+2026-07-04,696,Nations Championship,8546128,Argentina,2417,Scotland,2117,38,47,383400,Joaquin Moro,20,False,20,1,0,0,0,0,0,0,0,0,0,0,2,1,0,0,1.0,0,0,2,0,0,0,0,0,0,0,0,0,0
+2026-07-04,696,Nations Championship,8546128,Argentina,2417,Scotland,2117,38,47,346278,Agustin Moyano,21,False,14,0,0,1,0,0,0,0,2,1,0,0,1,1,1,0,0.5,1,0,0,0,12,0,0,0,0,0,0,0,5
+2026-07-04,696,Nations Championship,8546128,Argentina,2417,Scotland,2117,38,47,113040,Matias Moroni,22,False,20,0,0,0,0,0,0,0,5,0,0,0,4,3,0,0,1.0,0,0,2,0,2,0,0,1,0,0,0,0,0
+2026-07-04,696,Nations Championship,8546128,Argentina,2417,Scotland,2117,38,47,148386,Bautista Delguy,23,False,35,0,0,0,0,0,0,0,15,0,0,0,3,3,0,0,1.0,0,0,2,0,2,1,0,0,0,0,0,0,0
+2026-07-04,696,Nations Championship,8546128,Scotland,2117,Argentina,2417,47,38,179370,Kyle Rowe,15,True,80,0,0,1,0,0,0,0,152,8,5,0,15,3,1,0,0.6,0,0,9,1,6,0,0,1,1,0,0,0,5
+2026-07-04,696,Nations Championship,8546128,Scotland,2117,Argentina,2417,47,38,171582,Kyle Steyn,14,True,60,0,0,0,0,0,0,0,28,1,0,0,7,3,2,1,0.43,0,0,8,0,2,1,0,1,1,0,0,0,0
+2026-07-04,696,Nations Championship,8546128,Scotland,2117,Argentina,2417,47,38,130554,Rory Hutchinson,13,True,80,0,0,1,1,0,0,0,61,2,1,1,13,5,1,0,0.71,0,0,8,0,17,2,0,0,1,0,0,0,5
+2026-07-04,696,Nations Championship,8546128,Scotland,2117,Argentina,2417,47,38,139998,Sione Tuipulotu,12,True,80,0,0,1,1,0,0,0,65,6,2,0,9,13,2,1,0.81,0,0,8,0,19,1,0,1,0,0,0,0,5
+2026-07-04,696,Nations Championship,8546128,Scotland,2117,Argentina,2417,47,38,214146,Jamie Dobie,11,True,80,1,0,0,0,0,0,0,45,0,0,1,8,9,2,0,0.75,0,0,6,1,6,0,0,2,0,0,0,0,0
+2026-07-04,696,Nations Championship,8546128,Scotland,2117,Argentina,2417,47,38,242766,Tom Jordan,10,True,4,0,0,0,0,3,0,0,10,0,0,0,2,8,0,0,1.0,0,0,1,0,14,1,0,0,0,1,0,0,6
+2026-07-04,696,Nations Championship,8546128,Scotland,2117,Argentina,2417,47,38,142476,Ben White,9,True,60,0,0,0,2,0,0,0,10,0,0,1,4,3,0,0,0.6,0,0,2,0,76,0,0,0,0,0,0,0,0
+2026-07-04,696,Nations Championship,8546128,Scotland,2117,Argentina,2417,47,38,130290,Pierre Schoeman,1,True,60,0,0,1,0,0,0,0,20,0,0,0,13,9,0,0,0.9,0,0,12,0,2,0,0,0,1,0,0,0,5
+2026-07-04,696,Nations Championship,8546128,Scotland,2117,Argentina,2417,47,38,187422,Ewan Ashman,2,True,60,0,0,0,0,0,0,0,16,0,0,1,6,8,1,0,0.73,0,0,5,0,4,0,8,1,2,0,0,0,0
+2026-07-04,696,Nations Championship,8546128,Scotland,2117,Argentina,2417,47,38,178038,Elliot Millar-Mills,3,True,13,0,0,0,0,0,0,0,0,0,0,0,0,5,0,0,1.0,0,0,0,0,0,0,0,0,0,0,0,0,0
+2026-07-04,696,Nations Championship,8546128,Scotland,2117,Argentina,2417,47,38,117852,Jonny Gray,4,True,48,0,0,0,0,0,0,0,6,0,0,1,7,9,2,0,0.82,0,0,5,0,2,0,0,2,0,0,0,0,0
+2026-07-04,696,Nations Championship,8546128,Scotland,2117,Argentina,2417,47,38,136596,Scott Cummings,5,True,80,0,0,1,0,0,0,0,12,0,0,0,2,15,2,0,0.79,1,0,2,0,3,0,0,0,1,0,0,0,5
+2026-07-04,696,Nations Championship,8546128,Scotland,2117,Argentina,2417,47,38,161856,Matt Fagerson,6,True,80,0,0,0,0,0,0,0,10,2,0,0,8,9,1,0,0.82,1,0,8,0,2,0,0,0,0,0,0,0,0
+2026-07-04,696,Nations Championship,8546128,Scotland,2117,Argentina,2417,47,38,180222,Rory Darge,7,True,80,0,0,0,1,0,0,0,13,1,0,0,6,20,1,1,0.91,1,0,5,0,7,2,0,0,0,0,0,0,0
+2026-07-04,696,Nations Championship,8546128,Scotland,2117,Argentina,2417,47,38,124308,Jack Dempsey,8,True,60,0,0,0,0,0,0,0,11,3,0,0,8,11,2,0,0.85,1,0,8,0,1,1,0,0,0,0,0,0,0
+2026-07-04,696,Nations Championship,8546128,Scotland,2117,Argentina,2417,47,38,263268,Gregor Hiddleston,16,False,20,0,0,1,0,0,0,0,6,0,1,0,2,3,0,0,1.0,0,0,1,0,1,0,4,0,0,0,0,0,5
+2026-07-04,696,Nations Championship,8546128,Scotland,2117,Argentina,2417,47,38,134172,Rory Sutherland,17,False,20,0,0,0,0,0,0,0,1,0,0,0,4,3,0,0,1.0,0,0,3,0,0,0,0,1,0,0,0,0,0
+2026-07-04,696,Nations Championship,8546128,Scotland,2117,Argentina,2417,47,38,130530,Zander Fagerson,18,False,67,0,0,0,0,0,0,0,9,1,0,0,10,11,1,0,0.92,0,0,10,0,1,0,0,0,0,0,0,0,0
+2026-07-04,696,Nations Championship,8546128,Scotland,2117,Argentina,2417,47,38,231564,Alex Samuel,19,False,20,0,0,0,0,0,0,0,0,0,0,0,1,4,0,0,0.8,0,0,1,0,1,0,0,0,0,0,0,0,0
+2026-07-04,696,Nations Championship,8546128,Scotland,2117,Argentina,2417,47,38,220296,Gregor Brown,20,False,32,0,0,1,0,0,0,0,7,0,0,0,4,8,0,0,0.89,0,0,3,0,4,0,0,0,1,0,0,0,5
+2026-07-04,696,Nations Championship,8546128,Scotland,2117,Argentina,2417,47,38,129792,George Horne,21,False,20,0,0,0,0,0,0,0,0,0,0,0,1,2,0,0,1.0,0,0,0,0,23,0,0,2,1,0,0,0,0
+2026-07-04,696,Nations Championship,8546128,Scotland,2117,Argentina,2417,47,38,206712,Fergus Burke,22,False,14,0,0,0,0,3,0,0,9,0,0,0,5,3,0,0,1.0,0,0,3,1,9,0,0,2,0,0,0,0,6
+2026-07-04,696,Nations Championship,8546128,Scotland,2117,Argentina,2417,47,38,146754,Darcy Graham,23,False,20,0,0,0,1,0,0,0,3,0,0,0,2,4,1,0,0.8,0,0,2,0,1,0,0,0,0,0,0,0,0

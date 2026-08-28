@@ -1,0 +1,7 @@
+engine,stable_score,improvement_vs_v1,passed,reasons
+p3_event_50,0.8864704364786675,0.023622448521701034,True,
+v1,0.9079176750187402,0.0,True,
+v5_t,0.9088583623981817,-0.0010360932552855306,False,competition-balanced stable raw score did not improve over v1
+v4,0.9133075249170504,-0.005936496277813896,False,competition-balanced stable raw score did not improve over v1
+empirical_event,0.9390310419724062,-0.034268929672532034,False,"competition-balanced stable raw score did not improve over v1; north stable raw score regressed by more than 2%; south stable raw score regressed by more than 2%; tournament-family stable regression >2%: british_irish_lions, nations_championship, rugby_championship, six_nations, summer_internationals; extended-event loss regression >5%: tackle_try_saver, tackle_turnover"
+gbdt_v3,1.0575086809961722,-0.16476274236465804,False,"competition-balanced stable raw score did not improve over v1; north stable raw score regressed by more than 2%; south stable raw score regressed by more than 2%; tournament-family stable regression >2%: autumn_internationals, rugby_championship, rugby_world_cup, six_nations, summer_internationals"

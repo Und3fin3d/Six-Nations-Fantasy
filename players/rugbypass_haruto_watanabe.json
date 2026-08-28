@@ -1,0 +1,42 @@
+{
+  "player": "haruto-watanabe",
+  "csv_name": "Haruto Watanabe",
+  "bio": {
+    "Age": "21",
+    "Position": "Scrum Half",
+    "Height": "171cm",
+    "Weight": "76kg"
+  },
+  "competition_stats": [
+    {
+      "competition": "Rugby Hybrid Friendlies",
+      "season": "2026",
+      "games": 1,
+      "minutes": 40,
+      "tries": 0,
+      "try_assists": 0,
+      "points": 0,
+      "carries": 2,
+      "metres": 10,
+      "av_gain": 5.1,
+      "post_contact_metres": 2,
+      "defenders_beaten": null,
+      "clean_breaks": 0,
+      "offloads": 0,
+      "handling_errors": 0,
+      "passes": 33,
+      "bad_passes": 2,
+      "tackles": 3,
+      "missed_tackles": null,
+      "tackles_success_pct": 0.75,
+      "dominant_tackles": 0,
+      "turnovers_won": 0,
+      "turnovers_conceded": 0,
+      "kicks_from_hand": 0,
+      "penalties_conceded": 0,
+      "yellow_cards": 0,
+      "red_cards": 0
+    }
+  ],
+  "match_log": []
+}

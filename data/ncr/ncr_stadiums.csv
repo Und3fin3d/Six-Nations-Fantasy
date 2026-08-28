@@ -1,0 +1,25 @@
+venue,city,latitude,longitude,timezone,country
+One NZ Stadium,Wellington,-41.327,174.784,Pacific/Auckland,New Zealand
+Hnry Stadium,Porirua,-41.139,174.838,Pacific/Auckland,New Zealand
+Eden Park,Auckland,-36.875,174.745,Pacific/Auckland,New Zealand
+Prince Chichibu Memorial Stadium,Tokyo,35.672,139.717,Asia/Tokyo,Japan
+MUFG Stadium,Tokyo,35.68,139.76,Asia/Tokyo,Japan
+Allianz Stadium,Sydney,-33.889,151.225,Australia/Sydney,Australia
+Suncorp Stadium,Brisbane,-27.465,153.009,Australia/Brisbane,Australia
+McDonald Jones Stadium,Newcastle,-32.916,151.726,Australia/Sydney,Australia
+HBF Park,Perth,-31.944,115.889,Australia/Perth,Australia
+Cardiff City Stadium,Cardiff,51.472,-3.203,Europe/London,Wales
+Hill Dickinson Stadium,Liverpool,53.437,-3.001,Europe/London,England
+Scottish Gas Murrayfield,Edinburgh,55.942,-3.241,Europe/London,Scotland
+Principality Stadium,Cardiff,51.478,-3.183,Europe/London,Wales
+Aviva Stadium,Dublin,53.335,-6.228,Europe/Dublin,Ireland
+Ellis Park,Johannesburg,-26.198,28.061,Africa/Johannesburg,South Africa
+Loftus Versfeld,Pretoria,-25.753,28.223,Africa/Johannesburg,South Africa
+Hollywoodbets Kings Park,Durban,-29.848,31.03,Africa/Johannesburg,South Africa
+Estadio Mario Alberto Kempes,Cordoba,-31.367,-64.244,America/Argentina/Cordoba,Argentina
+Estadio Bicentenario,San Juan,-31.561,-68.541,America/Argentina/San_Juan,Argentina
+Estadio Único Madre de Ciudades,Santiago del Estero,-27.797,-64.262,America/Argentina/Cordoba,Argentina
+Groupama Stadium,Lyon,45.765,4.982,Europe/Paris,France
+Stade de France,Paris,48.924,2.36,Europe/Paris,France
+Stadio Luigi Ferraris,Genoa,44.416,8.952,Europe/Rome,Italy
+Bluenergy Stadium,Udine,46.081,13.2,Europe/Rome,Italy

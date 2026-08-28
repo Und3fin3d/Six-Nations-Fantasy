@@ -1,0 +1,31 @@
+{
+  "updated_at": "2026-06-30",
+  "scope": "Current opening-market PIT audit and clean orchestrator fallback",
+  "data_provenance": {
+    "source": "Oddsharvester/OddsPortal odds-history JSON",
+    "opening_h2h_fixture_coverage": {
+      "2023": 15,
+      "2024": 15,
+      "2025": 15,
+      "2026": 15
+    },
+    "opening_total_fixture_coverage": {
+      "2023": 4,
+      "2024": 6,
+      "2025": 12,
+      "2026": 9
+    },
+    "future_fixture_timestamps": 0,
+    "fixture_probability_pair_max_error": 1e-09,
+    "timestamp_caveat": "Oddsharvester assigned the scrape year to old modal timestamps. The builder rolled years backwards until no later than the fixture date. Exact lag to the historical fantasy lock is not independently proven.",
+    "closing_data_status": "research-only and invalid for promotion because availability at fantasy lock was not demonstrated"
+  },
+  "known_decisions": [
+    "Production market inputs are disabled.",
+    "Opening-market captain signal is research-only and below the value gate.",
+    "Opening-market post-target delta000 passes aggregate thresholds but fails 3-of-5 round robustness and diagnostic stability.",
+    "Line movement changed relationship across seasons and was dropped.",
+    "Corrected fixture-wise Elo did not generalise and was dropped."
+  ],
+  "sealed_policy": "No sealed-season metrics are supplied to the automatic reviewer."
+}

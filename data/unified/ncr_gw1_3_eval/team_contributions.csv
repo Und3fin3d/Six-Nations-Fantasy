@@ -1,0 +1,97 @@
+player,team,base_points,multiplier,contribution,role,gw,model
+Jiuta Wainiqolo,Fiji,80.0,1.0,80.0,,1,P3
+Jac Morgan,Wales,56.0,1.0,56.0,,1,P3
+Cheslin Kolbe,South Africa,41.0,2.0,82.0,Captain,1,P3
+Grant Williams,South Africa,39.0,1.0,39.0,,1,P3
+Dan Sheehan,Ireland,30.0,1.0,30.0,,1,P3
+Tommaso Menoncello,Italy,24.0,1.0,24.0,,1,P3
+Alex Mann,Wales,16.0,1.0,16.0,,1,P3
+Angus Bell,Australia,15.0,1.0,15.0,,1,P3
+Shuhei Takeuchi,Japan,15.0,1.0,15.0,,1,P3
+Harry Hockings,Japan,14.0,1.0,14.0,,1,P3
+Semi Radradra,Fiji,12.0,1.0,12.0,,1,P3
+Fraser McReight,Australia,11.0,1.0,11.0,,1,P3
+Ben Carter,Wales,10.0,1.0,10.0,,1,P3
+Kurt-Lee Arendse,South Africa,7.0,1.0,7.0,,1,P3
+Gianmarco Lucchesi,Italy,5.0,3.0,15.0,Super sub (bench),1,P3
+Sam Prendergast,Ireland,4.0,1.0,4.0,,1,P3
+Dillon Lewis,Wales,6.0,1.0,6.0,,1,NCR incumbent
+Pierre Schoeman,Scotland,22.0,1.0,22.0,,1,NCR incumbent
+Ewan Ashman,Scotland,24.0,1.0,24.0,,1,NCR incumbent
+George Martin,England,27.0,1.0,27.0,,1,NCR incumbent
+Alex Coles,England,24.0,1.0,24.0,,1,NCR incumbent
+Jac Morgan,Wales,56.0,2.0,112.0,Captain,1,NCR incumbent
+Rory Darge,Scotland,42.0,1.0,42.0,,1,NCR incumbent
+Ben Earl,England,28.0,1.0,28.0,,1,NCR incumbent
+Grant Williams,South Africa,39.0,1.0,39.0,,1,NCR incumbent
+Tomas Albornoz,Argentina,27.0,1.0,27.0,,1,NCR incumbent
+Tommaso Menoncello,Italy,24.0,1.0,24.0,,1,NCR incumbent
+Faustino Sanchez Valarolo,Argentina,9.0,1.0,9.0,,1,NCR incumbent
+Santiago Carreras,Argentina,11.0,1.0,11.0,,1,NCR incumbent
+Kurt-Lee Arendse,South Africa,7.0,1.0,7.0,,1,NCR incumbent
+Damian Willemse,South Africa,48.0,1.0,48.0,,1,NCR incumbent
+James Botham,Wales,9.0,3.0,27.0,Super sub (bench),1,NCR incumbent
+Cam Roigard,New Zealand,30.0,1.0,30.0,,2,P3
+Jac Morgan,Wales,32.0,2.0,64.0,Captain,2,P3
+Fabien Brau-Boirie,France,22.0,1.0,22.0,,2,P3
+Will Jordan,New Zealand,92.0,1.0,92.0,,2,P3
+Rory Darge,Scotland,16.0,1.0,16.0,,2,P3
+Tommaso di Bartolomeo,Italy,16.0,1.0,16.0,,2,P3
+Pierre Schoeman,Scotland,14.0,1.0,14.0,,2,P3
+Jesse Kriel,South Africa,27.0,1.0,27.0,,2,P3
+Shuhei Takeuchi,Japan,13.0,1.0,13.0,,2,P3
+Harry Hockings,Japan,16.0,1.0,16.0,,2,P3
+Damian McKenzie,New Zealand,25.0,1.0,25.0,,2,P3
+Ben Carter,Wales,16.0,1.0,16.0,,2,P3
+James Botham,Wales,16.0,1.0,16.0,,2,P3
+Gianmarco Lucchesi,Italy,15.0,3.0,45.0,Super sub (bench),2,P3
+Aphelele Fassi,South Africa,3.0,1.0,3.0,,2,P3
+Edwill van der Merwe,South Africa,0.0,1.0,0.0,,2,P3
+Toms Rapetti,Argentina,15.0,1.0,15.0,,2,NCR incumbent
+Pierre Schoeman,Scotland,14.0,1.0,14.0,,2,NCR incumbent
+Ewan Ashman,Scotland,25.0,1.0,25.0,,2,NCR incumbent
+Warner Dearns,Japan,11.0,1.0,11.0,,2,NCR incumbent
+Alex Coles,England,12.0,1.0,12.0,,2,NCR incumbent
+Ardie Savea,New Zealand,36.0,1.0,36.0,,2,NCR incumbent
+Jac Morgan,Wales,32.0,1.0,32.0,,2,NCR incumbent
+Joaquin Oviedo,Argentina,74.0,1.0,74.0,,2,NCR incumbent
+Cam Roigard,New Zealand,30.0,2.0,60.0,Captain,2,NCR incumbent
+Matthieu Jalibert,France,31.0,1.0,31.0,,2,NCR incumbent
+Fabien Brau-Boirie,France,22.0,1.0,22.0,,2,NCR incumbent
+Stuart McCloskey,Ireland,13.0,1.0,13.0,,2,NCR incumbent
+Will Jordan,New Zealand,92.0,1.0,92.0,,2,NCR incumbent
+Theo Attissogbe,France,55.0,1.0,55.0,,2,NCR incumbent
+Jiuta Wainiqolo,Fiji,23.0,1.0,23.0,,2,NCR incumbent
+Gianmarco Lucchesi,Italy,15.0,3.0,45.0,Super sub (bench),2,NCR incumbent
+Will Jordan,New Zealand,50.0,1.0,50.0,,3,P3
+Matthieu Jalibert,France,45.0,1.0,45.0,,3,P3
+Cam Roigard,New Zealand,20.0,1.0,20.0,,3,P3
+Ardie Savea,New Zealand,49.0,1.0,49.0,,3,P3
+Jac Morgan,Wales,22.0,1.0,22.0,,3,P3
+Fabien Brau-Boirie,France,18.0,1.0,18.0,,3,P3
+Jesse Kriel,South Africa,26.0,1.0,26.0,,3,P3
+Rhys Carre,Wales,16.0,1.0,16.0,,3,P3
+Tom OToole,Ireland,16.0,1.0,16.0,,3,P3
+Hayate Era,Japan,25.0,1.0,25.0,,3,P3
+Jack Cornelsen,Japan,11.0,1.0,11.0,,3,P3
+Harry Hockings,Japan,4.0,1.0,4.0,,3,P3
+Kurt-Lee Arendse,South Africa,26.0,1.0,26.0,,3,P3
+James Botham,Wales,8.0,3.0,24.0,Super sub (bench),3,P3
+Jaco Williams,South Africa,33.0,2.0,66.0,Captain,3,P3
+Carlo Tizzano,Australia,28.0,1.0,28.0,,3,P3
+Will Jordan,New Zealand,50.0,1.0,50.0,,3,NCR incumbent
+Theo Attissogbe,France,44.0,1.0,44.0,,3,NCR incumbent
+Matthieu Jalibert,France,45.0,2.0,90.0,Captain,3,NCR incumbent
+Cam Roigard,New Zealand,20.0,1.0,20.0,,3,NCR incumbent
+Ardie Savea,New Zealand,49.0,1.0,49.0,,3,NCR incumbent
+Jac Morgan,Wales,22.0,1.0,22.0,,3,NCR incumbent
+Justo Piccardo,Argentina,43.0,1.0,43.0,,3,NCR incumbent
+Fabien Brau-Boirie,France,18.0,1.0,18.0,,3,NCR incumbent
+Sean Jansen,Ireland,12.0,3.0,36.0,Super sub (bench),3,NCR incumbent
+Warner Dearns,Japan,29.0,1.0,29.0,,3,NCR incumbent
+Gregor Hiddleston,Scotland,25.0,1.0,25.0,,3,NCR incumbent
+Duhan van der Merwe,Scotland,56.0,1.0,56.0,,3,NCR incumbent
+Angus Bell,Australia,28.0,1.0,28.0,,3,NCR incumbent
+Sojiro Otsuka,Japan,18.0,1.0,18.0,,3,NCR incumbent
+Carlo Tizzano,Australia,28.0,1.0,28.0,,3,NCR incumbent
+Teddy Williams,Wales,2.0,1.0,2.0,,3,NCR incumbent

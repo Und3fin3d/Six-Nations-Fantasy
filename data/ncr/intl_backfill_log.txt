@@ -1,0 +1,115 @@
+[2026-07-06 18:07:03] === intl_backfill run start ===
+[2026-07-06 18:07:23]   match 920860 ERROR HTTP 429 for /match/920860: {"message":"You have exceeded the rate limit per minute for your plan, PRO, by the API provider"}
+[2026-07-06 18:07:25]   match 920878 ERROR HTTP 429 for /match/920878: {"message":"You have exceeded the rate limit per minute for your plan, PRO, by the API provider"}
+[2026-07-06 18:07:25]   match 920896 ERROR HTTP 429 for /match/920896: {"message":"You have exceeded the rate limit per minute for your plan, PRO, by the API provider"}
+[2026-07-06 18:07:27]   match 920914 ERROR HTTP 429 for /match/920914: {"message":"You have exceeded the rate limit per minute for your plan, PRO, by the API provider"}
+[2026-07-06 18:07:29]   match 920941 ERROR HTTP 429 for /match/920941: {"message":"You have exceeded the rate limit per minute for your plan, PRO, by the API provider"}
+[2026-07-06 18:07:30]   match 920950 ERROR HTTP 429 for /match/920950: {"message":"You have exceeded the rate limit per minute for your plan, PRO, by the API provider"}
+[2026-07-06 18:07:32]   match 920968 ERROR HTTP 429 for /match/920968: {"message":"You have exceeded the rate limit per minute for your plan, PRO, by the API provider"}
+[2026-07-06 18:07:32]   match 920977 ERROR HTTP 429 for /match/920977: {"message":"You have exceeded the rate limit per minute for your plan, PRO, by the API provider"}
+[2026-07-06 18:07:34]   match 920995 ERROR HTTP 429 for /match/920995: {"message":"You have exceeded the rate limit per minute for your plan, PRO, by the API provider"}
+[2026-07-06 18:07:35]   match 921004 ERROR HTTP 429 for /match/921004: {"message":"You have exceeded the rate limit per minute for your plan, PRO, by the API provider"}
+[2026-07-06 18:07:36]   match 921022 ERROR HTTP 429 for /match/921022: {"message":"You have exceeded the rate limit per minute for your plan, PRO, by the API provider"}
+[2026-07-06 18:07:37]   match 921031 ERROR HTTP 429 for /match/921031: {"message":"You have exceeded the rate limit per minute for your plan, PRO, by the API provider"}
+[2026-07-06 18:07:39]   match 921049 ERROR HTTP 429 for /match/921049: {"message":"You have exceeded the rate limit per minute for your plan, PRO, by the API provider"}
+[2026-07-06 18:07:41]   match 921076 ERROR HTTP 429 for /match/921076: {"message":"You have exceeded the rate limit per minute for your plan, PRO, by the API provider"}
+[2026-07-06 18:07:41]   match 921085 ERROR HTTP 429 for /match/921085: {"message":"You have exceeded the rate limit per minute for your plan, PRO, by the API provider"}
+[2026-07-06 18:07:43]   match 921103 ERROR HTTP 429 for /match/921103: {"message":"You have exceeded the rate limit per minute for your plan, PRO, by the API provider"}
+[2026-07-06 18:07:45]   match 921121 ERROR HTTP 429 for /match/921121: {"message":"You have exceeded the rate limit per minute for your plan, PRO, by the API provider"}
+[2026-07-06 18:07:46]   match 921130 ERROR HTTP 429 for /match/921130: {"message":"You have exceeded the rate limit per minute for your plan, PRO, by the API provider"}
+[2026-07-06 18:07:47] RWC c1272 s2024: eligible=44 cached=1 fetched=25 stats_ok=26 stats_missing=0 errors=18 | live_calls=25 quota=1040
+[2026-07-06 18:07:47] RWC c1272 s2023: eligible=0 cached=0 fetched=0 stats_ok=0 stats_missing=0 errors=0 | live_calls=25 quota=1040
+[2026-07-06 18:07:49]   match 8424799 ERROR HTTP 429 for /match/8424799: {"message":"You have exceeded the rate limit per minute for your plan, PRO, by the API provider"}
+[2026-07-06 18:07:50]   match 8424808 ERROR HTTP 429 for /match/8424808: {"message":"You have exceeded the rate limit per minute for your plan, PRO, by the API provider"}
+[2026-07-06 18:07:51]   match 8424826 ERROR HTTP 429 for /match/8424826: {"message":"You have exceeded the rate limit per minute for your plan, PRO, by the API provider"}
+[2026-07-06 18:07:51] RugbyChampionship c1296 s2024: eligible=6 cached=1 fetched=2 stats_ok=3 stats_missing=0 errors=3 | live_calls=27 quota=1036
+[2026-07-06 18:07:52]   match 8381077 ERROR HTTP 429 for /match/8381077: {"message":"You have exceeded the rate limit per minute for your plan, PRO, by the API provider"}
+[2026-07-06 18:07:54]   match 8381095 ERROR HTTP 429 for /match/8381095: {"message":"You have exceeded the rate limit per minute for your plan, PRO, by the API provider"}
+[2026-07-06 18:07:56]   match 8381113 ERROR HTTP 429 for /match/8381113: {"message":"You have exceeded the rate limit per minute for your plan, PRO, by the API provider"}
+[2026-07-06 18:07:57]   match 8381122 ERROR HTTP 429 for /match/8381122: {"message":"You have exceeded the rate limit per minute for your plan, PRO, by the API provider"}
+[2026-07-06 18:07:58]   match 8381131 ERROR HTTP 429 for /match/8381131: {"message":"You have exceeded the rate limit per minute for your plan, PRO, by the API provider"}
+[2026-07-06 18:08:02]   match 8381176 ERROR HTTP 429 for /match/8381176: {"message":"You have exceeded the rate limit per minute for your plan, PRO, by the API provider"}
+[2026-07-06 18:08:03] RugbyChampionship c1296 s2023: eligible=12 cached=0 fetched=6 stats_ok=6 stats_missing=0 errors=6 | live_calls=33 quota=1026
+[2026-07-06 18:08:03]   match 26566 ERROR HTTP 429 for /match/26566: {"message":"You have exceeded the rate limit per minute for your plan, PRO, by the API provider"}
+[2026-07-06 18:08:04]   match 26611 ERROR HTTP 429 for /match/26611: {"message":"You have exceeded the rate limit per minute for your plan, PRO, by the API provider"}
+[2026-07-06 18:08:06]   match 26557 ERROR HTTP 429 for /match/26557: {"message":"You have exceeded the rate limit per minute for your plan, PRO, by the API provider"}
+[2026-07-06 18:08:08]   match 26575 ERROR HTTP 429 for /match/26575: {"message":"You have exceeded the rate limit per minute for your plan, PRO, by the API provider"}
+[2026-07-06 18:08:09]   match 26638 ERROR HTTP 429 for /match/26638: {"message":"You have exceeded the rate limit per minute for your plan, PRO, by the API provider"}
+[2026-07-06 18:08:10]   match 26647 ERROR HTTP 429 for /match/26647: {"message":"You have exceeded the rate limit per minute for your plan, PRO, by the API provider"}
+[2026-07-06 18:08:12]   match 26602 ERROR HTTP 429 for /match/26602: {"message":"You have exceeded the rate limit per minute for your plan, PRO, by the API provider"}
+[2026-07-06 18:08:13] RugbyChampionship c1296 s2022: eligible=12 cached=0 fetched=5 stats_ok=5 stats_missing=0 errors=7 | live_calls=38 quota=1016
+[2026-07-06 18:08:13] RugbyChampionship c1296 s2021: eligible=0 cached=0 fetched=0 stats_ok=0 stats_missing=0 errors=0 | live_calls=38 quota=1016
+[2026-07-06 18:08:14]   match 8381266 ERROR HTTP 429 for /match/8381266: {"message":"You have exceeded the rate limit per minute for your plan, PRO, by the API provider"}
+[2026-07-06 18:08:15]   match 8387602 ERROR HTTP 429 for /match/8387602: {"message":"You have exceeded the rate limit per minute for your plan, PRO, by the API provider"}
+[2026-07-06 18:08:17]   match 8382328 ERROR HTTP 429 for /match/8382328: {"message":"You have exceeded the rate limit per minute for your plan, PRO, by the API provider"}
+[2026-07-06 18:08:18]   match 8384659 ERROR HTTP 429 for /match/8384659: {"message":"You have exceeded the rate limit per minute for your plan, PRO, by the API provider"}
+[2026-07-06 18:08:20]   match 8387611 ERROR HTTP 429 for /match/8387611: {"message":"You have exceeded the rate limit per minute for your plan, PRO, by the API provider"}
+[2026-07-06 18:08:22]   match 8370205 ERROR HTTP 429 for /match/8370205: {"message":"You have exceeded the rate limit per minute for your plan, PRO, by the API provider"}
+[2026-07-06 18:08:25]   match 8381284 ERROR HTTP 429 for /match/8381284: {"message":"You have exceeded the rate limit per minute for your plan, PRO, by the API provider"}
+[2026-07-06 18:08:27]   match 8379844 ERROR HTTP 429 for /match/8379844: {"message":"You have exceeded the rate limit per minute for your plan, PRO, by the API provider"}
+[2026-07-06 18:08:28]   match 8370214 ERROR HTTP 429 for /match/8370214: {"message":"You have exceeded the rate limit per minute for your plan, PRO, by the API provider"}
+[2026-07-06 18:08:29]   match 8382346 ERROR HTTP 429 for /match/8382346: {"message":"You have exceeded the rate limit per minute for your plan, PRO, by the API provider"}
+[2026-07-06 18:08:31]   match 8379853 ERROR HTTP 429 for /match/8379853: {"message":"You have exceeded the rate limit per minute for your plan, PRO, by the API provider"}
+[2026-07-06 18:08:32] International c30 s2023: eligible=22 cached=1 fetched=10 stats_ok=11 stats_missing=0 errors=11 | live_calls=48 quota=997
+[2026-07-06 18:08:33]   match 8290132 ERROR HTTP 429 for /match/8290132: {"message":"You have exceeded the rate limit per minute for your plan, PRO, by the API provider"}
+[2026-07-06 18:08:35]   match 8290375 ERROR HTTP 429 for /match/8290375: {"message":"You have exceeded the rate limit per minute for your plan, PRO, by the API provider"}
+[2026-07-06 18:08:36]   match 8289754 ERROR HTTP 429 for /match/8289754: {"message":"You have exceeded the rate limit per minute for your plan, PRO, by the API provider"}
+[2026-07-06 18:08:37]   match 8290240 ERROR HTTP 429 for /match/8290240: {"message":"You have exceeded the rate limit per minute for your plan, PRO, by the API provider"}
+[2026-07-06 18:08:39]   match 8290897 ERROR HTTP 429 for /match/8290897: {"message":"You have exceeded the rate limit per minute for your plan, PRO, by the API provider"}
+[2026-07-06 18:08:41]   match 8289763 ERROR HTTP 429 for /match/8289763: {"message":"You have exceeded the rate limit per minute for your plan, PRO, by the API provider"}
+[2026-07-06 18:08:44]   match 8290285 ERROR HTTP 429 for /match/8290285: {"message":"You have exceeded the rate limit per minute for your plan, PRO, by the API provider"}
+[2026-07-06 18:08:46]   match 8290276 ERROR HTTP 429 for /match/8290276: {"message":"You have exceeded the rate limit per minute for your plan, PRO, by the API provider"}
+[2026-07-06 18:08:47]   match 8290267 ERROR HTTP 429 for /match/8290267: {"message":"You have exceeded the rate limit per minute for your plan, PRO, by the API provider"}
+[2026-07-06 18:08:48]   match 8290150 ERROR HTTP 429 for /match/8290150: {"message":"You have exceeded the rate limit per minute for your plan, PRO, by the API provider"}
+[2026-07-06 18:08:50]   match 8290321 ERROR HTTP 429 for /match/8290321: {"message":"You have exceeded the rate limit per minute for your plan, PRO, by the API provider"}
+[2026-07-06 18:08:52]   match 8290888 ERROR HTTP 429 for /match/8290888: {"message":"You have exceeded the rate limit per minute for your plan, PRO, by the API provider"}
+[2026-07-06 18:08:53]   match 8289745 ERROR HTTP 429 for /match/8289745: {"message":"You have exceeded the rate limit per minute for your plan, PRO, by the API provider"}
+[2026-07-06 18:08:54]   match 8290159 ERROR HTTP 429 for /match/8290159: {"message":"You have exceeded the rate limit per minute for your plan, PRO, by the API provider"}
+[2026-07-06 18:08:56]   match 8377540 ERROR HTTP 429 for /match/8377540: {"message":"You have exceeded the rate limit per minute for your plan, PRO, by the API provider"}
+[2026-07-06 18:08:58]   match 8381194 ERROR HTTP 429 for /match/8381194: {"message":"You have exceeded the rate limit per minute for your plan, PRO, by the API provider"}
+[2026-07-06 18:09:01]   match 8380996 ERROR HTTP 429 for /match/8380996: {"message":"You have exceeded the rate limit per minute for your plan, PRO, by the API provider"}
+[2026-07-06 18:09:03]   match 8375389 ERROR HTTP 429 for /match/8375389: {"message":"You have exceeded the rate limit per minute for your plan, PRO, by the API provider"}
+[2026-07-06 18:09:04]   match 8380987 ERROR HTTP 429 for /match/8380987: {"message":"You have exceeded the rate limit per minute for your plan, PRO, by the API provider"}
+[2026-07-06 18:09:08]   match 8375398 ERROR HTTP 429 for /match/8375398: {"message":"You have exceeded the rate limit per minute for your plan, PRO, by the API provider"}
+[2026-07-06 18:09:09]   match 8381050 ERROR HTTP 429 for /match/8381050: {"message":"You have exceeded the rate limit per minute for your plan, PRO, by the API provider"}
+[2026-07-06 18:09:10]   match 8381014 ERROR HTTP 429 for /match/8381014: {"message":"You have exceeded the rate limit per minute for your plan, PRO, by the API provider"}
+[2026-07-06 18:09:12]   match 8375407 ERROR HTTP 429 for /match/8375407: {"message":"You have exceeded the rate limit per minute for your plan, PRO, by the API provider"}
+[2026-07-06 18:09:13] International c30 s2022: eligible=45 cached=0 fetched=22 stats_ok=22 stats_missing=0 errors=23 | live_calls=70 quota=955
+[2026-07-06 18:09:14]   match 80890 ERROR HTTP 429 for /match/80890: {"message":"You have exceeded the rate limit per minute for your plan, PRO, by the API provider"}
+[2026-07-06 18:09:15]   match 80917 ERROR HTTP 429 for /match/80917: {"message":"You have exceeded the rate limit per minute for your plan, PRO, by the API provider"}
+[2026-07-06 18:09:16]   match 80908 ERROR HTTP 429 for /match/80908: {"message":"You have exceeded the rate limit per minute for your plan, PRO, by the API provider"}
+[2026-07-06 18:09:18]   match 8290123 ERROR HTTP 429 for /match/8290123: {"message":"You have exceeded the rate limit per minute for your plan, PRO, by the API provider"}
+[2026-07-06 18:09:20]   match 8289979 ERROR HTTP 429 for /match/8289979: {"message":"You have exceeded the rate limit per minute for your plan, PRO, by the API provider"}
+[2026-07-06 18:09:22]   match 8289988 ERROR HTTP 429 for /match/8289988: {"message":"You have exceeded the rate limit per minute for your plan, PRO, by the API provider"}
+[2026-07-06 18:09:23]   match 8290006 ERROR HTTP 429 for /match/8290006: {"message":"You have exceeded the rate limit per minute for your plan, PRO, by the API provider"}
+[2026-07-06 18:09:24]   match 8290051 ERROR HTTP 429 for /match/8290051: {"message":"You have exceeded the rate limit per minute for your plan, PRO, by the API provider"}
+[2026-07-06 18:09:26]   match 8290042 ERROR HTTP 429 for /match/8290042: {"message":"You have exceeded the rate limit per minute for your plan, PRO, by the API provider"}
+[2026-07-06 18:09:28]   match 8290078 ERROR HTTP 429 for /match/8290078: {"message":"You have exceeded the rate limit per minute for your plan, PRO, by the API provider"}
+[2026-07-06 18:09:30]   match 8290105 ERROR HTTP 429 for /match/8290105: {"message":"You have exceeded the rate limit per minute for your plan, PRO, by the API provider"}
+[2026-07-06 18:09:30] International c30 s2021: eligible=19 cached=0 fetched=8 stats_ok=8 stats_missing=0 errors=11 | live_calls=78 quota=940
+[2026-07-06 18:09:31]   match 8384011 ERROR HTTP 429 for /match/8384011: {"message":"You have exceeded the rate limit per minute for your plan, PRO, by the API provider"}
+[2026-07-06 18:09:31] PacificNationsCup c1326 s2022: eligible=3 cached=1 fetched=1 stats_ok=2 stats_missing=0 errors=1 | live_calls=79 quota=938
+[2026-07-06 18:09:34]   match 79666 ERROR HTTP 429 for /match/79666: {"message":"You have exceeded the rate limit per minute for your plan, PRO, by the API provider"}
+[2026-07-06 18:09:35]   match 79684 ERROR HTTP 429 for /match/79684: {"message":"You have exceeded the rate limit per minute for your plan, PRO, by the API provider"}
+[2026-07-06 18:09:36]   match 79693 ERROR HTTP 429 for /match/79693: {"message":"You have exceeded the rate limit per minute for your plan, PRO, by the API provider"}
+[2026-07-06 18:09:36] PacificNationsCup c1326 s2020: eligible=5 cached=0 fetched=2 stats_ok=2 stats_missing=0 errors=3 | live_calls=81 quota=934
+[2026-07-06 18:09:38]   match 26521 ERROR HTTP 429 for /match/26521: {"message":"You have exceeded the rate limit per minute for your plan, PRO, by the API provider"}
+[2026-07-06 18:09:40]   match 26539 ERROR HTTP 429 for /match/26539: {"message":"You have exceeded the rate limit per minute for your plan, PRO, by the API provider"}
+[2026-07-06 18:09:41] TriNations c2208 s2021: eligible=6 cached=1 fetched=3 stats_ok=4 stats_missing=0 errors=2 | live_calls=84 quota=928
+[2026-07-06 18:09:42]   match 3285115 ERROR HTTP 429 for /match/3285115: {"message":"You have exceeded the rate limit per minute for your plan, PRO, by the API provider"}
+[2026-07-06 18:09:43]   match 3285133 ERROR HTTP 429 for /match/3285133: {"message":"You have exceeded the rate limit per minute for your plan, PRO, by the API provider"}
+[2026-07-06 18:09:44]   match 3285196 ERROR HTTP 429 for /match/3285196: {"message":"You have exceeded the rate limit per minute for your plan, PRO, by the API provider"}
+[2026-07-06 18:09:46]   match 3285214 ERROR HTTP 429 for /match/3285214: {"message":"You have exceeded the rate limit per minute for your plan, PRO, by the API provider"}
+[2026-07-06 18:09:48]   match 3285286 ERROR HTTP 429 for /match/3285286: {"message":"You have exceeded the rate limit per minute for your plan, PRO, by the API provider"}
+[2026-07-06 18:09:50]   match 3285304 ERROR HTTP 429 for /match/3285304: {"message":"You have exceeded the rate limit per minute for your plan, PRO, by the API provider"}
+[2026-07-06 18:09:52]   match 3285376 ERROR HTTP 429 for /match/3285376: {"message":"You have exceeded the rate limit per minute for your plan, PRO, by the API provider"}
+[2026-07-06 18:09:53]   match 3285394 ERROR HTTP 429 for /match/3285394: {"message":"You have exceeded the rate limit per minute for your plan, PRO, by the API provider"}
+[2026-07-06 18:09:54]   match 3285403 ERROR HTTP 429 for /match/3285403: {"message":"You have exceeded the rate limit per minute for your plan, PRO, by the API provider"}
+[2026-07-06 18:09:54] AutumnNationsCup c2202 s2021: eligible=16 cached=1 fetched=6 stats_ok=7 stats_missing=0 errors=9 | live_calls=90 quota=916
+[2026-07-06 18:09:54] === run end: total_live_calls=90 final_quota=916 stopped_early=False ===
+[18:10:41] === retry pass start: 94 missing, live_calls_so_far=90, quota=None ===
+[18:12:48]   progress: fetched=10 live_calls=100 quota=789
+[18:15:09]   progress: fetched=20 live_calls=110 quota=681
+[18:17:30]   progress: fetched=30 live_calls=120 quota=647
+[18:19:50]   progress: fetched=40 live_calls=130 quota=634
+[18:21:27] === retry pass end: fetched=46 stats_ok=45 stats_missing=1 errors=0 total_live_calls=136 quota=578 stopped=None ===

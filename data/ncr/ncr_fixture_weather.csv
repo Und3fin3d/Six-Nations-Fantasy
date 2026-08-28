@@ -1,0 +1,43 @@
+gameday,date,match_id,home,away,venue,city,temp_max_c,temp_min_c,rain_mm,precip_prob,wind_kph,wind_gust_kph,err
+1,2026-07-04,8546083,New Zealand,France,One NZ Stadium,Wellington,12.2,9.4,0.8,78,43.2,89.6,
+1,2026-07-04,8546092,Japan,Italy,Prince Chichibu Memorial Stadium,Tokyo,26.4,20.5,0.4,39,6.6,28.4,
+1,2026-07-04,8546110,Australia,Ireland,Allianz Stadium,Sydney,16.8,9.5,0.0,0,17.0,35.6,
+1,2026-07-04,8546119,Fiji,Wales,Cardiff City Stadium,Cardiff,20.8,15.9,0.1,0,22.3,46.1,
+1,2026-07-04,8546101,South Africa,England,Ellis Park,Johannesburg,15.9,3.8,0.0,0,9.7,29.5,
+1,2026-07-04,8546128,Argentina,Scotland,Estadio Mario Alberto Kempes,Cordoba,9.0,1.2,0.0,0,15.2,36.7,
+2,2026-07-11,8546137,New Zealand,Italy,Hnry Stadium,Porirua,9.5,6.7,1.9,45,19.3,46.4,
+2,2026-07-11,8546164,Australia,France,Suncorp Stadium,Brisbane,19.2,9.8,0.0,11,8.0,20.9,
+2,2026-07-11,8546146,Japan,Ireland,McDonald Jones Stadium,Newcastle,16.0,9.8,0.1,5,12.0,24.5,
+2,2026-07-11,8546173,Fiji,England,Hill Dickinson Stadium,Liverpool,24.9,19.5,0.0,12,12.5,35.3,
+2,2026-07-11,8546155,South Africa,Scotland,Loftus Versfeld,Pretoria,17.0,8.0,0.0,0,8.0,28.1,
+2,2026-07-11,8546182,Argentina,Wales,Estadio Bicentenario,San Juan,16.3,5.4,0.0,3,12.6,33.8,
+3,2026-07-18,8546218,New Zealand,Ireland,Eden Park,Auckland,12.8,7.2,1.2,24,18.2,46.8,
+3,2026-07-18,8546191,Japan,France,MUFG Stadium,Tokyo,26.0,21.0,2.4,51,11.3,31.7,
+3,2026-07-18,8546200,Australia,Italy,HBF Park,Perth,14.8,5.3,9.6,28,9.1,26.6,
+3,2026-07-18,8546227,Fiji,Scotland,Scottish Gas Murrayfield,Edinburgh,17.0,11.8,1.2,35,7.5,23.4,
+3,2026-07-18,8546209,South Africa,Wales,Hollywoodbets Kings Park,Durban,22.5,15.3,0.6,16,12.2,33.1,
+3,2026-07-18,8546236,Argentina,England,Estadio Único Madre de Ciudades,Santiago del Estero,18.5,10.3,0.0,12,12.6,25.9,
+4,2026-11-06,8546245,Ireland,Argentina,Aviva Stadium,Dublin,,,,,,,HTTP Error 400: Bad Request
+4,2026-11-07,8546272,Italy,South Africa,Allianz Stadium,Sydney,,,,,,,HTTP Error 400: Bad Request
+4,2026-11-07,8546254,Scotland,New Zealand,Scottish Gas Murrayfield,Edinburgh,,,,,,,HTTP Error 400: Bad Request
+4,2026-11-07,8546281,Wales,Japan,Principality Stadium,Cardiff,,,,,,,HTTP Error 400: Bad Request
+4,2026-11-07,8546263,France,Fiji,Groupama Stadium,Lyon,,,,,,,HTTP Error 400: Bad Request
+4,2026-11-08,8546290,England,Australia,Allianz Stadium,Sydney,,,,,,,HTTP Error 400: Bad Request
+5,2026-11-13,8546299,France,South Africa,Stade de France,Paris,,,,,,,HTTP Error 400: Bad Request
+5,2026-11-14,8546326,Italy,Argentina,Stadio Luigi Ferraris,Genoa,,,,,,,HTTP Error 400: Bad Request
+5,2026-11-14,8546308,Wales,New Zealand,Principality Stadium,Cardiff,,,,,,,HTTP Error 400: Bad Request
+5,2026-11-14,8546335,England,Japan,Allianz Stadium,Sydney,,,,,,,HTTP Error 400: Bad Request
+5,2026-11-14,8546317,Ireland,Fiji,Aviva Stadium,Dublin,,,,,,,HTTP Error 400: Bad Request
+5,2026-11-15,8546344,Scotland,Australia,Scottish Gas Murrayfield,Edinburgh,,,,,,,HTTP Error 400: Bad Request
+6,2026-11-21,8546353,England,New Zealand,Allianz Stadium,Sydney,,,,,,,HTTP Error 400: Bad Request
+6,2026-11-21,8546380,Scotland,Japan,Scottish Gas Murrayfield,Edinburgh,,,,,,,HTTP Error 400: Bad Request
+6,2026-11-21,8546362,Ireland,South Africa,Aviva Stadium,Dublin,,,,,,,HTTP Error 400: Bad Request
+6,2026-11-21,8546389,Italy,Fiji,Bluenergy Stadium,Udine,,,,,,,HTTP Error 400: Bad Request
+6,2026-11-21,8546371,France,Argentina,Stade de France,Paris,,,,,,,HTTP Error 400: Bad Request
+6,2026-11-21,8546398,Wales,Australia,Principality Stadium,Cardiff,,,,,,,HTTP Error 400: Bad Request
+7,2026-11-27,8546407,TBC,TBC,Allianz Stadium,Sydney,,,,,,,HTTP Error 400: Bad Request
+7,2026-11-27,8546416,TBC,TBC,Allianz Stadium,Sydney,,,,,,,HTTP Error 400: Bad Request
+7,2026-11-28,8546425,TBC,TBC,Allianz Stadium,Sydney,,,,,,,HTTP Error 400: Bad Request
+7,2026-11-28,8546434,TBC,TBC,Allianz Stadium,Sydney,,,,,,,HTTP Error 400: Bad Request
+7,2026-11-29,8546443,TBC,TBC,Allianz Stadium,Sydney,,,,,,,HTTP Error 400: Bad Request
+7,2026-11-29,8546452,TBC,TBC,Allianz Stadium,Sydney,,,,,,,HTTP Error 400: Bad Request

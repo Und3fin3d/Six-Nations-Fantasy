@@ -1,0 +1,44 @@
+{
+  "selected_on_6n_2025": "baseline",
+  "selection_policy": [
+    {
+      "model": "baseline",
+      "selection_utility": 0.0061862715073531735,
+      "selection_noninferior": true
+    },
+    {
+      "model": "gbdt_v3",
+      "selection_utility": 0.006849752374719157,
+      "selection_noninferior": false
+    }
+  ],
+  "retrospective_gate_passed": false,
+  "pooled_utility": -0.017801376928771758,
+  "reasons": [
+    "ncr: MAE regression exceeds 2%",
+    "ncr: top-10 capture regression exceeds 2pp",
+    "ncr: top-25 capture regression exceeds 2pp",
+    "ncr: top-50 capture regression exceeds 2pp",
+    "ncr: top-100 capture regression exceeds 2pp",
+    "competition-balanced pooled utility is not positive (-0.0178)",
+    "ncr low_history: MAE regression +0.59 > 0.5"
+  ],
+  "paired_bootstrap_mae_difference": [
+    {
+      "competition": "six_nations",
+      "mean": -0.11478752236442656,
+      "p05": -0.29848870220229096,
+      "p95": 0.077838022702305
+    },
+    {
+      "competition": "ncr",
+      "mean": 0.19782268327067687,
+      "p05": -0.17420465225563922,
+      "p95": 0.5573674812030088
+    }
+  ],
+  "promotion": false,
+  "promotion_blocker": "retrospective gates failed; GW4-GW7 shadows remain mandatory final evidence",
+  "corrective_cycle_allowed": false,
+  "stopping_rule": "one corrective cycle only if corrective_cycle_allowed; otherwise retain incumbents"
+}

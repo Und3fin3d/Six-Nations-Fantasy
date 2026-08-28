@@ -1,0 +1,271 @@
+fantasy_id,player_id,player_name,team,opponent,position,started,engine,expected_points,p10,median,p90,p_play,expected_minutes
+110793,172428,Cadan Murley,England,Argentina,Back-three,True,baseline,34.9045,18.0,33.0,54.0,,72.28889228485053
+156918,213192,Tommy Freeman,England,Argentina,Back-three,True,baseline,34.7745,18.0,33.0,54.0,,72.27212227409333
+233237,230898,Immanuel Feyi-Waboso,England,Argentina,Back-three,True,baseline,34.6015,17.0,33.0,54.0,,72.10070026941787
+137626,227772,Fin Smith,England,Argentina,Fly-half,True,baseline,31.68425,17.0,30.0,49.0,,69.74659195901768
+189326,156288,Marcus Smith,England,Argentina,Fly-half,True,baseline,31.3195,17.0,30.0,47.0,,70.14643290422124
+160801,61134,Jamie George,England,Argentina,Hooker,True,baseline,26.5445,14.0,25.0,41.0,,57.02882548067532
+209612,142404,Ben Earl,England,Argentina,Back-row,True,baseline,25.57025,12.0,24.0,40.0,,68.51997643904927
+222623,155892,Tom Curry,England,Argentina,Back-row,True,baseline,25.516,13.0,24.0,40.0,,68.51997643904927
+109648,232032,Seb Atkinson,England,Argentina,Centre,True,baseline,24.98425,12.0,24.0,40.0,,72.79504821520702
+229297,216096,Ruben Love,New Zealand,Ireland,Fly-half,True,baseline,23.3855,11.0,22.0,38.0,,69.46086097225093
+143492,130452,Damian McKenzie,New Zealand,Ireland,Fly-half,True,baseline,22.79425,11.0,21.0,36.0,,69.46369200284344
+202239,169434,Tomas Albornoz,Argentina,England,Fly-half,True,baseline,21.82875,10.0,21.0,35.0,,69.33420043778557
+185160,112860,Codie Taylor,New Zealand,Ireland,Hooker,True,baseline,21.5675,12.0,20.0,33.0,,56.300465060167305
+211240,186096,Dan Sheehan,Ireland,New Zealand,Hooker,True,baseline,21.544,11.0,20.0,33.09999999999991,,56.60959612857755
+238629,241614,Peter Lakai,New Zealand,Ireland,Back-row,True,baseline,21.1495,11.0,20.0,33.0,,67.60352041058808
+189190,178824,Maxime Lamothe,France,Japan,Hooker,True,baseline,20.671,11.0,19.0,32.0,,56.60959612857755
+136190,149676,Luke Jacobson,New Zealand,Ireland,Back-row,True,baseline,20.50775,10.0,19.0,33.0,,67.77997421351748
+179379,120396,Ardie Savea,New Zealand,Ireland,Back-row,True,baseline,20.20875,10.0,19.0,32.0,,68.20362456399687
+162344,124668,Julian Montoya,Argentina,England,Hooker,True,baseline,20.0655,11.0,19.0,31.0,,56.96342741161728
+241698,337638,Sam Prendergast,Ireland,New Zealand,Fly-half,True,baseline,19.93675,9.0,19.0,32.0,,68.93898929033021
+202267,149070,Manie Libbok,South Africa,Wales,Fly-half,True,baseline,19.5705,8.900000000000034,18.0,32.0,,68.7887911646455
+121353,128814,Malcolm Marx,South Africa,Wales,Hooker,True,baseline,19.4575,10.0,18.0,31.0,,56.592729071591826
+190344,169662,Matthieu Jalibert,France,Japan,Fly-half,True,baseline,19.14425,8.0,18.0,32.0,,69.33420043778557
+198565,201978,Cian Prendergast,Ireland,New Zealand,Back-row,True,baseline,19.1345,10.0,18.0,31.0,,67.72657687247127
+146220,168972,Will Jordan,New Zealand,Ireland,Back-three,True,baseline,19.0705,7.0,18.0,34.0,,71.5081865118472
+206415,206910,Mamoru Harada,Japan,France,Hooker,True,baseline,18.99175,10.0,18.0,29.0,,56.33007039584376
+212902,178848,Dewi Lake,Wales,South Africa,Hooker,True,baseline,18.967,10.0,18.0,29.0,,56.02725490089522
+243815,340140,Marko Gazzotti,France,Japan,Back-row,True,baseline,18.886,9.0,18.0,30.0,,67.55026208056988
+244767,242478,Oscar Jegou,France,Japan,Back-row,True,baseline,18.78275,9.0,18.0,30.0,,67.55026208056988
+237224,231690,Pierre Bochaton,France,Japan,Back-row,True,baseline,18.62525,9.0,17.0,30.0,,67.55026208056988
+113737,213786,Jack van Poortvliet,England,Argentina,Scrum-half,True,baseline,18.43175,6.0,17.0,33.0,,64.74303065209936
+127095,185502,Santiago Grondona,Argentina,England,Back-row,True,baseline,18.30125,8.900000000000034,17.0,30.0,,67.72657687247127
+173801,198696,Alex Coles,England,Argentina,Second-row,True,baseline,18.2985,8.0,16.0,31.0,,65.96607076921329
+105748,117936,Jack Conan,Ireland,New Zealand,Back-row,True,baseline,18.191,9.0,17.0,29.0,,68.11885879353596
+126800,118518,Josh van der Flier,Ireland,New Zealand,Back-row,True,baseline,18.11975,9.0,17.0,29.0,,68.14989346947095
+141860,187422,Ewan Ashman,Scotland,Fiji,Hooker,True,baseline,18.086,10.0,17.0,28.0,,56.36831489450286
+235266,226080,Joaquin Oviedo,Argentina,England,Back-row,True,baseline,18.06075,9.0,17.0,29.0,,67.55026208056988
+142211,213798,George Martin,England,Argentina,Second-row,True,baseline,18.03875,8.0,17.0,31.0,,65.95076756451
+144635,218742,Ollie Chessum,England,Argentina,Second-row,True,baseline,17.9475,7.0,16.0,31.0,,66.09540748526535
+104346,206742,Tevita Ikanivere,Fiji,Scotland,Hooker,True,baseline,17.87325,9.0,17.0,27.0,,55.78255940211392
+156422,153054,Josh Nasser,Australia,Italy,Hooker,True,baseline,17.69525,9.0,17.0,27.0,,56.33007039584376
+240452,234816,Cameron Hanekom,South Africa,Wales,Back-row,True,baseline,17.60725,8.0,16.0,29.0,,66.93900084386739
+236602,231714,Tommaso di Bartolomeo,Italy,Australia,Hooker,True,baseline,17.53425,9.0,17.0,27.0,,55.946716483370054
+164832,188928,Quinn Tupaea,New Zealand,Ireland,Centre,True,baseline,17.256,7.0,16.0,30.0,,72.26340325103803
+111864,223356,Max Spring,France,Japan,Back-three,True,baseline,17.25475,5.0,16.0,32.0,,71.26583914837512
+111475,197916,Josh Lord,New Zealand,Ireland,Second-row,True,baseline,17.23125,8.0,16.0,29.0,,65.25365022099216
+175150,186198,Robert Baloucoune,Ireland,New Zealand,Back-three,True,baseline,17.089,5.0,15.0,32.0,,71.45185206989623
+229303,197832,Sam Darry,New Zealand,Ireland,Second-row,True,baseline,17.07625,8.0,16.0,28.0,,65.25365022099216
+169055,149694,Jordie Barrett,New Zealand,Ireland,Centre,True,baseline,17.03,7.0,16.0,29.0,,72.26340325103803
+200003,118578,Pablo Matera,Argentina,England,Back-row,True,baseline,17.001,8.0,16.0,28.0,,68.14989346947095
+244532,339450,Theo Attissogbe,France,Japan,Back-three,True,baseline,16.8335,5.0,15.0,31.0,,71.26583914837512
+137153,149256,Jasper Wiese,South Africa,Wales,Back-row,True,baseline,16.78175,7.0,16.0,28.0,,67.1137201660485
+165591,185478,Mateo Carreras,Argentina,England,Back-three,True,baseline,16.40325,5.0,15.0,31.0,,71.45185206989623
+171003,118428,Pieter-Steph du Toit,South Africa,Wales,Back-row,True,baseline,16.3875,7.0,15.0,28.0,,67.53320617796044
+145361,143496,Hugo Keenan,Ireland,New Zealand,Back-three,True,baseline,16.3845,5.0,15.0,30.0,,71.45185206989623
+194110,207228,Rodrigo Isgro,Argentina,England,Back-three,True,baseline,16.3355,4.0,15.0,30.09999999999991,,71.45185206989623
+190503,102654,Siya Kolisi,South Africa,Wales,Back-row,True,baseline,16.20075,7.0,15.0,27.0,,67.45145652337838
+189982,169440,Santiago Carreras,Argentina,England,Back-three,True,baseline,16.1435,5.0,15.0,30.0,,71.45185206989623
+106142,115452,Luke Cowan-Dickie,England,Argentina,Hooker,False,baseline,16.141,5.0,14.0,29.0,,22.484141615524187
+134796,178806,Joe Heyes,England,Argentina,Prop,True,baseline,15.95625,5.0,14.0,29.0,,56.24019815907621
+190669,204516,Kurt-Lee Arendse,South Africa,Wales,Back-three,True,baseline,15.93925,4.0,14.0,30.0,,71.29277661364327
+223413,220194,Joe McCarthy,Ireland,New Zealand,Second-row,True,baseline,15.877,7.0,15.0,26.0,,65.3300822417832
+180443,161226,Damian Willemse,South Africa,Wales,Back-three,True,baseline,15.732,4.0,14.0,29.09999999999991,,71.29277661364327
+154414,185784,Kanji Shimokawa,Japan,France,Back-row,True,baseline,15.71525,7.0,15.0,25.0,,67.39215793433169
+203381,143604,James Ryan,Ireland,New Zealand,Second-row,True,baseline,15.53725,7.0,14.0,26.0,,65.20224312832516
+165007,136680,Ellis Genge,England,Argentina,Prop,True,baseline,15.47225,5.0,14.0,28.0,,56.30084579004958
+239229,238278,Hugo Auradou,France,Japan,Second-row,True,baseline,15.4665,7.0,14.0,26.0,,65.0325000162479
+154929,123516,Cheslin Kolbe,South Africa,Wales,Back-three,True,baseline,15.43175,4.0,14.0,29.0,,71.73838330130405
+142873,157710,Ben Gunter,Japan,France,Back-row,True,baseline,15.42025,7.0,14.0,25.0,,67.39215793433169
+123016,203070,Jac Morgan,Wales,South Africa,Back-row,True,baseline,15.38975,7.0,14.0,24.0,,66.85841483312787
+235183,232110,Alex Mann,Wales,South Africa,Back-row,True,baseline,15.29275,7.0,14.0,25.0,,66.89999837597568
+240455,263442,Dan Edwards,Wales,South Africa,Fly-half,True,baseline,15.134,6.0,14.0,26.0,,68.58330849337155
+250067,354888,Fabien Brau-Boirie,France,Japan,Centre,True,baseline,15.0525,5.0,14.0,27.0,,71.95214717080361
+241806,337308,Faustino Sanchez Valarolo,Argentina,England,Centre,True,baseline,14.9805,5.0,14.0,27.0,,71.95214717080361
+119132,176652,Aaron Wainwright,Wales,South Africa,Back-row,True,baseline,14.918,7.0,14.0,24.0,,66.85841483312787
+226185,214050,Kitione Salawa,Fiji,Scotland,Back-row,True,baseline,14.91675,7.0,14.0,24.0,,66.72164476632013
+202570,124296,Tom Staniforth,France,Japan,Second-row,True,baseline,14.90025,6.0,14.0,25.0,,65.60978168929218
+187820,180222,Rory Darge,Scotland,Fiji,Back-row,True,baseline,14.87,7.0,14.0,24.0,,67.43791287970353
+214439,161946,Rob Valetini,Australia,Italy,Back-row,True,baseline,14.84425,6.0,14.0,24.0,,67.39215793433169
+116876,206700,Fletcher Newell,New Zealand,Ireland,Prop,True,baseline,14.8305,6.0,13.0,27.0,,55.632815115985316
+229826,227658,Jamie Osborne,Ireland,New Zealand,Centre,True,baseline,14.828,5.0,13.0,27.0,,71.95214717080361
+222388,196152,Yoram Moefana,France,Japan,Centre,True,baseline,14.78275,5.0,13.0,27.0,,72.20647384624954
+245055,207894,Elia Canakaivata,Fiji,Scotland,Back-row,True,baseline,14.7535,6.0,14.0,24.0,,66.73712684523605
+159599,161856,Matt Fagerson,Scotland,Fiji,Back-row,True,baseline,14.71675,6.0,14.0,23.0,,67.43791287970353
+197335,220140,Lorenzo Cannone,Italy,Australia,Back-row,True,baseline,14.71425,7.0,14.0,23.0,,66.76908914581064
+219828,129372,Garry Ringrose,Ireland,New Zealand,Centre,True,baseline,14.67875,5.0,13.0,26.0,,72.28433899827708
+129616,154110,Fraser McReight,Australia,Italy,Back-row,True,baseline,14.6515,6.0,14.0,24.0,,67.39215793433169
+102468,196176,Ethan de Groot,New Zealand,Ireland,Prop,True,baseline,14.64,6.0,13.0,26.0,,55.632815115985316
+229505,201528,Lucio Cinti,Argentina,England,Centre,True,baseline,14.5955,5.0,13.0,26.0,,72.20647384624954
+172351,129840,Stuart McCloskey,Ireland,New Zealand,Centre,True,baseline,14.552,5.0,13.0,26.0,,72.28433899827708
+188103,173826,Pita Gus Sowakula,Fiji,Scotland,Back-row,True,baseline,14.53125,6.0,14.0,24.0,,66.73712684523605
+190708,153066,Harry Wilson,Australia,Italy,Back-row,True,baseline,14.44975,6.0,13.0,24.0,,67.39215793433169
+225264,185688,Ruan Nortje,South Africa,Wales,Second-row,True,baseline,14.38725,6.0,13.0,25.0,,64.61222907741211
+120191,164220,Michele Lamaro,Italy,Australia,Back-row,True,baseline,14.37325,7.0,13.0,23.0,,66.87867808776927
+113000,124308,Jack Dempsey,Scotland,Fiji,Back-row,True,baseline,14.3095,7.0,14.0,23.0,,67.85942521809842
+144570,fantasy_144570,Jimmy OBrien,Ireland,New Zealand,Back-three,True,baseline,14.30475,4.0,13.0,27.0,,71.81141920732885
+251673,371430,Ryunosuke Ito,Japan,France,Fly-half,True,baseline,14.191,5.0,13.0,25.0,,69.18162576506992
+215963,124686,Guido Petti,Argentina,England,Second-row,True,baseline,14.0095,6.0,13.0,24.0,,65.60978168929218
+117823,112962,Matias Alemanno,Argentina,England,Second-row,True,baseline,13.9995,5.0,13.0,24.0,,65.43677561431927
+105949,120234,Damian de Allende,South Africa,Wales,Centre,True,baseline,13.7505,4.0,12.0,25.0,,72.49603120924894
+229307,225594,Cam Roigard,New Zealand,Ireland,Scrum-half,True,baseline,13.7115,3.0,12.0,26.0,,63.69353920695051
+110910,124026,Jesse Kriel,South Africa,Wales,Centre,True,baseline,13.64775,4.0,12.0,25.0,,72.49603120924894
+238928,242406,Warner Dearns,Japan,France,Second-row,True,baseline,13.6015,6.0,13.0,22.0,,64.92064201411193
+156253,203034,Paolo Garbisi,Italy,Australia,Fly-half,True,baseline,13.49925,5.0,12.0,23.0,,68.46617510704753
+207407,178656,Demba Bamba,France,Japan,Prop,True,baseline,13.32725,5.0,12.0,24.0,,55.58898735658324
+250879,411264,Pedro Delgado,Argentina,England,Prop,True,baseline,13.291,4.0,12.0,24.0,,55.378754777673706
+196989,113430,Eben Etzebeth,South Africa,Wales,Second-row,True,baseline,13.23325,5.0,12.0,24.0,,64.20877378415793
+144545,219996,Ben Carter,Wales,South Africa,Second-row,True,baseline,13.20925,6.0,12.0,21.0,,64.26096726320523
+103703,149754,Harry Hockings,Japan,France,Second-row,True,baseline,13.20775,5.0,12.0,22.0,,64.88028879491259
+105892,129576,Adam Beard,Wales,South Africa,Second-row,True,baseline,13.202,5.0,12.0,22.0,,64.43585030315222
+182760,169530,Mayco Vivas,Argentina,England,Prop,True,baseline,13.05975,4.0,11.0,24.0,,55.58898735658324
+240799,193422,Josh Canham,Australia,Italy,Second-row,True,baseline,12.96475,5.0,12.0,21.0,,64.88028879491259
+225770,149706,Asafo Aumua,New Zealand,Ireland,Hooker,False,baseline,12.9385,4.0,11.0,24.0,,20.293373126906523
+135572,142194,Jack Cornelsen,Japan,France,Second-row,True,baseline,12.926,5.0,12.0,21.0,,64.88028879491259
+226250,197268,Isoa Nasilasila,Fiji,Scotland,Second-row,True,baseline,12.87425,5.0,12.0,21.0,,64.24967230283374
+128750,208140,Andrea Zambonin,Italy,Australia,Second-row,True,baseline,12.8365,5.0,12.0,22.0,,64.38594758732283
+113444,112374,Tadhg Furlong,Ireland,New Zealand,Prop,True,baseline,12.8185,4.0,11.0,23.0,,55.78065735927608
+108021,116592,Jefferson Poirot,France,Japan,Prop,True,baseline,12.7745,4.0,11.0,24.0,,55.83112735812483
+236608,263058,Alessandro Ortombina,Italy,Australia,Second-row,True,baseline,12.71075,5.0,12.0,21.0,,64.42599334397109
+229857,192618,Jeremy Williams,Australia,Italy,Second-row,True,baseline,12.61975,5.0,12.0,21.0,,64.88028879491259
+152990,169128,Temo Mayanavanua,Fiji,Scotland,Second-row,True,baseline,12.56325,5.0,12.0,21.0,,64.24967230283374
+224426,fantasy_224426,Tom OToole,Ireland,New Zealand,Prop,True,baseline,12.51625,4.0,11.0,23.0,,55.78065735927608
+208272,167196,Niccolo Cannone,Italy,Australia,Second-row,True,baseline,12.329,5.0,11.0,21.0,,64.38594758732283
+246864,215232,Isaiah Armstrong-Ravula,Fiji,Scotland,Fly-half,True,baseline,12.292,3.0,11.0,22.0,,68.31582192430008
+210801,136596,Scott Cummings,Scotland,Fiji,Second-row,True,baseline,12.16225,5.0,11.0,20.0,,64.99435067252706
+185466,140238,Ox Nche,South Africa,Wales,Prop,True,baseline,12.08425,4.0,11.0,22.0,,55.286788680591535
+171323,117852,Jonny Gray,Scotland,Fiji,Second-row,True,baseline,12.0475,5.0,11.0,20.0,,65.30038930131929
+178772,169464,Gonzalo Garcia,Argentina,England,Scrum-half,True,baseline,11.9865,2.0,10.0,23.09999999999991,,64.00821372266246
+100043,186162,Maxime Lucu,France,Japan,Scrum-half,True,baseline,11.94975,3.0,10.0,23.0,,64.00821372266246
+216173,120504,Jamison Gibson-Park,Ireland,New Zealand,Scrum-half,True,baseline,11.8655,3.0,10.0,23.0,,64.40828915042441
+104572,130242,Thomas du Toit,South Africa,Wales,Prop,True,baseline,11.857,4.0,11.0,22.0,,55.286788680591535
+146480,139998,Sione Tuipulotu,Scotland,Fiji,Centre,True,baseline,11.73675,4.0,11.0,21.0,,71.97624892679583
+243508,242766,Tom Jordan,Scotland,Fiji,Centre,True,baseline,11.651,4.0,11.0,21.0,,71.87715401187955
+109816,130554,Rory Hutchinson,Scotland,Fiji,Centre,True,baseline,11.637,4.0,11.0,21.0,,71.97624892679583
+110170,171582,Kyle Steyn,Scotland,Fiji,Back-three,True,baseline,11.605,3.0,10.0,22.0,,71.14731022145786
+233260,227256,Shuhei Takeuchi,Japan,France,Prop,True,baseline,11.51075,4.0,10.0,20.0,,55.359861087943855
+237271,232158,Eddie James,Wales,South Africa,Centre,True,baseline,11.48425,3.0,10.0,21.0,,71.71713169283008
+131550,193938,Takato Okabe,Japan,France,Prop,True,baseline,11.478,4.0,10.0,20.0,,55.31450116545258
+197546,220962,Joe Hawkins,Wales,South Africa,Centre,True,baseline,11.4145,4.0,10.0,20.0,,71.71713169283008
+207343,178674,Grant Williams,South Africa,Wales,Scrum-half,True,baseline,11.231,2.0,10.0,23.0,,63.429004424664996
+198661,165924,Dylan Riley,Japan,France,Centre,True,baseline,11.18625,3.0,10.0,20.0,,71.84993416233883
+229557,226818,Tommaso Menoncello,Italy,Australia,Centre,True,baseline,11.1755,3.0,10.0,20.0,,71.2811064245178
+180778,179370,Kyle Rowe,Scotland,Fiji,Back-three,True,baseline,11.175,2.0,10.0,21.0,,71.14731022145786
+168641,135306,Dillon Lewis,Wales,South Africa,Prop,True,baseline,11.12625,4.0,10.0,20.0,,55.076473830583396
+251359,371544,Yuya Hirose,Japan,France,Centre,True,baseline,11.12,3.0,10.0,20.0,,71.96695670904698
+128591,238038,Tim Hoyt,Fiji,Scotland,Prop,True,baseline,11.038,3.0,10.0,19.0,,54.82178023088101
+146815,192666,Angus Bell,Australia,Italy,Prop,True,baseline,11.02825,3.0,10.0,19.0,,55.31450116545258
+119955,162870,Rhys Carre,Wales,South Africa,Prop,True,baseline,11.006,4.0,10.0,19.0,,55.017145100911236
+245050,346554,Max Jorgensen,Australia,Italy,Back-three,True,baseline,10.963,2.0,10.0,22.0,,71.14325960144569
+239634,342324,Henry Pollock,England,Argentina,Back-row,False,baseline,10.94975,3.0,9.0,22.0,,20.28766784439856
+120767,187290,Louis Rees-Zammit,Wales,South Africa,Back-three,True,baseline,10.944,2.0,9.0,22.0,,70.98891277609033
+103821,175848,Eroni Mawi,Fiji,Scotland,Prop,True,baseline,10.938,3.0,10.0,20.0,,54.77686119291317
+242264,213924,Joseph-Aukuso Suaalii,Australia,Italy,Centre,True,baseline,10.9255,3.0,10.0,20.0,,71.83326598371937
+252801,350934,Kazuma Ueda,Japan,France,Back-three,True,baseline,10.88125,2.0,10.0,22.0,,71.14325960144569
+243190,197892,Blair Murray,Wales,South Africa,Back-three,True,baseline,10.8525,2.0,10.0,21.0,,70.98891277609033
+112684,239076,Guy Pepper,England,Argentina,Back-row,False,baseline,10.835,2.0,9.0,22.0,,20.28766784439856
+185293,153318,Len Ikitau,Australia,Italy,Centre,True,baseline,10.7965,3.0,10.0,20.0,,71.84993416233883
+250678,204228,Kippei Ishida,Japan,France,Back-three,True,baseline,10.77025,2.0,10.0,21.0,,71.09903854231585
+239638,229884,Takuro Matsunaga,Japan,France,Back-three,True,baseline,10.75825,2.0,9.0,21.0,,71.14325960144569
+240621,164262,Dylan Pietsch,Australia,Italy,Back-three,True,baseline,10.72475,2.0,9.0,21.0,,71.09903854231585
+130487,118614,Nacho Brex,Italy,Australia,Centre,True,baseline,10.6785,3.0,10.0,20.0,,71.74815665758946
+118531,148644,Ronan Kelleher,Ireland,New Zealand,Hooker,False,baseline,10.6385,3.0,9.0,21.0,,18.591882741537823
+196773,130290,Pierre Schoeman,Scotland,Fiji,Prop,True,baseline,10.6275,3.0,9.0,19.0,,55.41174604489791
+175403,178038,Elliot Millar-Mills,Scotland,Fiji,Prop,True,baseline,10.60525,3.0,9.0,19.0,,55.352056157853355
+123723,164232,Danilo Fischetti,Italy,Australia,Prop,True,baseline,10.5775,3.0,10.0,19.0,,54.89304439003983
+143048,118890,Allan Alaalatoa,Australia,Italy,Prop,True,baseline,10.54325,3.0,9.0,19.0,,55.66023761751313
+137453,129096,Josh Adams,Wales,South Africa,Back-three,True,baseline,10.5275,2.0,9.0,21.0,,71.06546494920087
+236609,231744,Lorenzo Pani,Italy,Australia,Back-three,True,baseline,10.4985,2.0,9.0,21.0,,70.60119905399006
+178222,173226,Jock Campbell,Australia,Italy,Back-three,True,baseline,10.45675,2.0,9.0,21.0,,71.09903854231585
+174318,134016,Monty Ioane,Italy,Australia,Back-three,True,baseline,10.44375,2.0,9.0,21.0,,70.63340167936838
+138016,114534,Henry Slade,England,Argentina,Centre,False,baseline,10.39575,2.0,9.0,21.0,,22.660497270032565
+107059,144684,Marco Riccioni,Italy,Australia,Prop,True,baseline,10.29975,3.0,9.0,18.0,,54.89304439003983
+255396,421050,Malik Faissal,Italy,Australia,Back-three,True,baseline,10.2895,2.0,9.0,21.0,,70.73740115006211
+244760,243636,Barnabe Massa,France,Japan,Hooker,False,baseline,10.2595,3.0,9.0,20.0,,17.265371872888387
+143950,172098,Semi Radradra,Fiji,Scotland,Centre,True,baseline,10.21975,2.0,9.0,19.0,,71.15157485662156
+235935,208518,Ignacio Ruiz,Argentina,England,Hooker,False,baseline,10.14625,2.0,8.0,20.0,,15.788218270725952
+179604,126930,Josua Tuisova,Fiji,Scotland,Centre,True,baseline,10.049,2.0,9.0,19.0,,71.59629898015417
+240624,264132,Selestino Ravutaumada,Fiji,Scotland,Centre,True,baseline,9.966,2.0,9.0,18.0,,71.13023727650186
+182170,128574,Ryan Elias,Wales,South Africa,Hooker,False,baseline,9.70825,3.0,8.0,18.0,,20.972663621421262
+128023,162444,Salesi Rayasi,Fiji,Scotland,Back-three,True,baseline,9.6985,1.0,8.0,20.0,,70.40797771153777
+140494,211638,Jiuta Wainiqolo,Fiji,Scotland,Back-three,True,baseline,9.6985,1.0,8.0,20.0,,70.39164404662337
+177559,142356,Alex Mitchell,England,Argentina,Scrum-half,False,baseline,9.609,0.0,8.0,21.0,,19.472203407844006
+239482,348570,Asher Opoku-Fordjour,England,Argentina,Prop,False,baseline,9.18875,1.0,7.0,20.0,,23.02148974644147
+196415,127014,Charlie Ewels,England,Argentina,Second-row,False,baseline,9.15125,2.0,8.0,19.0,,20.791913144810465
+130283,137016,Beno Obano,England,Argentina,Prop,False,baseline,9.089,1.0,7.0,20.0,,23.36885051795605
+136875,202980,Gianmarco Lucchesi,Italy,Australia,Hooker,False,baseline,8.86775,2.0,8.0,17.0,,20.078925201811074
+251199,371742,Hayate Era,Japan,France,Hooker,False,baseline,8.8265,2.0,7.0,17.0,,18.804942084834945
+241794,337404,Wallace Sititi,New Zealand,Ireland,Back-row,False,baseline,8.789,2.0,7.0,18.0,,18.529432993778364
+240478,263268,Gregor Hiddleston,Scotland,Fiji,Hooker,False,baseline,8.7215,2.0,7.0,17.0,,18.114842986936587
+188057,142476,Ben White,Scotland,Fiji,Scrum-half,True,baseline,8.6905,1.0,7.0,18.0,,63.73539812505879
+195298,214146,Jamie Dobie,Scotland,Fiji,Scrum-half,True,baseline,8.565,1.0,7.0,17.0,,63.7206124051731
+133163,128628,Tomos Williams,Wales,South Africa,Scrum-half,True,baseline,8.386,1.0,7.0,17.0,,63.58266301897615
+219485,163734,Ryan Lonergan,Australia,Italy,Scrum-half,True,baseline,8.3455,1.0,7.0,17.0,,63.69215524379309
+110891,213144,Stephen Varney,Italy,Australia,Scrum-half,True,baseline,8.2475,1.0,7.0,17.0,,63.19220365260841
+136947,161034,Brandon Paenga-Amosa,Australia,Italy,Hooker,False,baseline,8.08975,1.0,7.0,16.0,,18.934245288781376
+140735,150960,Naoto Saito,Japan,France,Scrum-half,True,baseline,7.97225,0.0,7.0,17.0,,63.69215524379309
+201684,124602,Patrick Tuipulotu,New Zealand,Ireland,Second-row,False,baseline,7.7465,1.0,6.0,15.0,,19.65423011111958
+150038,140004,Tyrel Lomax,New Zealand,Ireland,Prop,False,baseline,7.66375,1.0,6.0,16.0,,21.103438937104315
+151066,185508,Xavier Numia,New Zealand,Ireland,Prop,False,baseline,7.645,1.0,6.0,16.0,,21.133929787048107
+109783,156420,Marco van Staden,South Africa,Wales,Back-row,False,baseline,7.59475,1.0,6.0,16.0,,19.319241089460107
+237152,383400,Joaquin Moro,Argentina,England,Back-row,False,baseline,7.59275,1.0,6.0,16.0,,15.805640356255733
+216255,209904,Zuriel Togiatama,Fiji,Scotland,Hooker,False,baseline,7.559,1.0,6.0,16.0,,21.066161738272914
+193134,136878,Nick Timoney,Ireland,New Zealand,Back-row,False,baseline,7.48425,1.0,6.0,16.0,,17.155044752107486
+110905,185646,Ben-Jason Dixon,South Africa,Wales,Back-row,False,baseline,7.47225,1.0,6.0,15.0,,18.189318021942963
+132322,224352,Killian Tixeront,France,Japan,Back-row,False,baseline,7.425,1.0,6.0,16.0,,16.148599848464904
+202316,171126,Frank Lomani,Fiji,Scotland,Scrum-half,True,baseline,7.3925,0.0,6.0,16.0,,63.07308704513347
+143123,206706,Taine Plumtree,Wales,South Africa,Back-row,False,baseline,7.23225,1.0,6.0,15.0,,20.079317798242734
+214124,154938,James Botham,Wales,South Africa,Back-row,False,baseline,7.19075,0.0,6.0,15.0,,20.14237513950961
+249169,353082,Fehi Fineanganofo,New Zealand,Ireland,Back-three,False,baseline,7.06775,0.0,5.0,16.0,,20.114232454761265
+166457,207432,Regis Montagne,France,Japan,Prop,False,baseline,7.0295,0.0,5.0,15.0,,19.15987854603432
+245177,353844,Tiennan Costley,Japan,France,Back-row,False,baseline,7.00825,0.0,6.0,15.0,,17.90667182915199
+151974,176550,Billy Proctor,New Zealand,Ireland,Centre,False,baseline,6.94275,0.0,5.0,16.0,,21.058039277775606
+177800,219930,Mickael Guillard,France,Japan,Second-row,False,baseline,6.83525,1.0,5.0,14.0,,16.31300683670426
+147486,117954,Tadhg Beirne,Ireland,New Zealand,Second-row,False,baseline,6.724,0.0,5.0,15.0,,19.23491961228814
+170612,156564,Gerhard Steenekamp,South Africa,Wales,Prop,False,baseline,6.71725,0.0,5.0,14.0,,20.29845218675093
+246824,342540,Zac Porthen,South Africa,Wales,Prop,False,baseline,6.71225,0.0,5.0,14.0,,18.25338071263033
+120076,67848,Michael Leitch,Japan,France,Back-row,False,baseline,6.69675,0.0,5.0,14.0,,19.61740178395636
+237233,231840,Ross Vintcent,Italy,Australia,Back-row,False,baseline,6.6865,0.0,5.0,15.0,,17.950398656949737
+208971,150600,Franco Molina,Argentina,England,Second-row,False,baseline,6.62925,0.0,5.0,14.0,,16.564046719744006
+174268,136854,Jeremy Loughman,Ireland,New Zealand,Prop,False,baseline,6.61525,0.0,5.0,14.0,,19.33402888264226
+240916,337350,Boris Wenger,Argentina,England,Prop,False,baseline,6.59175,0.0,5.0,14.0,,17.01758807069561
+196853,203208,Thomas Clarkson,Ireland,New Zealand,Prop,False,baseline,6.57425,0.0,5.0,14.0,,19.054215805860057
+229690,225984,Jan-Hendrik Wessels,South Africa,Wales,Prop,False,baseline,6.561,0.0,5.0,14.0,,18.26952036403618
+246851,359274,Toms Rapetti,Argentina,England,Prop,False,baseline,6.49425,0.0,5.0,14.0,,17.268271702689418
+110319,121974,Nicky Smith,Wales,South Africa,Prop,False,baseline,6.45675,0.0,5.0,14.0,,21.845460068294237
+251438,371586,Keijiro Tamefusa,Japan,France,Prop,False,baseline,6.264,0.0,5.0,14.0,,20.23063106420678
+164759,203046,Ben Warren,Wales,South Africa,Prop,False,baseline,6.23825,0.0,5.0,13.0,,21.007902323583053
+261209,370146,Sojiro Otsuka,Japan,France,Prop,False,baseline,6.224,0.0,5.0,14.0,,20.23063106420678
+229255,225720,Cortez Ratima,New Zealand,Ireland,Scrum-half,False,baseline,6.2175,0.0,4.0,15.0,,17.720599497353145
+113765,124464,Peceli Yato,Fiji,Scotland,Back-row,False,baseline,6.08425,0.0,5.0,14.0,,19.78144931206672
+174208,220128,Riccardo Favretto,Italy,Australia,Second-row,False,baseline,6.04575,0.0,5.0,14.0,,17.9317511131352
+237261,231564,Alex Samuel,Scotland,Fiji,Second-row,False,baseline,5.9645,0.0,5.0,14.0,,17.497131948179085
+237231,231804,Mirco Spagnolo,Italy,Australia,Prop,False,baseline,5.9635,0.0,5.0,13.0,,20.496320894957684
+196669,130530,Zander Fagerson,Scotland,Fiji,Prop,False,baseline,5.8875,0.0,5.0,13.0,,20.182328188283496
+172284,220782,Muhamed Hasa,Italy,Australia,Prop,False,baseline,5.82875,0.0,4.0,13.0,,20.496320894957684
+157406,114804,Bundee Aki,Ireland,New Zealand,Centre,False,baseline,5.80525,0.0,4.0,14.0,,21.46776184224018
+180382,148386,Bautista Delguy,Argentina,England,Back-three,False,baseline,5.7785,0.0,4.0,15.0,,18.384787529378148
+222920,220296,Gregor Brown,Scotland,Fiji,Second-row,False,baseline,5.7575,0.0,4.0,13.0,,17.45760274031818
+127914,128820,Andre Esterhuizen,South Africa,Wales,Centre,False,baseline,5.69425,0.0,4.0,15.0,,23.228662363440357
+153525,134172,Rory Sutherland,Scotland,Fiji,Prop,False,baseline,5.6375,0.0,4.0,13.0,,19.97400737886742
+241689,262248,Nicolas Depoortere,France,Japan,Centre,False,baseline,5.5965,-0.0999999999999659,4.0,14.0,,17.986771857900052
+237078,234822,Canan Moodie,South Africa,Wales,Back-three,False,baseline,5.56125,0.0,4.0,14.0,,18.21369515926129
+154458,113040,Matias Moroni,Argentina,England,Centre,False,baseline,5.477,0.0,4.0,14.0,,21.04826129104786
+251198,368232,Lachlan Shaw,Australia,Italy,Second-row,False,baseline,5.30575,0.0,4.0,13.0,,18.899693429551267
+170835,66978,James Slipper,Australia,Italy,Prop,False,baseline,5.295,-1.0,4.0,13.0,,21.379399139114565
+182833,131862,Taniela Tupou,Australia,Italy,Prop,False,baseline,5.28025,-1.0,4.0,13.0,,20.241486275528935
+246860,358770,Mesake Vocevoce,Fiji,Scotland,Second-row,False,baseline,5.20275,-1.0,4.0,13.0,,20.991330407218022
+166930,fantasy_166930,Peni Ravai Kovekalou,Fiji,Scotland,Prop,False,baseline,5.1415,-1.0,4.0,13.0,,20.878298941308486
+249307,363636,Ellis Mee,Wales,South Africa,Back-three,False,baseline,5.09925,-1.0,3.0,13.0,,21.836924999174265
+244984,346278,Agustin Moyano,Argentina,England,Scrum-half,False,baseline,5.04475,0.0,3.0,13.0,,14.391678549396511
+164150,146754,Darcy Graham,Scotland,Fiji,Back-three,False,baseline,5.042,-1.0,3.0,13.0,,20.017340468286314
+133457,150468,Antoine Hastoy,France,Japan,Fly-half,False,baseline,5.041,-1.0,3.0,13.0,,16.343597960225612
+199383,148890,Ciaran Frawley,Ireland,New Zealand,Fly-half,False,baseline,5.02775,-1.0,3.0,14.0,,16.343597960225612
+156336,201012,Tom Wright,Australia,Italy,Back-three,False,baseline,5.0185,-1.0,3.0,13.0,,20.68762005538734
+191608,114744,Cobus Reinach,South Africa,Wales,Scrum-half,False,baseline,4.9435,-1.0,3.0,13.0,,19.81972756490801
+109697,219972,Nolann le Garrec,France,Japan,Scrum-half,False,baseline,4.85875,-1.0,3.0,14.0,,15.406834254877415
+237803,243102,Kalaveti Ravouvou,Fiji,Scotland,Back-three,False,baseline,4.82625,-1.0,3.0,13.0,,23.6282554280614
+105642,203124,Craig Casey,Ireland,New Zealand,Scrum-half,False,baseline,4.75975,-1.0,3.0,13.0,,16.085442576209697
+124812,169026,Filimoni Botitu,Fiji,Scotland,Centre,False,baseline,4.71175,-1.0,3.0,13.0,,23.986462543059467
+130282,117834,Tommaso Allan,Italy,Australia,Fly-half,False,baseline,4.47075,-1.0,3.0,13.0,,16.966273672756323
+236606,231834,Leonardo Marin,Italy,Australia,Fly-half,False,baseline,4.47025,-1.0,3.0,13.0,,16.718737484489058
+117646,187842,Ben Donaldson,Australia,Italy,Fly-half,False,baseline,4.4455,-1.0,3.0,13.0,,17.00358975900128
+118619,203076,Sam Costelow,Wales,South Africa,Fly-half,False,baseline,4.432,-1.0,3.0,13.0,,18.933654371379276
+136509,206712,Fergus Burke,Scotland,Fiji,Fly-half,False,baseline,4.39875,-1.0,2.0,13.0,,16.48383766698331
+190215,135900,Kieran Hardy,Wales,South Africa,Scrum-half,False,baseline,4.38575,-1.0,2.0,13.0,,19.527221290699014
+224905,129792,George Horne,Scotland,Fiji,Scrum-half,False,baseline,4.33425,-1.0,2.0,12.0,,17.48371904564744
+134407,180450,Alessandro Fusco,Italy,Australia,Scrum-half,False,baseline,4.2745,-1.0,2.0,13.0,,18.079308163880988
+255945,372078,Itsuki Kamimura,Japan,France,Scrum-half,False,baseline,4.17075,-1.0,2.0,12.0,,17.762768844450967
+210952,164268,Tate McDermott,Australia,Italy,Scrum-half,False,baseline,4.00625,-1.0,2.0,12.0,,17.68019516083008
+161973,206814,Simione Kuruvoli,Fiji,Scotland,Scrum-half,False,baseline,3.85975,-2.0,2.0,12.0,,20.311428006844025

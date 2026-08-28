@@ -1,0 +1,209 @@
+{
+  "sealed_season": 2026,
+  "config": "supersub_context_slot_only",
+  "evaluated_on": "2026-06-30",
+  "value_team": 0.7001692097737747,
+  "value_xv": 0.718337051408284,
+  "mae": 7.302860979554838,
+  "bench_mae": 4.311964689302295,
+  "top15": 0.3866666666666666,
+  "top30": 0.5533333333333333,
+  "capt_top1": 0.2,
+  "capt_top3": 0.4,
+  "capt_top5": 0.6,
+  "spearman_pos": 0.5790774603543366,
+  "spearman_sel": 0.588234227880655,
+  "registry_lgbm": 8,
+  "round_team": [
+    0.7321668909825033,
+    0.740979381443299,
+    0.6062176165803109,
+    0.5997375328083989,
+    0.8217446270543616
+  ],
+  "round_xv": [
+    0.830220713073005,
+    0.7399678972712681,
+    0.5700636942675159,
+    0.6467817896389325,
+    0.8046511627906977
+  ],
+  "round_mae": [
+    7.254885360587402,
+    7.784446721766872,
+    7.6269689816594,
+    7.153437395122222,
+    6.705013345978099
+  ],
+  "round_bias": [
+    0.9648685821895082,
+    1.7091109773638602,
+    0.8430242358286271,
+    1.264195245264722,
+    2.0406492559454925
+  ],
+  "by_pos": {
+    "Back-row": {
+      "n": 128,
+      "mae": 8.021736806863782,
+      "bias": 1.965244944986754,
+      "actual_mean": 21.0234375,
+      "pred_mean": 19.05819255501325
+    },
+    "Back-three": {
+      "n": 105,
+      "mae": 9.768878748225848,
+      "bias": 1.4516956568156363,
+      "actual_mean": 21.16190476190476,
+      "pred_mean": 19.710209105089127
+    },
+    "Centre": {
+      "n": 69,
+      "mae": 8.802462393623637,
+      "bias": 1.0319843496193815,
+      "actual_mean": 18.144927536231883,
+      "pred_mean": 17.112943186612505
+    },
+    "Fly-half": {
+      "n": 40,
+      "mae": 10.15451580447358,
+      "bias": 4.444191128318184,
+      "actual_mean": 23.875,
+      "pred_mean": 19.43080887168182
+    },
+    "Hooker": {
+      "n": 58,
+      "mae": 6.277583879535866,
+      "bias": 0.33561924873093046,
+      "actual_mean": 13.120689655172415,
+      "pred_mean": 12.785070406441484
+    },
+    "Prop": {
+      "n": 118,
+      "mae": 4.428643066292998,
+      "bias": 0.11177335545901156,
+      "actual_mean": 10.084745762711865,
+      "pred_mean": 9.972972407252854
+    },
+    "Scrum-half": {
+      "n": 57,
+      "mae": 5.271435685026293,
+      "bias": 1.0714547168846584,
+      "actual_mean": 12.0,
+      "pred_mean": 10.928545283115342
+    },
+    "Second-row": {
+      "n": 93,
+      "mae": 6.721445551389531,
+      "bias": 1.7678986303674151,
+      "actual_mean": 16.0752688172043,
+      "pred_mean": 14.307370186836886
+    }
+  },
+  "selection_diagnostics": {
+    "rounds": [
+      {
+        "round": 1,
+        "captain": "Thomas Ramos",
+        "best_captain_in_xv": "Matthieu Jalibert",
+        "captain_regret": 6.0,
+        "supersub": "Henry Pollock",
+        "best_supersub": "Nick Timoney",
+        "best_supersub_rank": 8,
+        "supersub_regret": 30.0
+      },
+      {
+        "round": 2,
+        "captain": "Thomas Ramos",
+        "best_captain_in_xv": "Matthieu Jalibert",
+        "captain_regret": 39.0,
+        "supersub": "Henry Pollock",
+        "best_supersub": "Henry Pollock",
+        "best_supersub_rank": 1,
+        "supersub_regret": 0.0
+      },
+      {
+        "round": 3,
+        "captain": "Thomas Ramos",
+        "best_captain_in_xv": "Thomas Ramos",
+        "captain_regret": 0.0,
+        "supersub": "Marcus Smith",
+        "best_supersub": "James Botham",
+        "best_supersub_rank": 25,
+        "supersub_regret": 9.0
+      },
+      {
+        "round": 4,
+        "captain": "Thomas Ramos",
+        "best_captain_in_xv": "Tommaso Menoncello",
+        "captain_regret": 9.0,
+        "supersub": "Henry Pollock",
+        "best_supersub": "Tom Jordan",
+        "best_supersub_rank": 8,
+        "supersub_regret": 19.0
+      },
+      {
+        "round": 5,
+        "captain": "Louis Bielle-Biarrey",
+        "best_captain_in_xv": "Louis Bielle-Biarrey",
+        "captain_regret": 0.0,
+        "supersub": "Marcus Smith",
+        "best_supersub": "Darragh Murray",
+        "best_supersub_rank": 32,
+        "supersub_regret": 5.0
+      }
+    ],
+    "captain_regret_total": 54.0,
+    "supersub_regret_total": 63.0,
+    "selected_bias": {
+      "Back-row": {
+        "n": 18,
+        "pred_mean": 26.284721493949228,
+        "actual_mean": 29.38888888888889,
+        "bias": 3.104167394939659
+      },
+      "Back-three": {
+        "n": 15,
+        "pred_mean": 32.13050942243978,
+        "actual_mean": 38.46666666666667,
+        "bias": 6.336157244226886
+      },
+      "Centre": {
+        "n": 10,
+        "pred_mean": 26.791604546498256,
+        "actual_mean": 31.5,
+        "bias": 4.708395453501742
+      },
+      "Fly-half": {
+        "n": 7,
+        "pred_mean": 24.576325052246677,
+        "actual_mean": 36.57142857142857,
+        "bias": 11.995103519181892
+      },
+      "Hooker": {
+        "n": 5,
+        "pred_mean": 20.028726410202346,
+        "actual_mean": 23.2,
+        "bias": 3.171273589797657
+      },
+      "Prop": {
+        "n": 10,
+        "pred_mean": 16.895510666042348,
+        "actual_mean": 12.0,
+        "bias": -4.895510666042349
+      },
+      "Scrum-half": {
+        "n": 5,
+        "pred_mean": 29.182807831330933,
+        "actual_mean": 31.0,
+        "bias": 1.817192168669066
+      },
+      "Second-row": {
+        "n": 10,
+        "pred_mean": 23.24267795489022,
+        "actual_mean": 23.5,
+        "bias": 0.2573220451097775
+      }
+    }
+  }
+}

@@ -1,0 +1,56 @@
+{
+  "player": "agustin-fraga",
+  "csv_name": "Agustin Fraga",
+  "bio": {
+    "Age": "24",
+    "Position": "Outside Back",
+    "Height": "192cm",
+    "Weight": "98kg"
+  },
+  "competition_stats": [
+    {
+      "competition": "Rugby Hybrid Friendlies",
+      "season": "2024/2025",
+      "games": 1,
+      "minutes": 15,
+      "tries": 0,
+      "try_assists": 0,
+      "points": 0,
+      "carries": 2,
+      "metres": 9,
+      "av_gain": 4.4,
+      "post_contact_metres": 7,
+      "defenders_beaten": null,
+      "clean_breaks": 0,
+      "offloads": 0,
+      "handling_errors": 0,
+      "passes": 1,
+      "bad_passes": 0,
+      "tackles": 1,
+      "missed_tackles": null,
+      "tackles_success_pct": 1,
+      "dominant_tackles": 0,
+      "turnovers_won": 0,
+      "turnovers_conceded": 0,
+      "kicks_from_hand": 0,
+      "penalties_conceded": 0,
+      "yellow_cards": 0,
+      "red_cards": 0
+    }
+  ],
+  "match_log": [
+    {
+      "competition": "Rugby Union Hybrid Friendlies",
+      "match": "Munster vs Argentina XV",
+      "date": "1 Nov 2025",
+      "opposition": "Munster",
+      "win": false,
+      "draw": false,
+      "mins": 15,
+      "tries": 0,
+      "yellow_cards": 0,
+      "red_cards": 0,
+      "conversions": 0
+    }
+  ]
+}

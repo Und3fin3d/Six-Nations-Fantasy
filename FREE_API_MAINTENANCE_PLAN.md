@@ -120,9 +120,9 @@ The monthly run passes only when all applicable checks pass:
 
 ## Backup policy
 
-The raw paid cache is ignored by Git. A Git clone cannot reconstruct the paid data without spending quota again.
+Git now tracks the raw paid cache. A cloud clone can reuse every committed response without spending quota again.
 
-After each monthly refresh, create an incremental backup of these paths:
+After each monthly refresh, commit the changed cache files and derived tables. Also create an incremental backup of these paths:
 
 - `data/cache/`
 - `data/ncr/feeds/`

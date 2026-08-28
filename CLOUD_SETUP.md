@@ -20,6 +20,8 @@ python build_intl_results.py
 
 Each successful API response enters `data/cache`. Commit new cache files and rebuilt tables after validation.
 
+The repository tracks `data/cache`. A cloud task must pull the latest `main` branch before it checks for missing matches.
+
 ## Validation
 
 ```bash

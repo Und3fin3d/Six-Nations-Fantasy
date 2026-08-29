@@ -1,0 +1,42 @@
+{
+  "cache_only_check_calls": 0,
+  "calls_used": 5,
+  "competitions": [
+    {
+      "id": 696,
+      "name": "Nations Championship",
+      "season": 2026
+    },
+    {
+      "id": 30,
+      "name": "International",
+      "season": 2026
+    },
+    {
+      "id": 18,
+      "name": "Tour Match",
+      "season": 2026
+    }
+  ],
+  "errors": [],
+  "fixture_ids": [
+    8556784,
+    8558773
+  ],
+  "fixtures": [
+    {
+      "competition": "International",
+      "competition_id": 30,
+      "date": "2026-04-03",
+      "fixture_id": 8556784
+    },
+    {
+      "competition": "International",
+      "competition_id": 30,
+      "date": "2026-04-10",
+      "fixture_id": 8558773
+    }
+  ],
+  "remaining_quota": 224,
+  "run_date": "2026-08-28"
+}

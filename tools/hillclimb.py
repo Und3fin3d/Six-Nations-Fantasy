@@ -188,10 +188,28 @@ def run(variant: str) -> dict:
     return result
 
 
+def adopt(variant: str) -> dict:
+    """Bundle and archive candidate artifacts already on disk, without refitting.
+
+    Used for the control, whose artifacts the initial benchmark run produced.
+    """
+    result = bundle(variant)
+    archive(variant)
+    for path in _aggregate_files():
+        if path.exists():
+            path.unlink()
+    out = TRIALS / variant / "bundle.json"
+    out.parent.mkdir(parents=True, exist_ok=True)
+    out.write_text(json.dumps(result, indent=2, sort_keys=True) + "\n")
+    return result
+
+
 def main() -> None:
     command, variant = sys.argv[1], sys.argv[2]
     if command == "run":
         result = run(variant)
+    elif command == "adopt":
+        result = adopt(variant)
     elif command == "bundle":
         result = bundle(variant)
     else:

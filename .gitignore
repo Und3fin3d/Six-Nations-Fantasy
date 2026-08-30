@@ -19,3 +19,9 @@ secrets.json
 # Tooling / scratch
 chromedriver
 scrape.log
+
+# All-rugby hill-climb: derived caches are rebuildable from the frozen P3 artifacts.
+data/unified/raw_benchmark/allrugby_p3/components/
+data/unified/raw_benchmark/allrugby_p3/fold_cache.pkl
+data/unified/raw_benchmark/allrugby_p3/loss_table.pkl
+data/unified/raw_benchmark/allrugby_p3/player_match.csv

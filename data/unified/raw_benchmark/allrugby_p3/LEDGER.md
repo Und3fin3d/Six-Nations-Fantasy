@@ -11,7 +11,7 @@ Seed 17. Weight grid step 0.005. NCR GW4–7 was never read.
 
 - Reconstructed frozen `p3_event_50` stable score: **0.8864704365**
 - Frozen ledger value: **0.8864704365**
-- Absolute difference: `0.0e+00`; worst per-fold difference `2.2e-16`
+- Absolute difference `0.0e+00`; worst per-fold difference `2.2e-16`
 - Reproduced: **True** across 21 folds
 
 The frozen `p3_event_50` artifacts are self-contained, so the empirical and v4
@@ -22,8 +22,8 @@ the frozen per-fold metrics exactly. The frozen v1 ledger was never written to.
 Two further control matches: the reconstructed rubric aggregates reproduce the
 ledger's `p3_event_50` figures exactly (ncr MAE 6.1727 / spearman 0.5367 / capture
 0.7187; six_nations 6.2767 / 0.6287 / 0.7689, 98 slates each), and the degenerate
-`low_history` relative loss (848.68, caused by near-zero naive kicking losses)
-reproduces the frozen ledger's value too. That cohort gates nothing.
+`low_history` relative loss (848.68, from near-zero naive kicking losses) reproduces
+the frozen ledger's value too. That cohort gates nothing.
 
 ## Precommitted acceptance rule
 
@@ -46,12 +46,13 @@ Ties and sub-threshold trials are rejected and logged.
 | C4_density_parametric_weight | 2 | 0.886993 | 0.000523 | 0.000164 | 0.001033 | 0.000370 | False |
 | C5_shrunk_per_target_weight | 25 | 0.879366 | -0.007105 | -0.011122 | -0.003251 | -0.005917 | True |
 | C6_log_space_all_targets | 0 | 0.885688 | -0.000782 | -0.001540 | -0.000095 |  | True |
+| C7_history_depth_weight | 3 | 0.887343 | 0.000872 | 0.000280 | 0.001649 | 0.000676 | False |
 | C8_log_space_per_target_weight | 24 | 0.879517 | -0.006954 | -0.011805 | -0.002247 | -0.010105 | True |
 
 Frozen baseline **0.886470**. `stable_score` for fitted candidates is
-leave-one-fold-out cross-fitted: the weights applied to a fold were fitted without it.
-`temporal_delta` is a second, stricter check — fit on the 10 earliest folds, evaluate
-on the 11 latest.
+leave-one-fold-out cross-fitted: the weights applied to a fold were fitted without
+it. `temporal_delta` is a second, stricter check — fit on the 10 earliest folds,
+evaluate on the 11 latest.
 
 ### Rejected, and why
 
@@ -63,14 +64,25 @@ on the 11 latest.
   - REJECTED: (a) stable_score 0.886993 did not improve on frozen 0.886470
   - REJECTED: (b) paired-by-fold bootstrap CI [0.000164, 0.001033] includes 0
   - In-sample reference 0.886421; cross-fitted 0.886993.
+- **C7_history_depth_weight** — The blend weight should vary by row, not by competition: the empirical prior should earn weight where a player has little career history for the GBDT to exploit. w(n) = clip(a + b*n/(n+k), 0, 1) on prior match count -- competition-independent, so it stays inside the one-model mandate.
+  - REJECTED: (a) stable_score 0.887343 did not improve on frozen 0.886470
+  - REJECTED: (b) paired-by-fold bootstrap CI [0.000280, 0.001649] includes 0
+  - In-sample reference 0.886470; cross-fitted 0.887343.
 
-C1 is the most informative negative: the global weight curve bottoms at **w=0.52**
-(0.886433) against 0.886470 at w=0.50 — a gain of 0.000037. The 0.5 chosen on
-6N-2025 LORO was already at the all-rugby optimum, and *refitting it costs*
-accuracy (cross-fitted 0.886763) because the refit adds estimation variance to a
-flat curve. C4 fails for a related reason: event density alone is the wrong axis,
-because `metres` is dense yet wants w≈0.09 while `red_cards` is ultra-sparse yet
-wants w≈0.91.
+Three independent negatives, all pointing the same way — **the blend weight does
+not want to move globally, by event density, or by player history; it wants to move
+by event type**:
+
+- **C1** is the sharpest. The global weight curve bottoms at **w=0.52** (0.886433)
+  against 0.886470 at w=0.50 — a gain of 0.000037. The 0.5 chosen on 6N-2025 LORO
+  was already sitting at the all-rugby optimum, and *refitting it costs* accuracy
+  (cross-fitted 0.886763) because the refit adds estimation variance to a flat curve.
+- **C4** fails because density is the wrong axis: `metres` is dense (0.83) yet wants
+  w≈0.09, while `red_cards` is ultra-sparse (0.003) yet wants w≈0.91.
+- **C7** is the cleanest null of all: given the freedom to vary the weight with
+  player career history, the all-folds fit chooses a=0.5, b=0 — exactly the constant
+  frozen weight, reproducing 0.886470 in-sample to the digit. History depth carries
+  no usable signal for this blend.
 
 ### Accepted
 
@@ -80,7 +92,7 @@ wants w≈0.91.
 - **C6_log_space_all_targets** — cross-fitted 0.885688 (+0.088% vs frozen). The blend is on event MEANS, but the metric is Poisson deviance / log-squared, whose natural link is log. Blending every target on the log1p scale at the frozen 0.5 weight adds no fitted parameter.
 - **C8_log_space_per_target_weight** — cross-fitted 0.879517 (+0.784% vs frozen). If the log link is the right space for these losses, the per-target weight should be fitted there too rather than in mean space.
 
-All five accepted candidates pass every gate against the frozen baseline. They are
+All accepted candidates pass every gate against the frozen baseline. They are
 alternative parameterisations of the same one-dimensional blend family rather than
 composable deltas, so the hill-climb terminates at the best of them:
 **C5, the shrunk per-target weight**, at **0.879366**.
@@ -89,10 +101,10 @@ composable deltas, so the hill-climb terminates at the best of them:
 
 - Cross-fitted stable score **0.879366** vs frozen 0.886470
 - Improvement **0.801%**
-- Paired-by-fold bootstrap of the difference: mean -0.007105, 90% CI [-0.011122, -0.003251] — excludes 0
+- Paired-by-fold bootstrap: mean -0.007105, 90% CI [-0.011122, -0.003251] — excludes 0
 - Temporal holdout (fit 10 earliest folds, evaluate 11 latest): 0.887107 vs 0.893024, delta -0.005917, CI [-0.007824, -0.004136] — excludes 0
 - Folds improved: 15/21
-- Shrinkage λ selected by inner leave-one-fold-out: [0.05, 0.1, 0.15] across outer folds; 0.1 when fitted on all folds
+- Shrinkage λ by inner leave-one-fold-out: [0.05, 0.1, 0.15] across outer folds; 0.1 when fitted on all folds
 
 ### In-sample vs held-out statement
 
@@ -101,10 +113,11 @@ C5 fits 24 per-target weights plus one shrinkage strength (25 parameters).
 fitted on the other 20 folds, and the shrinkage strength is chosen by a further
 leave-one-fold-out pass *inside* those 20 — the held-out fold informs neither. For
 reference the fully in-sample score is 0.877396; the honest
-cross-fitted score is 0.879366. The gap (0.001970) is the
-overfitting that cross-fitting removes and that a naive all-folds fit would have
-banked as a fake win. The independent temporal split, where no held-out fold is even
-contemporaneous with the fitting set, confirms the effect.
+cross-fitted score is 0.879366. The gap
+(+0.001970) is the overfitting that
+cross-fitting removes and that a naive all-folds fit would have banked as a fake
+win. The independent temporal split, where no held-out fold is even contemporaneous
+with the fitting set, confirms the effect survives.
 
 ### Fitted weights (v4 share; 1 − w is the empirical share)
 
@@ -141,14 +154,16 @@ The structure is not noise — it is a clean split by *event type*:
   tries, try assists, conversions, clean breaks, offloads, defenders beaten.
 - **Volume / workrate and discipline events go to the GBDT** (w≈0.55–0.66): passes,
   runs, tackles, rucks, bad passes, place-kicking attempts, cards.
-- **Neutral, near the frozen 0.5**: minutes, missed tackles, turnovers and penalties conceded.
+- **Neutral, near the frozen 0.5**: minutes, missed tackles, turnovers and penalties
+  conceded.
 
 The v4 GBDT models minutes- and role-driven volume well but over-smooths rare
 attacking upside, where a player's own empirical history carries more signal. The
-two ultra-sparse outliers (`drop_goals_converted` w=0.84, `red_cards` w=0.91) rest
-on very few events; shrinkage pulls them in and they move the mean-of-24 by little.
+two ultra-sparse outliers (`drop_goals_converted` 0.84, `red_cards` 0.91) rest on
+very few events; shrinkage pulls them in and they move the mean-of-24 by little.
 
 ## Breakdown
+
 ### Per fold
 
 | fold | tournament | hemisphere | stable_base | stable_cand | delta | pct |
@@ -195,9 +210,9 @@ on very few events; shrinkage pulls them in and they move the mean-of-24 by litt
 | north | 0.8736 | 0.8685 | -0.5837 |
 | south | 0.8983 | 0.8862 | -1.3561 |
 
-Every tournament family improves and both hemispheres improve. No gate (c) or (d)
+Every tournament family improves and both hemispheres improve — no gate (c) or (d)
 regression anywhere. The gains are largest exactly where P3's edge over v1 was
-thinnest — the south (−1.36% vs −0.58% north) and the Rugby Championship (−2.06%).
+thinnest: the south (−1.36% vs −0.58% north) and the Rugby Championship (−2.06%).
 The 6 regressing folds are concentrated in 2022–early 2024, where the training
 history behind both components is thinnest.
 
@@ -230,24 +245,25 @@ Paired-by-slate bootstrap, C5 cross-fitted minus frozen P3 (98 slates):
 
 **The raw-score gain does not cost rubric MAE — it improves it.** NCR MAE falls
 6.1727 → 6.0669 and Six Nations MAE 6.2767 → 6.1771, both with bootstrap CIs
-excluding 0. Capture and Spearman improve on both rubrics; the improvement is
-significant on NCR and directionally positive but not significant on Six Nations.
+excluding 0. Capture and Spearman improve on both rubrics; significantly on NCR,
+directionally but not significantly on Six Nations.
 
 This resolves the tension flagged at the outset. `empirical_event` had better rubric
-MAE (ncr 6.0608, capture 0.7279) than P3 despite a far worse raw score (0.939), because
-the rubrics are dominated by tries, assists, conversions and metres — precisely the
-events where the empirical prior beats the GBDT. The frozen global 0.5 was
-mis-weighting those rare high-value events. Routing them to the empirical component
-while leaving volume events with the GBDT captures nearly all of the empirical
-engine's rubric quality (ncr MAE 6.0669 vs 6.0608, capture 0.7278 vs 0.7279) at a raw
-score of 0.879 instead of 0.939. The component-aware blend does get both.
+MAE (ncr 6.0608, capture 0.7279) than P3 despite a far worse raw score (0.939),
+because the rubrics are dominated by tries, assists, conversions and metres —
+precisely the events where the empirical prior beats the GBDT. The frozen global 0.5
+was mis-weighting those rare high-value events. Routing them to the empirical
+component while leaving volume events with the GBDT captures nearly all of the
+empirical engine's rubric quality (ncr MAE 6.0669 vs 6.0608, capture 0.7278 vs
+0.7279) at a raw score of 0.879 instead of 0.939. The component-aware blend does get
+both.
 
-One honest caveat: calibrated MAE narrows the gap. The frozen P3 carried a
-systematic scale bias that affine recalibration corrects (ncr 6.1727 → 6.1305),
-whereas C5 is already well calibrated so recalibration does not help it
-(6.0669 → 6.0677). Comparing calibrated to calibrated, C5 still wins — ncr 6.0677 vs
-6.1305, six_nations 6.1936 vs 6.2478 — but by roughly 0.06 rather than 0.10. Part of
-the raw-MAE gain is calibration that a recalibrated deployment would already capture.
+One honest caveat: calibrated MAE narrows the gap. The frozen P3 carried a systematic
+scale bias that affine recalibration corrects (ncr 6.1727 → 6.1305), whereas C5 is
+already well calibrated so recalibration does not help it (6.0669 → 6.0677).
+Comparing calibrated to calibrated, C5 still wins — ncr 6.0677 vs 6.1305,
+six_nations 6.1936 vs 6.2478 — but by roughly 0.06 rather than 0.10. Part of the
+raw-MAE gain is calibration that a recalibrated deployment would already capture.
 
 ## Verification
 
@@ -266,9 +282,11 @@ the raw-MAE gain is calibration that a recalibrated deployment would already cap
 ## Reproduce
 
 ```bash
-python -m model.unified.raw_benchmark.allrugby_run     # control, diagnostics, trials
-python model/unified/raw_benchmark/allrugby_verify.py  # pipeline-vs-table + gate (e)
+python -m model.unified.raw_benchmark.allrugby_run      # control, diagnostics, trials
+python -m model.unified.raw_benchmark.allrugby_history  # C7 (row-varying weight)
+python model/unified/raw_benchmark/allrugby_verify.py   # pipeline-vs-table + gate (e)
+python -m model.unified.raw_benchmark.allrugby_ledger   # render this file
 ```
-Component predictions and the loss table are derived caches, rebuilt on demand from
-the frozen P3 artifacts and excluded from git.
+Component predictions, the fold cache and the loss table are derived artifacts,
+rebuilt on demand from the frozen P3 blends and excluded from git.
 

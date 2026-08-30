@@ -100,8 +100,24 @@ LOG_FAMILIES = {
 # trials
 # --------------------------------------------------------------------------
 
+def fit_history_rule(train: list[FoldCache]) -> S.HistoryRule:
+    """Three-parameter row-varying weight: w(n) = clip(a + b*n/(n+k), 0, 1)."""
+    best, best_score = None, np.inf
+    for k in (1.0, 3.0, 5.0, 10.0, 20.0, 40.0):
+        for a in np.round(np.arange(0.0, 0.81, 0.05), 3):
+            for b in np.round(np.arange(-0.5, 0.81, 0.05), 3):
+                rule = S.HistoryRule(float(a), float(b), float(k))
+                score = float(np.nanmean([
+                    fold_stable_score(cache, {}, rule.default_for(cache))
+                    for cache in train
+                ]))
+                if score < best_score:
+                    best, best_score = rule, score
+    return best
+
+
 def fixed_rule_scores(
-    caches: list[FoldCache], weights: dict[str, float], default: float,
+    caches: list[FoldCache], weights: dict[str, float], default,
     log_targets: frozenset[str] = frozenset(),
 ) -> pd.DataFrame:
     return pd.DataFrame([{
@@ -119,12 +135,25 @@ def fixed_rule_scores(
     } for cache in caches])
 
 
+def _resolved_scores(caches: list[FoldCache], fitted) -> pd.DataFrame:
+    rows = []
+    for cache in caches:
+        weights, default = S.resolve(fitted, cache)
+        rows.append({
+            "fold": cache.label, "tournament": cache.tournament,
+            "hemisphere": cache.hemisphere,
+            "stable": fold_stable_score(cache, weights, default),
+            "north": fold_stable_score(cache, weights, default, cohort="north"),
+            "south": fold_stable_score(cache, weights, default, cohort="south"),
+        })
+    return pd.DataFrame(rows)
+
+
 def temporal_check(caches: list[FoldCache], fitter) -> dict:
     """Fit on the earliest half of folds, evaluate on the latest half."""
     train, held = S.temporal_split(caches)
     fitted = fitter(train)
-    weights, default = (fitted, 0.5) if isinstance(fitted, dict) else ({}, float(fitted))
-    candidate = fixed_rule_scores(held, weights, default)
+    candidate = _resolved_scores(held, fitted)
     baseline = fixed_rule_scores(held, {}, 0.5)
     differences = candidate["stable"].to_numpy(float) - baseline["stable"].to_numpy(float)
     return {
@@ -133,7 +162,7 @@ def temporal_check(caches: list[FoldCache], fitter) -> dict:
         "held_out_baseline": float(baseline["stable"].mean()),
         "held_out_delta": float(np.mean(differences)),
         "held_out_bootstrap": A.bootstrap_difference(differences, seed=SEED),
-        "fitted_weights": weights or {"__global__": default},
+        "fitted_weights": S.describe(fitted),
     }
 
 
@@ -261,6 +290,17 @@ QUEUE = [
             "the training folds only. Keeps C2's signal, discards its noise."
         ),
         fitter=fit_shrunk_per_target,
+    ),
+    dict(
+        name="C7_history_depth_weight",
+        hypothesis=(
+            "The blend weight should vary by row, not by competition: the "
+            "empirical prior should earn weight where a player has little career "
+            "history for the GBDT to exploit. w(n) = clip(a + b*n/(n+k), 0, 1) "
+            "on prior match count -- competition-independent, so it stays inside "
+            "the one-model mandate."
+        ),
+        fitter=fit_history_rule,
     ),
 ]
 

@@ -7,6 +7,7 @@ cross-fitted: the weight applied to a fold is never fitted on that fold.
 from __future__ import annotations
 
 import json
+from dataclasses import dataclass
 
 import numpy as np
 import pandas as pd
@@ -20,6 +21,46 @@ from .metrics import target_loss
 
 FROZEN_BASELINE = 0.8864704364786675
 GRID = np.round(np.arange(0.0, 1.0001, 0.01), 4)
+
+
+@dataclass(frozen=True)
+class HistoryRule:
+    """Row-varying v4 weight driven by how much career history a player has.
+
+    ``w(n) = clip(a + b * n / (n + k), 0, 1)`` with n the player's prior match
+    count. This is competition-independent -- it reads only the player's own
+    history depth -- so unlike a per-tournament weight it stays inside the
+    one-model mandate. The empirical prior should earn weight where there is
+    little history for the GBDT to exploit.
+    """
+
+    a: float
+    b: float
+    k: float
+
+    def default_for(self, cache) -> np.ndarray:
+        career = np.asarray(cache.career, dtype=float)
+        return np.clip(self.a + self.b * career / (career + self.k), 0.0, 1.0)
+
+    def to_dict(self) -> dict[str, float]:
+        return {"__history__a": self.a, "__history__b": self.b, "__history__k": self.k}
+
+
+def resolve(fitted, cache) -> tuple[dict, object]:
+    """Normalise a fitted object into (per-target weights, default weight)."""
+    if isinstance(fitted, HistoryRule):
+        return {}, fitted.default_for(cache)
+    if isinstance(fitted, dict):
+        return fitted, 0.5
+    return {}, float(fitted)
+
+
+def describe(fitted) -> dict:
+    if isinstance(fitted, HistoryRule):
+        return fitted.to_dict()
+    if isinstance(fitted, dict):
+        return {key: float(value) for key, value in fitted.items()}
+    return {"__global__": float(fitted)}
 
 
 # --------------------------------------------------------------------------
@@ -133,13 +174,8 @@ def cross_fitted_scores(
     for index, cache in enumerate(caches):
         train = [other for position, other in enumerate(caches) if position != index]
         fitted = fitter(train)
-        weights, default = (
-            (fitted, 0.5) if isinstance(fitted, dict) else ({}, float(fitted))
-        )
-        fits.append({
-            "held_out_fold": cache.label,
-            "weights": weights or {"__global__": default},
-        })
+        weights, default = resolve(fitted, cache)
+        fits.append({"held_out_fold": cache.label, "weights": describe(fitted)})
         rows.append({
             "fold": cache.label, "tournament": cache.tournament,
             "hemisphere": cache.hemisphere,

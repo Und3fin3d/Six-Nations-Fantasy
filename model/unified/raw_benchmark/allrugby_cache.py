@@ -38,15 +38,22 @@ class FoldCache:
     valid: dict[str, np.ndarray]
     cohorts: dict[str, np.ndarray]
     n_rows: int
+    career: np.ndarray | None = None
+    started: np.ndarray | None = None
 
 
-def build_cache() -> list[FoldCache]:
-    if CACHE_PATH.exists():
+def build_cache(
+    fold_labels: tuple[str, ...] | None = None, *, persist: bool = True,
+) -> list[FoldCache]:
+    if fold_labels is None and CACHE_PATH.exists():
         with CACHE_PATH.open("rb") as handle:
             return pickle.load(handle)
     store = A._store()
     caches = []
+    wanted = set(fold_labels) if fold_labels else None
     for fold in build_folds(store):
+        if wanted is not None and fold.label not in wanted:
+            continue
         evaluation, naive_model = A.evaluation_context(store, fold)
         empirical = A.read_predictions(A._component_path(fold.label, "empirical"))
         v4 = A.read_predictions(A._component_path(fold.label, "v4"))
@@ -80,18 +87,22 @@ def build_cache() -> list[FoldCache]:
             calendar_year=fold.calendar_year, hemisphere=fold.hemisphere,
             actual=actual, naive=naive, empirical=emp_means, v4=v4_means,
             valid=valid, cohorts=cohorts, n_rows=len(evaluation),
+            career=career, started=started,
         ))
         print(f"[{fold.label}] cached {len(evaluation):,} rows", flush=True)
-    CACHE_PATH.parent.mkdir(parents=True, exist_ok=True)
-    with CACHE_PATH.open("wb") as handle:
-        pickle.dump(caches, handle)
+    if persist and fold_labels is None:
+        CACHE_PATH.parent.mkdir(parents=True, exist_ok=True)
+        with CACHE_PATH.open("wb") as handle:
+            pickle.dump(caches, handle)
     return caches
 
 
 def blended_mean(
-    cache: FoldCache, target: str, weight: float, *, log_space: bool = False,
+    cache: FoldCache, target: str, weight, *, log_space: bool = False,
 ) -> np.ndarray:
+    """``weight`` is the v4 weight: a scalar, or one value per evaluation row."""
     left, right = cache.v4[target], cache.empirical[target]
+    weight = np.asarray(weight, dtype=float)
     if log_space:
         return np.expm1(
             weight * np.log1p(np.clip(left, 0, None))
@@ -101,7 +112,7 @@ def blended_mean(
 
 
 def relative_loss(
-    cache: FoldCache, target: str, weight: float, *,
+    cache: FoldCache, target: str, weight, *,
     cohort: str = "all", log_space: bool = False,
 ) -> float:
     mask = cache.valid[target] & cache.cohorts[cohort]
@@ -120,7 +131,7 @@ def fold_stable_score(
 ) -> float:
     values = [
         relative_loss(
-            cache, target, float(weights.get(target, default)),
+            cache, target, weights.get(target, default),
             cohort=cohort, log_space=target in log_targets,
         )
         for target in SCORED

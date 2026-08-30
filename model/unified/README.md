@@ -115,8 +115,8 @@ fantasy-points rank stack from promotion decisions.
 
 # Manual write-once shadow freeze (normally called by gw_update.sh).
 /tmp/6n-model-pinned/bin/python -m model.unified.cli v3 shadow \
-  --gw 4 --engine gbdt_v3 \
-  --model data/unified/v3/models/gbdt_v3_ncr_gw4.pkl
+  --gw 4 --engine p3_event_50 \
+  --model data/unified/raw_benchmark/v1/models/p3_event_50/nations_championship_2026.pkl
 
 # After GW7 labels arrive, apply the combined prospective promotion gates.
 /tmp/6n-model-pinned/bin/python -m model.unified.cli v3 shadow-evaluate \

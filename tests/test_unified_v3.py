@@ -20,7 +20,8 @@ from model.unified.v3.harness import (
     fold_for_block, load_timed_store, strict_training_frame, write_once,
 )
 from model.unified.v3.neural import ExposureRateNeural
-from model.unified.v3.shadow import validate_shadow_write
+from model.unified.raw_benchmark.blend import EventBlend50
+from model.unified.v3.shadow import _load_model, validate_shadow_write
 
 
 def _frame(rows: int = 72) -> pd.DataFrame:
@@ -233,3 +234,14 @@ def test_immutable_outputs_and_shadow_lock_are_enforced(tmp_path: Path):
         validate_shadow_write(
             csv_path, manifest_path, lock, now=pd.Timestamp("2026-07-18T06:41:00Z"),
         )
+
+
+def test_saved_p3_shadow_artifact_keeps_fixed_global_blend():
+    artifact = Path(
+        "data/unified/raw_benchmark/v1/models/p3_event_50/"
+        "nations_championship_2026.pkl"
+    )
+    model = _load_model("p3_event_50", artifact)
+
+    assert isinstance(model, EventBlend50)
+    assert model.weight_v4 == 0.5

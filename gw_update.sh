@@ -17,8 +17,9 @@ set -euo pipefail
 cd "$(dirname "${BASH_SOURCE[0]}")"
 
 PY_DATA=${PY_DATA:-"$HOME/.venvs/main/bin/python"}
-PY_MODEL=/tmp/6n-model-pinned/bin/python
-VENV_BASE=~/.local/bin/python3.11
+PINNED_MODEL_VENV=/tmp/6n-model-pinned
+PY_MODEL=${PY_MODEL:-"$PINNED_MODEL_VENV/bin/python"}
+VENV_BASE=${VENV_BASE:-"$HOME/.local/bin/python3.11"}
 
 GAME=""; DRY=0; NO_FETCH=0; PREDICT_ONLY=0; REBUILD_FEATURES=0; EXCLUDE=()
 
@@ -50,12 +51,17 @@ step "preflight"
 "$PY_DATA" -c 'import pandas' 2>/dev/null || die "$PY_DATA has no pandas"
 note "data interpreter: $PY_DATA"
 
-if [[ ! -x "$PY_MODEL" ]]; then
-  note "pinned venv missing (/tmp gets wiped) — rebuilding"
-  if (( ! DRY )); then
-    [[ -x "$VENV_BASE" ]] || die "need python3.11 at $VENV_BASE to rebuild the venv"
-    "$VENV_BASE" -m venv /tmp/6n-model-pinned
-    /tmp/6n-model-pinned/bin/pip install -q -r requirements-model.txt
+if [[ ! -x "$PY_MODEL" ]] || ! "$PY_MODEL" model_env_preflight.py --quiet 2>/dev/null; then
+  note "pinned model environment is missing or incompatible — rebuilding"
+  if (( DRY )); then
+    note "would create Python 3.11 environment and install requirements-model.txt"
+  else
+    [[ "$PY_MODEL" == "$PINNED_MODEL_VENV/bin/python" ]] || \
+      die "custom PY_MODEL failed preflight; refusing to replace a non-temporary environment"
+    [[ -x "$VENV_BASE" ]] || die "need python3.11 at $VENV_BASE to rebuild the model environment"
+    "$VENV_BASE" -m venv --clear "$PINNED_MODEL_VENV"
+    "$PINNED_MODEL_VENV/bin/pip" install -q -r requirements-model.txt
+    "$PY_MODEL" model_env_preflight.py --quiet || die "rebuilt model environment failed preflight"
   fi
 fi
 note "model interpreter: $PY_MODEL"
@@ -139,12 +145,12 @@ PY
   if (( ${#EXCLUDE[@]} )); then run "$PY_MODEL" -m model.ncr_project --exclude "${EXCLUDE[@]}"
   else                          run "$PY_MODEL" -m model.ncr_project; fi
 
-  step "6/6  freeze configured unified-v3 shadow prediction"
+  step "6/6  freeze configured unified shadow prediction"
   local shadow_config="data/unified/v3/shadow_active.json"
   if (( DRY )); then
     note "would inspect $shadow_config and freeze the current GW once"
   elif [[ ! -f "$shadow_config" ]]; then
-    note "no active unified-v3 shadow model — skipping"
+    note "no active unified shadow model — skipping"
   else
     local shadow_spec shadow_engine shadow_model shadow_gw
     # shadow_active.json holds one spec (legacy object) or a list of specs so
@@ -160,7 +166,8 @@ current = fixtures[pd.to_numeric(fixtures["iscurrent"], errors="coerce").eq(1)]
 if len(current):
     gw = int(current["gameday"].iloc[0])
     for spec in specs:
-        if spec.get("target_gw") == gw:
+        targets = spec.get("target_gws", [spec.get("target_gw")])
+        if gw in targets:
             print(f"{spec['engine']}\t{spec['model']}\t{gw}")
 PY
 )

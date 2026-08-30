@@ -16,6 +16,10 @@ from ..gbdt import UniversalGBDT
 from ..labels import build_fantasy_labels
 from ..schema import EVENTS, FORWARD_POSITIONS
 from ..scoring import scorer_for
+from ..raw_benchmark.blend import EventBlend50
+from ..raw_benchmark.config import OUT as RAW_BENCHMARK_OUT
+from ..raw_benchmark.features import build_frozen_feature_frames
+from ..raw_benchmark.folds import build_folds, strict_training_frame
 from .blend import EventBlendModel
 from .context import augment_context
 from .gbdt import ExposureRateGBDT
@@ -40,10 +44,21 @@ BENCH_JERSEY = {
 
 
 def ncr_candidates(gw: int, projection: pd.DataFrame | None = None) -> pd.DataFrame:
-    projection = (
-        projection.copy() if projection is not None
-        else pd.read_csv(DATA / "ncr" / f"ncr_gw{gw}_projections.csv")
-    )
+    if projection is not None:
+        projection = projection.copy()
+    else:
+        projection_path = DATA / "ncr" / f"ncr_gw{gw}_projections.csv"
+        if projection_path.exists():
+            projection = pd.read_csv(projection_path)
+        else:
+            # An --exclude incumbent run writes only its tagged projection. Build
+            # the full shadow cohort in memory from the same current team sheets.
+            from model.ncr_project import build_projection
+            projection = build_projection(gameday=gw)
+            if projection.empty:
+                raise RuntimeError(
+                    f"GW{gw} projection is empty; wait for real team sheets before freezing"
+                )
     crosswalk = pd.read_csv(DATA / "ncr" / "ncr_player_crosswalk.csv")
     crosswalk = crosswalk[["fantasy_id", "api_player_id", "full_name"]].drop_duplicates("fantasy_id")
     crosswalk["fantasy_id"] = pd.to_numeric(crosswalk["fantasy_id"], errors="coerce")
@@ -85,6 +100,11 @@ def ncr_candidates(gw: int, projection: pd.DataFrame | None = None) -> pd.DataFr
 
 
 def _load_model(engine: str, path: Path):
+    if engine == "p3_event_50":
+        model = EventBlend50.load(path)
+        if model.weight_v4 != 0.5:
+            raise ValueError("P3 artifact does not use the fixed 50/50 blend")
+        return model
     if engine == "baseline":
         return UniversalGBDT.load(path)
     if engine == "gbdt_v4":
@@ -97,6 +117,22 @@ def _load_model(engine: str, path: Path):
     if engine == "blend_v3":
         return EventBlendModel.load(path)
     raise ValueError(engine)
+
+
+def _p3_features(candidate: pd.DataFrame) -> pd.DataFrame:
+    """Build the saved P3 artifact's frozen-history NCR candidate features."""
+    store = pd.read_csv(
+        RAW_BENCHMARK_OUT / "player_match.csv",
+        low_memory=False,
+        parse_dates=["date", "match_at"],
+    )
+    fold = next(
+        fold for fold in build_folds(store)
+        if fold.label == "nations_championship_2026"
+    )
+    train = strict_training_frame(store, fold)
+    _, features = build_frozen_feature_frames(train, candidate, v4=True)
+    return features
 
 
 def validate_shadow_write(
@@ -123,35 +159,50 @@ def freeze_shadow(gw: int, engine: str, model_path: Path,
     manifest_path = stem.with_suffix(".manifest.json")
     validate_shadow_write(csv_path, manifest_path, lock_at)
     candidate = ncr_candidates(gw)
-    raw = pd.read_csv(DATA / "unified" / "player_match.csv", low_memory=False, parse_dates=["date"])
-    # The store must contain no rows from the lock day or later: a same-day row
-    # can only be a post-lock result, so its presence means hindsight leakage.
-    latest = pd.to_datetime(raw["date"], errors="coerce").max()
-    if pd.Timestamp(latest).date() >= lock_at.date():
-        raise RuntimeError(
-            f"store contains rows dated {latest.date()} on/after the GW{gw} lock "
-            f"({lock_at.date()}); refusing shadow freeze"
-        )
-    combined = pd.concat([raw, candidate], ignore_index=True, sort=False)
-    timed = attach_match_timestamps(combined)
     model = _load_model(engine, model_path)
-    blocks = ()
-    if engine == "blend_v3":
-        blocks = tuple(dict.fromkeys(
-            (*model.gbdt.config.context_blocks, *model.neural.config.context_blocks)
-        ))
-    elif engine not in ("baseline", "gbdt_v4"):
-        blocks = tuple(model.config.context_blocks)
-    features = build_pit_features(augment_context(timed, blocks))
-    if engine == "gbdt_v4":
-        from ..v4.features import add_v4_base_stats, apply_eb_features
-        features = add_v4_base_stats(features)
-        k_by_event = getattr(model, "k_by_event", None)
-        if k_by_event:
-            features = apply_eb_features(features, k_by_event)
-    future = features[features["source"].eq("v3_shadow_candidate")].copy()
+    if engine == "p3_event_50":
+        future = _p3_features(candidate)
+    else:
+        raw = pd.read_csv(
+            DATA / "unified" / "player_match.csv", low_memory=False, parse_dates=["date"]
+        )
+        # The store must contain no rows from the lock day or later: a same-day row
+        # can only be a post-lock result, so its presence means hindsight leakage.
+        latest = pd.to_datetime(raw["date"], errors="coerce").max()
+        if pd.Timestamp(latest).date() >= lock_at.date():
+            raise RuntimeError(
+                f"store contains rows dated {latest.date()} on/after the GW{gw} lock "
+                f"({lock_at.date()}); refusing shadow freeze"
+            )
+        combined = pd.concat([raw, candidate], ignore_index=True, sort=False)
+        timed = attach_match_timestamps(combined)
+        blocks = ()
+        if engine == "blend_v3":
+            blocks = tuple(dict.fromkeys(
+                (*model.gbdt.config.context_blocks, *model.neural.config.context_blocks)
+            ))
+        elif engine not in ("baseline", "gbdt_v4"):
+            blocks = tuple(model.config.context_blocks)
+        features = build_pit_features(augment_context(timed, blocks))
+        if engine == "gbdt_v4":
+            from ..v4.features import add_v4_base_stats, apply_eb_features
+            features = add_v4_base_stats(features)
+            k_by_event = getattr(model, "k_by_event", None)
+            if k_by_event:
+                features = apply_eb_features(features, k_by_event)
+        future = features[features["source"].eq("v3_shadow_candidate")].copy()
     scorer = scorer_for("ncr")
     predictions = model.predict_frame(future)
+    candidate_grain = candidate[["fixture_id", "player_id", "team"]].astype(str)
+    if candidate_grain.duplicated().any():
+        raise ValueError("NCR shadow candidates violate the fixture/player/team grain")
+    prediction_grain = pd.DataFrame([
+        (item.fixture_id, item.player_id, item.team) for item in predictions
+    ], columns=["fixture_id", "player_id", "team"]).astype(str)
+    if len(prediction_grain) != len(candidate_grain) or not prediction_grain.equals(
+        candidate_grain.reset_index(drop=True)
+    ):
+        raise ValueError("shadow predictions changed the fixture/player/team grain or order")
     rows = []
     for i, (source, prediction) in enumerate(zip(future.itertuples(index=False), predictions)):
         summary = scorer.score_prediction(prediction, n=samples, seed=1701 + i)
@@ -179,6 +230,8 @@ def freeze_shadow(gw: int, engine: str, model_path: Path,
         "model_sha256": sha256(model_path), "prediction_sha256": sha256(csv_path),
         "rows": len(rows), "immutable": True,
     }
+    if engine == "p3_event_50":
+        manifest["blend_weight_v4"] = model.weight_v4
     write_once(manifest_path, json.dumps(manifest, indent=2, sort_keys=True) + "\n")
     return csv_path
 

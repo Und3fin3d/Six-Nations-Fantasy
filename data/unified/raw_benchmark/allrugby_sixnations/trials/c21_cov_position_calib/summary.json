@@ -1,0 +1,120 @@
+{
+  "by_fold_full": {
+    "six_nations_2025": 0.8959584180061243,
+    "six_nations_2026": 1.0775435759568555
+  },
+  "by_fold_shared": {
+    "six_nations_2025": 0.8871822173926945,
+    "six_nations_2026": 1.217269837444666
+  },
+  "cohorts": {
+    "north": 1.0522260274186803,
+    "south": NaN
+  },
+  "config": {
+    "calibrate_events": null,
+    "calibration_clip": [
+      0.1,
+      10.0
+    ],
+    "calibration_shrinkage": 1.0,
+    "dead_head_fallback": "rate_minutes",
+    "extra_head_shrinkage": 480.0,
+    "extra_heads": "rate_minutes",
+    "level_calibration": "position",
+    "minutes_blend": 0.0,
+    "name": "c21_cov_position_calib",
+    "revive_events": [
+      "red_cards"
+    ]
+  },
+  "coverage": 24,
+  "covered_targets": [
+    "bad_passes",
+    "clean_breaks",
+    "conversion_goals",
+    "defenders_beaten",
+    "drop_goal_missed",
+    "drop_goals_converted",
+    "metres",
+    "minutes",
+    "missed_conversion_goals",
+    "missed_penalty_goals",
+    "missed_tackles",
+    "offload",
+    "passes",
+    "penalties_conceded",
+    "penalty_goals",
+    "red_cards",
+    "rucks_lost",
+    "rucks_won",
+    "runs",
+    "tackles",
+    "tries",
+    "try_assists",
+    "turnovers_conceded",
+    "yellow_cards"
+  ],
+  "folds": 2,
+  "full_stable_score": 0.9867509969814898,
+  "name": "c21_cov_position_calib",
+  "partial_stable_score": 1.0522260274186803,
+  "per_target": {
+    "bad_passes": 0.9263125943493664,
+    "clean_breaks": 0.9712629449627539,
+    "conversion_goals": 0.3883503672067281,
+    "defenders_beaten": 0.9563281313300269,
+    "drop_goal_missed": 1.2121804738733626,
+    "drop_goals_converted": 2.320185758235676,
+    "metres": 0.7753061510459337,
+    "minutes": 1.0238564535083894,
+    "missed_conversion_goals": 0.795908508167378,
+    "missed_penalty_goals": 0.8230988095120444,
+    "missed_tackles": 0.9472827641426016,
+    "offload": 1.119140677218478,
+    "passes": 0.6989234354187912,
+    "penalties_conceded": 1.1227195454895895,
+    "penalty_goals": 0.6317713771175147,
+    "red_cards": 1.0625234387871338,
+    "rucks_lost": 1.0058644580360865,
+    "rucks_won": 0.7744379568515001,
+    "runs": 0.8450621409265808,
+    "tackles": 0.9495736584126981,
+    "tries": 1.0709857195618446,
+    "try_assists": 1.1054604882994277,
+    "turnovers_conceded": 1.0027514848724493,
+    "yellow_cards": 1.1527365902294027
+  },
+  "rubric_mae": {
+    "ncr": {
+      "mae": 6.239868218558668,
+      "mean_capture": 0.7663694512175783,
+      "slates": 10,
+      "spearman": 0.5596249325238956
+    },
+    "six_nations": {
+      "mae": 6.162701242639798,
+      "mean_capture": 0.7996739048034802,
+      "slates": 10,
+      "spearman": 0.6493509116420907
+    }
+  },
+  "shared_targets": [
+    "minutes",
+    "tries",
+    "tackles",
+    "metres",
+    "try_assists",
+    "conversion_goals",
+    "penalty_goals",
+    "drop_goals_converted",
+    "defenders_beaten",
+    "offload",
+    "penalties_conceded",
+    "yellow_cards",
+    "red_cards"
+  ],
+  "tournaments": {
+    "six_nations": 1.0522260274186803
+  }
+}

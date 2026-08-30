@@ -19,3 +19,7 @@ secrets.json
 # Tooling / scratch
 chromedriver
 scrape.log
+
+# All-rugby hill-climb: large cached champion component predictions
+data/unified/raw_benchmark/allrugby_sixnations/champion_cache/
+data/unified/raw_benchmark/allrugby_sixnations/control/

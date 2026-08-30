@@ -65,6 +65,67 @@ def density_vector(caches) -> np.ndarray:
     return np.asarray(values)
 
 
+def write_diagnostics(caches, table: LossTable, density: np.ndarray) -> None:
+    """Per-target, per-fold, per-tournament and cohort diagnostics.
+
+    Written by the driver so the documented reproduction sequence regenerates
+    everything `allrugby_ledger` reads.
+    """
+    surface = np.where(
+        table.usable["all"][:, :, None], table.mean_space["all"], np.nan,
+    )
+    with np.errstate(invalid="ignore"):
+        pooled = np.nanmean(surface, axis=0)          # (n_targets, n_weights)
+    best = np.nanargmin(pooled, axis=1)
+    half = table.index_of(0.5)
+    per_target = pd.DataFrame({
+        "target": table.targets,
+        "empirical": pooled[:, table.index_of(0.0)],
+        "p3_50": pooled[:, half],
+        "v4": pooled[:, table.index_of(1.0)],
+        "best_w_insample": GRID[best],
+        "best_rel_insample": pooled[np.arange(len(best)), best],
+        "positive_rate": density,
+        "density": density,
+    })
+    per_target["gain_vs_p3"] = per_target["p3_50"] - per_target["best_rel_insample"]
+
+    base = baseline_indices(table)
+    per_fold = pd.DataFrame({
+        "fold": table.folds, "tournament": table.tournaments,
+        "hemisphere": table.hemispheres,
+        "stable": table.stable("all", base),
+        "north": table.stable("north", base),
+        "south": table.stable("south", base),
+    })
+    curve = pd.DataFrame({
+        "weight_v4": GRID,
+        "stable_score": [
+            float(np.nanmean(table.stable("all", np.full(len(table.targets), i, int))))
+            for i in range(len(GRID))
+        ],
+    })
+    from .allrugby_cache import fold_stable_score
+    cohorts = pd.DataFrame([{
+        "cohort": name,
+        "stable": float(np.nanmean([
+            fold_stable_score(cache, {}, 0.5, cohort=name) for cache in caches
+        ])),
+    } for name in ("all", "north", "south", "starter", "bench", "low_history")])
+
+    for name, frame in (
+        ("per_target", per_target[[
+            "target", "empirical", "p3_50", "v4", "best_w_insample",
+            "best_rel_insample", "gain_vs_p3", "positive_rate", "density",
+        ]]),
+        ("per_fold", per_fold),
+        ("global_weight_curve", curve),
+        ("per_tournament", per_fold.groupby("tournament", as_index=False)["stable"].mean()),
+        ("per_cohort", cohorts),
+    ):
+        frame.to_csv(WORK / f"diagnostic_{name}.csv", index=False)
+
+
 # --------------------------------------------------------------------------
 # evaluation against the precommitted acceptance rule
 # --------------------------------------------------------------------------
@@ -202,6 +263,7 @@ def main() -> None:
         raise SystemExit("CONTROL FAILED -- refusing to evaluate candidates.")
 
     density = density_vector(caches)
+    write_diagnostics(caches, table, density)
     base_frame = score_frame(table, [baseline_indices(table)] * len(table.folds))
     trials = []
 

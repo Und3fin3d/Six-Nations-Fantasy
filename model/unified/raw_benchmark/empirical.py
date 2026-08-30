@@ -66,6 +66,14 @@ class EmpiricalConfig:
     # fold's between/within player rate variance.
     shrinkage_mode: str = "global"
     k_shrinkage: float = K
+    # What to do when empirical Bayes finds no detectable between-player signal
+    # (estimated between-player variance <= 0). "global" falls back to K, which
+    # keeps trusting player history for exactly the events that have no player
+    # signal; "max" shrinks fully to the position prior, which is what the EB
+    # estimate is actually saying. Distinct from an under-determined sample
+    # (too few players), which always falls back to K.
+    shrinkage_no_signal: str = "global"
+    shrinkage_max: float = 3000.0
     # Minutes play two roles with different optimal statistics: the reported
     # minutes head is scored by MAE (median-optimal), while the count scaler
     # needs E[minutes] because counts are rate * minutes / 80. "same" keeps the
@@ -110,6 +118,15 @@ VARIANTS: dict[str, EmpiricalConfig] = {
     # T3: separate median-valued minutes head (the minutes target is MAE-scored)
     # while counts keep scaling on E[minutes].
     "t3_eb_off_ebk_head": _T3,
+    # T4: empirical Bayes finding no player-level signal must mean full
+    # shrinkage to the position prior, not a fallback to the global K.
+    "t4_no_signal_max": replace(_T3, shrinkage_no_signal="max"),
+    # T5: recency-weight the position prior, matching the recency weighting the
+    # player profiles already use. Low-coverage events (recorded only in recent
+    # seasons) are otherwise primed from a pooled all-history rate.
+    "t5_prior_recency": replace(
+        _T3, shrinkage_no_signal="max", position_prior_recency=True,
+    ),
     # Rejected in triage, kept so the ledger can be re-derived.
     "r_exposure_prior": replace(_T1, position_prior_mode="exposure_weighted"),
     "r_prior_recency": replace(_T1, position_prior_recency=True),
@@ -264,8 +281,12 @@ class EmpiricalEventModel:
         within = float(np.mean(grand / (grouped["minutes"] / 80.0)))
         between = float(np.var(rates, ddof=1)) - within
         if not np.isfinite(between) or between <= 1e-9 or grand <= 1e-9:
+            # No between-player variance survives the sampling noise: the data
+            # say this event carries no player-level signal at all.
+            if self.config.shrinkage_no_signal == "max":
+                return float(self.config.shrinkage_max)
             return float(self.config.k_shrinkage)
-        return float(np.clip(grand / between * 80.0, 20.0, 3000.0))
+        return float(np.clip(grand / between * 80.0, 20.0, self.config.shrinkage_max))
 
     def fit(self, frame: pd.DataFrame) -> "EmpiricalEventModel":
         train = frame.copy()

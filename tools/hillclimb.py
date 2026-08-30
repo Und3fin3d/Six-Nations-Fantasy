@@ -23,7 +23,10 @@ import numpy as np
 import pandas as pd
 
 ROOT = Path(__file__).resolve().parents[1]
-WORK = ROOT / "data" / "unified" / "raw_benchmark" / "allrugby_empirical"
+# Deliberately relative: fold manifests record the store and artifact paths as
+# given, so this must match the `--output` path the benchmark CLI was first run
+# with, or every manifest compares unequal. Run from the repository root.
+WORK = Path("data") / "unified" / "raw_benchmark" / "allrugby_empirical"
 TRIALS = WORK / "trials"
 CANDIDATE = "empirical_event"
 BASELINE = "v1"

@@ -1,0 +1,19 @@
+{
+  "folds": [
+    "six_nations_2022",
+    "summer_internationals_2022",
+    "rugby_championship_2022",
+    "autumn_internationals_2022",
+    "six_nations_2023",
+    "rugby_championship_2023",
+    "summer_internationals_2023",
+    "pacific_nations_cup_2024"
+  ],
+  "stable_score": {
+    "eb_off": 0.9130910453648642,
+    "eb_off_ebk": 0.9078125966560144,
+    "eb_off_ebk_head": 0.9054507101070766,
+    "eb_off_head": 0.9107291588159262,
+    "v1": 0.8954665542068906
+  }
+}

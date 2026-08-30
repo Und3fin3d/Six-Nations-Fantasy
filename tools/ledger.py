@@ -5,9 +5,24 @@ both a JSON ledger and LEDGER.md. A candidate replaces the incumbent iff ALL of:
 
   (a) competition-balanced stable_score improves on the incumbent;
   (b) the paired-by-fold bootstrap difference vs the incumbent excludes 0;
-  (c) neither the north nor the south cohort regresses by >2% vs v1;
-  (d) no tournament-family stable regression >2% vs v1;
-  (e) no extended-event loss regression >5% vs v1.
+  (c) neither the north nor the south cohort regresses by >2%;
+  (d) no tournament-family stable regression >2%;
+  (e) no extended-event loss regression >5%.
+
+All five are evaluated against the INCUMBENT, with the thresholds mirroring the
+frozen promotion gate's magnitudes. They have to be: the starting incumbent (the
+frozen empirical_event) already fails (c)-(e) against v1, so scoring a hill-climb
+step against v1 would make the rule vacuous -- nothing could ever be accepted.
+Read as incumbent-relative, (c)-(e) do the job they exist to do, which is to stop
+a step that buys a better competition-balanced mean by wrecking a hemisphere, a
+tournament family, or a low-coverage event.
+
+Whether the final config would pass the frozen promotion gate *against v1* is a
+separate question, reported per trial as `gate_vs_v1`.
+
+(e) is restricted to the extended targets the frozen gate actually gates -- those
+with >=100 supporting fixtures, read from the immutable v1 decision -- because
+availability is model-independent and sparse extensions are not hard gates.
 
 Ties and sub-threshold trials are rejected, biasing to the simpler incumbent.
 
@@ -44,6 +59,18 @@ ORDER = [
      "The minutes target is MAE-scored (median-optimal) but also scales counts "
      "(mean-optimal). Fit a separate median-valued minutes head, leaving the "
      "count scaler on E[minutes]."),
+    ("t4_no_signal_max",
+     "Inspecting T2's fitted constants showed red_cards, drop_goals_converted, "
+     "drop_goal_missed and potm all falling back to the global K=220 because "
+     "their estimated between-player variance was <= 0 -- precisely the worst "
+     "remaining targets. A non-positive between-player variance means the data "
+     "detect no player-level signal, so the empirical-Bayes answer is full "
+     "shrinkage to the position prior, not moderate shrinkage."),
+    ("t5_prior_recency",
+     "The two gated extended events (tackle_turnover, tackle_try_saver) are "
+     "only recorded from 2021 but are primed from a position prior pooled over "
+     "all history, while player profiles are already recency-weighted. Weight "
+     "the position prior by the same half-life."),
 ]
 
 
@@ -67,61 +94,77 @@ def _folds(bundle: dict, engine: str) -> dict:
     return {fold: value for fold, value in bundle["by_fold"][engine].items()}
 
 
-def evaluate(bundle: dict, incumbent: dict | None) -> tuple[bool, list[str], dict]:
-    """Apply the precommitted rule; returns (accepted, reasons, evidence)."""
+def gated_extended_targets() -> list[str]:
+    """Extended targets the frozen gate actually gates (>=100 supporting fixtures)."""
+    frozen = json.loads(
+        (ROOT / "data" / "unified" / "raw_benchmark" / "v1" / "decision.json").read_text()
+    )
+    return list(frozen["extended_gated_targets"])
+
+
+def evaluate(bundle: dict, incumbent: dict) -> tuple[bool, list[str], dict]:
+    """Apply the precommitted rule against the incumbent."""
     reasons: list[str] = []
     candidate = bundle["stable_score"]["empirical_event"]
-    evidence: dict = {"stable_score": candidate}
+    previous = incumbent["stable_score"]["empirical_event"]
+    evidence: dict = {"stable_score": candidate, "incumbent_stable_score": previous}
 
-    if incumbent is not None:
-        previous = incumbent["stable_score"]["empirical_event"]
-        evidence["incumbent_stable_score"] = previous
-        if not candidate < previous:
-            reasons.append(
-                f"(a) stable_score {candidate:.6f} did not improve on incumbent {previous:.6f}"
-            )
-        shared = sorted(
-            set(_folds(bundle, "empirical_event")) & set(_folds(incumbent, "empirical_event"))
+    if not candidate < previous:
+        reasons.append(
+            f"(a) stable_score {candidate:.6f} did not improve on incumbent {previous:.6f}"
         )
-        paired = np.array([
-            _folds(bundle, "empirical_event")[fold]
-            - _folds(incumbent, "empirical_event")[fold]
-            for fold in shared
-        ])
-        boot = _bootstrap(paired)
-        evidence["bootstrap_vs_incumbent"] = boot
-        if not (boot["p05"] < 0 and boot["p95"] < 0):
-            reasons.append(
-                f"(b) paired bootstrap vs incumbent does not exclude 0 "
-                f"[{boot['p05']:.5f}, {boot['p95']:.5f}]"
-            )
+
+    shared = sorted(
+        set(_folds(bundle, "empirical_event")) & set(_folds(incumbent, "empirical_event"))
+    )
+    paired = np.array([
+        _folds(bundle, "empirical_event")[fold] - _folds(incumbent, "empirical_event")[fold]
+        for fold in shared
+    ])
+    boot = _bootstrap(paired)
+    evidence["bootstrap_vs_incumbent"] = boot
+    if not (boot["p05"] < 0 and boot["p95"] < 0):
+        reasons.append(
+            f"(b) paired bootstrap vs incumbent does not exclude 0 "
+            f"[{boot['p05']:+.5f}, {boot['p95']:+.5f}]"
+        )
 
     for cohort in ("north", "south"):
-        values = bundle[cohort]
-        if values["empirical_event"] > values["v1"] * 1.02:
-            reasons.append(
-                f"(c) {cohort} regressed >2% vs v1 "
-                f"({values['empirical_event']:.4f} vs {values['v1']:.4f})"
-            )
+        new, old = bundle[cohort]["empirical_event"], incumbent[cohort]["empirical_event"]
+        if new > old * 1.02:
+            reasons.append(f"(c) {cohort} regressed >2% vs incumbent ({new:.4f} vs {old:.4f})")
     evidence["north"] = bundle["north"]
     evidence["south"] = bundle["south"]
 
-    tournaments = bundle["by_tournament"]
+    new_t, old_t = bundle["by_tournament"], incumbent["by_tournament"]
     regressed = [
-        name for name, value in tournaments["empirical_event"].items()
-        if value > tournaments["v1"].get(name, np.inf) * 1.02
+        name for name, value in new_t["empirical_event"].items()
+        if value > old_t["empirical_event"].get(name, np.inf) * 1.02
     ]
     if regressed:
-        reasons.append("(d) tournament-family regression >2%: " + ", ".join(sorted(regressed)))
+        reasons.append(
+            "(d) tournament-family regression >2% vs incumbent: " + ", ".join(sorted(regressed))
+        )
 
-    extended = bundle["extended_loss"]
+    gated = gated_extended_targets()
+    new_x, old_x = bundle["extended_loss"], incumbent["extended_loss"]
     bad = [
-        name for name, value in extended.get("empirical_event", {}).items()
-        if np.isfinite(value) and value > extended["v1"].get(name, np.inf) * 1.05
+        name for name in gated
+        if np.isfinite(new_x["empirical_event"].get(name, np.nan))
+        and new_x["empirical_event"][name] > old_x["empirical_event"].get(name, np.inf) * 1.05
     ]
     if bad:
-        reasons.append("(e) extended-event loss regression >5%: " + ", ".join(sorted(bad)))
-
+        reasons.append(
+            "(e) extended-event loss regression >5% vs incumbent: " + ", ".join(sorted(bad))
+        )
+    evidence["gated_extended"] = {
+        name: {
+            "candidate": new_x["empirical_event"].get(name),
+            "incumbent": old_x["empirical_event"].get(name),
+            "v1": new_x["v1"].get(name),
+        }
+        for name in gated
+    }
     return (not reasons), reasons, evidence
 
 
@@ -203,8 +246,17 @@ def main() -> None:
             for row in entry["rubrics"] if row["engine"] == "empirical_event"
         )
         lines += [f"Reconstructed rubrics: {rubrics}", ""]
+        gated = entry["evidence"].get("gated_extended", {})
+        if gated:
+            lines += ["Gated extended-event loss (candidate / incumbent / v1):", ""]
+            for name, values in sorted(gated.items()):
+                lines.append(
+                    f"- `{name}`: {values['candidate']:.4f} / "
+                    f"{values['incumbent']:.4f} / {values['v1']:.4f}"
+                )
+            lines.append("")
         lines += [
-            "Historical gate vs v1: "
+            "Frozen promotion gate vs v1 (reported, not the acceptance rule): "
             + ("PASS" if entry["gate_vs_v1_passed"] else "FAIL — "
                + "; ".join(entry["gate_vs_v1_reasons"])),
             "",

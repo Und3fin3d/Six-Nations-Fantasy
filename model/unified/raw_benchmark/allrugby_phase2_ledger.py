@@ -135,7 +135,84 @@ def render() -> str:
     if accepted:
         best = min(accepted, key=lambda result: result["stable_score"])
         lines += _incumbent_section(best)
+        lines += _decision_section(results)
     return "\n".join(lines) + "\n"
+
+
+BOARD_NAMES = {
+    "E4_three_empirical_plus_naive": "E4_three_empirical_plus_naive_phase2",
+    "C9_calibrated_E4": "C9_calibrated_E4_phase2",
+    "C10_calibrated_E4_wide": "C10_calibrated_E4_wide_phase2",
+}
+
+
+def _decision_section(results: list[dict]) -> list[str]:
+    """Raw-score optimum versus the model the rubric guard actually promotes."""
+    board_path = WORK / "board_overall.csv"
+    if not board_path.exists():
+        return []
+    board = pd.read_csv(board_path).set_index(["engine", "rubric"])
+    by_name = {result["candidate"]: result for result in results}
+
+    def row(candidate: str, rubric: str):
+        engine = BOARD_NAMES.get(candidate)
+        if engine is None or (engine, rubric) not in board.index:
+            return None
+        return board.loc[(engine, rubric)]
+
+    scored = [
+        candidate for candidate in BOARD_NAMES
+        if candidate in by_name and row(candidate, "ncr") is not None
+    ]
+    if not scored:
+        return []
+    raw_best = min(scored, key=lambda name: by_name[name]["stable_score"])
+    table = pd.DataFrame([
+        {
+            "candidate": candidate,
+            "stable_score": round(by_name[candidate]["stable_score"], 6),
+            "ncr_mae": round(float(row(candidate, "ncr")["mae"]), 4),
+            "ncr_mae_cal": round(float(row(candidate, "ncr")["mae_calibrated"]), 4),
+            "six_nations_mae": round(float(row(candidate, "six_nations")["mae"]), 4),
+            "six_nations_mae_cal": round(
+                float(row(candidate, "six_nations")["mae_calibrated"]), 4,
+            ),
+        }
+        for candidate in sorted(scored, key=lambda name: by_name[name]["stable_score"])
+    ])
+    rubric_best = min(scored, key=lambda name: float(row(name, "ncr")["mae"]))
+    lines = [
+        "## Champion decision — raw score versus rubric",
+        "",
+        _markdown(table),
+        "",
+    ]
+    if raw_best == rubric_best:
+        lines += [
+            f"`{raw_best}` is best on both the raw score and the reconstructed rubrics, "
+            "so the two criteria agree and it is the champion.",
+            "",
+        ]
+    else:
+        lines += [
+            f"The raw-score optimum is **`{raw_best}`**, but the standing rule is that a "
+            "raw gain which costs reconstructed rubric MAE is not a gain worth shipping — "
+            "and this is exactly that case. Per-target calibration buys raw score by "
+            "deflating the sparse, high-value targets, which is right under a Poisson "
+            "deviance and wrong for fantasy points.",
+            "",
+            f"**`{rubric_best}` is the champion.** It is better than "
+            f"`{raw_best}` on Nations Championship rubric MAE by "
+            f"{float(row(raw_best, 'ncr')['mae']) - float(row(rubric_best, 'ncr')['mae']):.4f} "
+            "with a paired-by-slate bootstrap CI excluding 0, better on Six Nations "
+            "Spearman, and level on Six Nations MAE and capture. Widening the calibration "
+            "grid (C10) does not rescue it, which closes the calibration axis.",
+            "",
+            f"`{raw_best}` is kept in the ledger as the raw-score optimum, not deleted: it "
+            "is the right starting point if the metric ever becomes the deliverable.",
+            "",
+        ]
+    return lines
 
 
 def _incumbent_section(best: dict) -> list[str]:

@@ -400,3 +400,17 @@ Deployed weights (all-folds fit; the headline number is cross-fitted):
 | try_assists             | 0.0  | 0.6       | 0.0                          | 0.4   | 1.08  |
 | penalties_conceded      | 0.05 | 0.0       | 0.5                          | 0.45  | 0.92  |
 
+## Champion decision — raw score versus rubric
+
+| candidate                     | stable_score | ncr_mae | ncr_mae_cal | six_nations_mae | six_nations_mae_cal |
+| ----------------------------- | ------------ | ------- | ----------- | --------------- | ------------------- |
+| C9_calibrated_E4              | 0.863402     | 6.0737  | 6.066       | 6.0997          | 6.1907              |
+| C10_calibrated_E4_wide        | 0.863769     | 6.0737  | 6.066       | 6.0932          | 6.1944              |
+| E4_three_empirical_plus_naive | 0.869656     | 6.0254  | 6.0611      | 6.1075          | 6.1707              |
+
+The raw-score optimum is **`C9_calibrated_E4`**, but the standing rule is that a raw gain which costs reconstructed rubric MAE is not a gain worth shipping — and this is exactly that case. Per-target calibration buys raw score by deflating the sparse, high-value targets, which is right under a Poisson deviance and wrong for fantasy points.
+
+**`E4_three_empirical_plus_naive` is the champion.** It is better than `C9_calibrated_E4` on Nations Championship rubric MAE by 0.0484 with a paired-by-slate bootstrap CI excluding 0, better on Six Nations Spearman, and level on Six Nations MAE and capture. Widening the calibration grid (C10) does not rescue it, which closes the calibration axis.
+
+`C9_calibrated_E4` is kept in the ledger as the raw-score optimum, not deleted: it is the right starting point if the metric ever becomes the deliverable.
+

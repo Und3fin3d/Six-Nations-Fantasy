@@ -38,3 +38,7 @@ data/unified/raw_benchmark/allrugby_empirical/trials/*/manifests/
 # All-rugby hill-climb: large cached champion component predictions
 data/unified/raw_benchmark/allrugby_sixnations/champion_cache/
 data/unified/raw_benchmark/allrugby_sixnations/control/
+# Phase-2 all-rugby search: derived caches and per-shard raw rows are rebuilt on demand.
+data/unified/raw_benchmark/allrugby_p3/phase2/cache_*.pkl
+data/unified/raw_benchmark/allrugby_p3/phase2/table_*.pkl
+data/unified/raw_benchmark/allrugby_p3/phase2/shards/

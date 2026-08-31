@@ -229,6 +229,25 @@ def build_incumbent(caches):
     return table, frozen, frozen_indices, c5, c5_indices, c5_fits, control, frozen_extended
 
 
+def standalone_scores(union, components: tuple[str, ...]) -> dict[str, float]:
+    """Each component scored alone, as a control against its own ledger.
+
+    The frozen empirical engine must land on the v1 ledger's 0.939031 and the
+    re-fitted t3 variant on the empirical hill-climb's 0.904538; if they do not,
+    the components were not regenerated faithfully and nothing downstream is
+    trustworthy.
+    """
+    scores = {}
+    for component in components:
+        caches = P.project_cache(union, (component,))
+        table = P.build_multi_table(
+            caches, (component,), np.ones((1, 1)), persist=False,
+        )
+        indices = np.zeros(len(table.targets), dtype=int)
+        scores[component] = float(np.mean(P.fixed_scores(table, indices)))
+    return scores
+
+
 def queue(caches, table, frozen_extended):
     """Ordered candidate queue. Each entry: (name, hypothesis, components, points, fitter)."""
     shrunk = P.fit_shrunk_per_target
@@ -320,6 +339,7 @@ def main(names: tuple[str, ...] | None = None) -> None:
     caches = P.project_cache(union, BASE_PAIR)
     (table, frozen, frozen_indices, c5, c5_indices, c5_fits,
      control, frozen_extended) = build_incumbent(caches)
+    control["standalone"] = standalone_scores(union, UNION)
     (WORK / "control.json").write_text(json.dumps(control, indent=2) + "\n")
     print(json.dumps(
         {key: value for key, value in control.items()

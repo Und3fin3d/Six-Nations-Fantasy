@@ -56,6 +56,8 @@ class MultiCache:
     hemisphere: str
     actual: dict[str, np.ndarray]
     naive: dict[str, np.ndarray]
+    #: available & finite(actual) & finite(naive) -- independent of the components
+    available: dict[str, np.ndarray]
     valid: dict[str, np.ndarray]
     cohorts: dict[str, np.ndarray]
     #: component -> target -> per-row predicted mean
@@ -90,7 +92,7 @@ def build_multi_cache(
             component: A.read_predictions(A._component_path(fold.label, component))
             for component in components if component != NAIVE
         }
-        actual, naive, valid = {}, {}, {}
+        actual, naive, valid, available_mask = {}, {}, {}, {}
         means = {component: {} for component in components}
         for target in ALL_TARGETS:
             available = evaluation.get(
@@ -98,8 +100,9 @@ def build_multi_cache(
             )
             actual_all = pd.to_numeric(evaluation[target], errors="coerce").to_numpy(float)
             naive_all = naive_model.predict(evaluation, target)
-            ok = available.fillna(False).astype(bool).to_numpy() & np.isfinite(actual_all)
-            ok &= np.isfinite(naive_all)
+            base = available.fillna(False).astype(bool).to_numpy() & np.isfinite(actual_all)
+            base &= np.isfinite(naive_all)
+            ok = base.copy()
             for component in components:
                 component_all = (
                     naive_all if component == NAIVE
@@ -107,11 +110,12 @@ def build_multi_cache(
                 )
                 means[component][target] = component_all
                 ok &= np.isfinite(component_all)
+            available_mask[target] = base
             actual[target], naive[target], valid[target] = actual_all, naive_all, ok
         caches.append(MultiCache(
             label=fold.label, tournament=fold.tournament,
             calendar_year=fold.calendar_year, hemisphere=fold.hemisphere,
-            actual=actual, naive=naive, valid=valid,
+            actual=actual, naive=naive, available=available_mask, valid=valid,
             cohorts={
                 "all": np.ones(len(evaluation), dtype=bool),
                 "north": evaluation["hemisphere"].eq("north").to_numpy(),
@@ -143,17 +147,17 @@ def project_cache(caches: list[MultiCache], components: tuple[str, ...]) -> list
         missing = [name for name in components if name not in cache.means]
         if missing:
             raise KeyError(f"cache lacks components {missing}")
-        valid = {
-            target: cache.valid[target].copy() for target in cache.valid
-        }
-        for target in valid:
+        valid = {}
+        for target, base in cache.available.items():
+            mask = base.copy()
             for name in components:
-                valid[target] &= np.isfinite(cache.means[name][target])
+                mask &= np.isfinite(cache.means[name][target])
+            valid[target] = mask
         projected.append(MultiCache(
             label=cache.label, tournament=cache.tournament,
             calendar_year=cache.calendar_year, hemisphere=cache.hemisphere,
-            actual=cache.actual, naive=cache.naive, valid=valid,
-            cohorts=cache.cohorts,
+            actual=cache.actual, naive=cache.naive, available=cache.available,
+            valid=valid, cohorts=cache.cohorts,
             means={name: cache.means[name] for name in components},
             position=cache.position, started=cache.started, n_rows=cache.n_rows,
         ))
@@ -256,10 +260,9 @@ def build_multi_table(
                 actual = cache.actual[target][mask]
                 naive_loss = max(target_loss(target, actual, cache.naive[target][mask]), 1e-12)
                 blended = stacked[mask] @ points.T       # (n_rows, n_points)
-                loss[cohort][fold_index, target_index] = [
-                    target_loss(target, actual, blended[:, index]) / naive_loss
-                    for index in range(len(points))
-                ]
+                loss[cohort][fold_index, target_index] = (
+                    row_losses(target, actual, blended).mean(axis=0) / naive_loss
+                )
                 usable[cohort][fold_index, target_index] = True
         print(f"[{cache.label}] phase2 loss table filled", flush=True)
     table = MultiTable(

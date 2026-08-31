@@ -62,6 +62,10 @@ def collect_shard(
     Scoring every engine on every fold is the slowest step in the pipeline and
     the folds are independent, so it is sharded across processes.
     """
+    known = {fold.label for fold in R.build_folds(R.A._store())}
+    unknown = [label for label in fold_labels if label not in known]
+    if unknown:
+        raise ValueError(f"unknown fold labels: {unknown}")
     rankings, points = R.collect(components, rules, fold_labels)
     shard = WORK / "shards"
     shard.mkdir(parents=True, exist_ok=True)

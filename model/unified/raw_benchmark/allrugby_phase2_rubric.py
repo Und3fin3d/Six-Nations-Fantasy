@@ -12,6 +12,9 @@ BOTH rubrics, raw and calibrated. The per-tournament breakdown is what answers
 
 from __future__ import annotations
 
+import gc
+from contextlib import contextmanager
+
 import numpy as np
 import pandas as pd
 
@@ -93,6 +96,26 @@ def _combine(parts, target: str, weights, scale: float) -> EventDistribution:
     return EventDistribution(family, max(mean, 0.0), dispersion)
 
 
+@contextmanager
+def _without_cyclic_gc():
+    """Scoring builds millions of small acyclic objects; the collector dominates.
+
+    Each fold materialises one ``EventDistribution`` per event per player per
+    engine -- of the order of a million objects -- while the result frames stay
+    live across folds. Every gen-2 collection then walks the whole heap, which
+    turns a thirty-second fold into a twenty-minute one. The objects are plain
+    dataclasses holding floats and strings, so reference counting alone reclaims
+    them and the cycle collector has nothing to find.
+    """
+    was_enabled = gc.isenabled()
+    gc.disable()
+    try:
+        yield
+    finally:
+        if was_enabled:
+            gc.enable()
+
+
 def collect(
     components: tuple[str, ...], rule_for: dict[str, callable],
     fold_labels: tuple[str, ...] | None = None,
@@ -110,10 +133,12 @@ def collect(
             for component in components if component != P.NAIVE
         }
         if P.NAIVE in components:
-            loaded[P.NAIVE] = naive_predictions(evaluation, naive)
+            with _without_cyclic_gc():
+                loaded[P.NAIVE] = naive_predictions(evaluation, naive)
         for name, factory in rule_for.items():
             weight_for, scale_for = factory(fold.label)
-            predictions = blend_predictions(loaded, components, weight_for, scale_for)
+            with _without_cyclic_gc():
+                predictions = blend_predictions(loaded, components, weight_for, scale_for)
             rank_frames.append(ranking_metrics(
                 evaluation, predictions, engine=name, fold=fold.label,
             ).assign(tournament=fold.tournament, fold_hemisphere=fold.hemisphere))

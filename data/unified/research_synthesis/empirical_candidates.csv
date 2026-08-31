@@ -1,0 +1,7 @@
+trial,stable_score,passes_original_v1_gate,retained_finding
+base,0.9390310419724062,false,Frozen empirical control
+t1_eb_off,0.9098904829437447,false,Empirical-Bayes minutes shrinkage plus disabled matchup multiplier
+t2_eb_off_ebk,0.906895539707655,false,Per-event empirical-Bayes player-history shrinkage
+t3_eb_off_ebk_head,0.9045378650892517,false,Separate median minutes target head
+t4_no_signal_max,0.9007539058740216,false,Full shrinkage when no player signal is detected
+t5_prior_recency,0.9035507609532827,false,Recency-weighted position prior

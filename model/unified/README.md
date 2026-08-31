@@ -57,6 +57,13 @@ the search uses 2026 raw labels and official fantasy results. The model form is
 competition-independent, but NCR supplies competition-specific selection
 feedback. The command does not promote the candidate or change an incumbent.
 
+### Consolidated research findings
+
+`data/unified/research_synthesis/REPORT.md` preserves the verified findings from
+the superseded Six Nations champion, cross-fitted P3, and empirical-engine PRs.
+It retains their useful diagnostics without merging their parallel runners or
+large trial trees. PR #6 remains the canonical event-weight implementation.
+
 ## Legacy v1 workflow
 
 ```bash

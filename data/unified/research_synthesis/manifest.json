@@ -1,0 +1,16 @@
+{
+  "schema_version": 1,
+  "files_sha256": {
+    "REPORT.md": "07d7513dfc9804910a99b1c14301dd8dabf02dd6b342675478fa5789adaaa83e",
+    "empirical_candidates.csv": "944bef9f9cd208eda0b117eef11092ed9c5c102f25f3d48c9384312cb0774b04",
+    "p3_event_weight_comparison.csv": "6a3a3453e2ed3cfb4ed787f93f19c3d94b3fd4320890f3f36b677ff1f1e3e1ce",
+    "six_nations_champion.csv": "69828840189cf9666770fbeff0214de1f8de711f5e60450858fb29bbb1a9f3fd",
+    "summary.json": "3abbaddefcef4dda8a85ee8b34b5f460dfb7a68e3dc25bd9a854ed4998208e27"
+  },
+  "source_heads": {
+    "3": "d17da20c2ace5e466496634a5013e47fd9c4dcbf",
+    "4": "b8e8adc80b9a1b34fd3f698b80b20e42a77d2df7",
+    "5": "351299b738eb0beaa15b1a2f24851315f5c0ff04",
+    "6": "40f726bf08f8d9f0d19f760aa806d6164b8e3141"
+  }
+}

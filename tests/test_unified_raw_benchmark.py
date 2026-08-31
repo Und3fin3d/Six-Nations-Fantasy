@@ -1,6 +1,7 @@
 from __future__ import annotations
 
 import json
+from dataclasses import replace
 from pathlib import Path
 
 import numpy as np
@@ -9,7 +10,7 @@ import pytest
 
 from model.unified.contracts import EventDistribution, RawPrediction
 from model.unified.raw_benchmark import coverage
-from model.unified.raw_benchmark.blend import EventBlend50
+from model.unified.raw_benchmark.blend import EventBlend50, EventWeightedBlend
 from model.unified.raw_benchmark.config import (
     CHALLENGER_ENGINE_ORDER, CORE_ENGINE_ORDER, DIAGNOSTIC_ONLY_EVENTS,
     EXTENDED_EVENTS, STABLE_EVENTS,
@@ -20,6 +21,16 @@ from model.unified.raw_benchmark.folds import (
     build_folds, masked_candidates, strict_training_frame,
 )
 from model.unified.raw_benchmark.report import _extended_fixture_support
+from model.unified.raw_benchmark.p3_hillclimb import (
+    RESULT_FILES, TargetEvidence, accepted_coordinate_table, add_output_hashes,
+    infer_left_mean, reweight_saved_predictions, select_coordinate,
+    validate_existing_manifest,
+)
+from model.unified.raw_benchmark.p3_checkpoint import (
+    COMPLETE_TARGETS, DEVELOPMENT_RAW_LIMIT, MAX_FOLD_REGRESSION,
+    RAW_WEIGHT_GRID, SELECTION_RAW_LIMIT, RawGrid, _load_complete_weights,
+    run_checkpoint,
+)
 from model.unified.scoring import NationsChampionshipScorer, SixNationsScorer
 from model.unified.schema import EVENTS
 
@@ -179,6 +190,193 @@ def test_event_blend_preserves_raw_contract_and_both_scorers_accept_it():
     six = SixNationsScorer().score_prediction(prediction, n=20, seed=1)
     ncr = NationsChampionshipScorer().score_prediction(prediction, n=20, seed=1)
     assert np.isfinite(six.mean) and np.isfinite(ncr.mean)
+
+
+def test_event_weighted_blend_changes_only_named_raw_event():
+    empirical = _StaticModel([_raw(0.2)])
+    v4 = _StaticModel([_raw(0.8)])
+    blend = EventWeightedBlend(
+        empirical, v4, weight_v4=0.5, event_weights_v4={"tries": 0.25},
+    )
+    prediction = blend.predict_frame(pd.DataFrame([{"unused": 1}]))[0]
+    assert prediction.events["tries"].mean == pytest.approx(0.35)
+    assert prediction.events["tries"].dispersion != pytest.approx(1.0)
+    assert prediction.minutes.mean == pytest.approx(70.0)
+    assert prediction.metadata["event_weights_v4"] == {"tries": 0.25}
+    assert np.isfinite(SixNationsScorer().score_prediction(
+        prediction, n=20, seed=1,
+    ).mean)
+    assert np.isfinite(NationsChampionshipScorer().score_prediction(
+        prediction, n=20, seed=1,
+    ).mean)
+    with pytest.raises(ValueError, match="blend weights"):
+        EventWeightedBlend(empirical, v4, event_weights_v4={"tries": 1.01})
+    with pytest.raises(ValueError, match="unknown event"):
+        EventWeightedBlend(empirical, v4, event_weights_v4={"competition": 0.4})
+
+
+def test_hillclimb_recovers_component_mean_and_does_not_consult_confirmation():
+    empirical = np.asarray([0.2, 0.4])
+    v4 = np.asarray([0.8, 0.6])
+    blended = 0.5 * empirical + 0.5 * v4
+    np.testing.assert_allclose(infer_left_mean(blended, empirical), v4)
+    trials = pd.DataFrame([
+        {"weight_v4": 0.4, "development_score": 0.90,
+         "selection_score": 1.001, "confirmation_score": 9.0},
+        {"weight_v4": 0.5, "development_score": 0.91,
+         "selection_score": 1.000, "confirmation_score": 8.0},
+        {"weight_v4": 0.6, "development_score": 0.92,
+         "selection_score": 0.990, "confirmation_score": 0.0},
+    ])
+    decision = select_coordinate(trials)
+    assert decision["accepted"]
+    assert decision["selected_weight_v4"] == 0.4
+    assert decision["confirmation_consulted"] is False
+
+
+def test_hillclimb_selection_guard_rejects_development_only_gain():
+    trials = pd.DataFrame([
+        {"weight_v4": 0.4, "development_score": 0.90, "selection_score": 1.003},
+        {"weight_v4": 0.5, "development_score": 0.91, "selection_score": 1.000},
+    ])
+    decision = select_coordinate(trials)
+    assert not decision["accepted"]
+    assert decision["selected_weight_v4"] == 0.5
+    assert decision["reason"] == "selection raw loss regresses beyond the guard"
+
+
+def test_hillclimb_report_table_supports_all_rejected_coordinates():
+    table = accepted_coordinate_table([{"target": "tries", "accepted": False}])
+    assert table.empty
+    assert list(table) == [
+        "target", "selected_weight_v4", "development_gain", "selection_delta",
+    ]
+
+
+def test_hillclimb_reweight_rejects_truncated_and_misaligned_components():
+    empirical = (_raw(0.2),)
+    baseline = (_raw(0.4),)
+    with pytest.raises(ValueError, match="lengths differ"):
+        reweight_saved_predictions(empirical, (), {"tries": 0.3})
+    with pytest.raises(ValueError, match="rows are misaligned"):
+        reweight_saved_predictions(
+            empirical, (replace(baseline[0], player_id="different"),),
+            {"tries": 0.3},
+        )
+
+
+def test_hillclimb_manifest_rejects_incompatible_overwrite(tmp_path):
+    output = tmp_path / "output"
+    output.mkdir()
+    manifest = {"schema_version": 1, "input_sha256": {"source": "abc"}}
+    for name in RESULT_FILES:
+        (output / name).write_text(f"{name}\n")
+    completed = add_output_hashes(manifest, output)
+    (output / "manifest.json").write_text(json.dumps(completed))
+    validate_existing_manifest(output, manifest)
+    with pytest.raises(FileExistsError, match="different sources"):
+        validate_existing_manifest(
+            output, {"schema_version": 1, "input_sha256": {"source": "def"}},
+        )
+    extra = output / "unexpected.txt"
+    extra.write_text("unexpected\n")
+    with pytest.raises(FileExistsError, match="unexpected or missing"):
+        validate_existing_manifest(output, manifest)
+    extra.unlink()
+    (output / RESULT_FILES[0]).write_text("tampered\n")
+    with pytest.raises(FileExistsError, match="does not match"):
+        validate_existing_manifest(output, manifest)
+
+
+def test_hillclimb_manifest_requires_every_result_hash(tmp_path):
+    output = tmp_path / "output"
+    output.mkdir()
+    manifest = {"schema_version": 1}
+    for name in RESULT_FILES:
+        (output / name).write_text(f"{name}\n")
+    completed = add_output_hashes(manifest, output)
+    completed["output_sha256"].pop(RESULT_FILES[0])
+    (output / "manifest.json").write_text(json.dumps(completed))
+    with pytest.raises(FileExistsError, match="incomplete manifested results"):
+        validate_existing_manifest(output, manifest)
+
+
+def test_hillclimb_manifest_rejects_nonempty_unmanifested_output(tmp_path):
+    output = tmp_path / "output"
+    output.mkdir()
+    (output / "old-result.csv").write_text("stale\n")
+    with pytest.raises(FileExistsError, match="unmanifested results"):
+        validate_existing_manifest(output, {"schema_version": 1})
+
+
+def test_checkpoint_loads_complete_global_vector_and_rejects_unknown_target(tmp_path):
+    path = tmp_path / "config.json"
+    path.write_text(json.dumps({
+        "base_model": "p3_event_50",
+        "default_weight_v4": 0.5,
+        "event_weights_v4": {"tries": 0.1},
+    }))
+    _, weights = _load_complete_weights(path)
+    assert set(weights) == set(COMPLETE_TARGETS)
+    assert weights["tries"] == 0.1
+    assert weights["tackles"] == 0.5
+
+    path.write_text(json.dumps({
+        "base_model": "p3_event_50",
+        "event_weights_v4": {"competition": 0.1},
+    }))
+    with pytest.raises(ValueError, match="unknown targets"):
+        _load_complete_weights(path)
+
+
+def test_checkpoint_raw_grid_enforces_all_global_guards():
+    evidence = (
+        TargetEvidence(
+            fold="development_fold", tournament="International",
+            calendar_year=2024, hemisphere="north", target="tries",
+            actual=np.asarray([0.0]), empirical=np.asarray([0.0]),
+            v4=np.asarray([0.0]), naive_loss=1.0,
+        ),
+        TargetEvidence(
+            fold="selection_fold", tournament="International",
+            calendar_year=2025, hemisphere="south", target="tries",
+            actual=np.asarray([0.0]), empirical=np.asarray([0.0]),
+            v4=np.asarray([0.0]), naive_loss=1.0,
+        ),
+        TargetEvidence(
+            fold="retrospective_fold", tournament="Six Nations",
+            calendar_year=2026, hemisphere="north", target="scrums_won",
+            actual=np.asarray([0.0]), empirical=np.asarray([0.0]),
+            v4=np.asarray([0.0]), naive_loss=1.0,
+        ),
+    )
+    values = np.full((3, len(RAW_WEIGHT_GRID)), 0.85)
+    values[:, 50] = 0.85
+    values[0, 60] = max(DEVELOPMENT_RAW_LIMIT, 0.85 + MAX_FOLD_REGRESSION) + 0.001
+    values[1, 60] = SELECTION_RAW_LIMIT + 0.001
+    values[2, 60] = 0.95
+    weights = {target: 0.5 for target in COMPLETE_TARGETS}
+    weights["tries"] = 0.6
+    weights["scrums_won"] = 0.6
+    summary = RawGrid(evidence=evidence, values=values).summary(weights)
+    assert not summary["passes"]
+    assert set(summary["failures"]) == {
+        "development_raw_limit", "selection_raw_limit", "maximum_fold_regression",
+    }
+    assert summary["uses_2026_raw_feedback"]
+    assert summary["max_fold_regression_fold"] == "retrospective_fold"
+    assert summary["optimized_extended_targets"] == ["scrums_won"]
+
+
+def test_checkpoint_refuses_existing_output_before_search(tmp_path):
+    benchmark = tmp_path / "benchmark"
+    benchmark.mkdir()
+    config = tmp_path / "config.json"
+    config.write_text("{}\n")
+    output = tmp_path / "output"
+    output.mkdir()
+    with pytest.raises(FileExistsError, match="must be a new directory"):
+        run_checkpoint(benchmark, config, output)
 
 
 def test_empirical_serialization_is_deterministic_and_covers_lineup_roles(

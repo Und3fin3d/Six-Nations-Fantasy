@@ -22,6 +22,41 @@ retained strictly as rollback models.
 Do not retune P3's global 0.5 blend weight on NCR GW4-7. Those rounds are the
 predefined live severe-failure veto, not another development set.
 
+### Local event-weight hill climb
+
+The research-only `p3_event_weighted` candidate gives each stable raw-event
+head an optional competition-independent empirical/v4 weight. It optimises on
+2022-2024 and uses 2025 as a soft selection guard. The selector does not use
+2026. The existing 2026 and official NCR results are retrospective diagnostics.
+Both fantasy adapters remain secondary diagnostics.
+
+```bash
+/tmp/6n-model-pinned/bin/python -m model.unified.cli raw-benchmark p3-hillclimb
+```
+
+The command writes its config, ledger, source manifest, raw metrics and report to
+`data/unified/p3_hillclimb/`. It does not change the active P3 artifact or the
+NCR and Six Nations incumbents.
+
+### Retrospective NCR checkpoint search
+
+The checkpoint search starts from the global event-weight hill-climb config. It
+uses one competition-independent raw-event weight vector. It rejects candidates
+that fail the frozen development, 2025, or per-fold raw-event guards. The
+per-fold guard includes available extended-event and 2026 raw labels. It then
+uses official NCR GW1-3 team points as a retrospective stopping checkpoint.
+
+```bash
+/tmp/6n-model-pinned/bin/python -m model.unified.cli raw-benchmark p3-checkpoint
+```
+
+The command writes the full trial ledger, selected config, source manifest, raw
+guard evidence, direct official NCR verification and report to
+`data/unified/p3_checkpoint/`. The result is retrospective optimisation because
+the search uses 2026 raw labels and official fantasy results. The model form is
+competition-independent, but NCR supplies competition-specific selection
+feedback. The command does not promote the candidate or change an incumbent.
+
 ## Legacy v1 workflow
 
 ```bash

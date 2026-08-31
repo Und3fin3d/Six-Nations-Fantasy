@@ -1,0 +1,16 @@
+{
+  "direct_path": "p3_hillclimb.official_ncr_proof",
+  "direct_rounds": [
+    495.0,
+    592.0,
+    543.0
+  ],
+  "direct_total": 1630.0,
+  "search_rounds": [
+    495.0,
+    592.0,
+    543.0
+  ],
+  "search_total": 1630.0,
+  "totals_match": true
+}

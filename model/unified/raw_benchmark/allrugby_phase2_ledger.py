@@ -12,6 +12,33 @@ from .allrugby_phase2_run import C5_INCUMBENT, FROZEN
 WORK = P.WORK
 
 
+def _markdown(frame: pd.DataFrame) -> str:
+    """Pipe table without pandas' optional ``tabulate`` dependency.
+
+    The pinned model environment has no package manager, so the ledger renders
+    its own tables rather than adding a dependency for four calls.
+    """
+    columns = [str(column) for column in frame.columns]
+    rows = [
+        ["" if value is None else str(value) for value in record]
+        for record in frame.itertuples(index=False, name=None)
+    ]
+    widths = [
+        max(len(columns[index]), *(len(row[index]) for row in rows)) if rows
+        else len(columns[index])
+        for index in range(len(columns))
+    ]
+    def line(cells):
+        return "| " + " | ".join(
+            cell.ljust(widths[index]) for index, cell in enumerate(cells)
+        ) + " |"
+    return "\n".join([
+        line(columns),
+        "| " + " | ".join("-" * width for width in widths) + " |",
+        *(line(row) for row in rows),
+    ])
+
+
 def _row(result: dict) -> dict:
     temporal = result.get("temporal") or {}
     return {
@@ -64,7 +91,7 @@ def render() -> str:
         "",
         "## Trials",
         "",
-        table.to_markdown(index=False),
+        _markdown(table),
         "",
     ]
     for result in results:
@@ -102,7 +129,7 @@ def render() -> str:
             families = families.sort_values("pct")
             families["pct"] = families["pct"].round(4)
             lines += ["Per tournament family (candidate vs incumbent, % change):", "",
-                      families.to_markdown(index=False), ""]
+                      _markdown(families), ""]
 
     accepted = [result for result in results if result["accepted"]]
     if accepted:
@@ -137,7 +164,7 @@ def _incumbent_section(best: dict) -> list[str]:
     sort_key = "naive" if "naive" in weights else best["components"][0]
     lines += [
         "Deployed weights (all-folds fit; the headline number is cross-fitted):", "",
-        weights.sort_values(sort_key).to_markdown(index=False), "",
+        _markdown(weights.sort_values(sort_key)), "",
     ]
     return lines
 

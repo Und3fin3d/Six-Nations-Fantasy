@@ -130,6 +130,36 @@ def build_multi_cache(
     return caches
 
 
+def project_cache(caches: list[MultiCache], components: tuple[str, ...]) -> list[MultiCache]:
+    """Restrict a cache built over a superset of components to ``components``.
+
+    Building a cache re-derives each fold's strict training frame and refits the
+    naive comparator over 32 targets, which dominates the run. Every candidate
+    draws from the same fold geometry, so the union is built once and every
+    component tuple is a projection of it.
+    """
+    projected = []
+    for cache in caches:
+        missing = [name for name in components if name not in cache.means]
+        if missing:
+            raise KeyError(f"cache lacks components {missing}")
+        valid = {
+            target: cache.valid[target].copy() for target in cache.valid
+        }
+        for target in valid:
+            for name in components:
+                valid[target] &= np.isfinite(cache.means[name][target])
+        projected.append(MultiCache(
+            label=cache.label, tournament=cache.tournament,
+            calendar_year=cache.calendar_year, hemisphere=cache.hemisphere,
+            actual=cache.actual, naive=cache.naive, valid=valid,
+            cohorts=cache.cohorts,
+            means={name: cache.means[name] for name in components},
+            position=cache.position, started=cache.started, n_rows=cache.n_rows,
+        ))
+    return projected
+
+
 # --------------------------------------------------------------------------
 # weight point sets
 # --------------------------------------------------------------------------
@@ -138,6 +168,16 @@ def pair_grid(step: float = 0.005) -> np.ndarray:
     """Phase-1 compatible grid: column 0 is the first component's weight."""
     left = np.round(np.arange(0.0, 1.0 + 1e-9, step), 4)
     return np.stack([left, 1.0 - left], axis=1)
+
+
+def cap_component(points: np.ndarray, index: int, cap: float) -> np.ndarray:
+    """Restrict a point set to vectors whose ``index`` weight is at most ``cap``.
+
+    Used to bound how far a candidate may shrink toward the stratum-mean
+    comparator: a target driven fully to the comparator cannot rank players
+    within a position/started stratum at all, however good its raw loss looks.
+    """
+    return points[points[:, index] <= cap + 1e-9]
 
 
 def simplex_grid(n_components: int, step: float = 0.05) -> np.ndarray:
@@ -630,6 +670,27 @@ def fit_group_shrunk(table: GroupTable, folds: np.ndarray):
         scores.append(float(np.nanmean(inner)))
     chosen = float(lambdas[int(np.nanargmin(scores))])
     return fit_group_per_target(table, folds, shrink=chosen), chosen
+
+
+def group_fold_score(
+    cache: MultiCache, components: tuple[str, ...], targets: tuple[str, ...],
+    points: np.ndarray, indices: np.ndarray, group_ids: np.ndarray,
+    *, cohort: str = "all",
+) -> float:
+    """Stable score for one fold under per-(target, group) weights, any cohort.
+
+    The group table has no cohort axis -- adding one would multiply its build
+    cost by three for a check that only ever runs on the chosen weights. This
+    evaluates those weights directly instead.
+    """
+    values = []
+    for position, target in enumerate(targets):
+        row_weights = points[indices[position][group_ids]]
+        values.append(target_relative_loss(
+            cache, components, target, row_weights, cohort=cohort,
+        ))
+    values = [value for value in values if np.isfinite(value)]
+    return float(np.mean(values)) if values else np.nan
 
 
 def started_groups(cache: MultiCache) -> np.ndarray:

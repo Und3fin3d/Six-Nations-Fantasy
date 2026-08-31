@@ -270,6 +270,16 @@ def queue(caches, table, frozen_extended):
             ("v4", "empirical", P.NAIVE), P.simplex_grid(3, 0.025), shrunk,
         ),
         (
+            "N3_naive_capped",
+            "N1 with the comparator share capped at 0.5 per target. A target driven "
+            "fully to the stratum mean has no within-stratum ranking left, however good "
+            "its raw loss looks; the cap keeps at least half the mass on a real engine. "
+            "If N3 recovers most of N1's raw gain then the gain was shrinkage, not the "
+            "metric's denominator being handed the answer.",
+            ("v4", "empirical", P.NAIVE),
+            P.cap_component(P.simplex_grid(3, 0.025), 2, 0.5), shrunk,
+        ),
+        (
             "N2_naive_plus_t3",
             "N1's shrinkage and E2's better component are orthogonal; fit them together.",
             ("v4", T3, P.NAIVE), P.simplex_grid(3, 0.025), shrunk,
@@ -301,9 +311,13 @@ def group_queue():
     ]
 
 
+UNION = ("v4", "empirical", T3, T4, P.NAIVE)
+
+
 def main(names: tuple[str, ...] | None = None) -> None:
     WORK.mkdir(parents=True, exist_ok=True)
-    caches = P.build_multi_cache(BASE_PAIR)
+    union = P.build_multi_cache(UNION)
+    caches = P.project_cache(union, BASE_PAIR)
     (table, frozen, frozen_indices, c5, c5_indices, c5_fits,
      control, frozen_extended) = build_incumbent(caches)
     (WORK / "control.json").write_text(json.dumps(control, indent=2) + "\n")
@@ -333,7 +347,7 @@ def main(names: tuple[str, ...] | None = None) -> None:
         print(f"\n=== {name} ({', '.join(components)}, {len(points)} points)", flush=True)
         record(run_candidate(
             name, hypothesis, components, points, fitter,
-            caches=P.build_multi_cache(components), incumbent=c5,
+            caches=P.project_cache(union, components), incumbent=c5,
             incumbent_indices=c5_indices, frozen_extended=frozen_extended,
         ))
 
@@ -343,7 +357,7 @@ def main(names: tuple[str, ...] | None = None) -> None:
         print(f"\n=== {name} ({', '.join(components)}, {len(group_names)} groups)", flush=True)
         record(run_group_candidate(
             name, hypothesis, components, points, group_fn, group_names,
-            caches=P.build_multi_cache(components), incumbent=c5,
+            caches=P.project_cache(union, components), incumbent=c5,
             frozen_extended=frozen_extended,
         ))
 
@@ -394,6 +408,19 @@ def run_group_candidate(
     bad = families[families["pct"] > 2.0]["tournament"].tolist()
     if bad:
         reasons.append(f"(d) tournament-family regression >2%: {', '.join(bad)}")
+    cohort_pct = {}
+    for cohort in ("north", "south"):
+        after = np.array([
+            P.group_fold_score(
+                caches[index], components, table.targets, table.points,
+                per_fold_indices[index], group_fn(caches[index]), cohort=cohort,
+            )
+            for index in range(len(table.folds))
+        ])
+        before = np.nanmean(incumbent[cohort])
+        cohort_pct[cohort] = 100.0 * (float(np.nanmean(after)) - before) / before
+        if cohort_pct[cohort] > 2.0:
+            reasons.append(f"(c) {cohort} regressed {cohort_pct[cohort]:.2f}%")
     extended_reasons, extended_values = extended_check(
         caches, components, _extended_weights(components), frozen_extended,
     )
@@ -418,6 +445,7 @@ def run_group_candidate(
         "stable_score": score, "incumbent_score": base,
         "delta_vs_incumbent": score - base, "delta_vs_frozen": score - FROZEN,
         "bootstrap": boot, "families": families.to_dict("records"),
+        "cohort_pct": cohort_pct,
         "in_sample_score": float(np.mean(table.relative(deployed))),
         "temporal": temporal, "extended": extended_values,
         "deployed_weights": {

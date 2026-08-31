@@ -14,9 +14,7 @@ import pandas as pd
 
 from . import allrugby_phase2 as P
 from . import allrugby_phase2_board as B
-from .allrugby_phase2_run import BASE_PAIR, T3
-
-UNION = ("v4", "empirical", T3, P.NAIVE)
+from .allrugby_phase2_run import BASE_PAIR, T3, UNION
 
 
 def _lift(components: tuple[str, ...], vector) -> list[float]:

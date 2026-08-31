@@ -311,6 +311,14 @@ def queue(caches, table, frozen_extended):
             ("v4", "empirical", T3, P.NAIVE), P.simplex_grid(4, 0.05), shrunk,
         ),
         (
+            "E6_all_components",
+            "E4 (both empirical components plus stratum-mean shrinkage) and E5 (a fourth "
+            "empirical variant) were both accepted. Give the per-target simplex every "
+            "component at once and let it choose; a coarser 0.1 lattice keeps the "
+            "parameter count honest at five components.",
+            ("v4", "empirical", T3, T4, P.NAIVE), P.simplex_grid(5, 0.1), shrunk,
+        ),
+        (
             "E5_four_empirical",
             "t4 is the empirical hill-climb's best-scoring config, rejected there only "
             "because its bootstrap CI straddled its own incumbent. As a blend component "
@@ -347,6 +355,22 @@ def group_queue():
 UNION = ("v4", "empirical", T3, T4, P.NAIVE)
 
 
+def calibration_queue():
+    """Per-target multiplicative scale fitted on top of the leading blend."""
+    return [
+        (
+            "C9_calibrated_E4",
+            "Phase 1 found the frozen P3 carried a systematic scale bias that affine "
+            "recalibration removed, and a mixture of two calibrated means is not itself "
+            "unbiased under a Poisson deviance. One multiplicative scale per target is "
+            "the smallest correction for that, and it is orthogonal to the blend weight. "
+            "Both stages are cross-fitted inside the same outer loop.",
+            ("v4", "empirical", T3, P.NAIVE), P.simplex_grid(4, 0.05),
+            P.fit_shrunk_per_target,
+        ),
+    ]
+
+
 def main(names: tuple[str, ...] | None = None) -> None:
     WORK.mkdir(parents=True, exist_ok=True)
     union = P.build_multi_cache(UNION)
@@ -380,6 +404,16 @@ def main(names: tuple[str, ...] | None = None) -> None:
             continue
         print(f"\n=== {name} ({', '.join(components)}, {len(points)} points)", flush=True)
         record(run_candidate(
+            name, hypothesis, components, points, fitter,
+            caches=P.project_cache(union, components), incumbent=c5,
+            incumbent_indices=c5_indices, frozen_extended=frozen_extended,
+        ))
+
+    for name, hypothesis, components, points, fitter in calibration_queue():
+        if (names and name not in names) or (not names and name in done):
+            continue
+        print(f"\n=== {name} ({', '.join(components)}, calibrated)", flush=True)
+        record(run_calibration_candidate(
             name, hypothesis, components, points, fitter,
             caches=P.project_cache(union, components), incumbent=c5,
             incumbent_indices=c5_indices, frozen_extended=frozen_extended,

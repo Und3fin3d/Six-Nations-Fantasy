@@ -41,7 +41,13 @@ def _cross_fitted_rule(result: dict):
 def main() -> None:
     results = json.loads((P.WORK / "results.json").read_text())
     by_name = {entry["candidate"]: entry for entry in results}
-    accepted = [entry for entry in results if entry["accepted"] and entry.get("fits")]
+    # Row-group candidates carry one weight vector per (target, group); the board
+    # blends per target, so only per-target rules can be scored here.
+    accepted = [
+        entry for entry in results
+        if entry["accepted"] and entry.get("fits")
+        and all("weights" in fit for fit in entry["fits"])
+    ]
     winner = min(accepted, key=lambda entry: entry["stable_score"]) if accepted else None
 
     control = json.loads((P.WORK / "control.json").read_text())

@@ -67,6 +67,10 @@ def build(components: tuple[str, ...], rules: dict[str, callable], out_prefix: s
     )
     overall.to_csv(WORK / f"{out_prefix}_overall.csv", index=False)
     by_tournament.to_csv(WORK / f"{out_prefix}_by_tournament.csv", index=False)
+    # Per fold as well: the Six Nations champion only has two folds of coverage,
+    # so the only like-for-like comparison against it is a two-fold slice.
+    by_fold = R.summarise(rankings, by_fold=True)
+    by_fold.to_csv(WORK / f"{out_prefix}_by_fold.csv", index=False)
     return overall, by_tournament
 
 

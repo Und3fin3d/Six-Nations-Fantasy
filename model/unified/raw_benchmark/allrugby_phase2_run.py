@@ -355,6 +355,9 @@ def group_queue():
 UNION = ("v4", "empirical", T3, T4, P.NAIVE)
 
 
+WIDE_CALIBRATION = np.round(np.arange(0.40, 1.6001, 0.01), 4)
+
+
 def calibration_queue():
     """Per-target multiplicative scale fitted on top of the leading blend."""
     return [
@@ -365,6 +368,16 @@ def calibration_queue():
             "unbiased under a Poisson deviance. One multiplicative scale per target is "
             "the smallest correction for that, and it is orthogonal to the blend weight. "
             "Both stages are cross-fitted inside the same outer loop.",
+            ("v4", "empirical", T3, P.NAIVE), P.simplex_grid(4, 0.05),
+            P.fit_shrunk_per_target,
+        ),
+        (
+            "C10_calibrated_E4_wide",
+            "C9 drove six targets onto the 0.70 floor of its scale grid -- drop goals, "
+            "metres, missed penalty goals, red cards -- so the grid, not the data, was "
+            "choosing their scale. Widen it to 0.40-1.60 and let them settle. If the "
+            "extra freedom only buys raw score while the rubric MAE worsens, the "
+            "shrinkage has stopped being calibration and started being deflation.",
             ("v4", "empirical", T3, P.NAIVE), P.simplex_grid(4, 0.05),
             P.fit_shrunk_per_target,
         ),
@@ -413,10 +426,12 @@ def main(names: tuple[str, ...] | None = None) -> None:
         if (names and name not in names) or (not names and name in done):
             continue
         print(f"\n=== {name} ({', '.join(components)}, calibrated)", flush=True)
+        grid = WIDE_CALIBRATION if name.endswith("_wide") else P.CALIBRATION_GRID
         record(run_calibration_candidate(
             name, hypothesis, components, points, fitter,
             caches=P.project_cache(union, components), incumbent=c5,
             incumbent_indices=c5_indices, frozen_extended=frozen_extended,
+            scale_grid=grid,
         ))
 
     for name, hypothesis, components, points, group_fn, group_names in group_queue():
@@ -535,6 +550,7 @@ def run_group_candidate(
 def run_calibration_candidate(
     name: str, hypothesis: str, components: tuple[str, ...], points: np.ndarray,
     fitter, *, caches, incumbent, incumbent_indices, frozen_extended,
+    scale_grid=None,
 ) -> dict:
     """Per-target multiplicative scale fitted on top of the blend weights.
 
@@ -548,12 +564,17 @@ def run_calibration_candidate(
     table = P.build_multi_table(caches, components, points)
     all_folds = np.arange(len(table.folds))
     deployed_weights, hyperparameter = _as_pair(fitter(table, all_folds))
-    deployed_scales = P.fit_calibration(caches, components, table, deployed_weights, all_folds)
+    scale_grid = P.CALIBRATION_GRID if scale_grid is None else scale_grid
+    deployed_scales = P.fit_calibration(
+        caches, components, table, deployed_weights, all_folds, grid=scale_grid,
+    )
     candidate_all, per_fold_scales = [], []
     for index in range(len(table.folds)):
         train = np.delete(all_folds, index)
         weights, _ = _as_pair(fitter(table, train))
-        scales = P.fit_calibration(caches, components, table, weights, train)
+        scales = P.fit_calibration(
+            caches, components, table, weights, train, grid=scale_grid,
+        )
         per_fold_scales.append(scales.tolist())
         candidate_all.append(P.calibrated_fold_score(
             caches[index], components, table, weights, scales,
@@ -578,7 +599,9 @@ def run_calibration_candidate(
     train = np.arange(TEMPORAL_SPLIT)
     held = np.arange(TEMPORAL_SPLIT, len(table.folds))
     weights, _ = _as_pair(fitter(table, train))
-    scales = P.fit_calibration(caches, components, table, weights, train)
+    scales = P.fit_calibration(
+        caches, components, table, weights, train, grid=scale_grid,
+    )
     temporal_scores = np.array([
         P.calibrated_fold_score(caches[index], components, table, weights, scales)
         for index in held

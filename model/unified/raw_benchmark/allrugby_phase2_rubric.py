@@ -167,10 +167,17 @@ def _mean_capture(frame: pd.DataFrame) -> pd.Series:
     return frame[columns].mean(axis=1, skipna=True)
 
 
-def summarise(rankings: pd.DataFrame, tier: str = "stable", by_tournament: bool = False):
+def summarise(
+    rankings: pd.DataFrame, tier: str = "stable", by_tournament: bool = False,
+    by_fold: bool = False,
+):
     block = rankings[rankings["tier"].eq(tier)].copy()
     block["mean_capture"] = _mean_capture(block)
-    keys = ["engine", "rubric"] + (["tournament"] if by_tournament else [])
+    keys = ["engine", "rubric"]
+    if by_fold:
+        keys += ["tournament", "fold"]
+    elif by_tournament:
+        keys += ["tournament"]
     return block.groupby(keys, as_index=False).agg(
         mae=("mae", "mean"), spearman=("spearman", "mean"),
         mean_capture=("mean_capture", "mean"), slates=("slate_id", "nunique"),

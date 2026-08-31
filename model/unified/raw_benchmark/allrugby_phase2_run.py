@@ -303,6 +303,20 @@ def queue(caches, table, frozen_extended):
             "N1's shrinkage and E2's better component are orthogonal; fit them together.",
             ("v4", T3, P.NAIVE), P.simplex_grid(3, 0.025), shrunk,
         ),
+        (
+            "E4_three_empirical_plus_naive",
+            "E3 (keep both empirical components) and N1 (shrink toward the stratum mean) "
+            "were both accepted and are orthogonal: one adds a second real engine, the "
+            "other adds a shrinkage direction. Fit all four together.",
+            ("v4", "empirical", T3, P.NAIVE), P.simplex_grid(4, 0.05), shrunk,
+        ),
+        (
+            "E5_four_empirical",
+            "t4 is the empirical hill-climb's best-scoring config, rejected there only "
+            "because its bootstrap CI straddled its own incumbent. As a blend component "
+            "it faces no such gate: the per-target simplex can take it where it helps.",
+            ("v4", "empirical", T3, T4), P.simplex_grid(4, 0.05), shrunk,
+        ),
     ]
 
 
@@ -382,9 +396,6 @@ def main(names: tuple[str, ...] | None = None) -> None:
         ))
 
 
-if __name__ == "__main__":
-    import sys
-    main(tuple(sys.argv[1:]) or None)
 
 
 # --------------------------------------------------------------------------
@@ -570,3 +581,9 @@ def run_calibration_candidate(
 
 def _as_pair(fitted):
     return fitted if isinstance(fitted, tuple) else (fitted, None)
+
+
+if __name__ == "__main__":
+    import sys
+
+    main(tuple(sys.argv[1:]) or None)

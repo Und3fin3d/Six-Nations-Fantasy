@@ -307,7 +307,20 @@ def fit_per_target(
 
 
 def _snap(points: np.ndarray, wanted: np.ndarray) -> np.ndarray:
-    return np.abs(points[None, :, :] - wanted[:, None, :]).sum(axis=2).argmin(axis=1).astype(int)
+    """Nearest grid point, measured on the free coordinates only.
+
+    Weight vectors live on a simplex, so the last component is the residual of
+    the others and carries no independent information. Measuring on it as well
+    doubles the floating-point noise in the pair case and flips exact ties --
+    shrinkage lands on midpoints often (a 0.1 shrinkage of a 0.005 grid sits on
+    a 0.0005 lattice), and a flipped tie moves a weight by a whole grid step.
+    Dropping the residual coordinate makes the two-component case bitwise
+    identical to phase 1's scalar snap.
+    """
+    if points.shape[1] > 1:
+        points, wanted = points[:, :-1], wanted[:, :-1]
+    distance = np.abs(points[None, :, :] - wanted[:, None, :]).sum(axis=2)
+    return distance.argmin(axis=1).astype(int)
 
 
 def fit_shrunk_per_target(table: MultiTable, folds: np.ndarray):

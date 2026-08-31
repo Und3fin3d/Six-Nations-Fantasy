@@ -230,3 +230,46 @@ def test_challengers_do_not_change_the_frozen_core_engine_set():
         "v1", "gbdt_v3", "v4", "v5_t", "empirical_event", "p3_event_50",
     )
     assert CHALLENGER_ENGINE_ORDER == ("v1_neural",)
+
+
+def test_empirical_default_config_reproduces_the_frozen_contract(monkeypatch):
+    """An unset RB_EMPIRICAL_VARIANT must leave the v1 empirical_event contract
+    byte-identical: the hill-climb config surface is opt-in only."""
+    from model.unified.raw_benchmark import empirical
+    from model.unified.raw_benchmark.empirical import BASE, VARIANTS, EmpiricalConfig
+
+    monkeypatch.delenv("RB_EMPIRICAL_VARIANT", raising=False)
+    assert EmpiricalConfig.from_env() == EmpiricalConfig() == BASE
+    assert VARIANTS["base"] == BASE
+    assert EmpiricalEventModel(asof="2024-01-01").config == BASE
+
+    # The frozen behaviour is defined by these values; changing a default here
+    # silently moves the frozen ledger, so they are pinned explicitly.
+    assert (BASE.position_prior_mode, BASE.position_prior_recency) == ("mean_of_ratios", False)
+    assert (BASE.matchup_mode, BASE.matchup_damping) == ("fixed", 1.0)
+    assert (BASE.shrinkage_mode, BASE.k_shrinkage) == ("global", empirical.K)
+    assert (BASE.minutes_mode, BASE.minutes_statistic) == ("player", "mean")
+    assert BASE.minutes_head_statistic == "same"
+    assert (BASE.halflife_days, BASE.club_conf) == (empirical.HALFLIFE_DAYS, empirical.CLUB_CONF)
+
+    monkeypatch.setenv("RB_EMPIRICAL_VARIANT", "t1_eb_off")
+    assert EmpiricalConfig.from_env() == VARIANTS["t1_eb_off"]
+    with pytest.raises(ValueError):
+        monkeypatch.setenv("RB_EMPIRICAL_VARIANT", "nope")
+        EmpiricalConfig.from_env()
+
+
+def test_empirical_unpickles_artifacts_written_before_the_config_surface():
+    """Frozen v1 pickles predate the config fields and must still load."""
+    from model.unified.raw_benchmark.empirical import BASE
+
+    model = EmpiricalEventModel(asof="2024-01-01")
+    legacy = {
+        key: value for key, value in model.__dict__.items()
+        if key not in {"config", "event_shrinkage", "matchup_beta", "minutes_weight",
+                       "minutes_eb_m", "minutes_median_by_player", "minutes_median_by_position"}
+    }
+    restored = EmpiricalEventModel.__new__(EmpiricalEventModel)
+    restored.__setstate__(legacy)
+    assert restored.config == BASE
+    assert restored.minutes_weight == {}

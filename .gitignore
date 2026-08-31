@@ -26,3 +26,12 @@ data/unified/raw_benchmark/allrugby_p3/fold_cache.pkl
 data/unified/raw_benchmark/allrugby_p3/loss_table.pkl
 data/unified/raw_benchmark/allrugby_p3/player_match.csv
 data/unified/raw_benchmark/allrugby_p3/rubric_points.csv
+# Hill-climb working store: large artifacts are reproducible from the frozen
+# v1 store; only the ledger and aggregate metrics are committed.
+data/unified/raw_benchmark/allrugby_empirical/player_match.csv
+data/unified/raw_benchmark/allrugby_empirical/models/
+data/unified/raw_benchmark/allrugby_empirical/predictions/
+data/unified/raw_benchmark/allrugby_empirical/manifests/
+data/unified/raw_benchmark/allrugby_empirical/trials/*/models/
+data/unified/raw_benchmark/allrugby_empirical/trials/*/predictions/
+data/unified/raw_benchmark/allrugby_empirical/trials/*/manifests/

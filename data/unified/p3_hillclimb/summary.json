@@ -1,0 +1,451 @@
+{
+  "accepted_coordinates": 20,
+  "baseline": "p3_event_50",
+  "candidate": "p3_event_weighted",
+  "confirmation_status": "retrospective existing evidence",
+  "confirmation_used_for_search": false,
+  "confirmation_years": [
+    2026
+  ],
+  "development_years": [
+    2022,
+    2023,
+    2024
+  ],
+  "event_weights_v4": {
+    "bad_passes": 0.55,
+    "clean_breaks": 0.2,
+    "conversion_goals": 0.2,
+    "defenders_beaten": 0.25,
+    "drop_goal_missed": 0.65,
+    "drop_goals_converted": 0.75,
+    "metres": 0.1,
+    "missed_conversion_goals": 0.25,
+    "missed_tackles": 0.4,
+    "offload": 0.25,
+    "passes": 0.65,
+    "penalties_conceded": 0.35,
+    "red_cards": 0.9,
+    "rucks_lost": 0.65,
+    "rucks_won": 0.6,
+    "runs": 0.6,
+    "tackles": 0.65,
+    "tries": 0.1,
+    "try_assists": 0.2,
+    "turnovers_conceded": 0.3
+  },
+  "fantasy_diagnostics": [
+    {
+      "engine": "p3_event_50",
+      "mae": 6.363302752371196,
+      "mean_capture": 0.760601108375665,
+      "rubric": "ncr",
+      "slates": 7,
+      "spearman": 0.5806705711760898,
+      "split": "confirmation"
+    },
+    {
+      "engine": "p3_event_weighted",
+      "mae": 6.233901204216044,
+      "mean_capture": 0.7722992064252515,
+      "rubric": "ncr",
+      "slates": 7,
+      "spearman": 0.5920813429061911,
+      "split": "confirmation"
+    },
+    {
+      "engine": "p3_event_50",
+      "mae": 6.237447312532957,
+      "mean_capture": 0.7911905792318575,
+      "rubric": "six_nations",
+      "slates": 7,
+      "spearman": 0.6628449441645466,
+      "split": "confirmation"
+    },
+    {
+      "engine": "p3_event_weighted",
+      "mae": 6.121081897035859,
+      "mean_capture": 0.806544727451982,
+      "rubric": "six_nations",
+      "slates": 7,
+      "spearman": 0.6709431402221872,
+      "split": "confirmation"
+    },
+    {
+      "engine": "p3_event_50",
+      "mae": 5.9830197660849915,
+      "mean_capture": 0.7114266709196911,
+      "rubric": "ncr",
+      "slates": 63,
+      "spearman": 0.5401797123923042,
+      "split": "development"
+    },
+    {
+      "engine": "p3_event_weighted",
+      "mae": 5.855762450455628,
+      "mean_capture": 0.7224039959854295,
+      "rubric": "ncr",
+      "slates": 63,
+      "spearman": 0.5468812378484542,
+      "split": "development"
+    },
+    {
+      "engine": "p3_event_50",
+      "mae": 6.122401850549413,
+      "mean_capture": 0.7639594347843229,
+      "rubric": "six_nations",
+      "slates": 63,
+      "spearman": 0.6355409355885793,
+      "split": "development"
+    },
+    {
+      "engine": "p3_event_weighted",
+      "mae": 6.0052200033427505,
+      "mean_capture": 0.768005396765951,
+      "rubric": "six_nations",
+      "slates": 63,
+      "spearman": 0.6377318015502709,
+      "split": "development"
+    },
+    {
+      "engine": "p3_event_50",
+      "mae": 6.5516894838722175,
+      "mean_capture": 0.7247307036231019,
+      "rubric": "ncr",
+      "slates": 28,
+      "spearman": 0.5181530623999264,
+      "split": "selection"
+    },
+    {
+      "engine": "p3_event_weighted",
+      "mae": 6.453752002838704,
+      "mean_capture": 0.7320451004950984,
+      "rubric": "ncr",
+      "slates": 28,
+      "spearman": 0.5163058655207877,
+      "split": "selection"
+    },
+    {
+      "engine": "p3_event_50",
+      "mae": 6.633776200028081,
+      "mean_capture": 0.7744904462191602,
+      "rubric": "six_nations",
+      "slates": 28,
+      "spearman": 0.6050242930337807,
+      "split": "selection"
+    },
+    {
+      "engine": "p3_event_weighted",
+      "mae": 6.54898470137118,
+      "mean_capture": 0.7737164276301192,
+      "rubric": "six_nations",
+      "slates": 28,
+      "spearman": 0.6016214278023051,
+      "split": "selection"
+    },
+    {
+      "engine": "p3_event_50",
+      "mae": 6.172659898758929,
+      "mean_capture": 0.7187402829389494,
+      "rubric": "ncr",
+      "slates": 98,
+      "spearman": 0.5367435248840559,
+      "split": "all"
+    },
+    {
+      "engine": "p3_event_weighted",
+      "mae": 6.053626519262251,
+      "mean_capture": 0.7287225408767507,
+      "rubric": "ncr",
+      "slates": 98,
+      "spearman": 0.5413172204281399,
+      "split": "all"
+    },
+    {
+      "engine": "p3_event_50",
+      "mae": 6.276726340542144,
+      "mean_capture": 0.768913376940529,
+      "rubric": "six_nations",
+      "slates": 98,
+      "spearman": 0.6287024002122639,
+      "split": "all"
+    },
+    {
+      "engine": "p3_event_weighted",
+      "mae": 6.168857195186097,
+      "mean_capture": 0.7723899292047155,
+      "rubric": "six_nations",
+      "slates": 98,
+      "spearman": 0.629704883052955,
+      "split": "all"
+    }
+  ],
+  "objective": "fold-and-stable-target balanced relative raw-event loss",
+  "official_ncr_metrics": [
+    {
+      "engine": "p3_event_50",
+      "gw": 1.0,
+      "mae": 8.723393264584956,
+      "mean_capture": 0.596579688213538,
+      "n": 270,
+      "scope": "GW1",
+      "spearman": 0.555550826334042,
+      "top_100_capture": 0.742673107890499,
+      "top_100_overlap": 0.566666666666667,
+      "top_10_capture": 0.397283531409168,
+      "top_10_overlap": 0.1,
+      "top_25_capture": 0.571312803889789,
+      "top_25_overlap": 0.32,
+      "top_50_capture": 0.675049309664694,
+      "top_50_overlap": 0.424
+    },
+    {
+      "engine": "p3_event_50",
+      "gw": 2.0,
+      "mae": 8.548524453849526,
+      "mean_capture": 0.630497624142651,
+      "n": 262,
+      "scope": "GW2",
+      "spearman": 0.476675234836407,
+      "top_100_capture": 0.728768042967439,
+      "top_100_overlap": 0.565833333333333,
+      "top_10_capture": 0.470588235294118,
+      "top_10_overlap": 0.1,
+      "top_25_capture": 0.644155844155844,
+      "top_25_overlap": 0.2,
+      "top_50_capture": 0.678478374153205,
+      "top_50_overlap": 0.4
+    },
+    {
+      "engine": "p3_event_50",
+      "gw": 3.0,
+      "mae": 8.925451589772722,
+      "mean_capture": 0.638792710075156,
+      "n": 269,
+      "scope": "GW3",
+      "spearman": 0.547714173832509,
+      "top_100_capture": 0.78720668595307,
+      "top_100_overlap": 0.565714285714286,
+      "top_10_capture": 0.545132743362832,
+      "top_10_overlap": 0.2,
+      "top_25_capture": 0.58968058968059,
+      "top_25_overlap": 0.28,
+      "top_50_capture": 0.633150821304131,
+      "top_50_overlap": 0.41
+    },
+    {
+      "engine": "p3_event_weighted",
+      "gw": 1.0,
+      "mae": 8.602899105100875,
+      "mean_capture": 0.685586062424921,
+      "n": 270,
+      "scope": "GW1",
+      "spearman": 0.570468692777256,
+      "top_100_capture": 0.775845410628019,
+      "top_100_overlap": 0.606666666666667,
+      "top_10_capture": 0.636672325976231,
+      "top_10_overlap": 0.3,
+      "top_25_capture": 0.643435980551054,
+      "top_25_overlap": 0.386666666666667,
+      "top_50_capture": 0.686390532544379,
+      "top_50_overlap": 0.444
+    },
+    {
+      "engine": "p3_event_weighted",
+      "gw": 2.0,
+      "mae": 8.335995560299517,
+      "mean_capture": 0.694357025204532,
+      "n": 262,
+      "scope": "GW2",
+      "spearman": 0.515901194539886,
+      "top_100_capture": 0.738838536421618,
+      "top_100_overlap": 0.585833333333333,
+      "top_10_capture": 0.652100840336134,
+      "top_10_overlap": 0.2,
+      "top_25_capture": 0.665800865800866,
+      "top_25_overlap": 0.24,
+      "top_50_capture": 0.72068785825951,
+      "top_50_overlap": 0.42
+    },
+    {
+      "engine": "p3_event_weighted",
+      "gw": 3.0,
+      "mae": 8.708078353697127,
+      "mean_capture": 0.673088364409756,
+      "n": 269,
+      "scope": "GW3",
+      "spearman": 0.583768974863549,
+      "top_100_capture": 0.807778849244616,
+      "top_100_overlap": 0.604285714285714,
+      "top_10_capture": 0.561061946902655,
+      "top_10_overlap": 0.2,
+      "top_25_capture": 0.630630630630631,
+      "top_25_overlap": 0.36,
+      "top_50_capture": 0.692882030861125,
+      "top_50_overlap": 0.47
+    },
+    {
+      "engine": "p3_event_50",
+      "gw": null,
+      "mae": 8.732456436069066,
+      "mean_capture": 0.621956674143782,
+      "n": 801,
+      "scope": "GW1-3 mean",
+      "spearman": 0.526646745000986,
+      "top_100_capture": 0.752882612270336,
+      "top_100_overlap": 0.566071428571428,
+      "top_10_capture": 0.471001503355373,
+      "top_10_overlap": 0.133333333333333,
+      "top_25_capture": 0.601716412575408,
+      "top_25_overlap": 0.266666666666667,
+      "top_50_capture": 0.66222616837401,
+      "top_50_overlap": 0.411333333333333
+    },
+    {
+      "engine": "p3_event_weighted",
+      "gw": null,
+      "mae": 8.548991006365839,
+      "mean_capture": 0.684343817346403,
+      "n": 801,
+      "scope": "GW1-3 mean",
+      "spearman": 0.55671295406023,
+      "top_100_capture": 0.774154265431418,
+      "top_100_overlap": 0.598928571428571,
+      "top_10_capture": 0.616611704405007,
+      "top_10_overlap": 0.233333333333333,
+      "top_25_capture": 0.646622492327517,
+      "top_25_overlap": 0.328888888888889,
+      "top_50_capture": 0.699986807221671,
+      "top_50_overlap": 0.444666666666667
+    }
+  ],
+  "official_ncr_team_metrics": [
+    {
+      "captain": "Cheslin Kolbe",
+      "engine": "p3_event_50",
+      "gw": 1,
+      "super_sub": "Gianmarco Lucchesi",
+      "team_points": 430.0
+    },
+    {
+      "captain": "Cheslin Kolbe",
+      "engine": "p3_event_weighted",
+      "gw": 1,
+      "super_sub": "Gianmarco Lucchesi",
+      "team_points": 495.0
+    },
+    {
+      "captain": "Jac Morgan",
+      "engine": "p3_event_50",
+      "gw": 2,
+      "super_sub": "Gianmarco Lucchesi",
+      "team_points": 415.0
+    },
+    {
+      "captain": "Ardie Savea",
+      "engine": "p3_event_weighted",
+      "gw": 2,
+      "super_sub": "Tom Stewart",
+      "team_points": 509.0
+    },
+    {
+      "captain": "Jaco Williams",
+      "engine": "p3_event_50",
+      "gw": 3,
+      "super_sub": "James Botham",
+      "team_points": 446.0
+    },
+    {
+      "captain": "Matthieu Jalibert",
+      "engine": "p3_event_weighted",
+      "gw": 3,
+      "super_sub": "James Botham",
+      "team_points": 469.0
+    },
+    {
+      "captain": "Jac Morgan",
+      "engine": "ncr_incumbent",
+      "gw": 1,
+      "super_sub": "James Botham",
+      "team_points": 477.0
+    },
+    {
+      "captain": "Cam Roigard",
+      "engine": "ncr_incumbent",
+      "gw": 2,
+      "super_sub": "Gianmarco Lucchesi",
+      "team_points": 560.0
+    },
+    {
+      "captain": "Matthieu Jalibert",
+      "engine": "ncr_incumbent",
+      "gw": 3,
+      "super_sub": "Sean Jansen",
+      "team_points": 558.0
+    },
+    {
+      "captain": "",
+      "engine": "ncr_incumbent",
+      "gw": 0,
+      "super_sub": "",
+      "team_points": 1595.0
+    },
+    {
+      "captain": "",
+      "engine": "p3_event_50",
+      "gw": 0,
+      "super_sub": "",
+      "team_points": 1291.0
+    },
+    {
+      "captain": "",
+      "engine": "p3_event_weighted",
+      "gw": 0,
+      "super_sub": "",
+      "team_points": 1473.0
+    }
+  ],
+  "official_ncr_used_for_search": false,
+  "raw": [
+    {
+      "baseline_score": 0.8863318236338713,
+      "candidate_score": 0.8797031829143387,
+      "delta": -0.006628640719532619,
+      "delta_p05": -0.011939142613281007,
+      "delta_p95": -0.00205206745338195,
+      "folds": 13,
+      "split": "development"
+    },
+    {
+      "baseline_score": 0.8981532863797393,
+      "candidate_score": 0.8859191968353775,
+      "delta": -0.012234089544361892,
+      "delta_p05": -0.018967347483669805,
+      "delta_p95": -0.00731685790029844,
+      "folds": 6,
+      "split": "selection"
+    },
+    {
+      "baseline_score": 0.8523228702666327,
+      "candidate_score": 0.8425932967403303,
+      "delta": -0.009729573526302326,
+      "delta_p05": -0.009754497399105335,
+      "delta_p95": -0.009704649653499731,
+      "folds": 2,
+      "split": "confirmation"
+    },
+    {
+      "baseline_score": 0.886470436478668,
+      "candidate_score": 0.8779449120180634,
+      "delta": -0.008525524460604617,
+      "delta_p05": -0.012344173919559073,
+      "delta_p95": -0.005110643027092152,
+      "folds": 21,
+      "split": "all"
+    }
+  ],
+  "schema_version": 1,
+  "selection_years": [
+    2025
+  ]
+}

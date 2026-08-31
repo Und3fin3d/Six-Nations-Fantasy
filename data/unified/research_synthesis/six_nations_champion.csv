@@ -1,0 +1,6 @@
+model,scope,stable_score,folds,coverage,retained_finding
+champion_frozen,like_for_like_13,1.1144043542089876,2,13,Frozen control
+champion_final,like_for_like_13,1.0316847921946781,2,13,Calibration red-card revival and pooled minutes improved the limited path
+champion_final,full_24,0.9729099921302241,2,24,Coverage extension made the path scoreable on all stable targets
+v1,full_24,0.874193257200818,21,24,Historical raw benchmark reference
+p3_event_50,full_24,0.8575269774942014,21,24,Historical raw benchmark reference

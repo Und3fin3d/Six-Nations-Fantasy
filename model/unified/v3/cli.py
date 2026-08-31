@@ -107,7 +107,9 @@ def parser() -> argparse.ArgumentParser:
     p = sub.add_parser("shadow", help="freeze a write-once NCR shadow prediction")
     p.add_argument("--gw", type=int, required=True)
     p.add_argument(
-        "--engine", choices=("baseline", "gbdt_v3", "neural_v3", "blend_v3", "gbdt_v4"),
+        "--engine", choices=(
+            "baseline", "gbdt_v3", "neural_v3", "blend_v3", "gbdt_v4", "p3_event_50",
+        ),
         required=True,
     )
     p.add_argument("--model", type=Path, required=True)
@@ -117,7 +119,9 @@ def parser() -> argparse.ArgumentParser:
         "shadow-evaluate", help="apply the combined NCR GW4-GW7 promotion gates",
     )
     p.add_argument(
-        "--engine", choices=("baseline", "gbdt_v3", "neural_v3", "blend_v3", "gbdt_v4"),
+        "--engine", choices=(
+            "baseline", "gbdt_v3", "neural_v3", "blend_v3", "gbdt_v4", "p3_event_50",
+        ),
         required=True,
     )
     p.add_argument("--rounds", type=int, nargs="+", default=(4, 5, 6, 7))

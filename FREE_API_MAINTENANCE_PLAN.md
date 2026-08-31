@@ -1,21 +1,23 @@
 # Rugby data maintenance on the free API plan
 
-Updated: 2026-08-28
+Updated: 2026-08-30. Repository evidence is current through 2026-08-28.
 
 ## Current baseline
 
-The current paid plan reports a 2,500-call monthly limit. The final refresh left 2,470 calls.
+The repository is configured for the 250-call Basic plan. The committed
+`data/cache/refresh_run_2026-08-28.json` manifest records five calls and 224
+remaining after the 2026-08-28 refresh. This is dated evidence, not a live quota
+check. The current live quota is unverified.
 
-The current RapidAPI listing gives the Basic plan 250 requests each month. The Basic plan costs $0 per month.
-
-The local cache contains 3,362 match payloads. The cache includes all three July 2026 NCR rounds and nine later matches.
+The local cache contains 3,824 match payloads. The cache includes all three July
+2026 NCR rounds and the two match payloads added by the 2026-08-28 refresh.
 
 The main data stores now have this coverage:
 
 | Dataset | Current coverage |
 |---|---|
-| `data/ncr/ncr_player_match.csv` | 19,350 rows and 473 matches through 2026-08-25 |
-| `data/ncr/club_player_match.csv` | 132,204 rows and 2,869 matches through 2026-06-20 |
+| `data/ncr/ncr_player_match.csv` | 20,546 rows and 499 matches through 2026-08-25 |
+| `data/ncr/club_player_match.csv` | 152,214 rows and 3,304 matches through 2026-06-20 |
 | `data/intl_results.csv` | 433 team-side rows through 2026-07-18 |
 | `data/ncr/ncr_intl_results.csv` | 830 team-side rows through 2026-08-25 |
 | `data/ncr/feeds/players_gw3.json` | Complete GW3 fantasy points for 470 players |
@@ -53,9 +55,12 @@ Never call a match endpoint with raw `curl`, `requests`, or `urllib`. These call
 
 Stop every paid run when the remaining quota reaches 50. Do not assume that RapidAPI will prevent overage charges.
 
-## Active scheduled task
+## Planned scheduled task
 
-Codex runs `Refresh rugby data within free API quota` every Tuesday morning.
+`Refresh rugby data within free API quota` is planned for every Tuesday morning.
+The repository does not contain evidence that its first scheduled automation
+execution has completed. Treat that execution as unverified until a run manifest
+identifies it as a scheduled run.
 
 Each run can make no more than 40 live paid requests. The 40 requests include discovery and match calls.
 

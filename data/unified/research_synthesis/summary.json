@@ -1,0 +1,76 @@
+{
+  "schema_version": 1,
+  "purpose": "Preserve verified findings from superseded PRs without merging their research runners",
+  "sources": [
+    {
+      "pr": 3,
+      "head": "d17da20c2ace5e466496634a5013e47fd9c4dcbf",
+      "artifact": "data/unified/raw_benchmark/allrugby_sixnations/ledger.json",
+      "artifact_sha256": "bcd93fd486f181046ac2b30953cc1b5b6036608d098f59f51ed9084d95a9faf1",
+      "disposition": "findings_only"
+    },
+    {
+      "pr": 4,
+      "head": "b8e8adc80b9a1b34fd3f698b80b20e42a77d2df7",
+      "artifact": "data/unified/raw_benchmark/allrugby_p3/ledger.json",
+      "artifact_sha256": "c3b703b820561be5fb20e316a4cc7b09f7a955550366f28c358a6c333f14d405",
+      "weight_artifact": "data/unified/raw_benchmark/allrugby_p3/c5_weights.json",
+      "weight_artifact_sha256": "3c21072f3013f15a31efed8178e2a8ab9213007848a962aa2e072eafe176c5d0",
+      "disposition": "findings_only"
+    },
+    {
+      "pr": 5,
+      "head": "351299b738eb0beaa15b1a2f24851315f5c0ff04",
+      "artifact": "data/unified/raw_benchmark/allrugby_empirical/ledger.json",
+      "artifact_sha256": "c0e8fd98ce142324a8afe4143310aca693526422bc44c8df849ad3a897e1c089",
+      "disposition": "findings_only"
+    }
+  ],
+  "canonical_pr6": {
+    "head_before_synthesis": "40f726bf08f8d9f0d19f760aa806d6164b8e3141",
+    "hillclimb_summary_sha256": "c3295967f6e50963781858dd1ccea3bbb25d53196f380375f1306913e8f96bdf",
+    "checkpoint_summary_sha256": "c21022f299daceb2fdb1138af74aa7ab46a654a6fc00da422bd44d7d0356aeba",
+    "baseline_raw_score": 0.886470436478668,
+    "weighted_raw_score": 0.8779449120180634,
+    "official_ncr_used_for_hillclimb_search": false,
+    "weighted_ncr_gw1_3_team_points": 1473.0,
+    "ncr_incumbent_gw1_3_team_points": 1595.0,
+    "retrospective_checkpoint_team_points": 1630.0,
+    "checkpoint_selection_feedback_competition_specific": true,
+    "active_model_changed": false
+  },
+  "retained_findings": {
+    "p3_event_weights": {
+      "pr4_cross_fitted_score": 0.879365877687721,
+      "pr4_bootstrap_p05": -0.01112193588555492,
+      "pr4_bootstrap_p95": -0.0032506247561092786,
+      "pr4_used_2026_for_candidate_family_selection": true,
+      "weight_correlation_with_pr6": 0.9718543774697873,
+      "weight_mean_absolute_difference": 0.04041666666666666,
+      "conclusion": "Independent searches support event-specific P3 weights; PR6 supplies the sealed canonical implementation"
+    },
+    "empirical_engine": {
+      "baseline_score": 0.9390310419724062,
+      "best_exploratory_score": 0.9007539058740216,
+      "best_declared_incumbent_score": 0.9045378650892517,
+      "any_candidate_passed_original_v1_gate": false,
+      "conclusion": "Minutes shrinkage and player-history shrinkage are useful hypotheses, but no empirical candidate passed the original gate"
+    },
+    "six_nations_champion": {
+      "evaluation_folds": 2,
+      "south_cohort_evaluated": false,
+      "frozen_like_for_like_score": 1.1144043542089876,
+      "final_like_for_like_score": 1.0316847921946781,
+      "final_full_score": 0.9729099921302241,
+      "p3_full_reference_score": 0.8575269774942014,
+      "conclusion": "The champion diagnostics improved, but the path remained inferior and lacked competition coverage"
+    }
+  },
+  "deployment_boundary": {
+    "ncr_official": "NCR empirical incumbent",
+    "six_nations_official": "frozen Six Nations champion",
+    "prospective_shadow": "p3_event_50",
+    "prospective_gws": [4, 5, 6, 7],
+    "retune_on_prospective_gws": false
+  }
+}

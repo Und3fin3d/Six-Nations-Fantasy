@@ -273,3 +273,94 @@ def test_empirical_unpickles_artifacts_written_before_the_config_surface():
     restored.__setstate__(legacy)
     assert restored.config == BASE
     assert restored.minutes_weight == {}
+
+
+# --------------------------------------------------------------------------
+# phase-2 all-rugby search
+# --------------------------------------------------------------------------
+
+def test_simplex_grid_is_a_normalised_lattice():
+    from model.unified.raw_benchmark import allrugby_phase2 as P
+
+    grid = P.simplex_grid(3, 0.05)
+    assert grid.shape == (231, 3)
+    assert np.allclose(grid.sum(axis=1), 1.0)
+    assert (grid >= 0).all()
+    pair = P.pair_grid(0.005)
+    assert pair.shape == (201, 2)
+    assert np.allclose(pair.sum(axis=1), 1.0)
+
+
+@pytest.mark.parametrize(
+    "target", ["minutes", "tries", "metres", "yellow_cards", "tackles"],
+)
+def test_row_losses_average_to_the_frozen_target_loss(target):
+    """Group weights are only separable because every loss is a row mean."""
+    from model.unified.raw_benchmark import allrugby_phase2 as P
+    from model.unified.raw_benchmark.metrics import target_loss
+
+    rng = np.random.default_rng(17)
+    actual = rng.integers(0, 4, 64).astype(float)
+    predicted = rng.uniform(0.05, 3.0, 64)
+    rows = P.row_losses(target, actual, predicted)
+    assert rows.shape == (64,)
+    assert float(np.mean(rows)) == pytest.approx(target_loss(target, actual, predicted))
+
+
+def test_row_losses_broadcast_over_a_weight_grid():
+    from model.unified.raw_benchmark import allrugby_phase2 as P
+    from model.unified.raw_benchmark.metrics import target_loss
+
+    rng = np.random.default_rng(3)
+    actual = rng.integers(0, 3, 40).astype(float)
+    grid = rng.uniform(0.1, 2.0, (40, 5))
+    rows = P.row_losses("tries", actual, grid)
+    assert rows.shape == (40, 5)
+    for column in range(5):
+        assert float(np.mean(rows[:, column])) == pytest.approx(
+            target_loss("tries", actual, grid[:, column])
+        )
+
+
+def test_extended_events_keep_the_frozen_split_across_component_counts():
+    from model.unified.raw_benchmark.allrugby_phase2_run import _extended_weights
+
+    assert list(_extended_weights(("v4", "empirical"))) == [0.5, 0.5]
+    assert list(_extended_weights(("v4", "empirical", "empirical_t3"))) == [0.5, 0.25, 0.25]
+    # The stratum-mean comparator never contributes to an unfitted extended event.
+    assert list(_extended_weights(("v4", "empirical", "naive"))) == [0.5, 0.5, 0.0]
+
+
+def test_phase2_blend_of_identical_components_is_the_component():
+    from model.unified.raw_benchmark import allrugby_phase2_rubric as R
+
+    prediction = RawPrediction(
+        fixture_id="f", player_id="p", player_name="Player", team="A", opponent="B",
+        position="Wing", is_forward=False,
+        events={"tries": EventDistribution("negative_binomial", 0.4, 2.0)},
+        minutes=EventDistribution("lognormal", 70.0, 25.0),
+    )
+    loaded = {"left": [prediction], "right": [prediction]}
+    blended = R.blend_predictions(
+        loaded, ("left", "right"), lambda target: np.array([0.3, 0.7]),
+    )
+    assert blended[0].events["tries"].mean == pytest.approx(0.4)
+    assert blended[0].minutes.mean == pytest.approx(70.0)
+
+
+def test_phase2_blend_renormalises_when_a_component_lacks_an_event():
+    from model.unified.raw_benchmark import allrugby_phase2_rubric as R
+
+    def make(mean, events=True):
+        return RawPrediction(
+            fixture_id="f", player_id="p", player_name="Player", team="A",
+            opponent="B", position="Wing", is_forward=False,
+            events={"tries": EventDistribution("negative_binomial", mean, 2.0)} if events else {},
+            minutes=EventDistribution("lognormal", 70.0, 25.0),
+        )
+
+    loaded = {"left": [make(0.2)], "right": [make(0.0, events=False)]}
+    blended = R.blend_predictions(
+        loaded, ("left", "right"), lambda target: np.array([0.25, 0.75]),
+    )
+    assert blended[0].events["tries"].mean == pytest.approx(0.2)

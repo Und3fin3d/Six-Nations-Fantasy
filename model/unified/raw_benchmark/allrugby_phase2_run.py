@@ -426,3 +426,92 @@ def run_group_candidate(
         },
         "fits": fits, "seconds": round(time.time() - started, 1),
     }
+
+
+# --------------------------------------------------------------------------
+# stage-2 calibration on top of an accepted candidate
+# --------------------------------------------------------------------------
+
+def run_calibration_candidate(
+    name: str, hypothesis: str, components: tuple[str, ...], points: np.ndarray,
+    fitter, *, caches, incumbent, incumbent_indices, frozen_extended,
+) -> dict:
+    """Per-target multiplicative scale fitted on top of the blend weights.
+
+    The blend mixes two calibrated-ish engines, but the mixture of two means is
+    not itself unbiased under a Poisson deviance; phase 1 saw the frozen P3
+    carry a systematic scale bias that affine recalibration removed. One scalar
+    per target is the smallest correction for that, and it is orthogonal to the
+    blend weight. Both stages are cross-fitted inside the same outer loop.
+    """
+    started = time.time()
+    table = P.build_multi_table(caches, components, points)
+    all_folds = np.arange(len(table.folds))
+    deployed_weights, hyperparameter = _as_pair(fitter(table, all_folds))
+    deployed_scales = P.fit_calibration(caches, components, table, deployed_weights, all_folds)
+    candidate_all, per_fold_scales = [], []
+    for index in range(len(table.folds)):
+        train = np.delete(all_folds, index)
+        weights, _ = _as_pair(fitter(table, train))
+        scales = P.fit_calibration(caches, components, table, weights, train)
+        per_fold_scales.append(scales.tolist())
+        candidate_all.append(P.calibrated_fold_score(
+            caches[index], components, table, weights, scales,
+        ))
+        print(f"  calibrated fold {table.folds[index]}", flush=True)
+    candidate_all = np.array(candidate_all)
+    reasons = []
+    score, base = float(np.mean(candidate_all)), float(np.mean(incumbent["all"]))
+    if not score < base:
+        reasons.append(f"(a) stable_score {score:.6f} did not improve on {base:.6f}")
+    boot = P.bootstrap(candidate_all - incumbent["all"])
+    if not (boot["p05"] < 0 and boot["p95"] < 0):
+        reasons.append(f"(b) bootstrap CI [{boot['p05']:.6f}, {boot['p95']:.6f}] includes 0")
+    families = _tournament_frame(table, incumbent["all"], candidate_all)
+    bad = families[families["pct"] > 2.0]["tournament"].tolist()
+    if bad:
+        reasons.append(f"(d) tournament-family regression >2%: {', '.join(bad)}")
+    extended_reasons, extended_values = extended_check(
+        caches, components, _extended_weights(components), frozen_extended,
+    )
+    reasons += extended_reasons
+    train = np.arange(TEMPORAL_SPLIT)
+    held = np.arange(TEMPORAL_SPLIT, len(table.folds))
+    weights, _ = _as_pair(fitter(table, train))
+    scales = P.fit_calibration(caches, components, table, weights, train)
+    temporal_scores = np.array([
+        P.calibrated_fold_score(caches[index], components, table, weights, scales)
+        for index in held
+    ])
+    temporal_base = incumbent["all"][held]
+    temporal = {
+        "candidate": float(np.mean(temporal_scores)),
+        "baseline": float(np.mean(temporal_base)),
+        "delta": float(np.mean(temporal_scores - temporal_base)),
+        "bootstrap": P.bootstrap(temporal_scores - temporal_base),
+    }
+    if not (temporal["delta"] < 0):
+        reasons.append(f"(f) temporal split delta {temporal['delta']:+.6f} is not an improvement")
+    return {
+        "candidate": name, "hypothesis": hypothesis, "components": list(components),
+        "n_points": int(len(points)), "hyperparameter": hyperparameter,
+        "accepted": not reasons, "reasons": reasons,
+        "stable_score": score, "incumbent_score": base,
+        "delta_vs_incumbent": score - base, "delta_vs_frozen": score - FROZEN,
+        "bootstrap": boot, "families": families.to_dict("records"),
+        "temporal": temporal, "extended": extended_values,
+        "deployed_weights": {
+            target: table.points[deployed_weights[position]].tolist()
+            for position, target in enumerate(table.targets)
+        },
+        "deployed_scales": dict(zip(table.targets, deployed_scales.tolist())),
+        "per_fold": {
+            "folds": list(table.folds), "candidate": candidate_all.tolist(),
+            "incumbent": incumbent["all"].tolist(), "scales": per_fold_scales,
+        },
+        "seconds": round(time.time() - started, 1),
+    }
+
+
+def _as_pair(fitted):
+    return fitted if isinstance(fitted, tuple) else (fitted, None)

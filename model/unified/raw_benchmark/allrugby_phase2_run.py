@@ -219,6 +219,9 @@ def build_incumbent(caches):
         "c5_expected": C5_INCUMBENT,
         "c5_abs_difference": abs(float(np.mean(c5["all"])) - C5_INCUMBENT),
         "n_folds": len(table.folds),
+        "frozen_per_fold": frozen["all"].tolist(),
+        "c5_per_fold": c5["all"].tolist(),
+        "c5_fits": c5_fits,
     }
     frozen_extended = extended_check(
         caches, BASE_PAIR, np.array([0.5, 0.5]), {},
@@ -304,7 +307,11 @@ def main(names: tuple[str, ...] | None = None) -> None:
     (table, frozen, frozen_indices, c5, c5_indices, c5_fits,
      control, frozen_extended) = build_incumbent(caches)
     (WORK / "control.json").write_text(json.dumps(control, indent=2) + "\n")
-    print(json.dumps(control, indent=2), flush=True)
+    print(json.dumps(
+        {key: value for key, value in control.items()
+         if not key.endswith(("per_fold", "fits"))},
+        indent=2,
+    ), flush=True)
 
     results = []
     if (WORK / "results.json").exists():

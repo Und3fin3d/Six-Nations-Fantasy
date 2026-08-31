@@ -1,0 +1,17 @@
+{
+  "calibrate_events": null,
+  "calibration_clip": [
+    0.1,
+    10.0
+  ],
+  "calibration_shrinkage": 1.0,
+  "dead_head_fallback": "rate_minutes",
+  "extra_head_shrinkage": 240.0,
+  "extra_heads": "none",
+  "level_calibration": "global",
+  "minutes_blend": 0.25,
+  "name": "c14_minutes_blend025",
+  "revive_events": [
+    "red_cards"
+  ]
+}

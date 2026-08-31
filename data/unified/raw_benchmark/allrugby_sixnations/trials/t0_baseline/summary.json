@@ -1,0 +1,89 @@
+{
+  "by_fold_full": {
+    "six_nations_2025": 0.9452267966271166,
+    "six_nations_2026": 1.2835819117908587
+  },
+  "by_fold_shared": {
+    "six_nations_2025": 0.9452267966271166,
+    "six_nations_2026": 1.2835819117908587
+  },
+  "cohorts": {
+    "north": 1.1144043542089876,
+    "south": NaN
+  },
+  "config": {
+    "calibrate_events": null,
+    "calibration_clip": [
+      0.1,
+      10.0
+    ],
+    "calibration_shrinkage": 1.0,
+    "dead_head_fallback": "none",
+    "extra_head_shrinkage": 240.0,
+    "extra_heads": "none",
+    "level_calibration": "none",
+    "minutes_blend": 0.0,
+    "name": "t0_baseline"
+  },
+  "coverage": 13,
+  "covered_targets": [
+    "conversion_goals",
+    "defenders_beaten",
+    "drop_goals_converted",
+    "metres",
+    "minutes",
+    "offload",
+    "penalties_conceded",
+    "penalty_goals",
+    "red_cards",
+    "tackles",
+    "tries",
+    "try_assists",
+    "yellow_cards"
+  ],
+  "folds": 2,
+  "full_stable_score": 1.1144043542089876,
+  "name": "t0_baseline",
+  "partial_stable_score": 1.1144043542089876,
+  "per_target": {
+    "conversion_goals": 0.46102992231531903,
+    "defenders_beaten": 0.9636360415913792,
+    "drop_goals_converted": 2.320185758235676,
+    "metres": 0.7615810079241523,
+    "minutes": 1.0609212632200933,
+    "offload": 1.1112203669158345,
+    "penalties_conceded": 1.1075232159291561,
+    "penalty_goals": 0.6653606787080207,
+    "red_cards": 1.834093389664036,
+    "tackles": 0.9282902555126865,
+    "tries": 1.1166079856625082,
+    "try_assists": 1.1253206584400117,
+    "yellow_cards": 1.0314860605979652
+  },
+  "rubric_mae": {
+    "six_nations": {
+      "mae": 6.13611760588322,
+      "mean_capture": 0.8013497647554569,
+      "slates": 10,
+      "spearman": 0.6571288760570828
+    }
+  },
+  "shared_targets": [
+    "minutes",
+    "tries",
+    "tackles",
+    "metres",
+    "try_assists",
+    "conversion_goals",
+    "penalty_goals",
+    "drop_goals_converted",
+    "defenders_beaten",
+    "offload",
+    "penalties_conceded",
+    "yellow_cards",
+    "red_cards"
+  ],
+  "tournaments": {
+    "six_nations": 1.1144043542089876
+  }
+}

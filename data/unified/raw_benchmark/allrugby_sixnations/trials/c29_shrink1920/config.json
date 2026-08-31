@@ -1,0 +1,17 @@
+{
+  "calibrate_events": null,
+  "calibration_clip": [
+    0.1,
+    10.0
+  ],
+  "calibration_shrinkage": 1.0,
+  "dead_head_fallback": "rate_minutes",
+  "extra_head_shrinkage": 1920.0,
+  "extra_heads": "rate_minutes",
+  "level_calibration": "global",
+  "minutes_blend": 1.0,
+  "name": "c29_shrink1920",
+  "revive_events": [
+    "red_cards"
+  ]
+}

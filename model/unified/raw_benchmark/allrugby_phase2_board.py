@@ -53,8 +53,44 @@ def one_hot(components: tuple[str, ...], component: str) -> list[float]:
     return [1.0 if name == component else 0.0 for name in components]
 
 
-def build(components: tuple[str, ...], rules: dict[str, callable], out_prefix: str):
-    rankings, points = R.collect(components, rules)
+def collect_shard(
+    components: tuple[str, ...], rules: dict[str, callable], out_prefix: str,
+    fold_labels: tuple[str, ...],
+) -> None:
+    """Score one slice of folds and park the raw rows for a later merge.
+
+    Scoring every engine on every fold is the slowest step in the pipeline and
+    the folds are independent, so it is sharded across processes.
+    """
+    rankings, points = R.collect(components, rules, fold_labels)
+    shard = WORK / "shards"
+    shard.mkdir(parents=True, exist_ok=True)
+    key = "-".join(sorted(fold_labels))[:60]
+    rankings.to_csv(shard / f"{out_prefix}_rankings_{key}.csv", index=False)
+    points.to_csv(shard / f"{out_prefix}_points_{key}.csv", index=False)
+
+
+def merge_shards(out_prefix: str) -> tuple[pd.DataFrame, pd.DataFrame]:
+    shard = WORK / "shards"
+    rankings = pd.concat(
+        [pd.read_csv(path) for path in sorted(shard.glob(f"{out_prefix}_rankings_*.csv"))],
+        ignore_index=True, sort=False,
+    )
+    points = pd.concat(
+        [pd.read_csv(path) for path in sorted(shard.glob(f"{out_prefix}_points_*.csv"))],
+        ignore_index=True, sort=False,
+    )
+    return rankings, points
+
+
+def build(
+    components: tuple[str, ...], rules: dict[str, callable], out_prefix: str,
+    *, from_shards: bool = False,
+):
+    if from_shards:
+        rankings, points = merge_shards(out_prefix)
+    else:
+        rankings, points = R.collect(components, rules)
     WORK.mkdir(parents=True, exist_ok=True)
     rankings.to_csv(WORK / f"{out_prefix}_rankings.csv", index=False)
     overall = R.summarise(rankings)

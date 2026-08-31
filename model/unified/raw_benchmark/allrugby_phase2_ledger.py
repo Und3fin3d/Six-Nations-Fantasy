@@ -103,7 +103,43 @@ def render() -> str:
             families["pct"] = families["pct"].round(4)
             lines += ["Per tournament family (candidate vs incumbent, % change):", "",
                       families.to_markdown(index=False), ""]
+
+    accepted = [result for result in results if result["accepted"]]
+    if accepted:
+        best = min(accepted, key=lambda result: result["stable_score"])
+        lines += _incumbent_section(best)
     return "\n".join(lines) + "\n"
+
+
+def _incumbent_section(best: dict) -> list[str]:
+    lines = [
+        f"## Phase-2 incumbent: `{best['candidate']}`",
+        "",
+        f"- Cross-fitted stable score **{best['stable_score']:.6f}** vs C5 "
+        f"{C5_INCUMBENT:.6f} and frozen P3 {FROZEN:.6f}",
+        f"- Improvement **{100.0 * -best['delta_vs_frozen'] / FROZEN:.3f}%** on the frozen "
+        f"blend, **{100.0 * -best['delta_vs_incumbent'] / C5_INCUMBENT:.3f}%** on C5",
+        f"- Paired-by-fold bootstrap vs C5: mean {best['bootstrap']['mean']:+.6f}, "
+        f"90% CI [{best['bootstrap']['p05']:+.6f}, {best['bootstrap']['p95']:+.6f}]",
+        f"- Temporal split: Δ {best['temporal']['delta']:+.6f}, CI "
+        f"[{best['temporal']['bootstrap']['p05']:+.6f}, "
+        f"{best['temporal']['bootstrap']['p95']:+.6f}]",
+        "",
+    ]
+    weights = pd.DataFrame([
+        {"target": target, **dict(zip(best["components"], [round(v, 4) for v in vector]))}
+        for target, vector in best["deployed_weights"].items()
+    ])
+    if best.get("deployed_scales"):
+        weights["scale"] = weights["target"].map(
+            {k: round(v, 4) for k, v in best["deployed_scales"].items()}
+        )
+    sort_key = "naive" if "naive" in weights else best["components"][0]
+    lines += [
+        "Deployed weights (all-folds fit; the headline number is cross-fitted):", "",
+        weights.sort_values(sort_key).to_markdown(index=False), "",
+    ]
+    return lines
 
 
 if __name__ == "__main__":

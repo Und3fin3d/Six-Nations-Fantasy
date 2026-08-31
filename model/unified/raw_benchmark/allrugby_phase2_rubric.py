@@ -95,11 +95,15 @@ def _combine(parts, target: str, weights, scale: float) -> EventDistribution:
 
 def collect(
     components: tuple[str, ...], rule_for: dict[str, callable],
+    fold_labels: tuple[str, ...] | None = None,
 ) -> tuple[pd.DataFrame, pd.DataFrame]:
     """``rule_for[name](fold_label) -> (weight_for, scale_for or None)``."""
     store = A._store()
     rank_frames, point_frames = [], []
+    wanted = set(fold_labels) if fold_labels else None
     for fold in build_folds(store):
+        if wanted is not None and fold.label not in wanted:
+            continue
         evaluation, naive = A.evaluation_context(store, fold)
         loaded = {
             component: A.read_predictions(A._component_path(fold.label, component))

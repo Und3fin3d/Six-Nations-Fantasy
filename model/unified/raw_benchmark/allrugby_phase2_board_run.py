@@ -71,7 +71,7 @@ def _calibrated_rule(result: dict, base: dict):
     return factory
 
 
-def main() -> None:
+def build_rules() -> dict:
     results = json.loads((P.WORK / "results.json").read_text())
     by_name = {entry["candidate"]: entry for entry in results}
     # Row-group candidates carry one weight vector per (target, group); the board
@@ -121,7 +121,15 @@ def main() -> None:
             continue
         rules[f"{entry['candidate']}_phase2"] = _calibrated_rule(entry, base)
 
-    overall, by_tournament = B.build(UNION, rules, "board")
+    return rules
+
+
+def main(argv: list[str]) -> None:
+    rules = build_rules()
+    if argv and argv[0] == "shard":
+        B.collect_shard(UNION, rules, "board", tuple(argv[1:]))
+        return
+    overall, by_tournament = B.build(UNION, rules, "board", from_shards=True)
     print(overall.to_string(index=False))
     print()
     print(by_tournament.to_string(index=False))
@@ -132,4 +140,6 @@ def main() -> None:
 
 
 if __name__ == "__main__":
-    main()
+    import sys
+
+    main(sys.argv[1:])

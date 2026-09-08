@@ -2,6 +2,15 @@ name: RugbyPass refresh
 
 on:
   workflow_dispatch:
+    inputs:
+      refresh_scope:
+        description: Profiles to refresh
+        required: true
+        default: incremental
+        type: choice
+        options:
+          - incremental
+          - full
 
 permissions:
   contents: write
@@ -14,7 +23,7 @@ concurrency:
 jobs:
   refresh:
     runs-on: ubuntu-latest
-    timeout-minutes: 45
+    timeout-minutes: 120
 
     steps:
       - uses: actions/checkout@v5
@@ -38,7 +47,12 @@ jobs:
           PY
 
       - name: Refresh unmatched RugbyPass players
+        if: inputs.refresh_scope != 'full'
         run: python -u rugbypass_backfill.py --delay 0.6
+
+      - name: Refresh all stored RugbyPass players
+        if: inputs.refresh_scope == 'full'
+        run: python -u rugbypass_backfill.py --refresh-existing --delay 0.8
 
       - name: Rebuild RugbyPass tables
         run: python build_rugbypass_tables.py
@@ -77,11 +91,12 @@ jobs:
           git config user.name "github-actions[bot]"
           git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
           git switch -c "$branch"
-          git add players/rugbypass_*.json data/rp_bio.csv data/rp_compstats.csv data/rp_matchlog.csv
+          git add players/rugbypass_*.json data/rugbypass_refresh_*.json data/rp_bio.csv data/rp_compstats.csv data/rp_matchlog.csv
           git commit -m "Refresh RugbyPass data"
           git push origin "$branch"
           gh pr create \
             --base main \
             --head "$branch" \
             --title "Refresh RugbyPass data" \
-            --body "Incremental free-source RugbyPass refresh. Existing player snapshots were not forced. The workflow rebuilt and validated the RugbyPass tables."
+            --body "Free-source RugbyPass refresh. The workflow rebuilt and validated the RugbyPass tables." \
+            || echo "The data branch was pushed. Repository policy requires an authenticated client to create the pull request."

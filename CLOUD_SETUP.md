@@ -37,6 +37,11 @@ the backfill completes. Commit new `players/rugbypass_*.json` files and the
 rebuilt `data/rp_bio.csv`, `data/rp_compstats.csv`, and `data/rp_matchlog.csv`
 tables in a separate pull request when the data diff is large.
 
+Use `python rugbypass_backfill.py --refresh-existing` for a periodic full
+RugbyPass refresh. This mode requests every stored player profile. It keeps the
+previous nonempty section when RugbyPass returns an empty replacement. It also
+writes a dated refresh manifest. Do not run the full mode every week.
+
 ## Validation
 
 ```bash

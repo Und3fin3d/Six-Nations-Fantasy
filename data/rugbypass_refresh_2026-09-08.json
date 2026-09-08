@@ -1,0 +1,5272 @@
+{
+  "created_at_utc": "2026-09-08T21:11:14.637095+00:00",
+  "source": "RugbyPass player profiles",
+  "mode": "full_existing_profile_refresh",
+  "total_profiles": 1050,
+  "changed_profiles": 882,
+  "unchanged_profiles": 167,
+  "failed_profiles_kept": 1,
+  "retained_nonempty_sections": {
+    "bio": 0,
+    "competition_stats": 3,
+    "match_log": 0
+  },
+  "results": [
+    {
+      "slug": "aaron-grandidier-nkanang",
+      "status": "changed",
+      "retained_fields": []
+    },
+    {
+      "slug": "aaron-smith",
+      "status": "changed",
+      "retained_fields": []
+    },
+    {
+      "slug": "aaron-wainwright",
+      "status": "changed",
+      "retained_fields": []
+    },
+    {
+      "slug": "adam-beard",
+      "status": "changed",
+      "retained_fields": []
+    },
+    {
+      "slug": "adam-hastings",
+      "status": "changed",
+      "retained_fields": []
+    },
+    {
+      "slug": "adrea-cocagi",
+      "status": "changed",
+      "retained_fields": []
+    },
+    {
+      "slug": "agustin-creevy",
+      "status": "changed",
+      "retained_fields": []
+    },
+    {
+      "slug": "agustin-fraga",
+      "status": "unchanged",
+      "retained_fields": []
+    },
+    {
+      "slug": "agustin-moyano",
+      "status": "changed",
+      "retained_fields": []
+    },
+    {
+      "slug": "agustin-sarelli",
+      "status": "changed",
+      "retained_fields": []
+    },
+    {
+      "slug": "aidan-ross",
+      "status": "changed",
+      "retained_fields": []
+    },
+    {
+      "slug": "akito-okui",
+      "status": "unchanged",
+      "retained_fields": []
+    },
+    {
+      "slug": "albert-tuisue",
+      "status": "changed",
+      "retained_fields": []
+    },
+    {
+      "slug": "alec-hepburn",
+      "status": "changed",
+      "retained_fields": []
+    },
+    {
+      "slug": "alessandro-fusco",
+      "status": "changed",
+      "retained_fields": []
+    },
+    {
+      "slug": "alessandro-garbisi",
+      "status": "changed",
+      "retained_fields": []
+    },
+    {
+      "slug": "alessandro-izekor",
+      "status": "changed",
+      "retained_fields": []
+    },
+    {
+      "slug": "alessandro-ortombina",
+      "status": "changed",
+      "retained_fields": []
+    },
+    {
+      "slug": "alex-coles",
+      "status": "changed",
+      "retained_fields": []
+    },
+    {
+      "slug": "alex-craig",
+      "status": "changed",
+      "retained_fields": []
+    },
+    {
+      "slug": "alex-cuthbert",
+      "status": "changed",
+      "retained_fields": []
+    },
+    {
+      "slug": "alex-dombrandt",
+      "status": "changed",
+      "retained_fields": []
+    },
+    {
+      "slug": "alex-hodgman",
+      "status": "changed",
+      "retained_fields": []
+    },
+    {
+      "slug": "alex-kendellen",
+      "status": "changed",
+      "retained_fields": []
+    },
+    {
+      "slug": "alex-mann",
+      "status": "changed",
+      "retained_fields": []
+    },
+    {
+      "slug": "alex-masibaka",
+      "status": "changed",
+      "retained_fields": []
+    },
+    {
+      "slug": "alex-mitchell",
+      "status": "changed",
+      "retained_fields": []
+    },
+    {
+      "slug": "alex-samuel",
+      "status": "changed",
+      "retained_fields": []
+    },
+    {
+      "slug": "alexandre-fischer",
+      "status": "changed",
+      "retained_fields": []
+    },
+    {
+      "slug": "alexandre-roumat",
+      "status": "changed",
+      "retained_fields": []
+    },
+    {
+      "slug": "ali-price",
+      "status": "changed",
+      "retained_fields": []
+    },
+    {
+      "slug": "allan-alaalatoa",
+      "status": "changed",
+      "retained_fields": []
+    },
+    {
+      "slug": "allan-dell",
+      "status": "unchanged",
+      "retained_fields": []
+    },
+    {
+      "slug": "alun-wyn-jones",
+      "status": "changed",
+      "retained_fields": []
+    },
+    {
+      "slug": "amanaki-saumaki",
+      "status": "unchanged",
+      "retained_fields": []
+    },
+    {
+      "slug": "amato-fakatava",
+      "status": "unchanged",
+      "retained_fields": []
+    },
+    {
+      "slug": "andre-esterhuizen",
+      "status": "changed",
+      "retained_fields": []
+    },
+    {
+      "slug": "andre-hugo-venter",
+      "status": "changed",
+      "retained_fields": []
+    },
+    {
+      "slug": "andrea-lovotti",
+      "status": "unchanged",
+      "retained_fields": []
+    },
+    {
+      "slug": "andrea-zambonin",
+      "status": "changed",
+      "retained_fields": []
+    },
+    {
+      "slug": "andrew-conway",
+      "status": "unchanged",
+      "retained_fields": []
+    },
+    {
+      "slug": "andrew-kellaway",
+      "status": "unchanged",
+      "retained_fields": []
+    },
+    {
+      "slug": "andrew-porter",
+      "status": "changed",
+      "retained_fields": []
+    },
+    {
+      "slug": "andy-christie",
+      "status": "changed",
+      "retained_fields": []
+    },
+    {
+      "slug": "ange-capuozzo",
+      "status": "changed",
+      "retained_fields": []
+    },
+    {
+      "slug": "angus-bell",
+      "status": "changed",
+      "retained_fields": []
+    },
+    {
+      "slug": "angus-blyth",
+      "status": "unchanged",
+      "retained_fields": []
+    },
+    {
+      "slug": "anthony-bouthier",
+      "status": "unchanged",
+      "retained_fields": []
+    },
+    {
+      "slug": "anthony-jelonch",
+      "status": "changed",
+      "retained_fields": []
+    },
+    {
+      "slug": "anthony-watson",
+      "status": "changed",
+      "retained_fields": []
+    },
+    {
+      "slug": "antoine-dupont",
+      "status": "changed",
+      "retained_fields": []
+    },
+    {
+      "slug": "antoine-frisch",
+      "status": "changed",
+      "retained_fields": []
+    },
+    {
+      "slug": "antoine-hastoy",
+      "status": "changed",
+      "retained_fields": []
+    },
+    {
+      "slug": "anton-lienert-brown",
+      "status": "changed",
+      "retained_fields": []
+    },
+    {
+      "slug": "anton-segner",
+      "status": "changed",
+      "retained_fields": []
+    },
+    {
+      "slug": "aphelele-fassi",
+      "status": "changed",
+      "retained_fields": []
+    },
+    {
+      "slug": "apisalome-vota",
+      "status": "unchanged",
+      "retained_fields": []
+    },
+    {
+      "slug": "archie-griffin",
+      "status": "changed",
+      "retained_fields": []
+    },
+    {
+      "slug": "ardie-savea",
+      "status": "changed",
+      "retained_fields": []
+    },
+    {
+      "slug": "arron-reed",
+      "status": "changed",
+      "retained_fields": []
+    },
+    {
+      "slug": "arthur-clark",
+      "status": "changed",
+      "retained_fields": []
+    },
+    {
+      "slug": "arthur-vincent",
+      "status": "changed",
+      "retained_fields": []
+    },
+    {
+      "slug": "asaeli-ai-valu",
+      "status": "unchanged",
+      "retained_fields": []
+    },
+    {
+      "slug": "asafo-aumua",
+      "status": "changed",
+      "retained_fields": []
+    },
+    {
+      "slug": "asenathi-ntlabakanye",
+      "status": "changed",
+      "retained_fields": []
+    },
+    {
+      "slug": "atsushi-sakate",
+      "status": "changed",
+      "retained_fields": []
+    },
+    {
+      "slug": "atunaisa-sokobale",
+      "status": "unchanged",
+      "retained_fields": []
+    },
+    {
+      "slug": "baptiste-couilloud",
+      "status": "changed",
+      "retained_fields": []
+    },
+    {
+      "slug": "baptiste-erdocio",
+      "status": "changed",
+      "retained_fields": []
+    },
+    {
+      "slug": "baptiste-jauneau",
+      "status": "changed",
+      "retained_fields": []
+    },
+    {
+      "slug": "baptiste-pesenti",
+      "status": "changed",
+      "retained_fields": []
+    },
+    {
+      "slug": "baptiste-serin",
+      "status": "changed",
+      "retained_fields": []
+    },
+    {
+      "slug": "barnabe-massa",
+      "status": "changed",
+      "retained_fields": []
+    },
+    {
+      "slug": "bastien-chalureau",
+      "status": "changed",
+      "retained_fields": []
+    },
+    {
+      "slug": "bastien-vergnes-taillefer",
+      "status": "changed",
+      "retained_fields": []
+    },
+    {
+      "slug": "bautista-bernasconi",
+      "status": "changed",
+      "retained_fields": []
+    },
+    {
+      "slug": "bautista-delguy",
+      "status": "changed",
+      "retained_fields": []
+    },
+    {
+      "slug": "beauden-barrett",
+      "status": "changed",
+      "retained_fields": []
+    },
+    {
+      "slug": "ben-carter",
+      "status": "changed",
+      "retained_fields": []
+    },
+    {
+      "slug": "ben-curry",
+      "status": "changed",
+      "retained_fields": []
+    },
+    {
+      "slug": "ben-donaldson",
+      "status": "changed",
+      "retained_fields": []
+    },
+    {
+      "slug": "ben-earl",
+      "status": "changed",
+      "retained_fields": []
+    },
+    {
+      "slug": "ben-gunter",
+      "status": "changed",
+      "retained_fields": []
+    },
+    {
+      "slug": "ben-healy",
+      "status": "changed",
+      "retained_fields": []
+    },
+    {
+      "slug": "ben-jason-dixon",
+      "status": "changed",
+      "retained_fields": []
+    },
+    {
+      "slug": "ben-muncaster",
+      "status": "changed",
+      "retained_fields": []
+    },
+    {
+      "slug": "ben-murphy",
+      "status": "unchanged",
+      "retained_fields": []
+    },
+    {
+      "slug": "ben-spencer",
+      "status": "changed",
+      "retained_fields": []
+    },
+    {
+      "slug": "ben-thomas",
+      "status": "changed",
+      "retained_fields": []
+    },
+    {
+      "slug": "ben-vellacott",
+      "status": "unchanged",
+      "retained_fields": []
+    },
+    {
+      "slug": "ben-volavola",
+      "status": "changed",
+      "retained_fields": []
+    },
+    {
+      "slug": "ben-warren",
+      "status": "changed",
+      "retained_fields": []
+    },
+    {
+      "slug": "ben-white",
+      "status": "changed",
+      "retained_fields": []
+    },
+    {
+      "slug": "ben-youngs",
+      "status": "changed",
+      "retained_fields": []
+    },
+    {
+      "slug": "benhard-janse-van-rensburg",
+      "status": "changed",
+      "retained_fields": []
+    },
+    {
+      "slug": "benjamin-elizalde",
+      "status": "changed",
+      "retained_fields": []
+    },
+    {
+      "slug": "benjamin-grondona",
+      "status": "changed",
+      "retained_fields": []
+    },
+    {
+      "slug": "beno-obano",
+      "status": "changed",
+      "retained_fields": []
+    },
+    {
+      "slug": "bevan-rodd",
+      "status": "changed",
+      "retained_fields": []
+    },
+    {
+      "slug": "billy-bohan",
+      "status": "changed",
+      "retained_fields": []
+    },
+    {
+      "slug": "billy-burns",
+      "status": "unchanged",
+      "retained_fields": []
+    },
+    {
+      "slug": "billy-pollard",
+      "status": "changed",
+      "retained_fields": []
+    },
+    {
+      "slug": "billy-proctor",
+      "status": "changed",
+      "retained_fields": []
+    },
+    {
+      "slug": "billy-sela",
+      "status": "changed",
+      "retained_fields": []
+    },
+    {
+      "slug": "billy-vunipola",
+      "status": "changed",
+      "retained_fields": []
+    },
+    {
+      "slug": "blade-thomson",
+      "status": "unchanged",
+      "retained_fields": []
+    },
+    {
+      "slug": "blair-kinghorn",
+      "status": "changed",
+      "retained_fields": []
+    },
+    {
+      "slug": "blair-murray-1",
+      "status": "changed",
+      "retained_fields": []
+    },
+    {
+      "slug": "blake-schoupp",
+      "status": "unchanged",
+      "retained_fields": []
+    },
+    {
+      "slug": "boan-venter",
+      "status": "changed",
+      "retained_fields": []
+    },
+    {
+      "slug": "boris-palu",
+      "status": "changed",
+      "retained_fields": []
+    },
+    {
+      "slug": "boris-wenger",
+      "status": "changed",
+      "retained_fields": []
+    },
+    {
+      "slug": "braam-steyn",
+      "status": "unchanged",
+      "retained_fields": []
+    },
+    {
+      "slug": "bradley-roberts",
+      "status": "changed",
+      "retained_fields": []
+    },
+    {
+      "slug": "brandon-paenga-amosa",
+      "status": "changed",
+      "retained_fields": []
+    },
+    {
+      "slug": "braydon-ennor",
+      "status": "changed",
+      "retained_fields": []
+    },
+    {
+      "slug": "brice-dulin",
+      "status": "changed",
+      "retained_fields": []
+    },
+    {
+      "slug": "brodie-coghlan",
+      "status": "changed",
+      "retained_fields": []
+    },
+    {
+      "slug": "brodie-mcalister",
+      "status": "changed",
+      "retained_fields": []
+    },
+    {
+      "slug": "brodie-retallick",
+      "status": "unchanged",
+      "retained_fields": []
+    },
+    {
+      "slug": "bryn-ward",
+      "status": "changed",
+      "retained_fields": []
+    },
+    {
+      "slug": "bundee-aki",
+      "status": "changed",
+      "retained_fields": []
+    },
+    {
+      "slug": "cadan-murley",
+      "status": "changed",
+      "retained_fields": []
+    },
+    {
+      "slug": "caelan-doris",
+      "status": "changed",
+      "retained_fields": []
+    },
+    {
+      "slug": "cai-evans",
+      "status": "changed",
+      "retained_fields": []
+    },
+    {
+      "slug": "caleb-clarke",
+      "status": "changed",
+      "retained_fields": []
+    },
+    {
+      "slug": "caleb-muntz",
+      "status": "changed",
+      "retained_fields": []
+    },
+    {
+      "slug": "callum-braley",
+      "status": "unchanged",
+      "retained_fields": []
+    },
+    {
+      "slug": "callum-sheedy",
+      "status": "changed",
+      "retained_fields": []
+    },
+    {
+      "slug": "calvin-nash",
+      "status": "changed",
+      "retained_fields": []
+    },
+    {
+      "slug": "cam-roigard",
+      "status": "changed",
+      "retained_fields": []
+    },
+    {
+      "slug": "cam-winnett",
+      "status": "changed",
+      "retained_fields": []
+    },
+    {
+      "slug": "cameron-hanekom",
+      "status": "changed",
+      "retained_fields": []
+    },
+    {
+      "slug": "cameron-henderson",
+      "status": "changed",
+      "retained_fields": []
+    },
+    {
+      "slug": "cameron-redpath",
+      "status": "changed",
+      "retained_fields": []
+    },
+    {
+      "slug": "cameron-woki",
+      "status": "changed",
+      "retained_fields": []
+    },
+    {
+      "slug": "camille-chat",
+      "status": "unchanged",
+      "retained_fields": []
+    },
+    {
+      "slug": "canan-moodie",
+      "status": "changed",
+      "retained_fields": []
+    },
+    {
+      "slug": "caolin-blade",
+      "status": "changed",
+      "retained_fields": []
+    },
+    {
+      "slug": "carlo-canna",
+      "status": "unchanged",
+      "retained_fields": []
+    },
+    {
+      "slug": "carlo-tizzano",
+      "status": "changed",
+      "retained_fields": []
+    },
+    {
+      "slug": "carter-gordon",
+      "status": "changed",
+      "retained_fields": []
+    },
+    {
+      "slug": "chandler-cunningham-south",
+      "status": "changed",
+      "retained_fields": []
+    },
+    {
+      "slug": "charles-ollivon",
+      "status": "changed",
+      "retained_fields": []
+    },
+    {
+      "slug": "charlie-atkinson",
+      "status": "changed",
+      "retained_fields": []
+    },
+    {
+      "slug": "charlie-cale",
+      "status": "changed",
+      "retained_fields": []
+    },
+    {
+      "slug": "charlie-ewels",
+      "status": "changed",
+      "retained_fields": []
+    },
+    {
+      "slug": "charlie-lawrence",
+      "status": "unchanged",
+      "retained_fields": []
+    },
+    {
+      "slug": "cherif-traore",
+      "status": "unchanged",
+      "retained_fields": []
+    },
+    {
+      "slug": "cheslin-kolbe",
+      "status": "changed",
+      "retained_fields": []
+    },
+    {
+      "slug": "chris-coleman",
+      "status": "changed",
+      "retained_fields": []
+    },
+    {
+      "slug": "chris-harris",
+      "status": "changed",
+      "retained_fields": []
+    },
+    {
+      "slug": "christ-tshiunza",
+      "status": "changed",
+      "retained_fields": []
+    },
+    {
+      "slug": "christian-ambadiang",
+      "status": "changed",
+      "retained_fields": []
+    },
+    {
+      "slug": "christian-lio-willie",
+      "status": "changed",
+      "retained_fields": []
+    },
+    {
+      "slug": "cian-healy",
+      "status": "changed",
+      "retained_fields": []
+    },
+    {
+      "slug": "cian-prendergast",
+      "status": "changed",
+      "retained_fields": []
+    },
+    {
+      "slug": "ciaran-frawley",
+      "status": "changed",
+      "retained_fields": []
+    },
+    {
+      "slug": "cj-stander",
+      "status": "unchanged",
+      "retained_fields": []
+    },
+    {
+      "slug": "cobus-wiese",
+      "status": "changed",
+      "retained_fields": []
+    },
+    {
+      "slug": "codie-taylor",
+      "status": "changed",
+      "retained_fields": []
+    },
+    {
+      "slug": "conor-murray",
+      "status": "changed",
+      "retained_fields": []
+    },
+    {
+      "slug": "corey-domachowski",
+      "status": "changed",
+      "retained_fields": []
+    },
+    {
+      "slug": "corey-toole",
+      "status": "unchanged",
+      "retained_fields": []
+    },
+    {
+      "slug": "cormac-izuchukwu",
+      "status": "changed",
+      "retained_fields": []
+    },
+    {
+      "slug": "cortez-ratima",
+      "status": "changed",
+      "retained_fields": []
+    },
+    {
+      "slug": "cory-hill",
+      "status": "unchanged",
+      "retained_fields": []
+    },
+    {
+      "slug": "courtney-lawes",
+      "status": "changed",
+      "retained_fields": []
+    },
+    {
+      "slug": "craig-casey",
+      "status": "changed",
+      "retained_fields": []
+    },
+    {
+      "slug": "craig-millar",
+      "status": "changed",
+      "retained_fields": []
+    },
+    {
+      "slug": "curtis-langdon",
+      "status": "changed",
+      "retained_fields": []
+    },
+    {
+      "slug": "cyril-baille",
+      "status": "changed",
+      "retained_fields": []
+    },
+    {
+      "slug": "cyril-cazeaux",
+      "status": "unchanged",
+      "retained_fields": []
+    },
+    {
+      "slug": "dafydd-jenkins",
+      "status": "changed",
+      "retained_fields": []
+    },
+    {
+      "slug": "daichi-akiyama",
+      "status": "unchanged",
+      "retained_fields": []
+    },
+    {
+      "slug": "dallas-mcleod",
+      "status": "changed",
+      "retained_fields": []
+    },
+    {
+      "slug": "dalton-papalii",
+      "status": "changed",
+      "retained_fields": []
+    },
+    {
+      "slug": "damian-de-allende",
+      "status": "changed",
+      "retained_fields": []
+    },
+    {
+      "slug": "damian-mckenzie",
+      "status": "changed",
+      "retained_fields": []
+    },
+    {
+      "slug": "damian-penaud",
+      "status": "changed",
+      "retained_fields": []
+    },
+    {
+      "slug": "damian-willemse",
+      "status": "changed",
+      "retained_fields": []
+    },
+    {
+      "slug": "damiano-mazza",
+      "status": "changed",
+      "retained_fields": []
+    },
+    {
+      "slug": "dan-biggar",
+      "status": "changed",
+      "retained_fields": []
+    },
+    {
+      "slug": "dan-cole",
+      "status": "changed",
+      "retained_fields": []
+    },
+    {
+      "slug": "dan-lydiate",
+      "status": "changed",
+      "retained_fields": []
+    },
+    {
+      "slug": "dan-robson",
+      "status": "unchanged",
+      "retained_fields": []
+    },
+    {
+      "slug": "dan-sheehan",
+      "status": "changed",
+      "retained_fields": []
+    },
+    {
+      "slug": "dane-coles",
+      "status": "changed",
+      "retained_fields": []
+    },
+    {
+      "slug": "daniel-edwards",
+      "status": "changed",
+      "retained_fields": []
+    },
+    {
+      "slug": "daniele-rimpelli",
+      "status": "unchanged",
+      "retained_fields": []
+    },
+    {
+      "slug": "danilo-fischetti",
+      "status": "changed",
+      "retained_fields": []
+    },
+    {
+      "slug": "danny-care",
+      "status": "changed",
+      "retained_fields": []
+    },
+    {
+      "slug": "danny-southworth",
+      "status": "changed",
+      "retained_fields": []
+    },
+    {
+      "slug": "dany-priso",
+      "status": "changed",
+      "retained_fields": []
+    },
+    {
+      "slug": "darby-lancaster",
+      "status": "changed",
+      "retained_fields": []
+    },
+    {
+      "slug": "darcy-graham",
+      "status": "changed",
+      "retained_fields": []
+    },
+    {
+      "slug": "darcy-rae",
+      "status": "changed",
+      "retained_fields": []
+    },
+    {
+      "slug": "darragh-murray",
+      "status": "changed",
+      "retained_fields": []
+    },
+    {
+      "slug": "dave-kilcoyne",
+      "status": "changed",
+      "retained_fields": []
+    },
+    {
+      "slug": "dave-porecki",
+      "status": "unchanged",
+      "retained_fields": []
+    },
+    {
+      "slug": "david-cherry",
+      "status": "changed",
+      "retained_fields": []
+    },
+    {
+      "slug": "david-odiase",
+      "status": "unchanged",
+      "retained_fields": []
+    },
+    {
+      "slug": "david-ribbans",
+      "status": "changed",
+      "retained_fields": []
+    },
+    {
+      "slug": "david-sisi",
+      "status": "changed",
+      "retained_fields": []
+    },
+    {
+      "slug": "declan-meredith",
+      "status": "changed",
+      "retained_fields": []
+    },
+    {
+      "slug": "demba-bamba",
+      "status": "changed",
+      "retained_fields": []
+    },
+    {
+      "slug": "deon-fourie",
+      "status": "changed",
+      "retained_fields": []
+    },
+    {
+      "slug": "dewi-lake",
+      "status": "changed",
+      "retained_fields": []
+    },
+    {
+      "slug": "dillon-lewis",
+      "status": "changed",
+      "retained_fields": []
+    },
+    {
+      "slug": "dino-lamb",
+      "status": "changed",
+      "retained_fields": []
+    },
+    {
+      "slug": "dorian-aldegheri",
+      "status": "changed",
+      "retained_fields": []
+    },
+    {
+      "slug": "duane-vermeulen",
+      "status": "changed",
+      "retained_fields": []
+    },
+    {
+      "slug": "duhan-van-der-merwe",
+      "status": "changed",
+      "retained_fields": []
+    },
+    {
+      "slug": "duplessis-kirifi",
+      "status": "changed",
+      "retained_fields": []
+    },
+    {
+      "slug": "dylan-cretin",
+      "status": "changed",
+      "retained_fields": []
+    },
+    {
+      "slug": "dylan-pietsch",
+      "status": "changed",
+      "retained_fields": []
+    },
+    {
+      "slug": "dylan-richardson",
+      "status": "changed",
+      "retained_fields": []
+    },
+    {
+      "slug": "dylan-riley",
+      "status": "changed",
+      "retained_fields": []
+    },
+    {
+      "slug": "eben-etzebeth",
+      "status": "changed",
+      "retained_fields": []
+    },
+    {
+      "slug": "ed-byrne",
+      "status": "unchanged",
+      "retained_fields": []
+    },
+    {
+      "slug": "eddie-james",
+      "status": "changed",
+      "retained_fields": []
+    },
+    {
+      "slug": "edoardo-iachizzi",
+      "status": "unchanged",
+      "retained_fields": []
+    },
+    {
+      "slug": "edoardo-padovani",
+      "status": "changed",
+      "retained_fields": []
+    },
+    {
+      "slug": "edoardo-todaro",
+      "status": "changed",
+      "retained_fields": []
+    },
+    {
+      "slug": "eduardo-bello",
+      "status": "changed",
+      "retained_fields": []
+    },
+    {
+      "slug": "edwill-van-der-merwe",
+      "status": "changed",
+      "retained_fields": []
+    },
+    {
+      "slug": "edwin-edogbo",
+      "status": "changed",
+      "retained_fields": []
+    },
+    {
+      "slug": "efrain-elias",
+      "status": "changed",
+      "retained_fields": []
+    },
+    {
+      "slug": "eishin-kuwano",
+      "status": "unchanged",
+      "retained_fields": []
+    },
+    {
+      "slug": "elia-canakaivata",
+      "status": "changed",
+      "retained_fields": []
+    },
+    {
+      "slug": "elliot-daly",
+      "status": "changed",
+      "retained_fields": []
+    },
+    {
+      "slug": "elliot-millar-mills",
+      "status": "changed",
+      "retained_fields": []
+    },
+    {
+      "slug": "elliott-dee",
+      "status": "changed",
+      "retained_fields": []
+    },
+    {
+      "slug": "ellis-bevan",
+      "status": "changed",
+      "retained_fields": []
+    },
+    {
+      "slug": "ellis-genge",
+      "status": "changed",
+      "retained_fields": []
+    },
+    {
+      "slug": "ellis-jenkins",
+      "status": "unchanged",
+      "retained_fields": []
+    },
+    {
+      "slug": "ellis-mee",
+      "status": "changed",
+      "retained_fields": []
+    },
+    {
+      "slug": "elrigh-louw",
+      "status": "changed",
+      "retained_fields": []
+    },
+    {
+      "slug": "embrose-papier",
+      "status": "changed",
+      "retained_fields": []
+    },
+    {
+      "slug": "emerick-setiano",
+      "status": "changed",
+      "retained_fields": []
+    },
+    {
+      "slug": "emiliano-boffelli",
+      "status": "changed",
+      "retained_fields": []
+    },
+    {
+      "slug": "emilien-gailleton",
+      "status": "changed",
+      "retained_fields": []
+    },
+    {
+      "slug": "emmanuel-iyogun",
+      "status": "changed",
+      "retained_fields": []
+    },
+    {
+      "slug": "emmanuel-meafou",
+      "status": "changed",
+      "retained_fields": []
+    },
+    {
+      "slug": "emoni-narawa",
+      "status": "changed",
+      "retained_fields": []
+    },
+    {
+      "slug": "enoch-opoku-gyamfi",
+      "status": "changed",
+      "retained_fields": []
+    },
+    {
+      "slug": "epeli-momo",
+      "status": "unchanged",
+      "retained_fields": []
+    },
+    {
+      "slug": "epineri-uluiviti",
+      "status": "changed",
+      "retained_fields": []
+    },
+    {
+      "slug": "eroni-mawi",
+      "status": "changed",
+      "retained_fields": []
+    },
+    {
+      "slug": "esei-haangana",
+      "status": "changed",
+      "retained_fields": []
+    },
+    {
+      "slug": "esteban-abadie",
+      "status": "changed",
+      "retained_fields": []
+    },
+    {
+      "slug": "esteban-capilla",
+      "status": "changed",
+      "retained_fields": []
+    },
+    {
+      "slug": "ethan-blackadder",
+      "status": "changed",
+      "retained_fields": []
+    },
+    {
+      "slug": "ethan-de-groot",
+      "status": "changed",
+      "retained_fields": []
+    },
+    {
+      "slug": "ethan-dumortier",
+      "status": "changed",
+      "retained_fields": []
+    },
+    {
+      "slug": "ethan-hooker",
+      "status": "changed",
+      "retained_fields": []
+    },
+    {
+      "slug": "ethan-roots",
+      "status": "changed",
+      "retained_fields": []
+    },
+    {
+      "slug": "etonia-waqa",
+      "status": "changed",
+      "retained_fields": []
+    },
+    {
+      "slug": "evan-lloyd",
+      "status": "unchanged",
+      "retained_fields": []
+    },
+    {
+      "slug": "evan-roos",
+      "status": "changed",
+      "retained_fields": []
+    },
+    {
+      "slug": "ewan-ashman",
+      "status": "changed",
+      "retained_fields": []
+    },
+    {
+      "slug": "ewan-johnson",
+      "status": "changed",
+      "retained_fields": []
+    },
+    {
+      "slug": "fabian-holland",
+      "status": "changed",
+      "retained_fields": []
+    },
+    {
+      "slug": "fabien-brau-boirie",
+      "status": "changed",
+      "retained_fields": []
+    },
+    {
+      "slug": "facundo-isa",
+      "status": "changed",
+      "retained_fields": []
+    },
+    {
+      "slug": "faustino-sanchez-valarolo",
+      "status": "changed",
+      "retained_fields": []
+    },
+    {
+      "slug": "federico-mori",
+      "status": "changed",
+      "retained_fields": []
+    },
+    {
+      "slug": "federico-ruzza",
+      "status": "changed",
+      "retained_fields": []
+    },
+    {
+      "slug": "federico-zani",
+      "status": "changed",
+      "retained_fields": []
+    },
+    {
+      "slug": "fehi-fineanganofo",
+      "status": "changed",
+      "retained_fields": []
+    },
+    {
+      "slug": "fergus-burke",
+      "status": "changed",
+      "retained_fields": []
+    },
+    {
+      "slug": "filipo-daugunu",
+      "status": "changed",
+      "retained_fields": []
+    },
+    {
+      "slug": "filippo-alongi",
+      "status": "changed",
+      "retained_fields": []
+    },
+    {
+      "slug": "fin-baxter",
+      "status": "changed",
+      "retained_fields": []
+    },
+    {
+      "slug": "fin-smith",
+      "status": "changed",
+      "retained_fields": []
+    },
+    {
+      "slug": "finlay-bealham",
+      "status": "changed",
+      "retained_fields": []
+    },
+    {
+      "slug": "finlay-christie",
+      "status": "changed",
+      "retained_fields": []
+    },
+    {
+      "slug": "finlay-richardson",
+      "status": "unchanged",
+      "retained_fields": []
+    },
+    {
+      "slug": "finlay-smith",
+      "status": "changed",
+      "retained_fields": []
+    },
+    {
+      "slug": "finn-russell",
+      "status": "changed",
+      "retained_fields": []
+    },
+    {
+      "slug": "fletcher-newell",
+      "status": "changed",
+      "retained_fields": []
+    },
+    {
+      "slug": "florent-vanverberghe",
+      "status": "changed",
+      "retained_fields": []
+    },
+    {
+      "slug": "florian-verhaeghe",
+      "status": "changed",
+      "retained_fields": []
+    },
+    {
+      "slug": "francisco-coria",
+      "status": "changed",
+      "retained_fields": []
+    },
+    {
+      "slug": "francisco-gomez-kodela",
+      "status": "changed",
+      "retained_fields": []
+    },
+    {
+      "slug": "franco-molina",
+      "status": "changed",
+      "retained_fields": []
+    },
+    {
+      "slug": "franco-mostert",
+      "status": "unchanged",
+      "retained_fields": []
+    },
+    {
+      "slug": "francois-cros",
+      "status": "changed",
+      "retained_fields": []
+    },
+    {
+      "slug": "francois-de-klerk",
+      "status": "changed",
+      "retained_fields": []
+    },
+    {
+      "slug": "frank-lomani",
+      "status": "changed",
+      "retained_fields": []
+    },
+    {
+      "slug": "frans-malherbe",
+      "status": "changed",
+      "retained_fields": []
+    },
+    {
+      "slug": "fraser-brown",
+      "status": "changed",
+      "retained_fields": []
+    },
+    {
+      "slug": "fraser-dingwall",
+      "status": "changed",
+      "retained_fields": []
+    },
+    {
+      "slug": "fraser-mcreight",
+      "status": "changed",
+      "retained_fields": []
+    },
+    {
+      "slug": "freddie-douglas",
+      "status": "changed",
+      "retained_fields": []
+    },
+    {
+      "slug": "freddie-steward",
+      "status": "changed",
+      "retained_fields": []
+    },
+    {
+      "slug": "freddie-thomas",
+      "status": "changed",
+      "retained_fields": []
+    },
+    {
+      "slug": "gabin-villiere",
+      "status": "changed",
+      "retained_fields": []
+    },
+    {
+      "slug": "gabriel-hamer-webb",
+      "status": "changed",
+      "retained_fields": []
+    },
+    {
+      "slug": "gabriel-oghre",
+      "status": "changed",
+      "retained_fields": []
+    },
+    {
+      "slug": "gael-drean",
+      "status": "changed",
+      "retained_fields": []
+    },
+    {
+      "slug": "gael-fickou",
+      "status": "changed",
+      "retained_fields": []
+    },
+    {
+      "slug": "gaeton-barlot",
+      "status": "changed",
+      "retained_fields": []
+    },
+    {
+      "slug": "gareth-anscombe",
+      "status": "changed",
+      "retained_fields": []
+    },
+    {
+      "slug": "gareth-davies",
+      "status": "changed",
+      "retained_fields": []
+    },
+    {
+      "slug": "gareth-thomas",
+      "status": "changed",
+      "retained_fields": []
+    },
+    {
+      "slug": "garry-ringrose",
+      "status": "changed",
+      "retained_fields": []
+    },
+    {
+      "slug": "gary-graham",
+      "status": "unchanged",
+      "retained_fields": []
+    },
+    {
+      "slug": "gavin-coombes",
+      "status": "changed",
+      "retained_fields": []
+    },
+    {
+      "slug": "george-bell",
+      "status": "changed",
+      "retained_fields": []
+    },
+    {
+      "slug": "george-bower",
+      "status": "changed",
+      "retained_fields": []
+    },
+    {
+      "slug": "george-ford",
+      "status": "changed",
+      "retained_fields": []
+    },
+    {
+      "slug": "george-furbank",
+      "status": "changed",
+      "retained_fields": []
+    },
+    {
+      "slug": "george-horne",
+      "status": "changed",
+      "retained_fields": []
+    },
+    {
+      "slug": "george-kloska",
+      "status": "changed",
+      "retained_fields": []
+    },
+    {
+      "slug": "george-martin",
+      "status": "changed",
+      "retained_fields": []
+    },
+    {
+      "slug": "george-north",
+      "status": "changed",
+      "retained_fields": []
+    },
+    {
+      "slug": "george-turner",
+      "status": "changed",
+      "retained_fields": []
+    },
+    {
+      "slug": "georges-henri-colombe",
+      "status": "changed",
+      "retained_fields": []
+    },
+    {
+      "slug": "gerhard-steenekamp",
+      "status": "changed",
+      "retained_fields": []
+    },
+    {
+      "slug": "geronimo-prisciantelli",
+      "status": "changed",
+      "retained_fields": []
+    },
+    {
+      "slug": "giacomo-da-re",
+      "status": "changed",
+      "retained_fields": []
+    },
+    {
+      "slug": "giacomo-nicotera",
+      "status": "changed",
+      "retained_fields": []
+    },
+    {
+      "slug": "gianmarcolucchesi",
+      "status": "changed",
+      "retained_fields": []
+    },
+    {
+      "slug": "giorgi-beria",
+      "status": "changed",
+      "retained_fields": []
+    },
+    {
+      "slug": "giosue-zilocchi",
+      "status": "changed",
+      "retained_fields": []
+    },
+    {
+      "slug": "giovanni-pettinelli",
+      "status": "changed",
+      "retained_fields": []
+    },
+    {
+      "slug": "giulio-bertaccini",
+      "status": "unchanged",
+      "retained_fields": []
+    },
+    {
+      "slug": "glen-young",
+      "status": "changed",
+      "retained_fields": []
+    },
+    {
+      "slug": "gonzalo-bertranou",
+      "status": "changed",
+      "retained_fields": []
+    },
+    {
+      "slug": "gonzalo-garcia",
+      "status": "changed",
+      "retained_fields": []
+    },
+    {
+      "slug": "grant-gilchrist",
+      "status": "changed",
+      "retained_fields": []
+    },
+    {
+      "slug": "grant-williams",
+      "status": "changed",
+      "retained_fields": []
+    },
+    {
+      "slug": "greg-fisilau",
+      "status": "changed",
+      "retained_fields": []
+    },
+    {
+      "slug": "gregoire-arfeuil",
+      "status": "changed",
+      "retained_fields": []
+    },
+    {
+      "slug": "gregor-brown",
+      "status": "changed",
+      "retained_fields": []
+    },
+    {
+      "slug": "gregor-hiddleston",
+      "status": "changed",
+      "retained_fields": []
+    },
+    {
+      "slug": "gregory-alldritt",
+      "status": "changed",
+      "retained_fields": []
+    },
+    {
+      "slug": "guglielmo-palazzani",
+      "status": "unchanged",
+      "retained_fields": []
+    },
+    {
+      "slug": "guillaume-cramont",
+      "status": "changed",
+      "retained_fields": []
+    },
+    {
+      "slug": "gus-mccarthy",
+      "status": "changed",
+      "retained_fields": []
+    },
+    {
+      "slug": "gus-warr",
+      "status": "changed",
+      "retained_fields": []
+    },
+    {
+      "slug": "guy-pepper",
+      "status": "changed",
+      "retained_fields": []
+    },
+    {
+      "slug": "guy-porter",
+      "status": "changed",
+      "retained_fields": []
+    },
+    {
+      "slug": "haereiti-hetet",
+      "status": "changed",
+      "retained_fields": []
+    },
+    {
+      "slug": "halatoa-vailea",
+      "status": "unchanged",
+      "retained_fields": []
+    },
+    {
+      "slug": "hallam-amos",
+      "status": "unchanged",
+      "retained_fields": []
+    },
+    {
+      "slug": "hame-faiva",
+      "status": "failed",
+      "http_status": 404
+    },
+    {
+      "slug": "hamish-stewart",
+      "status": "unchanged",
+      "retained_fields": []
+    },
+    {
+      "slug": "hamish-watson",
+      "status": "changed",
+      "retained_fields": []
+    },
+    {
+      "slug": "handre-pollard",
+      "status": "changed",
+      "retained_fields": []
+    },
+    {
+      "slug": "harri-deaves",
+      "status": "changed",
+      "retained_fields": []
+    },
+    {
+      "slug": "harri-morris",
+      "status": "unchanged",
+      "retained_fields": []
+    },
+    {
+      "slug": "harri-oconnor",
+      "status": "changed",
+      "retained_fields": []
+    },
+    {
+      "slug": "harrison-keddie",
+      "status": "changed",
+      "retained_fields": []
+    },
+    {
+      "slug": "harry-byrne",
+      "status": "changed",
+      "retained_fields": []
+    },
+    {
+      "slug": "harry-hockings",
+      "status": "changed",
+      "retained_fields": []
+    },
+    {
+      "slug": "harry-paterson",
+      "status": "changed",
+      "retained_fields": []
+    },
+    {
+      "slug": "harry-plummer",
+      "status": "changed",
+      "retained_fields": []
+    },
+    {
+      "slug": "harry-potter",
+      "status": "changed",
+      "retained_fields": []
+    },
+    {
+      "slug": "harry-randall",
+      "status": "changed",
+      "retained_fields": []
+    },
+    {
+      "slug": "harry-thomas",
+      "status": "unchanged",
+      "retained_fields": []
+    },
+    {
+      "slug": "harry-williams",
+      "status": "unchanged",
+      "retained_fields": []
+    },
+    {
+      "slug": "harry-wilson",
+      "status": "changed",
+      "retained_fields": []
+    },
+    {
+      "slug": "harumichi-tatekawa",
+      "status": "unchanged",
+      "retained_fields": []
+    },
+    {
+      "slug": "haruto-kida",
+      "status": "changed",
+      "retained_fields": []
+    },
+    {
+      "slug": "haruto-watanabe",
+      "status": "changed",
+      "retained_fields": []
+    },
+    {
+      "slug": "hassane-kolingar",
+      "status": "unchanged",
+      "retained_fields": []
+    },
+    {
+      "slug": "hayate-era",
+      "status": "changed",
+      "retained_fields": []
+    },
+    {
+      "slug": "henry-arundell",
+      "status": "changed",
+      "retained_fields": []
+    },
+    {
+      "slug": "henry-pollock",
+      "status": "changed",
+      "retained_fields": []
+    },
+    {
+      "slug": "henry-slade",
+      "status": "changed",
+      "retained_fields": []
+    },
+    {
+      "slug": "henry-thomas",
+      "status": "changed",
+      "retained_fields": []
+    },
+    {
+      "slug": "hugh-gavin",
+      "status": "unchanged",
+      "retained_fields": []
+    },
+    {
+      "slug": "hugo-auradou",
+      "status": "changed",
+      "retained_fields": []
+    },
+    {
+      "slug": "hugo-keenan",
+      "status": "changed",
+      "retained_fields": []
+    },
+    {
+      "slug": "hugo-reus",
+      "status": "changed",
+      "retained_fields": []
+    },
+    {
+      "slug": "hunter-paisami",
+      "status": "changed",
+      "retained_fields": []
+    },
+    {
+      "slug": "huw-jones",
+      "status": "changed",
+      "retained_fields": []
+    },
+    {
+      "slug": "iain-henderson",
+      "status": "changed",
+      "retained_fields": []
+    },
+    {
+      "slug": "ibrahim-diallo",
+      "status": "changed",
+      "retained_fields": []
+    },
+    {
+      "slug": "ichigo-nakakusu",
+      "status": "unchanged",
+      "retained_fields": []
+    },
+    {
+      "slug": "ignacio-calles",
+      "status": "changed",
+      "retained_fields": []
+    },
+    {
+      "slug": "ignacio-mendy",
+      "status": "changed",
+      "retained_fields": []
+    },
+    {
+      "slug": "ignacio-ruiz",
+      "status": "changed",
+      "retained_fields": []
+    },
+    {
+      "slug": "ilaisa-droasese",
+      "status": "unchanged",
+      "retained_fields": []
+    },
+    {
+      "slug": "immanuel-feyi-waboso",
+      "status": "changed",
+      "retained_fields": []
+    },
+    {
+      "slug": "inia-tabuavou",
+      "status": "changed",
+      "retained_fields": []
+    },
+    {
+      "slug": "inoke-burua",
+      "status": "changed",
+      "retained_fields": []
+    },
+    {
+      "slug": "ioan-lloyd",
+      "status": "changed",
+      "retained_fields": []
+    },
+    {
+      "slug": "ion-neculai",
+      "status": "changed",
+      "retained_fields": []
+    },
+    {
+      "slug": "iosefo-masi",
+      "status": "changed",
+      "retained_fields": []
+    },
+    {
+      "slug": "isaac-aedo-kailea",
+      "status": "changed",
+      "retained_fields": []
+    },
+    {
+      "slug": "isaiah-mapusua",
+      "status": "unchanged",
+      "retained_fields": []
+    },
+    {
+      "slug": "isoa-nasilasila",
+      "status": "changed",
+      "retained_fields": []
+    },
+    {
+      "slug": "issak-fines-leleiwasa",
+      "status": "changed",
+      "retained_fields": []
+    },
+    {
+      "slug": "itsuki-kamimura",
+      "status": "changed",
+      "retained_fields": []
+    },
+    {
+      "slug": "ivan-nemer",
+      "status": "changed",
+      "retained_fields": []
+    },
+    {
+      "slug": "izaia-perese",
+      "status": "changed",
+      "retained_fields": []
+    },
+    {
+      "slug": "izi-sword-1",
+      "status": "changed",
+      "retained_fields": []
+    },
+    {
+      "slug": "jac-morgan",
+      "status": "changed",
+      "retained_fields": []
+    },
+    {
+      "slug": "jack-aungier",
+      "status": "changed",
+      "retained_fields": []
+    },
+    {
+      "slug": "jack-boyle",
+      "status": "changed",
+      "retained_fields": []
+    },
+    {
+      "slug": "jack-carty",
+      "status": "unchanged",
+      "retained_fields": []
+    },
+    {
+      "slug": "jack-conan",
+      "status": "changed",
+      "retained_fields": []
+    },
+    {
+      "slug": "jack-cornelsen",
+      "status": "changed",
+      "retained_fields": []
+    },
+    {
+      "slug": "jack-crowley",
+      "status": "changed",
+      "retained_fields": []
+    },
+    {
+      "slug": "jack-dempsey",
+      "status": "changed",
+      "retained_fields": []
+    },
+    {
+      "slug": "jack-kenningham",
+      "status": "changed",
+      "retained_fields": []
+    },
+    {
+      "slug": "jack-mann",
+      "status": "changed",
+      "retained_fields": []
+    },
+    {
+      "slug": "jack-nowell",
+      "status": "unchanged",
+      "retained_fields": []
+    },
+    {
+      "slug": "jack-van-poortvliet",
+      "status": "changed",
+      "retained_fields": []
+    },
+    {
+      "slug": "jack-walker",
+      "status": "changed",
+      "retained_fields": []
+    },
+    {
+      "slug": "jack-willis",
+      "status": "changed",
+      "retained_fields": []
+    },
+    {
+      "slug": "jaco-van-der-walt",
+      "status": "unchanged",
+      "retained_fields": []
+    },
+    {
+      "slug": "jaco-williams",
+      "status": "changed",
+      "retained_fields": []
+    },
+    {
+      "slug": "jacob-beetham",
+      "status": "unchanged",
+      "retained_fields": []
+    },
+    {
+      "slug": "jacob-stockdale",
+      "status": "changed",
+      "retained_fields": []
+    },
+    {
+      "slug": "jacobus-reinach",
+      "status": "changed",
+      "retained_fields": []
+    },
+    {
+      "slug": "jacobus-van-tonder",
+      "status": "changed",
+      "retained_fields": []
+    },
+    {
+      "slug": "jacopo-trulla",
+      "status": "changed",
+      "retained_fields": []
+    },
+    {
+      "slug": "jaden-hendrikse",
+      "status": "changed",
+      "retained_fields": []
+    },
+    {
+      "slug": "jake-ball",
+      "status": "unchanged",
+      "retained_fields": []
+    },
+    {
+      "slug": "jake-gordon",
+      "status": "unchanged",
+      "retained_fields": []
+    },
+    {
+      "slug": "jake-polledri",
+      "status": "changed",
+      "retained_fields": []
+    },
+    {
+      "slug": "james-botham",
+      "status": "changed",
+      "retained_fields": []
+    },
+    {
+      "slug": "james-hume",
+      "status": "unchanged",
+      "retained_fields": []
+    },
+    {
+      "slug": "james-lang",
+      "status": "unchanged",
+      "retained_fields": []
+    },
+    {
+      "slug": "james-lowe",
+      "status": "changed",
+      "retained_fields": []
+    },
+    {
+      "slug": "james-moore",
+      "status": "unchanged",
+      "retained_fields": []
+    },
+    {
+      "slug": "james-oconnor",
+      "status": "changed",
+      "retained_fields": []
+    },
+    {
+      "slug": "james-ratti",
+      "status": "changed",
+      "retained_fields": []
+    },
+    {
+      "slug": "james-ryan",
+      "status": "changed",
+      "retained_fields": []
+    },
+    {
+      "slug": "james-slipper",
+      "status": "changed",
+      "retained_fields": []
+    },
+    {
+      "slug": "jamie-bhattie",
+      "status": "changed",
+      "retained_fields": []
+    },
+    {
+      "slug": "jamie-blamire",
+      "status": "changed",
+      "retained_fields": []
+    },
+    {
+      "slug": "jamie-dobie",
+      "status": "changed",
+      "retained_fields": []
+    },
+    {
+      "slug": "jamie-george",
+      "status": "changed",
+      "retained_fields": []
+    },
+    {
+      "slug": "jamie-hannah-1",
+      "status": "changed",
+      "retained_fields": []
+    },
+    {
+      "slug": "jamie-hodgson",
+      "status": "unchanged",
+      "retained_fields": []
+    },
+    {
+      "slug": "jamie-osborne",
+      "status": "changed",
+      "retained_fields": []
+    },
+    {
+      "slug": "jamie-ritchie",
+      "status": "changed",
+      "retained_fields": []
+    },
+    {
+      "slug": "jamison-gibson-park",
+      "status": "changed",
+      "retained_fields": []
+    },
+    {
+      "slug": "jan-hendrik-wessels",
+      "status": "changed",
+      "retained_fields": []
+    },
+    {
+      "slug": "janick-tarrit",
+      "status": "changed",
+      "retained_fields": []
+    },
+    {
+      "slug": "jarrod-evans",
+      "status": "changed",
+      "retained_fields": []
+    },
+    {
+      "slug": "jasper-wiese",
+      "status": "changed",
+      "retained_fields": []
+    },
+    {
+      "slug": "javan-sebastian",
+      "status": "changed",
+      "retained_fields": []
+    },
+    {
+      "slug": "jean-baptiste-gros",
+      "status": "changed",
+      "retained_fields": []
+    },
+    {
+      "slug": "jean-kleyn",
+      "status": "changed",
+      "retained_fields": []
+    },
+    {
+      "slug": "jean-luc-du-preez",
+      "status": "changed",
+      "retained_fields": []
+    },
+    {
+      "slug": "jefferson-poirot",
+      "status": "changed",
+      "retained_fields": []
+    },
+    {
+      "slug": "jeremy-loughman",
+      "status": "changed",
+      "retained_fields": []
+    },
+    {
+      "slug": "jeremy-williams",
+      "status": "changed",
+      "retained_fields": []
+    },
+    {
+      "slug": "jeronimo-de-la-fuente",
+      "status": "changed",
+      "retained_fields": []
+    },
+    {
+      "slug": "jesse-kriel",
+      "status": "changed",
+      "retained_fields": []
+    },
+    {
+      "slug": "jimi-maximin",
+      "status": "changed",
+      "retained_fields": []
+    },
+    {
+      "slug": "jimmy-obrien",
+      "status": "changed",
+      "retained_fields": []
+    },
+    {
+      "slug": "jiuta-wainiqolo",
+      "status": "changed",
+      "retained_fields": []
+    },
+    {
+      "slug": "joaquin-moro",
+      "status": "changed",
+      "retained_fields": []
+    },
+    {
+      "slug": "joaquin-oviedo",
+      "status": "changed",
+      "retained_fields": []
+    },
+    {
+      "slug": "jock-campbell",
+      "status": "changed",
+      "retained_fields": []
+    },
+    {
+      "slug": "joe-cokanasiga",
+      "status": "changed",
+      "retained_fields": []
+    },
+    {
+      "slug": "joe-hawkins",
+      "status": "changed",
+      "retained_fields": []
+    },
+    {
+      "slug": "joe-heyes",
+      "status": "changed",
+      "retained_fields": []
+    },
+    {
+      "slug": "joe-launchbury",
+      "status": "unchanged",
+      "retained_fields": []
+    },
+    {
+      "slug": "joe-marchant",
+      "status": "changed",
+      "retained_fields": []
+    },
+    {
+      "slug": "joe-marler",
+      "status": "changed",
+      "retained_fields": []
+    },
+    {
+      "slug": "joe-mccarthy",
+      "status": "changed",
+      "retained_fields": []
+    },
+    {
+      "slug": "joe-roberts",
+      "status": "changed",
+      "retained_fields": []
+    },
+    {
+      "slug": "joel-sclavi",
+      "status": "changed",
+      "retained_fields": []
+    },
+    {
+      "slug": "joey-carbery",
+      "status": "unchanged",
+      "retained_fields": []
+    },
+    {
+      "slug": "johan-grobbelaar",
+      "status": "changed",
+      "retained_fields": []
+    },
+    {
+      "slug": "johan-meyer",
+      "status": "unchanged",
+      "retained_fields": []
+    },
+    {
+      "slug": "johnny-matthews",
+      "status": "changed",
+      "retained_fields": []
+    },
+    {
+      "slug": "johnny-mcnicholl",
+      "status": "unchanged",
+      "retained_fields": []
+    },
+    {
+      "slug": "johnny-sexton",
+      "status": "changed",
+      "retained_fields": []
+    },
+    {
+      "slug": "johnny-williams",
+      "status": "changed",
+      "retained_fields": []
+    },
+    {
+      "slug": "joji-nasova",
+      "status": "unchanged",
+      "retained_fields": []
+    },
+    {
+      "slug": "jonathan-danty",
+      "status": "changed",
+      "retained_fields": []
+    },
+    {
+      "slug": "jonathan-davies",
+      "status": "unchanged",
+      "retained_fields": []
+    },
+    {
+      "slug": "jone-koroiduadua",
+      "status": "unchanged",
+      "retained_fields": []
+    },
+    {
+      "slug": "jone-naikabula",
+      "status": "unchanged",
+      "retained_fields": []
+    },
+    {
+      "slug": "jonny-gray",
+      "status": "changed",
+      "retained_fields": []
+    },
+    {
+      "slug": "jonny-hill",
+      "status": "changed",
+      "retained_fields": []
+    },
+    {
+      "slug": "jonny-may",
+      "status": "changed",
+      "retained_fields": []
+    },
+    {
+      "slug": "jordan-hendrikse",
+      "status": "changed",
+      "retained_fields": []
+    },
+    {
+      "slug": "jordan-joseph",
+      "status": "changed",
+      "retained_fields": []
+    },
+    {
+      "slug": "jordan-larmour",
+      "status": "changed",
+      "retained_fields": []
+    },
+    {
+      "slug": "jordan-petaia",
+      "status": "unchanged",
+      "retained_fields": []
+    },
+    {
+      "slug": "jordie-barrett",
+      "status": "changed",
+      "retained_fields": []
+    },
+    {
+      "slug": "joris-jurand",
+      "status": "changed",
+      "retained_fields": []
+    },
+    {
+      "slug": "joris-segonds",
+      "status": "changed",
+      "retained_fields": []
+    },
+    {
+      "slug": "joseph-aukuso-suaalii",
+      "status": "changed",
+      "retained_fields": []
+    },
+    {
+      "slug": "joseph-carpenter",
+      "status": "changed",
+      "retained_fields": []
+    },
+    {
+      "slug": "joseva-tamani",
+      "status": "changed",
+      "retained_fields": []
+    },
+    {
+      "slug": "josh-adams",
+      "status": "changed",
+      "retained_fields": []
+    },
+    {
+      "slug": "josh-bayliss",
+      "status": "changed",
+      "retained_fields": []
+    },
+    {
+      "slug": "josh-canham",
+      "status": "changed",
+      "retained_fields": []
+    },
+    {
+      "slug": "josh-flook",
+      "status": "changed",
+      "retained_fields": []
+    },
+    {
+      "slug": "josh-hathaway",
+      "status": "changed",
+      "retained_fields": []
+    },
+    {
+      "slug": "josh-lord",
+      "status": "changed",
+      "retained_fields": []
+    },
+    {
+      "slug": "josh-macleod",
+      "status": "changed",
+      "retained_fields": []
+    },
+    {
+      "slug": "josh-nasser",
+      "status": "changed",
+      "retained_fields": []
+    },
+    {
+      "slug": "josh-navidi",
+      "status": "unchanged",
+      "retained_fields": []
+    },
+    {
+      "slug": "josh-van-der-flier",
+      "status": "changed",
+      "retained_fields": []
+    },
+    {
+      "slug": "joshua-brennan",
+      "status": "changed",
+      "retained_fields": []
+    },
+    {
+      "slug": "josua-tuisova",
+      "status": "changed",
+      "retained_fields": []
+    },
+    {
+      "slug": "juan-bautista-pedemonte",
+      "status": "changed",
+      "retained_fields": []
+    },
+    {
+      "slug": "juan-cruz-mallia",
+      "status": "changed",
+      "retained_fields": []
+    },
+    {
+      "slug": "juan-ignacio-brex",
+      "status": "changed",
+      "retained_fields": []
+    },
+    {
+      "slug": "juan-martin-gonzalez",
+      "status": "changed",
+      "retained_fields": []
+    },
+    {
+      "slug": "juan-penoucos",
+      "status": "changed",
+      "retained_fields": []
+    },
+    {
+      "slug": "jude-postlethwaite",
+      "status": "changed",
+      "retained_fields": []
+    },
+    {
+      "slug": "judicael-cancoriet",
+      "status": "changed",
+      "retained_fields": []
+    },
+    {
+      "slug": "jules-favre",
+      "status": "changed",
+      "retained_fields": []
+    },
+    {
+      "slug": "julian-montoya",
+      "status": "changed",
+      "retained_fields": []
+    },
+    {
+      "slug": "julien-marchand",
+      "status": "changed",
+      "retained_fields": []
+    },
+    {
+      "slug": "junta-hamano",
+      "status": "changed",
+      "retained_fields": []
+    },
+    {
+      "slug": "justin-tipuric",
+      "status": "changed",
+      "retained_fields": []
+    },
+    {
+      "slug": "justo-piccardo",
+      "status": "changed",
+      "retained_fields": []
+    },
+    {
+      "slug": "kai-yamamoto",
+      "status": "unchanged",
+      "retained_fields": []
+    },
+    {
+      "slug": "kalani-thomas",
+      "status": "changed",
+      "retained_fields": []
+    },
+    {
+      "slug": "kalaveti-ravouvou",
+      "status": "changed",
+      "retained_fields": []
+    },
+    {
+      "slug": "kalvin-gourgues",
+      "status": "changed",
+      "retained_fields": []
+    },
+    {
+      "slug": "kane-james",
+      "status": "changed",
+      "retained_fields": []
+    },
+    {
+      "slug": "kanji-shimokawa-1",
+      "status": "changed",
+      "retained_fields": []
+    },
+    {
+      "slug": "kavaia-tagivetaua",
+      "status": "changed",
+      "retained_fields": []
+    },
+    {
+      "slug": "kazuki-himeno",
+      "status": "changed",
+      "retained_fields": []
+    },
+    {
+      "slug": "kazuma-ueda",
+      "status": "changed",
+      "retained_fields": []
+    },
+    {
+      "slug": "keelan-giles",
+      "status": "changed",
+      "retained_fields": []
+    },
+    {
+      "slug": "keijiro-tamefusa",
+      "status": "changed",
+      "retained_fields": []
+    },
+    {
+      "slug": "keita-inagaki",
+      "status": "unchanged",
+      "retained_fields": []
+    },
+    {
+      "slug": "keith-earls",
+      "status": "changed",
+      "retained_fields": []
+    },
+    {
+      "slug": "kemsley-mathias",
+      "status": "changed",
+      "retained_fields": []
+    },
+    {
+      "slug": "kemu-valetini",
+      "status": "changed",
+      "retained_fields": []
+    },
+    {
+      "slug": "ken-owens",
+      "status": "unchanged",
+      "retained_fields": [
+        "competition_stats"
+      ]
+    },
+    {
+      "slug": "kenji-sato",
+      "status": "changed",
+      "retained_fields": []
+    },
+    {
+      "slug": "kenta-fukuda",
+      "status": "changed",
+      "retained_fields": []
+    },
+    {
+      "slug": "kenta-kobayashi-1",
+      "status": "unchanged",
+      "retained_fields": []
+    },
+    {
+      "slug": "kenta-matsuoka",
+      "status": "unchanged",
+      "retained_fields": []
+    },
+    {
+      "slug": "kieran-hardy",
+      "status": "changed",
+      "retained_fields": []
+    },
+    {
+      "slug": "kieran-treadwell",
+      "status": "changed",
+      "retained_fields": []
+    },
+    {
+      "slug": "kieran-williams",
+      "status": "changed",
+      "retained_fields": []
+    },
+    {
+      "slug": "kieron-assiratti",
+      "status": "changed",
+      "retained_fields": []
+    },
+    {
+      "slug": "killian-tixeront",
+      "status": "changed",
+      "retained_fields": []
+    },
+    {
+      "slug": "kippei-ishida",
+      "status": "changed",
+      "retained_fields": []
+    },
+    {
+      "slug": "kitione-kamikamica",
+      "status": "changed",
+      "retained_fields": []
+    },
+    {
+      "slug": "kitione-salawa",
+      "status": "changed",
+      "retained_fields": []
+    },
+    {
+      "slug": "koga-nezuka",
+      "status": "unchanged",
+      "retained_fields": []
+    },
+    {
+      "slug": "kotaro-matsushima",
+      "status": "changed",
+      "retained_fields": []
+    },
+    {
+      "slug": "kurt-lee-arendse",
+      "status": "changed",
+      "retained_fields": []
+    },
+    {
+      "slug": "kwagga-smith",
+      "status": "changed",
+      "retained_fields": []
+    },
+    {
+      "slug": "kyle-preston",
+      "status": "changed",
+      "retained_fields": []
+    },
+    {
+      "slug": "kyle-rowe",
+      "status": "changed",
+      "retained_fields": []
+    },
+    {
+      "slug": "kyle-sinckler",
+      "status": "changed",
+      "retained_fields": []
+    },
+    {
+      "slug": "kyle-steyn",
+      "status": "changed",
+      "retained_fields": []
+    },
+    {
+      "slug": "lachlan-shaw",
+      "status": "changed",
+      "retained_fields": []
+    },
+    {
+      "slug": "lalakai-foketi",
+      "status": "changed",
+      "retained_fields": []
+    },
+    {
+      "slug": "langi-gleeson",
+      "status": "changed",
+      "retained_fields": []
+    },
+    {
+      "slug": "lautaro-bazan-velez",
+      "status": "unchanged",
+      "retained_fields": []
+    },
+    {
+      "slug": "leicester-faingaanuku",
+      "status": "changed",
+      "retained_fields": []
+    },
+    {
+      "slug": "leigh-halfpenny",
+      "status": "changed",
+      "retained_fields": []
+    },
+    {
+      "slug": "lekima-tagitagivalu",
+      "status": "changed",
+      "retained_fields": []
+    },
+    {
+      "slug": "len-ikitau",
+      "status": "changed",
+      "retained_fields": []
+    },
+    {
+      "slug": "lenni-nouchi",
+      "status": "changed",
+      "retained_fields": []
+    },
+    {
+      "slug": "leo-barre",
+      "status": "changed",
+      "retained_fields": []
+    },
+    {
+      "slug": "leo-berdeu",
+      "status": "changed",
+      "retained_fields": []
+    },
+    {
+      "slug": "leon-brown",
+      "status": "changed",
+      "retained_fields": []
+    },
+    {
+      "slug": "leon-darricarrere",
+      "status": "changed",
+      "retained_fields": []
+    },
+    {
+      "slug": "leonardo-marin",
+      "status": "changed",
+      "retained_fields": []
+    },
+    {
+      "slug": "leonel-oviedo",
+      "status": "changed",
+      "retained_fields": []
+    },
+    {
+      "slug": "leroy-carter",
+      "status": "changed",
+      "retained_fields": []
+    },
+    {
+      "slug": "lester-etien",
+      "status": "changed",
+      "retained_fields": []
+    },
+    {
+      "slug": "levani-botia",
+      "status": "changed",
+      "retained_fields": []
+    },
+    {
+      "slug": "lewis-ludlam",
+      "status": "changed",
+      "retained_fields": []
+    },
+    {
+      "slug": "liam-belcher",
+      "status": "changed",
+      "retained_fields": []
+    },
+    {
+      "slug": "liam-mcconnell",
+      "status": "changed",
+      "retained_fields": []
+    },
+    {
+      "slug": "liam-williams",
+      "status": "changed",
+      "retained_fields": []
+    },
+    {
+      "slug": "liam-wright",
+      "status": "unchanged",
+      "retained_fields": []
+    },
+    {
+      "slug": "livai-natave",
+      "status": "changed",
+      "retained_fields": []
+    },
+    {
+      "slug": "lodewyk-de-jager",
+      "status": "changed",
+      "retained_fields": []
+    },
+    {
+      "slug": "lood-de-jager",
+      "status": "unchanged",
+      "retained_fields": []
+    },
+    {
+      "slug": "lorenzo-cannone",
+      "status": "changed",
+      "retained_fields": []
+    },
+    {
+      "slug": "lorenzo-pani",
+      "status": "changed",
+      "retained_fields": []
+    },
+    {
+      "slug": "loris-zarantonello",
+      "status": "changed",
+      "retained_fields": []
+    },
+    {
+      "slug": "louie-hennessey",
+      "status": "changed",
+      "retained_fields": []
+    },
+    {
+      "slug": "louis-bielle-biarrey",
+      "status": "changed",
+      "retained_fields": []
+    },
+    {
+      "slug": "louis-carbonel",
+      "status": "unchanged",
+      "retained_fields": []
+    },
+    {
+      "slug": "louis-le-brun",
+      "status": "changed",
+      "retained_fields": []
+    },
+    {
+      "slug": "louis-lynagh",
+      "status": "changed",
+      "retained_fields": []
+    },
+    {
+      "slug": "louis-rees-zammit",
+      "status": "changed",
+      "retained_fields": []
+    },
+    {
+      "slug": "luca-bigi",
+      "status": "changed",
+      "retained_fields": []
+    },
+    {
+      "slug": "luca-morisi",
+      "status": "changed",
+      "retained_fields": []
+    },
+    {
+      "slug": "luca-rizzoli",
+      "status": "changed",
+      "retained_fields": []
+    },
+    {
+      "slug": "luca-sperandio",
+      "status": "unchanged",
+      "retained_fields": []
+    },
+    {
+      "slug": "lucas-dubois",
+      "status": "changed",
+      "retained_fields": []
+    },
+    {
+      "slug": "lucas-martin",
+      "status": "changed",
+      "retained_fields": []
+    },
+    {
+      "slug": "lucas-paulos",
+      "status": "changed",
+      "retained_fields": []
+    },
+    {
+      "slug": "lucio-cinti",
+      "status": "changed",
+      "retained_fields": []
+    },
+    {
+      "slug": "lucio-sordoni",
+      "status": "changed",
+      "retained_fields": []
+    },
+    {
+      "slug": "luke-cowan-dickie",
+      "status": "changed",
+      "retained_fields": []
+    },
+    {
+      "slug": "luke-crosbie",
+      "status": "changed",
+      "retained_fields": []
+    },
+    {
+      "slug": "luke-jacobson",
+      "status": "changed",
+      "retained_fields": []
+    },
+    {
+      "slug": "luke-northmore",
+      "status": "changed",
+      "retained_fields": []
+    },
+    {
+      "slug": "luke-reimer",
+      "status": "unchanged",
+      "retained_fields": []
+    },
+    {
+      "slug": "luke-tagi",
+      "status": "unchanged",
+      "retained_fields": []
+    },
+    {
+      "slug": "lukhanyo-am",
+      "status": "changed",
+      "retained_fields": []
+    },
+    {
+      "slug": "mackenzie-hansen",
+      "status": "changed",
+      "retained_fields": []
+    },
+    {
+      "slug": "mackenzie-martin",
+      "status": "changed",
+      "retained_fields": []
+    },
+    {
+      "slug": "magnus-bradbury",
+      "status": "changed",
+      "retained_fields": []
+    },
+    {
+      "slug": "makazole-mapimpi",
+      "status": "changed",
+      "retained_fields": []
+    },
+    {
+      "slug": "mako-vunipola",
+      "status": "changed",
+      "retained_fields": []
+    },
+    {
+      "slug": "malcolm-marx",
+      "status": "changed",
+      "retained_fields": []
+    },
+    {
+      "slug": "malik-faissal",
+      "status": "changed",
+      "retained_fields": []
+    },
+    {
+      "slug": "malo-tuitama",
+      "status": "changed",
+      "retained_fields": []
+    },
+    {
+      "slug": "mamoru-harada",
+      "status": "changed",
+      "retained_fields": []
+    },
+    {
+      "slug": "manie-libbok",
+      "status": "changed",
+      "retained_fields": []
+    },
+    {
+      "slug": "manu-tuilagi",
+      "status": "changed",
+      "retained_fields": []
+    },
+    {
+      "slug": "manuelzuliani",
+      "status": "changed",
+      "retained_fields": []
+    },
+    {
+      "slug": "marcello-violi",
+      "status": "unchanged",
+      "retained_fields": []
+    },
+    {
+      "slug": "marco-fuser",
+      "status": "unchanged",
+      "retained_fields": []
+    },
+    {
+      "slug": "marco-lazzaroni",
+      "status": "unchanged",
+      "retained_fields": []
+    },
+    {
+      "slug": "marco-manfredi",
+      "status": "changed",
+      "retained_fields": []
+    },
+    {
+      "slug": "marco-riccioni",
+      "status": "changed",
+      "retained_fields": []
+    },
+    {
+      "slug": "marco-van-staden",
+      "status": "changed",
+      "retained_fields": []
+    },
+    {
+      "slug": "marco-zanon",
+      "status": "changed",
+      "retained_fields": []
+    },
+    {
+      "slug": "marcos-kremer",
+      "status": "changed",
+      "retained_fields": []
+    },
+    {
+      "slug": "marcus-smith",
+      "status": "changed",
+      "retained_fields": []
+    },
+    {
+      "slug": "marika-koroibete",
+      "status": "changed",
+      "retained_fields": []
+    },
+    {
+      "slug": "marius-domon",
+      "status": "changed",
+      "retained_fields": []
+    },
+    {
+      "slug": "mark-bennett",
+      "status": "unchanged",
+      "retained_fields": []
+    },
+    {
+      "slug": "mark-nawaqanitawase",
+      "status": "unchanged",
+      "retained_fields": []
+    },
+    {
+      "slug": "mark-telea",
+      "status": "changed",
+      "retained_fields": []
+    },
+    {
+      "slug": "mark-wilson",
+      "status": "unchanged",
+      "retained_fields": []
+    },
+    {
+      "slug": "marko-gazzotti",
+      "status": "changed",
+      "retained_fields": []
+    },
+    {
+      "slug": "marnus-van-der-merwe",
+      "status": "changed",
+      "retained_fields": []
+    },
+    {
+      "slug": "maro-itoje",
+      "status": "changed",
+      "retained_fields": []
+    },
+    {
+      "slug": "marshall-sykes",
+      "status": "changed",
+      "retained_fields": []
+    },
+    {
+      "slug": "martin-bogado",
+      "status": "changed",
+      "retained_fields": []
+    },
+    {
+      "slug": "martin-page-relo",
+      "status": "changed",
+      "retained_fields": []
+    },
+    {
+      "slug": "marvin-orie",
+      "status": "changed",
+      "retained_fields": []
+    },
+    {
+      "slug": "mason-grady",
+      "status": "changed",
+      "retained_fields": []
+    },
+    {
+      "slug": "mateo-carreras",
+      "status": "changed",
+      "retained_fields": []
+    },
+    {
+      "slug": "mateo-soler",
+      "status": "changed",
+      "retained_fields": []
+    },
+    {
+      "slug": "mathis-ferte",
+      "status": "changed",
+      "retained_fields": []
+    },
+    {
+      "slug": "matias-alemanno",
+      "status": "changed",
+      "retained_fields": []
+    },
+    {
+      "slug": "matias-moroni",
+      "status": "changed",
+      "retained_fields": []
+    },
+    {
+      "slug": "matias-orlando",
+      "status": "changed",
+      "retained_fields": []
+    },
+    {
+      "slug": "matt-currie",
+      "status": "changed",
+      "retained_fields": []
+    },
+    {
+      "slug": "matt-faessler",
+      "status": "unchanged",
+      "retained_fields": []
+    },
+    {
+      "slug": "matt-fagerson",
+      "status": "changed",
+      "retained_fields": []
+    },
+    {
+      "slug": "matt-gallagher",
+      "status": "changed",
+      "retained_fields": []
+    },
+    {
+      "slug": "matt-philip",
+      "status": "unchanged",
+      "retained_fields": []
+    },
+    {
+      "slug": "matteo-canali",
+      "status": "unchanged",
+      "retained_fields": []
+    },
+    {
+      "slug": "matthew-screech",
+      "status": "changed",
+      "retained_fields": []
+    },
+    {
+      "slug": "matthias-halagahu",
+      "status": "changed",
+      "retained_fields": []
+    },
+    {
+      "slug": "matthieu-jalibert",
+      "status": "changed",
+      "retained_fields": []
+    },
+    {
+      "slug": "matthis-lebel",
+      "status": "changed",
+      "retained_fields": []
+    },
+    {
+      "slug": "mattia-bellini",
+      "status": "unchanged",
+      "retained_fields": []
+    },
+    {
+      "slug": "max-deegan",
+      "status": "changed",
+      "retained_fields": []
+    },
+    {
+      "slug": "max-jorgensen",
+      "status": "changed",
+      "retained_fields": []
+    },
+    {
+      "slug": "max-llewellyn",
+      "status": "changed",
+      "retained_fields": []
+    },
+    {
+      "slug": "max-malins",
+      "status": "changed",
+      "retained_fields": []
+    },
+    {
+      "slug": "max-ojomoh",
+      "status": "changed",
+      "retained_fields": []
+    },
+    {
+      "slug": "max-spring",
+      "status": "changed",
+      "retained_fields": []
+    },
+    {
+      "slug": "max-williamson",
+      "status": "changed",
+      "retained_fields": []
+    },
+    {
+      "slug": "maxime-lamothe",
+      "status": "changed",
+      "retained_fields": []
+    },
+    {
+      "slug": "maxime-lucu",
+      "status": "changed",
+      "retained_fields": []
+    },
+    {
+      "slug": "maxime-mbanda",
+      "status": "unchanged",
+      "retained_fields": []
+    },
+    {
+      "slug": "mayco-vivas",
+      "status": "changed",
+      "retained_fields": []
+    },
+    {
+      "slug": "meli-tuni",
+      "status": "unchanged",
+      "retained_fields": []
+    },
+    {
+      "slug": "melvyn-jaminet",
+      "status": "changed",
+      "retained_fields": []
+    },
+    {
+      "slug": "mesake-doge",
+      "status": "changed",
+      "retained_fields": []
+    },
+    {
+      "slug": "mesake-vocevoce",
+      "status": "changed",
+      "retained_fields": []
+    },
+    {
+      "slug": "mesulame-dolokoto",
+      "status": "changed",
+      "retained_fields": []
+    },
+    {
+      "slug": "michael-leitch",
+      "status": "changed",
+      "retained_fields": []
+    },
+    {
+      "slug": "michael-lowry",
+      "status": "unchanged",
+      "retained_fields": []
+    },
+    {
+      "slug": "michael-milne",
+      "status": "changed",
+      "retained_fields": []
+    },
+    {
+      "slug": "michele-lamaro",
+      "status": "changed",
+      "retained_fields": []
+    },
+    {
+      "slug": "mickael-guillard",
+      "status": "changed",
+      "retained_fields": []
+    },
+    {
+      "slug": "miles-amatosero",
+      "status": "changed",
+      "retained_fields": []
+    },
+    {
+      "slug": "mirco-spagnolo",
+      "status": "changed",
+      "retained_fields": []
+    },
+    {
+      "slug": "mirko-belloni",
+      "status": "changed",
+      "retained_fields": []
+    },
+    {
+      "slug": "mohammed-haouas",
+      "status": "changed",
+      "retained_fields": []
+    },
+    {
+      "slug": "monty-ioane",
+      "status": "changed",
+      "retained_fields": []
+    },
+    {
+      "slug": "morgan-morse",
+      "status": "unchanged",
+      "retained_fields": []
+    },
+    {
+      "slug": "morne-van-den-berg",
+      "status": "changed",
+      "retained_fields": []
+    },
+    {
+      "slug": "moses-alo-emile",
+      "status": "changed",
+      "retained_fields": []
+    },
+    {
+      "slug": "moses-sorovi",
+      "status": "unchanged",
+      "retained_fields": []
+    },
+    {
+      "slug": "muhamed-hasa",
+      "status": "changed",
+      "retained_fields": []
+    },
+    {
+      "slug": "murphy-walker",
+      "status": "changed",
+      "retained_fields": []
+    },
+    {
+      "slug": "nahuel-tetaz-chaparro",
+      "status": "changed",
+      "retained_fields": []
+    },
+    {
+      "slug": "naoto-saito",
+      "status": "changed",
+      "retained_fields": []
+    },
+    {
+      "slug": "nathan-doak",
+      "status": "changed",
+      "retained_fields": []
+    },
+    {
+      "slug": "nathan-mcbeth",
+      "status": "changed",
+      "retained_fields": []
+    },
+    {
+      "slug": "nathanael-hulleu",
+      "status": "changed",
+      "retained_fields": []
+    },
+    {
+      "slug": "neethling-fouche",
+      "status": "changed",
+      "retained_fields": []
+    },
+    {
+      "slug": "nepo-laulala",
+      "status": "changed",
+      "retained_fields": []
+    },
+    {
+      "slug": "nic-dolly",
+      "status": "unchanged",
+      "retained_fields": []
+    },
+    {
+      "slug": "nic-white",
+      "status": "unchanged",
+      "retained_fields": []
+    },
+    {
+      "slug": "niccolo-cannone",
+      "status": "changed",
+      "retained_fields": []
+    },
+    {
+      "slug": "nick-champion-de-crespigny",
+      "status": "changed",
+      "retained_fields": []
+    },
+    {
+      "slug": "nick-frost",
+      "status": "unchanged",
+      "retained_fields": []
+    },
+    {
+      "slug": "nick-haining",
+      "status": "unchanged",
+      "retained_fields": []
+    },
+    {
+      "slug": "nick-isiekwe",
+      "status": "changed",
+      "retained_fields": []
+    },
+    {
+      "slug": "nick-timoney",
+      "status": "changed",
+      "retained_fields": []
+    },
+    {
+      "slug": "nick-tompkins",
+      "status": "changed",
+      "retained_fields": []
+    },
+    {
+      "slug": "nicky-smith",
+      "status": "changed",
+      "retained_fields": []
+    },
+    {
+      "slug": "nicolas-damorim",
+      "status": "changed",
+      "retained_fields": []
+    },
+    {
+      "slug": "nicolas-depoortere",
+      "status": "changed",
+      "retained_fields": []
+    },
+    {
+      "slug": "nicolas-roger",
+      "status": "changed",
+      "retained_fields": []
+    },
+    {
+      "slug": "nicolas-sanchez",
+      "status": "changed",
+      "retained_fields": []
+    },
+    {
+      "slug": "nik-mccurran",
+      "status": "changed",
+      "retained_fields": []
+    },
+    {
+      "slug": "noah-caluori",
+      "status": "changed",
+      "retained_fields": []
+    },
+    {
+      "slug": "noah-hotham",
+      "status": "changed",
+      "retained_fields": []
+    },
+    {
+      "slug": "noah-lolesio",
+      "status": "unchanged",
+      "retained_fields": []
+    },
+    {
+      "slug": "nolann-le-garrec",
+      "status": "changed",
+      "retained_fields": []
+    },
+    {
+      "slug": "ntuthuko-mchunu",
+      "status": "changed",
+      "retained_fields": []
+    },
+    {
+      "slug": "ofa-tuungafasi",
+      "status": "changed",
+      "retained_fields": []
+    },
+    {
+      "slug": "oli-jager",
+      "status": "changed",
+      "retained_fields": []
+    },
+    {
+      "slug": "oliver-chessum",
+      "status": "changed",
+      "retained_fields": []
+    },
+    {
+      "slug": "oliviero-fabiani",
+      "status": "unchanged",
+      "retained_fields": []
+    },
+    {
+      "slug": "ollie-hassell-collins",
+      "status": "changed",
+      "retained_fields": []
+    },
+    {
+      "slug": "ollie-lawrence",
+      "status": "changed",
+      "retained_fields": []
+    },
+    {
+      "slug": "ollie-norris",
+      "status": "changed",
+      "retained_fields": []
+    },
+    {
+      "slug": "ollie-sleightholme",
+      "status": "changed",
+      "retained_fields": []
+    },
+    {
+      "slug": "ollie-smith",
+      "status": "changed",
+      "retained_fields": []
+    },
+    {
+      "slug": "olly-cracknell",
+      "status": "changed",
+      "retained_fields": []
+    },
+    {
+      "slug": "opeti-helu",
+      "status": "changed",
+      "retained_fields": []
+    },
+    {
+      "slug": "oscar-beard",
+      "status": "changed",
+      "retained_fields": []
+    },
+    {
+      "slug": "oscar-jegou",
+      "status": "changed",
+      "retained_fields": []
+    },
+    {
+      "slug": "owen-farrell",
+      "status": "changed",
+      "retained_fields": []
+    },
+    {
+      "slug": "owen-watkin",
+      "status": "changed",
+      "retained_fields": []
+    },
+    {
+      "slug": "owen-williams",
+      "status": "changed",
+      "retained_fields": []
+    },
+    {
+      "slug": "ox-nche",
+      "status": "changed",
+      "retained_fields": []
+    },
+    {
+      "slug": "pablo-dimcheff",
+      "status": "changed",
+      "retained_fields": []
+    },
+    {
+      "slug": "pablo-matera",
+      "status": "changed",
+      "retained_fields": []
+    },
+    {
+      "slug": "paddy-mccarthy",
+      "status": "unchanged",
+      "retained_fields": []
+    },
+    {
+      "slug": "paolo-buonfiglio",
+      "status": "changed",
+      "retained_fields": []
+    },
+    {
+      "slug": "paolo-garbisi",
+      "status": "changed",
+      "retained_fields": []
+    },
+    {
+      "slug": "paolo-odogwu",
+      "status": "changed",
+      "retained_fields": []
+    },
+    {
+      "slug": "pasilio-tosi",
+      "status": "unchanged",
+      "retained_fields": []
+    },
+    {
+      "slug": "patrick-harrison",
+      "status": "changed",
+      "retained_fields": []
+    },
+    {
+      "slug": "patrick-tuipulotu",
+      "status": "changed",
+      "retained_fields": []
+    },
+    {
+      "slug": "paul-boudehent",
+      "status": "changed",
+      "retained_fields": []
+    },
+    {
+      "slug": "paul-de-villiers",
+      "status": "changed",
+      "retained_fields": []
+    },
+    {
+      "slug": "paul-gabrillagues",
+      "status": "changed",
+      "retained_fields": []
+    },
+    {
+      "slug": "paul-mallez",
+      "status": "changed",
+      "retained_fields": []
+    },
+    {
+      "slug": "paul-willemse",
+      "status": "changed",
+      "retained_fields": []
+    },
+    {
+      "slug": "peato-mauvaka",
+      "status": "changed",
+      "retained_fields": []
+    },
+    {
+      "slug": "peceli-yato",
+      "status": "changed",
+      "retained_fields": []
+    },
+    {
+      "slug": "pedro-delgado",
+      "status": "changed",
+      "retained_fields": []
+    },
+    {
+      "slug": "pedro-rubiolo",
+      "status": "changed",
+      "retained_fields": []
+    },
+    {
+      "slug": "peni-matawalu",
+      "status": "changed",
+      "retained_fields": []
+    },
+    {
+      "slug": "peni-ravai",
+      "status": "changed",
+      "retained_fields": []
+    },
+    {
+      "slug": "peniasi-dakuwaqa",
+      "status": "changed",
+      "retained_fields": []
+    },
+    {
+      "slug": "peter-lakai",
+      "status": "changed",
+      "retained_fields": []
+    },
+    {
+      "slug": "peter-omahony",
+      "status": "changed",
+      "retained_fields": []
+    },
+    {
+      "slug": "peter-samu",
+      "status": "changed",
+      "retained_fields": []
+    },
+    {
+      "slug": "phendulani-buthelezi",
+      "status": "changed",
+      "retained_fields": []
+    },
+    {
+      "slug": "pierre-bochaton",
+      "status": "changed",
+      "retained_fields": []
+    },
+    {
+      "slug": "pierre-boudehent",
+      "status": "changed",
+      "retained_fields": []
+    },
+    {
+      "slug": "pierre-bourgarit",
+      "status": "changed",
+      "retained_fields": []
+    },
+    {
+      "slug": "pierre-bruno",
+      "status": "changed",
+      "retained_fields": []
+    },
+    {
+      "slug": "pierre-henri-azagoh",
+      "status": "changed",
+      "retained_fields": []
+    },
+    {
+      "slug": "pierre-louis-barassi",
+      "status": "changed",
+      "retained_fields": []
+    },
+    {
+      "slug": "pierre-schoeman",
+      "status": "changed",
+      "retained_fields": []
+    },
+    {
+      "slug": "pieter-labuschagne",
+      "status": "unchanged",
+      "retained_fields": []
+    },
+    {
+      "slug": "pieter-steph-du-toit",
+      "status": "changed",
+      "retained_fields": []
+    },
+    {
+      "slug": "pietro-ceccarelli",
+      "status": "changed",
+      "retained_fields": []
+    },
+    {
+      "slug": "pita-sowakula",
+      "status": "changed",
+      "retained_fields": []
+    },
+    {
+      "slug": "ponipate-loganimasi",
+      "status": "unchanged",
+      "retained_fields": []
+    },
+    {
+      "slug": "posolo-tuilagi",
+      "status": "changed",
+      "retained_fields": []
+    },
+    {
+      "slug": "quade-cooper",
+      "status": "unchanged",
+      "retained_fields": []
+    },
+    {
+      "slug": "quan-horn",
+      "status": "changed",
+      "retained_fields": []
+    },
+    {
+      "slug": "quinn-tupaea",
+      "status": "changed",
+      "retained_fields": []
+    },
+    {
+      "slug": "rabah-slimani",
+      "status": "changed",
+      "retained_fields": []
+    },
+    {
+      "slug": "rafi-quirke",
+      "status": "changed",
+      "retained_fields": []
+    },
+    {
+      "slug": "ratu-meli-derenalagi",
+      "status": "unchanged",
+      "retained_fields": []
+    },
+    {
+      "slug": "ratu-rotuisolia",
+      "status": "changed",
+      "retained_fields": []
+    },
+    {
+      "slug": "reda-wardi",
+      "status": "changed",
+      "retained_fields": []
+    },
+    {
+      "slug": "regis-montagne",
+      "status": "changed",
+      "retained_fields": []
+    },
+    {
+      "slug": "reuben-morgan-williams",
+      "status": "changed",
+      "retained_fields": []
+    },
+    {
+      "slug": "rg-snyman",
+      "status": "changed",
+      "retained_fields": []
+    },
+    {
+      "slug": "rhodri-jones",
+      "status": "unchanged",
+      "retained_fields": []
+    },
+    {
+      "slug": "rhodri-williams",
+      "status": "changed",
+      "retained_fields": []
+    },
+    {
+      "slug": "rhys-barratt",
+      "status": "changed",
+      "retained_fields": []
+    },
+    {
+      "slug": "rhys-carre",
+      "status": "changed",
+      "retained_fields": []
+    },
+    {
+      "slug": "rhys-davies",
+      "status": "changed",
+      "retained_fields": []
+    },
+    {
+      "slug": "rhys-patchell",
+      "status": "changed",
+      "retained_fields": []
+    },
+    {
+      "slug": "rhys-ruddock",
+      "status": "unchanged",
+      "retained_fields": []
+    },
+    {
+      "slug": "rhys-webb",
+      "status": "changed",
+      "retained_fields": []
+    },
+    {
+      "slug": "riccardo-favretto",
+      "status": "changed",
+      "retained_fields": []
+    },
+    {
+      "slug": "richie-arnold",
+      "status": "changed",
+      "retained_fields": []
+    },
+    {
+      "slug": "richie-gray",
+      "status": "changed",
+      "retained_fields": []
+    },
+    {
+      "slug": "richie-mounga",
+      "status": "changed",
+      "retained_fields": []
+    },
+    {
+      "slug": "rieko-ioane",
+      "status": "changed",
+      "retained_fields": []
+    },
+    {
+      "slug": "rikiya-matsuda",
+      "status": "changed",
+      "retained_fields": []
+    },
+    {
+      "slug": "riley-norton",
+      "status": "changed",
+      "retained_fields": []
+    },
+    {
+      "slug": "rio-dyer",
+      "status": "changed",
+      "retained_fields": []
+    },
+    {
+      "slug": "rob-herring",
+      "status": "changed",
+      "retained_fields": []
+    },
+    {
+      "slug": "rob-valetini",
+      "status": "changed",
+      "retained_fields": []
+    },
+    {
+      "slug": "robbie-henshaw",
+      "status": "changed",
+      "retained_fields": []
+    },
+    {
+      "slug": "robbie-smith",
+      "status": "changed",
+      "retained_fields": []
+    },
+    {
+      "slug": "robert-baloucoune",
+      "status": "changed",
+      "retained_fields": []
+    },
+    {
+      "slug": "robert-leota",
+      "status": "unchanged",
+      "retained_fields": []
+    },
+    {
+      "slug": "rodrigo-bruni",
+      "status": "changed",
+      "retained_fields": []
+    },
+    {
+      "slug": "rodrigo-isgro",
+      "status": "changed",
+      "retained_fields": []
+    },
+    {
+      "slug": "rodrigue-neti",
+      "status": "changed",
+      "retained_fields": []
+    },
+    {
+      "slug": "romain-briatte",
+      "status": "changed",
+      "retained_fields": []
+    },
+    {
+      "slug": "romain-buros",
+      "status": "changed",
+      "retained_fields": []
+    },
+    {
+      "slug": "romain-ntamack",
+      "status": "changed",
+      "retained_fields": []
+    },
+    {
+      "slug": "romain-taofifenua",
+      "status": "changed",
+      "retained_fields": []
+    },
+    {
+      "slug": "ronan-kelleher",
+      "status": "changed",
+      "retained_fields": []
+    },
+    {
+      "slug": "rory-darge",
+      "status": "changed",
+      "retained_fields": []
+    },
+    {
+      "slug": "rory-hutchinson",
+      "status": "changed",
+      "retained_fields": []
+    },
+    {
+      "slug": "rory-sutherland",
+      "status": "changed",
+      "retained_fields": []
+    },
+    {
+      "slug": "ross-byrne",
+      "status": "changed",
+      "retained_fields": []
+    },
+    {
+      "slug": "ross-mccann",
+      "status": "unchanged",
+      "retained_fields": []
+    },
+    {
+      "slug": "ross-moriarty",
+      "status": "unchanged",
+      "retained_fields": []
+    },
+    {
+      "slug": "ross-thompson",
+      "status": "unchanged",
+      "retained_fields": []
+    },
+    {
+      "slug": "ross-vintcent",
+      "status": "changed",
+      "retained_fields": []
+    },
+    {
+      "slug": "ruan-nortje",
+      "status": "changed",
+      "retained_fields": []
+    },
+    {
+      "slug": "ruan-venter",
+      "status": "changed",
+      "retained_fields": []
+    },
+    {
+      "slug": "ruben-love",
+      "status": "changed",
+      "retained_fields": []
+    },
+    {
+      "slug": "ruben-van-heerden",
+      "status": "changed",
+      "retained_fields": []
+    },
+    {
+      "slug": "ryan-baird",
+      "status": "changed",
+      "retained_fields": []
+    },
+    {
+      "slug": "ryan-elias",
+      "status": "changed",
+      "retained_fields": []
+    },
+    {
+      "slug": "ryan-lonergan",
+      "status": "changed",
+      "retained_fields": []
+    },
+    {
+      "slug": "ryan-wilson",
+      "status": "unchanged",
+      "retained_fields": []
+    },
+    {
+      "slug": "ryan-woodman",
+      "status": "changed",
+      "retained_fields": []
+    },
+    {
+      "slug": "ryohei-yamanaka",
+      "status": "unchanged",
+      "retained_fields": []
+    },
+    {
+      "slug": "ryosuke-iwaihara",
+      "status": "unchanged",
+      "retained_fields": []
+    },
+    {
+      "slug": "ryoto-nakamura",
+      "status": "unchanged",
+      "retained_fields": []
+    },
+    {
+      "slug": "ryunosuke-ito",
+      "status": "changed",
+      "retained_fields": []
+    },
+    {
+      "slug": "sacha-mngomezulu",
+      "status": "changed",
+      "retained_fields": []
+    },
+    {
+      "slug": "saimoni-uluinakauvadra",
+      "status": "changed",
+      "retained_fields": []
+    },
+    {
+      "slug": "salesi-rayasi",
+      "status": "changed",
+      "retained_fields": []
+    },
+    {
+      "slug": "salmaan-moerat",
+      "status": "changed",
+      "retained_fields": []
+    },
+    {
+      "slug": "sam-cane",
+      "status": "changed",
+      "retained_fields": []
+    },
+    {
+      "slug": "sam-costelow",
+      "status": "changed",
+      "retained_fields": []
+    },
+    {
+      "slug": "sam-darry",
+      "status": "changed",
+      "retained_fields": []
+    },
+    {
+      "slug": "sam-greene",
+      "status": "changed",
+      "retained_fields": []
+    },
+    {
+      "slug": "sam-illo",
+      "status": "changed",
+      "retained_fields": []
+    },
+    {
+      "slug": "sam-johnson",
+      "status": "unchanged",
+      "retained_fields": []
+    },
+    {
+      "slug": "sam-parry",
+      "status": "changed",
+      "retained_fields": []
+    },
+    {
+      "slug": "sam-prendergast",
+      "status": "changed",
+      "retained_fields": []
+    },
+    {
+      "slug": "sam-simmonds",
+      "status": "unchanged",
+      "retained_fields": []
+    },
+    {
+      "slug": "sam-skinner",
+      "status": "changed",
+      "retained_fields": []
+    },
+    {
+      "slug": "sam-underhill",
+      "status": "changed",
+      "retained_fields": []
+    },
+    {
+      "slug": "sam-wainwright",
+      "status": "changed",
+      "retained_fields": []
+    },
+    {
+      "slug": "sam-wye",
+      "status": "changed",
+      "retained_fields": []
+    },
+    {
+      "slug": "samipeni-finau",
+      "status": "changed",
+      "retained_fields": []
+    },
+    {
+      "slug": "samisoni-taukeiaho",
+      "status": "changed",
+      "retained_fields": []
+    },
+    {
+      "slug": "samisoni-tua",
+      "status": "changed",
+      "retained_fields": []
+    },
+    {
+      "slug": "samu-kerevi",
+      "status": "unchanged",
+      "retained_fields": []
+    },
+    {
+      "slug": "samuel-matavesi",
+      "status": "changed",
+      "retained_fields": []
+    },
+    {
+      "slug": "samuel-whitelock",
+      "status": "changed",
+      "retained_fields": []
+    },
+    {
+      "slug": "samuela-tawake",
+      "status": "changed",
+      "retained_fields": []
+    },
+    {
+      "slug": "samuele-locatelli",
+      "status": "changed",
+      "retained_fields": []
+    },
+    {
+      "slug": "sanaila-waqa",
+      "status": "changed",
+      "retained_fields": []
+    },
+    {
+      "slug": "santiago-carreras",
+      "status": "changed",
+      "retained_fields": []
+    },
+    {
+      "slug": "santiago-chocobares",
+      "status": "changed",
+      "retained_fields": []
+    },
+    {
+      "slug": "santiago-cordero",
+      "status": "changed",
+      "retained_fields": []
+    },
+    {
+      "slug": "santiago-grondona",
+      "status": "changed",
+      "retained_fields": []
+    },
+    {
+      "slug": "santiago-pernas",
+      "status": "changed",
+      "retained_fields": []
+    },
+    {
+      "slug": "scott-baldwin",
+      "status": "changed",
+      "retained_fields": [
+        "competition_stats"
+      ]
+    },
+    {
+      "slug": "scott-barrett",
+      "status": "changed",
+      "retained_fields": []
+    },
+    {
+      "slug": "scott-cummings",
+      "status": "changed",
+      "retained_fields": []
+    },
+    {
+      "slug": "scott-steele",
+      "status": "unchanged",
+      "retained_fields": []
+    },
+    {
+      "slug": "sean-jansen",
+      "status": "changed",
+      "retained_fields": []
+    },
+    {
+      "slug": "sean-maitland",
+      "status": "unchanged",
+      "retained_fields": []
+    },
+    {
+      "slug": "seb-davies",
+      "status": "unchanged",
+      "retained_fields": []
+    },
+    {
+      "slug": "seb-stephen",
+      "status": "changed",
+      "retained_fields": []
+    },
+    {
+      "slug": "sebastian-negri",
+      "status": "unchanged",
+      "retained_fields": []
+    },
+    {
+      "slug": "sebastian-negri-da-ollegio",
+      "status": "changed",
+      "retained_fields": []
+    },
+    {
+      "slug": "sebastien-atkinson",
+      "status": "changed",
+      "retained_fields": []
+    },
+    {
+      "slug": "sebastien-taofifenua",
+      "status": "changed",
+      "retained_fields": []
+    },
+    {
+      "slug": "sekou-macalou",
+      "status": "changed",
+      "retained_fields": []
+    },
+    {
+      "slug": "selestino-ravutaumada",
+      "status": "changed",
+      "retained_fields": []
+    },
+    {
+      "slug": "semi-radradra",
+      "status": "changed",
+      "retained_fields": []
+    },
+    {
+      "slug": "semisi-masirewa",
+      "status": "unchanged",
+      "retained_fields": []
+    },
+    {
+      "slug": "sena-kimura",
+      "status": "changed",
+      "retained_fields": []
+    },
+    {
+      "slug": "seru-uru",
+      "status": "changed",
+      "retained_fields": []
+    },
+    {
+      "slug": "seta-tamanivalu",
+      "status": "changed",
+      "retained_fields": []
+    },
+    {
+      "slug": "setareki-turagacoke",
+      "status": "changed",
+      "retained_fields": []
+    },
+    {
+      "slug": "setariki-tuicuvu",
+      "status": "changed",
+      "retained_fields": []
+    },
+    {
+      "slug": "seunghyok-lee",
+      "status": "unchanged",
+      "retained_fields": []
+    },
+    {
+      "slug": "seungsin-lee",
+      "status": "unchanged",
+      "retained_fields": []
+    },
+    {
+      "slug": "sevu-reece",
+      "status": "changed",
+      "retained_fields": []
+    },
+    {
+      "slug": "shaun-stevenson",
+      "status": "changed",
+      "retained_fields": []
+    },
+    {
+      "slug": "shayne-bolton",
+      "status": "unchanged",
+      "retained_fields": []
+    },
+    {
+      "slug": "shinnosuke-kakinaga",
+      "status": "unchanged",
+      "retained_fields": []
+    },
+    {
+      "slug": "shinobu-fujiwara",
+      "status": "unchanged",
+      "retained_fields": []
+    },
+    {
+      "slug": "shinya-komura",
+      "status": "changed",
+      "retained_fields": []
+    },
+    {
+      "slug": "sho-furuhata",
+      "status": "unchanged",
+      "retained_fields": []
+    },
+    {
+      "slug": "shogo-miura",
+      "status": "changed",
+      "retained_fields": []
+    },
+    {
+      "slug": "shogo-nakano",
+      "status": "unchanged",
+      "retained_fields": []
+    },
+    {
+      "slug": "shota-fukui",
+      "status": "unchanged",
+      "retained_fields": []
+    },
+    {
+      "slug": "shota-horie",
+      "status": "unchanged",
+      "retained_fields": []
+    },
+    {
+      "slug": "shu-yamamoto",
+      "status": "unchanged",
+      "retained_fields": []
+    },
+    {
+      "slug": "shuhei-takeuchi-1",
+      "status": "changed",
+      "retained_fields": []
+    },
+    {
+      "slug": "shuntaro-kitamura",
+      "status": "unchanged",
+      "retained_fields": []
+    },
+    {
+      "slug": "simione-kuruvoli",
+      "status": "changed",
+      "retained_fields": []
+    },
+    {
+      "slug": "simon-benitez-cruz",
+      "status": "changed",
+      "retained_fields": []
+    },
+    {
+      "slug": "simon-berghan",
+      "status": "unchanged",
+      "retained_fields": [
+        "competition_stats"
+      ]
+    },
+    {
+      "slug": "simon-parker",
+      "status": "changed",
+      "retained_fields": []
+    },
+    {
+      "slug": "simone-ferrari",
+      "status": "changed",
+      "retained_fields": []
+    },
+    {
+      "slug": "simone-gesi",
+      "status": "changed",
+      "retained_fields": []
+    },
+    {
+      "slug": "sione-tuipulotu",
+      "status": "changed",
+      "retained_fields": []
+    },
+    {
+      "slug": "siosaia-fifita",
+      "status": "changed",
+      "retained_fields": []
+    },
+    {
+      "slug": "sipili-falatea",
+      "status": "changed",
+      "retained_fields": []
+    },
+    {
+      "slug": "sireli-maqala",
+      "status": "changed",
+      "retained_fields": []
+    },
+    {
+      "slug": "siya-kolisi",
+      "status": "changed",
+      "retained_fields": []
+    },
+    {
+      "slug": "stafford-mcdowall",
+      "status": "changed",
+      "retained_fields": []
+    },
+    {
+      "slug": "stephen-perofeta",
+      "status": "changed",
+      "retained_fields": []
+    },
+    {
+      "slug": "stephen-varney",
+      "status": "changed",
+      "retained_fields": []
+    },
+    {
+      "slug": "steven-kitshoff",
+      "status": "changed",
+      "retained_fields": []
+    },
+    {
+      "slug": "stuart-hogg",
+      "status": "changed",
+      "retained_fields": []
+    },
+    {
+      "slug": "stuart-mccloskey",
+      "status": "changed",
+      "retained_fields": []
+    },
+    {
+      "slug": "stuart-mcinally",
+      "status": "changed",
+      "retained_fields": []
+    },
+    {
+      "slug": "suliasi-vunivalu",
+      "status": "unchanged",
+      "retained_fields": []
+    },
+    {
+      "slug": "swan-rebbadj",
+      "status": "unchanged",
+      "retained_fields": []
+    },
+    {
+      "slug": "tadgh-beirne",
+      "status": "changed",
+      "retained_fields": []
+    },
+    {
+      "slug": "tadhg-furlong",
+      "status": "changed",
+      "retained_fields": []
+    },
+    {
+      "slug": "taichi-takahashi",
+      "status": "changed",
+      "retained_fields": []
+    },
+    {
+      "slug": "taiki-koyama",
+      "status": "unchanged",
+      "retained_fields": []
+    },
+    {
+      "slug": "taine-basham",
+      "status": "changed",
+      "retained_fields": []
+    },
+    {
+      "slug": "taine-plumtree",
+      "status": "changed",
+      "retained_fields": []
+    },
+    {
+      "slug": "takato-okabe",
+      "status": "changed",
+      "retained_fields": []
+    },
+    {
+      "slug": "takayoshi-mohara",
+      "status": "unchanged",
+      "retained_fields": []
+    },
+    {
+      "slug": "takuro-hojo",
+      "status": "changed",
+      "retained_fields": []
+    },
+    {
+      "slug": "takuro-matsunaga",
+      "status": "changed",
+      "retained_fields": []
+    },
+    {
+      "slug": "takuya-yamasawa",
+      "status": "unchanged",
+      "retained_fields": []
+    },
+    {
+      "slug": "tamaiti-williams",
+      "status": "changed",
+      "retained_fields": []
+    },
+    {
+      "slug": "tane-edmed",
+      "status": "changed",
+      "retained_fields": []
+    },
+    {
+      "slug": "taniela-rakuro",
+      "status": "changed",
+      "retained_fields": []
+    },
+    {
+      "slug": "taniela-tupou",
+      "status": "changed",
+      "retained_fields": []
+    },
+    {
+      "slug": "tate-mcdermott",
+      "status": "changed",
+      "retained_fields": []
+    },
+    {
+      "slug": "taulupe-faletau",
+      "status": "changed",
+      "retained_fields": []
+    },
+    {
+      "slug": "te-ahiwaru-cirikidaveta",
+      "status": "changed",
+      "retained_fields": []
+    },
+    {
+      "slug": "ted-hill",
+      "status": "changed",
+      "retained_fields": []
+    },
+    {
+      "slug": "teddy-baubigny",
+      "status": "changed",
+      "retained_fields": []
+    },
+    {
+      "slug": "teddy-williams",
+      "status": "changed",
+      "retained_fields": []
+    },
+    {
+      "slug": "temo-matiu",
+      "status": "changed",
+      "retained_fields": []
+    },
+    {
+      "slug": "temo-mayanavanua",
+      "status": "changed",
+      "retained_fields": []
+    },
+    {
+      "slug": "teti-tela",
+      "status": "unchanged",
+      "retained_fields": []
+    },
+    {
+      "slug": "tevita-ikanivere",
+      "status": "changed",
+      "retained_fields": []
+    },
+    {
+      "slug": "tevita-ratuva",
+      "status": "changed",
+      "retained_fields": []
+    },
+    {
+      "slug": "tevita-tatafu",
+      "status": "unchanged",
+      "retained_fields": []
+    },
+    {
+      "slug": "theo-attissogbe",
+      "status": "changed",
+      "retained_fields": []
+    },
+    {
+      "slug": "theo-dan",
+      "status": "changed",
+      "retained_fields": []
+    },
+    {
+      "slug": "theo-forner",
+      "status": "changed",
+      "retained_fields": []
+    },
+    {
+      "slug": "theo-millet",
+      "status": "changed",
+      "retained_fields": []
+    },
+    {
+      "slug": "thibaud-flament",
+      "status": "changed",
+      "retained_fields": []
+    },
+    {
+      "slug": "thibault-daubagna",
+      "status": "changed",
+      "retained_fields": []
+    },
+    {
+      "slug": "thomas-ahern",
+      "status": "unchanged",
+      "retained_fields": []
+    },
+    {
+      "slug": "thomas-du-toit",
+      "status": "changed",
+      "retained_fields": []
+    },
+    {
+      "slug": "thomas-farrell",
+      "status": "changed",
+      "retained_fields": []
+    },
+    {
+      "slug": "thomas-gallo",
+      "status": "changed",
+      "retained_fields": []
+    },
+    {
+      "slug": "thomas-laclayat",
+      "status": "changed",
+      "retained_fields": []
+    },
+    {
+      "slug": "thomas-lavault",
+      "status": "changed",
+      "retained_fields": []
+    },
+    {
+      "slug": "thomas-ramos",
+      "status": "changed",
+      "retained_fields": []
+    },
+    {
+      "slug": "tiennan-costley",
+      "status": "changed",
+      "retained_fields": []
+    },
+    {
+      "slug": "tim-hoyt",
+      "status": "changed",
+      "retained_fields": []
+    },
+    {
+      "slug": "timoci-tavatavanawai",
+      "status": "changed",
+      "retained_fields": []
+    },
+    {
+      "slug": "tiziano-pasquali",
+      "status": "unchanged",
+      "retained_fields": []
+    },
+    {
+      "slug": "tj-perenara",
+      "status": "changed",
+      "retained_fields": []
+    },
+    {
+      "slug": "toa-halafihi",
+      "status": "changed",
+      "retained_fields": []
+    },
+    {
+      "slug": "tom-clarkson",
+      "status": "changed",
+      "retained_fields": []
+    },
+    {
+      "slug": "tom-curry",
+      "status": "changed",
+      "retained_fields": []
+    },
+    {
+      "slug": "tom-hill",
+      "status": "changed",
+      "retained_fields": []
+    },
+    {
+      "slug": "tom-hooper",
+      "status": "changed",
+      "retained_fields": []
+    },
+    {
+      "slug": "tom-jordan",
+      "status": "changed",
+      "retained_fields": []
+    },
+    {
+      "slug": "tom-lynagh",
+      "status": "unchanged",
+      "retained_fields": []
+    },
+    {
+      "slug": "tom-otoole",
+      "status": "changed",
+      "retained_fields": []
+    },
+    {
+      "slug": "tom-pearson",
+      "status": "changed",
+      "retained_fields": []
+    },
+    {
+      "slug": "tom-robertson",
+      "status": "changed",
+      "retained_fields": []
+    },
+    {
+      "slug": "tom-roebuck",
+      "status": "changed",
+      "retained_fields": []
+    },
+    {
+      "slug": "tom-rogers",
+      "status": "changed",
+      "retained_fields": []
+    },
+    {
+      "slug": "tom-spring",
+      "status": "changed",
+      "retained_fields": []
+    },
+    {
+      "slug": "tom-staniforth",
+      "status": "changed",
+      "retained_fields": []
+    },
+    {
+      "slug": "tom-stewart",
+      "status": "changed",
+      "retained_fields": []
+    },
+    {
+      "slug": "tom-willis",
+      "status": "changed",
+      "retained_fields": []
+    },
+    {
+      "slug": "tom-wright",
+      "status": "changed",
+      "retained_fields": []
+    },
+    {
+      "slug": "tomas-albornoz",
+      "status": "changed",
+      "retained_fields": []
+    },
+    {
+      "slug": "tomas-cubelli",
+      "status": "unchanged",
+      "retained_fields": []
+    },
+    {
+      "slug": "tomas-francis",
+      "status": "changed",
+      "retained_fields": []
+    },
+    {
+      "slug": "tomas-lavanini",
+      "status": "changed",
+      "retained_fields": []
+    },
+    {
+      "slug": "tomas-rapetti",
+      "status": "changed",
+      "retained_fields": []
+    },
+    {
+      "slug": "tommaso-allan",
+      "status": "changed",
+      "retained_fields": []
+    },
+    {
+      "slug": "tommaso-di-bartolomeo",
+      "status": "changed",
+      "retained_fields": []
+    },
+    {
+      "slug": "tommaso-menoncello",
+      "status": "changed",
+      "retained_fields": []
+    },
+    {
+      "slug": "tommy-freeman",
+      "status": "changed",
+      "retained_fields": []
+    },
+    {
+      "slug": "tommy-obrien",
+      "status": "changed",
+      "retained_fields": []
+    },
+    {
+      "slug": "tommy-reffell",
+      "status": "changed",
+      "retained_fields": []
+    },
+    {
+      "slug": "tomoki-osada-1",
+      "status": "unchanged",
+      "retained_fields": []
+    },
+    {
+      "slug": "tomos-williams",
+      "status": "changed",
+      "retained_fields": []
+    },
+    {
+      "slug": "trevor-davison",
+      "status": "changed",
+      "retained_fields": []
+    },
+    {
+      "slug": "trevor-nyakane",
+      "status": "changed",
+      "retained_fields": []
+    },
+    {
+      "slug": "tuidraki-samusamuvodre",
+      "status": "changed",
+      "retained_fields": []
+    },
+    {
+      "slug": "tupou-vaai",
+      "status": "changed",
+      "retained_fields": []
+    },
+    {
+      "slug": "tyler-duguid",
+      "status": "changed",
+      "retained_fields": []
+    },
+    {
+      "slug": "tyler-paul",
+      "status": "changed",
+      "retained_fields": []
+    },
+    {
+      "slug": "tyrel-lomax",
+      "status": "changed",
+      "retained_fields": []
+    },
+    {
+      "slug": "ugo-seunes",
+      "status": "changed",
+      "retained_fields": []
+    },
+    {
+      "slug": "uini-atonio",
+      "status": "changed",
+      "retained_fields": []
+    },
+    {
+      "slug": "ultan-dillane",
+      "status": "unchanged",
+      "retained_fields": []
+    },
+    {
+      "slug": "uwe-helu",
+      "status": "changed",
+      "retained_fields": []
+    },
+    {
+      "slug": "viliame-mata",
+      "status": "changed",
+      "retained_fields": []
+    },
+    {
+      "slug": "vilimoni-botitu",
+      "status": "changed",
+      "retained_fields": []
+    },
+    {
+      "slug": "vilive-miramira",
+      "status": "changed",
+      "retained_fields": []
+    },
+    {
+      "slug": "vinaya-habosi",
+      "status": "changed",
+      "retained_fields": []
+    },
+    {
+      "slug": "vincent-koch",
+      "status": "changed",
+      "retained_fields": []
+    },
+    {
+      "slug": "vincent-tshituka",
+      "status": "changed",
+      "retained_fields": []
+    },
+    {
+      "slug": "virimi-vakatawa",
+      "status": "unchanged",
+      "retained_fields": []
+    },
+    {
+      "slug": "vuate-karawalevu",
+      "status": "changed",
+      "retained_fields": []
+    },
+    {
+      "slug": "waisea-nayacalevu",
+      "status": "changed",
+      "retained_fields": []
+    },
+    {
+      "slug": "wallace-sititi",
+      "status": "changed",
+      "retained_fields": []
+    },
+    {
+      "slug": "warner-dearns",
+      "status": "changed",
+      "retained_fields": []
+    },
+    {
+      "slug": "wilco-louw",
+      "status": "changed",
+      "retained_fields": []
+    },
+    {
+      "slug": "will-connors",
+      "status": "unchanged",
+      "retained_fields": []
+    },
+    {
+      "slug": "will-hurd",
+      "status": "changed",
+      "retained_fields": []
+    },
+    {
+      "slug": "will-john",
+      "status": "changed",
+      "retained_fields": []
+    },
+    {
+      "slug": "will-jordan",
+      "status": "changed",
+      "retained_fields": []
+    },
+    {
+      "slug": "will-muir",
+      "status": "changed",
+      "retained_fields": []
+    },
+    {
+      "slug": "will-rowlands",
+      "status": "changed",
+      "retained_fields": []
+    },
+    {
+      "slug": "will-skelton",
+      "status": "changed",
+      "retained_fields": []
+    },
+    {
+      "slug": "will-stuart",
+      "status": "changed",
+      "retained_fields": []
+    },
+    {
+      "slug": "willie-le-roux",
+      "status": "changed",
+      "retained_fields": []
+    },
+    {
+      "slug": "willis-halaholo",
+      "status": "unchanged",
+      "retained_fields": []
+    },
+    {
+      "slug": "wp-nel",
+      "status": "unchanged",
+      "retained_fields": []
+    },
+    {
+      "slug": "wyn-jones",
+      "status": "changed",
+      "retained_fields": []
+    },
+    {
+      "slug": "xavier-numia",
+      "status": "changed",
+      "retained_fields": []
+    },
+    {
+      "slug": "yann-peysson",
+      "status": "changed",
+      "retained_fields": []
+    },
+    {
+      "slug": "yoan-tanga",
+      "status": "changed",
+      "retained_fields": []
+    },
+    {
+      "slug": "yoram-moefana",
+      "status": "changed",
+      "retained_fields": []
+    },
+    {
+      "slug": "yoshitaka-yazaki",
+      "status": "changed",
+      "retained_fields": []
+    },
+    {
+      "slug": "yota-kamimori",
+      "status": "changed",
+      "retained_fields": []
+    },
+    {
+      "slug": "yuki-ikeda",
+      "status": "unchanged",
+      "retained_fields": []
+    },
+    {
+      "slug": "yukio-morikawa",
+      "status": "unchanged",
+      "retained_fields": []
+    },
+    {
+      "slug": "yusuke-kajimura",
+      "status": "unchanged",
+      "retained_fields": []
+    },
+    {
+      "slug": "yutaka-nagare",
+      "status": "changed",
+      "retained_fields": []
+    },
+    {
+      "slug": "yuya-hirose",
+      "status": "changed",
+      "retained_fields": []
+    },
+    {
+      "slug": "zac-ward",
+      "status": "changed",
+      "retained_fields": []
+    },
+    {
+      "slug": "zachary-porthen",
+      "status": "changed",
+      "retained_fields": []
+    },
+    {
+      "slug": "zander-fagerson",
+      "status": "changed",
+      "retained_fields": []
+    },
+    {
+      "slug": "zane-nonggorr",
+      "status": "changed",
+      "retained_fields": []
+    },
+    {
+      "slug": "zuriel-togiatama",
+      "status": "changed",
+      "retained_fields": []
+    }
+  ]
+}

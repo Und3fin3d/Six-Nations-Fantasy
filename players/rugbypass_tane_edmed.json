@@ -3,7 +3,7 @@
   "csv_name": "Tane Edmed",
   "bio": {
     "Nationality": "Australia",
-    "Age": "25",
+    "Age": "26",
     "Position": "Fly Half",
     "Height": "183cm",
     "Weight": "92kg"
@@ -126,7 +126,7 @@
       "red_cards": 0
     },
     {
-      "competition": "Bunnings NPC",
+      "competition": "Hilux NPC",
       "season": "2024",
       "games": 10,
       "minutes": 777,
@@ -1151,7 +1151,7 @@
       "conversions": 0
     },
     {
-      "competition": "Bunnings NPC",
+      "competition": "Hilux NPC",
       "match": "Southland Stags vs North Harbour",
       "date": "5 Oct 2024",
       "opposition": "Southland Stags",
@@ -1164,7 +1164,7 @@
       "conversions": 5
     },
     {
-      "competition": "Bunnings NPC",
+      "competition": "Hilux NPC",
       "match": "North Harbour vs Canterbury",
       "date": "29 Sep 2024",
       "opposition": "Canterbury",
@@ -1177,7 +1177,7 @@
       "conversions": 7
     },
     {
-      "competition": "Bunnings NPC",
+      "competition": "Hilux NPC",
       "match": "Taranaki Bulls vs North Harbour",
       "date": "25 Sep 2024",
       "opposition": "Taranaki Bulls",
@@ -1190,7 +1190,7 @@
       "conversions": 2
     },
     {
-      "competition": "Bunnings NPC",
+      "competition": "Hilux NPC",
       "match": "Northland vs North Harbour",
       "date": "21 Sep 2024",
       "opposition": "Northland",
@@ -1203,7 +1203,7 @@
       "conversions": 2
     },
     {
-      "competition": "Bunnings NPC",
+      "competition": "Hilux NPC",
       "match": "North Harbour vs Manawatu",
       "date": "14 Sep 2024",
       "opposition": "Manawatu",
@@ -1216,7 +1216,7 @@
       "conversions": 7
     },
     {
-      "competition": "Bunnings NPC",
+      "competition": "Hilux NPC",
       "match": "Auckland vs North Harbour",
       "date": "7 Sep 2024",
       "opposition": "Auckland",
@@ -1229,7 +1229,7 @@
       "conversions": 3
     },
     {
-      "competition": "Bunnings NPC",
+      "competition": "Hilux NPC",
       "match": "North Harbour vs Counties Manukau",
       "date": "31 Aug 2024",
       "opposition": "Counties Manukau",
@@ -1242,7 +1242,7 @@
       "conversions": 4
     },
     {
-      "competition": "Bunnings NPC",
+      "competition": "Hilux NPC",
       "match": "North Harbour vs Waikato",
       "date": "25 Aug 2024",
       "opposition": "Waikato",
@@ -1255,7 +1255,7 @@
       "conversions": 5
     },
     {
-      "competition": "Bunnings NPC",
+      "competition": "Hilux NPC",
       "match": "Bay of Plenty vs North Harbour",
       "date": "18 Aug 2024",
       "opposition": "Bay of Plenty",
@@ -1268,7 +1268,7 @@
       "conversions": 2
     },
     {
-      "competition": "Bunnings NPC",
+      "competition": "Hilux NPC",
       "match": "North Harbour vs Hawkes Bay",
       "date": "11 Aug 2024",
       "opposition": "Hawkes Bay",

@@ -95,6 +95,19 @@
   ],
   "match_log": [
     {
+      "competition": "Internationals",
+      "match": "Argentina vs Australia",
+      "date": "5 Sep 2026",
+      "opposition": "Australia",
+      "win": false,
+      "draw": true,
+      "mins": 4,
+      "tries": 0,
+      "yellow_cards": 0,
+      "red_cards": 0,
+      "conversions": 0
+    },
+    {
       "competition": "Rugby Union Hybrid Friendlies",
       "match": "Munster vs Argentina XV",
       "date": "1 Nov 2025",

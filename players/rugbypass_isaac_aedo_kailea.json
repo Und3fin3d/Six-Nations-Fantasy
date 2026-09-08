@@ -3,7 +3,7 @@
   "csv_name": "Isaac Kailea",
   "bio": {
     "Nationality": "Australia",
-    "Age": "25",
+    "Age": "26",
     "Position": "Prop",
     "Height": "190cm",
     "Weight": "129kg"
@@ -185,6 +185,19 @@
     }
   ],
   "match_log": [
+    {
+      "competition": "Internationals",
+      "match": "Argentina vs Australia",
+      "date": "29 Aug 2026",
+      "opposition": "Argentina",
+      "win": true,
+      "draw": false,
+      "mins": 41,
+      "tries": 0,
+      "yellow_cards": 0,
+      "red_cards": 0,
+      "conversions": 0
+    },
     {
       "competition": "Internationals",
       "match": "Ireland vs Australia",

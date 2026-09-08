@@ -10,6 +10,35 @@
   },
   "competition_stats": [
     {
+      "competition": "Hilux NPC",
+      "season": "2026",
+      "games": 6,
+      "minutes": 373,
+      "tries": 1,
+      "try_assists": 1,
+      "points": 5,
+      "carries": 39,
+      "metres": 102,
+      "av_gain": 2.63,
+      "post_contact_metres": 88,
+      "defenders_beaten": 4,
+      "clean_breaks": 1,
+      "offloads": 1,
+      "handling_errors": 6,
+      "passes": 33,
+      "bad_passes": 6,
+      "tackles": 31,
+      "missed_tackles": 8,
+      "tackles_success_pct": 0.65,
+      "dominant_tackles": 2,
+      "turnovers_won": 6,
+      "turnovers_conceded": 8,
+      "kicks_from_hand": 1,
+      "penalties_conceded": 1,
+      "yellow_cards": 0,
+      "red_cards": 0
+    },
+    {
       "competition": "Pacific Nations Cup",
       "season": "2025",
       "games": 3,
@@ -735,7 +764,7 @@
       "opposition": "Mie Honda Heat",
       "win": false,
       "draw": false,
-      "mins": 77,
+      "mins": 79,
       "tries": 0,
       "yellow_cards": 1,
       "red_cards": 0,
@@ -1353,7 +1382,85 @@
       "conversions": 0
     },
     {
-      "competition": "Bunnings NPC",
+      "competition": "Hilux NPC",
+      "match": "Taranaki Bulls vs Auckland",
+      "date": "3 Sep 2026",
+      "opposition": "Auckland",
+      "win": true,
+      "draw": false,
+      "mins": 40,
+      "tries": 0,
+      "yellow_cards": 0,
+      "red_cards": 0,
+      "conversions": 0
+    },
+    {
+      "competition": "Hilux NPC",
+      "match": "Taranaki Bulls vs Canterbury",
+      "date": "29 Aug 2026",
+      "opposition": "Canterbury",
+      "win": true,
+      "draw": false,
+      "mins": 64,
+      "tries": 0,
+      "yellow_cards": 0,
+      "red_cards": 0,
+      "conversions": 0
+    },
+    {
+      "competition": "Hilux NPC",
+      "match": "Bay of Plenty vs Taranaki Bulls",
+      "date": "22 Aug 2026",
+      "opposition": "Bay of Plenty",
+      "win": false,
+      "draw": false,
+      "mins": 76,
+      "tries": 1,
+      "yellow_cards": 0,
+      "red_cards": 0,
+      "conversions": 0
+    },
+    {
+      "competition": "Hilux NPC",
+      "match": "Northland vs Taranaki Bulls",
+      "date": "14 Aug 2026",
+      "opposition": "Northland",
+      "win": false,
+      "draw": false,
+      "mins": 79,
+      "tries": 0,
+      "yellow_cards": 0,
+      "red_cards": 0,
+      "conversions": 0
+    },
+    {
+      "competition": "Hilux NPC",
+      "match": "Taranaki Bulls vs Waikato",
+      "date": "7 Aug 2026",
+      "opposition": "Waikato",
+      "win": false,
+      "draw": false,
+      "mins": 48,
+      "tries": 0,
+      "yellow_cards": 0,
+      "red_cards": 0,
+      "conversions": 0
+    },
+    {
+      "competition": "Hilux NPC",
+      "match": "Counties Manukau vs Taranaki Bulls",
+      "date": "1 Aug 2026",
+      "opposition": "Counties Manukau",
+      "win": true,
+      "draw": false,
+      "mins": 66,
+      "tries": 0,
+      "yellow_cards": 0,
+      "red_cards": 0,
+      "conversions": 0
+    },
+    {
+      "competition": "Hilux NPC",
       "match": "Taranaki vs Wellington",
       "date": "12 Oct 2018",
       "opposition": "Wellington",
@@ -1366,7 +1473,7 @@
       "conversions": 0
     },
     {
-      "competition": "Bunnings NPC",
+      "competition": "Hilux NPC",
       "match": "Canterbury vs Taranaki",
       "date": "6 Oct 2018",
       "opposition": "Canterbury",
@@ -1379,7 +1486,7 @@
       "conversions": 0
     },
     {
-      "competition": "Bunnings NPC",
+      "competition": "Hilux NPC",
       "match": "Taranaki vs North Harbour",
       "date": "29 Sep 2018",
       "opposition": "North Harbour",
@@ -1392,7 +1499,7 @@
       "conversions": 0
     },
     {
-      "competition": "Bunnings NPC",
+      "competition": "Hilux NPC",
       "match": "Taranaki vs Auckland",
       "date": "22 Sep 2018",
       "opposition": "Auckland",
@@ -1405,7 +1512,7 @@
       "conversions": 0
     },
     {
-      "competition": "Bunnings NPC",
+      "competition": "Hilux NPC",
       "match": "Tasman vs Taranaki",
       "date": "14 Sep 2018",
       "opposition": "Tasman Mako",
@@ -1418,7 +1525,7 @@
       "conversions": 0
     },
     {
-      "competition": "Bunnings NPC",
+      "competition": "Hilux NPC",
       "match": "Taranaki vs Waikato",
       "date": "9 Sep 2018",
       "opposition": "Waikato",
@@ -1431,7 +1538,7 @@
       "conversions": 0
     },
     {
-      "competition": "Bunnings NPC",
+      "competition": "Hilux NPC",
       "match": "Counties Manukau vs Taranaki",
       "date": "29 Aug 2018",
       "opposition": "Counties Manukau",
@@ -1444,7 +1551,7 @@
       "conversions": 0
     },
     {
-      "competition": "Bunnings NPC",
+      "competition": "Hilux NPC",
       "match": "Taranaki vs Manawatu",
       "date": "24 Aug 2018",
       "opposition": "Manawatu",
@@ -1457,7 +1564,7 @@
       "conversions": 0
     },
     {
-      "competition": "Bunnings NPC",
+      "competition": "Hilux NPC",
       "match": "Bay Of Plenty vs Taranaki",
       "date": "18 Aug 2018",
       "opposition": "Bay of Plenty",
@@ -1470,7 +1577,7 @@
       "conversions": 0
     },
     {
-      "competition": "Bunnings NPC",
+      "competition": "Hilux NPC",
       "match": "Taranaki vs Tasman",
       "date": "21 Oct 2017",
       "opposition": "Tasman Mako",
@@ -1483,7 +1590,7 @@
       "conversions": 0
     },
     {
-      "competition": "Bunnings NPC",
+      "competition": "Hilux NPC",
       "match": "Taranaki vs Manawatu",
       "date": "11 Oct 2017",
       "opposition": "Manawatu",
@@ -1496,7 +1603,7 @@
       "conversions": 0
     },
     {
-      "competition": "Bunnings NPC",
+      "competition": "Hilux NPC",
       "match": "Canterbury vs Taranaki",
       "date": "6 Oct 2017",
       "opposition": "Canterbury",
@@ -1509,7 +1616,7 @@
       "conversions": 0
     },
     {
-      "competition": "Bunnings NPC",
+      "competition": "Hilux NPC",
       "match": "Taranaki vs Tasman",
       "date": "28 Sep 2017",
       "opposition": "Tasman Mako",
@@ -1522,7 +1629,7 @@
       "conversions": 0
     },
     {
-      "competition": "Bunnings NPC",
+      "competition": "Hilux NPC",
       "match": "Taranaki vs Bay Of Plenty",
       "date": "15 Sep 2017",
       "opposition": "Bay of Plenty",
@@ -1535,7 +1642,7 @@
       "conversions": 0
     },
     {
-      "competition": "Bunnings NPC",
+      "competition": "Hilux NPC",
       "match": "Auckland vs Taranaki",
       "date": "9 Sep 2017",
       "opposition": "Auckland",
@@ -1548,7 +1655,7 @@
       "conversions": 0
     },
     {
-      "competition": "Bunnings NPC",
+      "competition": "Hilux NPC",
       "match": "Taranaki vs Counties Manukau",
       "date": "2 Sep 2017",
       "opposition": "Counties Manukau",
@@ -1561,7 +1668,7 @@
       "conversions": 0
     },
     {
-      "competition": "Bunnings NPC",
+      "competition": "Hilux NPC",
       "match": "Wellington vs Taranaki",
       "date": "26 Aug 2017",
       "opposition": "Wellington",
@@ -1574,7 +1681,7 @@
       "conversions": 0
     },
     {
-      "competition": "Bunnings NPC",
+      "competition": "Hilux NPC",
       "match": "Taranaki vs Waikato",
       "date": "19 Aug 2017",
       "opposition": "Waikato",
@@ -1587,7 +1694,7 @@
       "conversions": 0
     },
     {
-      "competition": "Bunnings NPC",
+      "competition": "Hilux NPC",
       "match": "Taranaki vs Tasman",
       "date": "23 Oct 2016",
       "opposition": "Tasman Mako",
@@ -1600,7 +1707,7 @@
       "conversions": 0
     },
     {
-      "competition": "Bunnings NPC",
+      "competition": "Hilux NPC",
       "match": "Taranaki vs Auckland",
       "date": "13 Oct 2016",
       "opposition": "Auckland",
@@ -1613,7 +1720,7 @@
       "conversions": 0
     },
     {
-      "competition": "Bunnings NPC",
+      "competition": "Hilux NPC",
       "match": "Wellington vs Taranaki",
       "date": "9 Oct 2016",
       "opposition": "Wellington",
@@ -1626,7 +1733,7 @@
       "conversions": 0
     },
     {
-      "competition": "Bunnings NPC",
+      "competition": "Hilux NPC",
       "match": "Taranaki vs Canterbury",
       "date": "2 Oct 2016",
       "opposition": "Canterbury",
@@ -1639,7 +1746,7 @@
       "conversions": 0
     },
     {
-      "competition": "Bunnings NPC",
+      "competition": "Hilux NPC",
       "match": "Taranaki vs Manawatu",
       "date": "24 Sep 2016",
       "opposition": "Manawatu",
@@ -1652,7 +1759,7 @@
       "conversions": 0
     },
     {
-      "competition": "Bunnings NPC",
+      "competition": "Hilux NPC",
       "match": "Waikato vs Taranaki",
       "date": "18 Sep 2016",
       "opposition": "Waikato",
@@ -1665,7 +1772,7 @@
       "conversions": 0
     },
     {
-      "competition": "Bunnings NPC",
+      "competition": "Hilux NPC",
       "match": "Tasman vs Taranaki",
       "date": "3 Sep 2016",
       "opposition": "Tasman Mako",
@@ -1678,7 +1785,7 @@
       "conversions": 0
     },
     {
-      "competition": "Bunnings NPC",
+      "competition": "Hilux NPC",
       "match": "Bay Of Plenty vs Taranaki",
       "date": "20 Aug 2016",
       "opposition": "Bay of Plenty",

@@ -10,6 +10,35 @@
   },
   "competition_stats": [
     {
+      "competition": "TOP 14",
+      "season": "2026/2027",
+      "games": 1,
+      "minutes": 14,
+      "tries": 0,
+      "try_assists": 0,
+      "points": 0,
+      "carries": 2,
+      "metres": 0,
+      "av_gain": 0,
+      "post_contact_metres": 0,
+      "defenders_beaten": null,
+      "clean_breaks": 0,
+      "offloads": 0,
+      "handling_errors": 0,
+      "passes": 3,
+      "bad_passes": 1,
+      "tackles": null,
+      "missed_tackles": null,
+      "tackles_success_pct": null,
+      "dominant_tackles": 0,
+      "turnovers_won": 0,
+      "turnovers_conceded": 0,
+      "kicks_from_hand": 0,
+      "penalties_conceded": 0,
+      "yellow_cards": 0,
+      "red_cards": 0
+    },
+    {
       "competition": "Six Nations",
       "season": "2026",
       "games": 1,
@@ -184,7 +213,7 @@
       "red_cards": 0
     },
     {
-      "competition": "Gallagher Premiership",
+      "competition": "PREM Rugby",
       "season": "2023/2024",
       "games": 3,
       "minutes": 237,
@@ -267,35 +296,6 @@
       "turnovers_conceded": 0,
       "kicks_from_hand": 4,
       "penalties_conceded": 0,
-      "yellow_cards": 0,
-      "red_cards": 0
-    },
-    {
-      "competition": "Gallagher Premiership",
-      "season": "2022/2023",
-      "games": 9,
-      "minutes": 707,
-      "tries": 1,
-      "try_assists": 2,
-      "points": 68,
-      "carries": 56,
-      "metres": 138,
-      "av_gain": 2.47,
-      "post_contact_metres": 148,
-      "defenders_beaten": 14,
-      "clean_breaks": 3,
-      "offloads": 8,
-      "handling_errors": 9,
-      "passes": 163,
-      "bad_passes": 12,
-      "tackles": 80,
-      "missed_tackles": 32,
-      "tackles_success_pct": 0.63,
-      "dominant_tackles": 0,
-      "turnovers_won": 1,
-      "turnovers_conceded": 13,
-      "kicks_from_hand": 50,
-      "penalties_conceded": 4,
       "yellow_cards": 0,
       "red_cards": 0
     }
@@ -1691,6 +1691,19 @@
       "yellow_cards": 0,
       "red_cards": 0,
       "conversions": 1
+    },
+    {
+      "competition": "Top 14",
+      "match": "Montpellier vs Pau",
+      "date": "5 Sep 2026",
+      "opposition": "Pau",
+      "win": false,
+      "draw": false,
+      "mins": 14,
+      "tries": 0,
+      "yellow_cards": 0,
+      "red_cards": 0,
+      "conversions": 0
     }
   ]
 }

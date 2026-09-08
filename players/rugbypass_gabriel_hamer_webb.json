@@ -68,7 +68,7 @@
       "red_cards": 0
     },
     {
-      "competition": "Gallagher Premiership",
+      "competition": "PREM Rugby",
       "season": "2025/2026",
       "games": 8,
       "minutes": 469,
@@ -184,7 +184,7 @@
       "red_cards": 0
     },
     {
-      "competition": "Gallagher Premiership",
+      "competition": "PREM Rugby",
       "season": "2023/2024",
       "games": 1,
       "minutes": 65,
@@ -242,7 +242,7 @@
       "red_cards": 0
     },
     {
-      "competition": "Bunnings NPC",
+      "competition": "Hilux NPC",
       "season": "2023",
       "games": 8,
       "minutes": 614,
@@ -267,35 +267,6 @@
       "turnovers_conceded": 6,
       "kicks_from_hand": 10,
       "penalties_conceded": 0,
-      "yellow_cards": 0,
-      "red_cards": 0
-    },
-    {
-      "competition": "Gallagher Premiership",
-      "season": "2022/2023",
-      "games": 5,
-      "minutes": 382,
-      "tries": 1,
-      "try_assists": 0,
-      "points": 5,
-      "carries": 22,
-      "metres": 113,
-      "av_gain": 5.13,
-      "post_contact_metres": 48,
-      "defenders_beaten": 3,
-      "clean_breaks": 1,
-      "offloads": 1,
-      "handling_errors": 1,
-      "passes": 8,
-      "bad_passes": 0,
-      "tackles": 23,
-      "missed_tackles": 10,
-      "tackles_success_pct": 0.62,
-      "dominant_tackles": 2,
-      "turnovers_won": 1,
-      "turnovers_conceded": 3,
-      "kicks_from_hand": 2,
-      "penalties_conceded": 1,
       "yellow_cards": 0,
       "red_cards": 0
     }
@@ -1004,7 +975,7 @@
       "conversions": 0
     },
     {
-      "competition": "Bunnings NPC",
+      "competition": "Hilux NPC",
       "match": "Manawatu vs Southland Stags",
       "date": "1 Oct 2023",
       "opposition": "Manawatu",
@@ -1017,7 +988,7 @@
       "conversions": 0
     },
     {
-      "competition": "Bunnings NPC",
+      "competition": "Hilux NPC",
       "match": "Southland Stags vs Bay of Plenty",
       "date": "27 Sep 2023",
       "opposition": "Bay of Plenty",
@@ -1030,7 +1001,7 @@
       "conversions": 0
     },
     {
-      "competition": "Bunnings NPC",
+      "competition": "Hilux NPC",
       "match": "Southland Stags vs Hawkes Bay",
       "date": "23 Sep 2023",
       "opposition": "Hawkes Bay",
@@ -1043,7 +1014,7 @@
       "conversions": 0
     },
     {
-      "competition": "Bunnings NPC",
+      "competition": "Hilux NPC",
       "match": "Canterbury vs Southland Stags",
       "date": "17 Sep 2023",
       "opposition": "Canterbury",
@@ -1056,7 +1027,7 @@
       "conversions": 0
     },
     {
-      "competition": "Bunnings NPC",
+      "competition": "Hilux NPC",
       "match": "Counties Manukau vs Southland Stags",
       "date": "9 Sep 2023",
       "opposition": "Counties Manukau",
@@ -1069,7 +1040,7 @@
       "conversions": 0
     },
     {
-      "competition": "Bunnings NPC",
+      "competition": "Hilux NPC",
       "match": "Otago vs Southland Stags",
       "date": "26 Aug 2023",
       "opposition": "Otago",
@@ -1082,7 +1053,7 @@
       "conversions": 0
     },
     {
-      "competition": "Bunnings NPC",
+      "competition": "Hilux NPC",
       "match": "Wellington vs Southland Stags",
       "date": "19 Aug 2023",
       "opposition": "Wellington",
@@ -1095,7 +1066,7 @@
       "conversions": 0
     },
     {
-      "competition": "Bunnings NPC",
+      "competition": "Hilux NPC",
       "match": "Southland Stags vs Northland",
       "date": "13 Aug 2023",
       "opposition": "Northland",

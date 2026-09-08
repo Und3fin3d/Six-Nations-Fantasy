@@ -10,7 +10,7 @@
   },
   "competition_stats": [
     {
-      "competition": "Bunnings NPC",
+      "competition": "Hilux NPC",
       "season": "2024",
       "games": 5,
       "minutes": 353,
@@ -609,7 +609,7 @@
       "conversions": 0
     },
     {
-      "competition": "Bunnings NPC",
+      "competition": "Hilux NPC",
       "match": "Tasman Mako vs Auckland",
       "date": "2 Oct 2024",
       "opposition": "Auckland",
@@ -622,7 +622,7 @@
       "conversions": 0
     },
     {
-      "competition": "Bunnings NPC",
+      "competition": "Hilux NPC",
       "match": "Waikato vs Tasman Mako",
       "date": "22 Sep 2024",
       "opposition": "Waikato",
@@ -635,7 +635,7 @@
       "conversions": 0
     },
     {
-      "competition": "Bunnings NPC",
+      "competition": "Hilux NPC",
       "match": "Tasman Mako vs Wellington",
       "date": "15 Sep 2024",
       "opposition": "Wellington",
@@ -648,7 +648,7 @@
       "conversions": 0
     },
     {
-      "competition": "Bunnings NPC",
+      "competition": "Hilux NPC",
       "match": "Counties Manukau vs Tasman Mako",
       "date": "24 Aug 2024",
       "opposition": "Counties Manukau",
@@ -661,7 +661,7 @@
       "conversions": 0
     },
     {
-      "competition": "Bunnings NPC",
+      "competition": "Hilux NPC",
       "match": "Manawatu vs Tasman Mako",
       "date": "11 Aug 2024",
       "opposition": "Manawatu",
@@ -674,7 +674,7 @@
       "conversions": 0
     },
     {
-      "competition": "Bunnings NPC",
+      "competition": "Hilux NPC",
       "match": "Tasman vs Counties Manukau",
       "date": "23 Sep 2018",
       "opposition": "Counties Manukau",
@@ -687,7 +687,7 @@
       "conversions": 0
     },
     {
-      "competition": "Bunnings NPC",
+      "competition": "Hilux NPC",
       "match": "Auckland vs Tasman",
       "date": "7 Sep 2018",
       "opposition": "Auckland",
@@ -700,7 +700,7 @@
       "conversions": 0
     },
     {
-      "competition": "Bunnings NPC",
+      "competition": "Hilux NPC",
       "match": "Counties Manukau vs Tasman",
       "date": "14 Oct 2017",
       "opposition": "Counties Manukau",

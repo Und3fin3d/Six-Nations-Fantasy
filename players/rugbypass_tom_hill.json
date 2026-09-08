@@ -2,7 +2,7 @@
   "player": "tom-hill",
   "csv_name": "T. Hill",
   "bio": {
-    "Age": "30",
+    "Age": "31",
     "Position": "Prop",
     "Height": "180cm",
     "Weight": "105kg"
@@ -10,7 +10,7 @@
   "competition_stats": [],
   "match_log": [
     {
-      "competition": "Bunnings NPC",
+      "competition": "Hilux NPC",
       "match": "Waikato vs Otago",
       "date": "26 Oct 2018",
       "opposition": "Waikato",
@@ -23,7 +23,7 @@
       "conversions": 0
     },
     {
-      "competition": "Bunnings NPC",
+      "competition": "Hilux NPC",
       "match": "Otago vs Hawkes Bay",
       "date": "20 Oct 2018",
       "opposition": "Hawkes Bay",
@@ -36,7 +36,7 @@
       "conversions": 0
     },
     {
-      "competition": "Bunnings NPC",
+      "competition": "Hilux NPC",
       "match": "Waikato vs Otago",
       "date": "13 Oct 2018",
       "opposition": "Waikato",
@@ -49,7 +49,7 @@
       "conversions": 0
     },
     {
-      "competition": "Bunnings NPC",
+      "competition": "Hilux NPC",
       "match": "Otago vs Tasman",
       "date": "7 Oct 2018",
       "opposition": "Otago",
@@ -62,7 +62,7 @@
       "conversions": 0
     },
     {
-      "competition": "Bunnings NPC",
+      "competition": "Hilux NPC",
       "match": "Otago vs Tasman",
       "date": "7 Oct 2018",
       "opposition": "Tasman Mako",
@@ -75,7 +75,7 @@
       "conversions": 0
     },
     {
-      "competition": "Bunnings NPC",
+      "competition": "Hilux NPC",
       "match": "Otago vs Bay Of Plenty",
       "date": "3 Oct 2018",
       "opposition": "Bay of Plenty",
@@ -88,7 +88,7 @@
       "conversions": 0
     },
     {
-      "competition": "Bunnings NPC",
+      "competition": "Hilux NPC",
       "match": "Otago vs Canterbury",
       "date": "22 Sep 2018",
       "opposition": "Canterbury",
@@ -101,7 +101,7 @@
       "conversions": 0
     },
     {
-      "competition": "Bunnings NPC",
+      "competition": "Hilux NPC",
       "match": "Southland vs Otago",
       "date": "15 Sep 2018",
       "opposition": "Southland Stags",
@@ -114,7 +114,7 @@
       "conversions": 0
     },
     {
-      "competition": "Bunnings NPC",
+      "competition": "Hilux NPC",
       "match": "Otago vs Northland",
       "date": "7 Sep 2018",
       "opposition": "Northland",
@@ -127,7 +127,7 @@
       "conversions": 0
     },
     {
-      "competition": "Bunnings NPC",
+      "competition": "Hilux NPC",
       "match": "Manawatu vs Otago",
       "date": "1 Sep 2018",
       "opposition": "Manawatu",
@@ -140,7 +140,7 @@
       "conversions": 0
     },
     {
-      "competition": "Bunnings NPC",
+      "competition": "Hilux NPC",
       "match": "Otago vs Hawkes Bay",
       "date": "24 Aug 2018",
       "opposition": "Hawkes Bay",
@@ -153,7 +153,7 @@
       "conversions": 0
     },
     {
-      "competition": "Bunnings NPC",
+      "competition": "Hilux NPC",
       "match": "Wellington vs Otago",
       "date": "19 Aug 2018",
       "opposition": "Wellington",
@@ -166,7 +166,7 @@
       "conversions": 0
     },
     {
-      "competition": "Bunnings NPC",
+      "competition": "Hilux NPC",
       "match": "Canterbury vs Tasman",
       "date": "28 Oct 2017",
       "opposition": "Canterbury",
@@ -179,7 +179,7 @@
       "conversions": 0
     },
     {
-      "competition": "Bunnings NPC",
+      "competition": "Hilux NPC",
       "match": "Counties Manukau vs Tasman",
       "date": "14 Oct 2017",
       "opposition": "Counties Manukau",
@@ -192,7 +192,7 @@
       "conversions": 0
     },
     {
-      "competition": "Bunnings NPC",
+      "competition": "Hilux NPC",
       "match": "Taranaki vs Tasman",
       "date": "28 Sep 2017",
       "opposition": "Taranaki Bulls",
@@ -205,7 +205,7 @@
       "conversions": 0
     },
     {
-      "competition": "Bunnings NPC",
+      "competition": "Hilux NPC",
       "match": "Tasman vs Southland",
       "date": "24 Sep 2017",
       "opposition": "Southland Stags",
@@ -218,7 +218,7 @@
       "conversions": 0
     },
     {
-      "competition": "Bunnings NPC",
+      "competition": "Hilux NPC",
       "match": "Otago vs Tasman",
       "date": "16 Sep 2017",
       "opposition": "Otago",
@@ -231,7 +231,7 @@
       "conversions": 0
     },
     {
-      "competition": "Bunnings NPC",
+      "competition": "Hilux NPC",
       "match": "Otago vs Tasman",
       "date": "16 Sep 2017",
       "opposition": "Tasman Mako",
@@ -244,7 +244,7 @@
       "conversions": 0
     },
     {
-      "competition": "Bunnings NPC",
+      "competition": "Hilux NPC",
       "match": "Tasman vs Wellington",
       "date": "10 Sep 2017",
       "opposition": "Wellington",
@@ -257,7 +257,7 @@
       "conversions": 0
     },
     {
-      "competition": "Bunnings NPC",
+      "competition": "Hilux NPC",
       "match": "Waikato vs Tasman",
       "date": "3 Sep 2017",
       "opposition": "Waikato",
@@ -270,7 +270,7 @@
       "conversions": 0
     },
     {
-      "competition": "Bunnings NPC",
+      "competition": "Hilux NPC",
       "match": "Manawatu vs Tasman",
       "date": "27 Aug 2017",
       "opposition": "Manawatu",
@@ -283,7 +283,7 @@
       "conversions": 0
     },
     {
-      "competition": "Bunnings NPC",
+      "competition": "Hilux NPC",
       "match": "Tasman vs Canterbury",
       "date": "18 Aug 2017",
       "opposition": "Canterbury",
@@ -296,7 +296,7 @@
       "conversions": 0
     },
     {
-      "competition": "Bunnings NPC",
+      "competition": "Hilux NPC",
       "match": "Tasman vs Counties Manukau",
       "date": "29 Sep 2016",
       "opposition": "Counties Manukau",

@@ -274,6 +274,45 @@
   "match_log": [
     {
       "competition": "Internationals",
+      "match": "Argentina vs Australia",
+      "date": "29 Aug 2026",
+      "opposition": "Argentina",
+      "win": true,
+      "draw": false,
+      "mins": 80,
+      "tries": 0,
+      "yellow_cards": 0,
+      "red_cards": 0,
+      "conversions": 0
+    },
+    {
+      "competition": "Internationals",
+      "match": "Australia vs Japan",
+      "date": "15 Aug 2026",
+      "opposition": "Japan",
+      "win": true,
+      "draw": false,
+      "mins": 80,
+      "tries": 0,
+      "yellow_cards": 0,
+      "red_cards": 0,
+      "conversions": 0
+    },
+    {
+      "competition": "Internationals",
+      "match": "Japan vs Australia",
+      "date": "8 Aug 2026",
+      "opposition": "Japan",
+      "win": true,
+      "draw": false,
+      "mins": 80,
+      "tries": 0,
+      "yellow_cards": 0,
+      "red_cards": 0,
+      "conversions": 0
+    },
+    {
+      "competition": "Internationals",
       "match": "Italy vs Australia",
       "date": "8 Nov 2025",
       "opposition": "Italy",

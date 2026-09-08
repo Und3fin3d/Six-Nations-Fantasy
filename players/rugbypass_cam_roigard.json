@@ -39,6 +39,35 @@
       "red_cards": 0
     },
     {
+      "competition": "Nations Championship",
+      "season": "2026",
+      "games": 3,
+      "minutes": 206,
+      "tries": 3,
+      "try_assists": 1,
+      "points": 15,
+      "carries": 24,
+      "metres": 97,
+      "av_gain": 4.05,
+      "post_contact_metres": 52,
+      "defenders_beaten": 11,
+      "clean_breaks": 2,
+      "offloads": 3,
+      "handling_errors": 1,
+      "passes": 278,
+      "bad_passes": 10,
+      "tackles": 22,
+      "missed_tackles": 3,
+      "tackles_success_pct": 0.76,
+      "dominant_tackles": 1,
+      "turnovers_won": 0,
+      "turnovers_conceded": 1,
+      "kicks_from_hand": 20,
+      "penalties_conceded": 0,
+      "yellow_cards": 0,
+      "red_cards": 0
+    },
+    {
       "competition": "Super Rugby Pacific",
       "season": "2026",
       "games": 14,
@@ -68,7 +97,7 @@
       "red_cards": 0
     },
     {
-      "competition": "Bunnings NPC",
+      "competition": "Hilux NPC",
       "season": "2025",
       "games": 1,
       "minutes": 33,
@@ -126,7 +155,7 @@
       "red_cards": 0
     },
     {
-      "competition": "Bunnings NPC",
+      "competition": "Hilux NPC",
       "season": "2024",
       "games": 2,
       "minutes": 103,
@@ -342,6 +371,45 @@
     },
     {
       "competition": "Internationals",
+      "match": "South Africa vs New Zealand",
+      "date": "5 Sep 2026",
+      "opposition": "South Africa",
+      "win": false,
+      "draw": false,
+      "mins": 67,
+      "tries": 0,
+      "yellow_cards": 0,
+      "red_cards": 0,
+      "conversions": 0
+    },
+    {
+      "competition": "Internationals",
+      "match": "South Africa vs New Zealand",
+      "date": "29 Aug 2026",
+      "opposition": "South Africa",
+      "win": false,
+      "draw": false,
+      "mins": 72,
+      "tries": 1,
+      "yellow_cards": 0,
+      "red_cards": 0,
+      "conversions": 0
+    },
+    {
+      "competition": "Internationals",
+      "match": "South Africa vs New Zealand",
+      "date": "22 Aug 2026",
+      "opposition": "South Africa",
+      "win": true,
+      "draw": false,
+      "mins": 75,
+      "tries": 0,
+      "yellow_cards": 0,
+      "red_cards": 0,
+      "conversions": 0
+    },
+    {
+      "competition": "Internationals",
       "match": "England vs New Zealand",
       "date": "15 Nov 2025",
       "opposition": "England",
@@ -524,13 +592,39 @@
     },
     {
       "competition": "Nations Championship",
+      "match": "New Zealand vs Ireland",
+      "date": "18 Jul 2026",
+      "opposition": "Ireland",
+      "win": true,
+      "draw": false,
+      "mins": 73,
+      "tries": 0,
+      "yellow_cards": 0,
+      "red_cards": 0,
+      "conversions": 0
+    },
+    {
+      "competition": "Nations Championship",
+      "match": "New Zealand vs Italy",
+      "date": "11 Jul 2026",
+      "opposition": "Italy",
+      "win": true,
+      "draw": false,
+      "mins": 58,
+      "tries": 1,
+      "yellow_cards": 0,
+      "red_cards": 0,
+      "conversions": 0
+    },
+    {
+      "competition": "Nations Championship",
       "match": "New Zealand vs France",
       "date": "4 Jul 2026",
       "opposition": "France",
-      "win": false,
-      "draw": true,
-      "mins": 11,
-      "tries": 0,
+      "win": true,
+      "draw": false,
+      "mins": 75,
+      "tries": 2,
       "yellow_cards": 0,
       "red_cards": 0,
       "conversions": 0
@@ -1238,7 +1332,7 @@
       "conversions": 0
     },
     {
-      "competition": "Bunnings NPC",
+      "competition": "Hilux NPC",
       "match": "Counties Manukau vs Auckland",
       "date": "20 Sep 2025",
       "opposition": "Auckland",
@@ -1251,7 +1345,7 @@
       "conversions": 0
     },
     {
-      "competition": "Bunnings NPC",
+      "competition": "Hilux NPC",
       "match": "Wellington vs Counties Manukau",
       "date": "11 Oct 2024",
       "opposition": "Wellington",
@@ -1264,7 +1358,7 @@
       "conversions": 0
     },
     {
-      "competition": "Bunnings NPC",
+      "competition": "Hilux NPC",
       "match": "Manawatu vs Counties Manukau",
       "date": "5 Oct 2024",
       "opposition": "Manawatu",
@@ -1277,7 +1371,7 @@
       "conversions": 0
     },
     {
-      "competition": "Bunnings NPC",
+      "competition": "Hilux NPC",
       "match": "Taranaki Bulls vs Counties Manukau",
       "date": "21 Sep 2022",
       "opposition": "Taranaki Bulls",
@@ -1290,7 +1384,7 @@
       "conversions": 0
     },
     {
-      "competition": "Bunnings NPC",
+      "competition": "Hilux NPC",
       "match": "Counties Manukau vs Canterbury",
       "date": "17 Sep 2022",
       "opposition": "Canterbury",
@@ -1303,7 +1397,7 @@
       "conversions": 0
     },
     {
-      "competition": "Bunnings NPC",
+      "competition": "Hilux NPC",
       "match": "Counties Manukau vs Waikato",
       "date": "19 Aug 2022",
       "opposition": "Waikato",

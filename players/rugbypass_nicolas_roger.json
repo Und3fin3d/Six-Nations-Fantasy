@@ -41,6 +41,32 @@
   "match_log": [
     {
       "competition": "Internationals",
+      "match": "Argentina vs Australia",
+      "date": "5 Sep 2026",
+      "opposition": "Australia",
+      "win": false,
+      "draw": true,
+      "mins": 80,
+      "tries": 0,
+      "yellow_cards": 0,
+      "red_cards": 0,
+      "conversions": 0
+    },
+    {
+      "competition": "Internationals",
+      "match": "Argentina vs Australia",
+      "date": "29 Aug 2026",
+      "opposition": "Australia",
+      "win": false,
+      "draw": false,
+      "mins": 12,
+      "tries": 0,
+      "yellow_cards": 0,
+      "red_cards": 0,
+      "conversions": 0
+    },
+    {
+      "competition": "Internationals",
       "match": "Argentina vs Uruguay",
       "date": "19 Jul 2025",
       "opposition": "Uruguay",

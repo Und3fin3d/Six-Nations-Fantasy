@@ -2,7 +2,7 @@
   "player": "ewan-johnson",
   "csv_name": "E. Johnson",
   "bio": {
-    "Age": "26",
+    "Age": "27",
     "Position": "Lock",
     "Height": "203cm",
     "Weight": "120kg"
@@ -26,7 +26,7 @@
       "handling_errors": 12,
       "passes": 60,
       "bad_passes": 2,
-      "tackles": 140,
+      "tackles": 139,
       "missed_tackles": 13,
       "tackles_success_pct": 0.82,
       "dominant_tackles": 12,

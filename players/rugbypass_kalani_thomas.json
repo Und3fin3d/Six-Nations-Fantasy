@@ -126,7 +126,7 @@
       "red_cards": 0
     },
     {
-      "competition": "Bunnings NPC",
+      "competition": "Hilux NPC",
       "season": "2023",
       "games": 10,
       "minutes": 473,
@@ -185,6 +185,19 @@
     }
   ],
   "match_log": [
+    {
+      "competition": "Internationals",
+      "match": "Argentina vs Australia",
+      "date": "5 Sep 2026",
+      "opposition": "Argentina",
+      "win": false,
+      "draw": true,
+      "mins": 10,
+      "tries": 0,
+      "yellow_cards": 0,
+      "red_cards": 0,
+      "conversions": 0
+    },
     {
       "competition": "Internationals",
       "match": "France vs Australia",
@@ -1057,7 +1070,7 @@
       "conversions": 0
     },
     {
-      "competition": "Bunnings NPC",
+      "competition": "Hilux NPC",
       "match": "Canterbury vs Auckland",
       "date": "6 Oct 2023",
       "opposition": "Canterbury",
@@ -1070,7 +1083,7 @@
       "conversions": 0
     },
     {
-      "competition": "Bunnings NPC",
+      "competition": "Hilux NPC",
       "match": "Auckland vs Northland",
       "date": "29 Sep 2023",
       "opposition": "Northland",
@@ -1083,7 +1096,7 @@
       "conversions": 0
     },
     {
-      "competition": "Bunnings NPC",
+      "competition": "Hilux NPC",
       "match": "Taranaki Bulls vs Auckland",
       "date": "23 Sep 2023",
       "opposition": "Taranaki Bulls",
@@ -1096,7 +1109,7 @@
       "conversions": 0
     },
     {
-      "competition": "Bunnings NPC",
+      "competition": "Hilux NPC",
       "match": "Auckland vs Waikato",
       "date": "16 Sep 2023",
       "opposition": "Waikato",
@@ -1109,7 +1122,7 @@
       "conversions": 0
     },
     {
-      "competition": "Bunnings NPC",
+      "competition": "Hilux NPC",
       "match": "Auckland vs Canterbury",
       "date": "9 Sep 2023",
       "opposition": "Canterbury",
@@ -1122,7 +1135,7 @@
       "conversions": 0
     },
     {
-      "competition": "Bunnings NPC",
+      "competition": "Hilux NPC",
       "match": "Southland Stags vs Auckland",
       "date": "3 Sep 2023",
       "opposition": "Southland Stags",
@@ -1135,7 +1148,7 @@
       "conversions": 0
     },
     {
-      "competition": "Bunnings NPC",
+      "competition": "Hilux NPC",
       "match": "Auckland vs Hawkes Bay",
       "date": "26 Aug 2023",
       "opposition": "Hawkes Bay",
@@ -1148,7 +1161,7 @@
       "conversions": 0
     },
     {
-      "competition": "Bunnings NPC",
+      "competition": "Hilux NPC",
       "match": "North Harbour vs Auckland",
       "date": "19 Aug 2023",
       "opposition": "North Harbour",
@@ -1161,7 +1174,7 @@
       "conversions": 0
     },
     {
-      "competition": "Bunnings NPC",
+      "competition": "Hilux NPC",
       "match": "Tasman Makos vs Auckland",
       "date": "12 Aug 2023",
       "opposition": "Tasman Mako",
@@ -1174,7 +1187,7 @@
       "conversions": 0
     },
     {
-      "competition": "Bunnings NPC",
+      "competition": "Hilux NPC",
       "match": "Bay of Plenty vs Auckland",
       "date": "6 Aug 2023",
       "opposition": "Bay of Plenty",

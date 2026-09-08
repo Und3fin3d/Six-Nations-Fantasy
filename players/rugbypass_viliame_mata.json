@@ -68,7 +68,7 @@
       "red_cards": 0
     },
     {
-      "competition": "Gallagher Premiership",
+      "competition": "PREM Rugby",
       "season": "2025/2026",
       "games": 10,
       "minutes": 650,
@@ -126,7 +126,7 @@
       "red_cards": 0
     },
     {
-      "competition": "Gallagher Premiership",
+      "competition": "PREM Rugby",
       "season": "2024/2025",
       "games": 13,
       "minutes": 915,
@@ -267,35 +267,6 @@
       "turnovers_conceded": 0,
       "kicks_from_hand": 0,
       "penalties_conceded": 0,
-      "yellow_cards": 0,
-      "red_cards": 0
-    },
-    {
-      "competition": "Investec Champions Cup",
-      "season": "2022/2023",
-      "games": 5,
-      "minutes": 396,
-      "tries": 2,
-      "try_assists": 0,
-      "points": 10,
-      "carries": 77,
-      "metres": 207,
-      "av_gain": 2.68,
-      "post_contact_metres": 164,
-      "defenders_beaten": 11,
-      "clean_breaks": 1,
-      "offloads": 2,
-      "handling_errors": 3,
-      "passes": 19,
-      "bad_passes": 1,
-      "tackles": 35,
-      "missed_tackles": 6,
-      "tackles_success_pct": 0.73,
-      "dominant_tackles": 3,
-      "turnovers_won": 0,
-      "turnovers_conceded": 4,
-      "kicks_from_hand": 0,
-      "penalties_conceded": 4,
       "yellow_cards": 0,
       "red_cards": 0
     }

@@ -10,6 +10,35 @@
   },
   "competition_stats": [
     {
+      "competition": "Hilux NPC",
+      "season": "2026",
+      "games": 4,
+      "minutes": 156,
+      "tries": 0,
+      "try_assists": 0,
+      "points": 0,
+      "carries": 13,
+      "metres": 8,
+      "av_gain": 0.65,
+      "post_contact_metres": 16,
+      "defenders_beaten": null,
+      "clean_breaks": 0,
+      "offloads": 0,
+      "handling_errors": 1,
+      "passes": 4,
+      "bad_passes": 0,
+      "tackles": 30,
+      "missed_tackles": 3,
+      "tackles_success_pct": 0.91,
+      "dominant_tackles": 3,
+      "turnovers_won": 1,
+      "turnovers_conceded": 1,
+      "kicks_from_hand": 0,
+      "penalties_conceded": 2,
+      "yellow_cards": 0,
+      "red_cards": 0
+    },
+    {
       "competition": "Super Rugby Pacific",
       "season": "2026",
       "games": 13,
@@ -2233,7 +2262,59 @@
       "conversions": 0
     },
     {
-      "competition": "Bunnings NPC",
+      "competition": "Hilux NPC",
+      "match": "North Harbour vs Auckland",
+      "date": "22 Aug 2026",
+      "opposition": "North Harbour",
+      "win": false,
+      "draw": false,
+      "mins": 48,
+      "tries": 0,
+      "yellow_cards": 0,
+      "red_cards": 0,
+      "conversions": 0
+    },
+    {
+      "competition": "Hilux NPC",
+      "match": "Auckland vs Hawkes Bay",
+      "date": "15 Aug 2026",
+      "opposition": "Hawkes Bay",
+      "win": false,
+      "draw": false,
+      "mins": 56,
+      "tries": 0,
+      "yellow_cards": 0,
+      "red_cards": 0,
+      "conversions": 0
+    },
+    {
+      "competition": "Hilux NPC",
+      "match": "Auckland vs Wellington",
+      "date": "8 Aug 2026",
+      "opposition": "Wellington",
+      "win": true,
+      "draw": false,
+      "mins": 23,
+      "tries": 0,
+      "yellow_cards": 0,
+      "red_cards": 0,
+      "conversions": 0
+    },
+    {
+      "competition": "Hilux NPC",
+      "match": "Canterbury vs Auckland",
+      "date": "1 Aug 2026",
+      "opposition": "Canterbury",
+      "win": false,
+      "draw": false,
+      "mins": 29,
+      "tries": 0,
+      "yellow_cards": 0,
+      "red_cards": 0,
+      "conversions": 0
+    },
+    {
+      "competition": "Hilux NPC",
       "match": "Canterbury vs Northland",
       "date": "8 Oct 2022",
       "opposition": "Canterbury",
@@ -2246,7 +2327,7 @@
       "conversions": 0
     },
     {
-      "competition": "Bunnings NPC",
+      "competition": "Hilux NPC",
       "match": "Bay of Plenty vs Northland",
       "date": "28 Sep 2022",
       "opposition": "Bay of Plenty",
@@ -2259,7 +2340,7 @@
       "conversions": 0
     },
     {
-      "competition": "Bunnings NPC",
+      "competition": "Hilux NPC",
       "match": "Auckland vs Counties Manukau",
       "date": "18 Sep 2016",
       "opposition": "Counties Manukau",
@@ -2272,7 +2353,7 @@
       "conversions": 0
     },
     {
-      "competition": "Bunnings NPC",
+      "competition": "Hilux NPC",
       "match": "Auckland vs Waikato",
       "date": "11 Sep 2016",
       "opposition": "Waikato",
@@ -2285,7 +2366,7 @@
       "conversions": 0
     },
     {
-      "competition": "Bunnings NPC",
+      "competition": "Hilux NPC",
       "match": "Southland vs Auckland",
       "date": "2 Sep 2016",
       "opposition": "Southland Stags",

@@ -3,12 +3,41 @@
   "csv_name": "F. Burke",
   "bio": {
     "Nationality": "New Zealand",
-    "Age": "26",
+    "Age": "27",
     "Position": "Fly Half",
     "Height": "186cm",
     "Weight": "94kg"
   },
   "competition_stats": [
+    {
+      "competition": "Nations Championship",
+      "season": "2026",
+      "games": 2,
+      "minutes": 108,
+      "tries": 0,
+      "try_assists": 0,
+      "points": 12,
+      "carries": 17,
+      "metres": 52,
+      "av_gain": 3.06,
+      "post_contact_metres": 58,
+      "defenders_beaten": 2,
+      "clean_breaks": 1,
+      "offloads": 0,
+      "handling_errors": 2,
+      "passes": 27,
+      "bad_passes": 2,
+      "tackles": 8,
+      "missed_tackles": 1,
+      "tackles_success_pct": 0.8,
+      "dominant_tackles": 0,
+      "turnovers_won": 1,
+      "turnovers_conceded": 3,
+      "kicks_from_hand": 0,
+      "penalties_conceded": 0,
+      "yellow_cards": 0,
+      "red_cards": 0
+    },
     {
       "competition": "Investec Champions Cup",
       "season": "2025/2026",
@@ -39,7 +68,7 @@
       "red_cards": 0
     },
     {
-      "competition": "Gallagher Premiership",
+      "competition": "PREM Rugby",
       "season": "2025/2026",
       "games": 17,
       "minutes": 890,
@@ -126,7 +155,7 @@
       "red_cards": 0
     },
     {
-      "competition": "Gallagher Premiership",
+      "competition": "PREM Rugby",
       "season": "2024/2025",
       "games": 16,
       "minutes": 1204,
@@ -184,7 +213,7 @@
       "red_cards": 0
     },
     {
-      "competition": "Bunnings NPC",
+      "competition": "Hilux NPC",
       "season": "2023",
       "games": 10,
       "minutes": 709,
@@ -307,6 +336,32 @@
       "yellow_cards": 0,
       "red_cards": 0,
       "conversions": 2
+    },
+    {
+      "competition": "Nations Championship",
+      "match": "Fiji vs Scotland",
+      "date": "18 Jul 2026",
+      "opposition": "Fiji",
+      "win": true,
+      "draw": false,
+      "mins": 80,
+      "tries": 0,
+      "yellow_cards": 0,
+      "red_cards": 0,
+      "conversions": 3
+    },
+    {
+      "competition": "Nations Championship",
+      "match": "Argentina vs Scotland",
+      "date": "4 Jul 2026",
+      "opposition": "Argentina",
+      "win": true,
+      "draw": false,
+      "mins": 28,
+      "tries": 0,
+      "yellow_cards": 0,
+      "red_cards": 0,
+      "conversions": 3
     },
     {
       "competition": "Super Rugby Pacific",
@@ -1232,7 +1287,7 @@
       "conversions": 2
     },
     {
-      "competition": "Bunnings NPC",
+      "competition": "Hilux NPC",
       "match": "Canterbury vs Auckland",
       "date": "6 Oct 2023",
       "opposition": "Auckland",
@@ -1245,7 +1300,7 @@
       "conversions": 0
     },
     {
-      "competition": "Bunnings NPC",
+      "competition": "Hilux NPC",
       "match": "Waikato vs Canterbury",
       "date": "30 Sep 2023",
       "opposition": "Waikato",
@@ -1258,7 +1313,7 @@
       "conversions": 5
     },
     {
-      "competition": "Bunnings NPC",
+      "competition": "Hilux NPC",
       "match": "Canterbury vs Tasman Makos",
       "date": "23 Sep 2023",
       "opposition": "Tasman Mako",
@@ -1271,7 +1326,7 @@
       "conversions": 3
     },
     {
-      "competition": "Bunnings NPC",
+      "competition": "Hilux NPC",
       "match": "Canterbury vs Southland Stags",
       "date": "17 Sep 2023",
       "opposition": "Southland Stags",
@@ -1284,7 +1339,7 @@
       "conversions": 3
     },
     {
-      "competition": "Bunnings NPC",
+      "competition": "Hilux NPC",
       "match": "Counties Manukau vs Canterbury",
       "date": "13 Sep 2023",
       "opposition": "Counties Manukau",
@@ -1297,7 +1352,7 @@
       "conversions": 3
     },
     {
-      "competition": "Bunnings NPC",
+      "competition": "Hilux NPC",
       "match": "Auckland vs Canterbury",
       "date": "9 Sep 2023",
       "opposition": "Auckland",
@@ -1310,7 +1365,7 @@
       "conversions": 2
     },
     {
-      "competition": "Bunnings NPC",
+      "competition": "Hilux NPC",
       "match": "Canterbury vs Wellington",
       "date": "27 Aug 2023",
       "opposition": "Wellington",
@@ -1323,7 +1378,7 @@
       "conversions": 3
     },
     {
-      "competition": "Bunnings NPC",
+      "competition": "Hilux NPC",
       "match": "Canterbury vs Manawatu",
       "date": "19 Aug 2023",
       "opposition": "Manawatu",
@@ -1336,7 +1391,7 @@
       "conversions": 6
     },
     {
-      "competition": "Bunnings NPC",
+      "competition": "Hilux NPC",
       "match": "North Harbour vs Canterbury",
       "date": "13 Aug 2023",
       "opposition": "North Harbour",
@@ -1349,7 +1404,7 @@
       "conversions": 1
     },
     {
-      "competition": "Bunnings NPC",
+      "competition": "Hilux NPC",
       "match": "Northland vs Canterbury",
       "date": "5 Aug 2023",
       "opposition": "Northland",
@@ -1362,7 +1417,7 @@
       "conversions": 3
     },
     {
-      "competition": "Bunnings NPC",
+      "competition": "Hilux NPC",
       "match": "Canterbury vs Bay of Plenty",
       "date": "15 Oct 2022",
       "opposition": "Bay of Plenty",
@@ -1375,7 +1430,7 @@
       "conversions": 1
     },
     {
-      "competition": "Bunnings NPC",
+      "competition": "Hilux NPC",
       "match": "Canterbury vs Northland",
       "date": "8 Oct 2022",
       "opposition": "Northland",
@@ -1388,7 +1443,7 @@
       "conversions": 2
     },
     {
-      "competition": "Bunnings NPC",
+      "competition": "Hilux NPC",
       "match": "Otago vs Canterbury",
       "date": "1 Oct 2022",
       "opposition": "Otago",
@@ -1401,7 +1456,7 @@
       "conversions": 1
     },
     {
-      "competition": "Bunnings NPC",
+      "competition": "Hilux NPC",
       "match": "Counties Manukau vs Canterbury",
       "date": "17 Sep 2022",
       "opposition": "Counties Manukau",

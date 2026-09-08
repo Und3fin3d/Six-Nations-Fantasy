@@ -39,7 +39,7 @@
       "red_cards": 0
     },
     {
-      "competition": "Gallagher Premiership",
+      "competition": "PREM Rugby",
       "season": "2024/2025",
       "games": 7,
       "minutes": 78,
@@ -92,64 +92,6 @@
       "turnovers_won": 0,
       "turnovers_conceded": 0,
       "kicks_from_hand": 5,
-      "penalties_conceded": 0,
-      "yellow_cards": 0,
-      "red_cards": 0
-    },
-    {
-      "competition": "TOP 14",
-      "season": "2022/2023",
-      "games": 7,
-      "minutes": 86,
-      "tries": 1,
-      "try_assists": 0,
-      "points": 5,
-      "carries": 9,
-      "metres": 30,
-      "av_gain": 3.34,
-      "post_contact_metres": 35,
-      "defenders_beaten": 4,
-      "clean_breaks": 1,
-      "offloads": 1,
-      "handling_errors": 0,
-      "passes": 20,
-      "bad_passes": 1,
-      "tackles": 5,
-      "missed_tackles": 2,
-      "tackles_success_pct": 0.71,
-      "dominant_tackles": 0,
-      "turnovers_won": 0,
-      "turnovers_conceded": 1,
-      "kicks_from_hand": 1,
-      "penalties_conceded": 1,
-      "yellow_cards": 0,
-      "red_cards": 0
-    },
-    {
-      "competition": "Challenge Cup",
-      "season": "2022/2023",
-      "games": 1,
-      "minutes": 80,
-      "tries": 1,
-      "try_assists": 0,
-      "points": 5,
-      "carries": 7,
-      "metres": 25,
-      "av_gain": 3.59,
-      "post_contact_metres": 9,
-      "defenders_beaten": 3,
-      "clean_breaks": 1,
-      "offloads": 1,
-      "handling_errors": 1,
-      "passes": 24,
-      "bad_passes": 2,
-      "tackles": 9,
-      "missed_tackles": 2,
-      "tackles_success_pct": 0.82,
-      "dominant_tackles": 0,
-      "turnovers_won": 0,
-      "turnovers_conceded": 1,
-      "kicks_from_hand": 6,
       "penalties_conceded": 0,
       "yellow_cards": 0,
       "red_cards": 0
@@ -1119,7 +1061,7 @@
       "conversions": 1
     },
     {
-      "competition": "Bunnings NPC",
+      "competition": "Hilux NPC",
       "match": "Canterbury vs North Harbour",
       "date": "21 Oct 2017",
       "opposition": "Canterbury",
@@ -1132,7 +1074,7 @@
       "conversions": 3
     },
     {
-      "competition": "Bunnings NPC",
+      "competition": "Hilux NPC",
       "match": "North Harbour vs Taranaki",
       "date": "15 Oct 2017",
       "opposition": "Taranaki Bulls",
@@ -1145,7 +1087,7 @@
       "conversions": 5
     },
     {
-      "competition": "Bunnings NPC",
+      "competition": "Hilux NPC",
       "match": "Waikato vs North Harbour",
       "date": "8 Oct 2017",
       "opposition": "Waikato",
@@ -1158,7 +1100,7 @@
       "conversions": 1
     },
     {
-      "competition": "Bunnings NPC",
+      "competition": "Hilux NPC",
       "match": "Tasman vs North Harbour",
       "date": "4 Oct 2017",
       "opposition": "Tasman Mako",
@@ -1171,7 +1113,7 @@
       "conversions": 1
     },
     {
-      "competition": "Bunnings NPC",
+      "competition": "Hilux NPC",
       "match": "North Harbour vs Hawkes Bay",
       "date": "29 Sep 2017",
       "opposition": "Hawkes Bay",
@@ -1184,7 +1126,7 @@
       "conversions": 0
     },
     {
-      "competition": "Bunnings NPC",
+      "competition": "Hilux NPC",
       "match": "North Harbour vs Canterbury",
       "date": "23 Sep 2017",
       "opposition": "Canterbury",
@@ -1197,7 +1139,7 @@
       "conversions": 0
     },
     {
-      "competition": "Bunnings NPC",
+      "competition": "Hilux NPC",
       "match": "Northland vs North Harbour",
       "date": "14 Sep 2017",
       "opposition": "Northland",
@@ -1210,7 +1152,7 @@
       "conversions": 0
     },
     {
-      "competition": "Bunnings NPC",
+      "competition": "Hilux NPC",
       "match": "Counties Manukau vs North Harbour",
       "date": "7 Sep 2017",
       "opposition": "Counties Manukau",
@@ -1223,7 +1165,7 @@
       "conversions": 0
     },
     {
-      "competition": "Bunnings NPC",
+      "competition": "Hilux NPC",
       "match": "North Harbour vs Auckland",
       "date": "3 Sep 2017",
       "opposition": "Auckland",
@@ -1236,7 +1178,7 @@
       "conversions": 0
     },
     {
-      "competition": "Bunnings NPC",
+      "competition": "Hilux NPC",
       "match": "Southland vs North Harbour",
       "date": "24 Aug 2017",
       "opposition": "Southland Stags",
@@ -1249,7 +1191,7 @@
       "conversions": 1
     },
     {
-      "competition": "Bunnings NPC",
+      "competition": "Hilux NPC",
       "match": "Canterbury vs North Harbour",
       "date": "7 Oct 2016",
       "opposition": "Canterbury",

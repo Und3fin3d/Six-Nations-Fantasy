@@ -22,11 +22,20 @@ python -m pip install -r requirements-refresh.txt
 python ncr_ingest.py --fetch --floor 50
 python ncr_ingest.py --rebuild
 python build_intl_results.py
+python rugbypass_backfill.py
+python build_rugbypass_tables.py
 ```
 
 Each successful API response enters `data/cache`. Commit new cache files and rebuilt tables after validation.
 
 The repository tracks `data/cache`. A cloud task must pull the latest `main` branch before it checks for missing matches.
+
+`rugbypass_backfill.py` uses the free RugbyPass website. It fetches only API
+players that do not have a RugbyPass link in the current crosswalk. Do not use
+`--force` during a routine refresh. Run `build_rugbypass_tables.py` only after
+the backfill completes. Commit new `players/rugbypass_*.json` files and the
+rebuilt `data/rp_bio.csv`, `data/rp_compstats.csv`, and `data/rp_matchlog.csv`
+tables in a separate pull request when the data diff is large.
 
 ## Validation
 

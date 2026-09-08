@@ -24,6 +24,7 @@ Usage:
 from __future__ import annotations
 
 import argparse
+from datetime import datetime, timezone
 import json
 import re
 import time
@@ -227,12 +228,84 @@ def resolve_and_scrape(records, *, dry_run: bool, force: bool, delay: float):
     return resolved, unresolved, absent
 
 
+def refresh_existing(*, delay: float):
+    """Refresh every stored profile without replacing useful data with blanks."""
+    session = requests.Session()
+    session.headers.update({"User-Agent": UA})
+    paths = sorted(OUT_DIR.glob("rugbypass_*.json"))
+    results = []
+    changed = unchanged = failed = 0
+    retained = {"bio": 0, "competition_stats": 0, "match_log": 0}
+
+    for i, path in enumerate(paths, 1):
+        old = json.loads(path.read_text())
+        slug = old.get("player") or path.stem.replace("rugbypass_", "").replace("_", "-")
+        status, html = fetch(session, slug)
+        time.sleep(delay)
+        if status != 200 or not html:
+            failed += 1
+            results.append({"slug": slug, "status": "failed", "http_status": status})
+            print(f"  [{i:>4}/{len(paths)}] {slug:<35} KEEP status={status}")
+            continue
+
+        soup = BeautifulSoup(html, "html.parser")
+        fresh = {
+            "player": slug,
+            "csv_name": old.get("csv_name") or slug,
+            "bio": extract_bio(soup),
+            "competition_stats": extract_comp_stats(soup),
+            "match_log": extract_match_log(soup),
+        }
+        retained_fields = []
+        for field in retained:
+            if not fresh[field] and old.get(field):
+                fresh[field] = old[field]
+                retained[field] += 1
+                retained_fields.append(field)
+
+        if fresh != old:
+            path.write_text(json.dumps(fresh, indent=2))
+            changed += 1
+            outcome = "changed"
+        else:
+            unchanged += 1
+            outcome = "unchanged"
+        results.append({"slug": slug, "status": outcome,
+                        "retained_fields": retained_fields})
+        print(f"  [{i:>4}/{len(paths)}] {slug:<35} {outcome.upper()}")
+
+    manifest = {
+        "created_at_utc": datetime.now(timezone.utc).isoformat(),
+        "source": "RugbyPass player profiles",
+        "mode": "full_existing_profile_refresh",
+        "total_profiles": len(paths),
+        "changed_profiles": changed,
+        "unchanged_profiles": unchanged,
+        "failed_profiles_kept": failed,
+        "retained_nonempty_sections": retained,
+        "results": results,
+    }
+    manifest_dir = BASE / "data"
+    manifest_dir.mkdir(exist_ok=True)
+    manifest_path = manifest_dir / f"rugbypass_refresh_{datetime.now(timezone.utc).date()}.json"
+    manifest_path.write_text(json.dumps(manifest, indent=2))
+    print(f"FULL REFRESH profiles={len(paths)} changed={changed} unchanged={unchanged} "
+          f"failed_kept={failed} manifest={manifest_path}")
+    return manifest
+
+
 def main():
     ap = argparse.ArgumentParser(description="Backfill RugbyPass for unmatched API players")
     ap.add_argument("--dry-run", action="store_true", help="resolve slugs only, no JSON written")
     ap.add_argument("--force", action="store_true", help="re-scrape even if JSON exists")
+    ap.add_argument("--refresh-existing", action="store_true",
+                    help="refresh every stored RugbyPass profile with degradation guards")
     ap.add_argument("--delay", type=float, default=0.4, help="seconds between requests")
     args = ap.parse_args()
+
+    if args.refresh_existing:
+        refresh_existing(delay=args.delay)
+        return
 
     records = unmatched_api_players()
     print(f"{len(records)} unmatched API players to resolve.\n")

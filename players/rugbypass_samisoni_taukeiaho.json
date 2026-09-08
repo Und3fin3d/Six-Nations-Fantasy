@@ -3,7 +3,7 @@
   "csv_name": "Samisoni Taukeiaho",
   "bio": {
     "Nationality": "New Zealand",
-    "Age": "28",
+    "Age": "29",
     "Position": "Hooker",
     "Height": "183cm",
     "Weight": "120kg"
@@ -32,6 +32,64 @@
       "tackles_success_pct": 0.76,
       "dominant_tackles": 0,
       "turnovers_won": 2,
+      "turnovers_conceded": 0,
+      "kicks_from_hand": 0,
+      "penalties_conceded": 0,
+      "yellow_cards": 0,
+      "red_cards": 0
+    },
+    {
+      "competition": "Rugby Hybrid Friendlies",
+      "season": "2026",
+      "games": 3,
+      "minutes": 165,
+      "tries": 1,
+      "try_assists": 0,
+      "points": 5,
+      "carries": 24,
+      "metres": 38,
+      "av_gain": 1.58,
+      "post_contact_metres": 33,
+      "defenders_beaten": 3,
+      "clean_breaks": 0,
+      "offloads": 3,
+      "handling_errors": 1,
+      "passes": 19,
+      "bad_passes": 2,
+      "tackles": 26,
+      "missed_tackles": 4,
+      "tackles_success_pct": 0.81,
+      "dominant_tackles": 2,
+      "turnovers_won": 0,
+      "turnovers_conceded": 1,
+      "kicks_from_hand": 0,
+      "penalties_conceded": 3,
+      "yellow_cards": 0,
+      "red_cards": 0
+    },
+    {
+      "competition": "Nations Championship",
+      "season": "2026",
+      "games": 1,
+      "minutes": 31,
+      "tries": 0,
+      "try_assists": 0,
+      "points": 0,
+      "carries": 9,
+      "metres": 9,
+      "av_gain": 1,
+      "post_contact_metres": 19,
+      "defenders_beaten": 2,
+      "clean_breaks": 0,
+      "offloads": 0,
+      "handling_errors": 0,
+      "passes": 5,
+      "bad_passes": 1,
+      "tackles": 2,
+      "missed_tackles": 1,
+      "tackles_success_pct": 0.5,
+      "dominant_tackles": 0,
+      "turnovers_won": 0,
       "turnovers_conceded": 0,
       "kicks_from_hand": 0,
       "penalties_conceded": 0,
@@ -187,7 +245,7 @@
       "competition": "The Rugby Championship",
       "season": "2022",
       "games": 6,
-      "minutes": 284,
+      "minutes": 302,
       "tries": 5,
       "try_assists": 0,
       "points": 25,
@@ -243,6 +301,19 @@
     }
   ],
   "match_log": [
+    {
+      "competition": "Internationals",
+      "match": "South Africa vs New Zealand",
+      "date": "5 Sep 2026",
+      "opposition": "South Africa",
+      "win": false,
+      "draw": false,
+      "mins": 19,
+      "tries": 1,
+      "yellow_cards": 0,
+      "red_cards": 0,
+      "conversions": 0
+    },
     {
       "competition": "Internationals",
       "match": "Wales vs New Zealand",
@@ -785,6 +856,58 @@
       "draw": false,
       "mins": 23,
       "tries": 0,
+      "yellow_cards": 0,
+      "red_cards": 0,
+      "conversions": 0
+    },
+    {
+      "competition": "Nations Championship",
+      "match": "New Zealand vs Italy",
+      "date": "11 Jul 2026",
+      "opposition": "Italy",
+      "win": true,
+      "draw": false,
+      "mins": 31,
+      "tries": 0,
+      "yellow_cards": 0,
+      "red_cards": 0,
+      "conversions": 0
+    },
+    {
+      "competition": "Rugby Union Hybrid Friendlies",
+      "match": "Lions vs New Zealand",
+      "date": "25 Aug 2026",
+      "opposition": "Lions",
+      "win": true,
+      "draw": false,
+      "mins": 63,
+      "tries": 0,
+      "yellow_cards": 0,
+      "red_cards": 0,
+      "conversions": 0
+    },
+    {
+      "competition": "Rugby Union Hybrid Friendlies",
+      "match": "Bulls vs New Zealand",
+      "date": "15 Aug 2026",
+      "opposition": "Bulls",
+      "win": true,
+      "draw": false,
+      "mins": 40,
+      "tries": 0,
+      "yellow_cards": 0,
+      "red_cards": 0,
+      "conversions": 0
+    },
+    {
+      "competition": "Rugby Union Hybrid Friendlies",
+      "match": "Stormers vs New Zealand",
+      "date": "7 Aug 2026",
+      "opposition": "Stormers",
+      "win": true,
+      "draw": false,
+      "mins": 62,
+      "tries": 1,
       "yellow_cards": 0,
       "red_cards": 0,
       "conversions": 0
@@ -1921,7 +2044,7 @@
       "conversions": 0
     },
     {
-      "competition": "Bunnings NPC",
+      "competition": "Hilux NPC",
       "match": "Waikato vs Otago",
       "date": "26 Oct 2018",
       "opposition": "Otago",
@@ -1934,7 +2057,7 @@
       "conversions": 0
     },
     {
-      "competition": "Bunnings NPC",
+      "competition": "Hilux NPC",
       "match": "Waikato vs Northland",
       "date": "20 Oct 2018",
       "opposition": "Northland",
@@ -1947,7 +2070,7 @@
       "conversions": 0
     },
     {
-      "competition": "Bunnings NPC",
+      "competition": "Hilux NPC",
       "match": "Waikato vs Otago",
       "date": "13 Oct 2018",
       "opposition": "Otago",
@@ -1960,7 +2083,7 @@
       "conversions": 0
     },
     {
-      "competition": "Bunnings NPC",
+      "competition": "Hilux NPC",
       "match": "Northland vs Waikato",
       "date": "6 Oct 2018",
       "opposition": "Northland",
@@ -1973,7 +2096,7 @@
       "conversions": 0
     },
     {
-      "competition": "Bunnings NPC",
+      "competition": "Hilux NPC",
       "match": "Waikato vs Southland",
       "date": "29 Sep 2018",
       "opposition": "Southland Stags",
@@ -1986,7 +2109,7 @@
       "conversions": 0
     },
     {
-      "competition": "Bunnings NPC",
+      "competition": "Hilux NPC",
       "match": "Bay Of Plenty vs Waikato",
       "date": "21 Sep 2018",
       "opposition": "Bay of Plenty",
@@ -1999,7 +2122,7 @@
       "conversions": 0
     },
     {
-      "competition": "Bunnings NPC",
+      "competition": "Hilux NPC",
       "match": "Waikato vs Hawkes Bay",
       "date": "13 Sep 2018",
       "opposition": "Hawkes Bay",
@@ -2012,7 +2135,7 @@
       "conversions": 0
     },
     {
-      "competition": "Bunnings NPC",
+      "competition": "Hilux NPC",
       "match": "Taranaki vs Waikato",
       "date": "9 Sep 2018",
       "opposition": "Taranaki Bulls",
@@ -2025,7 +2148,7 @@
       "conversions": 0
     },
     {
-      "competition": "Bunnings NPC",
+      "competition": "Hilux NPC",
       "match": "Waikato vs Wellington",
       "date": "5 Sep 2018",
       "opposition": "Wellington",
@@ -2038,7 +2161,7 @@
       "conversions": 0
     },
     {
-      "competition": "Bunnings NPC",
+      "competition": "Hilux NPC",
       "match": "Auckland vs Waikato",
       "date": "30 Aug 2018",
       "opposition": "Auckland",
@@ -2051,7 +2174,7 @@
       "conversions": 0
     },
     {
-      "competition": "Bunnings NPC",
+      "competition": "Hilux NPC",
       "match": "Waikato vs North Harbour",
       "date": "25 Aug 2018",
       "opposition": "North Harbour",
@@ -2064,7 +2187,7 @@
       "conversions": 0
     },
     {
-      "competition": "Bunnings NPC",
+      "competition": "Hilux NPC",
       "match": "Manawatu vs Waikato",
       "date": "18 Aug 2018",
       "opposition": "Manawatu",
@@ -2077,7 +2200,7 @@
       "conversions": 0
     },
     {
-      "competition": "Bunnings NPC",
+      "competition": "Hilux NPC",
       "match": "Bay Of Plenty vs Waikato",
       "date": "14 Oct 2017",
       "opposition": "Bay of Plenty",
@@ -2090,7 +2213,7 @@
       "conversions": 0
     },
     {
-      "competition": "Bunnings NPC",
+      "competition": "Hilux NPC",
       "match": "Waikato vs North Harbour",
       "date": "8 Oct 2017",
       "opposition": "North Harbour",
@@ -2103,7 +2226,7 @@
       "conversions": 0
     },
     {
-      "competition": "Bunnings NPC",
+      "competition": "Hilux NPC",
       "match": "Canterbury vs Waikato",
       "date": "30 Sep 2017",
       "opposition": "Canterbury",
@@ -2116,7 +2239,7 @@
       "conversions": 0
     },
     {
-      "competition": "Bunnings NPC",
+      "competition": "Hilux NPC",
       "match": "Waikato vs Wellington",
       "date": "23 Sep 2017",
       "opposition": "Wellington",
@@ -2129,7 +2252,7 @@
       "conversions": 0
     },
     {
-      "competition": "Bunnings NPC",
+      "competition": "Hilux NPC",
       "match": "Waikato vs Manawatu",
       "date": "16 Sep 2017",
       "opposition": "Manawatu",
@@ -2142,7 +2265,7 @@
       "conversions": 0
     },
     {
-      "competition": "Bunnings NPC",
+      "competition": "Hilux NPC",
       "match": "Northland vs Waikato",
       "date": "9 Sep 2017",
       "opposition": "Northland",
@@ -2155,7 +2278,7 @@
       "conversions": 0
     },
     {
-      "competition": "Bunnings NPC",
+      "competition": "Hilux NPC",
       "match": "Waikato vs Tasman",
       "date": "3 Sep 2017",
       "opposition": "Tasman Mako",
@@ -2168,7 +2291,7 @@
       "conversions": 0
     },
     {
-      "competition": "Bunnings NPC",
+      "competition": "Hilux NPC",
       "match": "Auckland vs Waikato",
       "date": "30 Aug 2017",
       "opposition": "Auckland",
@@ -2181,7 +2304,7 @@
       "conversions": 0
     },
     {
-      "competition": "Bunnings NPC",
+      "competition": "Hilux NPC",
       "match": "Waikato vs Counties Manukau",
       "date": "25 Aug 2017",
       "opposition": "Counties Manukau",
@@ -2194,7 +2317,7 @@
       "conversions": 0
     },
     {
-      "competition": "Bunnings NPC",
+      "competition": "Hilux NPC",
       "match": "Taranaki vs Waikato",
       "date": "19 Aug 2017",
       "opposition": "Taranaki Bulls",

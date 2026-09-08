@@ -40,6 +40,35 @@
     },
     {
       "competition": "Rugby Hybrid Friendlies",
+      "season": "2026",
+      "games": 2,
+      "minutes": 139,
+      "tries": 0,
+      "try_assists": 2,
+      "points": 0,
+      "carries": 6,
+      "metres": 2,
+      "av_gain": 0.32,
+      "post_contact_metres": 7,
+      "defenders_beaten": null,
+      "clean_breaks": 0,
+      "offloads": 1,
+      "handling_errors": 1,
+      "passes": 22,
+      "bad_passes": 0,
+      "tackles": 21,
+      "missed_tackles": null,
+      "tackles_success_pct": 0.95,
+      "dominant_tackles": 3,
+      "turnovers_won": 0,
+      "turnovers_conceded": 1,
+      "kicks_from_hand": 1,
+      "penalties_conceded": 2,
+      "yellow_cards": 0,
+      "red_cards": 0
+    },
+    {
+      "competition": "Rugby Hybrid Friendlies",
       "season": "2024/2025",
       "games": 2,
       "minutes": 95,
@@ -97,7 +126,7 @@
       "red_cards": 0
     },
     {
-      "competition": "Bunnings NPC",
+      "competition": "Hilux NPC",
       "season": "2024",
       "games": 6,
       "minutes": 330,
@@ -155,7 +184,7 @@
       "red_cards": 0
     },
     {
-      "competition": "Bunnings NPC",
+      "competition": "Hilux NPC",
       "season": "2023",
       "games": 10,
       "minutes": 529,
@@ -214,6 +243,45 @@
     }
   ],
   "match_log": [
+    {
+      "competition": "Internationals",
+      "match": "South Africa vs New Zealand",
+      "date": "5 Sep 2026",
+      "opposition": "South Africa",
+      "win": false,
+      "draw": false,
+      "mins": 19,
+      "tries": 0,
+      "yellow_cards": 0,
+      "red_cards": 0,
+      "conversions": 0
+    },
+    {
+      "competition": "Internationals",
+      "match": "South Africa vs New Zealand",
+      "date": "29 Aug 2026",
+      "opposition": "South Africa",
+      "win": false,
+      "draw": false,
+      "mins": 80,
+      "tries": 0,
+      "yellow_cards": 0,
+      "red_cards": 0,
+      "conversions": 0
+    },
+    {
+      "competition": "Internationals",
+      "match": "South Africa vs New Zealand",
+      "date": "22 Aug 2026",
+      "opposition": "South Africa",
+      "win": true,
+      "draw": false,
+      "mins": 80,
+      "tries": 1,
+      "yellow_cards": 0,
+      "red_cards": 0,
+      "conversions": 0
+    },
     {
       "competition": "Internationals",
       "match": "Wales vs New Zealand",
@@ -365,6 +433,32 @@
       "win": true,
       "draw": false,
       "mins": 71,
+      "tries": 0,
+      "yellow_cards": 0,
+      "red_cards": 0,
+      "conversions": 0
+    },
+    {
+      "competition": "Rugby Union Hybrid Friendlies",
+      "match": "Bulls vs New Zealand",
+      "date": "15 Aug 2026",
+      "opposition": "Bulls",
+      "win": true,
+      "draw": false,
+      "mins": 80,
+      "tries": 0,
+      "yellow_cards": 0,
+      "red_cards": 0,
+      "conversions": 0
+    },
+    {
+      "competition": "Rugby Union Hybrid Friendlies",
+      "match": "Stormers vs New Zealand",
+      "date": "7 Aug 2026",
+      "opposition": "Stormers",
+      "win": true,
+      "draw": false,
+      "mins": 59,
       "tries": 0,
       "yellow_cards": 0,
       "red_cards": 0,
@@ -852,7 +946,7 @@
       "conversions": 0
     },
     {
-      "competition": "Bunnings NPC",
+      "competition": "Hilux NPC",
       "match": "Northland vs Otago",
       "date": "4 Oct 2024",
       "opposition": "Northland",
@@ -865,7 +959,7 @@
       "conversions": 0
     },
     {
-      "competition": "Bunnings NPC",
+      "competition": "Hilux NPC",
       "match": "Otago vs Tasman Mako",
       "date": "28 Sep 2024",
       "opposition": "Tasman Mako",
@@ -878,7 +972,7 @@
       "conversions": 0
     },
     {
-      "competition": "Bunnings NPC",
+      "competition": "Hilux NPC",
       "match": "Taranaki Bulls vs Otago",
       "date": "31 Aug 2024",
       "opposition": "Taranaki Bulls",
@@ -891,7 +985,7 @@
       "conversions": 0
     },
     {
-      "competition": "Bunnings NPC",
+      "competition": "Hilux NPC",
       "match": "Otago vs Bay of Plenty",
       "date": "25 Aug 2024",
       "opposition": "Bay of Plenty",
@@ -904,7 +998,7 @@
       "conversions": 0
     },
     {
-      "competition": "Bunnings NPC",
+      "competition": "Hilux NPC",
       "match": "Otago vs Auckland",
       "date": "16 Aug 2024",
       "opposition": "Auckland",
@@ -917,7 +1011,7 @@
       "conversions": 0
     },
     {
-      "competition": "Bunnings NPC",
+      "competition": "Hilux NPC",
       "match": "Southland Stags vs Otago",
       "date": "10 Aug 2024",
       "opposition": "Southland Stags",
@@ -930,7 +1024,7 @@
       "conversions": 0
     },
     {
-      "competition": "Bunnings NPC",
+      "competition": "Hilux NPC",
       "match": "Otago vs Counties Manukau",
       "date": "1 Oct 2023",
       "opposition": "Counties Manukau",
@@ -943,7 +1037,7 @@
       "conversions": 0
     },
     {
-      "competition": "Bunnings NPC",
+      "competition": "Hilux NPC",
       "match": "Waikato vs Otago",
       "date": "24 Sep 2023",
       "opposition": "Waikato",
@@ -956,7 +1050,7 @@
       "conversions": 0
     },
     {
-      "competition": "Bunnings NPC",
+      "competition": "Hilux NPC",
       "match": "Otago vs Taranaki Bulls",
       "date": "16 Sep 2023",
       "opposition": "Taranaki Bulls",
@@ -969,7 +1063,7 @@
       "conversions": 0
     },
     {
-      "competition": "Bunnings NPC",
+      "competition": "Hilux NPC",
       "match": "Otago vs Northland",
       "date": "10 Sep 2023",
       "opposition": "Northland",
@@ -982,7 +1076,7 @@
       "conversions": 0
     },
     {
-      "competition": "Bunnings NPC",
+      "competition": "Hilux NPC",
       "match": "North Harbour vs Otago",
       "date": "6 Sep 2023",
       "opposition": "North Harbour",
@@ -995,7 +1089,7 @@
       "conversions": 0
     },
     {
-      "competition": "Bunnings NPC",
+      "competition": "Hilux NPC",
       "match": "Bay of Plenty vs Otago",
       "date": "2 Sep 2023",
       "opposition": "Bay of Plenty",
@@ -1008,7 +1102,7 @@
       "conversions": 0
     },
     {
-      "competition": "Bunnings NPC",
+      "competition": "Hilux NPC",
       "match": "Otago vs Southland Stags",
       "date": "26 Aug 2023",
       "opposition": "Southland Stags",
@@ -1021,7 +1115,7 @@
       "conversions": 0
     },
     {
-      "competition": "Bunnings NPC",
+      "competition": "Hilux NPC",
       "match": "Hawkes Bay vs Otago",
       "date": "20 Aug 2023",
       "opposition": "Hawkes Bay",
@@ -1034,7 +1128,7 @@
       "conversions": 0
     },
     {
-      "competition": "Bunnings NPC",
+      "competition": "Hilux NPC",
       "match": "Otago vs Wellington",
       "date": "12 Aug 2023",
       "opposition": "Wellington",
@@ -1047,7 +1141,7 @@
       "conversions": 0
     },
     {
-      "competition": "Bunnings NPC",
+      "competition": "Hilux NPC",
       "match": "Tasman Makos vs Otago",
       "date": "4 Aug 2023",
       "opposition": "Tasman Mako",
@@ -1060,7 +1154,7 @@
       "conversions": 0
     },
     {
-      "competition": "Bunnings NPC",
+      "competition": "Hilux NPC",
       "match": "Otago vs Canterbury",
       "date": "1 Oct 2022",
       "opposition": "Canterbury",

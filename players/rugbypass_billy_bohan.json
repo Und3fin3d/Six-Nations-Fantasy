@@ -10,6 +10,19 @@
   "competition_stats": [],
   "match_log": [
     {
+      "competition": "Nations Championship",
+      "match": "Japan vs Ireland",
+      "date": "11 Jul 2026",
+      "opposition": "Japan",
+      "win": true,
+      "draw": false,
+      "mins": 25,
+      "tries": 0,
+      "yellow_cards": 0,
+      "red_cards": 0,
+      "conversions": 0
+    },
+    {
       "competition": "U20 Six Nations",
       "match": "Italy U20 vs Ireland U20",
       "date": "14 Mar 2025",

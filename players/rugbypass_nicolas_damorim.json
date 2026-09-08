@@ -80,6 +80,19 @@
     },
     {
       "competition": "Rugby Union Hybrid Friendlies",
+      "match": "USA vs Argentina XV",
+      "date": "15 Aug 2026",
+      "opposition": "USA",
+      "win": false,
+      "draw": true,
+      "mins": 80,
+      "tries": 0,
+      "yellow_cards": 0,
+      "red_cards": 0,
+      "conversions": 0
+    },
+    {
+      "competition": "Rugby Union Hybrid Friendlies",
       "match": "Munster vs Argentina XV",
       "date": "1 Nov 2025",
       "opposition": "Munster",

@@ -729,6 +729,32 @@
       "yellow_cards": 0,
       "red_cards": 0,
       "conversions": 0
+    },
+    {
+      "competition": "Pro D2",
+      "match": "Nice vs Beziers",
+      "date": "4 Sep 2026",
+      "opposition": "Nice",
+      "win": false,
+      "draw": false,
+      "mins": 16,
+      "tries": 0,
+      "yellow_cards": 1,
+      "red_cards": 0,
+      "conversions": 0
+    },
+    {
+      "competition": "Pro D2",
+      "match": "Beziers vs Oyonnax",
+      "date": "27 Aug 2026",
+      "opposition": "Oyonnax",
+      "win": false,
+      "draw": false,
+      "mins": 16,
+      "tries": 0,
+      "yellow_cards": 0,
+      "red_cards": 0,
+      "conversions": 0
     }
   ]
 }

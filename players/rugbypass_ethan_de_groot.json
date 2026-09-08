@@ -3,7 +3,7 @@
   "csv_name": "Ethan de Groot",
   "bio": {
     "Nationality": "New Zealand",
-    "Age": "27",
+    "Age": "28",
     "Position": "Prop",
     "Height": "190cm",
     "Weight": "135kg"
@@ -33,6 +33,64 @@
       "dominant_tackles": 3,
       "turnovers_won": 0,
       "turnovers_conceded": 0,
+      "kicks_from_hand": 0,
+      "penalties_conceded": 2,
+      "yellow_cards": 0,
+      "red_cards": 0
+    },
+    {
+      "competition": "Rugby Hybrid Friendlies",
+      "season": "2026",
+      "games": 1,
+      "minutes": 54,
+      "tries": 0,
+      "try_assists": 0,
+      "points": 0,
+      "carries": 4,
+      "metres": 6,
+      "av_gain": 1.4,
+      "post_contact_metres": 4,
+      "defenders_beaten": null,
+      "clean_breaks": 0,
+      "offloads": 0,
+      "handling_errors": 0,
+      "passes": 2,
+      "bad_passes": 0,
+      "tackles": 7,
+      "missed_tackles": 1,
+      "tackles_success_pct": 0.88,
+      "dominant_tackles": 0,
+      "turnovers_won": 0,
+      "turnovers_conceded": 0,
+      "kicks_from_hand": 0,
+      "penalties_conceded": 1,
+      "yellow_cards": 0,
+      "red_cards": 0
+    },
+    {
+      "competition": "Nations Championship",
+      "season": "2026",
+      "games": 3,
+      "minutes": 152,
+      "tries": 1,
+      "try_assists": 0,
+      "points": 5,
+      "carries": 15,
+      "metres": 27,
+      "av_gain": 1.8,
+      "post_contact_metres": 42,
+      "defenders_beaten": 3,
+      "clean_breaks": 0,
+      "offloads": 0,
+      "handling_errors": 1,
+      "passes": 14,
+      "bad_passes": 0,
+      "tackles": 26,
+      "missed_tackles": null,
+      "tackles_success_pct": 0.93,
+      "dominant_tackles": 3,
+      "turnovers_won": 0,
+      "turnovers_conceded": 1,
       "kicks_from_hand": 0,
       "penalties_conceded": 2,
       "yellow_cards": 0,
@@ -126,7 +184,7 @@
       "red_cards": 0
     },
     {
-      "competition": "Bunnings NPC",
+      "competition": "Hilux NPC",
       "season": "2024",
       "games": 2,
       "minutes": 99,
@@ -301,6 +359,19 @@
     }
   ],
   "match_log": [
+    {
+      "competition": "Internationals",
+      "match": "South Africa vs New Zealand",
+      "date": "22 Aug 2026",
+      "opposition": "South Africa",
+      "win": true,
+      "draw": false,
+      "mins": 37,
+      "tries": 0,
+      "yellow_cards": 0,
+      "red_cards": 0,
+      "conversions": 0
+    },
     {
       "competition": "Internationals",
       "match": "England vs New Zealand",
@@ -797,12 +868,51 @@
     },
     {
       "competition": "Nations Championship",
+      "match": "New Zealand vs Ireland",
+      "date": "18 Jul 2026",
+      "opposition": "Ireland",
+      "win": true,
+      "draw": false,
+      "mins": 50,
+      "tries": 0,
+      "yellow_cards": 0,
+      "red_cards": 0,
+      "conversions": 0
+    },
+    {
+      "competition": "Nations Championship",
+      "match": "New Zealand vs Italy",
+      "date": "11 Jul 2026",
+      "opposition": "Italy",
+      "win": true,
+      "draw": false,
+      "mins": 49,
+      "tries": 1,
+      "yellow_cards": 0,
+      "red_cards": 0,
+      "conversions": 0
+    },
+    {
+      "competition": "Nations Championship",
       "match": "New Zealand vs France",
       "date": "4 Jul 2026",
       "opposition": "France",
-      "win": false,
-      "draw": true,
-      "mins": 11,
+      "win": true,
+      "draw": false,
+      "mins": 53,
+      "tries": 0,
+      "yellow_cards": 0,
+      "red_cards": 0,
+      "conversions": 0
+    },
+    {
+      "competition": "Rugby Union Hybrid Friendlies",
+      "match": "Sharks vs New Zealand",
+      "date": "11 Aug 2026",
+      "opposition": "Sharks",
+      "win": true,
+      "draw": false,
+      "mins": 54,
       "tries": 0,
       "yellow_cards": 0,
       "red_cards": 0,
@@ -1615,7 +1725,7 @@
       "conversions": 0
     },
     {
-      "competition": "Bunnings NPC",
+      "competition": "Hilux NPC",
       "match": "Southland Stags vs North Harbour",
       "date": "5 Oct 2024",
       "opposition": "North Harbour",
@@ -1628,7 +1738,7 @@
       "conversions": 0
     },
     {
-      "competition": "Bunnings NPC",
+      "competition": "Hilux NPC",
       "match": "Southland Stags vs Canterbury",
       "date": "13 Sep 2024",
       "opposition": "Canterbury",
@@ -1641,7 +1751,7 @@
       "conversions": 0
     },
     {
-      "competition": "Bunnings NPC",
+      "competition": "Hilux NPC",
       "match": "Manawatu vs Southland",
       "date": "14 Oct 2018",
       "opposition": "Manawatu",
@@ -1654,7 +1764,7 @@
       "conversions": 0
     },
     {
-      "competition": "Bunnings NPC",
+      "competition": "Hilux NPC",
       "match": "Southland vs Bay Of Plenty",
       "date": "7 Oct 2018",
       "opposition": "Bay of Plenty",
@@ -1667,7 +1777,7 @@
       "conversions": 0
     },
     {
-      "competition": "Bunnings NPC",
+      "competition": "Hilux NPC",
       "match": "Waikato vs Southland",
       "date": "29 Sep 2018",
       "opposition": "Waikato",
@@ -1680,7 +1790,7 @@
       "conversions": 0
     },
     {
-      "competition": "Bunnings NPC",
+      "competition": "Hilux NPC",
       "match": "Northland vs Southland",
       "date": "20 Sep 2018",
       "opposition": "Northland",
@@ -1693,7 +1803,7 @@
       "conversions": 0
     },
     {
-      "competition": "Bunnings NPC",
+      "competition": "Hilux NPC",
       "match": "Southland vs Otago",
       "date": "15 Sep 2018",
       "opposition": "Otago",
@@ -1706,7 +1816,7 @@
       "conversions": 0
     },
     {
-      "competition": "Bunnings NPC",
+      "competition": "Hilux NPC",
       "match": "Southland vs Counties Manukau",
       "date": "8 Sep 2018",
       "opposition": "Counties Manukau",

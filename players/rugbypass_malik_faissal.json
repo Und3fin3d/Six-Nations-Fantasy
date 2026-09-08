@@ -6,6 +6,35 @@
   },
   "competition_stats": [
     {
+      "competition": "Nations Championship",
+      "season": "2026",
+      "games": 2,
+      "minutes": 121,
+      "tries": 0,
+      "try_assists": 1,
+      "points": 0,
+      "carries": 10,
+      "metres": 71,
+      "av_gain": 7.14,
+      "post_contact_metres": 29,
+      "defenders_beaten": 1,
+      "clean_breaks": 1,
+      "offloads": 0,
+      "handling_errors": 1,
+      "passes": 4,
+      "bad_passes": 1,
+      "tackles": 14,
+      "missed_tackles": 2,
+      "tackles_success_pct": 0.78,
+      "dominant_tackles": 0,
+      "turnovers_won": 1,
+      "turnovers_conceded": 4,
+      "kicks_from_hand": 2,
+      "penalties_conceded": 0,
+      "yellow_cards": 0,
+      "red_cards": 0
+    },
+    {
       "competition": "U20 Six Nations",
       "season": "2026",
       "games": 5,
@@ -123,6 +152,32 @@
     }
   ],
   "match_log": [
+    {
+      "competition": "Nations Championship",
+      "match": "New Zealand vs Italy",
+      "date": "11 Jul 2026",
+      "opposition": "New Zealand",
+      "win": false,
+      "draw": false,
+      "mins": 41,
+      "tries": 0,
+      "yellow_cards": 0,
+      "red_cards": 0,
+      "conversions": 0
+    },
+    {
+      "competition": "Nations Championship",
+      "match": "Japan vs Italy",
+      "date": "4 Jul 2026",
+      "opposition": "Japan",
+      "win": false,
+      "draw": false,
+      "mins": 80,
+      "tries": 0,
+      "yellow_cards": 0,
+      "red_cards": 0,
+      "conversions": 0
+    },
     {
       "competition": "U20 Six Nations",
       "match": "Wales U20 vs Italy U20",

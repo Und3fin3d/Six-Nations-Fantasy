@@ -10,6 +10,35 @@
   },
   "competition_stats": [
     {
+      "competition": "Nations Championship",
+      "season": "2026",
+      "games": 2,
+      "minutes": 46,
+      "tries": 0,
+      "try_assists": 0,
+      "points": 0,
+      "carries": null,
+      "metres": null,
+      "av_gain": null,
+      "post_contact_metres": null,
+      "defenders_beaten": null,
+      "clean_breaks": 0,
+      "offloads": 0,
+      "handling_errors": 1,
+      "passes": 2,
+      "bad_passes": 0,
+      "tackles": 6,
+      "missed_tackles": 2,
+      "tackles_success_pct": 0.75,
+      "dominant_tackles": 0,
+      "turnovers_won": 0,
+      "turnovers_conceded": 1,
+      "kicks_from_hand": 0,
+      "penalties_conceded": 1,
+      "yellow_cards": 1,
+      "red_cards": 0
+    },
+    {
       "competition": "Super Rugby Pacific",
       "season": "2026",
       "games": 14,
@@ -35,35 +64,6 @@
       "turnovers_conceded": 14,
       "kicks_from_hand": 0,
       "penalties_conceded": 12,
-      "yellow_cards": 0,
-      "red_cards": 0
-    },
-    {
-      "competition": "Super Rugby Pacific",
-      "season": "2025",
-      "games": 16,
-      "minutes": 553,
-      "tries": 0,
-      "try_assists": 0,
-      "points": 0,
-      "carries": 50,
-      "metres": 85,
-      "av_gain": 1.7,
-      "post_contact_metres": 81,
-      "defenders_beaten": 2,
-      "clean_breaks": 0,
-      "offloads": 0,
-      "handling_errors": 6,
-      "passes": 26,
-      "bad_passes": 1,
-      "tackles": 108,
-      "missed_tackles": 7,
-      "tackles_success_pct": 0.88,
-      "dominant_tackles": 7,
-      "turnovers_won": 1,
-      "turnovers_conceded": 6,
-      "kicks_from_hand": 0,
-      "penalties_conceded": 3,
       "yellow_cards": 0,
       "red_cards": 0
     },
@@ -97,7 +97,36 @@
       "red_cards": 0
     },
     {
-      "competition": "Bunnings NPC",
+      "competition": "Super Rugby Pacific",
+      "season": "2025",
+      "games": 16,
+      "minutes": 553,
+      "tries": 0,
+      "try_assists": 0,
+      "points": 0,
+      "carries": 50,
+      "metres": 85,
+      "av_gain": 1.7,
+      "post_contact_metres": 81,
+      "defenders_beaten": 2,
+      "clean_breaks": 0,
+      "offloads": 0,
+      "handling_errors": 6,
+      "passes": 26,
+      "bad_passes": 1,
+      "tackles": 108,
+      "missed_tackles": 7,
+      "tackles_success_pct": 0.88,
+      "dominant_tackles": 7,
+      "turnovers_won": 1,
+      "turnovers_conceded": 6,
+      "kicks_from_hand": 0,
+      "penalties_conceded": 3,
+      "yellow_cards": 0,
+      "red_cards": 0
+    },
+    {
+      "competition": "Hilux NPC",
       "season": "2024",
       "games": 10,
       "minutes": 745,
@@ -156,6 +185,58 @@
     }
   ],
   "match_log": [
+    {
+      "competition": "Nations Championship",
+      "match": "Australia vs France",
+      "date": "11 Jul 2026",
+      "opposition": "France",
+      "win": false,
+      "draw": false,
+      "mins": 29,
+      "tries": 0,
+      "yellow_cards": 0,
+      "red_cards": 0,
+      "conversions": 0
+    },
+    {
+      "competition": "Nations Championship",
+      "match": "Australia vs Ireland",
+      "date": "4 Jul 2026",
+      "opposition": "Ireland",
+      "win": false,
+      "draw": false,
+      "mins": 17,
+      "tries": 0,
+      "yellow_cards": 1,
+      "red_cards": 0,
+      "conversions": 0
+    },
+    {
+      "competition": "Internationals",
+      "match": "Argentina vs Australia",
+      "date": "29 Aug 2026",
+      "opposition": "Argentina",
+      "win": true,
+      "draw": false,
+      "mins": 20,
+      "tries": 0,
+      "yellow_cards": 0,
+      "red_cards": 0,
+      "conversions": 0
+    },
+    {
+      "competition": "Internationals",
+      "match": "Australia vs Japan",
+      "date": "15 Aug 2026",
+      "opposition": "Japan",
+      "win": true,
+      "draw": false,
+      "mins": 69,
+      "tries": 0,
+      "yellow_cards": 0,
+      "red_cards": 0,
+      "conversions": 0
+    },
     {
       "competition": "Super Rugby Pacific",
       "match": "Hurricanes vs Brumbies",
@@ -560,7 +641,7 @@
       "conversions": 0
     },
     {
-      "competition": "Bunnings NPC",
+      "competition": "Hilux NPC",
       "match": "Manawatu vs Counties Manukau",
       "date": "5 Oct 2024",
       "opposition": "Counties Manukau",
@@ -573,7 +654,7 @@
       "conversions": 0
     },
     {
-      "competition": "Bunnings NPC",
+      "competition": "Hilux NPC",
       "match": "Taranaki Bulls vs Manawatu",
       "date": "29 Sep 2024",
       "opposition": "Taranaki Bulls",
@@ -586,7 +667,7 @@
       "conversions": 0
     },
     {
-      "competition": "Bunnings NPC",
+      "competition": "Hilux NPC",
       "match": "Manawatu vs Otago",
       "date": "22 Sep 2024",
       "opposition": "Otago",
@@ -599,7 +680,7 @@
       "conversions": 0
     },
     {
-      "competition": "Bunnings NPC",
+      "competition": "Hilux NPC",
       "match": "Manawatu vs Southland Stags",
       "date": "18 Sep 2024",
       "opposition": "Southland Stags",
@@ -612,7 +693,7 @@
       "conversions": 0
     },
     {
-      "competition": "Bunnings NPC",
+      "competition": "Hilux NPC",
       "match": "North Harbour vs Manawatu",
       "date": "14 Sep 2024",
       "opposition": "North Harbour",
@@ -625,7 +706,7 @@
       "conversions": 0
     },
     {
-      "competition": "Bunnings NPC",
+      "competition": "Hilux NPC",
       "match": "Bay of Plenty vs Manawatu",
       "date": "6 Sep 2024",
       "opposition": "Bay of Plenty",
@@ -638,7 +719,7 @@
       "conversions": 0
     },
     {
-      "competition": "Bunnings NPC",
+      "competition": "Hilux NPC",
       "match": "Manawatu vs Hawkes Bay",
       "date": "1 Sep 2024",
       "opposition": "Hawkes Bay",
@@ -651,7 +732,7 @@
       "conversions": 0
     },
     {
-      "competition": "Bunnings NPC",
+      "competition": "Hilux NPC",
       "match": "Wellington vs Manawatu",
       "date": "25 Aug 2024",
       "opposition": "Wellington",
@@ -664,7 +745,7 @@
       "conversions": 0
     },
     {
-      "competition": "Bunnings NPC",
+      "competition": "Hilux NPC",
       "match": "Northland vs Manawatu",
       "date": "17 Aug 2024",
       "opposition": "Northland",
@@ -677,7 +758,7 @@
       "conversions": 0
     },
     {
-      "competition": "Bunnings NPC",
+      "competition": "Hilux NPC",
       "match": "Manawatu vs Tasman Mako",
       "date": "11 Aug 2024",
       "opposition": "Tasman Mako",

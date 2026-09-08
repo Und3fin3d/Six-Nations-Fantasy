@@ -128,6 +128,19 @@
   ],
   "match_log": [
     {
+      "competition": "Rugby Union Hybrid Friendlies",
+      "match": "Japan XV vs Maori All Blacks",
+      "date": "27 Jun 2026",
+      "opposition": "Maori All Blacks",
+      "win": false,
+      "draw": false,
+      "mins": 41,
+      "tries": 0,
+      "yellow_cards": 0,
+      "red_cards": 0,
+      "conversions": 0
+    },
+    {
       "competition": "Japan Rugby League One",
       "match": "Mie Honda Heat vs Toyota Verblitz",
       "date": "9 May 2026",

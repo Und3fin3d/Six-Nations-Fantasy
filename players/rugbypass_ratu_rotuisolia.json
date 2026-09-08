@@ -834,6 +834,32 @@
     },
     {
       "competition": "Pro D2",
+      "match": "Mont de Marsan vs Oyonnax",
+      "date": "5 Dec 2025",
+      "opposition": "Mont de Marsan",
+      "win": true,
+      "draw": false,
+      "mins": 51,
+      "tries": 0,
+      "yellow_cards": 0,
+      "red_cards": 0,
+      "conversions": 0
+    },
+    {
+      "competition": "Pro D2",
+      "match": "Oyonnax vs Beziers",
+      "date": "28 Nov 2025",
+      "opposition": "Beziers",
+      "win": true,
+      "draw": false,
+      "mins": 69,
+      "tries": 1,
+      "yellow_cards": 0,
+      "red_cards": 0,
+      "conversions": 0
+    },
+    {
+      "competition": "Pro D2",
       "match": "Agen vs Oyonnax",
       "date": "14 Nov 2025",
       "opposition": "Agen",

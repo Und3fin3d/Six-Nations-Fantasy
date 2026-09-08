@@ -100,6 +100,32 @@
   "match_log": [
     {
       "competition": "Internationals",
+      "match": "Australia vs Japan",
+      "date": "15 Aug 2026",
+      "opposition": "Australia",
+      "win": false,
+      "draw": false,
+      "mins": 80,
+      "tries": 0,
+      "yellow_cards": 0,
+      "red_cards": 0,
+      "conversions": 0
+    },
+    {
+      "competition": "Internationals",
+      "match": "Japan vs Australia",
+      "date": "8 Aug 2026",
+      "opposition": "Australia",
+      "win": false,
+      "draw": false,
+      "mins": 24,
+      "tries": 0,
+      "yellow_cards": 0,
+      "red_cards": 0,
+      "conversions": 0
+    },
+    {
+      "competition": "Internationals",
       "match": "Wales vs Japan",
       "date": "15 Nov 2025",
       "opposition": "Wales",

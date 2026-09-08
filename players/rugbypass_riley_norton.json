@@ -97,6 +97,19 @@
   ],
   "match_log": [
     {
+      "competition": "Rugby Union Hybrid Friendlies",
+      "match": "South Africa vs Barbarians",
+      "date": "20 Jun 2026",
+      "opposition": "Barbarians",
+      "win": true,
+      "draw": false,
+      "mins": 80,
+      "tries": 1,
+      "yellow_cards": 0,
+      "red_cards": 0,
+      "conversions": 0
+    },
+    {
       "competition": "World Rugby U20 Championship",
       "match": "New Zealand U20 vs South Africa U20",
       "date": "19 Jul 2025",

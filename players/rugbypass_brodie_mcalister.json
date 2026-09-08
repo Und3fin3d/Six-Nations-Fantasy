@@ -10,6 +10,35 @@
   },
   "competition_stats": [
     {
+      "competition": "Hilux NPC",
+      "season": "2026",
+      "games": 5,
+      "minutes": 310,
+      "tries": 2,
+      "try_assists": 0,
+      "points": 10,
+      "carries": 38,
+      "metres": 78,
+      "av_gain": 2.05,
+      "post_contact_metres": 66,
+      "defenders_beaten": 2,
+      "clean_breaks": 1,
+      "offloads": 2,
+      "handling_errors": 1,
+      "passes": 10,
+      "bad_passes": 1,
+      "tackles": 60,
+      "missed_tackles": 4,
+      "tackles_success_pct": 0.87,
+      "dominant_tackles": 4,
+      "turnovers_won": 4,
+      "turnovers_conceded": 4,
+      "kicks_from_hand": 0,
+      "penalties_conceded": 0,
+      "yellow_cards": 0,
+      "red_cards": 0
+    },
+    {
       "competition": "The Rugby Championship",
       "season": "2025",
       "games": 1,
@@ -68,7 +97,7 @@
       "red_cards": 0
     },
     {
-      "competition": "Bunnings NPC",
+      "competition": "Hilux NPC",
       "season": "2025",
       "games": 4,
       "minutes": 186,
@@ -155,7 +184,7 @@
       "red_cards": 0
     },
     {
-      "competition": "Bunnings NPC",
+      "competition": "Hilux NPC",
       "season": "2024",
       "games": 9,
       "minutes": 394,
@@ -1079,7 +1108,72 @@
       "conversions": 0
     },
     {
-      "competition": "Bunnings NPC",
+      "competition": "Hilux NPC",
+      "match": "Waikato vs Canterbury",
+      "date": "5 Sep 2026",
+      "opposition": "Waikato",
+      "win": true,
+      "draw": false,
+      "mins": 60,
+      "tries": 0,
+      "yellow_cards": 0,
+      "red_cards": 0,
+      "conversions": 0
+    },
+    {
+      "competition": "Hilux NPC",
+      "match": "Canterbury vs Northland",
+      "date": "20 Aug 2026",
+      "opposition": "Northland",
+      "win": false,
+      "draw": false,
+      "mins": 69,
+      "tries": 0,
+      "yellow_cards": 0,
+      "red_cards": 0,
+      "conversions": 0
+    },
+    {
+      "competition": "Hilux NPC",
+      "match": "Canterbury vs Bay of Plenty",
+      "date": "15 Aug 2026",
+      "opposition": "Bay of Plenty",
+      "win": true,
+      "draw": false,
+      "mins": 46,
+      "tries": 0,
+      "yellow_cards": 0,
+      "red_cards": 0,
+      "conversions": 0
+    },
+    {
+      "competition": "Hilux NPC",
+      "match": "Otago vs Canterbury",
+      "date": "9 Aug 2026",
+      "opposition": "Otago",
+      "win": true,
+      "draw": false,
+      "mins": 63,
+      "tries": 2,
+      "yellow_cards": 0,
+      "red_cards": 0,
+      "conversions": 0
+    },
+    {
+      "competition": "Hilux NPC",
+      "match": "Canterbury vs Auckland",
+      "date": "1 Aug 2026",
+      "opposition": "Auckland",
+      "win": true,
+      "draw": false,
+      "mins": 72,
+      "tries": 0,
+      "yellow_cards": 0,
+      "red_cards": 0,
+      "conversions": 0
+    },
+    {
+      "competition": "Hilux NPC",
       "match": "Canterbury vs Otago",
       "date": "25 Oct 2025",
       "opposition": "Otago",
@@ -1092,7 +1186,7 @@
       "conversions": 0
     },
     {
-      "competition": "Bunnings NPC",
+      "competition": "Hilux NPC",
       "match": "Canterbury vs Counties Manukau",
       "date": "12 Oct 2025",
       "opposition": "Counties Manukau",
@@ -1105,7 +1199,7 @@
       "conversions": 0
     },
     {
-      "competition": "Bunnings NPC",
+      "competition": "Hilux NPC",
       "match": "Canterbury vs Manawatu",
       "date": "30 Aug 2025",
       "opposition": "Manawatu",
@@ -1118,7 +1212,7 @@
       "conversions": 0
     },
     {
-      "competition": "Bunnings NPC",
+      "competition": "Hilux NPC",
       "match": "Wellington vs Canterbury",
       "date": "2 Aug 2025",
       "opposition": "Wellington",
@@ -1131,7 +1225,7 @@
       "conversions": 0
     },
     {
-      "competition": "Bunnings NPC",
+      "competition": "Hilux NPC",
       "match": "Bay of Plenty vs Canterbury",
       "date": "19 Oct 2024",
       "opposition": "Bay of Plenty",
@@ -1144,7 +1238,7 @@
       "conversions": 0
     },
     {
-      "competition": "Bunnings NPC",
+      "competition": "Hilux NPC",
       "match": "Tasman Mako vs Canterbury",
       "date": "13 Oct 2024",
       "opposition": "Tasman Mako",
@@ -1157,7 +1251,7 @@
       "conversions": 0
     },
     {
-      "competition": "Bunnings NPC",
+      "competition": "Hilux NPC",
       "match": "North Harbour vs Canterbury",
       "date": "29 Sep 2024",
       "opposition": "North Harbour",
@@ -1170,7 +1264,7 @@
       "conversions": 0
     },
     {
-      "competition": "Bunnings NPC",
+      "competition": "Hilux NPC",
       "match": "Canterbury vs Counties Manukau",
       "date": "21 Sep 2024",
       "opposition": "Counties Manukau",
@@ -1183,7 +1277,7 @@
       "conversions": 0
     },
     {
-      "competition": "Bunnings NPC",
+      "competition": "Hilux NPC",
       "match": "Southland Stags vs Canterbury",
       "date": "13 Sep 2024",
       "opposition": "Southland Stags",
@@ -1196,7 +1290,7 @@
       "conversions": 0
     },
     {
-      "competition": "Bunnings NPC",
+      "competition": "Hilux NPC",
       "match": "Otago vs Canterbury",
       "date": "7 Sep 2024",
       "opposition": "Otago",
@@ -1209,7 +1303,7 @@
       "conversions": 0
     },
     {
-      "competition": "Bunnings NPC",
+      "competition": "Hilux NPC",
       "match": "Auckland vs Canterbury",
       "date": "24 Aug 2024",
       "opposition": "Auckland",
@@ -1222,7 +1316,7 @@
       "conversions": 0
     },
     {
-      "competition": "Bunnings NPC",
+      "competition": "Hilux NPC",
       "match": "Tasman Mako vs Canterbury",
       "date": "17 Aug 2024",
       "opposition": "Tasman Mako",
@@ -1235,7 +1329,7 @@
       "conversions": 0
     },
     {
-      "competition": "Bunnings NPC",
+      "competition": "Hilux NPC",
       "match": "Canterbury vs Northland",
       "date": "10 Aug 2024",
       "opposition": "Northland",
@@ -1248,7 +1342,7 @@
       "conversions": 0
     },
     {
-      "competition": "Bunnings NPC",
+      "competition": "Hilux NPC",
       "match": "Canterbury vs Bay of Plenty",
       "date": "15 Oct 2022",
       "opposition": "Bay of Plenty",
@@ -1261,7 +1355,7 @@
       "conversions": 0
     },
     {
-      "competition": "Bunnings NPC",
+      "competition": "Hilux NPC",
       "match": "Canterbury vs Northland",
       "date": "8 Oct 2022",
       "opposition": "Northland",
@@ -1274,7 +1368,7 @@
       "conversions": 0
     },
     {
-      "competition": "Bunnings NPC",
+      "competition": "Hilux NPC",
       "match": "Otago vs Canterbury",
       "date": "1 Oct 2022",
       "opposition": "Otago",
@@ -1287,7 +1381,7 @@
       "conversions": 0
     },
     {
-      "competition": "Bunnings NPC",
+      "competition": "Hilux NPC",
       "match": "Canterbury vs Auckland",
       "date": "23 Sep 2022",
       "opposition": "Auckland",
@@ -1300,7 +1394,7 @@
       "conversions": 0
     },
     {
-      "competition": "Bunnings NPC",
+      "competition": "Hilux NPC",
       "match": "Counties Manukau vs Canterbury",
       "date": "17 Sep 2022",
       "opposition": "Counties Manukau",
@@ -1313,7 +1407,7 @@
       "conversions": 0
     },
     {
-      "competition": "Bunnings NPC",
+      "competition": "Hilux NPC",
       "match": "Auckland vs Canterbury",
       "date": "27 Oct 2018",
       "opposition": "Auckland",
@@ -1326,7 +1420,7 @@
       "conversions": 0
     },
     {
-      "competition": "Bunnings NPC",
+      "competition": "Hilux NPC",
       "match": "Tasman vs Canterbury",
       "date": "19 Oct 2018",
       "opposition": "Tasman Mako",
@@ -1339,7 +1433,7 @@
       "conversions": 0
     },
     {
-      "competition": "Bunnings NPC",
+      "competition": "Hilux NPC",
       "match": "Counties Manukau vs Canterbury",
       "date": "13 Oct 2018",
       "opposition": "Counties Manukau",
@@ -1352,7 +1446,7 @@
       "conversions": 0
     },
     {
-      "competition": "Bunnings NPC",
+      "competition": "Hilux NPC",
       "match": "Canterbury vs Hawkes Bay",
       "date": "30 Sep 2018",
       "opposition": "Hawkes Bay",
@@ -1365,7 +1459,7 @@
       "conversions": 0
     },
     {
-      "competition": "Bunnings NPC",
+      "competition": "Hilux NPC",
       "match": "Otago vs Canterbury",
       "date": "22 Sep 2018",
       "opposition": "Otago",
@@ -1378,7 +1472,7 @@
       "conversions": 0
     },
     {
-      "competition": "Bunnings NPC",
+      "competition": "Hilux NPC",
       "match": "Canterbury vs Auckland",
       "date": "16 Sep 2018",
       "opposition": "Auckland",
@@ -1391,7 +1485,7 @@
       "conversions": 0
     },
     {
-      "competition": "Bunnings NPC",
+      "competition": "Hilux NPC",
       "match": "North Harbour vs Canterbury",
       "date": "12 Sep 2018",
       "opposition": "North Harbour",

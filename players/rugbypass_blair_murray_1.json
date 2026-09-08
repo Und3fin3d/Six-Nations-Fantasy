@@ -39,6 +39,64 @@
       "red_cards": 0
     },
     {
+      "competition": "Rugby Hybrid Friendlies",
+      "season": "2026",
+      "games": 1,
+      "minutes": 80,
+      "tries": 0,
+      "try_assists": 0,
+      "points": 0,
+      "carries": 10,
+      "metres": 109,
+      "av_gain": 10.93,
+      "post_contact_metres": 59,
+      "defenders_beaten": 5,
+      "clean_breaks": 1,
+      "offloads": 2,
+      "handling_errors": 1,
+      "passes": 8,
+      "bad_passes": 0,
+      "tackles": 5,
+      "missed_tackles": 1,
+      "tackles_success_pct": 0.56,
+      "dominant_tackles": 0,
+      "turnovers_won": 1,
+      "turnovers_conceded": 2,
+      "kicks_from_hand": 4,
+      "penalties_conceded": 0,
+      "yellow_cards": 0,
+      "red_cards": 0
+    },
+    {
+      "competition": "Nations Championship",
+      "season": "2026",
+      "games": 3,
+      "minutes": 240,
+      "tries": 0,
+      "try_assists": 0,
+      "points": 0,
+      "carries": 26,
+      "metres": 127,
+      "av_gain": 4.9,
+      "post_contact_metres": 54,
+      "defenders_beaten": 5,
+      "clean_breaks": 2,
+      "offloads": 3,
+      "handling_errors": 1,
+      "passes": 13,
+      "bad_passes": 1,
+      "tackles": 14,
+      "missed_tackles": 8,
+      "tackles_success_pct": 0.42,
+      "dominant_tackles": 0,
+      "turnovers_won": 0,
+      "turnovers_conceded": 1,
+      "kicks_from_hand": 10,
+      "penalties_conceded": 0,
+      "yellow_cards": 0,
+      "red_cards": 0
+    },
+    {
       "competition": "Investec Champions Cup",
       "season": "2025/2026",
       "games": 2,
@@ -184,7 +242,7 @@
       "red_cards": 0
     },
     {
-      "competition": "Bunnings NPC",
+      "competition": "Hilux NPC",
       "season": "2023",
       "games": 7,
       "minutes": 342,
@@ -417,6 +475,58 @@
       "win": false,
       "draw": false,
       "mins": 19,
+      "tries": 0,
+      "yellow_cards": 0,
+      "red_cards": 0,
+      "conversions": 0
+    },
+    {
+      "competition": "Rugby Union Hybrid Friendlies",
+      "match": "Barbarians vs Wales",
+      "date": "27 Jun 2026",
+      "opposition": "Barbarians",
+      "win": true,
+      "draw": false,
+      "mins": 80,
+      "tries": 0,
+      "yellow_cards": 0,
+      "red_cards": 0,
+      "conversions": 0
+    },
+    {
+      "competition": "Nations Championship",
+      "match": "South Africa vs Wales",
+      "date": "18 Jul 2026",
+      "opposition": "South Africa",
+      "win": false,
+      "draw": false,
+      "mins": 80,
+      "tries": 0,
+      "yellow_cards": 0,
+      "red_cards": 0,
+      "conversions": 0
+    },
+    {
+      "competition": "Nations Championship",
+      "match": "Argentina vs Wales",
+      "date": "11 Jul 2026",
+      "opposition": "Argentina",
+      "win": false,
+      "draw": false,
+      "mins": 80,
+      "tries": 0,
+      "yellow_cards": 0,
+      "red_cards": 0,
+      "conversions": 0
+    },
+    {
+      "competition": "Nations Championship",
+      "match": "Fiji vs Wales",
+      "date": "4 Jul 2026",
+      "opposition": "Fiji",
+      "win": true,
+      "draw": false,
+      "mins": 80,
       "tries": 0,
       "yellow_cards": 0,
       "red_cards": 0,
@@ -826,7 +936,7 @@
       "conversions": 0
     },
     {
-      "competition": "Bunnings NPC",
+      "competition": "Hilux NPC",
       "match": "Taranaki Bulls vs Canterbury",
       "date": "13 Oct 2023",
       "opposition": "Taranaki Bulls",
@@ -839,7 +949,7 @@
       "conversions": 0
     },
     {
-      "competition": "Bunnings NPC",
+      "competition": "Hilux NPC",
       "match": "Canterbury vs Auckland",
       "date": "6 Oct 2023",
       "opposition": "Auckland",
@@ -852,7 +962,7 @@
       "conversions": 0
     },
     {
-      "competition": "Bunnings NPC",
+      "competition": "Hilux NPC",
       "match": "Waikato vs Canterbury",
       "date": "30 Sep 2023",
       "opposition": "Waikato",
@@ -865,7 +975,7 @@
       "conversions": 0
     },
     {
-      "competition": "Bunnings NPC",
+      "competition": "Hilux NPC",
       "match": "Canterbury vs Wellington",
       "date": "27 Aug 2023",
       "opposition": "Wellington",
@@ -878,7 +988,7 @@
       "conversions": 0
     },
     {
-      "competition": "Bunnings NPC",
+      "competition": "Hilux NPC",
       "match": "Canterbury vs Manawatu",
       "date": "19 Aug 2023",
       "opposition": "Manawatu",
@@ -891,7 +1001,7 @@
       "conversions": 0
     },
     {
-      "competition": "Bunnings NPC",
+      "competition": "Hilux NPC",
       "match": "North Harbour vs Canterbury",
       "date": "13 Aug 2023",
       "opposition": "North Harbour",
@@ -904,7 +1014,7 @@
       "conversions": 0
     },
     {
-      "competition": "Bunnings NPC",
+      "competition": "Hilux NPC",
       "match": "Northland vs Canterbury",
       "date": "5 Aug 2023",
       "opposition": "Northland",

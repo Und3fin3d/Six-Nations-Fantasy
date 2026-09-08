@@ -38,6 +38,35 @@
       "red_cards": 0
     },
     {
+      "competition": "Nations Championship",
+      "season": "2026",
+      "games": 1,
+      "minutes": 18,
+      "tries": 1,
+      "try_assists": 0,
+      "points": 5,
+      "carries": 1,
+      "metres": 2,
+      "av_gain": 2.1,
+      "post_contact_metres": 2,
+      "defenders_beaten": 1,
+      "clean_breaks": 0,
+      "offloads": 0,
+      "handling_errors": 0,
+      "passes": 12,
+      "bad_passes": 0,
+      "tackles": 1,
+      "missed_tackles": 1,
+      "tackles_success_pct": 0.5,
+      "dominant_tackles": 0,
+      "turnovers_won": 1,
+      "turnovers_conceded": 0,
+      "kicks_from_hand": 2,
+      "penalties_conceded": 0,
+      "yellow_cards": 0,
+      "red_cards": 0
+    },
+    {
       "competition": "Super Rugby Pacific",
       "season": "2026",
       "games": 5,
@@ -97,6 +126,32 @@
     }
   ],
   "match_log": [
+    {
+      "competition": "Internationals",
+      "match": "Argentina vs Australia",
+      "date": "29 Aug 2026",
+      "opposition": "Australia",
+      "win": false,
+      "draw": false,
+      "mins": 18,
+      "tries": 0,
+      "yellow_cards": 0,
+      "red_cards": 0,
+      "conversions": 0
+    },
+    {
+      "competition": "Internationals",
+      "match": "Argentina vs South Africa",
+      "date": "8 Aug 2026",
+      "opposition": "South Africa",
+      "win": false,
+      "draw": false,
+      "mins": 29,
+      "tries": 0,
+      "yellow_cards": 0,
+      "red_cards": 0,
+      "conversions": 0
+    },
     {
       "competition": "Internationals",
       "match": "England vs Argentina",
@@ -197,6 +252,19 @@
       "draw": false,
       "mins": 17,
       "tries": 0,
+      "yellow_cards": 0,
+      "red_cards": 0,
+      "conversions": 0
+    },
+    {
+      "competition": "Nations Championship",
+      "match": "Argentina vs Scotland",
+      "date": "4 Jul 2026",
+      "opposition": "Scotland",
+      "win": false,
+      "draw": false,
+      "mins": 18,
+      "tries": 1,
       "yellow_cards": 0,
       "red_cards": 0,
       "conversions": 0

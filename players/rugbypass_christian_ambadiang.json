@@ -9,6 +9,35 @@
   },
   "competition_stats": [
     {
+      "competition": "Rugby Hybrid Friendlies",
+      "season": "2026",
+      "games": 1,
+      "minutes": 80,
+      "tries": 0,
+      "try_assists": 0,
+      "points": 0,
+      "carries": 3,
+      "metres": 30,
+      "av_gain": 9.93,
+      "post_contact_metres": 16,
+      "defenders_beaten": 1,
+      "clean_breaks": 1,
+      "offloads": 1,
+      "handling_errors": 0,
+      "passes": 3,
+      "bad_passes": 1,
+      "tackles": 5,
+      "missed_tackles": 3,
+      "tackles_success_pct": 0.56,
+      "dominant_tackles": 1,
+      "turnovers_won": 0,
+      "turnovers_conceded": 0,
+      "kicks_from_hand": 0,
+      "penalties_conceded": 2,
+      "yellow_cards": 0,
+      "red_cards": 0
+    },
+    {
       "competition": "Investec Champions Cup",
       "season": "2025/2026",
       "games": 5,
@@ -126,6 +155,19 @@
     }
   ],
   "match_log": [
+    {
+      "competition": "Rugby Union Hybrid Friendlies",
+      "match": "France XV vs England A",
+      "date": "19 Jun 2026",
+      "opposition": "England A",
+      "win": true,
+      "draw": false,
+      "mins": 80,
+      "tries": 0,
+      "yellow_cards": 0,
+      "red_cards": 0,
+      "conversions": 0
+    },
     {
       "competition": "Top 14",
       "match": "Perpignan vs Castres",

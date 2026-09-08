@@ -39,6 +39,35 @@
       "red_cards": 0
     },
     {
+      "competition": "Nations Championship",
+      "season": "2026",
+      "games": 3,
+      "minutes": 181,
+      "tries": 0,
+      "try_assists": 0,
+      "points": 0,
+      "carries": 16,
+      "metres": 26,
+      "av_gain": 1.65,
+      "post_contact_metres": 32,
+      "defenders_beaten": 2,
+      "clean_breaks": 0,
+      "offloads": 2,
+      "handling_errors": 1,
+      "passes": 8,
+      "bad_passes": 0,
+      "tackles": 25,
+      "missed_tackles": 8,
+      "tackles_success_pct": 0.74,
+      "dominant_tackles": 0,
+      "turnovers_won": 3,
+      "turnovers_conceded": 1,
+      "kicks_from_hand": 0,
+      "penalties_conceded": 0,
+      "yellow_cards": 0,
+      "red_cards": 0
+    },
+    {
       "competition": "Super Rugby Pacific",
       "season": "2026",
       "games": 7,
@@ -126,7 +155,7 @@
       "red_cards": 0
     },
     {
-      "competition": "Gallagher Premiership",
+      "competition": "PREM Rugby",
       "season": "2024/2025",
       "games": 11,
       "minutes": 582,
@@ -213,7 +242,7 @@
       "red_cards": 0
     },
     {
-      "competition": "Gallagher Premiership",
+      "competition": "PREM Rugby",
       "season": "2023/2024",
       "games": 12,
       "minutes": 440,
@@ -267,64 +296,6 @@
       "turnovers_conceded": 0,
       "kicks_from_hand": 0,
       "penalties_conceded": 0,
-      "yellow_cards": 0,
-      "red_cards": 0
-    },
-    {
-      "competition": "Investec Champions Cup",
-      "season": "2022/2023",
-      "games": 3,
-      "minutes": 187,
-      "tries": 0,
-      "try_assists": 1,
-      "points": 0,
-      "carries": 16,
-      "metres": 30,
-      "av_gain": 1.85,
-      "post_contact_metres": 36,
-      "defenders_beaten": 2,
-      "clean_breaks": 1,
-      "offloads": 0,
-      "handling_errors": 0,
-      "passes": 6,
-      "bad_passes": 0,
-      "tackles": 29,
-      "missed_tackles": 3,
-      "tackles_success_pct": 0.83,
-      "dominant_tackles": 2,
-      "turnovers_won": 1,
-      "turnovers_conceded": 0,
-      "kicks_from_hand": 0,
-      "penalties_conceded": 2,
-      "yellow_cards": 0,
-      "red_cards": 0
-    },
-    {
-      "competition": "TOP 14",
-      "season": "2022/2023",
-      "games": 19,
-      "minutes": 997,
-      "tries": 0,
-      "try_assists": 2,
-      "points": 0,
-      "carries": 84,
-      "metres": 164,
-      "av_gain": 1.95,
-      "post_contact_metres": 134,
-      "defenders_beaten": 7,
-      "clean_breaks": 2,
-      "offloads": 3,
-      "handling_errors": 6,
-      "passes": 45,
-      "bad_passes": 3,
-      "tackles": 131,
-      "missed_tackles": 20,
-      "tackles_success_pct": 0.81,
-      "dominant_tackles": 10,
-      "turnovers_won": 6,
-      "turnovers_conceded": 9,
-      "kicks_from_hand": 1,
-      "penalties_conceded": 9,
       "yellow_cards": 0,
       "red_cards": 0
     }
@@ -704,6 +675,45 @@
       "mins": 71,
       "tries": 0,
       "yellow_cards": 1,
+      "red_cards": 0,
+      "conversions": 0
+    },
+    {
+      "competition": "Nations Championship",
+      "match": "Fiji vs Scotland",
+      "date": "18 Jul 2026",
+      "opposition": "Scotland",
+      "win": false,
+      "draw": false,
+      "mins": 61,
+      "tries": 0,
+      "yellow_cards": 0,
+      "red_cards": 0,
+      "conversions": 0
+    },
+    {
+      "competition": "Nations Championship",
+      "match": "Fiji vs England",
+      "date": "11 Jul 2026",
+      "opposition": "England",
+      "win": false,
+      "draw": false,
+      "mins": 40,
+      "tries": 0,
+      "yellow_cards": 0,
+      "red_cards": 0,
+      "conversions": 0
+    },
+    {
+      "competition": "Nations Championship",
+      "match": "Fiji vs Wales",
+      "date": "4 Jul 2026",
+      "opposition": "Wales",
+      "win": false,
+      "draw": false,
+      "mins": 80,
+      "tries": 0,
+      "yellow_cards": 0,
       "red_cards": 0,
       "conversions": 0
     },
@@ -1462,7 +1472,7 @@
       "conversions": 0
     },
     {
-      "competition": "Bunnings NPC",
+      "competition": "Hilux NPC",
       "match": "Bay Of Plenty vs Northland",
       "date": "13 Oct 2018",
       "opposition": "Bay of Plenty",
@@ -1475,7 +1485,7 @@
       "conversions": 0
     },
     {
-      "competition": "Bunnings NPC",
+      "competition": "Hilux NPC",
       "match": "Counties Manukau vs Northland",
       "date": "30 Sep 2018",
       "opposition": "Counties Manukau",
@@ -1488,7 +1498,7 @@
       "conversions": 0
     },
     {
-      "competition": "Bunnings NPC",
+      "competition": "Hilux NPC",
       "match": "Hawkes Bay vs Northland",
       "date": "26 Sep 2018",
       "opposition": "Hawkes Bay",
@@ -1501,7 +1511,7 @@
       "conversions": 0
     },
     {
-      "competition": "Bunnings NPC",
+      "competition": "Hilux NPC",
       "match": "Northland vs Southland",
       "date": "20 Sep 2018",
       "opposition": "Southland Stags",
@@ -1514,7 +1524,7 @@
       "conversions": 0
     },
     {
-      "competition": "Bunnings NPC",
+      "competition": "Hilux NPC",
       "match": "Otago vs Northland",
       "date": "7 Sep 2018",
       "opposition": "Otago",
@@ -1527,7 +1537,7 @@
       "conversions": 0
     },
     {
-      "competition": "Bunnings NPC",
+      "competition": "Hilux NPC",
       "match": "Northland vs Taranaki",
       "date": "2 Sep 2018",
       "opposition": "Taranaki Bulls",

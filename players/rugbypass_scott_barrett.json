@@ -187,7 +187,7 @@
       "competition": "The Rugby Championship",
       "season": "2022",
       "games": 5,
-      "minutes": 375,
+      "minutes": 393,
       "tries": 1,
       "try_assists": 0,
       "points": 5,
@@ -2389,7 +2389,7 @@
       "conversions": 0
     },
     {
-      "competition": "Bunnings NPC",
+      "competition": "Hilux NPC",
       "match": "Taranaki vs Canterbury",
       "date": "2 Oct 2016",
       "opposition": "Canterbury",

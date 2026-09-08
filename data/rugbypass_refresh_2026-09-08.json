@@ -1,10 +1,10 @@
 {
   "created_at_utc": "2026-09-08T21:11:14.637095+00:00",
-  "corrected_at_utc": "2026-09-08T21:48:11+00:00",
+  "corrected_at_utc": "2026-09-08T22:11:12+00:00",
   "source": "RugbyPass player profiles",
   "mode": "full_existing_profile_refresh",
-  "total_profiles": 1051,
-  "changed_profiles": 884,
+  "total_profiles": 1052,
+  "changed_profiles": 885,
   "unchanged_profiles": 167,
   "failed_profiles_kept": 0,
   "retained_nonempty_sections": {
@@ -5274,6 +5274,13 @@
     {
       "slug": "oliver-kebble",
       "api_name": "Oli Kebble",
+      "status": "changed",
+      "name_variant_resolved": true,
+      "retained_fields": []
+    },
+    {
+      "slug": "noah-tisie-nene",
+      "api_name": "Noah Nene",
       "status": "changed",
       "name_variant_resolved": true,
       "retained_fields": []

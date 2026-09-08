@@ -36,6 +36,7 @@ from bs4 import BeautifulSoup
 NAME_TO_SLUG: dict[str, str] = {
     "Hame Faiva":         "epalahame-faiva",
     "Oli Kebble":          "oliver-kebble",
+    "Noah Nene":           "noah-tisie-nene",
 
     # ── France ──────────────────────────────────────────────────────────────
     "A. Dupont":           "antoine-dupont",

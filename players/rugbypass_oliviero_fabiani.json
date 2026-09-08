@@ -1,0 +1,104 @@
+{
+  "player": "oliviero-fabiani",
+  "csv_name": "Oliviero Fabiani",
+  "bio": {
+    "Age": "36",
+    "Position": "Hooker",
+    "Height": "180cm",
+    "Weight": "98kg"
+  },
+  "competition_stats": [],
+  "match_log": [
+    {
+      "competition": "Six Nations",
+      "match": "Italy vs Scotland",
+      "date": "17 Mar 2018",
+      "opposition": "Scotland",
+      "win": false,
+      "draw": false,
+      "mins": 4,
+      "tries": 0,
+      "yellow_cards": 0,
+      "red_cards": 0,
+      "conversions": 0
+    },
+    {
+      "competition": "Six Nations",
+      "match": "Wales vs Italy",
+      "date": "11 Mar 2018",
+      "opposition": "Wales",
+      "win": false,
+      "draw": false,
+      "mins": 12,
+      "tries": 0,
+      "yellow_cards": 0,
+      "red_cards": 0,
+      "conversions": 0
+    },
+    {
+      "competition": "Six Nations",
+      "match": "Wales vs Italy",
+      "date": "19 Mar 2016",
+      "opposition": "Wales",
+      "win": false,
+      "draw": false,
+      "mins": 33,
+      "tries": 0,
+      "yellow_cards": 0,
+      "red_cards": 0,
+      "conversions": 0
+    },
+    {
+      "competition": "Six Nations",
+      "match": "Ireland vs Italy",
+      "date": "12 Mar 2016",
+      "opposition": "Ireland",
+      "win": false,
+      "draw": false,
+      "mins": 26,
+      "tries": 0,
+      "yellow_cards": 0,
+      "red_cards": 0,
+      "conversions": 0
+    },
+    {
+      "competition": "Internationals",
+      "match": "Ireland vs Italy",
+      "date": "3 Nov 2018",
+      "opposition": "Ireland",
+      "win": false,
+      "draw": false,
+      "mins": 17,
+      "tries": 0,
+      "yellow_cards": 0,
+      "red_cards": 0,
+      "conversions": 0
+    },
+    {
+      "competition": "Internationals",
+      "match": "USA vs Italy",
+      "date": "19 Jun 2016",
+      "opposition": "USA",
+      "win": true,
+      "draw": false,
+      "mins": 24,
+      "tries": 0,
+      "yellow_cards": 0,
+      "red_cards": 0,
+      "conversions": 0
+    },
+    {
+      "competition": "Internationals",
+      "match": "Argentina vs Italy",
+      "date": "11 Jun 2016",
+      "opposition": "Argentina",
+      "win": false,
+      "draw": false,
+      "mins": 18,
+      "tries": 0,
+      "yellow_cards": 0,
+      "red_cards": 0,
+      "conversions": 0
+    }
+  ]
+}

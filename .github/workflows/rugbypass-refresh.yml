@@ -1,0 +1,85 @@
+name: RugbyPass refresh
+
+on:
+  workflow_dispatch:
+
+permissions:
+  contents: write
+  pull-requests: write
+
+concurrency:
+  group: rugbypass-refresh
+  cancel-in-progress: false
+
+jobs:
+  refresh:
+    runs-on: ubuntu-latest
+    timeout-minutes: 45
+
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+          cache: pip
+
+      - name: Install refresh dependencies
+        run: python -m pip install -r requirements-refresh.txt
+
+      - name: Record initial coverage
+        run: |
+          python - <<'PY'
+          import rugbypass_backfill as rb
+          print(f"Unmatched API players before refresh: {len(rb.unmatched_api_players())}")
+          PY
+
+      - name: Refresh unmatched RugbyPass players
+        run: python -u rugbypass_backfill.py --delay 0.6
+
+      - name: Rebuild RugbyPass tables
+        run: python build_rugbypass_tables.py
+
+      - name: Validate RugbyPass outputs
+        run: |
+          python -m py_compile rugbypass_backfill.py rugbypass_batch.py build_rugbypass_tables.py
+          python - <<'PY'
+          from pathlib import Path
+          import pandas as pd
+          import rugbypass_backfill as rb
+
+          for name in ("rp_bio", "rp_compstats", "rp_matchlog"):
+              path = Path("data") / f"{name}.csv"
+              frame = pd.read_csv(path)
+              assert len(frame), f"{path} is empty"
+              assert frame["key"].notna().all(), f"{path} has missing keys"
+              assert frame["key"].astype(str).str.len().gt(0).all(), f"{path} has blank keys"
+              print(f"{path}: {len(frame)} rows")
+
+          unmatched = rb.unmatched_api_players()
+          print(f"Unmatched API players after refresh: {len(unmatched)}")
+          PY
+          git diff --check
+
+      - name: Publish refresh pull request
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: |
+          if git diff --quiet; then
+            echo "RugbyPass data is already current."
+            exit 0
+          fi
+          branch="data/rugbypass-refresh-${GITHUB_RUN_ID}"
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git switch -c "$branch"
+          git add players/rugbypass_*.json data/rp_bio.csv data/rp_compstats.csv data/rp_matchlog.csv
+          git commit -m "Refresh RugbyPass data"
+          git push origin "$branch"
+          gh pr create \
+            --base main \
+            --head "$branch" \
+            --title "Refresh RugbyPass data" \
+            --body "Incremental free-source RugbyPass refresh. Existing player snapshots were not forced. The workflow rebuilt and validated the RugbyPass tables."

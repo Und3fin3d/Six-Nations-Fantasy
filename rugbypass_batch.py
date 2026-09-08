@@ -34,6 +34,7 @@ from bs4 import BeautifulSoup
 # Key format: "Initial. Surname" exactly as it appears in the CSV
 # ---------------------------------------------------------------------------
 NAME_TO_SLUG: dict[str, str] = {
+    "Hame Faiva":         "epalahame-faiva",
 
     # ── France ──────────────────────────────────────────────────────────────
     "A. Dupont":           "antoine-dupont",

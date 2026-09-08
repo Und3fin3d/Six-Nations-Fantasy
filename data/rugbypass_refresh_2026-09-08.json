@@ -1,11 +1,12 @@
 {
   "created_at_utc": "2026-09-08T21:11:14.637095+00:00",
+  "corrected_at_utc": "2026-09-08T21:19:32+00:00",
   "source": "RugbyPass player profiles",
   "mode": "full_existing_profile_refresh",
   "total_profiles": 1050,
-  "changed_profiles": 882,
+  "changed_profiles": 883,
   "unchanged_profiles": 167,
-  "failed_profiles_kept": 1,
+  "failed_profiles_kept": 0,
   "retained_nonempty_sections": {
     "bio": 0,
     "competition_stats": 3,
@@ -1748,9 +1749,11 @@
       "retained_fields": []
     },
     {
-      "slug": "hame-faiva",
-      "status": "failed",
-      "http_status": 404
+      "slug": "epalahame-faiva",
+      "previous_slug": "hame-faiva",
+      "status": "changed",
+      "redirect_resolved": true,
+      "retained_fields": []
     },
     {
       "slug": "hamish-stewart",

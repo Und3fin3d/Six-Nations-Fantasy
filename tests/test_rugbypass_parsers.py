@@ -15,6 +15,12 @@ def test_oli_kebble_uses_current_rugbypass_slug():
     assert slug_key("oliver-kebble") == "o|kebble"
 
 
+def test_noah_nene_uses_current_rugbypass_slug():
+    assert rb.SLUG_OVERRIDES["Noah Nene"] == "noah-tisie-nene"
+    assert "Noah Nene" not in rb.KNOWN_ABSENT
+    assert slug_key("noah-tisie-nene") == "n|nene"
+
+
 def test_extract_comp_stats_accepts_null_payload():
     soup = BeautifulSoup('<div id="app-comp-stats">null</div>', "html.parser")
 

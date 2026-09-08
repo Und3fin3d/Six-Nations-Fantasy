@@ -55,6 +55,7 @@ SLUG_OVERRIDES: dict[str, str] = {
     "Cameron Winnett": "cam-winnett",        # RugbyPass shortens Cameron -> Cam
     "Hame Faiva": "epalahame-faiva",         # RugbyPass uses his full first name
     "Oli Kebble": "oliver-kebble",            # RugbyPass uses Oliver, not Oli
+    "Noah Nene": "noah-tisie-nene",           # RugbyPass includes his middle name
     "Mohamed Haouas":  "mohammed-haouas",    # RugbyPass spells it with double-m
     "Gaetan Barlot":   "gaeton-barlot",      # RugbyPass misspells Gaëtan -> Gaeton
     # discovered in the 2026 NCR backfill sweep (see data/ncr/rp_backfill_log.txt)
@@ -80,11 +81,9 @@ SLUG_OVERRIDES: dict[str, str] = {
     "Mack Hansen": "mackenzie-hansen",
 }
 
-# API players confirmed to have NO RugbyPass page (irreducible misses).
+# API players confirmed to have no RugbyPass page.
 # key = API player_name, value = short note. Skipped without probing.
-KNOWN_ABSENT: dict[str, str] = {
-    "Noah Nene": "no RugbyPass page (404 on every slug variant; young Toulon prop)",
-}
+KNOWN_ABSENT: dict[str, str] = {}
 
 
 def fold(s: str) -> str:

@@ -432,7 +432,7 @@ def extract_comp_stats(soup):
     div = soup.find("div", id="app-comp-stats")
     if not div:
         return []
-    raw = json.loads(div.get_text())
+    raw = json.loads(div.get_text()) or []
     rows = []
     for block in raw:
         comp = block.get("competition", {})
@@ -474,7 +474,7 @@ def extract_match_log(soup):
     div = soup.find("div", id="app-competitions")
     if not div:
         return []
-    raw = json.loads(div.get_text())
+    raw = json.loads(div.get_text()) or []
     games = []
     for comp_block in raw:
         comp_name = comp_block.get("title")

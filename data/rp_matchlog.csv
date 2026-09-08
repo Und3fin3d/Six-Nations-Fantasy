@@ -22990,6 +22990,57 @@ e|opokugyamfi,enoch-opoku-gyamfi,World Rugby U20 Championship,Ireland U20 vs Ita
 e|opokugyamfi,enoch-opoku-gyamfi,World Rugby U20 Championship,New Zealand U20 vs Italy U20,2025-06-29,New Zealand U20,63,0,0,0,0,False,False
 e|opokugyamfi,enoch-opoku-gyamfi,Gallagher Premiership,Northampton vs Bath,2026-04-25,Northampton,30,0,0,0,0,False,False
 e|opokugyamfi,enoch-opoku-gyamfi,Gallagher Premiership,Bath vs Exeter Chiefs,2026-01-03,Exeter Chiefs,48,0,0,0,0,True,False
+h|faiva,epalahame-faiva,Six Nations,Ireland vs Italy,2022-02-27,Ireland,10,0,0,0,1,False,False
+h|faiva,epalahame-faiva,Six Nations,Italy vs England,2022-02-13,England,29,0,0,0,0,False,False
+h|faiva,epalahame-faiva,Six Nations,France vs Italy,2022-02-06,France,30,0,0,0,0,False,False
+h|faiva,epalahame-faiva,Internationals,Italy vs Romania,2023-08-19,Romania,30,0,0,0,0,True,False
+h|faiva,epalahame-faiva,Internationals,Scotland vs Italy,2023-07-29,Scotland,57,0,0,0,0,False,False
+h|faiva,epalahame-faiva,Internationals,Portugal vs Italy,2022-06-25,Portugal,44,0,0,0,0,True,False
+h|faiva,epalahame-faiva,Rugby World Cup,France vs Italy,2023-10-06,France,61,0,0,0,0,False,False
+h|faiva,epalahame-faiva,Rugby World Cup,New Zealand vs Italy,2023-09-29,New Zealand,31,0,0,0,0,False,False
+h|faiva,epalahame-faiva,Rugby World Cup,Italy vs Namibia,2023-09-09,Namibia,30,1,0,0,0,True,False
+h|faiva,epalahame-faiva,Super Rugby Pacific,Blues vs Hurricanes,2023-05-27,Hurricanes,6,0,0,0,0,True,False
+h|faiva,epalahame-faiva,Super Rugby Pacific,Blues vs Hurricanes,2023-05-27,Blues,6,0,0,0,0,False,False
+h|faiva,epalahame-faiva,Super Rugby Pacific,Chiefs vs Hurricanes,2023-05-20,Chiefs,63,0,0,0,0,False,False
+h|faiva,epalahame-faiva,Super Rugby Pacific,Hurricanes vs Moana Pasifika,2023-05-13,Moana Pasifika,26,0,0,0,0,True,False
+h|faiva,epalahame-faiva,Super Rugby Pacific,Hurricanes vs Force,2023-04-02,Force,19,1,0,0,0,True,False
+h|faiva,epalahame-faiva,Super Rugby Pacific,Moana Pasifika vs Hurricanes,2023-03-25,Moana Pasifika,15,1,0,0,0,True,False
+h|faiva,epalahame-faiva,Super Rugby Pacific,Sunwolves vs Blues,2017-07-15,Sunwolves,15,0,0,0,0,False,False
+h|faiva,epalahame-faiva,Super Rugby Pacific,Blues vs Reds,2017-06-02,Reds,40,0,0,0,0,True,False
+h|faiva,epalahame-faiva,Super Rugby Pacific,Stormers vs Blues,2017-05-19,Stormers,15,0,0,0,0,False,False
+h|faiva,epalahame-faiva,Super Rugby Pacific,Blues vs Cheetahs,2017-05-12,Cheetahs,19,0,0,0,0,True,False
+h|faiva,epalahame-faiva,Super Rugby Pacific,Chiefs vs Blues,2017-03-03,Chiefs,28,0,0,0,0,False,False
+h|faiva,epalahame-faiva,Super Rugby Pacific,Rebels vs Blues,2017-02-23,Rebels,29,0,0,0,0,True,False
+h|faiva,epalahame-faiva,Investec Champions Cup,Toulouse vs Bath,2024-01-21,Toulouse,15,0,0,0,0,False,False
+h|faiva,epalahame-faiva,Investec Champions Cup,Cardiff Rugby vs Bath,2023-12-16,Cardiff Rugby,4,0,0,0,0,True,False
+h|faiva,epalahame-faiva,Investec Champions Cup,Benetton vs Bath,2018-01-20,Bath,40,0,0,0,0,False,False
+h|faiva,epalahame-faiva,Investec Champions Cup,Benetton vs Bath,2018-01-20,Benetton,40,0,0,0,0,True,False
+h|faiva,epalahame-faiva,Investec Champions Cup,Toulon vs Benetton,2018-01-14,Toulon,40,0,0,0,0,False,False
+h|faiva,epalahame-faiva,Investec Champions Cup,Scarlets vs Benetton,2017-12-09,Scarlets,51,0,0,0,0,False,False
+h|faiva,epalahame-faiva,Gallagher Premiership,Exeter Chiefs vs Bath,2024-04-20,Exeter Chiefs,13,0,0,0,0,True,False
+h|faiva,epalahame-faiva,Gallagher Premiership,Bath vs Sale,2024-03-24,Sale,3,0,0,0,0,True,False
+h|faiva,epalahame-faiva,Gallagher Premiership,Leicester vs Bath,2023-12-31,Leicester,65,0,0,0,0,False,False
+h|faiva,epalahame-faiva,Gallagher Premiership,Worcester vs Newcastle,2022-09-24,Newcastle,14,0,0,0,0,True,False
+h|faiva,epalahame-faiva,Gallagher Premiership,Worcester vs Newcastle,2022-09-24,Worcester,14,0,0,0,0,False,False
+h|faiva,epalahame-faiva,Gallagher Premiership,Worcester vs Exeter Chiefs,2022-09-18,Exeter Chiefs,25,0,0,0,0,False,False
+h|faiva,epalahame-faiva,Gallagher Premiership,London Irish vs Worcester,2022-09-10,London Irish,47,0,0,0,0,False,False
+h|faiva,epalahame-faiva,Hilux NPC,Canterbury vs Waikato,2017-09-30,Canterbury,52,0,0,0,0,False,False
+h|faiva,epalahame-faiva,Hilux NPC,Waikato vs Wellington,2017-09-23,Wellington,59,0,0,0,0,False,False
+h|faiva,epalahame-faiva,Hilux NPC,Waikato vs Manawatu,2017-09-16,Manawatu,40,0,0,0,0,False,False
+h|faiva,epalahame-faiva,Hilux NPC,Northland vs Waikato,2017-09-09,Northland,50,0,0,0,0,False,False
+h|faiva,epalahame-faiva,Hilux NPC,Waikato vs Tasman,2017-09-03,Tasman Mako,49,0,0,0,0,False,False
+h|faiva,epalahame-faiva,Hilux NPC,Waikato vs Counties Manukau,2017-08-25,Counties Manukau,54,0,0,0,0,True,False
+h|faiva,epalahame-faiva,Hilux NPC,Taranaki vs Waikato,2017-08-19,Taranaki Bulls,55,0,0,0,0,False,False
+h|faiva,epalahame-faiva,Hilux NPC,Wellington vs Waikato,2016-10-15,Wellington,67,0,0,0,0,True,False
+h|faiva,epalahame-faiva,Hilux NPC,Waikato vs Hawkes Bay,2016-10-08,Hawkes Bay,61,0,0,0,0,True,False
+h|faiva,epalahame-faiva,Hilux NPC,Northland vs Waikato,2016-10-02,Northland,49,0,0,0,0,False,False
+h|faiva,epalahame-faiva,Hilux NPC,Waikato vs Canterbury,2016-09-28,Canterbury,61,0,0,0,0,False,False
+h|faiva,epalahame-faiva,Hilux NPC,Counties Manukau vs Waikato,2016-09-23,Counties Manukau,48,0,0,0,0,False,False
+h|faiva,epalahame-faiva,Hilux NPC,Waikato vs Taranaki,2016-09-18,Taranaki Bulls,80,0,0,0,0,False,True
+h|faiva,epalahame-faiva,Hilux NPC,Auckland vs Waikato,2016-09-11,Auckland,61,1,0,0,0,True,False
+h|faiva,epalahame-faiva,Hilux NPC,Waikato vs Manawatu,2016-09-04,Manawatu,74,0,0,0,0,True,False
+h|faiva,epalahame-faiva,Hilux NPC,Waikato vs North Harbour,2016-08-27,North Harbour,67,1,0,0,0,True,False
+h|faiva,epalahame-faiva,Hilux NPC,Tasman vs Waikato,2016-08-21,Tasman Mako,66,0,0,0,0,False,False
 e|momo,epeli-momo,Rugby Union Hybrid Friendlies,Barbarians vs Fiji,2024-06-22,Barbarians,80,3,0,0,0,False,False
 e|momo,epeli-momo,Pacific Nations Cup,Fiji vs USA,2024-09-14,USA,40,0,0,0,0,True,False
 e|momo,epeli-momo,Pacific Nations Cup,Tonga vs Fiji,2024-09-06,Tonga,50,0,0,0,0,True,False

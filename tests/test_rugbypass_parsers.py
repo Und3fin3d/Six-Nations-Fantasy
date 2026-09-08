@@ -1,7 +1,13 @@
 from bs4 import BeautifulSoup
 
+from compare_three_way import slug_key
 from rugbypass_batch import extract_comp_stats, extract_match_log
 import rugbypass_backfill as rb
+
+
+def test_hame_faiva_uses_current_rugbypass_slug():
+    assert rb.SLUG_OVERRIDES["Hame Faiva"] == "epalahame-faiva"
+    assert slug_key("epalahame-faiva") == "h|faiva"
 
 
 def test_extract_comp_stats_accepts_null_payload():

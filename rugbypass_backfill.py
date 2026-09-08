@@ -53,6 +53,7 @@ UA = ("Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) "
 # Filled in after the first probe pass; key = API player_name.
 SLUG_OVERRIDES: dict[str, str] = {
     "Cameron Winnett": "cam-winnett",        # RugbyPass shortens Cameron -> Cam
+    "Hame Faiva": "epalahame-faiva",         # RugbyPass uses his full first name
     "Mohamed Haouas":  "mohammed-haouas",    # RugbyPass spells it with double-m
     "Gaetan Barlot":   "gaeton-barlot",      # RugbyPass misspells Gaëtan -> Gaeton
     # discovered in the 2026 NCR backfill sweep (see data/ncr/rp_backfill_log.txt)

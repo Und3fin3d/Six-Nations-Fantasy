@@ -54,6 +54,7 @@ UA = ("Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) "
 SLUG_OVERRIDES: dict[str, str] = {
     "Cameron Winnett": "cam-winnett",        # RugbyPass shortens Cameron -> Cam
     "Hame Faiva": "epalahame-faiva",         # RugbyPass uses his full first name
+    "Oli Kebble": "oliver-kebble",            # RugbyPass uses Oliver, not Oli
     "Mohamed Haouas":  "mohammed-haouas",    # RugbyPass spells it with double-m
     "Gaetan Barlot":   "gaeton-barlot",      # RugbyPass misspells Gaëtan -> Gaeton
     # discovered in the 2026 NCR backfill sweep (see data/ncr/rp_backfill_log.txt)

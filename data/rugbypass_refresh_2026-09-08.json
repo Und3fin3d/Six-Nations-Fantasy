@@ -1,10 +1,10 @@
 {
   "created_at_utc": "2026-09-08T21:11:14.637095+00:00",
-  "corrected_at_utc": "2026-09-08T21:19:32+00:00",
+  "corrected_at_utc": "2026-09-08T21:48:11+00:00",
   "source": "RugbyPass player profiles",
   "mode": "full_existing_profile_refresh",
-  "total_profiles": 1050,
-  "changed_profiles": 883,
+  "total_profiles": 1051,
+  "changed_profiles": 884,
   "unchanged_profiles": 167,
   "failed_profiles_kept": 0,
   "retained_nonempty_sections": {
@@ -5269,6 +5269,13 @@
     {
       "slug": "zuriel-togiatama",
       "status": "changed",
+      "retained_fields": []
+    },
+    {
+      "slug": "oliver-kebble",
+      "api_name": "Oli Kebble",
+      "status": "changed",
+      "name_variant_resolved": true,
       "retained_fields": []
     }
   ]

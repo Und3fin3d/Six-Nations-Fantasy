@@ -1,0 +1,39 @@
+{
+  "player": "daniele-rimpelli",
+  "csv_name": "Daniele Rimpelli",
+  "bio": {
+    "Age": "29",
+    "Position": "Prop",
+    "Height": "186cm",
+    "Weight": "109kg"
+  },
+  "competition_stats": [],
+  "match_log": [
+    {
+      "competition": "United Rugby Championship",
+      "match": "Zebre vs Glasgow",
+      "date": "3 Dec 2022",
+      "opposition": "Glasgow",
+      "win": false,
+      "draw": false,
+      "mins": 19,
+      "tries": 0,
+      "yellow_cards": 0,
+      "red_cards": 0,
+      "conversions": 0
+    },
+    {
+      "competition": "United Rugby Championship",
+      "match": "Ulster vs Zebre",
+      "date": "25 Nov 2022",
+      "opposition": "Ulster",
+      "win": false,
+      "draw": false,
+      "mins": 34,
+      "tries": 0,
+      "yellow_cards": 0,
+      "red_cards": 0,
+      "conversions": 0
+    }
+  ]
+}

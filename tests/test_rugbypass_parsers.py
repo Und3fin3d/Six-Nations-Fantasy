@@ -10,6 +10,11 @@ def test_hame_faiva_uses_current_rugbypass_slug():
     assert slug_key("epalahame-faiva") == "h|faiva"
 
 
+def test_oli_kebble_uses_current_rugbypass_slug():
+    assert rb.SLUG_OVERRIDES["Oli Kebble"] == "oliver-kebble"
+    assert slug_key("oliver-kebble") == "o|kebble"
+
+
 def test_extract_comp_stats_accepts_null_payload():
     soup = BeautifulSoup('<div id="app-comp-stats">null</div>', "html.parser")
 

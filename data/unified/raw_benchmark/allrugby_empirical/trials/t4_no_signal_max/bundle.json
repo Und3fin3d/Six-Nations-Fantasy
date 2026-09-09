@@ -1,0 +1,223 @@
+{
+  "bootstrap_vs_v1_by_fold": {
+    "mean": -0.0071637691447186125,
+    "n_clusters": 21,
+    "p05": -0.018740181533882808,
+    "p95": 0.004698134218938565
+  },
+  "by_fold": {
+    "empirical_event": {
+      "autumn_internationals_2022": 0.878317339480394,
+      "autumn_internationals_2024": 0.9293852833831872,
+      "autumn_internationals_2025": 0.896165585501881,
+      "british_irish_lions_2025": 0.8986822465763465,
+      "nations_championship_2026": 0.8615122487961052,
+      "pacific_nations_cup_2024": 0.9552571620353077,
+      "pacific_nations_cup_2025": 0.9986135322759827,
+      "rugby_championship_2022": 0.8746673073726879,
+      "rugby_championship_2023": 0.8719983008200988,
+      "rugby_championship_2024": 0.8919614630786539,
+      "rugby_championship_2025": 0.9186139053183523,
+      "rugby_world_cup_2023": 0.8587379432883556,
+      "six_nations_2022": 0.9501154153445799,
+      "six_nations_2023": 0.8441321830530404,
+      "six_nations_2024": 0.8920336327489397,
+      "six_nations_2025": 0.8651198191454869,
+      "six_nations_2026": 0.8629840965799773,
+      "summer_internationals_2022": 0.8833530832934366,
+      "summer_internationals_2023": 0.9316915021943891,
+      "summer_internationals_2024": 0.9298953729840799,
+      "summer_internationals_2025": 0.922594600083173
+    },
+    "v1": {
+      "autumn_internationals_2022": 0.8844445205561858,
+      "autumn_internationals_2024": 0.9361237962024571,
+      "autumn_internationals_2025": 0.9408868693466883,
+      "british_irish_lions_2025": 0.8571334177316793,
+      "nations_championship_2026": 0.8394068974224885,
+      "pacific_nations_cup_2024": 0.9462692919833771,
+      "pacific_nations_cup_2025": 0.9943722287089075,
+      "rugby_championship_2022": 0.9388663480764228,
+      "rugby_championship_2023": 0.847151237826472,
+      "rugby_championship_2024": 0.9533546234588769,
+      "rugby_championship_2025": 0.9377684703686793,
+      "rugby_world_cup_2023": 0.9132171654499598,
+      "six_nations_2022": 0.892070372687145,
+      "six_nations_2023": 0.8665117048035732,
+      "six_nations_2024": 0.9177782493076516,
+      "six_nations_2025": 0.8363188671289552,
+      "six_nations_2026": 0.9120676472726806,
+      "summer_internationals_2022": 0.8804728267043184,
+      "summer_internationals_2023": 0.9079461310176309,
+      "summer_internationals_2024": 0.9401137133916356,
+      "summer_internationals_2025": 0.9239967959477616
+    }
+  },
+  "by_target_relative_loss": {
+    "empirical_event": {
+      "bad_passes": 0.9610439550485456,
+      "clean_breaks": 0.9706662011523299,
+      "conversion_goals": 0.7025508146635477,
+      "defenders_beaten": 0.8958463981759905,
+      "drop_goal_missed": 0.8707343348297764,
+      "drop_goals_converted": 0.8689910494166788,
+      "metres": 0.8758143289725004,
+      "minutes": 0.9047106952788873,
+      "missed_conversion_goals": 0.9346177759931448,
+      "missed_penalty_goals": 0.8251652174537911,
+      "missed_tackles": 0.9509532208122946,
+      "offload": 0.9245328203626529,
+      "passes": 0.8212247595320837,
+      "penalties_conceded": 0.995870916688877,
+      "penalty_goals": 0.6916388833638352,
+      "red_cards": 0.9119217174408163,
+      "rucks_lost": 0.990312323168799,
+      "rucks_won": 0.7717784899929958,
+      "runs": 0.8936871260567042,
+      "tackles": 0.9502636529135967,
+      "tries": 0.966893649050857,
+      "try_assists": 0.9758492793315434,
+      "turnovers_conceded": 0.9911129627100939,
+      "yellow_cards": 0.9719131685661786
+    },
+    "v1": {
+      "bad_passes": 0.9518647015534033,
+      "clean_breaks": 0.9993967688091561,
+      "conversion_goals": 0.7549398656419328,
+      "defenders_beaten": 0.9317085122334551,
+      "drop_goal_missed": 0.8158812175200658,
+      "drop_goals_converted": 0.7545074900505317,
+      "metres": 0.9678245115905311,
+      "minutes": 0.9843153985790832,
+      "missed_conversion_goals": 0.9224389529676617,
+      "missed_penalty_goals": 0.7999712295470655,
+      "missed_tackles": 0.9712007188695561,
+      "offload": 0.9678852291451541,
+      "passes": 0.8069970794738337,
+      "penalties_conceded": 0.9956332187583014,
+      "penalty_goals": 0.6975865733118464,
+      "red_cards": 0.8567712288616298,
+      "rucks_lost": 0.983767048484293,
+      "rucks_won": 0.7670228574715658,
+      "runs": 0.8964886786292054,
+      "tackles": 0.9290866329324621,
+      "tries": 1.0205537811768417,
+      "try_assists": 1.0224236033746488,
+      "turnovers_conceded": 0.9996664209948657,
+      "yellow_cards": 0.9920924804726767
+    }
+  },
+  "by_tournament": {
+    "empirical_event": {
+      "autumn_internationals": 0.9012894027884873,
+      "british_irish_lions": 0.8986822465763465,
+      "nations_championship": 0.8615122487961052,
+      "pacific_nations_cup": 0.9769353471556452,
+      "rugby_championship": 0.8893102441474482,
+      "rugby_world_cup": 0.8587379432883556,
+      "six_nations": 0.8828770293744048,
+      "summer_internationals": 0.9168836396387696
+    },
+    "v1": {
+      "autumn_internationals": 0.9204850620351105,
+      "british_irish_lions": 0.8571334177316793,
+      "nations_championship": 0.8394068974224885,
+      "pacific_nations_cup": 0.9703207603461423,
+      "rugby_championship": 0.9192851699326128,
+      "rugby_world_cup": 0.9132171654499598,
+      "six_nations": 0.8849493682400011,
+      "summer_internationals": 0.9131323667653366
+    }
+  },
+  "config": {
+    "club_conf": 0.55,
+    "halflife_days": 420.0,
+    "k_shrinkage": 220.0,
+    "matchup_attack_scale": 60.0,
+    "matchup_damping": 1.0,
+    "matchup_defence_scale": 90.0,
+    "matchup_mode": "off",
+    "minutes_head_statistic": "median",
+    "minutes_mode": "eb",
+    "minutes_shrinkage": 0.5,
+    "minutes_statistic": "mean",
+    "position_prior_mode": "mean_of_ratios",
+    "position_prior_recency": false,
+    "shrinkage_max": 3000.0,
+    "shrinkage_mode": "empirical_bayes",
+    "shrinkage_no_signal": "max"
+  },
+  "extended_loss": {
+    "empirical_event": {
+      "dominant_tackles": 0.7547353958671412,
+      "fifty_22": 0.06827020917912295,
+      "lineout_steals": 0.16248187738353656,
+      "potm": 0.13669822518882205,
+      "scrums_won": 0.9052600259469826,
+      "tackle_try_saver": 0.20062150546579927,
+      "tackle_turnover": 0.4987325745141275
+    },
+    "v1": {
+      "dominant_tackles": 0.7560275538448747,
+      "fifty_22": 0.0583188666657939,
+      "lineout_steals": 0.19001651582458223,
+      "potm": 0.10972915917845785,
+      "scrums_won": 1.214388020821394,
+      "tackle_try_saver": 0.15656646777841038,
+      "tackle_turnover": 0.44543133271720226
+    }
+  },
+  "gate_passed": false,
+  "gate_reasons": [
+    "tournament-family stable regression >2%: british_irish_lions, nations_championship",
+    "extended-event loss regression >5%: tackle_try_saver, tackle_turnover"
+  ],
+  "n_folds": 21,
+  "north": {
+    "empirical_event": 0.8896892264931865,
+    "v1": 0.8970621743316544
+  },
+  "rubrics": [
+    {
+      "engine": "empirical_event",
+      "mae": 6.046422102170288,
+      "mean_capture": 0.7224529166448252,
+      "rubric": "ncr",
+      "slates": 98,
+      "spearman": 0.5372166473262088
+    },
+    {
+      "engine": "empirical_event",
+      "mae": 6.157806180021763,
+      "mean_capture": 0.7697417041515222,
+      "rubric": "six_nations",
+      "slates": 98,
+      "spearman": 0.6282010017857543
+    },
+    {
+      "engine": "v1",
+      "mae": 6.3862882137326356,
+      "mean_capture": 0.6995142514212034,
+      "rubric": "ncr",
+      "slates": 98,
+      "spearman": 0.5205060631191284
+    },
+    {
+      "engine": "v1",
+      "mae": 6.487267698463055,
+      "mean_capture": 0.7474758272070252,
+      "rubric": "six_nations",
+      "slates": 98,
+      "spearman": 0.6134752545520596
+    }
+  ],
+  "south": {
+    "empirical_event": 0.9149008559130198,
+    "v1": 0.9109877766543567
+  },
+  "stable_score": {
+    "empirical_event": 0.9007539058740216,
+    "v1": 0.9079176750187402
+  },
+  "variant": "t4_no_signal_max"
+}

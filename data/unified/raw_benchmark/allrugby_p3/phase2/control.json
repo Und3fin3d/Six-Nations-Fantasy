@@ -1,0 +1,2206 @@
+{
+  "frozen_reconstructed": 0.8864704364786675,
+  "frozen_expected": 0.8864704364786675,
+  "frozen_abs_difference": 0.0,
+  "c5_reconstructed": 0.879365877687721,
+  "c5_expected": 0.8793658777,
+  "c5_abs_difference": 1.2278955630051769e-11,
+  "n_folds": 21,
+  "frozen_per_fold": [
+    0.8841926518920529,
+    0.8568266320648226,
+    0.8981963850891551,
+    0.8523482537320138,
+    0.8449628675323225,
+    0.8731052937119869,
+    0.9122877631525749,
+    0.8603492063866115,
+    0.8837275740420566,
+    0.9266177120072795,
+    0.8989738998876572,
+    0.9188353365063716,
+    0.9118901312354155,
+    0.8460871036574398,
+    0.8549318649705725,
+    0.8949590448662729,
+    0.9305752757365605,
+    0.961539973473945,
+    0.9008264555736424,
+    0.8689668513309631,
+    0.8356788892023017
+  ],
+  "c5_per_fold": [
+    0.8890287791134712,
+    0.8674892008207059,
+    0.9079832584681133,
+    0.8553490191973077,
+    0.8473300142120112,
+    0.8411823497460178,
+    0.90132000003166,
+    0.8490328582554593,
+    0.885007735122807,
+    0.9251222583584146,
+    0.877820453271363,
+    0.9184993813737155,
+    0.9013666881013044,
+    0.8311179041445783,
+    0.8422904682466399,
+    0.8894208504918789,
+    0.8996772433289694,
+    0.9588966655828379,
+    0.8947531486278315,
+    0.8602599833933705,
+    0.8237351715536874
+  ],
+  "c5_fits": [
+    {
+      "held_out_fold": "six_nations_2022",
+      "weights": {
+        "minutes": [
+          0.38,
+          0.62
+        ],
+        "tries": [
+          0.15,
+          0.85
+        ],
+        "try_assists": [
+          0.18,
+          0.8200000000000001
+        ],
+        "conversion_goals": [
+          0.205,
+          0.795
+        ],
+        "missed_conversion_goals": [
+          0.165,
+          0.835
+        ],
+        "penalty_goals": [
+          0.615,
+          0.385
+        ],
+        "missed_penalty_goals": [
+          0.605,
+          0.395
+        ],
+        "drop_goals_converted": [
+          0.84,
+          0.16000000000000003
+        ],
+        "drop_goal_missed": [
+          0.685,
+          0.31499999999999995
+        ],
+        "defenders_beaten": [
+          0.27,
+          0.73
+        ],
+        "clean_breaks": [
+          0.215,
+          0.785
+        ],
+        "offload": [
+          0.23,
+          0.77
+        ],
+        "runs": [
+          0.63,
+          0.37
+        ],
+        "tackles": [
+          0.63,
+          0.37
+        ],
+        "missed_tackles": [
+          0.41,
+          0.5900000000000001
+        ],
+        "rucks_won": [
+          0.575,
+          0.42500000000000004
+        ],
+        "rucks_lost": [
+          0.675,
+          0.32499999999999996
+        ],
+        "passes": [
+          0.645,
+          0.355
+        ],
+        "bad_passes": [
+          0.535,
+          0.46499999999999997
+        ],
+        "turnovers_conceded": [
+          0.37,
+          0.63
+        ],
+        "penalties_conceded": [
+          0.36,
+          0.64
+        ],
+        "yellow_cards": [
+          0.63,
+          0.37
+        ],
+        "red_cards": [
+          0.905,
+          0.09499999999999997
+        ],
+        "metres": [
+          0.085,
+          0.915
+        ]
+      },
+      "hyperparameter": 0.1
+    },
+    {
+      "held_out_fold": "summer_internationals_2022",
+      "weights": {
+        "minutes": [
+          0.375,
+          0.625
+        ],
+        "tries": [
+          0.145,
+          0.855
+        ],
+        "try_assists": [
+          0.185,
+          0.815
+        ],
+        "conversion_goals": [
+          0.195,
+          0.8049999999999999
+        ],
+        "missed_conversion_goals": [
+          0.185,
+          0.815
+        ],
+        "penalty_goals": [
+          0.625,
+          0.375
+        ],
+        "missed_penalty_goals": [
+          0.665,
+          0.33499999999999996
+        ],
+        "drop_goals_converted": [
+          0.895,
+          0.10499999999999998
+        ],
+        "drop_goal_missed": [
+          0.625,
+          0.375
+        ],
+        "defenders_beaten": [
+          0.265,
+          0.735
+        ],
+        "clean_breaks": [
+          0.22,
+          0.78
+        ],
+        "offload": [
+          0.24,
+          0.76
+        ],
+        "runs": [
+          0.62,
+          0.38
+        ],
+        "tackles": [
+          0.615,
+          0.385
+        ],
+        "missed_tackles": [
+          0.41,
+          0.5900000000000001
+        ],
+        "rucks_won": [
+          0.585,
+          0.41500000000000004
+        ],
+        "rucks_lost": [
+          0.665,
+          0.33499999999999996
+        ],
+        "passes": [
+          0.63,
+          0.37
+        ],
+        "bad_passes": [
+          0.565,
+          0.43500000000000005
+        ],
+        "turnovers_conceded": [
+          0.38,
+          0.62
+        ],
+        "penalties_conceded": [
+          0.345,
+          0.655
+        ],
+        "yellow_cards": [
+          0.585,
+          0.41500000000000004
+        ],
+        "red_cards": [
+          0.905,
+          0.09499999999999997
+        ],
+        "metres": [
+          0.085,
+          0.915
+        ]
+      },
+      "hyperparameter": 0.1
+    },
+    {
+      "held_out_fold": "rugby_championship_2022",
+      "weights": {
+        "minutes": [
+          0.38,
+          0.62
+        ],
+        "tries": [
+          0.155,
+          0.845
+        ],
+        "try_assists": [
+          0.185,
+          0.815
+        ],
+        "conversion_goals": [
+          0.185,
+          0.815
+        ],
+        "missed_conversion_goals": [
+          0.185,
+          0.815
+        ],
+        "penalty_goals": [
+          0.62,
+          0.38
+        ],
+        "missed_penalty_goals": [
+          0.64,
+          0.36
+        ],
+        "drop_goals_converted": [
+          0.865,
+          0.135
+        ],
+        "drop_goal_missed": [
+          0.685,
+          0.31499999999999995
+        ],
+        "defenders_beaten": [
+          0.28,
+          0.72
+        ],
+        "clean_breaks": [
+          0.24,
+          0.76
+        ],
+        "offload": [
+          0.24,
+          0.76
+        ],
+        "runs": [
+          0.635,
+          0.365
+        ],
+        "tackles": [
+          0.61,
+          0.39
+        ],
+        "missed_tackles": [
+          0.425,
+          0.575
+        ],
+        "rucks_won": [
+          0.595,
+          0.405
+        ],
+        "rucks_lost": [
+          0.64,
+          0.36
+        ],
+        "passes": [
+          0.63,
+          0.37
+        ],
+        "bad_passes": [
+          0.55,
+          0.44999999999999996
+        ],
+        "turnovers_conceded": [
+          0.46,
+          0.54
+        ],
+        "penalties_conceded": [
+          0.34,
+          0.6599999999999999
+        ],
+        "yellow_cards": [
+          0.635,
+          0.365
+        ],
+        "red_cards": [
+          0.93,
+          0.06999999999999995
+        ],
+        "metres": [
+          0.085,
+          0.915
+        ]
+      },
+      "hyperparameter": 0.1
+    },
+    {
+      "held_out_fold": "autumn_internationals_2022",
+      "weights": {
+        "minutes": [
+          0.395,
+          0.605
+        ],
+        "tries": [
+          0.15,
+          0.85
+        ],
+        "try_assists": [
+          0.185,
+          0.815
+        ],
+        "conversion_goals": [
+          0.205,
+          0.795
+        ],
+        "missed_conversion_goals": [
+          0.18,
+          0.8200000000000001
+        ],
+        "penalty_goals": [
+          0.635,
+          0.365
+        ],
+        "missed_penalty_goals": [
+          0.645,
+          0.355
+        ],
+        "drop_goals_converted": [
+          0.86,
+          0.14
+        ],
+        "drop_goal_missed": [
+          0.66,
+          0.33999999999999997
+        ],
+        "defenders_beaten": [
+          0.265,
+          0.735
+        ],
+        "clean_breaks": [
+          0.23,
+          0.77
+        ],
+        "offload": [
+          0.26,
+          0.74
+        ],
+        "runs": [
+          0.635,
+          0.365
+        ],
+        "tackles": [
+          0.63,
+          0.37
+        ],
+        "missed_tackles": [
+          0.42,
+          0.5800000000000001
+        ],
+        "rucks_won": [
+          0.58,
+          0.42000000000000004
+        ],
+        "rucks_lost": [
+          0.655,
+          0.345
+        ],
+        "passes": [
+          0.635,
+          0.365
+        ],
+        "bad_passes": [
+          0.555,
+          0.44499999999999995
+        ],
+        "turnovers_conceded": [
+          0.375,
+          0.625
+        ],
+        "penalties_conceded": [
+          0.36,
+          0.64
+        ],
+        "yellow_cards": [
+          0.59,
+          0.41000000000000003
+        ],
+        "red_cards": [
+          0.91,
+          0.08999999999999997
+        ],
+        "metres": [
+          0.085,
+          0.915
+        ]
+      },
+      "hyperparameter": 0.1
+    },
+    {
+      "held_out_fold": "six_nations_2023",
+      "weights": {
+        "minutes": [
+          0.4,
+          0.6
+        ],
+        "tries": [
+          0.16,
+          0.84
+        ],
+        "try_assists": [
+          0.18,
+          0.8200000000000001
+        ],
+        "conversion_goals": [
+          0.18,
+          0.8200000000000001
+        ],
+        "missed_conversion_goals": [
+          0.205,
+          0.795
+        ],
+        "penalty_goals": [
+          0.61,
+          0.39
+        ],
+        "missed_penalty_goals": [
+          0.625,
+          0.375
+        ],
+        "drop_goals_converted": [
+          0.855,
+          0.14500000000000002
+        ],
+        "drop_goal_missed": [
+          0.695,
+          0.30500000000000005
+        ],
+        "defenders_beaten": [
+          0.275,
+          0.725
+        ],
+        "clean_breaks": [
+          0.235,
+          0.765
+        ],
+        "offload": [
+          0.245,
+          0.755
+        ],
+        "runs": [
+          0.62,
+          0.38
+        ],
+        "tackles": [
+          0.61,
+          0.39
+        ],
+        "missed_tackles": [
+          0.41,
+          0.5900000000000001
+        ],
+        "rucks_won": [
+          0.585,
+          0.41500000000000004
+        ],
+        "rucks_lost": [
+          0.65,
+          0.35
+        ],
+        "passes": [
+          0.625,
+          0.375
+        ],
+        "bad_passes": [
+          0.55,
+          0.44999999999999996
+        ],
+        "turnovers_conceded": [
+          0.415,
+          0.585
+        ],
+        "penalties_conceded": [
+          0.365,
+          0.635
+        ],
+        "yellow_cards": [
+          0.6,
+          0.4
+        ],
+        "red_cards": [
+          0.905,
+          0.09499999999999997
+        ],
+        "metres": [
+          0.09,
+          0.91
+        ]
+      },
+      "hyperparameter": 0.1
+    },
+    {
+      "held_out_fold": "rugby_championship_2023",
+      "weights": {
+        "minutes": [
+          0.4,
+          0.6
+        ],
+        "tries": [
+          0.16,
+          0.84
+        ],
+        "try_assists": [
+          0.195,
+          0.8049999999999999
+        ],
+        "conversion_goals": [
+          0.21,
+          0.79
+        ],
+        "missed_conversion_goals": [
+          0.21,
+          0.79
+        ],
+        "penalty_goals": [
+          0.63,
+          0.37
+        ],
+        "missed_penalty_goals": [
+          0.63,
+          0.37
+        ],
+        "drop_goals_converted": [
+          0.79,
+          0.20999999999999996
+        ],
+        "drop_goal_missed": [
+          0.57,
+          0.43000000000000005
+        ],
+        "defenders_beaten": [
+          0.275,
+          0.725
+        ],
+        "clean_breaks": [
+          0.24,
+          0.76
+        ],
+        "offload": [
+          0.235,
+          0.765
+        ],
+        "runs": [
+          0.625,
+          0.375
+        ],
+        "tackles": [
+          0.615,
+          0.385
+        ],
+        "missed_tackles": [
+          0.435,
+          0.565
+        ],
+        "rucks_won": [
+          0.575,
+          0.42500000000000004
+        ],
+        "rucks_lost": [
+          0.69,
+          0.31000000000000005
+        ],
+        "passes": [
+          0.625,
+          0.375
+        ],
+        "bad_passes": [
+          0.56,
+          0.43999999999999995
+        ],
+        "turnovers_conceded": [
+          0.425,
+          0.575
+        ],
+        "penalties_conceded": [
+          0.405,
+          0.595
+        ],
+        "yellow_cards": [
+          0.58,
+          0.42000000000000004
+        ],
+        "red_cards": [
+          0.88,
+          0.12
+        ],
+        "metres": [
+          0.09,
+          0.91
+        ]
+      },
+      "hyperparameter": 0.1
+    },
+    {
+      "held_out_fold": "summer_internationals_2023",
+      "weights": {
+        "minutes": [
+          0.375,
+          0.625
+        ],
+        "tries": [
+          0.155,
+          0.845
+        ],
+        "try_assists": [
+          0.18,
+          0.8200000000000001
+        ],
+        "conversion_goals": [
+          0.21,
+          0.79
+        ],
+        "missed_conversion_goals": [
+          0.205,
+          0.795
+        ],
+        "penalty_goals": [
+          0.63,
+          0.37
+        ],
+        "missed_penalty_goals": [
+          0.66,
+          0.33999999999999997
+        ],
+        "drop_goals_converted": [
+          0.81,
+          0.18999999999999995
+        ],
+        "drop_goal_missed": [
+          0.67,
+          0.32999999999999996
+        ],
+        "defenders_beaten": [
+          0.27,
+          0.73
+        ],
+        "clean_breaks": [
+          0.23,
+          0.77
+        ],
+        "offload": [
+          0.23,
+          0.77
+        ],
+        "runs": [
+          0.625,
+          0.375
+        ],
+        "tackles": [
+          0.61,
+          0.39
+        ],
+        "missed_tackles": [
+          0.42,
+          0.5800000000000001
+        ],
+        "rucks_won": [
+          0.58,
+          0.42000000000000004
+        ],
+        "rucks_lost": [
+          0.66,
+          0.33999999999999997
+        ],
+        "passes": [
+          0.64,
+          0.36
+        ],
+        "bad_passes": [
+          0.55,
+          0.44999999999999996
+        ],
+        "turnovers_conceded": [
+          0.38,
+          0.62
+        ],
+        "penalties_conceded": [
+          0.38,
+          0.62
+        ],
+        "yellow_cards": [
+          0.595,
+          0.405
+        ],
+        "red_cards": [
+          0.915,
+          0.08499999999999996
+        ],
+        "metres": [
+          0.085,
+          0.915
+        ]
+      },
+      "hyperparameter": 0.1
+    },
+    {
+      "held_out_fold": "rugby_world_cup_2023",
+      "weights": {
+        "minutes": [
+          0.39,
+          0.61
+        ],
+        "tries": [
+          0.175,
+          0.825
+        ],
+        "try_assists": [
+          0.21,
+          0.79
+        ],
+        "conversion_goals": [
+          0.21,
+          0.79
+        ],
+        "missed_conversion_goals": [
+          0.235,
+          0.765
+        ],
+        "penalty_goals": [
+          0.61,
+          0.39
+        ],
+        "missed_penalty_goals": [
+          0.615,
+          0.385
+        ],
+        "drop_goals_converted": [
+          0.855,
+          0.14500000000000002
+        ],
+        "drop_goal_missed": [
+          0.665,
+          0.33499999999999996
+        ],
+        "defenders_beaten": [
+          0.275,
+          0.725
+        ],
+        "clean_breaks": [
+          0.245,
+          0.755
+        ],
+        "offload": [
+          0.26,
+          0.74
+        ],
+        "runs": [
+          0.635,
+          0.365
+        ],
+        "tackles": [
+          0.625,
+          0.375
+        ],
+        "missed_tackles": [
+          0.44,
+          0.56
+        ],
+        "rucks_won": [
+          0.585,
+          0.41500000000000004
+        ],
+        "rucks_lost": [
+          0.665,
+          0.33499999999999996
+        ],
+        "passes": [
+          0.645,
+          0.355
+        ],
+        "bad_passes": [
+          0.56,
+          0.43999999999999995
+        ],
+        "turnovers_conceded": [
+          0.4,
+          0.6
+        ],
+        "penalties_conceded": [
+          0.38,
+          0.62
+        ],
+        "yellow_cards": [
+          0.6,
+          0.4
+        ],
+        "red_cards": [
+          0.9,
+          0.09999999999999998
+        ],
+        "metres": [
+          0.095,
+          0.905
+        ]
+      },
+      "hyperparameter": 0.1
+    },
+    {
+      "held_out_fold": "six_nations_2024",
+      "weights": {
+        "minutes": [
+          0.415,
+          0.585
+        ],
+        "tries": [
+          0.15,
+          0.85
+        ],
+        "try_assists": [
+          0.185,
+          0.815
+        ],
+        "conversion_goals": [
+          0.205,
+          0.795
+        ],
+        "missed_conversion_goals": [
+          0.2,
+          0.8
+        ],
+        "penalty_goals": [
+          0.64,
+          0.36
+        ],
+        "missed_penalty_goals": [
+          0.63,
+          0.37
+        ],
+        "drop_goals_converted": [
+          0.845,
+          0.15500000000000003
+        ],
+        "drop_goal_missed": [
+          0.65,
+          0.35
+        ],
+        "defenders_beaten": [
+          0.275,
+          0.725
+        ],
+        "clean_breaks": [
+          0.235,
+          0.765
+        ],
+        "offload": [
+          0.25,
+          0.75
+        ],
+        "runs": [
+          0.645,
+          0.355
+        ],
+        "tackles": [
+          0.625,
+          0.375
+        ],
+        "missed_tackles": [
+          0.425,
+          0.575
+        ],
+        "rucks_won": [
+          0.575,
+          0.42500000000000004
+        ],
+        "rucks_lost": [
+          0.665,
+          0.33499999999999996
+        ],
+        "passes": [
+          0.65,
+          0.35
+        ],
+        "bad_passes": [
+          0.56,
+          0.43999999999999995
+        ],
+        "turnovers_conceded": [
+          0.415,
+          0.585
+        ],
+        "penalties_conceded": [
+          0.38,
+          0.62
+        ],
+        "yellow_cards": [
+          0.595,
+          0.405
+        ],
+        "red_cards": [
+          0.92,
+          0.07999999999999996
+        ],
+        "metres": [
+          0.095,
+          0.905
+        ]
+      },
+      "hyperparameter": 0.1
+    },
+    {
+      "held_out_fold": "summer_internationals_2024",
+      "weights": {
+        "minutes": [
+          0.395,
+          0.605
+        ],
+        "tries": [
+          0.155,
+          0.845
+        ],
+        "try_assists": [
+          0.195,
+          0.8049999999999999
+        ],
+        "conversion_goals": [
+          0.195,
+          0.8049999999999999
+        ],
+        "missed_conversion_goals": [
+          0.19,
+          0.81
+        ],
+        "penalty_goals": [
+          0.625,
+          0.375
+        ],
+        "missed_penalty_goals": [
+          0.63,
+          0.37
+        ],
+        "drop_goals_converted": [
+          0.845,
+          0.15500000000000003
+        ],
+        "drop_goal_missed": [
+          0.65,
+          0.35
+        ],
+        "defenders_beaten": [
+          0.27,
+          0.73
+        ],
+        "clean_breaks": [
+          0.235,
+          0.765
+        ],
+        "offload": [
+          0.255,
+          0.745
+        ],
+        "runs": [
+          0.63,
+          0.37
+        ],
+        "tackles": [
+          0.62,
+          0.38
+        ],
+        "missed_tackles": [
+          0.42,
+          0.5800000000000001
+        ],
+        "rucks_won": [
+          0.59,
+          0.41000000000000003
+        ],
+        "rucks_lost": [
+          0.66,
+          0.33999999999999997
+        ],
+        "passes": [
+          0.64,
+          0.36
+        ],
+        "bad_passes": [
+          0.555,
+          0.44499999999999995
+        ],
+        "turnovers_conceded": [
+          0.395,
+          0.605
+        ],
+        "penalties_conceded": [
+          0.36,
+          0.64
+        ],
+        "yellow_cards": [
+          0.59,
+          0.41000000000000003
+        ],
+        "red_cards": [
+          0.905,
+          0.09499999999999997
+        ],
+        "metres": [
+          0.085,
+          0.915
+        ]
+      },
+      "hyperparameter": 0.1
+    },
+    {
+      "held_out_fold": "rugby_championship_2024",
+      "weights": {
+        "minutes": [
+          0.415,
+          0.585
+        ],
+        "tries": [
+          0.22,
+          0.78
+        ],
+        "try_assists": [
+          0.23,
+          0.77
+        ],
+        "conversion_goals": [
+          0.245,
+          0.755
+        ],
+        "missed_conversion_goals": [
+          0.225,
+          0.775
+        ],
+        "penalty_goals": [
+          0.605,
+          0.395
+        ],
+        "missed_penalty_goals": [
+          0.68,
+          0.31999999999999995
+        ],
+        "drop_goals_converted": [
+          0.815,
+          0.18500000000000005
+        ],
+        "drop_goal_missed": [
+          0.68,
+          0.31999999999999995
+        ],
+        "defenders_beaten": [
+          0.295,
+          0.7050000000000001
+        ],
+        "clean_breaks": [
+          0.29,
+          0.71
+        ],
+        "offload": [
+          0.29,
+          0.71
+        ],
+        "runs": [
+          0.64,
+          0.36
+        ],
+        "tackles": [
+          0.62,
+          0.38
+        ],
+        "missed_tackles": [
+          0.435,
+          0.565
+        ],
+        "rucks_won": [
+          0.57,
+          0.43000000000000005
+        ],
+        "rucks_lost": [
+          0.65,
+          0.35
+        ],
+        "passes": [
+          0.645,
+          0.355
+        ],
+        "bad_passes": [
+          0.56,
+          0.43999999999999995
+        ],
+        "turnovers_conceded": [
+          0.415,
+          0.585
+        ],
+        "penalties_conceded": [
+          0.385,
+          0.615
+        ],
+        "yellow_cards": [
+          0.585,
+          0.41500000000000004
+        ],
+        "red_cards": [
+          0.91,
+          0.08999999999999997
+        ],
+        "metres": [
+          0.13,
+          0.87
+        ]
+      },
+      "hyperparameter": 0.15
+    },
+    {
+      "held_out_fold": "pacific_nations_cup_2024",
+      "weights": {
+        "minutes": [
+          0.38,
+          0.62
+        ],
+        "tries": [
+          0.16,
+          0.84
+        ],
+        "try_assists": [
+          0.18,
+          0.8200000000000001
+        ],
+        "conversion_goals": [
+          0.175,
+          0.825
+        ],
+        "missed_conversion_goals": [
+          0.175,
+          0.825
+        ],
+        "penalty_goals": [
+          0.625,
+          0.375
+        ],
+        "missed_penalty_goals": [
+          0.485,
+          0.515
+        ],
+        "drop_goals_converted": [
+          0.845,
+          0.15500000000000003
+        ],
+        "drop_goal_missed": [
+          0.63,
+          0.37
+        ],
+        "defenders_beaten": [
+          0.27,
+          0.73
+        ],
+        "clean_breaks": [
+          0.24,
+          0.76
+        ],
+        "offload": [
+          0.24,
+          0.76
+        ],
+        "runs": [
+          0.655,
+          0.345
+        ],
+        "tackles": [
+          0.62,
+          0.38
+        ],
+        "missed_tackles": [
+          0.42,
+          0.5800000000000001
+        ],
+        "rucks_won": [
+          0.61,
+          0.39
+        ],
+        "rucks_lost": [
+          0.66,
+          0.33999999999999997
+        ],
+        "passes": [
+          0.68,
+          0.31999999999999995
+        ],
+        "bad_passes": [
+          0.59,
+          0.41000000000000003
+        ],
+        "turnovers_conceded": [
+          0.385,
+          0.615
+        ],
+        "penalties_conceded": [
+          0.35,
+          0.65
+        ],
+        "yellow_cards": [
+          0.59,
+          0.41000000000000003
+        ],
+        "red_cards": [
+          0.975,
+          0.025000000000000022
+        ],
+        "metres": [
+          0.06,
+          0.94
+        ]
+      },
+      "hyperparameter": 0.05
+    },
+    {
+      "held_out_fold": "autumn_internationals_2024",
+      "weights": {
+        "minutes": [
+          0.41,
+          0.5900000000000001
+        ],
+        "tries": [
+          0.16,
+          0.84
+        ],
+        "try_assists": [
+          0.195,
+          0.8049999999999999
+        ],
+        "conversion_goals": [
+          0.215,
+          0.785
+        ],
+        "missed_conversion_goals": [
+          0.195,
+          0.8049999999999999
+        ],
+        "penalty_goals": [
+          0.59,
+          0.41000000000000003
+        ],
+        "missed_penalty_goals": [
+          0.635,
+          0.365
+        ],
+        "drop_goals_converted": [
+          0.84,
+          0.16000000000000003
+        ],
+        "drop_goal_missed": [
+          0.67,
+          0.32999999999999996
+        ],
+        "defenders_beaten": [
+          0.275,
+          0.725
+        ],
+        "clean_breaks": [
+          0.23,
+          0.77
+        ],
+        "offload": [
+          0.255,
+          0.745
+        ],
+        "runs": [
+          0.63,
+          0.37
+        ],
+        "tackles": [
+          0.61,
+          0.39
+        ],
+        "missed_tackles": [
+          0.42,
+          0.5800000000000001
+        ],
+        "rucks_won": [
+          0.585,
+          0.41500000000000004
+        ],
+        "rucks_lost": [
+          0.665,
+          0.33499999999999996
+        ],
+        "passes": [
+          0.64,
+          0.36
+        ],
+        "bad_passes": [
+          0.56,
+          0.43999999999999995
+        ],
+        "turnovers_conceded": [
+          0.39,
+          0.61
+        ],
+        "penalties_conceded": [
+          0.36,
+          0.64
+        ],
+        "yellow_cards": [
+          0.59,
+          0.41000000000000003
+        ],
+        "red_cards": [
+          0.9,
+          0.09999999999999998
+        ],
+        "metres": [
+          0.09,
+          0.91
+        ]
+      },
+      "hyperparameter": 0.1
+    },
+    {
+      "held_out_fold": "six_nations_2025",
+      "weights": {
+        "minutes": [
+          0.43,
+          0.5700000000000001
+        ],
+        "tries": [
+          0.155,
+          0.845
+        ],
+        "try_assists": [
+          0.175,
+          0.825
+        ],
+        "conversion_goals": [
+          0.21,
+          0.79
+        ],
+        "missed_conversion_goals": [
+          0.21,
+          0.79
+        ],
+        "penalty_goals": [
+          0.6,
+          0.4
+        ],
+        "missed_penalty_goals": [
+          0.625,
+          0.375
+        ],
+        "drop_goals_converted": [
+          0.81,
+          0.18999999999999995
+        ],
+        "drop_goal_missed": [
+          0.67,
+          0.32999999999999996
+        ],
+        "defenders_beaten": [
+          0.26,
+          0.74
+        ],
+        "clean_breaks": [
+          0.22,
+          0.78
+        ],
+        "offload": [
+          0.26,
+          0.74
+        ],
+        "runs": [
+          0.625,
+          0.375
+        ],
+        "tackles": [
+          0.625,
+          0.375
+        ],
+        "missed_tackles": [
+          0.405,
+          0.595
+        ],
+        "rucks_won": [
+          0.58,
+          0.42000000000000004
+        ],
+        "rucks_lost": [
+          0.66,
+          0.33999999999999997
+        ],
+        "passes": [
+          0.63,
+          0.37
+        ],
+        "bad_passes": [
+          0.56,
+          0.43999999999999995
+        ],
+        "turnovers_conceded": [
+          0.395,
+          0.605
+        ],
+        "penalties_conceded": [
+          0.375,
+          0.625
+        ],
+        "yellow_cards": [
+          0.59,
+          0.41000000000000003
+        ],
+        "red_cards": [
+          0.905,
+          0.09499999999999997
+        ],
+        "metres": [
+          0.085,
+          0.915
+        ]
+      },
+      "hyperparameter": 0.1
+    },
+    {
+      "held_out_fold": "british_irish_lions_2025",
+      "weights": {
+        "minutes": [
+          0.385,
+          0.615
+        ],
+        "tries": [
+          0.16,
+          0.84
+        ],
+        "try_assists": [
+          0.19,
+          0.81
+        ],
+        "conversion_goals": [
+          0.19,
+          0.81
+        ],
+        "missed_conversion_goals": [
+          0.205,
+          0.795
+        ],
+        "penalty_goals": [
+          0.625,
+          0.375
+        ],
+        "missed_penalty_goals": [
+          0.625,
+          0.375
+        ],
+        "drop_goals_converted": [
+          0.82,
+          0.18000000000000005
+        ],
+        "drop_goal_missed": [
+          0.635,
+          0.365
+        ],
+        "defenders_beaten": [
+          0.26,
+          0.74
+        ],
+        "clean_breaks": [
+          0.225,
+          0.775
+        ],
+        "offload": [
+          0.245,
+          0.755
+        ],
+        "runs": [
+          0.63,
+          0.37
+        ],
+        "tackles": [
+          0.62,
+          0.38
+        ],
+        "missed_tackles": [
+          0.42,
+          0.5800000000000001
+        ],
+        "rucks_won": [
+          0.58,
+          0.42000000000000004
+        ],
+        "rucks_lost": [
+          0.655,
+          0.345
+        ],
+        "passes": [
+          0.63,
+          0.37
+        ],
+        "bad_passes": [
+          0.545,
+          0.45499999999999996
+        ],
+        "turnovers_conceded": [
+          0.385,
+          0.615
+        ],
+        "penalties_conceded": [
+          0.355,
+          0.645
+        ],
+        "yellow_cards": [
+          0.605,
+          0.395
+        ],
+        "red_cards": [
+          0.9,
+          0.09999999999999998
+        ],
+        "metres": [
+          0.085,
+          0.915
+        ]
+      },
+      "hyperparameter": 0.1
+    },
+    {
+      "held_out_fold": "summer_internationals_2025",
+      "weights": {
+        "minutes": [
+          0.4,
+          0.6
+        ],
+        "tries": [
+          0.155,
+          0.845
+        ],
+        "try_assists": [
+          0.18,
+          0.8200000000000001
+        ],
+        "conversion_goals": [
+          0.205,
+          0.795
+        ],
+        "missed_conversion_goals": [
+          0.205,
+          0.795
+        ],
+        "penalty_goals": [
+          0.61,
+          0.39
+        ],
+        "missed_penalty_goals": [
+          0.575,
+          0.42500000000000004
+        ],
+        "drop_goals_converted": [
+          0.85,
+          0.15000000000000002
+        ],
+        "drop_goal_missed": [
+          0.68,
+          0.31999999999999995
+        ],
+        "defenders_beaten": [
+          0.27,
+          0.73
+        ],
+        "clean_breaks": [
+          0.23,
+          0.77
+        ],
+        "offload": [
+          0.265,
+          0.735
+        ],
+        "runs": [
+          0.625,
+          0.375
+        ],
+        "tackles": [
+          0.63,
+          0.37
+        ],
+        "missed_tackles": [
+          0.425,
+          0.575
+        ],
+        "rucks_won": [
+          0.58,
+          0.42000000000000004
+        ],
+        "rucks_lost": [
+          0.645,
+          0.355
+        ],
+        "passes": [
+          0.64,
+          0.36
+        ],
+        "bad_passes": [
+          0.565,
+          0.43500000000000005
+        ],
+        "turnovers_conceded": [
+          0.405,
+          0.595
+        ],
+        "penalties_conceded": [
+          0.36,
+          0.64
+        ],
+        "yellow_cards": [
+          0.59,
+          0.41000000000000003
+        ],
+        "red_cards": [
+          0.91,
+          0.08999999999999997
+        ],
+        "metres": [
+          0.09,
+          0.91
+        ]
+      },
+      "hyperparameter": 0.1
+    },
+    {
+      "held_out_fold": "rugby_championship_2025",
+      "weights": {
+        "minutes": [
+          0.415,
+          0.585
+        ],
+        "tries": [
+          0.16,
+          0.84
+        ],
+        "try_assists": [
+          0.215,
+          0.785
+        ],
+        "conversion_goals": [
+          0.205,
+          0.795
+        ],
+        "missed_conversion_goals": [
+          0.28,
+          0.72
+        ],
+        "penalty_goals": [
+          0.65,
+          0.35
+        ],
+        "missed_penalty_goals": [
+          0.615,
+          0.385
+        ],
+        "drop_goals_converted": [
+          0.81,
+          0.18999999999999995
+        ],
+        "drop_goal_missed": [
+          0.655,
+          0.345
+        ],
+        "defenders_beaten": [
+          0.265,
+          0.735
+        ],
+        "clean_breaks": [
+          0.235,
+          0.765
+        ],
+        "offload": [
+          0.265,
+          0.735
+        ],
+        "runs": [
+          0.63,
+          0.37
+        ],
+        "tackles": [
+          0.6,
+          0.4
+        ],
+        "missed_tackles": [
+          0.41,
+          0.5900000000000001
+        ],
+        "rucks_won": [
+          0.585,
+          0.41500000000000004
+        ],
+        "rucks_lost": [
+          0.65,
+          0.35
+        ],
+        "passes": [
+          0.64,
+          0.36
+        ],
+        "bad_passes": [
+          0.555,
+          0.44499999999999995
+        ],
+        "turnovers_conceded": [
+          0.4,
+          0.6
+        ],
+        "penalties_conceded": [
+          0.355,
+          0.645
+        ],
+        "yellow_cards": [
+          0.62,
+          0.38
+        ],
+        "red_cards": [
+          0.89,
+          0.10999999999999999
+        ],
+        "metres": [
+          0.09,
+          0.91
+        ]
+      },
+      "hyperparameter": 0.1
+    },
+    {
+      "held_out_fold": "pacific_nations_cup_2025",
+      "weights": {
+        "minutes": [
+          0.415,
+          0.585
+        ],
+        "tries": [
+          0.165,
+          0.835
+        ],
+        "try_assists": [
+          0.195,
+          0.8049999999999999
+        ],
+        "conversion_goals": [
+          0.23,
+          0.77
+        ],
+        "missed_conversion_goals": [
+          0.17,
+          0.83
+        ],
+        "penalty_goals": [
+          0.64,
+          0.36
+        ],
+        "missed_penalty_goals": [
+          0.63,
+          0.37
+        ],
+        "drop_goals_converted": [
+          0.84,
+          0.16000000000000003
+        ],
+        "drop_goal_missed": [
+          0.625,
+          0.375
+        ],
+        "defenders_beaten": [
+          0.28,
+          0.72
+        ],
+        "clean_breaks": [
+          0.24,
+          0.76
+        ],
+        "offload": [
+          0.26,
+          0.74
+        ],
+        "runs": [
+          0.63,
+          0.37
+        ],
+        "tackles": [
+          0.63,
+          0.37
+        ],
+        "missed_tackles": [
+          0.435,
+          0.565
+        ],
+        "rucks_won": [
+          0.605,
+          0.395
+        ],
+        "rucks_lost": [
+          0.665,
+          0.33499999999999996
+        ],
+        "passes": [
+          0.63,
+          0.37
+        ],
+        "bad_passes": [
+          0.55,
+          0.44999999999999996
+        ],
+        "turnovers_conceded": [
+          0.375,
+          0.625
+        ],
+        "penalties_conceded": [
+          0.375,
+          0.625
+        ],
+        "yellow_cards": [
+          0.635,
+          0.365
+        ],
+        "red_cards": [
+          0.915,
+          0.08499999999999996
+        ],
+        "metres": [
+          0.09,
+          0.91
+        ]
+      },
+      "hyperparameter": 0.1
+    },
+    {
+      "held_out_fold": "autumn_internationals_2025",
+      "weights": {
+        "minutes": [
+          0.4,
+          0.6
+        ],
+        "tries": [
+          0.165,
+          0.835
+        ],
+        "try_assists": [
+          0.2,
+          0.8
+        ],
+        "conversion_goals": [
+          0.215,
+          0.785
+        ],
+        "missed_conversion_goals": [
+          0.21,
+          0.79
+        ],
+        "penalty_goals": [
+          0.655,
+          0.345
+        ],
+        "missed_penalty_goals": [
+          0.635,
+          0.365
+        ],
+        "drop_goals_converted": [
+          0.85,
+          0.15000000000000002
+        ],
+        "drop_goal_missed": [
+          0.675,
+          0.32499999999999996
+        ],
+        "defenders_beaten": [
+          0.285,
+          0.7150000000000001
+        ],
+        "clean_breaks": [
+          0.25,
+          0.75
+        ],
+        "offload": [
+          0.255,
+          0.745
+        ],
+        "runs": [
+          0.64,
+          0.36
+        ],
+        "tackles": [
+          0.625,
+          0.375
+        ],
+        "missed_tackles": [
+          0.425,
+          0.575
+        ],
+        "rucks_won": [
+          0.58,
+          0.42000000000000004
+        ],
+        "rucks_lost": [
+          0.665,
+          0.33499999999999996
+        ],
+        "passes": [
+          0.645,
+          0.355
+        ],
+        "bad_passes": [
+          0.555,
+          0.44499999999999995
+        ],
+        "turnovers_conceded": [
+          0.39,
+          0.61
+        ],
+        "penalties_conceded": [
+          0.37,
+          0.63
+        ],
+        "yellow_cards": [
+          0.58,
+          0.42000000000000004
+        ],
+        "red_cards": [
+          0.91,
+          0.08999999999999997
+        ],
+        "metres": [
+          0.1,
+          0.9
+        ]
+      },
+      "hyperparameter": 0.1
+    },
+    {
+      "held_out_fold": "six_nations_2026",
+      "weights": {
+        "minutes": [
+          0.415,
+          0.585
+        ],
+        "tries": [
+          0.175,
+          0.825
+        ],
+        "try_assists": [
+          0.215,
+          0.785
+        ],
+        "conversion_goals": [
+          0.225,
+          0.775
+        ],
+        "missed_conversion_goals": [
+          0.235,
+          0.765
+        ],
+        "penalty_goals": [
+          0.595,
+          0.405
+        ],
+        "missed_penalty_goals": [
+          0.62,
+          0.38
+        ],
+        "drop_goals_converted": [
+          0.84,
+          0.16000000000000003
+        ],
+        "drop_goal_missed": [
+          0.645,
+          0.355
+        ],
+        "defenders_beaten": [
+          0.29,
+          0.71
+        ],
+        "clean_breaks": [
+          0.24,
+          0.76
+        ],
+        "offload": [
+          0.255,
+          0.745
+        ],
+        "runs": [
+          0.63,
+          0.37
+        ],
+        "tackles": [
+          0.605,
+          0.395
+        ],
+        "missed_tackles": [
+          0.43,
+          0.5700000000000001
+        ],
+        "rucks_won": [
+          0.59,
+          0.41000000000000003
+        ],
+        "rucks_lost": [
+          0.645,
+          0.355
+        ],
+        "passes": [
+          0.635,
+          0.365
+        ],
+        "bad_passes": [
+          0.56,
+          0.43999999999999995
+        ],
+        "turnovers_conceded": [
+          0.395,
+          0.605
+        ],
+        "penalties_conceded": [
+          0.38,
+          0.62
+        ],
+        "yellow_cards": [
+          0.59,
+          0.41000000000000003
+        ],
+        "red_cards": [
+          0.875,
+          0.125
+        ],
+        "metres": [
+          0.12,
+          0.88
+        ]
+      },
+      "hyperparameter": 0.15
+    },
+    {
+      "held_out_fold": "nations_championship_2026",
+      "weights": {
+        "minutes": [
+          0.405,
+          0.595
+        ],
+        "tries": [
+          0.155,
+          0.845
+        ],
+        "try_assists": [
+          0.19,
+          0.81
+        ],
+        "conversion_goals": [
+          0.195,
+          0.8049999999999999
+        ],
+        "missed_conversion_goals": [
+          0.175,
+          0.825
+        ],
+        "penalty_goals": [
+          0.6,
+          0.4
+        ],
+        "missed_penalty_goals": [
+          0.585,
+          0.41500000000000004
+        ],
+        "drop_goals_converted": [
+          0.825,
+          0.17500000000000004
+        ],
+        "drop_goal_missed": [
+          0.645,
+          0.355
+        ],
+        "defenders_beaten": [
+          0.27,
+          0.73
+        ],
+        "clean_breaks": [
+          0.235,
+          0.765
+        ],
+        "offload": [
+          0.245,
+          0.755
+        ],
+        "runs": [
+          0.625,
+          0.375
+        ],
+        "tackles": [
+          0.625,
+          0.375
+        ],
+        "missed_tackles": [
+          0.43,
+          0.5700000000000001
+        ],
+        "rucks_won": [
+          0.58,
+          0.42000000000000004
+        ],
+        "rucks_lost": [
+          0.655,
+          0.345
+        ],
+        "passes": [
+          0.64,
+          0.36
+        ],
+        "bad_passes": [
+          0.555,
+          0.44499999999999995
+        ],
+        "turnovers_conceded": [
+          0.38,
+          0.62
+        ],
+        "penalties_conceded": [
+          0.375,
+          0.625
+        ],
+        "yellow_cards": [
+          0.58,
+          0.42000000000000004
+        ],
+        "red_cards": [
+          0.9,
+          0.09999999999999998
+        ],
+        "metres": [
+          0.09,
+          0.91
+        ]
+      },
+      "hyperparameter": 0.1
+    }
+  ],
+  "standalone": {
+    "v4": 0.9133075249170504,
+    "empirical": 0.9390310419724063,
+    "empirical_t3_eb_off_ebk_head": 0.9045378650892515,
+    "empirical_t4_no_signal_max": 0.9007539058740218,
+    "naive": 1.0
+  }
+}

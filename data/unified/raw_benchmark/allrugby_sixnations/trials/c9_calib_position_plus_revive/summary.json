@@ -1,0 +1,90 @@
+{
+  "by_fold_full": {
+    "six_nations_2025": 0.9702598026565259,
+    "six_nations_2026": 0.9349157706206296
+  },
+  "by_fold_shared": {
+    "six_nations_2025": 0.9702598026565259,
+    "six_nations_2026": 0.9349157706206296
+  },
+  "cohorts": {
+    "north": 0.9525877866385777,
+    "south": NaN
+  },
+  "config": {
+    "calibrate_events": null,
+    "calibration_clip": [
+      0.1,
+      10.0
+    ],
+    "calibration_shrinkage": 1.0,
+    "dead_head_fallback": "rate_minutes",
+    "extra_head_shrinkage": 240.0,
+    "extra_heads": "none",
+    "level_calibration": "position",
+    "minutes_blend": 0.0,
+    "name": "c9_calib_position_plus_revive",
+    "revive_events": null
+  },
+  "coverage": 13,
+  "covered_targets": [
+    "conversion_goals",
+    "defenders_beaten",
+    "drop_goals_converted",
+    "metres",
+    "minutes",
+    "offload",
+    "penalties_conceded",
+    "penalty_goals",
+    "red_cards",
+    "tackles",
+    "tries",
+    "try_assists",
+    "yellow_cards"
+  ],
+  "folds": 2,
+  "full_stable_score": 0.9525877866385777,
+  "name": "c9_calib_position_plus_revive",
+  "partial_stable_score": 0.9525877866385777,
+  "per_target": {
+    "conversion_goals": 0.3883503672067281,
+    "defenders_beaten": 0.9563281313300269,
+    "drop_goals_converted": 0.954241041925336,
+    "metres": 0.7753061510459337,
+    "minutes": 1.0238564535083894,
+    "offload": 1.119140677218478,
+    "penalties_conceded": 1.1227195454895895,
+    "penalty_goals": 0.6317713771175147,
+    "red_cards": 1.1331710249561406,
+    "tackles": 0.9495736584126981,
+    "tries": 1.0709857195618446,
+    "try_assists": 1.1054604882994277,
+    "yellow_cards": 1.1527365902294027
+  },
+  "rubric_mae": {
+    "six_nations": {
+      "mae": 6.159381522309505,
+      "mean_capture": 0.7996739048034802,
+      "slates": 10,
+      "spearman": 0.6495250841256717
+    }
+  },
+  "shared_targets": [
+    "minutes",
+    "tries",
+    "tackles",
+    "metres",
+    "try_assists",
+    "conversion_goals",
+    "penalty_goals",
+    "drop_goals_converted",
+    "defenders_beaten",
+    "offload",
+    "penalties_conceded",
+    "yellow_cards",
+    "red_cards"
+  ],
+  "tournaments": {
+    "six_nations": 0.9525877866385777
+  }
+}

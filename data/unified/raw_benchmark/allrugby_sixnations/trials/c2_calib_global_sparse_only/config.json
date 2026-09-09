@@ -1,0 +1,20 @@
+{
+  "calibrate_events": [
+    "drop_goals_converted",
+    "red_cards",
+    "yellow_cards",
+    "penalty_goals",
+    "conversion_goals"
+  ],
+  "calibration_clip": [
+    0.1,
+    10.0
+  ],
+  "calibration_shrinkage": 1.0,
+  "dead_head_fallback": "none",
+  "extra_head_shrinkage": 240.0,
+  "extra_heads": "none",
+  "level_calibration": "global",
+  "minutes_blend": 0.0,
+  "name": "c2_calib_global_sparse_only"
+}

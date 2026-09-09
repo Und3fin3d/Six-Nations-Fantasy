@@ -1,0 +1,248 @@
+{
+  "accepted": false,
+  "baseline_stable_score": 0.8864704364786675,
+  "bootstrap_paired_by_fold": {
+    "mean": 0.0008723100401036536,
+    "n_clusters": 21,
+    "p05": 0.00027994082978185613,
+    "p95": 0.0016488043881366394
+  },
+  "cross_fits": [
+    {
+      "held_out_fold": "six_nations_2022",
+      "rule": {
+        "a": 0.5,
+        "b": -0.0,
+        "k": 3.0
+      }
+    },
+    {
+      "held_out_fold": "summer_internationals_2022",
+      "rule": {
+        "a": 0.4,
+        "b": 0.1,
+        "k": 3.0
+      }
+    },
+    {
+      "held_out_fold": "rugby_championship_2022",
+      "rule": {
+        "a": 0.6,
+        "b": -0.1,
+        "k": 10.0
+      }
+    },
+    {
+      "held_out_fold": "autumn_internationals_2022",
+      "rule": {
+        "a": 0.5,
+        "b": -0.0,
+        "k": 3.0
+      }
+    },
+    {
+      "held_out_fold": "six_nations_2023",
+      "rule": {
+        "a": 0.5,
+        "b": -0.0,
+        "k": 3.0
+      }
+    },
+    {
+      "held_out_fold": "rugby_championship_2023",
+      "rule": {
+        "a": 0.5,
+        "b": -0.0,
+        "k": 3.0
+      }
+    },
+    {
+      "held_out_fold": "summer_internationals_2023",
+      "rule": {
+        "a": 0.5,
+        "b": -0.0,
+        "k": 3.0
+      }
+    },
+    {
+      "held_out_fold": "rugby_world_cup_2023",
+      "rule": {
+        "a": 0.5,
+        "b": 0.1,
+        "k": 30.0
+      }
+    },
+    {
+      "held_out_fold": "six_nations_2024",
+      "rule": {
+        "a": 0.5,
+        "b": -0.0,
+        "k": 3.0
+      }
+    },
+    {
+      "held_out_fold": "summer_internationals_2024",
+      "rule": {
+        "a": 0.5,
+        "b": -0.0,
+        "k": 3.0
+      }
+    },
+    {
+      "held_out_fold": "rugby_championship_2024",
+      "rule": {
+        "a": 0.4,
+        "b": 0.2,
+        "k": 3.0
+      }
+    },
+    {
+      "held_out_fold": "pacific_nations_cup_2024",
+      "rule": {
+        "a": 0.6,
+        "b": -0.1,
+        "k": 10.0
+      }
+    },
+    {
+      "held_out_fold": "autumn_internationals_2024",
+      "rule": {
+        "a": 0.5,
+        "b": -0.0,
+        "k": 3.0
+      }
+    },
+    {
+      "held_out_fold": "six_nations_2025",
+      "rule": {
+        "a": 0.5,
+        "b": -0.0,
+        "k": 3.0
+      }
+    },
+    {
+      "held_out_fold": "british_irish_lions_2025",
+      "rule": {
+        "a": 0.5,
+        "b": -0.0,
+        "k": 3.0
+      }
+    },
+    {
+      "held_out_fold": "summer_internationals_2025",
+      "rule": {
+        "a": 0.5,
+        "b": -0.0,
+        "k": 3.0
+      }
+    },
+    {
+      "held_out_fold": "rugby_championship_2025",
+      "rule": {
+        "a": 0.5,
+        "b": -0.0,
+        "k": 3.0
+      }
+    },
+    {
+      "held_out_fold": "pacific_nations_cup_2025",
+      "rule": {
+        "a": 0.5,
+        "b": -0.0,
+        "k": 3.0
+      }
+    },
+    {
+      "held_out_fold": "autumn_internationals_2025",
+      "rule": {
+        "a": 0.5,
+        "b": 0.1,
+        "k": 30.0
+      }
+    },
+    {
+      "held_out_fold": "six_nations_2026",
+      "rule": {
+        "a": 0.5,
+        "b": -0.0,
+        "k": 3.0
+      }
+    },
+    {
+      "held_out_fold": "nations_championship_2026",
+      "rule": {
+        "a": 0.5,
+        "b": -0.0,
+        "k": 3.0
+      }
+    }
+  ],
+  "delta": 0.0008723100401036536,
+  "fitting": "leave-one-fold-out cross-fitted (out-of-sample)",
+  "hypothesis": "Unlike a per-tournament or per-hemisphere weight -- which would break the",
+  "improvement_vs_frozen": -0.0009840260929272482,
+  "in_sample_reference": 0.8864704364786675,
+  "n_fitted_parameters": 3,
+  "name": "C7_history_depth_weight",
+  "north": 0.8742282419350264,
+  "north_base": 0.873602638562936,
+  "per_tournament": {
+    "autumn_internationals": {
+      "baseline": 0.8883549468470239,
+      "candidate": 0.889414352199796
+    },
+    "british_irish_lions": {
+      "baseline": 0.8549318649705726,
+      "candidate": 0.8549318649705726
+    },
+    "nations_championship": {
+      "baseline": 0.8356788892023017,
+      "candidate": 0.8356788892023017
+    },
+    "pacific_nations_cup": {
+      "baseline": 0.9401876549901582,
+      "candidate": 0.9408631630215896
+    },
+    "rugby_championship": {
+      "baseline": 0.9002127136063399,
+      "candidate": 0.9026936968773124
+    },
+    "rugby_world_cup": {
+      "baseline": 0.8603492063866115,
+      "candidate": 0.8624563520837896
+    },
+    "six_nations": {
+      "baseline": 0.865587409690967,
+      "candidate": 0.865587409690967
+    },
+    "summer_internationals": {
+      "baseline": 0.8976727880227373,
+      "candidate": 0.8981123380077196
+    }
+  },
+  "reasons": [
+    "(a) stable_score 0.887343 did not improve on frozen 0.886470",
+    "(b) paired-by-fold bootstrap CI [0.000280, 0.001649] includes 0"
+  ],
+  "south": 0.8993444780657252,
+  "south_base": 0.8983417136100575,
+  "stable_score": 0.8873427465187712,
+  "temporal_holdout": {
+    "fitted_rule": {
+      "a": 0.5,
+      "b": 0.1,
+      "k": 10.0
+    },
+    "held_out_baseline": 0.893024075131013,
+    "held_out_bootstrap": {
+      "mean": 0.0006756887527220186,
+      "n_clusters": 11,
+      "p05": -0.0008190277260283475,
+      "p95": 0.002317393311162201
+    },
+    "held_out_delta": 0.0006756887527220186,
+    "held_out_stable": 0.8936997638837348,
+    "n_fit_folds": 10,
+    "n_held_folds": 11
+  }
+}

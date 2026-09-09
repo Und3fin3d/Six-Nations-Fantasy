@@ -1,0 +1,14 @@
+{
+  "calibrate_events": null,
+  "calibration_clip": [
+    0.1,
+    10.0
+  ],
+  "calibration_shrinkage": 1.0,
+  "dead_head_fallback": "none",
+  "extra_head_shrinkage": 240.0,
+  "extra_heads": "none",
+  "level_calibration": "position",
+  "minutes_blend": 0.0,
+  "name": "c3_calib_position"
+}

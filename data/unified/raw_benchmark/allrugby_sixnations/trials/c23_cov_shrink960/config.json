@@ -1,0 +1,17 @@
+{
+  "calibrate_events": null,
+  "calibration_clip": [
+    0.1,
+    10.0
+  ],
+  "calibration_shrinkage": 1.0,
+  "dead_head_fallback": "rate_minutes",
+  "extra_head_shrinkage": 960.0,
+  "extra_heads": "rate_minutes",
+  "level_calibration": "global",
+  "minutes_blend": 0.0,
+  "name": "c23_cov_shrink960",
+  "revive_events": [
+    "red_cards"
+  ]
+}

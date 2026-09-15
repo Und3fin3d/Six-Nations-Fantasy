@@ -829,3 +829,16 @@ date,comp,team,team_id,opponent,opponent_id,team_score,opp_score,margin,result,r
 2026-08-22,Rugby’s Greatest Rivalry 2026,New Zealand,37,South Africa,39,33,16,17,W,,True
 2026-08-22,Rugby’s Greatest Rivalry 2026,South Africa,39,New Zealand,37,16,33,-17,L,,True
 2026-08-25,Rugby’s Greatest Rivalry 2026,New Zealand,37,Lions,2357,41,35,6,W,,False
+2026-08-29,Men's Internationals 2026,Argentina,40,Australia,38,21,27,-6,L,,True
+2026-08-29,Men's Internationals 2026,Australia,38,Argentina,40,27,21,6,W,,True
+2026-08-29,Rugby’s Greatest Rivalry 2026,New Zealand,37,South Africa,39,26,33,-7,L,,True
+2026-08-29,Rugby’s Greatest Rivalry 2026,South Africa,39,New Zealand,37,33,26,7,W,,True
+2026-09-05,Men's Internationals 2026,Argentina,40,Australia,38,28,28,0,D,,True
+2026-09-05,Men's Internationals 2026,Australia,38,Argentina,40,28,28,0,D,,True
+2026-09-05,Men's Internationals 2026,Japan,49,Canada,50,57,12,45,W,,False
+2026-09-05,Rugby’s Greatest Rivalry 2026,New Zealand,37,South Africa,39,24,29,-5,L,,True
+2026-09-05,Rugby’s Greatest Rivalry 2026,South Africa,39,New Zealand,37,29,24,5,W,,True
+2026-09-12,Pacific Nations Cup 2026,Fiji,46,Canada,50,45,29,16,W,,False
+2026-09-12,Pacific Nations Cup 2026,Japan,49,USA,51,63,14,49,W,,False
+2026-09-12,Rugby’s Greatest Rivalry 2026,New Zealand,37,South Africa,39,28,43,-15,L,,True
+2026-09-12,Rugby’s Greatest Rivalry 2026,South Africa,39,New Zealand,37,43,28,15,W,,True

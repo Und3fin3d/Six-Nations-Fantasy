@@ -445,7 +445,16 @@ def main() -> None:
         "--teams-only", action="store_true",
         help="reuse saved player predictions and only rebuild fantasy-team results",
     )
+    parser.add_argument("--history", choices=("rolling", "frozen"), default="rolling",
+                        help="rolling updates all models before each round; frozen reproduces the old tournament holdout")
     args = parser.parse_args()
+    if args.history == "rolling":
+        if args.teams_only:
+            parser.error("--teams-only requires --history frozen; rolling comparisons rebuild all models")
+        from .rolling_evaluation import run
+        for gw in (1, 2, 3):
+            run(f"ncr-2026-gw{gw}")
+        return
     if args.teams_only:
         result = write_team_evaluation()
         print(result.to_string(index=False))

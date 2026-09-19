@@ -10,6 +10,7 @@ import numpy as np
 import pandas as pd
 
 from model.rp_rates import _norm, _season_end_year
+from model.pit import completed_seasons
 
 from ..contracts import EventDistribution, RawPrediction
 from ..data import ROOT
@@ -73,6 +74,8 @@ class EmpiricalEventModel:
     dispersion: dict[str, float] = field(default_factory=dict)
     wr_points: dict[str, float] = field(default_factory=dict)
     active_events: set[str] = field(default_factory=set)
+    minutes_prior_matches: float = 0.0
+    exposure_weighted_priors: bool = False
 
     def _weighted_rates(self, frame: pd.DataFrame, level: str) -> dict[tuple[str, str], tuple[float, float]]:
         subset = frame[frame["competition_level"].eq(level)].copy()
@@ -106,9 +109,7 @@ class EmpiricalEventModel:
             return
         rp = pd.read_csv(path, low_memory=False)
         asof = pd.Timestamp(self.asof).tz_localize(None) if pd.Timestamp(self.asof).tzinfo else pd.Timestamp(self.asof)
-        end_year = rp["season"].map(_season_end_year)
-        concluded = pd.to_datetime(end_year.astype(str) + "-06-30", errors="coerce")
-        rp = rp[concluded.lt(asof)].copy()
+        rp = rp[completed_seasons(rp["season"], asof)].copy()
         rp["_weight"] = np.power(
             0.5,
             (asof.year - rp["season"].map(_season_end_year)).clip(lower=0) / RP_HALFLIFE_YEARS,
@@ -128,8 +129,11 @@ class EmpiricalEventModel:
                 valid = values.notna()
                 if not valid.any():
                     continue
-                rate = float((group.loc[valid, "_weight"] * values[valid]).sum() / weighted_minutes * 80)
-                by_name[(_norm(str(slug).replace("-", " ")), event)] = (rate, weighted_minutes)
+                exposure = float((group.loc[valid, "_weight"] * minutes[valid]).sum())
+                if exposure <= 0:
+                    continue
+                rate = float((group.loc[valid, "_weight"] * values[valid]).sum() / exposure * 80)
+                by_name[(_norm(str(slug).replace("-", " ")), event)] = (rate, exposure)
 
         # Event-specific calibration against established international players.
         factor: dict[str, float] = {}
@@ -188,6 +192,10 @@ class EmpiricalEventModel:
             )
             position = block.groupby("position")["_rate"].mean()
             overall = float(block["_rate"].mean())
+            if self.exposure_weighted_priors:
+                total = block.groupby("position")[[event, "minutes"]].sum()
+                position = total[event] / total["minutes"].clip(lower=1) * 80.0
+                overall = float(block[event].sum() / max(block["minutes"].sum(), 1) * 80.0)
             for pos in train["position"].dropna().astype(str).unique():
                 self.position_priors[(str(pos), event)] = float(position.get(pos, overall))
             actual = pd.to_numeric(block[event], errors="coerce").to_numpy(float)
@@ -199,6 +207,8 @@ class EmpiricalEventModel:
         train["_weight"] = np.power(0.5, (asof - dates).dt.days.clip(lower=0) / HALFLIFE_DAYS)
         minute_valid = train["available__minutes"].fillna(False).astype(bool)
         minute_rows = train[minute_valid].copy()
+        if self.minutes_prior_matches > 0:
+            minute_rows = minute_rows[minute_rows["competition_level"].eq("international")].copy()
         for (player, started), group in minute_rows.groupby([minute_rows["player_id"].astype(str), "started"]):
             weight = group["_weight"].to_numpy(float)
             if weight.sum() > 0:
@@ -211,6 +221,13 @@ class EmpiricalEventModel:
                 self.minutes_by_position[(str(position), bool(started))] = float(
                     np.average(pd.to_numeric(group["minutes"], errors="coerce"), weights=weight)
                 )
+        if self.minutes_prior_matches > 0:
+            for (player, started), group in minute_rows.groupby(["player_id", "started"]):
+                key = (str(player), bool(started))
+                position = str(group.iloc[-1]["position"])
+                prior = self.minutes_by_position.get((position, bool(started)), 70.0 if started else 20.0)
+                weight = float(group["_weight"].sum())
+                self.minutes_by_player[key] = (weight * self.minutes_by_player[key] + self.minutes_prior_matches * prior) / (weight + self.minutes_prior_matches)
         self.dispersion["minutes"] = max(float(pd.to_numeric(minute_rows["minutes"], errors="coerce").var()), 1.0)
 
         rankings = DATA / "wr_rankings.csv"

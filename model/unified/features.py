@@ -8,6 +8,7 @@ import numpy as np
 import pandas as pd
 
 from .schema import EVENTS
+from model.pit import team_margin_history
 
 CATEGORICAL_FEATURES = (
     "player_id", "position", "team", "opponent", "competition_level",
@@ -40,8 +41,7 @@ def build_pit_features(frame: pd.DataFrame) -> pd.DataFrame:
             lambda x: x.shift(1).ewm(halflife=4, min_periods=1).mean())
         df[f"history_count__{event}"] = valid.groupby(df["player_id"]).transform(
             lambda x: x.shift(1).fillna(False).cumsum()).astype(float)
-    df["team_recent_margin"] = df.groupby("team", sort=False)["team_margin"].transform(
-        lambda x: x.shift(1).ewm(span=8, min_periods=1).mean())
+    df["team_recent_margin"] = team_margin_history(df, prior_only=True)
     return df.drop(columns=["previous_date", "team_margin"])
 
 

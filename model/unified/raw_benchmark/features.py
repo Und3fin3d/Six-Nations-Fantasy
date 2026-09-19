@@ -8,6 +8,7 @@ import numpy as np
 import pandas as pd
 
 from ..features import build_pit_features
+from model.pit import team_margin_history
 from ..schema import EVENTS
 from ..v4.features import add_v4_base_stats
 
@@ -57,9 +58,7 @@ def build_frozen_feature_frames(
         ordered.get("opp_score", pd.Series(np.nan, index=ordered.index)), errors="coerce"
     )
     team_margin = team_score - opponent_score
-    margin_state = team_margin.groupby(ordered["team"], sort=False).transform(
-        lambda values: values.ewm(span=8, min_periods=1).mean()
-    )
+    margin_state = team_margin_history(ordered, prior_only=False)
     candidate_features["team_recent_margin"] = candidate_features["team"].map(
         margin_state.groupby(ordered["team"], sort=False).last()
     )

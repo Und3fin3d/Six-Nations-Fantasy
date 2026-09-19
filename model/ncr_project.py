@@ -25,6 +25,7 @@ from pathlib import Path
 import numpy as np
 import pandas as pd
 from scipy.optimize import milp, LinearConstraint, Bounds
+from model.pit import history_before, day_cutoff
 
 ROOT = Path(__file__).resolve().parent.parent
 DATA = ROOT / "data"
@@ -146,13 +147,13 @@ def _weighted_rates(g):
 
 # ── 2. recency-weighted per-80 rates + expected-minutes profile per player ───
 def player_profiles(hist, club=None, *, asof=None):
-    prediction_asof = pd.Timestamp(asof) if asof is not None else ASOF
-    hist = hist.copy()
+    prediction_asof = day_cutoff(asof if asof is not None else ASOF).tz_localize(None)
+    hist = history_before(hist, prediction_asof)
     hist["date"] = pd.to_datetime(hist["date"])
     hist["w"] = 0.5 ** ((prediction_asof - hist["date"]).dt.days / HALFLIFE_DAYS)
     club_by_pid = {}
     if club is not None and len(club):
-        club = club.copy()
+        club = history_before(club, prediction_asof)
         club["date"] = pd.to_datetime(club["date"])
         club["w"] = 0.5 ** ((prediction_asof - club["date"]).dt.days / HALFLIFE_DAYS)
         club = club[club["w"] > 0.05]                    # ignore near-dead-weight club history
@@ -217,7 +218,7 @@ def recent_appearance_share(hist, last_n=6):
 
 def build_projection(
     exclude_teams=(), override_rates=None, *, pool_override=None,
-    asof=None, gameday=None,
+    asof=None, gameday=None, use_weather=True,
 ):
     """override_rates: optional DataFrame [fantasy_id, att, dfn, dsc] of per-80
     NCR-point components from an external model (e.g. the research.py rate heads);
@@ -225,21 +226,20 @@ def build_projection(
     same matchup / minutes / scoring / optimiser downstream."""
     ov = ({int(r.fantasy_id): (r.att, r.dfn, r.dsc) for r in override_rates.itertuples()}
           if override_rates is not None else {})
-    prediction_asof = pd.Timestamp(asof) if asof is not None else ASOF
+    prediction_asof = day_cutoff(asof if asof is not None else ASOF).tz_localize(None)
     pool = (
         pool_override.copy() if pool_override is not None
         else pd.read_csv(NCR / "ncr_players.csv")
     )
     if exclude_teams:
         pool = pool[~pool.team_name.isin(exclude_teams)]   # e.g. matches already kicked off
-    hist = pd.read_csv(NCR / "ncr_player_match.csv")
+    hist = history_before(pd.read_csv(NCR / "ncr_player_match.csv"), prediction_asof)
     teams = pd.read_csv(NCR / "ncr_teams.csv")
     fx = pd.read_csv(NCR / "ncr_fixtures.csv")
     wr = pd.read_csv(DATA / "wr_rankings.csv")
     wr["snapshot_date"] = pd.to_datetime(wr["snapshot_date"])
     point_in_time_wr = wr[wr["snapshot_date"].lt(prediction_asof)]
-    if point_in_time_wr.empty:
-        point_in_time_wr = wr
+    # No past ranking means a neutral fallback, never a future snapshot.
     wr = point_in_time_wr[
         point_in_time_wr.snapshot_date == point_in_time_wr.snapshot_date.max()
     ].set_index("team")["wr_pts"].to_dict()
@@ -259,7 +259,7 @@ def build_projection(
     # venue weather (physical conditions, not a third-party forecast of the result)
     wx = {}
     wx_path = NCR / "ncr_fixture_weather.csv"
-    if wx_path.exists():
+    if use_weather and wx_path.exists():
         wd = pd.read_csv(wx_path)
         for _, r in wd[wd.gameday == cur_gd].iterrows():
             # attacking suppression from wind (>20kph) and rain / high precip probability
@@ -274,7 +274,7 @@ def build_projection(
     club = None
     club_path = NCR / "club_player_match.csv"
     if club_path.exists() and not ov:                    # skip when an external model overrides rates
-        club = pd.read_csv(club_path)
+        club = history_before(pd.read_csv(club_path), prediction_asof)
     prof = player_profiles(hist, club, asof=prediction_asof)
 
     # bench-minute prior by SLOT (GW1 audit: j18 props ~32 min vs j21 scrum-halves ~16;
@@ -302,7 +302,7 @@ def build_projection(
             api_players = pd.DataFrame([
                 {"name_key": RP._norm(pid2name.get(pid, "")), "att": p["att"], "dfn": p["dfn"]}
                 for pid, p in prof.items() if p["wmin"] > 300])
-            rp = RP.rp_rates()
+            rp = RP.rp_rates(asof=prediction_asof)
             rp, fac = RP.calibrate(rp, api_players)
             rp_by_key = rp.set_index("name_key")[["att", "dfn", "dsc", "rp_min"]].to_dict("index")
             print(f"RugbyPass prior: {len(rp_by_key)} players, calibration {fac}")

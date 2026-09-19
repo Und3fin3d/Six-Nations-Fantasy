@@ -9,8 +9,8 @@ No learned or hand-set parameter is competition-specific; only the scoring
 weights differ, exactly as the unified mandate requires.
 
 Everything is point-in-time per round: history/club/WR strictly before the
-round's first match; RugbyPass seasons only if concluded (June 30 of the
-season's end year) before the round. NCR GW1-2 numbers here are therefore the
+round's first match; RugbyPass full-season totals use conservative completed-season availability
+(split seasons after June, calendar-year seasons after December). NCR GW1-2 numbers here are therefore the
 HONEST version of the deployed incumbent's slightly in-window 8.90.
 
 Outputs data/unified/v4/empirical_unified_{folds,predictions}.csv.
@@ -20,6 +20,7 @@ from __future__ import annotations
 
 import numpy as np
 import pandas as pd
+from model.pit import completed_seasons
 
 from model.ncr_on_6n import (CLUB_ATT_CAL, CLUB_CONF, CLUB_DEF_CAL,
                              CLUB_DSC_CAL, HALFLIFE_DAYS, K,
@@ -112,9 +113,7 @@ def profiles(hist, club, tryw_by_pid, cfg) -> dict:
 
 def rp_prior(asof: pd.Timestamp, cfg: dict) -> dict:
     cs = pd.read_csv(DATA / "rp_compstats.csv")
-    end_year = cs["season"].map(_season_end_year)
-    concluded = pd.to_datetime(end_year.astype(str) + "-06-30")
-    cs = cs[concluded < asof.tz_localize(None) if asof.tzinfo else concluded < asof]
+    cs = cs[completed_seasons(cs["season"], asof)].copy()
     cs["w"] = 0.5 ** ((asof.year - cs["season"].map(_season_end_year)).clip(lower=0)
                       / RP_HALFLIFE_YEARS)
     cs = cs[cs["w"] > 0.15]

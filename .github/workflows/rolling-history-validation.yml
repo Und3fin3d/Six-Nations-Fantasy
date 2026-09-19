@@ -29,10 +29,15 @@ jobs:
   prepare:
     runs-on: ubuntu-latest
     timeout-minutes: 15
+    permissions:
+      contents: write
+      actions: read
+    outputs:
+      revision: ${{ steps.commit.outputs.sha }}
     steps:
       - uses: actions/checkout@v5
         with:
-          persist-credentials: false
+          ref: codex/rolling-history-parity-20260919
       - uses: actions/setup-python@v6
         with:
           python-version: '3.11'
@@ -48,10 +53,11 @@ jobs:
           run-id: 35461768013
           github-token: ${{ github.token }}
           path: data/unified/rolling_history_v2
-      - name: Test and validate all round inputs before training
+      - name: Repair shared identities, test, and validate every round
         run: |
           cp "$OUTPUT_DIR/club_player_match.csv" data/ncr/club_player_match.csv
-          python -m pytest -q tests/test_rolling_history.py tests/test_candidate_outcome_mask.py tests/test_unified_raw_benchmark.py tests/test_unified_model.py | tee "$OUTPUT_DIR/tests.log"
+          python .github/scripts/repair_rolling_identity.py
+          python -m pytest -q tests/test_rolling_history.py tests/test_candidate_outcome_mask.py tests/test_rolling_identity.py tests/test_unified_raw_benchmark.py tests/test_unified_model.py | tee "$OUTPUT_DIR/tests.log"
           python - <<'PY'
           import os
           from pathlib import Path
@@ -59,13 +65,26 @@ jobs:
           store = prepare_store(Path(os.environ['OUTPUT_DIR']))
           for round_id in ROUND_IDS:
               cutoff, candidates, labels, baseline = cohort(store, round_id)
-              assert len(candidates) == len(labels)
-              assert not candidates.duplicated(GRAIN).any()
+              assert len(candidates) == len(labels), (round_id, 'cohort length')
+              duplicates = candidates[candidates.duplicated(GRAIN, keep=False)]
+              assert duplicates.empty, (round_id, duplicates[GRAIN + ['player_name']].to_dict('records'))
               assert not candidates.filter(like='available__').any().any(), round_id
               print(round_id, cutoff, len(candidates), flush=True)
           PY
           python -m pip freeze > "$OUTPUT_DIR/environment.txt"
           git diff --check
+      - name: Save tested identity fix on the working branch
+        id: commit
+        run: |
+          git config user.name 'github-actions[bot]'
+          git config user.email '41898282+github-actions[bot]@users.noreply.github.com'
+          git add model tests
+          if ! git diff --cached --quiet; then
+            git commit -m 'Share verified player-history IDs between empirical and unified predictions'
+            git pull --rebase origin codex/rolling-history-parity-20260919
+            git push origin HEAD:codex/rolling-history-parity-20260919
+          fi
+          echo "sha=$(git rev-parse HEAD)" >> "$GITHUB_OUTPUT"
       - uses: actions/upload-artifact@v4
         with:
           name: rolling-input-validated
@@ -85,6 +104,7 @@ jobs:
     steps:
       - uses: actions/checkout@v5
         with:
+          ref: ${{ needs.prepare.outputs.revision }}
           persist-credentials: false
       - uses: actions/setup-python@v6
         with:

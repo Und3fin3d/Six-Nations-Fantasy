@@ -1,0 +1,25 @@
+{
+  "selected_on_development": "p3_balanced_recent_native",
+  "promote": false,
+  "open_champion_pr": false,
+  "friendly15_completed": true,
+  "fantasy_gate_passed": false,
+  "reason": "Friendly stat improvement does not offset fantasy MAE/squad regressions.",
+  "validation": {
+    "source_files_checked": 93,
+    "jobs_checked": 40,
+    "friendly15_fixtures": 15,
+    "friendly15_player_matches": 690,
+    "development_fixtures": 12,
+    "development_player_matches": 552,
+    "raw_metric_cells_checked": 2232,
+    "fantasy_maes_and_squad_scores_checked": 39,
+    "ncr_budget_squads_checked": 9,
+    "control_squads_identical": 26,
+    "all_source_and_input_hashes_equal": true,
+    "all_confirmation_uses_frozen_selection": true,
+    "frozen_selection_sha256": "ab9022d822638b41d99772bb814ae213f74c3365a9a8e95d37de2d81326a57b1",
+    "ranking_publication_cutoffs_checked": 40,
+    "minimum_ranking_publication_lead_hours": 13.153390833333335
+  }
+}

@@ -11,26 +11,31 @@ permissions:
   contents: read
 
 jobs:
-  export-checkout:
+  export-pinned-environment:
     runs-on: ubuntu-latest
-    timeout-minutes: 15
+    timeout-minutes: 20
     steps:
       - uses: actions/checkout@v5
         with:
           lfs: false
           persist-credentials: false
-      - name: Download only required historical tables
+      - uses: actions/setup-python@v6
+        with:
+          python-version: '3.11'
+      - name: Install pinned CPU model dependencies
         run: |
-          git lfs pull --include="data/unified/player_match.csv,data/unified/raw_benchmark/v1/player_match.csv,data/ncr/club_player_match.csv" --exclude=""
-      - name: Archive research inputs for the isolated local runner
+          python -m pip install --no-cache-dir torch==2.7.1 --index-url https://download.pytorch.org/whl/cpu
+          python -m pip install --no-cache-dir -r requirements-model.txt -r requirements-unified.txt pytest
+          python model_env_preflight.py
+          python -m pip freeze > "$RUNNER_TEMP/requirements-resolved.txt"
+      - name: Export isolated Python environment
         run: |
-          tar --exclude='./.git' -czf "$RUNNER_TEMP/6n-research-checkout.tar.gz" .
-          git rev-parse HEAD > "$RUNNER_TEMP/source-commit.txt"
+          tar -czf "$RUNNER_TEMP/6n-python311.tar.gz" -C "$pythonLocation" .
       - uses: actions/upload-artifact@v4
         with:
-          name: research-checkout
+          name: pinned-cpu-environment
           path: |
-            ${{ runner.temp }}/6n-research-checkout.tar.gz
-            ${{ runner.temp }}/source-commit.txt
-          retention-days: 3
+            ${{ runner.temp }}/6n-python311.tar.gz
+            ${{ runner.temp }}/requirements-resolved.txt
+          retention-days: 1
           if-no-files-found: error

@@ -1,4 +1,4 @@
-"""Apply the small identity seam fix once; fail if source anchors change."""
+"""Apply small rolling-evaluation fixes once; fail if source anchors change."""
 from pathlib import Path
 
 
@@ -21,4 +21,7 @@ replace("model/unified/v3/shadow.py",
 replace("model/unified/v3/shadow.py",
         '            "player_name": row.full_name if isinstance(row.full_name, str) else row.name,',
         '            "player_name": row.name,')
-print("Applied shared historical identity seam")
+replace("model/unified/rolling_evaluation.py",
+        'def run(round_id: str, output: Path = OUT) -> pd.DataFrame:\n',
+        'def run(round_id: str, output: Path = OUT) -> pd.DataFrame:\n    output = output.resolve()\n')
+print("Applied shared historical identity and output-path fixes")

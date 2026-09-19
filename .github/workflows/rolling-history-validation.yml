@@ -10,32 +10,146 @@ on:
 
 permissions:
   contents: read
-  actions: read
 
 concurrency:
   group: rolling-history-validation
   cancel-in-progress: false
 
+env:
+  OMP_NUM_THREADS: '2'
+  OPENBLAS_NUM_THREADS: '1'
+  MKL_NUM_THREADS: '2'
+  PYTEST_DISABLE_PLUGIN_AUTOLOAD: '1'
+
 jobs:
-  runtime:
+  prepare:
     runs-on: ubuntu-latest
-    timeout-minutes: 10
+    timeout-minutes: 20
+    permissions:
+      contents: write
+    outputs:
+      revision: ${{ steps.revision.outputs.sha }}
     steps:
-      - name: Download prepared runtime
-        env:
-          GH_TOKEN: ${{ github.token }}
-        run: gh run download 35459997007 --repo Und3fin3d/Six-Nations-Fantasy --name 6n-python311 --dir /tmp/runtime
-      - name: Split below connector file-size limit
-        run: split -b 450M /tmp/runtime/6n-python311.tar.gz /tmp/python-part-
+      - uses: actions/checkout@v5
+        with:
+          ref: codex/rolling-history-parity-20260919
+      - uses: actions/setup-python@v6
+        with:
+          python-version: '3.11'
+          cache: pip
+      - name: Install pinned dependencies
+        run: |
+          python -m pip install -r requirements-model.txt pytest
+          python -m pip install torch==2.7.1 --index-url https://download.pytorch.org/whl/cpu
+      - name: Apply guarded fixes and run regression tests
+        run: |
+          python .github/scripts/apply_rolling_fixes.py
+          mkdir -p data/unified/rolling_history
+          python -m pytest -q tests/test_rolling_history.py tests/test_unified_raw_benchmark.py tests/test_unified_model.py 2>&1 | tee data/unified/rolling_history/tests.log
+          git diff --check
+      - name: Save tested fixes on the working branch only
+        id: revision
+        run: |
+          if ! git diff --quiet -- model tests; then
+            git config user.name 'github-actions[bot]'
+            git config user.email '41898282+github-actions[bot]@users.noreply.github.com'
+            git add model tests
+            git commit -m 'Fix rolling history boundaries and match-level feature leakage'
+            git push origin HEAD:codex/rolling-history-parity-20260919
+          fi
+          echo "sha=$(git rev-parse HEAD)" >> "$GITHUB_OUTPUT"
+      - name: Rebuild current history from permanent caches
+        run: |
+          python -m model.unified.rolling_evaluation --prepare
+          python -m pip freeze > data/unified/rolling_history/environment.txt
       - uses: actions/upload-artifact@v4
         with:
-          name: 6n-python311-part-aa
-          path: /tmp/python-part-aa
-          retention-days: 3
-          if-no-files-found: error
-      - uses: actions/upload-artifact@v4
+          name: rolling-input
+          path: |
+            data/unified/rolling_history/player_match.csv
+            data/unified/rolling_history/store_manifest.json
+            data/unified/rolling_history/source_report.json
+            data/unified/rolling_history/tests.log
+            data/unified/rolling_history/environment.txt
+          compression-level: 1
+          retention-days: 7
+
+  compare:
+    needs: prepare
+    runs-on: ubuntu-latest
+    timeout-minutes: 35
+    strategy:
+      fail-fast: false
+      max-parallel: 4
+      matrix:
+        round: [6n-2025-r1, 6n-2025-r2, 6n-2025-r3, 6n-2025-r4, 6n-2025-r5, 6n-2026-r1, 6n-2026-r2, 6n-2026-r3, 6n-2026-r4, 6n-2026-r5, ncr-2026-gw1, ncr-2026-gw2, ncr-2026-gw3]
+    steps:
+      - uses: actions/checkout@v5
         with:
-          name: 6n-python311-part-ab
-          path: /tmp/python-part-ab
-          retention-days: 3
-          if-no-files-found: error
+          ref: ${{ needs.prepare.outputs.revision }}
+          persist-credentials: false
+      - uses: actions/setup-python@v6
+        with:
+          python-version: '3.11'
+          cache: pip
+      - name: Install pinned dependencies
+        run: |
+          python -m pip install -r requirements-model.txt pytest
+          python -m pip install torch==2.7.1 --index-url https://download.pytorch.org/whl/cpu
+      - uses: actions/download-artifact@v4
+        with:
+          name: rolling-input
+          path: data/unified/rolling_history
+      - name: Fit and compare using all prior rounds
+        run: python -u -m model.unified.rolling_evaluation --round '${{ matrix.round }}' 2>&1 | tee 'data/unified/rolling_history/${{ matrix.round }}.log'
+      - uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: result-${{ matrix.round }}
+          path: |
+            data/unified/rolling_history/${{ matrix.round }}
+            data/unified/rolling_history/${{ matrix.round }}.log
+          retention-days: 7
+
+  report:
+    needs: [prepare, compare]
+    if: ${{ always() && needs.prepare.result == 'success' }}
+    runs-on: ubuntu-latest
+    timeout-minutes: 15
+    permissions:
+      contents: write
+    steps:
+      - uses: actions/checkout@v5
+        with:
+          ref: codex/rolling-history-parity-20260919
+      - uses: actions/setup-python@v6
+        with:
+          python-version: '3.11'
+      - name: Install pinned dependencies
+        run: |
+          python -m pip install -r requirements-model.txt
+          python -m pip install torch==2.7.1 --index-url https://download.pytorch.org/whl/cpu
+      - uses: actions/download-artifact@v4
+        with:
+          pattern: result-*
+          path: data/unified/rolling_history
+          merge-multiple: true
+      - uses: actions/download-artifact@v4
+        with:
+          name: rolling-input
+          path: /tmp/rolling-input
+      - name: Summarize and preserve the audit trail without a PR
+        run: |
+          cp /tmp/rolling-input/tests.log /tmp/rolling-input/environment.txt /tmp/rolling-input/store_manifest.json /tmp/rolling-input/source_report.json data/unified/rolling_history/
+          python -m model.unified.rolling_evaluation --summarize 2>&1 | tee data/unified/rolling_history/REPORT.txt
+          git config user.name 'github-actions[bot]'
+          git config user.email '41898282+github-actions[bot]@users.noreply.github.com'
+          git add data/unified/rolling_history
+          git commit -m 'Record matched rolling-round evaluation results; no promotion' || true
+          git push origin HEAD:codex/rolling-history-parity-20260919
+      - uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: rolling-evaluation-report
+          path: data/unified/rolling_history
+          retention-days: 14

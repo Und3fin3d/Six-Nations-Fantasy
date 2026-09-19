@@ -4,6 +4,8 @@ on:
   push:
     branches:
       - codex/rolling-history-parity-20260919
+    paths:
+      - .github/workflows/rolling-history-validation.yml
   workflow_dispatch:
 
 permissions:
@@ -14,21 +16,31 @@ concurrency:
   cancel-in-progress: false
 
 jobs:
-  snapshot:
+  runtime:
     runs-on: ubuntu-latest
-    timeout-minutes: 10
+    timeout-minutes: 15
     steps:
       - uses: actions/checkout@v5
         with:
           persist-credentials: false
-      - name: Package tracked source and cached data
+      - uses: actions/setup-python@v6
+        with:
+          python-version: '3.11'
+      - name: Install pinned numerical stack
         run: |
-          git rev-parse HEAD
-          git archive HEAD | gzip -1 > /tmp/6n-source.tar.gz
-          du -h /tmp/6n-source.tar.gz
+          python -m pip install -r requirements-model.txt pytest
+          python -m pip install torch==2.7.1 --index-url https://download.pytorch.org/whl/cpu
+          python -m pip freeze > /tmp/6n-runtime-requirements.txt
+      - name: Package runtime for isolated execution
+        run: |
+          prefix=$(python -c 'import sys; print(sys.prefix)')
+          tar -czf /tmp/6n-python311.tar.gz -C "$prefix" .
+          du -h /tmp/6n-python311.tar.gz
       - uses: actions/upload-artifact@v4
         with:
-          name: 6n-source
-          path: /tmp/6n-source.tar.gz
+          name: 6n-python311
+          path: |
+            /tmp/6n-python311.tar.gz
+            /tmp/6n-runtime-requirements.txt
           retention-days: 3
           if-no-files-found: error

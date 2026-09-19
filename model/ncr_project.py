@@ -26,6 +26,8 @@ import numpy as np
 import pandas as pd
 from scipy.optimize import milp, LinearConstraint, Bounds
 
+from model.history import past_matches, utc_cutoff
+
 ROOT = Path(__file__).resolve().parent.parent
 DATA = ROOT / "data"
 NCR = DATA / "ncr"
@@ -146,13 +148,13 @@ def _weighted_rates(g):
 
 # ── 2. recency-weighted per-80 rates + expected-minutes profile per player ───
 def player_profiles(hist, club=None, *, asof=None):
-    prediction_asof = pd.Timestamp(asof) if asof is not None else ASOF
-    hist = hist.copy()
+    prediction_asof = utc_cutoff(asof if asof is not None else ASOF).tz_convert(None)
+    hist = past_matches(hist, prediction_asof)
     hist["date"] = pd.to_datetime(hist["date"])
     hist["w"] = 0.5 ** ((prediction_asof - hist["date"]).dt.days / HALFLIFE_DAYS)
     club_by_pid = {}
     if club is not None and len(club):
-        club = club.copy()
+        club = past_matches(club, prediction_asof)
         club["date"] = pd.to_datetime(club["date"])
         club["w"] = 0.5 ** ((prediction_asof - club["date"]).dt.days / HALFLIFE_DAYS)
         club = club[club["w"] > 0.05]                    # ignore near-dead-weight club history
@@ -217,7 +219,8 @@ def recent_appearance_share(hist, last_n=6):
 
 def build_projection(
     exclude_teams=(), override_rates=None, *, pool_override=None,
-    asof=None, gameday=None,
+    asof=None, gameday=None, history_override=None, club_override=None,
+    use_weather=True,
 ):
     """override_rates: optional DataFrame [fantasy_id, att, dfn, dsc] of per-80
     NCR-point components from an external model (e.g. the research.py rate heads);
@@ -225,21 +228,22 @@ def build_projection(
     same matchup / minutes / scoring / optimiser downstream."""
     ov = ({int(r.fantasy_id): (r.att, r.dfn, r.dsc) for r in override_rates.itertuples()}
           if override_rates is not None else {})
-    prediction_asof = pd.Timestamp(asof) if asof is not None else ASOF
+    prediction_asof = utc_cutoff(asof if asof is not None else ASOF).tz_convert(None)
     pool = (
         pool_override.copy() if pool_override is not None
         else pd.read_csv(NCR / "ncr_players.csv")
     )
     if exclude_teams:
         pool = pool[~pool.team_name.isin(exclude_teams)]   # e.g. matches already kicked off
-    hist = pd.read_csv(NCR / "ncr_player_match.csv")
+    hist = past_matches(
+        history_override if history_override is not None
+        else pd.read_csv(NCR / "ncr_player_match.csv"), prediction_asof,
+    )
     teams = pd.read_csv(NCR / "ncr_teams.csv")
     fx = pd.read_csv(NCR / "ncr_fixtures.csv")
     wr = pd.read_csv(DATA / "wr_rankings.csv")
     wr["snapshot_date"] = pd.to_datetime(wr["snapshot_date"])
     point_in_time_wr = wr[wr["snapshot_date"].lt(prediction_asof)]
-    if point_in_time_wr.empty:
-        point_in_time_wr = wr
     wr = point_in_time_wr[
         point_in_time_wr.snapshot_date == point_in_time_wr.snapshot_date.max()
     ].set_index("team")["wr_pts"].to_dict()
@@ -259,7 +263,7 @@ def build_projection(
     # venue weather (physical conditions, not a third-party forecast of the result)
     wx = {}
     wx_path = NCR / "ncr_fixture_weather.csv"
-    if wx_path.exists():
+    if use_weather and wx_path.exists():
         wd = pd.read_csv(wx_path)
         for _, r in wd[wd.gameday == cur_gd].iterrows():
             # attacking suppression from wind (>20kph) and rain / high precip probability
@@ -273,7 +277,9 @@ def build_projection(
     # player_id space; folded into the FORM rate (calibrated, recency-weighted).
     club = None
     club_path = NCR / "club_player_match.csv"
-    if club_path.exists() and not ov:                    # skip when an external model overrides rates
+    if club_override is not None and not ov:
+        club = past_matches(club_override, prediction_asof)
+    elif club_path.exists() and not ov:                    # skip when an external model overrides rates
         club = pd.read_csv(club_path)
     prof = player_profiles(hist, club, asof=prediction_asof)
 
@@ -302,7 +308,7 @@ def build_projection(
             api_players = pd.DataFrame([
                 {"name_key": RP._norm(pid2name.get(pid, "")), "att": p["att"], "dfn": p["dfn"]}
                 for pid, p in prof.items() if p["wmin"] > 300])
-            rp = RP.rp_rates()
+            rp = RP.rp_rates(asof=prediction_asof)
             rp, fac = RP.calibrate(rp, api_players)
             rp_by_key = rp.set_index("name_key")[["att", "dfn", "dsc", "rp_min"]].to_dict("index")
             print(f"RugbyPass prior: {len(rp_by_key)} players, calibration {fac}")
@@ -403,7 +409,7 @@ def build_projection(
 
 
 # ── 3. MILP squad optimiser ─────────────────────────────────────────────────
-def optimise(df):
+def optimise(df, *, budget=BUDGET, max_nation=MAX_NATION, max_hemi=MAX_HEMI):
     n = len(df)
     # decision vars: x (in squad), s (is super sub), c (is captain)  → 3n binaries
     starter = df.starter_exp.values
@@ -425,15 +431,15 @@ def optimise(df):
     cons.append(LinearConstraint(np.hstack([-I, I, np.zeros((n, n))]), -np.inf, 0))
     cons.append(LinearConstraint(np.hstack([-I, I, I]), -np.inf, 0))
     # budget
-    cons.append(LinearConstraint(np.concatenate([df.value.values, Z(), Z()]), -np.inf, BUDGET))
+    cons.append(LinearConstraint(np.concatenate([df.value.values, Z(), Z()]), -np.inf, budget))
     # per-nation ≤ 3
     for t in df.team.unique():
         m = (df.team == t).values.astype(float)
-        cons.append(LinearConstraint(np.concatenate([m, Z(), Z()]), -np.inf, MAX_NATION))
+        cons.append(LinearConstraint(np.concatenate([m, Z(), Z()]), -np.inf, max_nation))
     # per-hemisphere ≤ 10
-    for h in (1, 2):
+    for h in (() if max_hemi is None else (1, 2)):
         m = (df.hemi == h).values.astype(float)
-        cons.append(LinearConstraint(np.concatenate([m, Z(), Z()]), -np.inf, MAX_HEMI))
+        cons.append(LinearConstraint(np.concatenate([m, Z(), Z()]), -np.inf, max_hemi))
     # starters per position == required  (starter = x − s)
     for pos, req in REQUIRED.items():
         m = (df.pos == pos).values.astype(float)

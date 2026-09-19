@@ -19,6 +19,8 @@ from pathlib import Path
 import numpy as np
 import pandas as pd
 
+from model.history import past_seasons, utc_cutoff
+
 ROOT = Path(__file__).resolve().parent.parent
 DATA = ROOT / "data"
 
@@ -39,7 +41,7 @@ def _season_end_year(s):
     return int(yrs[-1]) if yrs else 2026
 
 
-def rp_rates(asof_year=2026, min_minutes=120):
+def rp_rates(asof_year=2026, min_minutes=120, *, asof=None):
     """Return DataFrame keyed by normalised 'first last' name with recency-weighted
     per-80 att/dfn/dsc (NCR points) and total weighted minutes from RugbyPass."""
     cs = pd.read_csv(DATA / "rp_compstats.csv")
@@ -50,6 +52,9 @@ def rp_rates(asof_year=2026, min_minutes=120):
         raise RuntimeError(
             f"rp_compstats.csv looks stale ({cs['slug'].nunique()} slugs < 600) — "
             "rerun `python build_rugbypass_tables.py` to restore the NCR backfill")
+    if asof is not None:
+        cs = past_seasons(cs, asof)
+        asof_year = utc_cutoff(asof).year
     cs["w"] = 0.5 ** ((asof_year - cs["season"].map(_season_end_year)).clip(lower=0) / HALFLIFE_YEARS)
     cs = cs[cs["w"] > 0.15]                                 # last ~4 seasons
     rows = []
@@ -63,7 +68,7 @@ def rp_rates(asof_year=2026, min_minutes=120):
                          dfn=sum(r[e] * v for e, v in DEF.items()),
                          dsc=sum(r[e] * v for e, v in DISC.items()),
                          rp_min=wm))
-    out = pd.DataFrame(rows)
+    out = pd.DataFrame(rows, columns=["slug", "att", "dfn", "dsc", "rp_min"])
     out["name_key"] = out.slug.str.replace("-", " ").map(_norm)
     return out
 

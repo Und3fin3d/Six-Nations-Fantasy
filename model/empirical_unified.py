@@ -21,6 +21,8 @@ from __future__ import annotations
 import numpy as np
 import pandas as pd
 
+from model.history import past_matches, past_seasons, utc_cutoff
+
 from model.ncr_on_6n import (CLUB_ATT_CAL, CLUB_CONF, CLUB_DEF_CAL,
                              CLUB_DSC_CAL, HALFLIFE_DAYS, K,
                              RP_HALFLIFE_YEARS, _norm, _season_end_year)
@@ -112,9 +114,7 @@ def profiles(hist, club, tryw_by_pid, cfg) -> dict:
 
 def rp_prior(asof: pd.Timestamp, cfg: dict) -> dict:
     cs = pd.read_csv(DATA / "rp_compstats.csv")
-    end_year = cs["season"].map(_season_end_year)
-    concluded = pd.to_datetime(end_year.astype(str) + "-06-30")
-    cs = cs[concluded < asof.tz_localize(None) if asof.tzinfo else concluded < asof]
+    cs = past_seasons(cs, asof)
     cs["w"] = 0.5 ** ((asof.year - cs["season"].map(_season_end_year)).clip(lower=0)
                       / RP_HALFLIFE_YEARS)
     cs = cs[cs["w"] > 0.15]
@@ -150,17 +150,17 @@ def calibrate_rp(table, prof, names, tryw_by_pid) -> float:
     return float(np.clip(np.median(ratios), 0.5, 1.2)) if len(ratios) >= 20 else 0.84
 
 
-def project_round(block: pd.DataFrame, store: pd.DataFrame, competition: str,
-                  wr: pd.DataFrame) -> pd.DataFrame:
+def project_candidates(played: pd.DataFrame, store: pd.DataFrame, competition: str,
+                       wr: pd.DataFrame, *, asof: str | pd.Timestamp) -> pd.DataFrame:
+    """Project an explicit pre-lock cohort; outcomes are not prediction inputs."""
     cfg = CONFIGS[competition]
-    matched = match_labels_to_store(block, store)
-    matched = matched.rename(columns={"_label_row_id": "label_row_id"})
-    played = matched[matched["store_matched"]].copy()
-    asof = pd.to_datetime(played["date"]).min()
-
-    hist = store[store.competition_level.eq("international") & (store.date < asof)].copy()
+    asof = utc_cutoff(asof).tz_convert(None)
+    history = past_matches(store, asof)
+    hist = history[history.competition_level.eq("international")].copy()
+    hist["date"] = pd.to_datetime(hist["date"], utc=True).dt.tz_convert(None)
     hist["w"] = 0.5 ** ((asof - hist.date).dt.days / HALFLIFE_DAYS)
-    club = store[store.competition_level.eq("club") & (store.date < asof)].copy()
+    club = history[history.competition_level.eq("club")].copy()
+    club["date"] = pd.to_datetime(club["date"], utc=True).dt.tz_convert(None)
     club["w"] = 0.5 ** ((asof - club.date).dt.days / HALFLIFE_DAYS)
     club = club[club.w > 0.05]
 
@@ -175,7 +175,7 @@ def project_round(block: pd.DataFrame, store: pd.DataFrame, competition: str,
     rp_table = rp_prior(asof, cfg)
     fac = calibrate_rp(rp_table, prof, names, tryw_by_pid)
 
-    snap = wr[wr.snapshot_date.le(asof)]
+    snap = wr[pd.to_datetime(wr.snapshot_date, utc=True).lt(utc_cutoff(asof))]
     snap = snap[snap.snapshot_date.eq(snap.snapshot_date.max())]
     wr_pts = snap.set_index("team")["wr_pts"].to_dict()
     bench_hist = hist[~hist.started.astype(bool) & hist.minutes.gt(0)]
@@ -231,10 +231,19 @@ def project_round(block: pd.DataFrame, store: pd.DataFrame, competition: str,
         base_pts = per80 * (exp_min / 80.0)
         potm = float(np.clip(base_pts / 145.0, 0, 0.13 if started else 0.05) * 15)
         predictions.append({"label_row_id": r.label_row_id, "position": pos,
-                            "predicted_points": base_pts + potm,
-                            "official_pts": r.official_pts})
+                            "predicted_points": base_pts + potm})
 
-    pred = pd.DataFrame(predictions)
+    return pd.DataFrame(predictions)
+
+
+def project_round(block: pd.DataFrame, store: pd.DataFrame, competition: str,
+                  wr: pd.DataFrame) -> pd.DataFrame:
+    matched = match_labels_to_store(block, store).rename(
+        columns={"_label_row_id": "label_row_id"})
+    played = matched[matched["store_matched"]].copy()
+    asof = pd.to_datetime(played["date"]).min()
+    pred = project_candidates(played, store, competition, wr, asof=asof)
+    pred = pred.merge(played[["label_row_id", "official_pts"]], on="label_row_id", validate="one_to_one")
     missing = matched[~matched["store_matched"]]
     if len(missing):
         med = pred.groupby("position")["predicted_points"].median()

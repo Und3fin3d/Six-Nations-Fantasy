@@ -1,0 +1,34 @@
+name: Rolling history validation
+
+on:
+  push:
+    branches:
+      - codex/rolling-history-parity-20260919
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+concurrency:
+  group: rolling-history-validation
+  cancel-in-progress: false
+
+jobs:
+  snapshot:
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    steps:
+      - uses: actions/checkout@v5
+        with:
+          persist-credentials: false
+      - name: Package tracked source and cached data
+        run: |
+          git rev-parse HEAD
+          git archive HEAD | gzip -1 > /tmp/6n-source.tar.gz
+          du -h /tmp/6n-source.tar.gz
+      - uses: actions/upload-artifact@v4
+        with:
+          name: 6n-source
+          path: /tmp/6n-source.tar.gz
+          retention-days: 3
+          if-no-files-found: error

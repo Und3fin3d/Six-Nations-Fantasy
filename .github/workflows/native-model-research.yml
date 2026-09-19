@@ -1,0 +1,180 @@
+name: Native-category research (no promotion)
+
+on:
+  push:
+    branches: [codex/rolling-model-evaluation-20260919]
+    paths: [.github/workflows/native-model-research.yml]
+
+permissions:
+  contents: read
+  actions: read
+
+jobs:
+  prepare-source:
+    runs-on: ubuntu-latest
+    timeout-minutes: 5
+    permissions:
+      contents: write
+    outputs:
+      sha: ${{ steps.commit.outputs.sha }}
+    steps:
+      - uses: actions/checkout@v5
+        with:
+          lfs: false
+      - name: Apply locally tested patch with integrity verification
+        run: |
+          echo 'fb5eefc743db61cc46efb8f152fce054b196b01a7fd41a2d8e6d46912225bc8d  data/unified/native_categories/source.patch' | sha256sum -c -
+          git apply --check data/unified/native_categories/source.patch
+          git apply data/unified/native_categories/source.patch
+          git diff --check
+          python -m compileall -q model tests
+      - name: Save source and tests on the working branch only
+        id: commit
+        run: |
+          git config user.name 'github-actions[bot]'
+          git config user.email '41898282+github-actions[bot]@users.noreply.github.com'
+          git add model tests
+          git rm data/unified/native_categories/source.patch
+          git commit -m 'Add opt-in native categorical splits and regression coverage'
+          git push origin HEAD:codex/rolling-model-evaluation-20260919
+          echo "sha=$(git rev-parse HEAD)" >> "$GITHUB_OUTPUT"
+
+  compare-round:
+    needs: prepare-source
+    runs-on: ubuntu-latest
+    timeout-minutes: 20
+    strategy:
+      fail-fast: false
+      max-parallel: 13
+      matrix:
+        slate: [six_nations_2025_r1, six_nations_2025_r2, six_nations_2025_r3, six_nations_2025_r4, six_nations_2025_r5, six_nations_2026_r1, six_nations_2026_r2, six_nations_2026_r3, six_nations_2026_r4, six_nations_2026_r5, ncr_2026_r1, ncr_2026_r2, ncr_2026_r3]
+    steps:
+      - uses: actions/checkout@v5
+        with:
+          ref: ${{ needs.prepare-source.outputs.sha }}
+          lfs: false
+          persist-credentials: false
+      - uses: actions/download-artifact@v4
+        with:
+          name: pinned-cpu-environment
+          run-id: 35467219925
+          github-token: ${{ github.token }}
+          path: ${{ runner.temp }}/environment-archive
+      - name: Restore pinned environment and required historical inputs
+        run: |
+          mkdir "$RUNNER_TEMP/py311"
+          tar -xzf "$RUNNER_TEMP/environment-archive/6n-python311.tar.gz" -C "$RUNNER_TEMP/py311"
+          echo "PYTHONHOME=$RUNNER_TEMP/py311" >> "$GITHUB_ENV"
+          echo "LD_LIBRARY_PATH=$RUNNER_TEMP/py311/lib" >> "$GITHUB_ENV"
+          echo "$RUNNER_TEMP/py311/bin" >> "$GITHUB_PATH"
+          echo 'PYTEST_DISABLE_PLUGIN_AUTOLOAD=1' >> "$GITHUB_ENV"
+          echo 'PYTHONWARNINGS=ignore' >> "$GITHUB_ENV"
+          echo 'OMP_NUM_THREADS=2' >> "$GITHUB_ENV"
+          echo 'OPENBLAS_NUM_THREADS=1' >> "$GITHUB_ENV"
+          git lfs pull --include='data/unified/player_match.csv,data/unified/raw_benchmark/v1/player_match.csv,data/ncr/club_player_match.csv' --exclude=''
+      - name: Verify preflight and focused regression tests
+        run: |
+          python model_env_preflight.py
+          git rev-parse HEAD > tested-commit.txt
+          python -m pytest -q tests/test_unified_v4.py tests/test_rolling_history.py | tee tests.txt
+      - name: Refit at this lock and score official outcomes
+        env:
+          SLATE: ${{ matrix.slate }}
+        run: |
+          python -u -m model.unified.rolling_eval --native-categories --round-job "$SLATE" --output results 2>&1 | tee run.log
+      - name: Package compact evidence only
+        if: always()
+        run: |
+          tar --exclude='results/inputs/player_match.csv' --exclude='*.pkl' -czf "$RUNNER_TEMP/round-evidence.tar.gz" results run.log tests.txt tested-commit.txt
+      - uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: native-round-${{ matrix.slate }}
+          path: ${{ runner.temp }}/round-evidence.tar.gz
+          retention-days: 7
+          if-no-files-found: error
+
+  full-tests:
+    needs: prepare-source
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    steps:
+      - uses: actions/checkout@v5
+        with:
+          ref: ${{ needs.prepare-source.outputs.sha }}
+          lfs: false
+          persist-credentials: false
+      - uses: actions/download-artifact@v4
+        with:
+          name: pinned-cpu-environment
+          run-id: 35467219925
+          github-token: ${{ github.token }}
+          path: ${{ runner.temp }}/environment-archive
+      - name: Restore numerical environment and original frozen artifact
+        run: |
+          mkdir "$RUNNER_TEMP/py311"
+          tar -xzf "$RUNNER_TEMP/environment-archive/6n-python311.tar.gz" -C "$RUNNER_TEMP/py311"
+          echo "PYTHONHOME=$RUNNER_TEMP/py311" >> "$GITHUB_ENV"
+          echo "LD_LIBRARY_PATH=$RUNNER_TEMP/py311/lib" >> "$GITHUB_ENV"
+          echo "$RUNNER_TEMP/py311/bin" >> "$GITHUB_PATH"
+          echo 'PYTEST_DISABLE_PLUGIN_AUTOLOAD=1' >> "$GITHUB_ENV"
+          echo 'PYTHONWARNINGS=ignore' >> "$GITHUB_ENV"
+          echo 'OMP_NUM_THREADS=2' >> "$GITHUB_ENV"
+          echo 'OPENBLAS_NUM_THREADS=1' >> "$GITHUB_ENV"
+          git lfs pull --include='data/unified/player_match.csv,data/unified/raw_benchmark/v1/player_match.csv,data/ncr/club_player_match.csv,data/unified/raw_benchmark/v1/models/p3_event_50/nations_championship_2026.pkl' --exclude=''
+      - name: Verify whole repository
+        run: |
+          python -m pip install 'beautifulsoup4>=4.12,<5' 'requests>=2.31,<3'
+          python model_env_preflight.py
+          git rev-parse HEAD > tested-commit.txt
+          python -m pip freeze > tested-environment.txt
+          python -m pytest -q tests | tee full-tests.txt
+          git diff --check
+      - uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: native-full-validation
+          path: |
+            full-tests.txt
+            tested-commit.txt
+            tested-environment.txt
+          retention-days: 7
+
+  collect:
+    needs: [compare-round, full-tests]
+    runs-on: ubuntu-latest
+    timeout-minutes: 5
+    steps:
+      - uses: actions/download-artifact@v4
+        with:
+          pattern: native-round-*
+          path: evidence
+      - uses: actions/download-artifact@v4
+        with:
+          name: native-full-validation
+          path: evidence/validation
+      - name: Collect all completed rounds
+        run: |
+          python - <<'PY'
+          import csv, tarfile
+          from pathlib import Path
+          metrics = []
+          for archive in sorted(Path('evidence').glob('native-round-*/round-evidence.tar.gz')):
+              with tarfile.open(archive) as t:
+                  t.extractall(archive.parent, filter='data')
+              archive.unlink()
+              with (archive.parent/'results/metrics.csv').open() as f:
+                  metrics.extend(csv.DictReader(f))
+          assert len(metrics) == 65, f'Expected 65 model/round evaluations, got {len(metrics)}'
+          assert len({(r['slate'], r['engine']) for r in metrics}) == 65
+          with Path('evidence/metrics.csv').open('w') as f:
+              writer=csv.DictWriter(f,fieldnames=list(metrics[0]))
+              writer.writeheader();writer.writerows(metrics)
+          PY
+          tar -czf native-comparison-evidence.tar.gz evidence
+      - uses: actions/upload-artifact@v4
+        with:
+          name: native-comparison-evidence
+          path: native-comparison-evidence.tar.gz
+          retention-days: 7
+          if-no-files-found: error

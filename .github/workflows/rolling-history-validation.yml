@@ -2,10 +2,8 @@ name: Rolling history validation
 
 on:
   push:
-    branches:
-      - codex/rolling-history-parity-20260919
-    paths:
-      - .github/workflows/rolling-history-validation.yml
+    branches: [codex/rolling-history-parity-20260919]
+    paths: [.github/workflows/rolling-history-validation.yml]
   workflow_dispatch:
 
 permissions:
@@ -14,6 +12,10 @@ permissions:
 concurrency:
   group: rolling-history-validation
   cancel-in-progress: false
+
+defaults:
+  run:
+    shell: bash
 
 env:
   OMP_NUM_THREADS: '2'
@@ -37,6 +39,7 @@ jobs:
         with:
           python-version: '3.11'
           cache: pip
+          cache-dependency-path: requirements-model.txt
       - name: Install pinned dependencies
         run: |
           python -m pip install -r requirements-model.txt pytest
@@ -92,6 +95,7 @@ jobs:
         with:
           python-version: '3.11'
           cache: pip
+          cache-dependency-path: requirements-model.txt
       - name: Install pinned dependencies
         run: |
           python -m pip install -r requirements-model.txt pytest
@@ -144,9 +148,12 @@ jobs:
           python -m model.unified.rolling_evaluation --summarize 2>&1 | tee data/unified/rolling_history/REPORT.txt
           git config user.name 'github-actions[bot]'
           git config user.email '41898282+github-actions[bot]@users.noreply.github.com'
-          git add data/unified/rolling_history
-          git commit -m 'Record matched rolling-round evaluation results; no promotion' || true
-          git push origin HEAD:codex/rolling-history-parity-20260919
+          git add data/unified/rolling_history/{metrics.csv,summary.csv,decision.json,REPORT.txt,tests.log,environment.txt,store_manifest.json,source_report.json}
+          find data/unified/rolling_history -mindepth 2 -maxdepth 2 \( -name '*.csv' -o -name manifest.json -o -name metrics.json \) -print0 | xargs -0 -r git add
+          if ! git diff --cached --quiet; then
+            git commit -m 'Record matched rolling-round results without model promotion'
+            git push origin HEAD:codex/rolling-history-parity-20260919
+          fi
       - uses: actions/upload-artifact@v4
         if: always()
         with:

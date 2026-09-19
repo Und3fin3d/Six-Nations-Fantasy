@@ -10,66 +10,12 @@ permissions:
   actions: read
 
 jobs:
-  prepare-source:
+  full-regression-suite:
     runs-on: ubuntu-latest
-    timeout-minutes: 5
-    permissions:
-      contents: write
-    outputs:
-      sha: ${{ steps.commit.outputs.sha }}
+    timeout-minutes: 10
     steps:
       - uses: actions/checkout@v5
         with:
-          lfs: false
-      - name: Apply locally tested changes with integrity verification
-        env:
-          GH_TOKEN: ${{ github.token }}
-        run: |
-          for sha in fbd4582476ca8c953d7cff5f612d4218e950170c ba5cade42a1ade77fdb668903e288b572a620d26 3f8b3964cbd08744d9c6669ff9b434e9f4b2f7d7; do
-            gh api "repos/$GITHUB_REPOSITORY/git/blobs/$sha" --jq .content > "/tmp/$sha.b64"
-          done
-          python - <<'PY'
-          import base64, gzip, hashlib
-          from pathlib import Path
-          parts = []
-          hashes = ['fbd4582476ca8c953d7cff5f612d4218e950170c', 'ba5cade42a1ade77fdb668903e288b572a620d26', '3f8b3964cbd08744d9c6669ff9b434e9f4b2f7d7']
-          for i, sha in enumerate(hashes):
-              text = ''.join(Path('/tmp/' + sha + '.b64').read_text().split())
-              if i == 0:
-                  text = text.replace('XVVJJ+pH2M', 'XVVJ+pH2M').rstrip('=')
-                  text += '=' * (-len(text) % 4)
-              parts.append(base64.b64decode(text))
-          patch = gzip.decompress(b''.join(parts))
-          assert hashlib.sha256(patch).hexdigest() == '1efde9a6df8a8d1a0fea2736a9d69fd48375dee3c2f3053f996537385b3ac1b3'
-          Path('/tmp/rolling.patch').write_bytes(patch)
-          PY
-          git apply --check --unidiff-zero /tmp/rolling.patch
-          git apply --unidiff-zero /tmp/rolling.patch
-          git diff --check
-          python -m compileall -q model tests/test_rolling_history.py
-      - name: Commit only source and tests to the working branch
-        id: commit
-        run: |
-          git config user.name 'github-actions[bot]'
-          git config user.email '41898282+github-actions[bot]@users.noreply.github.com'
-          git add model tests/test_rolling_history.py
-          git commit -m 'Fix pre-lock history and add matched rolling fantasy backtests'
-          git push origin HEAD:codex/rolling-model-evaluation-20260919
-          echo "sha=$(git rev-parse HEAD)" >> "$GITHUB_OUTPUT"
-
-  compare-round:
-    needs: prepare-source
-    runs-on: ubuntu-latest
-    timeout-minutes: 25
-    strategy:
-      fail-fast: false
-      max-parallel: 13
-      matrix:
-        slate: [six_nations_2025_r1, six_nations_2025_r2, six_nations_2025_r3, six_nations_2025_r4, six_nations_2025_r5, six_nations_2026_r1, six_nations_2026_r2, six_nations_2026_r3, six_nations_2026_r4, six_nations_2026_r5, ncr_2026_r1, ncr_2026_r2, ncr_2026_r3]
-    steps:
-      - uses: actions/checkout@v5
-        with:
-          ref: ${{ needs.prepare-source.outputs.sha }}
           lfs: false
           persist-credentials: false
       - uses: actions/download-artifact@v4
@@ -78,7 +24,7 @@ jobs:
           run-id: 35467219925
           github-token: ${{ github.token }}
           path: ${{ runner.temp }}/environment-archive
-      - name: Restore pinned offline numerical environment and historical club table
+      - name: Restore pinned environment and required original LFS data
         run: |
           mkdir "$RUNNER_TEMP/py311"
           tar -xzf "$RUNNER_TEMP/environment-archive/6n-python311.tar.gz" -C "$RUNNER_TEMP/py311"
@@ -89,45 +35,22 @@ jobs:
           echo 'PYTHONWARNINGS=ignore' >> "$GITHUB_ENV"
           echo 'OMP_NUM_THREADS=2' >> "$GITHUB_ENV"
           echo 'OPENBLAS_NUM_THREADS=1' >> "$GITHUB_ENV"
-          git lfs pull --include='data/ncr/club_player_match.csv' --exclude=''
-      - name: Verify pinned environment and focused regression tests
+          git lfs pull --include='data/unified/player_match.csv,data/unified/raw_benchmark/v1/player_match.csv,data/ncr/club_player_match.csv,data/unified/raw_benchmark/v1/models/p3_event_50/nations_championship_2026.pkl' --exclude=''
+      - name: Add parser test dependencies without changing the model stack
+        run: python -m pip install 'beautifulsoup4>=4.12,<5' 'requests>=2.31,<3'
+      - name: Run the entire regression suite
         run: |
           python model_env_preflight.py
-          python -m pytest -q tests/test_rolling_history.py tests/test_unified_model.py tests/test_unified_ncr_gw_eval.py tests/test_unified_raw_benchmark.py tests/test_ncr_player_matching.py tests/test_unified_v4.py | tee tests.txt
-      - name: Fit one round and evaluate official outcomes
-        env:
-          SLATE: ${{ matrix.slate }}
-        run: |
-          case "$SLATE" in ncr_*) competition=ncr;; *) competition=six_nations;; esac
-          python -u -m model.unified.rolling_eval --competitions "$competition" --round-job "$SLATE" | tee run.log
-      - name: Package compact evidence, excluding training tables and fitted binaries
-        if: always()
-        run: |
-          mkdir -p data/unified/rolling_eval
-          tar --exclude='./inputs/player_match.csv' --exclude='*.pkl' -czf round-results.tar.gz -C data/unified/rolling_eval .
+          git rev-parse HEAD > tested-commit.txt
+          python -m pip freeze > tested-environment.txt
+          python -m pytest -q tests | tee full-tests.txt
+          git diff --check
       - uses: actions/upload-artifact@v4
         if: always()
         with:
-          name: rolling-round-${{ matrix.slate }}
+          name: rolling-full-validation
           path: |
-            round-results.tar.gz
-            run.log
-            tests.txt
-          retention-days: 7
-
-  collect:
-    if: always()
-    needs: [prepare-source, compare-round]
-    runs-on: ubuntu-latest
-    timeout-minutes: 5
-    steps:
-      - uses: actions/download-artifact@v4
-        with:
-          pattern: rolling-round-*
-          path: evidence
-      - run: tar -czf rolling-comparison-results.tar.gz -C evidence .
-      - uses: actions/upload-artifact@v4
-        with:
-          name: rolling-comparison-results
-          path: rolling-comparison-results.tar.gz
+            full-tests.txt
+            tested-commit.txt
+            tested-environment.txt
           retention-days: 7

@@ -1,0 +1,42 @@
+[
+  {
+    "round": "ncr-2026-gw3",
+    "competition": "ncr",
+    "season": 2026,
+    "model": "empirical_baseline",
+    "n": 269,
+    "mae": 8.547620817843866,
+    "team_points": 556.0,
+    "team_basis": "same budget and squad constraints; retrospective final feed"
+  },
+  {
+    "round": "ncr-2026-gw3",
+    "competition": "ncr",
+    "season": 2026,
+    "model": "p3_rolling",
+    "n": 269,
+    "mae": 8.502740888365206,
+    "team_points": 534.0,
+    "team_basis": "same budget and squad constraints; retrospective final feed"
+  },
+  {
+    "round": "ncr-2026-gw3",
+    "competition": "ncr",
+    "season": 2026,
+    "model": "p3_weighted",
+    "n": 269,
+    "mae": 8.431337799692626,
+    "team_points": 534.0,
+    "team_basis": "same budget and squad constraints; retrospective final feed"
+  },
+  {
+    "round": "ncr-2026-gw3",
+    "competition": "ncr",
+    "season": 2026,
+    "model": "p3_shrunk",
+    "n": 269,
+    "mae": 8.410367297473462,
+    "team_points": 542.0,
+    "team_basis": "same budget and squad constraints; retrospective final feed"
+  }
+]

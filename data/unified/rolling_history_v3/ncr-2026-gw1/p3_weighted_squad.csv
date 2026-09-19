@@ -1,0 +1,17 @@
+id,name,team,hemi,history_player_id,pos,value,sel,status,opp,home,n_hist,rp_min,wr_margin,weather_att,per80,exp_min,starter_exp,supersub_exp,in_squad,is_sub,is_capt
+140494,Jiuta Wainiqolo,Fiji,2,211638.0,Back Three,5.5,18.4,P,Wales,True,18,2923,21.0,1.0,30.02,73.5,30.468488198603385,15.234244099301693,True,False,False
+229307,Cam Roigard,New Zealand,2,225594.0,Scrum Half,8.0,35.2,P,France,True,17,1230,12.6,1.0,32.75,63.9,28.423198472348844,14.211599236174422,True,False,False
+123016,Jac Morgan,Wales,1,203070.0,Loose Forward,7.0,17.3,P,Fiji,False,32,2124,-21.0,1.0,24.84,73.3,30.028659939891433,15.014329969945717,True,False,False
+250067,Fabien Brau-Boirie,France,1,354888.0,Centre,6.0,3.8,P,New Zealand,False,3,2817,-12.6,1.0,20.38,72.5,20.583780057379073,10.291890028689537,True,False,False
+154929,Cheslin Kolbe,South Africa,2,123516.0,Back Three,8.0,37.7,P,England,True,34,2920,25.2,1.0,29.76,76.0,30.818490431701203,15.409245215850602,True,False,False
+179379,Ardie Savea,New Zealand,2,120396.0,Loose Forward,8.5,50.2,P,France,True,62,3406,12.6,1.0,25.9,78.8,32.826253791897145,16.413126895948572,True,False,True
+128023,Salesi Rayasi,Fiji,2,162444.0,Back Three,6.5,10.3,P,Wales,True,4,3122,21.0,1.0,25.66,71.9,24.627944348690047,12.313972174345023,True,False,False
+211240,Dan Sheehan,Ireland,1,186096.0,Hooker,8.0,22.7,P,Australia,False,45,2070,8.7,1.0,26.32,59.5,25.573050945923,12.7865254729615,True,False,False
+173801,Alex Coles,England,1,198696.0,Lock,5.0,4.2,P,South Africa,False,20,2682,-25.2,1.0,17.62,72.6,23.90164312572754,11.95082156286377,True,False,False
+104572,Thomas du Toit,South Africa,2,130242.0,Prop,7.0,18.2,P,England,True,20,2483,25.2,1.0,17.23,47.5,18.00643342459366,9.00321671229683,True,False,False
+240452,Cameron Hanekom,South Africa,2,234816.0,Loose Forward,4.0,4.5,P,England,True,1,1975,25.2,1.0,27.21,72.0,27.649783015195297,13.824891507597648,True,False,False
+233260,Shuhei Takeuchi,Japan,2,227256.0,Prop,4.0,1.7,P,Italy,True,27,1677,-8.0,1.0,16.74,62.2,17.19450579276995,8.597252896384974,True,False,False
+143950,Semi Radradra,Fiji,2,172098.0,Centre,6.0,9.3,P,Wales,True,13,2201,21.0,1.0,25.71,76.6,25.736141008047703,12.868070504023851,True,False,False
+143492,Damian McKenzie,New Zealand,2,130452.0,Fly Half,8.5,11.9,P,France,True,52,2014,12.6,1.0,28.76,77.4,28.617703375381375,14.308851687690687,True,False,False
+144545,Ben Carter,Wales,1,219996.0,Lock,4.0,1.0,P,Fiji,False,20,2062,-21.0,1.0,17.32,64.2,24.169721297618402,12.084860648809201,True,False,False
+136875,Gianmarco Lucchesi,Italy,1,202980.0,Hooker,3.5,0.4,B,Japan,False,31,0,8.0,1.0,21.89,26.1,11.762621070750765,35.28786321225229,True,True,False

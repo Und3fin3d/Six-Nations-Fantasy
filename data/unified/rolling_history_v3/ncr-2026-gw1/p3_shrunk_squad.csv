@@ -1,0 +1,17 @@
+id,name,team,hemi,history_player_id,pos,value,sel,status,opp,home,n_hist,rp_min,wr_margin,weather_att,per80,exp_min,starter_exp,supersub_exp,in_squad,is_sub,is_capt
+140494,Jiuta Wainiqolo,Fiji,2,211638.0,Back Three,5.5,18.4,P,Wales,True,18,2923,21.0,1.0,30.02,73.5,29.291753413209495,14.645876706604747,True,False,False
+229307,Cam Roigard,New Zealand,2,225594.0,Scrum Half,8.0,35.2,P,France,True,17,1230,12.6,1.0,32.75,63.9,27.179088738588977,13.589544369294488,True,False,False
+123016,Jac Morgan,Wales,1,203070.0,Loose Forward,7.0,17.3,P,Fiji,False,32,2124,-21.0,1.0,24.84,73.3,29.462674043950525,14.731337021975262,True,False,False
+154929,Cheslin Kolbe,South Africa,2,123516.0,Back Three,8.0,37.7,P,England,True,34,2920,25.2,1.0,29.76,76.0,30.367804777129496,15.183902388564748,True,False,False
+179379,Ardie Savea,New Zealand,2,120396.0,Loose Forward,8.5,50.2,P,France,True,62,3406,12.6,1.0,25.9,78.8,32.661872612246114,16.330936306123057,True,False,True
+179604,Josua Tuisova,Fiji,2,126930.0,Centre,5.5,12.4,P,Wales,True,20,2758,21.0,1.0,21.71,76.7,22.56575817326674,11.28287908663337,True,False,False
+211240,Dan Sheehan,Ireland,1,186096.0,Hooker,8.0,22.7,P,Australia,False,45,2070,8.7,1.0,26.32,59.5,24.87224327938597,12.436121639692985,True,False,False
+173801,Alex Coles,England,1,198696.0,Lock,5.0,4.2,P,South Africa,False,20,2682,-25.2,1.0,17.62,72.6,23.01533123604898,11.50766561802449,True,False,False
+240452,Cameron Hanekom,South Africa,2,234816.0,Loose Forward,4.0,4.5,P,England,True,1,1975,25.2,1.0,27.21,72.0,28.808598296266975,14.404299148133488,True,False,False
+146815,Angus Bell,Australia,2,192666.0,Prop,7.0,20.8,P,Ireland,True,48,1772,-8.7,1.0,20.64,53.2,17.195530087246052,8.597765043623026,True,False,False
+233260,Shuhei Takeuchi,Japan,2,227256.0,Prop,4.0,1.7,P,Italy,True,27,1677,-8.0,1.0,16.74,62.2,17.319678092058826,8.659839046029413,True,False,False
+143950,Semi Radradra,Fiji,2,172098.0,Centre,6.0,9.3,P,Wales,True,13,2201,21.0,1.0,25.71,76.6,25.7942657852896,12.8971328926448,True,False,False
+143492,Damian McKenzie,New Zealand,2,130452.0,Fly Half,8.5,11.9,P,France,True,52,2014,12.6,1.0,28.76,77.4,28.07523607315332,14.03761803657666,True,False,False
+144545,Ben Carter,Wales,1,219996.0,Lock,4.0,1.0,P,Fiji,False,20,2062,-21.0,1.0,17.32,64.2,22.419183426808857,11.209591713404429,True,False,False
+175150,Robert Baloucoune,Ireland,1,186198.0,Back Three,5.0,7.9,P,Australia,False,9,1148,8.7,1.0,25.14,77.1,24.660450762703412,12.330225381351706,True,False,False
+239634,Henry Pollock,England,1,342324.0,Loose Forward,5.5,15.1,B,South Africa,False,16,2680,-25.2,1.0,25.04,21.0,10.789687586663316,32.369062759989944,True,True,False

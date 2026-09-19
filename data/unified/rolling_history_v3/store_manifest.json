@@ -1,0 +1,9 @@
+{
+  "sources": {
+    "data/ncr/ncr_player_match.csv": "39269165aa1c4fceab83fa4f615247bc9892b799a6bcc2951509b237013ae90e",
+    "data/ncr/club_player_match.csv": "5f0b8d44b66c3fbfcd17b232c275f8e4561019b70f95b4b089e7d7e39d68b3cb",
+    "data/api_player_match.csv": "63e97b3deacf4f3601458fc57fd699e0a0e4f3b71a521984f421e934c3b4e56d",
+    "data/official_player_match.csv": "e61b9680e2861ff70cf4e536b3d9009b7e2022217c0a7847fe27a5aaa0dcf144"
+  },
+  "store_sha256": "0eb0b3dbcb8b469b185725f6e070b33e4a36eb9f611f88c5566e1331d068f552"
+}

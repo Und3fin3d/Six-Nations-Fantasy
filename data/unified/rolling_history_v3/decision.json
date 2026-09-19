@@ -1,0 +1,37 @@
+{
+  "pr_eligible": false,
+  "missing_rounds": [],
+  "candidates": {
+    "p3_rolling": {
+      "all_available_metric_checks_passed": false,
+      "failures": [
+        "six_nations/2025: MAE did not improve",
+        "six_nations/2025: team points did not improve",
+        "six_nations/2026: MAE did not improve",
+        "six_nations/2026: team points did not improve"
+      ]
+    },
+    "p3_weighted": {
+      "all_available_metric_checks_passed": false,
+      "failures": [
+        "six_nations/2025: MAE did not improve",
+        "six_nations/2025: team points did not improve",
+        "six_nations/2026: MAE did not improve",
+        "six_nations/2026: team points did not improve"
+      ]
+    },
+    "p3_shrunk": {
+      "all_available_metric_checks_passed": false,
+      "failures": [
+        "six_nations/2025: MAE did not improve",
+        "six_nations/2025: team points did not improve",
+        "six_nations/2026: team points did not improve"
+      ]
+    }
+  },
+  "limitations": [
+    "Six Nations budget-valid team comparison unavailable",
+    "All lineups are retrospective observed inputs",
+    "Existing 2026 repository results are not an untouched prospective holdout"
+  ]
+}

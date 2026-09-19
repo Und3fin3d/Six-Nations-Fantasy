@@ -1,0 +1,50 @@
+competition  season              model      mae  team_points  rounds
+        ncr    2026 empirical_baseline 8.552670       1615.0       3
+        ncr    2026         p3_rolling 8.539710       1774.0       3
+        ncr    2026          p3_shrunk 8.465845       1707.0       3
+        ncr    2026        p3_weighted 8.469658       1723.0       3
+six_nations    2025 empirical_baseline 7.139500       2456.0       5
+six_nations    2025         p3_rolling 7.279788       2248.0       5
+six_nations    2025          p3_shrunk 7.225249       2436.0       5
+six_nations    2025        p3_weighted 7.310077       2411.0       5
+six_nations    2026 empirical_baseline 7.389346       2555.0       5
+six_nations    2026         p3_rolling 7.435795       2508.0       5
+six_nations    2026          p3_shrunk 7.343225       2478.0       5
+six_nations    2026        p3_weighted 7.426274       2484.0       5
+{
+  "pr_eligible": false,
+  "missing_rounds": [],
+  "candidates": {
+    "p3_rolling": {
+      "all_available_metric_checks_passed": false,
+      "failures": [
+        "six_nations/2025: MAE did not improve",
+        "six_nations/2025: team points did not improve",
+        "six_nations/2026: MAE did not improve",
+        "six_nations/2026: team points did not improve"
+      ]
+    },
+    "p3_weighted": {
+      "all_available_metric_checks_passed": false,
+      "failures": [
+        "six_nations/2025: MAE did not improve",
+        "six_nations/2025: team points did not improve",
+        "six_nations/2026: MAE did not improve",
+        "six_nations/2026: team points did not improve"
+      ]
+    },
+    "p3_shrunk": {
+      "all_available_metric_checks_passed": false,
+      "failures": [
+        "six_nations/2025: MAE did not improve",
+        "six_nations/2025: team points did not improve",
+        "six_nations/2026: team points did not improve"
+      ]
+    }
+  },
+  "limitations": [
+    "Six Nations budget-valid team comparison unavailable",
+    "All lineups are retrospective observed inputs",
+    "Existing 2026 repository results are not an untouched prospective holdout"
+  ]
+}

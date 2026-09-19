@@ -1,0 +1,17 @@
+id,name,team,hemi,history_player_id,pos,value,sel,status,opp,home,n_hist,rp_min,wr_margin,weather_att,per80,exp_min,starter_exp,supersub_exp,in_squad,is_sub,is_capt
+146220,Will Jordan,New Zealand,2,168972.0,Back Three,8.5,44.1,P,Ireland,True,56,1530,9.4,1.0,26.67,78.7,28.18,14.09,True,False,False
+244532,Theo Attissogbe,France,1,339450.0,Back Three,6.5,35.7,P,Japan,False,17,3133,14.6,1.0,24.33,78.1,25.69,12.845,True,False,False
+190344,Matthieu Jalibert,France,1,169662.0,Fly Half,8.0,33.2,P,Japan,False,36,3486,14.6,1.0,33.4,76.1,33.71,16.855,True,False,True
+229307,Cam Roigard,New Zealand,2,225594.0,Scrum Half,8.0,45.2,P,Ireland,True,19,1230,9.4,1.0,33.49,64.4,28.91,14.455,True,False,False
+179379,Ardie Savea,New Zealand,2,120396.0,Loose Forward,8.5,46.1,P,Ireland,True,64,3406,9.4,1.0,25.63,78.1,26.98,13.49,True,False,False
+123016,Jac Morgan,Wales,1,203070.0,Loose Forward,7.0,29.4,P,South Africa,False,34,2124,-40.5,1.0,26.31,74.6,26.48,13.24,True,False,False
+237155,Justo Piccardo,Argentina,2,337296.0,Centre,5.5,3.4,P,England,True,13,1108,5.7,1.0,22.78,73.7,22.93,11.465,True,False,False
+250067,Fabien Brau-Boirie,France,1,354888.0,Centre,6.0,24.7,P,Japan,False,5,2817,14.6,1.0,25.78,73.3,25.59,12.795,True,False,False
+241018,Sean Jansen,Ireland,1,266610.0,Loose Forward,3.5,2.1,B,New Zealand,False,3,2034,-9.4,1.0,26.71,34.0,12.1,36.3,True,True,False
+238928,Warner Dearns,Japan,2,242406.0,Lock,6.5,16.0,P,France,True,34,1697,-14.6,1.0,15.83,78.4,17.13,8.565,True,False,False
+224426,Tom OToole,Ireland,1,148650.0,Prop,4.0,11.0,P,New Zealand,False,25,2054,-9.4,1.0,16.42,57.7,13.08,6.54,True,False,False
+240478,Gregor Hiddleston,Scotland,1,263268.0,Hooker,4.0,3.7,P,Fiji,False,2,1610,3.2,1.0,24.64,72.0,24.12,12.06,True,False,False
+172455,Duhan van der Merwe,Scotland,1,131400.0,Back Three,5.0,5.1,P,Fiji,False,58,2537,3.2,1.0,24.41,76.9,25.42,12.71,True,False,False
+146815,Angus Bell,Australia,2,192666.0,Prop,7.0,21.3,P,Italy,True,50,1772,13.9,1.0,20.34,53.1,14.89,7.445,True,False,False
+208620,Carlo Tizzano,Australia,2,193992.0,Loose Forward,6.0,3.7,P,Italy,True,14,1335,13.9,1.0,26.32,76.6,27.14,13.57,True,False,False
+169185,Teddy Williams,Wales,1,203082.0,Lock,4.0,0.8,P,South Africa,False,10,1592,-40.5,1.0,18.18,69.1,17.34,8.67,True,False,False

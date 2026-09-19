@@ -1,0 +1,17 @@
+id,name,team,hemi,history_player_id,pos,value,sel,status,opp,home,n_hist,rp_min,wr_margin,weather_att,per80,exp_min,starter_exp,supersub_exp,in_squad,is_sub,is_capt
+146220,Will Jordan,New Zealand,2,168972.0,Back Three,8.5,44.1,P,Ireland,True,56,1530,9.4,1.0,26.67,78.7,28.87686822319576,14.43843411159788,True,False,False
+190344,Matthieu Jalibert,France,1,169662.0,Fly Half,8.0,33.2,P,Japan,False,36,3486,14.6,1.0,33.4,76.1,33.58576927264609,16.792884636323045,True,False,True
+229307,Cam Roigard,New Zealand,2,225594.0,Scrum Half,8.0,45.2,P,Ireland,True,19,1230,9.4,1.0,33.49,64.4,28.43465428111649,14.217327140558245,True,False,False
+179379,Ardie Savea,New Zealand,2,120396.0,Loose Forward,8.5,46.1,P,Ireland,True,64,3406,9.4,1.0,25.63,78.1,33.02132023703183,16.510660118515915,True,False,False
+140494,Jiuta Wainiqolo,Fiji,2,211638.0,Back Three,5.5,19.2,P,Scotland,True,20,2923,-3.2,1.0,23.95,75.2,24.139001640890438,12.069500820445219,True,False,False
+123016,Jac Morgan,Wales,1,203070.0,Loose Forward,7.0,29.4,P,South Africa,False,34,2124,-40.5,1.0,26.31,74.6,29.922598456570995,14.961299228285498,True,False,False
+237155,Justo Piccardo,Argentina,2,337296.0,Centre,5.5,3.4,P,England,True,13,1108,5.7,1.0,22.78,73.7,21.447472988527043,10.723736494263521,True,False,False
+250067,Fabien Brau-Boirie,France,1,354888.0,Centre,6.0,24.7,P,Japan,False,5,2817,14.6,1.0,25.78,73.3,25.347371984727967,12.673685992363984,True,False,False
+239634,Henry Pollock,England,1,342324.0,Loose Forward,5.5,22.6,B,Argentina,False,18,2680,-5.7,1.0,27.11,22.3,11.874268651070828,35.622805953212485,True,True,False
+238928,Warner Dearns,Japan,2,242406.0,Lock,6.5,16.0,P,France,True,34,1697,-14.6,1.0,15.83,78.4,24.082637506887522,12.041318753443761,True,False,False
+224426,Tom OToole,Ireland,1,148650.0,Prop,4.0,11.0,P,New Zealand,False,25,2054,-9.4,1.0,16.42,57.7,17.03901565080588,8.51950782540294,True,False,False
+240478,Gregor Hiddleston,Scotland,1,263268.0,Hooker,4.0,3.7,P,Fiji,False,2,1610,3.2,1.0,24.64,72.0,23.817732922149148,11.908866461074574,True,False,False
+172455,Duhan van der Merwe,Scotland,1,131400.0,Back Three,5.0,5.1,P,Fiji,False,58,2537,3.2,1.0,24.41,76.9,24.75003150359102,12.37501575179551,True,False,False
+146815,Angus Bell,Australia,2,192666.0,Prop,7.0,21.3,P,Italy,True,50,1772,13.9,1.0,20.34,53.1,17.811706453867586,8.905853226933793,True,False,False
+173801,Alex Coles,England,1,198696.0,Lock,5.0,8.2,P,Argentina,False,22,2682,-5.7,1.0,16.64,73.6,23.569203019234628,11.784601509617314,True,False,False
+208620,Carlo Tizzano,Australia,2,193992.0,Loose Forward,6.0,3.7,P,Italy,True,14,1335,13.9,1.0,26.32,76.6,30.950310911833753,15.475155455916877,True,False,False

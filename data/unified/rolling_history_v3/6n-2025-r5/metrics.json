@@ -1,0 +1,42 @@
+[
+  {
+    "round": "6n-2025-r5",
+    "competition": "six_nations",
+    "season": 2025,
+    "model": "empirical_baseline",
+    "n": 136,
+    "mae": 7.487777621915439,
+    "team_points": 521.0,
+    "team_basis": "positional diagnostic; prices and complete eligible pool unavailable"
+  },
+  {
+    "round": "6n-2025-r5",
+    "competition": "six_nations",
+    "season": 2025,
+    "model": "p3_rolling",
+    "n": 136,
+    "mae": 7.3395831329459025,
+    "team_points": 513.0,
+    "team_basis": "positional diagnostic; prices and complete eligible pool unavailable"
+  },
+  {
+    "round": "6n-2025-r5",
+    "competition": "six_nations",
+    "season": 2025,
+    "model": "p3_weighted",
+    "n": 136,
+    "mae": 7.436249260735635,
+    "team_points": 587.0,
+    "team_basis": "positional diagnostic; prices and complete eligible pool unavailable"
+  },
+  {
+    "round": "6n-2025-r5",
+    "competition": "six_nations",
+    "season": 2025,
+    "model": "p3_shrunk",
+    "n": 136,
+    "mae": 7.450324040131883,
+    "team_points": 541.0,
+    "team_basis": "positional diagnostic; prices and complete eligible pool unavailable"
+  }
+]

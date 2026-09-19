@@ -1,0 +1,17 @@
+id,name,team,hemi,history_player_id,pos,value,sel,status,opp,home,n_hist,rp_min,wr_margin,weather_att,per80,exp_min,starter_exp,supersub_exp,in_squad,is_sub,is_capt
+146220,Will Jordan,New Zealand,2,168972.0,Back Three,8.5,41.7,P,Italy,True,55,1530,27.4,1.0,29.1,78.6,31.27531349786555,15.637656748932775,True,False,False
+229307,Cam Roigard,New Zealand,2,225594.0,Scrum Half,8.0,47.5,P,Italy,True,18,1230,27.4,1.0,37.06,65.5,30.676104709357116,15.338052354678558,True,False,False
+140494,Jiuta Wainiqolo,Fiji,2,211638.0,Back Three,5.5,25.3,P,England,True,19,2923,0.5,1.0,25.07,74.5,29.26755325403711,14.633776627018555,True,False,False
+123016,Jac Morgan,Wales,1,203070.0,Loose Forward,7.0,31.4,P,Argentina,False,33,2124,-25.8,1.0,26.11,74.0,31.43990702797293,15.719953513986464,True,False,False
+190344,Matthieu Jalibert,France,1,169662.0,Fly Half,8.0,28.9,P,Australia,False,35,3486,5.9,1.0,30.23,75.5,31.291785210052815,15.645892605026408,True,False,False
+250067,Fabien Brau-Boirie,France,1,354888.0,Centre,6.0,18.1,P,Australia,False,4,2817,5.9,1.0,24.64,70.7,25.785268534734552,12.892634267367276,True,False,False
+179379,Ardie Savea,New Zealand,2,120396.0,Loose Forward,8.5,46.6,P,Italy,True,63,3406,27.4,1.0,26.98,78.9,34.217219294080515,17.108609647040257,True,False,True
+239634,Henry Pollock,England,1,342324.0,Loose Forward,5.5,14.1,B,Fiji,False,17,2680,-0.5,1.0,25.5,21.1,12.277119590573147,36.83135877171944,True,True,False
+187820,Rory Darge,Scotland,1,180222.0,Loose Forward,6.5,7.6,P,South Africa,False,40,2519,-28.1,1.0,24.35,73.3,30.95446569754016,15.47723284877008,True,False,False
+237155,Justo Piccardo,Argentina,2,337296.0,Centre,5.5,0.5,P,Wales,True,12,1108,25.8,1.0,23.77,72.2,20.56548259978124,10.28274129989062,True,False,False
+141860,Ewan Ashman,Scotland,1,187422.0,Hooker,5.5,2.3,P,South Africa,False,37,2179,-28.1,1.0,25.89,56.3,26.389150163510635,13.194575081755318,True,False,False
+196773,Pierre Schoeman,Scotland,1,130290.0,Prop,6.0,7.2,P,South Africa,False,55,2523,-28.1,1.0,19.54,59.6,18.657825304487485,9.328912652243742,True,False,False
+103703,Harry Hockings,Japan,2,149754.0,Lock,4.5,1.1,P,Ireland,True,3,2967,-24.0,1.0,17.85,59.0,26.45208244899779,13.226041224498895,True,False,False
+233260,Shuhei Takeuchi,Japan,2,227256.0,Prop,4.0,1.4,P,Ireland,True,28,1677,-24.0,1.0,18.29,61.6,18.352134109680254,9.176067054840127,True,False,False
+144545,Ben Carter,Wales,1,219996.0,Lock,4.0,1.3,P,Argentina,False,21,2062,-25.8,1.0,17.93,66.7,24.547626389499992,12.273813194749996,True,False,False
+156918,Tommy Freeman,England,1,213192.0,Back Three,7.0,18.6,P,Fiji,False,34,3689,-0.5,1.0,21.87,76.2,24.053226889682744,12.026613444841372,True,False,False

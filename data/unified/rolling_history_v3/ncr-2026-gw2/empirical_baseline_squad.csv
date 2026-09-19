@@ -1,0 +1,17 @@
+id,name,team,hemi,history_player_id,pos,value,sel,status,opp,home,n_hist,rp_min,wr_margin,weather_att,per80,exp_min,starter_exp,supersub_exp,in_squad,is_sub,is_capt
+146220,Will Jordan,New Zealand,2,168972.0,Back Three,8.5,41.7,P,Italy,True,55,1530,27.4,1.0,29.1,78.6,30.54,15.27,True,False,False
+229307,Cam Roigard,New Zealand,2,225594.0,Scrum Half,8.0,47.5,P,Italy,True,18,1230,27.4,1.0,37.06,65.5,32.3,16.15,True,False,True
+140494,Jiuta Wainiqolo,Fiji,2,211638.0,Back Three,5.5,25.3,P,England,True,19,2923,0.5,1.0,25.07,74.5,25.29,12.645,True,False,False
+123016,Jac Morgan,Wales,1,203070.0,Loose Forward,7.0,31.4,P,Argentina,False,33,2124,-25.8,1.0,26.11,74.0,26.11,13.055,True,False,False
+190344,Matthieu Jalibert,France,1,169662.0,Fly Half,8.0,28.9,P,Australia,False,35,3486,5.9,1.0,30.23,75.5,30.48,15.24,True,False,False
+250067,Fabien Brau-Boirie,France,1,354888.0,Centre,6.0,18.1,P,Australia,False,4,2817,5.9,1.0,24.64,70.7,23.74,11.87,True,False,False
+179379,Ardie Savea,New Zealand,2,120396.0,Loose Forward,8.5,46.6,P,Italy,True,63,3406,27.4,1.0,26.98,78.9,28.56,14.28,True,False,False
+187820,Rory Darge,Scotland,1,180222.0,Loose Forward,6.5,7.6,P,South Africa,False,40,2519,-28.1,1.0,24.35,73.3,24.26,12.13,True,False,False
+237155,Justo Piccardo,Argentina,2,337296.0,Centre,5.5,0.5,P,Wales,True,12,1108,25.8,1.0,23.77,72.2,23.4,11.7,True,False,False
+165591,Mateo Carreras,Argentina,2,185478.0,Back Three,5.0,6.3,P,Wales,True,34,2453,25.8,1.0,22.6,77.1,23.74,11.87,True,False,False
+141860,Ewan Ashman,Scotland,1,187422.0,Hooker,5.5,2.3,P,South Africa,False,37,2179,-28.1,1.0,25.89,56.3,20.09,10.045,True,False,False
+238928,Warner Dearns,Japan,2,242406.0,Lock,6.5,17.3,P,Ireland,True,33,1697,-24.0,1.0,16.64,78.3,17.97,8.985,True,False,False
+196773,Pierre Schoeman,Scotland,1,130290.0,Prop,6.0,7.2,P,South Africa,False,55,2523,-28.1,1.0,19.54,59.6,16.06,8.03,True,False,False
+173801,Alex Coles,England,1,198696.0,Lock,5.0,7.0,P,Fiji,False,21,2682,-0.5,1.0,16.59,72.7,16.65,8.325,True,False,False
+246851,Toms Rapetti,Argentina,2,359274.0,Prop,3.0,6.0,P,Wales,True,4,0,25.8,1.0,16.16,72.0,16.05,8.025,True,False,False
+136875,Gianmarco Lucchesi,Italy,1,202980.0,Hooker,3.5,0.2,B,New Zealand,False,32,0,-27.4,1.0,24.76,27.6,9.3,27.900000000000002,True,True,False

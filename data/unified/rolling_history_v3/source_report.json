@@ -1,0 +1,20 @@
+{
+  "canonical_fixtures": 3841,
+  "cached_fixtures": 3841,
+  "international_fixtures": 499,
+  "official": {
+    "official_rows": 1895,
+    "matched_rows": 1881,
+    "ambiguous_keys": 0
+  },
+  "legacy_store": "/home/runner/work/Six-Nations-Fantasy/Six-Nations-Fantasy/data/unified/rolling_history/canonical_player_match.csv",
+  "legacy_store_sha256": "f6aae506f7ca9534cee80f614dd63b4ce6fec0bc9f281a313353c9e894d3eba6",
+  "unobserved_rubric_events": [
+    "interceptions",
+    "handling_errors",
+    "lineout_errors"
+  ],
+  "diagnostic_only_events": [
+    "lineouts_won"
+  ]
+}

@@ -151,6 +151,7 @@ def positional_team(rows: pd.DataFrame, scores: np.ndarray, actual: np.ndarray):
 
 
 def run(round_id: str, output: Path = OUT) -> pd.DataFrame:
+    output = output.resolve()
     if round_id not in ROUND_IDS:
         raise ValueError(f"unsupported round {round_id}")
     warnings.filterwarnings("ignore", category=FutureWarning)

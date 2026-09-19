@@ -58,10 +58,10 @@ INTL_PLAN = ([(1266, s) for s in range(2021, 2027)]          # Six Nations
              + [(30, s) for s in range(2021, 2027)]          # July/Nov internationals
              + [(1272, 2024), (2208, 2021), (2202, 2021), (696, 2026)])
 OPEN_PLAN = [(1338, 2025), (18, 2023), (18, 2025), (18, 2026)]  # Lions and tour matches
-CLUB_PLAN = ([(c, s) for c in (1236, 1230, 1218, 1464, 1470) for s in (2023, 2024, 2025, 2026)]
+CLUB_PLAN = ([(c, s) for c in (1236, 1230, 1218, 1464, 1470) for s in (2023, 2024, 2025, 2026, 2027)]
              + [(1242, s) for s in range(2022, 2028)]        # Super Rugby Pacific
              + [(2538, 2024), (2538, 2025), (2538, 2026)]    # Japan League One D1
-             + [(1260, 2024), (1260, 2025), (1260, 2026)]    # NPC: calendar 2023-25
+             + [(1260, 2024), (1260, 2025), (1260, 2026), (1260, 2027)]  # NPC: calendar 2023-26
              + [(1254, 2023), (1254, 2024), (1254, 2025)])   # Currie Cup: calendar 2023-25
 LIVE_COMP = 696                                              # Nations Championship itself
 

@@ -10,6 +10,35 @@
   "competition_stats": [
     {
       "competition": "TOP 14",
+      "season": "2026/2027",
+      "games": 1,
+      "minutes": 25,
+      "tries": 1,
+      "try_assists": 0,
+      "points": 9,
+      "carries": 2,
+      "metres": 4,
+      "av_gain": 1.75,
+      "post_contact_metres": 5,
+      "defenders_beaten": null,
+      "clean_breaks": 0,
+      "offloads": 0,
+      "handling_errors": 2,
+      "passes": 9,
+      "bad_passes": 0,
+      "tackles": null,
+      "missed_tackles": null,
+      "tackles_success_pct": null,
+      "dominant_tackles": 0,
+      "turnovers_won": 0,
+      "turnovers_conceded": 2,
+      "kicks_from_hand": 0,
+      "penalties_conceded": 0,
+      "yellow_cards": 0,
+      "red_cards": 0
+    },
+    {
+      "competition": "TOP 14",
       "season": "2025/2026",
       "games": 24,
       "minutes": 1243,
@@ -39,6 +68,19 @@
     }
   ],
   "match_log": [
+    {
+      "competition": "Top 14",
+      "match": "Racing 92 vs Lyon",
+      "date": "12 Sep 2026",
+      "opposition": "Lyon",
+      "win": false,
+      "draw": false,
+      "mins": 25,
+      "tries": 1,
+      "yellow_cards": 0,
+      "red_cards": 0,
+      "conversions": 2
+    },
     {
       "competition": "Top 14",
       "match": "Toulouse vs Racing 92",

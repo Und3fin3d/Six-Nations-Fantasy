@@ -206,6 +206,19 @@
     },
     {
       "competition": "Top 14",
+      "match": "Vannes vs Montpellier",
+      "date": "12 Sep 2026",
+      "opposition": "Vannes",
+      "win": true,
+      "draw": false,
+      "mins": 64,
+      "tries": 0,
+      "yellow_cards": 0,
+      "red_cards": 0,
+      "conversions": 0
+    },
+    {
+      "competition": "Top 14",
       "match": "Montpellier vs Pau",
       "date": "5 Sep 2026",
       "opposition": "Pau",

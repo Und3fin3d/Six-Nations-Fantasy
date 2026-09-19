@@ -860,6 +860,32 @@
       "yellow_cards": 0,
       "red_cards": 0,
       "conversions": 0
+    },
+    {
+      "competition": "Pro D2",
+      "match": "Valence Romans vs Provence Rugby",
+      "date": "18 Sep 2026",
+      "opposition": "Valence Romans",
+      "win": true,
+      "draw": false,
+      "mins": 3,
+      "tries": 0,
+      "yellow_cards": 0,
+      "red_cards": 0,
+      "conversions": 0
+    },
+    {
+      "competition": "Pro D2",
+      "match": "Provence Rugby vs Narbonne",
+      "date": "11 Sep 2026",
+      "opposition": "Narbonne",
+      "win": true,
+      "draw": false,
+      "mins": 80,
+      "tries": 2,
+      "yellow_cards": 0,
+      "red_cards": 0,
+      "conversions": 0
     }
   ]
 }

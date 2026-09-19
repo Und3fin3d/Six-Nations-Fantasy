@@ -30,7 +30,7 @@ a|wainwright,aaron-wainwright,Rugby Hybrid Friendlies,2022/2023,2,72,0,0,0,5,68,
 a|beard,adam-beard,TOP 14,2026/2027,1,41,0,0,0,0,0,0.0,0,0,0,0,0,2,0,10,1,0.91,1,0,0,0,0,0,0
 a|beard,adam-beard,Six Nations,2026,4,171,0,0,0,10,16,1.56,15,0,0,1,0,8,0,21,2,0.78,2,0,1,1,0,0,0
 a|beard,adam-beard,Nations Championship,2026,3,240,0,0,0,11,16,1.41,10,0,0,0,1,14,1,36,4,0.8,2,1,1,0,4,0,0
-a|beard,adam-beard,Challenge Cup,2025/2026,4,268,0,0,0,14,37,2.65,34,0,0,1,1,20,0,23,3,0.72,1,0,1,0,5,0,0
+a|beard,adam-beard,Challenge Cup,2025/2026,4,268,0,0,0,14,37,2.65,34,0,0,1,1,19,0,23,3,0.72,1,0,1,0,5,0,0
 a|beard,adam-beard,TOP 14,2025/2026,19,800,1,0,5,29,44,1.51,40,2,0,1,5,54,1,110,9,0.87,6,3,7,0,9,0,0
 a|beard,adam-beard,United Rugby Championship,2024/2025,9,689,0,0,0,26,42,1.63,40,0,1,1,2,65,5,88,12,0.81,5,0,3,1,9,0,0
 a|beard,adam-beard,Challenge Cup,2024/2025,2,106,1,0,5,6,4,0.73,2,0,0,2,1,10,0,8,2,0.73,1,0,1,0,1,0,0
@@ -39,7 +39,7 @@ a|beard,adam-beard,Rugby World Cup,2023,4,234,0,0,0,8,4,0.5,16,0,0,1,2,10,1,46,4
 a|beard,adam-beard,Rugby Hybrid Friendlies,2023/2024,1,69,0,0,0,6,3,0.45,5,0,0,0,0,6,0,11,2,0.79,0,0,0,0,1,1,0
 a|beard,adam-beard,United Rugby Championship,2023/2024,8,585,0,1,0,27,30,1.1,52,0,0,2,5,43,1,84,4,0.91,6,0,6,0,7,0,0
 a|beard,adam-beard,Challenge Cup,2023/2024,6,480,0,0,0,21,25,1.21,16,2,0,1,4,52,4,57,7,0.88,5,1,4,0,4,0,0
-a|hastings,adam-hastings,TOP 14,2026/2027,1,14,0,0,0,2,0,0.0,0,0,0,0,0,3,1,0,0,0.0,0,0,0,0,0,0,0
+a|hastings,adam-hastings,TOP 14,2026/2027,2,71,1,1,11,9,12,1.34,12,2,1,1,2,15,2,9,1,0.9,0,0,2,5,0,0,0
 a|hastings,adam-hastings,Six Nations,2026,1,5,0,0,0,0,0,0.0,0,0,0,0,0,0,0,0,0,0.0,0,0,0,0,0,0,0
 a|hastings,adam-hastings,Investec Champions Cup,2025/2026,4,193,0,0,19,24,86,3.58,71,12,1,2,1,67,2,15,12,0.52,1,1,3,5,2,0,0
 a|hastings,adam-hastings,United Rugby Championship,2025/2026,15,808,1,7,47,89,255,2.87,226,22,3,3,8,276,22,89,18,0.79,3,0,11,40,8,3,0
@@ -49,7 +49,7 @@ a|hastings,adam-hastings,United Rugby Championship,2024/2025,15,671,1,1,45,68,23
 a|hastings,adam-hastings,PREM Rugby,2023/2024,3,237,1,1,23,21,74,3.51,17,2,0,1,2,123,5,17,6,0.63,0,1,3,27,1,0,0
 a|hastings,adam-hastings,Challenge Cup,2023/2024,5,388,2,2,47,22,95,4.31,35,2,1,4,1,91,6,39,18,0.64,0,0,3,36,4,0,0
 a|hastings,adam-hastings,Rugby Hybrid Friendlies,2022/2023,1,55,0,1,8,11,55,0.0,20,3,1,2,3,26,3,2,5,0.0,0,0,0,4,0,0,0
-a|cocagi,adrea-cocagi,TOP 14,2026/2027,1,29,0,0,0,5,31,6.18,14,1,0,0,0,1,0,2,0,0.67,0,0,0,0,0,0,0
+a|cocagi,adrea-cocagi,TOP 14,2026/2027,2,109,1,0,5,16,62,3.89,40,4,0,1,1,7,1,17,1,0.85,1,0,1,0,1,0,0
 a|cocagi,adrea-cocagi,TOP 14,2025/2026,14,880,0,2,0,95,375,3.95,277,24,3,8,5,40,5,122,25,0.73,8,4,6,4,8,0,0
 a|cocagi,adrea-cocagi,Pacific Nations Cup,2024,1,16,0,0,0,1,5,5.2,1,0,0,0,0,0,0,0,0,0.0,0,0,0,0,1,0,1
 a|cocagi,adrea-cocagi,TOP 14,2024/2025,9,414,1,0,5,33,156,4.74,119,11,2,2,1,17,2,33,13,0.58,2,0,3,1,4,0,1
@@ -180,7 +180,7 @@ a|mann,alex-mann,United Rugby Championship,2024/2025,11,611,5,1,25,48,66,1.38,71
 a|mann,alex-mann,Six Nations,2024,5,236,2,0,10,32,61,1.9,40,3,0,0,1,11,0,47,5,0.78,1,0,1,0,0,0,0
 a|mann,alex-mann,Investec Champions Cup,2023/2024,3,213,0,0,0,21,16,0.78,25,0,0,0,2,18,1,41,2,0.87,4,1,2,0,4,0,0
 a|mann,alex-mann,United Rugby Championship,2023/2024,10,735,0,1,0,81,175,2.16,156,8,2,4,6,52,3,158,19,0.84,4,6,9,0,13,0,0
-a|masibaka,alex-masibaka,TOP 14,2026/2027,1,61,0,0,0,11,48,4.35,20,2,0,0,0,3,0,9,2,0.75,1,0,0,0,1,0,0
+a|masibaka,alex-masibaka,TOP 14,2026/2027,2,60,0,0,0,12,48,3.99,20,2,0,0,0,3,0,10,2,0.77,2,0,0,0,2,0,0
 a|masibaka,alex-masibaka,TOP 14,2025/2026,19,530,3,1,15,80,356,4.44,287,31,3,2,6,22,0,110,8,0.85,13,4,7,4,10,0,0
 a|masibaka,alex-masibaka,Challenge Cup,2025/2026,6,363,4,2,20,50,313,6.25,163,14,3,5,1,23,2,53,2,0.9,7,4,6,0,2,0,0
 a|masibaka,alex-masibaka,Rugby Hybrid Friendlies,2024/2025,1,41,0,0,0,5,33,6.64,7,1,0,1,0,4,0,17,0,1.0,2,0,0,0,0,1,0
@@ -204,7 +204,7 @@ a|samuel,alex-samuel,Investec Champions Cup,2024/2025,6,238,0,0,0,18,11,0.61,25,
 a|samuel,alex-samuel,United Rugby Championship,2024/2025,19,901,0,1,0,59,63,1.07,71,1,1,0,2,63,4,129,3,0.88,7,1,3,0,6,0,0
 a|samuel,alex-samuel,Investec Champions Cup,2023/2024,3,118,0,0,0,9,7,0.73,3,0,0,0,0,10,0,21,1,0.81,0,1,0,0,1,0,0
 a|samuel,alex-samuel,United Rugby Championship,2023/2024,5,177,0,0,0,19,14,0.72,29,3,0,0,0,8,0,29,1,0.91,2,2,0,0,0,0,0
-a|fischer,alexandre-fischer,TOP 14,2026/2027,1,80,0,0,0,7,19,2.66,23,2,0,0,0,3,0,10,0,0.91,0,1,0,0,0,0,0
+a|fischer,alexandre-fischer,TOP 14,2026/2027,2,160,0,0,0,13,32,2.45,31,2,0,1,0,5,0,21,3,0.84,2,2,0,0,1,0,0
 a|fischer,alexandre-fischer,Investec Champions Cup,2025/2026,3,176,0,0,0,12,46,3.8,36,6,0,2,2,6,0,35,5,0.83,4,5,2,0,1,0,0
 a|fischer,alexandre-fischer,TOP 14,2025/2026,18,1046,3,3,15,91,293,3.22,234,11,5,7,7,42,5,129,19,0.8,12,10,8,3,9,0,0
 a|fischer,alexandre-fischer,Rugby Hybrid Friendlies,2024/2025,1,80,0,0,0,5,14,2.9,10,0,0,0,2,2,0,14,2,0.82,0,0,2,0,0,0,0
@@ -212,7 +212,7 @@ a|fischer,alexandre-fischer,Investec Champions Cup,2024/2025,4,140,0,0,0,10,30,3
 a|fischer,alexandre-fischer,TOP 14,2024/2025,24,1186,4,0,20,101,218,2.16,171,19,1,5,9,21,2,154,25,0.78,7,19,15,2,24,1,0
 a|fischer,alexandre-fischer,TOP 14,2023/2024,2,47,0,0,0,9,30,3.28,14,0,1,0,0,0,0,5,0,0.83,1,0,0,0,0,0,0
 a|fischer,alexandre-fischer,Challenge Cup,2023/2024,2,69,0,0,0,2,0,0.0,0,0,0,2,0,2,0,13,3,0.81,3,3,0,0,0,0,0
-a|roumat,alexandre-roumat,TOP 14,2026/2027,1,64,0,1,0,2,14,7.1,4,0,0,0,1,3,1,5,3,0.63,0,1,1,0,1,0,0
+a|roumat,alexandre-roumat,TOP 14,2026/2027,2,144,0,1,0,12,34,2.85,21,0,0,0,1,8,2,13,4,0.68,1,1,2,0,2,0,0
 a|roumat,alexandre-roumat,Nations Championship,2026,1,80,1,0,5,7,61,8.73,22,1,0,2,0,7,1,9,1,0.82,2,1,0,0,1,0,0
 a|roumat,alexandre-roumat,TOP 14,2025/2026,24,1482,4,0,20,163,436,2.67,309,11,1,13,16,165,10,146,14,0.82,8,5,21,1,15,0,0
 a|roumat,alexandre-roumat,Investec Champions Cup,2025/2026,4,186,0,0,0,19,30,1.58,31,2,0,3,1,22,1,24,4,0.83,2,0,1,0,0,0,0
@@ -223,7 +223,7 @@ a|roumat,alexandre-roumat,Six Nations,2024,4,100,0,0,0,9,8,0.89,19,3,0,0,1,6,1,1
 a|roumat,alexandre-roumat,TOP 14,2023/2024,20,1314,0,2,0,153,409,2.67,201,8,7,13,11,153,16,122,9,0.84,9,6,14,0,14,0,0
 a|roumat,alexandre-roumat,Investec Champions Cup,2023/2024,7,559,2,1,10,41,128,3.11,36,0,0,2,5,51,4,59,9,0.81,3,3,7,1,3,0,0
 a|roumat,alexandre-roumat,Rugby Hybrid Friendlies,2022/2023,1,80,1,0,5,6,17,0.0,6,0,0,0,1,7,0,6,1,0.0,0,0,0,0,0,0,0
-a|price,ali-price,TOP 14,2026/2027,1,62,0,0,0,2,8,4.1,13,1,0,1,0,55,2,1,0,0.5,0,0,1,10,0,0,0
+a|price,ali-price,TOP 14,2026/2027,2,75,0,0,0,2,8,4.1,13,1,0,1,0,61,2,1,0,0.5,0,0,1,11,0,0,0
 a|price,ali-price,Challenge Cup,2025/2026,4,217,2,2,10,14,83,5.96,48,5,2,3,0,161,3,10,3,0.71,0,1,2,20,0,0,0
 a|price,ali-price,TOP 14,2025/2026,23,1427,2,9,10,85,403,4.74,163,20,4,9,11,1227,44,59,23,0.63,2,5,26,222,2,0,0
 a|price,ali-price,United Rugby Championship,2024/2025,18,981,1,11,5,61,251,4.12,70,9,2,13,7,871,17,58,12,0.74,0,4,12,127,2,0,0
@@ -328,7 +328,7 @@ a|christie,andy-christie,PREM Rugby,2024/2025,11,422,2,0,10,39,117,3.0,88,3,2,3,
 a|christie,andy-christie,Six Nations,2024,4,197,0,0,0,19,110,5.79,58,2,1,2,0,12,3,49,2,0.88,0,4,1,0,5,0,0
 a|christie,andy-christie,Investec Champions Cup,2023/2024,3,228,0,0,0,22,61,2.77,37,6,1,3,1,17,1,32,7,0.73,4,2,2,0,2,0,0
 a|christie,andy-christie,PREM Rugby,2023/2024,14,919,3,2,15,102,384,3.76,266,15,3,14,6,91,17,166,19,0.82,16,7,7,3,11,0,0
-a|capuozzo,ange-capuozzo,TOP 14,2026/2027,1,64,0,0,0,2,15,7.35,5,1,0,0,0,6,2,3,2,0.43,0,0,0,1,0,0,0
+a|capuozzo,ange-capuozzo,TOP 14,2026/2027,2,144,1,1,5,15,76,5.09,19,1,2,1,1,9,2,7,2,0.5,0,1,1,5,0,0,0
 a|capuozzo,ange-capuozzo,Six Nations,2026,1,72,1,0,5,15,66,4.39,18,2,1,0,0,3,0,4,2,0.57,1,1,3,4,0,0,0
 a|capuozzo,ange-capuozzo,TOP 14,2025/2026,9,445,7,2,35,59,381,6.45,210,15,8,3,9,36,3,20,3,0.63,0,1,15,9,1,0,0
 a|capuozzo,ange-capuozzo,Investec Champions Cup,2025/2026,2,160,3,0,15,18,158,8.79,57,6,7,0,2,10,2,9,4,0.64,0,0,5,3,2,0,0
@@ -371,7 +371,7 @@ a|jelonch,anthony-jelonch,TOP 14,2023/2024,6,376,1,0,5,55,151,2.75,104,11,1,5,5,
 a|watson,anthony-watson,PREM Rugby,2024/2025,5,335,1,0,5,24,171,7.14,110,13,4,0,2,5,0,12,4,0.6,3,0,2,2,4,1,0
 a|watson,anthony-watson,Investec Champions Cup,2023/2024,1,80,0,0,0,6,36,5.92,22,4,1,0,0,0,0,4,3,0.5,1,0,1,3,0,0,0
 a|watson,anthony-watson,PREM Rugby,2023/2024,1,80,1,0,5,9,17,1.92,8,1,1,0,0,0,0,6,2,0.67,3,0,0,2,2,0,0
-a|dupont,antoine-dupont,TOP 14,2026/2027,1,80,0,1,0,5,26,5.3,23,1,0,1,0,46,2,8,1,0.67,0,2,0,11,2,0,0
+a|dupont,antoine-dupont,TOP 14,2026/2027,2,147,0,2,0,18,71,3.96,43,3,1,3,0,110,4,15,2,0.65,1,2,0,22,2,0,0
 a|dupont,antoine-dupont,Six Nations,2026,5,358,1,5,5,45,203,4.51,91,16,3,7,4,283,16,30,6,0.79,3,3,5,68,2,0,0
 a|dupont,antoine-dupont,Investec Champions Cup,2025/2026,6,390,3,6,15,54,292,5.4,96,16,2,9,5,298,12,29,8,0.69,0,1,10,49,1,1,0
 a|dupont,antoine-dupont,TOP 14,2025/2026,10,482,5,12,25,82,354,4.32,175,29,7,13,9,443,20,38,7,0.75,0,4,14,85,1,1,0
@@ -389,7 +389,7 @@ a|frisch,antoine-frisch,Rugby Hybrid Friendlies,2023/2024,1,80,0,0,0,10,58,5.81,
 a|frisch,antoine-frisch,Investec Champions Cup,2023/2024,4,320,2,0,10,24,114,4.75,49,8,5,3,5,34,4,26,7,0.68,1,0,5,5,0,0,0
 a|frisch,antoine-frisch,United Rugby Championship,2023/2024,18,1352,5,3,25,105,421,4.01,222,16,6,13,7,130,15,93,30,0.65,6,2,9,17,3,0,0
 a|frisch,antoine-frisch,Rugby Hybrid Friendlies,2022/2023,1,63,0,0,0,2,9,0.0,5,1,0,1,0,7,0,7,1,0.0,0,0,0,1,0,0,0
-a|hastoy,antoine-hastoy,TOP 14,2026/2027,1,80,1,0,10,8,39,4.85,28,4,1,0,1,12,2,4,2,0.57,0,0,1,6,0,0,0
+a|hastoy,antoine-hastoy,TOP 14,2026/2027,2,160,1,0,21,14,41,2.92,31,4,1,0,2,25,4,11,4,0.69,1,0,2,8,1,0,0
 a|hastoy,antoine-hastoy,Nations Championship,2026,1,57,1,0,7,12,43,3.55,16,3,1,0,0,4,1,0,2,0.0,0,0,0,1,0,0,0
 a|hastoy,antoine-hastoy,Rugby Hybrid Friendlies,2026,1,80,1,1,13,10,46,4.64,14,1,0,0,1,16,1,2,1,0.5,0,0,2,4,0,0,0
 a|hastoy,antoine-hastoy,TOP 14,2025/2026,23,1598,3,8,121,160,593,3.7,436,54,11,12,7,377,22,73,32,0.61,3,0,23,190,6,1,1
@@ -473,9 +473,9 @@ a|clark,arthur-clark,PREM Rugby,2024/2025,10,736,0,1,0,66,204,3.1,183,10,6,4,7,5
 a|clark,arthur-clark,Challenge Cup,2024/2025,2,106,0,0,0,9,16,1.74,16,0,0,1,0,7,2,25,3,0.81,0,1,1,1,1,0,0
 a|clark,arthur-clark,PREM Rugby,2023/2024,1,20,2,0,0,2,0,0.2,3,5,5,1,1,1,1,3,1,0.75,6,0,1,0,6,0,0
 a|clark,arthur-clark,Challenge Cup,2023/2024,2,68,0,0,0,5,5,0.92,4,1,1,1,0,5,0,18,1,0.95,1,0,0,0,0,0,0
-a|vincent,arthur-vincent,TOP 14,2026/2027,1,20,0,0,0,3,3,1.03,3,0,0,0,0,5,1,0,1,0.0,0,0,0,0,0,0,0
+a|vincent,arthur-vincent,TOP 14,2026/2027,2,61,1,0,5,7,26,3.74,17,1,1,0,0,7,1,9,1,0.75,0,0,0,1,1,0,0
 a|vincent,arthur-vincent,TOP 14,2025/2026,26,1507,4,0,20,111,404,3.64,279,21,5,5,9,55,7,125,34,0.68,6,6,15,12,15,0,0
-a|vincent,arthur-vincent,Challenge Cup,2025/2026,4,190,1,0,5,13,48,3.69,35,2,1,2,1,9,1,28,4,0.85,3,1,2,3,0,0,0
+a|vincent,arthur-vincent,Challenge Cup,2025/2026,4,190,1,0,5,13,47,3.62,34,2,1,1,1,9,1,27,4,0.84,2,1,2,4,0,0,0
 a|vincent,arthur-vincent,TOP 14,2024/2025,23,1395,4,1,20,122,477,3.91,310,23,7,11,7,99,12,138,43,0.67,8,11,16,6,8,0,0
 a|vincent,arthur-vincent,Challenge Cup,2024/2025,3,170,0,0,0,19,97,5.09,62,5,0,2,0,14,1,16,3,0.76,0,3,1,3,3,0,0
 a|vincent,arthur-vincent,Rugby World Cup,2023,2,103,0,0,0,12,36,2.97,6,0,0,0,0,10,0,7,2,0.78,1,3,0,1,0,0,0
@@ -514,6 +514,7 @@ a|sakate,atsushi-sakate,Japan Rugby League One,2023/2024,16,740,4,3,20,74,142,1.
 a|sakate,atsushi-sakate,Rugby Hybrid Friendlies,2022/2023,4,244,0,0,0,13,66,0.0,43,2,1,1,2,82,0,44,6,0.0,1,0,0,0,0,0,0
 a|sokobale,atunaisa-sokobale,Investec Champions Cup,2025/2026,3,86,0,0,0,13,84,6.5,65,5,2,0,0,3,1,11,1,0.92,0,1,0,0,2,0,0
 a|sokobale,atunaisa-sokobale,TOP 14,2025/2026,3,66,0,0,0,5,12,2.48,10,3,0,0,1,1,0,7,0,0.88,0,1,1,0,1,0,0
+b|couilloud,baptiste-couilloud,TOP 14,2026/2027,1,60,0,1,0,3,35,11.67,10,0,0,0,0,30,1,4,0,0.67,1,0,0,6,0,0,0
 b|couilloud,baptiste-couilloud,TOP 14,2025/2026,8,450,3,5,15,40,252,6.29,103,10,8,6,4,344,11,28,14,0.56,3,1,4,38,2,0,0
 b|couilloud,baptiste-couilloud,Challenge Cup,2025/2026,2,144,0,0,0,5,28,5.5,10,0,0,0,2,110,1,7,3,0.64,0,0,4,17,1,0,0
 b|couilloud,baptiste-couilloud,TOP 14,2024/2025,22,1328,11,7,55,131,790,6.03,346,35,10,20,12,1086,44,117,35,0.7,8,9,19,106,10,2,0
@@ -521,7 +522,7 @@ b|couilloud,baptiste-couilloud,Challenge Cup,2024/2025,5,265,0,3,0,24,109,4.53,2
 b|couilloud,baptiste-couilloud,Rugby World Cup,2023,3,78,1,0,5,10,100,9.99,8,2,2,0,2,50,2,10,0,0.83,1,1,2,2,1,0,0
 b|couilloud,baptiste-couilloud,Investec Champions Cup,2023/2024,1,30,0,0,0,1,0,0.0,0,0,0,0,0,24,0,3,1,0.6,0,0,0,4,0,0,0
 b|couilloud,baptiste-couilloud,TOP 14,2023/2024,22,1286,17,8,85,150,901,6.01,452,53,16,25,7,994,33,117,32,0.66,12,9,21,109,10,1,0
-b|jauneau,baptiste-jauneau,TOP 14,2026/2027,1,64,0,0,0,7,21,3.06,12,2,0,0,1,55,3,0,2,0.0,0,0,1,5,1,0,0
+b|jauneau,baptiste-jauneau,TOP 14,2026/2027,2,124,0,0,0,12,63,5.24,30,3,0,1,1,115,5,5,3,0.42,1,0,1,13,1,0,0
 b|jauneau,baptiste-jauneau,Rugby Hybrid Friendlies,2026,1,29,0,1,0,6,36,5.95,6,1,0,2,0,29,1,6,1,0.86,0,0,1,4,2,0,0
 b|jauneau,baptiste-jauneau,Investec Champions Cup,2025/2026,1,52,0,0,0,5,25,4.96,17,3,0,0,0,30,1,5,0,0.83,0,0,0,5,0,0,0
 b|jauneau,baptiste-jauneau,TOP 14,2025/2026,22,1282,8,8,40,152,849,5.59,543,61,14,13,14,915,34,122,22,0.75,6,8,26,169,5,2,0
@@ -532,14 +533,14 @@ b|jauneau,baptiste-jauneau,TOP 14,2023/2024,22,898,4,1,20,99,395,3.99,218,30,6,1
 b|jauneau,baptiste-jauneau,Challenge Cup,2023/2024,7,356,2,3,10,31,231,7.46,92,13,3,7,4,280,14,42,6,0.74,2,3,5,47,2,0,0
 b|jauneau,baptiste-jauneau,U20 Six Nations,2023,2,122,1,3,5,11,130,11.81,114,7,3,4,2,67,4,12,2,0.8,1,1,4,13,0,0,0
 b|jauneau,baptiste-jauneau,World Rugby Junior World Championship,2023,5,276,1,6,5,40,279,6.98,130,10,5,5,4,154,4,29,1,0.97,4,5,8,26,2,1,0
-b|pesenti,baptiste-pesenti,TOP 14,2026/2027,1,56,0,0,0,2,1,0.5,2,0,0,0,1,1,1,10,2,0.83,0,0,1,0,1,0,0
+b|pesenti,baptiste-pesenti,TOP 14,2026/2027,2,114,0,0,0,7,6,0.86,8,0,0,0,1,2,1,20,2,0.87,0,0,2,0,3,0,0
 b|pesenti,baptiste-pesenti,TOP 14,2025/2026,25,1339,2,0,10,83,101,1.21,131,7,0,5,7,41,4,216,28,0.82,19,2,7,0,13,1,0
 b|pesenti,baptiste-pesenti,Challenge Cup,2025/2026,1,35,0,0,0,8,15,1.91,19,1,0,0,0,0,0,14,0,1.0,2,0,0,0,0,0,0
 b|pesenti,baptiste-pesenti,TOP 14,2024/2025,16,659,0,0,0,65,77,1.19,106,1,0,0,2,24,0,99,19,0.75,7,3,3,0,14,2,1
 b|pesenti,baptiste-pesenti,Investec Champions Cup,2024/2025,3,143,0,0,0,14,14,0.98,30,1,0,1,0,6,1,17,1,0.77,0,0,0,0,2,0,1
 b|pesenti,baptiste-pesenti,TOP 14,2023/2024,22,1045,0,0,0,93,86,0.93,91,5,0,2,4,25,2,134,29,0.75,18,5,5,0,10,3,0
 b|pesenti,baptiste-pesenti,Investec Champions Cup,2023/2024,2,79,0,0,0,12,8,0.65,3,0,0,0,0,2,0,25,2,0.89,3,0,1,0,1,0,0
-b|serin,baptiste-serin,TOP 14,2026/2027,1,59,0,0,0,1,0,0.0,1,1,0,0,0,28,0,6,0,0.86,0,0,1,9,1,0,0
+b|serin,baptiste-serin,TOP 14,2026/2027,2,117,1,1,5,5,10,2.04,5,1,0,2,0,83,2,11,0,0.85,0,0,2,14,1,0,0
 b|serin,baptiste-serin,Six Nations,2026,4,42,0,2,0,6,60,9.97,61,5,3,0,1,63,2,3,0,1.0,0,0,1,4,0,0,0
 b|serin,baptiste-serin,TOP 14,2025/2026,20,1037,2,11,20,85,379,4.46,138,15,6,12,12,829,42,93,14,0.79,5,7,17,153,7,0,0
 b|serin,baptiste-serin,Investec Champions Cup,2025/2026,5,154,1,0,5,15,58,3.84,33,7,1,0,1,139,3,12,2,0.86,0,0,3,22,1,0,0
@@ -547,7 +548,7 @@ b|serin,baptiste-serin,TOP 14,2024/2025,24,1354,7,11,101,121,497,4.11,204,29,9,1
 b|serin,baptiste-serin,Investec Champions Cup,2024/2025,6,325,3,1,41,21,169,8.03,79,6,5,3,4,229,7,45,1,0.94,1,1,7,57,3,2,0
 b|serin,baptiste-serin,TOP 14,2023/2024,17,913,3,7,23,86,311,3.62,102,17,6,6,6,535,30,99,14,0.75,8,2,12,143,9,0,0
 b|serin,baptiste-serin,Investec Champions Cup,2023/2024,1,2,0,0,0,0,0,0.0,0,0,0,0,0,1,0,1,0,1.0,0,0,0,0,0,0,0
-b|massa,barnabe-massa,TOP 14,2026/2027,1,48,0,0,0,4,88,22.05,1,0,0,0,2,0,0,2,0,0.5,0,0,4,0,0,0,0
+b|massa,barnabe-massa,TOP 14,2026/2027,2,92,0,0,0,9,95,10.6,13,1,0,1,2,2,0,7,1,0.7,0,0,4,0,0,0,0
 b|massa,barnabe-massa,Nations Championship,2026,1,17,0,0,0,1,4,3.6,6,1,0,0,0,2,0,4,1,0.8,0,0,0,0,0,0,0
 b|massa,barnabe-massa,Rugby Hybrid Friendlies,2026,1,29,0,0,0,5,7,1.46,11,2,0,0,0,3,0,9,1,0.9,0,0,1,0,0,0,0
 b|massa,barnabe-massa,TOP 14,2025/2026,24,1258,7,0,35,145,432,2.98,324,29,3,4,15,27,4,160,17,0.78,9,10,20,0,17,1,0
@@ -579,7 +580,7 @@ b|bernasconi,bautista-bernasconi,Investec Champions Cup,2024/2025,5,179,4,0,20,1
 b|bernasconi,bautista-bernasconi,United Rugby Championship,2024/2025,12,518,2,0,10,42,52,1.24,67,8,0,1,3,31,3,80,17,0.8,7,0,5,0,5,1,0
 b|bernasconi,bautista-bernasconi,United Rugby Championship,2023/2024,13,410,2,1,10,59,96,1.63,62,7,0,1,1,19,1,67,13,0.81,5,3,4,2,3,0,0
 b|bernasconi,bautista-bernasconi,Challenge Cup,2023/2024,6,199,2,0,10,20,54,2.71,24,1,2,0,2,8,1,48,6,0.84,5,2,2,0,1,0,0
-b|delguy,bautista-delguy,TOP 14,2026/2027,1,80,0,0,0,9,56,6.26,43,5,0,0,0,2,0,3,1,0.6,2,0,2,1,0,0,0
+b|delguy,bautista-delguy,TOP 14,2026/2027,2,160,1,0,5,17,98,5.74,60,8,1,0,1,5,0,7,3,0.47,2,0,5,2,0,0,0
 b|delguy,bautista-delguy,The Rugby Championship,2025,4,311,3,0,15,34,253,7.45,112,12,6,3,3,8,0,26,4,0.79,2,0,5,5,0,0,0
 b|delguy,bautista-delguy,Nations Championship,2026,3,194,0,1,0,23,141,6.14,78,7,4,0,5,15,4,14,2,0.74,0,0,6,1,0,0,0
 b|delguy,bautista-delguy,TOP 14,2025/2026,19,1445,5,1,25,143,816,5.71,383,47,18,11,24,63,5,53,22,0.56,7,0,29,34,13,1,0
@@ -640,6 +641,7 @@ b|earl,ben-earl,Six Nations,2024,5,400,2,1,10,73,251,3.44,214,24,2,1,2,30,2,63,7
 b|earl,ben-earl,Rugby World Cup,2023,7,493,1,0,5,64,336,5.25,260,24,7,0,4,44,2,80,12,0.81,3,3,5,3,5,0,0
 b|earl,ben-earl,PREM Rugby,2023/2024,10,693,1,0,5,118,345,2.93,218,23,3,5,6,68,8,98,26,0.75,7,6,8,3,6,1,0
 b|earl,ben-earl,Investec Champions Cup,2023/2024,3,222,0,0,0,27,84,3.11,35,2,1,0,3,31,1,30,4,0.86,1,0,4,2,2,0,0
+b|gunter,ben-gunter,Pacific Nations Cup,2026,1,57,0,0,0,8,24,3.0,21,2,0,1,0,3,0,8,1,0.89,1,0,0,0,0,0,0
 b|gunter,ben-gunter,Pacific Nations Cup,2025,3,240,2,2,10,22,77,3.51,59,4,2,3,1,18,3,51,4,0.85,8,7,2,0,3,0,0
 b|gunter,ben-gunter,Nations Championship,2026,3,224,1,0,5,31,60,1.93,56,4,0,0,1,4,2,54,6,0.83,4,6,1,0,0,0,0
 b|gunter,ben-gunter,Japan Rugby League One,2025/2026,16,1083,5,2,25,104,361,3.47,272,15,5,6,9,39,7,178,21,0.8,16,18,11,0,12,1,0
@@ -711,7 +713,7 @@ b|warren,ben-warren,United Rugby Championship,2024/2025,14,516,1,0,5,36,37,1.02,
 b|warren,ben-warren,Challenge Cup,2024/2025,6,206,0,0,0,17,14,0.82,40,2,0,0,2,11,2,41,1,0.89,1,0,2,0,6,0,0
 b|warren,ben-warren,United Rugby Championship,2023/2024,11,267,0,0,0,26,20,0.77,38,0,0,0,1,19,2,55,5,0.9,2,0,1,0,11,0,0
 b|warren,ben-warren,Challenge Cup,2023/2024,3,59,0,0,0,5,10,2.04,2,0,0,0,0,1,0,4,2,0.67,0,0,0,0,1,0,0
-b|white,ben-white,TOP 14,2026/2027,1,21,0,0,0,2,4,2.15,2,0,0,1,0,14,0,5,0,0.83,0,0,0,0,0,0,0
+b|white,ben-white,TOP 14,2026/2027,2,43,0,0,0,2,4,2.15,2,0,0,1,0,23,1,6,0,0.86,0,0,0,2,0,0,0
 b|white,ben-white,Six Nations,2026,5,302,2,2,10,20,33,1.65,18,3,1,4,2,366,10,28,3,0.82,2,0,3,55,0,0,0
 b|white,ben-white,Nations Championship,2026,2,140,1,2,5,10,36,3.61,13,1,2,1,1,197,3,8,2,0.67,0,0,1,20,1,0,0
 b|white,ben-white,Investec Champions Cup,2025/2026,7,413,4,2,20,29,106,3.67,40,4,2,3,5,411,13,37,2,0.82,5,2,5,51,1,0,0
@@ -808,6 +810,7 @@ b|sela,billy-sela,Investec Champions Cup,2024/2025,1,45,0,0,0,5,10,1.9,13,1,0,1,
 b|sela,billy-sela,PREM Rugby,2024/2025,3,30,0,0,0,7,24,3.41,23,2,0,1,0,2,0,4,1,0.8,0,0,0,0,0,0,0
 b|sela,billy-sela,U20 Six Nations,2024,5,280,0,0,0,12,17,1.43,21,1,0,0,0,4,0,30,1,0.91,3,0,0,0,1,0,0
 b|sela,billy-sela,World Rugby Junior World Championship,2024,2,133,1,0,5,13,43,3.34,36,3,1,3,2,7,1,22,1,0.96,5,0,2,0,1,0,0
+b|vunipola,billy-vunipola,TOP 14,2026/2027,1,70,0,0,0,16,34,2.14,38,1,0,2,1,7,0,9,2,0.75,0,1,1,0,3,1,0
 b|vunipola,billy-vunipola,Challenge Cup,2025/2026,3,146,1,1,5,24,69,2.87,46,3,0,2,0,10,0,18,1,0.82,1,2,0,0,0,0,0
 b|vunipola,billy-vunipola,TOP 14,2025/2026,23,1475,1,3,5,286,905,3.17,702,40,2,15,13,108,8,191,30,0.8,14,10,20,8,21,4,0
 b|vunipola,billy-vunipola,Challenge Cup,2024/2025,2,91,0,0,0,13,31,2.4,22,1,0,0,0,9,1,4,3,0.44,0,1,0,0,0,0,0
@@ -815,6 +818,7 @@ b|vunipola,billy-vunipola,TOP 14,2024/2025,25,1342,2,0,10,229,686,3.0,484,44,0,1
 b|vunipola,billy-vunipola,Rugby World Cup,2023,5,137,0,0,0,18,27,1.48,24,0,0,0,2,17,0,16,2,0.89,1,0,2,0,1,0,0
 b|vunipola,billy-vunipola,Investec Champions Cup,2023/2024,5,264,0,1,0,42,82,1.96,50,3,0,5,5,41,3,35,7,0.8,2,0,6,1,2,0,1
 b|vunipola,billy-vunipola,PREM Rugby,2023/2024,15,690,2,0,10,118,305,2.58,150,13,2,5,9,79,7,69,19,0.73,8,6,10,2,3,0,0
+b|kinghorn,blair-kinghorn,TOP 14,2026/2027,1,15,0,0,0,4,32,7.95,23,1,1,0,1,1,1,0,0,0.0,0,0,1,0,0,0,0
 b|kinghorn,blair-kinghorn,Six Nations,2026,3,240,0,3,0,32,190,5.94,97,10,3,8,1,32,3,5,0,1.0,0,1,3,3,1,0,0
 b|kinghorn,blair-kinghorn,Investec Champions Cup,2025/2026,6,304,1,1,5,35,130,3.71,74,8,4,3,1,44,8,19,5,0.73,1,0,6,7,3,0,0
 b|kinghorn,blair-kinghorn,TOP 14,2025/2026,19,1244,1,7,47,161,915,5.68,404,45,7,18,15,184,16,32,9,0.62,1,3,18,48,4,0,0
@@ -850,9 +854,9 @@ b|venter,boan-venter,Challenge Cup,2024/2025,7,261,0,0,0,33,24,0.74,48,4,0,0,0,1
 b|venter,boan-venter,United Rugby Championship,2024/2025,18,747,5,1,25,114,213,1.86,217,15,1,0,3,19,1,86,5,0.86,6,4,3,2,11,0,0
 b|venter,boan-venter,Challenge Cup,2023/2024,3,72,0,0,0,5,5,1.04,9,1,0,0,0,1,0,13,2,0.87,3,0,0,0,0,0,0
 b|venter,boan-venter,United Rugby Championship,2023/2024,17,597,5,0,25,92,134,1.46,146,10,0,0,2,19,1,59,11,0.8,4,2,3,1,3,0,0
-b|palu,boris-palu,TOP 14,2026/2027,1,19,0,0,0,2,5,2.55,6,0,0,0,0,0,0,2,0,1.0,0,0,0,0,0,0,0
+b|palu,boris-palu,TOP 14,2026/2027,2,53,0,0,0,4,9,2.18,8,0,0,0,0,2,0,9,0,1.0,0,0,0,0,2,0,0
 b|palu,boris-palu,Rugby Hybrid Friendlies,2026,1,29,0,0,0,3,4,1.43,3,0,0,0,0,1,1,7,0,1.0,0,0,0,0,0,0,0
-b|palu,boris-palu,Investec Champions Cup,2025/2026,8,505,1,0,5,51,104,2.05,72,3,2,2,1,26,1,83,8,0.87,6,5,4,0,4,0,0
+b|palu,boris-palu,Investec Champions Cup,2025/2026,8,505,1,0,5,51,104,2.05,72,3,2,2,1,26,1,83,8,0.87,7,5,4,0,4,0,0
 b|palu,boris-palu,TOP 14,2025/2026,24,1479,0,1,0,160,312,1.95,277,21,2,10,13,97,11,196,17,0.83,7,4,16,0,20,2,0
 b|palu,boris-palu,Investec Champions Cup,2024/2025,3,171,1,1,5,22,30,1.35,31,0,1,1,1,9,1,18,2,0.86,3,0,3,0,3,0,0
 b|palu,boris-palu,TOP 14,2024/2025,23,1180,1,0,5,115,238,2.07,197,13,0,8,9,67,8,156,6,0.9,7,2,12,1,21,0,0
@@ -875,7 +879,7 @@ b|paengaamosa,brandon-paenga-amosa,British & Irish Lions 2025,2025,1,46,0,0,0,2,
 b|paengaamosa,brandon-paenga-amosa,Super Rugby Pacific,2025,7,260,2,1,10,43,94,2.2,61,1,0,0,1,9,0,69,10,0.84,3,1,1,0,4,0,0
 b|paengaamosa,brandon-paenga-amosa,TOP 14,2023/2024,12,489,1,0,5,58,82,1.42,73,3,1,0,2,19,1,76,9,0.82,1,3,5,0,3,0,0
 b|paengaamosa,brandon-paenga-amosa,Challenge Cup,2023/2024,3,134,0,0,0,19,28,1.5,22,0,0,1,2,13,0,20,3,0.87,0,1,2,0,1,0,0
-b|ennor,braydon-ennor,TOP 14,2026/2027,1,80,0,0,0,5,9,1.74,4,2,0,0,0,1,1,5,0,1.0,0,0,1,2,0,0,0
+b|ennor,braydon-ennor,TOP 14,2026/2027,2,147,0,0,0,11,66,6.02,62,6,2,1,1,8,2,12,2,0.75,0,0,2,2,0,0,0
 b|ennor,braydon-ennor,Super Rugby Pacific,2026,8,448,1,1,5,41,182,4.45,147,10,1,0,8,19,2,43,12,0.67,5,1,11,5,3,0,0
 b|ennor,braydon-ennor,Hilux NPC,2025,11,841,2,0,10,66,190,2.87,149,13,4,5,6,47,7,67,25,0.65,5,6,9,14,1,0,0
 b|ennor,braydon-ennor,Rugby Hybrid Friendlies,2024/2025,3,184,1,0,5,11,44,4.02,47,2,2,0,4,10,0,11,4,0.65,1,2,4,1,2,0,0
@@ -894,7 +898,7 @@ b|coghlan,brodie-coghlan,Challenge Cup,2024/2025,2,101,0,0,0,12,7,0.59,8,1,0,0,1
 b|coghlan,brodie-coghlan,United Rugby Championship,2024/2025,18,960,2,1,10,89,137,1.53,103,2,0,0,1,36,7,188,15,0.87,5,7,3,0,10,1,0
 b|coghlan,brodie-coghlan,Challenge Cup,2023/2024,2,29,0,0,0,1,0,0.1,0,0,0,0,0,0,0,8,0,1.0,0,0,0,0,0,0,0
 b|coghlan,brodie-coghlan,United Rugby Championship,2023/2024,8,247,1,0,5,35,47,1.34,38,1,0,0,0,5,0,48,5,0.89,4,4,1,0,1,0,0
-b|mcalister,brodie-mcalister,Hilux NPC,2026,5,310,2,0,10,38,78,2.05,66,2,1,2,1,10,1,60,4,0.87,4,4,4,0,0,0,0
+b|mcalister,brodie-mcalister,Hilux NPC,2026,6,355,2,0,10,45,120,2.66,94,5,3,2,1,13,2,68,4,0.87,5,4,4,0,0,0,0
 b|mcalister,brodie-mcalister,The Rugby Championship,2025,1,26,0,0,0,0,0,0.0,0,0,0,0,0,1,0,4,2,0.67,2,0,0,0,0,0,0
 b|mcalister,brodie-mcalister,Super Rugby Pacific,2026,11,285,2,0,10,30,60,1.99,47,4,3,1,5,14,0,43,7,0.84,3,1,6,0,2,0,0
 b|mcalister,brodie-mcalister,Hilux NPC,2025,4,186,2,0,10,27,67,2.48,53,3,0,1,1,7,0,56,2,0.88,3,1,1,0,0,0,0
@@ -973,6 +977,7 @@ c|clarke,caleb-clarke,Rugby World Cup,2023,2,107,1,0,5,18,149,8.28,70,4,6,0,0,8,
 c|clarke,caleb-clarke,Super Rugby Pacific,2024,15,1114,10,3,50,155,1221,7.88,700,51,22,4,9,42,3,85,17,0.77,7,5,13,14,6,0,0
 c|clarke,caleb-clarke,The Rugby Championship,2022,6,460,2,0,10,48,432,9.0,322,17,6,0,2,18,2,22,3,0.76,0,0,6,0,2,0,0
 c|clarke,caleb-clarke,Super Rugby Pacific,2023,13,933,7,0,35,102,843,8.26,417,36,22,6,6,57,6,48,14,0.59,2,3,11,10,5,1,0
+c|muntz,caleb-muntz,Pacific Nations Cup,2026,1,19,0,0,0,1,5,5.2,3,0,0,0,1,5,1,2,0,0.67,0,0,1,1,0,0,0
 c|muntz,caleb-muntz,Pacific Nations Cup,2025,3,240,0,0,27,17,50,2.97,44,8,0,0,3,69,2,7,6,0.44,0,2,3,23,0,0,0
 c|muntz,caleb-muntz,Nations Championship,2026,2,160,0,0,3,13,38,2.93,39,3,0,2,1,22,1,17,1,0.89,2,1,2,10,0,0,0
 c|muntz,caleb-muntz,Rugby Hybrid Friendlies,2024/2025,1,80,0,0,7,4,21,5.25,6,1,0,1,0,13,0,8,5,0.47,1,0,0,3,1,0,0
@@ -1059,7 +1064,7 @@ c|woki,cameron-woki,Six Nations,2024,3,114,0,1,0,7,5,0.67,9,1,0,1,2,5,0,15,1,0.8
 c|woki,cameron-woki,Rugby World Cup,2023,5,314,0,0,0,20,34,1.71,33,2,0,2,3,23,2,25,3,0.83,1,1,3,0,2,0,0
 c|woki,cameron-woki,TOP 14,2023/2024,17,1201,0,1,0,65,155,2.39,134,11,2,5,9,110,6,141,14,0.79,4,8,15,2,21,2,0
 c|woki,cameron-woki,Investec Champions Cup,2023/2024,5,332,0,1,0,21,108,5.12,85,7,2,3,2,33,3,28,7,0.72,2,2,3,1,2,0,0
-c|chat,camille-chat,TOP 14,2026/2027,1,26,0,0,0,4,1,0.28,4,3,0,0,1,2,1,5,1,0.71,1,0,1,0,2,0,0
+c|chat,camille-chat,TOP 14,2026/2027,2,80,0,0,0,10,38,3.81,31,5,1,0,1,5,1,8,4,0.5,1,0,3,1,4,0,0
 c|chat,camille-chat,TOP 14,2025/2026,18,763,2,0,10,99,216,2.19,185,19,1,9,6,44,9,117,13,0.82,11,8,9,2,10,0,0
 c|chat,camille-chat,Challenge Cup,2025/2026,1,31,0,0,0,8,13,1.59,10,1,0,0,0,0,0,9,1,0.9,2,0,0,0,0,0,0
 c|chat,camille-chat,Rugby Hybrid Friendlies,2024/2025,1,47,0,0,0,5,7,1.44,8,1,0,0,0,2,0,3,1,0.6,0,0,0,0,0,0,0
@@ -1188,12 +1193,13 @@ c|tshiunza,christ-tshiunza,PREM Rugby,2024/2025,8,307,0,0,0,25,19,0.76,27,1,0,1,
 c|tshiunza,christ-tshiunza,Rugby World Cup,2023,3,115,0,0,0,8,35,4.41,36,2,1,1,2,5,1,16,0,1.0,0,0,2,0,0,0,0
 c|tshiunza,christ-tshiunza,Investec Champions Cup,2023/2024,2,160,0,0,0,11,7,0.65,5,0,0,1,1,10,0,20,1,0.87,5,0,2,0,0,0,0
 c|tshiunza,christ-tshiunza,PREM Rugby,2023/2024,6,216,0,0,0,15,22,1.5,20,1,0,0,4,10,1,30,3,0.86,1,1,4,0,0,0,0
+c|ambadiang,christian-ambadiang,TOP 14,2026/2027,1,70,0,0,0,1,2,2.0,4,1,0,0,2,2,0,5,1,0.83,1,0,2,0,3,1,0
 c|ambadiang,christian-ambadiang,Rugby Hybrid Friendlies,2026,1,80,0,0,0,3,30,9.93,16,1,1,1,0,3,1,5,3,0.56,1,0,0,0,2,0,0
 c|ambadiang,christian-ambadiang,Investec Champions Cup,2025/2026,5,343,4,0,20,33,331,10.03,215,19,7,1,6,15,5,15,6,0.52,2,5,7,0,5,2,0
 c|ambadiang,christian-ambadiang,TOP 14,2025/2026,15,1178,7,1,35,120,695,5.79,365,34,13,12,21,41,7,86,32,0.67,19,9,33,9,6,1,0
 c|ambadiang,christian-ambadiang,Investec Champions Cup,2024/2025,1,80,1,0,5,8,56,7.01,39,4,0,0,1,1,0,2,5,0.29,1,1,1,0,1,0,0
 c|ambadiang,christian-ambadiang,TOP 14,2024/2025,9,632,2,1,10,49,350,7.15,217,21,7,3,8,14,2,34,12,0.63,6,6,13,3,2,1,0
-c|liowillie,christian-lio-willie,Hilux NPC,2026,6,464,2,0,10,89,347,3.89,204,8,3,12,4,58,6,59,5,0.86,2,5,7,0,6,0,0
+c|liowillie,christian-lio-willie,Hilux NPC,2026,8,613,3,2,15,117,436,3.72,270,10,4,15,8,76,9,84,8,0.86,3,5,11,0,6,0,0
 c|liowillie,christian-lio-willie,Super Rugby Pacific,2026,16,1067,6,2,30,174,503,2.89,406,18,2,10,10,92,9,196,13,0.88,15,5,13,1,16,0,0
 c|liowillie,christian-lio-willie,Hilux NPC,2025,11,823,3,0,15,166,532,3.21,363,31,3,12,9,65,5,140,14,0.87,4,8,11,0,5,0,0
 c|liowillie,christian-lio-willie,Rugby Hybrid Friendlies,2024/2025,1,49,0,0,0,7,19,2.69,19,0,0,0,0,1,0,8,0,0.89,1,1,0,0,0,0,0
@@ -1282,7 +1288,7 @@ c|toole,corey-toole,Super Rugby Pacific,2023,14,955,9,2,45,77,702,9.12,325,26,18
 c|izuchukwu,cormac-izuchukwu,Six Nations,2026,1,59,0,0,0,7,23,3.24,9,0,1,1,0,4,0,6,0,1.0,1,1,1,0,1,0,0
 c|izuchukwu,cormac-izuchukwu,Nations Championship,2026,1,19,0,0,0,5,16,3.14,11,0,0,0,0,3,1,0,0,0.0,0,0,1,0,0,0,0
 c|izuchukwu,cormac-izuchukwu,United Rugby Championship,2025/2026,8,502,2,0,10,55,168,3.06,96,9,3,10,1,42,2,69,12,0.81,1,3,2,1,2,0,0
-c|izuchukwu,cormac-izuchukwu,Challenge Cup,2025/2026,5,350,3,0,15,47,109,2.31,91,8,2,6,2,27,4,58,1,0.87,1,2,2,0,5,0,0
+c|izuchukwu,cormac-izuchukwu,Challenge Cup,2025/2026,5,350,3,0,15,47,109,2.31,91,8,2,6,2,27,4,57,1,0.86,1,2,2,0,5,0,0
 c|izuchukwu,cormac-izuchukwu,Investec Champions Cup,2024/2025,4,227,4,0,20,36,107,2.96,98,7,2,6,2,23,0,34,1,0.89,4,0,3,1,1,0,0
 c|izuchukwu,cormac-izuchukwu,United Rugby Championship,2024/2025,9,566,2,1,10,89,187,2.1,177,13,3,12,5,48,6,95,14,0.79,10,0,6,2,3,0,0
 c|izuchukwu,cormac-izuchukwu,United Rugby Championship,2023/2024,14,502,1,0,5,78,175,2.24,221,14,3,7,2,31,0,90,5,0.85,6,5,2,1,4,0,0
@@ -1325,6 +1331,7 @@ c|langdon,curtis-langdon,PREM Rugby,2024/2025,14,847,1,0,5,117,244,2.09,204,21,2
 c|langdon,curtis-langdon,Investec Champions Cup,2024/2025,8,505,4,1,20,77,160,2.08,153,12,2,3,2,24,2,89,9,0.86,3,1,5,5,5,1,0
 c|langdon,curtis-langdon,PREM Rugby,2023/2024,16,811,7,1,35,126,284,2.25,283,38,5,11,2,61,4,128,8,0.9,12,5,2,1,9,0,0
 c|langdon,curtis-langdon,Investec Champions Cup,2023/2024,7,375,1,1,5,63,100,1.59,106,10,0,2,3,35,5,66,3,0.89,3,1,4,0,3,0,1
+c|baille,cyril-baille,TOP 14,2026/2027,1,52,1,0,5,5,11,2.28,9,1,0,0,0,3,0,4,0,1.0,0,0,0,0,0,0,0
 c|baille,cyril-baille,Investec Champions Cup,2025/2026,2,73,0,0,0,9,15,1.66,6,1,0,0,0,2,1,10,1,0.91,1,0,0,0,2,0,0
 c|baille,cyril-baille,TOP 14,2025/2026,15,530,1,1,5,43,52,1.21,69,0,0,3,3,54,4,38,5,0.81,3,0,4,1,5,1,0
 c|baille,cyril-baille,Six Nations,2025,5,152,0,0,0,16,29,1.81,26,0,0,1,0,12,1,29,0,0.97,1,1,0,0,1,0,0
@@ -1334,7 +1341,7 @@ c|baille,cyril-baille,Six Nations,2024,5,267,0,0,0,41,20,0.48,49,7,0,0,1,13,1,35
 c|baille,cyril-baille,Rugby World Cup,2023,3,144,2,0,10,11,7,0.65,9,0,1,0,1,12,1,12,0,0.92,0,0,1,0,1,0,0
 c|baille,cyril-baille,Investec Champions Cup,2023/2024,8,445,0,0,0,39,62,1.58,36,4,0,1,3,29,3,67,3,0.89,2,0,4,0,4,0,0
 c|baille,cyril-baille,TOP 14,2023/2024,12,473,0,0,0,85,94,1.11,124,8,1,11,2,43,6,41,2,0.87,3,0,2,0,1,0,0
-c|cazeaux,cyril-cazeaux,TOP 14,2026/2027,1,69,0,1,0,9,32,3.51,30,3,0,2,0,8,0,14,0,0.93,0,0,0,0,1,1,0
+c|cazeaux,cyril-cazeaux,TOP 14,2026/2027,2,149,0,1,0,14,52,3.71,58,4,1,2,0,10,0,27,1,0.93,1,0,0,0,1,1,0
 c|cazeaux,cyril-cazeaux,TOP 14,2025/2026,17,902,2,0,10,91,166,1.83,183,7,1,5,6,35,9,128,23,0.81,5,0,7,0,8,2,0
 c|cazeaux,cyril-cazeaux,Investec Champions Cup,2025/2026,2,90,0,0,0,7,2,0.34,12,0,0,0,0,1,0,10,1,0.71,1,0,0,0,1,0,0
 c|cazeaux,cyril-cazeaux,TOP 14,2024/2025,24,1554,3,2,15,127,247,1.94,222,10,1,7,7,67,11,226,27,0.83,15,3,8,3,12,0,0
@@ -1355,7 +1362,7 @@ d|jenkins,dafydd-jenkins,PREM Rugby,2023/2024,15,1039,2,1,10,74,125,1.69,101,5,0
 d|akiyama,daichi-akiyama,Japan Rugby League One,2025/2026,14,748,0,0,0,62,148,2.38,104,3,0,1,6,40,3,82,12,0.8,1,1,7,0,9,0,0
 d|akiyama,daichi-akiyama,Japan Rugby League One,2024/2025,14,679,1,0,5,93,148,1.59,152,3,2,1,6,40,2,113,23,0.75,0,3,9,0,4,0,0
 d|akiyama,daichi-akiyama,Japan Rugby League One,2023/2024,9,607,0,2,0,47,74,1.57,63,1,2,3,6,34,1,81,12,0.82,1,0,8,0,4,0,0
-d|mcleod,dallas-mcleod,Hilux NPC,2026,5,363,4,0,20,32,182,5.68,112,8,4,3,3,11,2,25,7,0.58,1,3,4,7,1,0,0
+d|mcleod,dallas-mcleod,Hilux NPC,2026,6,393,6,0,30,37,196,5.3,131,9,4,4,3,13,2,27,7,0.6,2,3,4,8,1,0,0
 d|mcleod,dallas-mcleod,Super Rugby Pacific,2026,13,726,2,2,10,73,320,4.39,287,28,7,6,7,49,4,98,17,0.79,5,4,10,3,3,0,0
 d|mcleod,dallas-mcleod,Hilux NPC,2025,11,661,5,2,25,78,420,5.38,281,22,11,6,6,33,5,88,13,0.79,7,4,15,12,1,0,0
 d|mcleod,dallas-mcleod,Rugby Hybrid Friendlies,2024/2025,3,171,1,0,5,21,39,1.86,51,5,2,2,0,12,2,8,2,0.73,1,1,0,1,1,0,0
@@ -1506,7 +1513,7 @@ d|priso,dany-priso,Investec Champions Cup,2024/2025,6,283,0,0,0,16,47,2.93,38,2,
 d|priso,dany-priso,TOP 14,2024/2025,24,1135,4,0,20,97,168,1.73,148,12,1,5,4,28,4,136,9,0.87,5,9,5,0,13,0,0
 d|priso,dany-priso,Investec Champions Cup,2023/2024,3,127,0,0,0,7,3,0.41,8,4,0,1,0,3,0,25,1,0.93,1,1,1,0,3,0,0
 d|priso,dany-priso,TOP 14,2023/2024,21,970,2,0,10,66,138,2.1,107,15,1,4,3,28,3,102,11,0.81,5,6,5,1,17,1,0
-d|lancaster,darby-lancaster,Hilux NPC,2026,4,197,1,0,5,20,135,6.77,87,7,2,0,1,7,1,15,4,0.68,0,1,2,2,0,0,0
+d|lancaster,darby-lancaster,Hilux NPC,2026,5,257,1,0,5,26,208,8.01,122,11,3,1,2,10,2,19,5,0.68,0,1,4,2,0,0,0
 d|lancaster,darby-lancaster,Super Rugby Pacific,2026,5,354,4,0,20,36,287,7.96,180,16,9,1,2,5,1,19,1,0.73,1,0,4,8,2,0,0
 d|lancaster,darby-lancaster,British & Irish Lions 2025,2025,1,80,1,0,5,8,91,11.39,43,4,1,0,1,1,1,7,1,0.88,1,1,2,1,0,0,0
 d|lancaster,darby-lancaster,Rugby Hybrid Friendlies,2024/2025,1,80,0,0,0,5,22,4.48,14,1,0,0,0,2,0,8,2,0.67,0,0,0,0,0,0,0
@@ -1555,7 +1562,7 @@ d|porecki,dave-porecki,The Rugby Championship,2023,3,171,0,0,0,4,3,0.8,4,0,0,0,1
 d|porecki,dave-porecki,Rugby World Cup,2023,4,258,1,0,5,7,6,0.9,10,0,0,0,0,5,0,26,4,0.76,4,1,0,0,2,0,0
 d|porecki,dave-porecki,The Rugby Championship,2022,4,132,0,0,0,9,10,1.11,12,2,0,0,0,7,2,21,3,0.75,2,0,0,1,5,1,0
 d|porecki,dave-porecki,Super Rugby Pacific,2023,11,650,3,0,15,51,86,1.69,80,4,0,1,4,23,3,129,10,0.87,4,1,5,0,5,0,0
-d|cherry,david-cherry,TOP 14,2026/2027,1,57,0,0,0,8,5,0.65,6,1,0,0,0,3,1,10,1,0.83,0,0,0,0,3,0,0
+d|cherry,david-cherry,TOP 14,2026/2027,2,108,0,0,0,12,13,1.08,11,1,0,0,1,5,2,21,1,0.88,0,0,1,0,3,0,0
 d|cherry,david-cherry,Six Nations,2026,2,85,0,0,0,8,10,1.19,8,0,0,0,1,3,0,17,3,0.85,1,0,2,0,2,0,0
 d|cherry,david-cherry,Six Nations,2025,5,265,0,1,0,26,60,2.32,32,0,0,1,0,11,0,35,1,0.92,1,3,2,0,3,0,0
 d|cherry,david-cherry,Challenge Cup,2024/2025,5,207,0,0,0,10,16,1.58,13,2,0,0,0,10,1,45,2,0.9,2,2,3,0,1,0,0
@@ -1587,7 +1594,7 @@ d|meredith,declan-meredith,British & Irish Lions 2025,2025,1,63,0,0,0,1,4,4.1,3,
 d|meredith,declan-meredith,Super Rugby Pacific,2025,11,378,3,1,37,42,135,3.21,121,7,4,1,4,101,5,21,8,0.58,1,1,6,26,2,0,0
 d|meredith,declan-meredith,Super Rugby Pacific,2024,5,30,0,1,0,5,20,3.92,6,0,0,0,2,7,2,2,1,0.67,1,0,2,1,0,0,0
 d|meredith,declan-meredith,Super Rugby Pacific,2023,2,32,0,0,0,0,0,0.0,0,0,0,0,0,0,0,0,0,0.0,0,0,0,0,0,0,0
-d|bamba,demba-bamba,TOP 14,2026/2027,1,53,0,0,0,12,21,1.75,45,3,0,0,1,2,0,3,2,0.43,0,1,1,0,2,0,0
+d|bamba,demba-bamba,TOP 14,2026/2027,2,122,1,0,5,23,55,2.4,75,5,0,0,2,3,0,12,4,0.67,2,1,2,0,3,0,0
 d|bamba,demba-bamba,Six Nations,2026,2,55,0,0,0,7,11,1.53,24,2,0,0,0,1,1,8,3,0.67,1,0,0,0,3,1,0
 d|bamba,demba-bamba,Nations Championship,2026,2,94,0,0,0,7,8,1.07,10,1,0,0,0,0,0,16,2,0.84,2,0,1,0,6,0,0
 d|bamba,demba-bamba,TOP 14,2025/2026,25,1100,1,1,5,119,254,2.13,325,33,1,10,11,20,4,156,29,0.81,16,5,12,0,28,2,0
@@ -1639,6 +1646,7 @@ d|lamb,dino-lamb,Rugby World Cup,2023,3,152,1,0,5,13,8,0.62,16,0,0,0,2,15,2,16,2
 d|lamb,dino-lamb,Investec Champions Cup,2023/2024,2,95,0,0,0,6,57,9.5,23,2,2,0,0,6,0,13,3,0.76,1,0,1,0,2,1,0
 d|lamb,dino-lamb,PREM Rugby,2023/2024,8,457,4,0,20,41,86,2.1,84,6,1,1,3,28,1,72,5,0.85,4,3,4,0,4,1,0
 d|lamb,dino-lamb,Rugby Hybrid Friendlies,2022/2023,1,40,0,0,0,2,9,0.0,3,0,0,1,0,4,1,0,1,0.0,0,0,0,0,0,0,0
+d|aldegheri,dorian-aldegheri,TOP 14,2026/2027,1,62,0,0,0,5,6,1.1,4,0,0,0,0,1,0,2,0,0.67,0,0,0,0,2,0,0
 d|aldegheri,dorian-aldegheri,Six Nations,2026,5,252,0,0,0,7,0,0.04,14,2,0,0,0,5,2,27,3,0.87,2,0,2,0,5,0,0
 d|aldegheri,dorian-aldegheri,Investec Champions Cup,2025/2026,6,282,0,0,0,6,3,0.45,8,0,0,0,0,4,1,24,2,0.89,1,2,0,0,6,0,1
 d|aldegheri,dorian-aldegheri,TOP 14,2025/2026,16,646,1,0,5,30,46,1.53,51,4,1,1,3,12,0,62,9,0.81,2,0,5,0,15,1,0
@@ -1665,7 +1673,7 @@ d|vandermerwe,duhan-van-der-merwe,Six Nations,2024,5,398,5,0,25,41,279,6.8,162,1
 d|vandermerwe,duhan-van-der-merwe,Rugby World Cup,2023,3,240,1,1,5,27,207,7.67,133,21,4,2,2,12,1,9,4,0.6,0,1,3,1,1,0,0
 d|vandermerwe,duhan-van-der-merwe,Challenge Cup,2023/2024,5,400,4,0,20,30,149,4.96,100,12,5,2,4,6,1,9,4,0.6,1,0,5,0,3,1,0
 d|vandermerwe,duhan-van-der-merwe,United Rugby Championship,2023/2024,12,942,3,1,15,94,789,8.39,371,71,14,13,10,43,5,35,9,0.61,8,2,20,6,1,1,0
-d|kirifi,duplessis-kirifi,Hilux NPC,2026,5,328,2,5,10,45,191,4.24,192,20,2,4,4,44,3,57,7,0.81,2,6,5,1,1,0,0
+d|kirifi,duplessis-kirifi,Hilux NPC,2026,6,408,2,5,10,57,216,3.79,222,23,2,4,5,53,5,73,8,0.83,2,9,6,1,1,0,0
 d|kirifi,duplessis-kirifi,The Rugby Championship,2025,3,114,0,0,0,8,9,1.11,16,1,0,0,0,4,0,22,4,0.79,1,1,0,0,2,0,0
 d|kirifi,duplessis-kirifi,Super Rugby Pacific,2026,13,831,4,1,20,106,342,3.23,341,27,3,8,4,90,11,163,8,0.9,7,11,4,2,10,0,0
 d|kirifi,duplessis-kirifi,Rugby Hybrid Friendlies,2024/2025,2,147,0,1,0,10,26,2.57,16,1,0,0,3,9,0,29,4,0.83,4,2,3,1,0,0,0
@@ -1675,7 +1683,7 @@ d|kirifi,duplessis-kirifi,Super Rugby Pacific,2024,13,569,4,2,20,83,224,2.69,166
 d|kirifi,duplessis-kirifi,Hilux NPC,2023,10,763,3,0,15,96,340,3.54,316,21,6,7,4,54,2,135,15,0.88,8,22,6,5,11,0,0
 d|kirifi,duplessis-kirifi,Rugby Hybrid Friendlies,2022/2023,1,47,0,0,0,3,9,0.0,3,0,0,0,1,3,0,7,3,0.0,0,0,0,0,0,0,0
 d|kirifi,duplessis-kirifi,Super Rugby Pacific,2023,13,838,2,2,10,83,233,2.81,200,14,2,3,5,57,9,162,20,0.83,7,20,7,2,15,1,0
-d|cretin,dylan-cretin,TOP 14,2026/2027,1,20,0,0,0,0,0,0.0,0,0,0,0,0,1,0,5,0,1.0,0,0,0,0,0,0,0
+d|cretin,dylan-cretin,TOP 14,2026/2027,2,100,1,0,5,5,17,3.4,12,1,0,1,0,9,0,15,1,0.88,0,1,1,0,0,0,0
 d|cretin,dylan-cretin,TOP 14,2025/2026,20,1384,5,0,25,68,245,3.6,112,7,4,4,11,89,3,162,15,0.8,9,10,16,3,15,1,0
 d|cretin,dylan-cretin,Challenge Cup,2025/2026,1,80,1,0,5,4,34,8.63,37,2,1,0,0,6,0,9,0,1.0,0,0,0,0,0,0,0
 d|cretin,dylan-cretin,TOP 14,2024/2025,20,1185,0,1,0,70,252,3.6,138,6,2,4,5,69,3,169,8,0.9,7,6,10,3,11,1,0
@@ -1700,6 +1708,7 @@ d|richardson,dylan-richardson,United Rugby Championship,2023/2024,6,318,2,0,10,5
 d|richardson,dylan-richardson,Challenge Cup,2023/2024,1,4,0,0,0,2,32,15.85,22,1,1,0,0,1,1,2,1,0.67,0,0,0,0,0,0,0
 d|richardson,dylan-richardson,Currie Cup,2024,3,121,1,0,5,19,41,2.15,46,1,0,0,0,2,0,18,2,0.82,0,2,0,0,4,0,0
 d|richardson,dylan-richardson,Currie Cup,2023,7,292,3,1,15,44,153,3.49,129,15,3,3,2,5,0,60,8,0.88,3,3,4,0,3,0,0
+d|riley,dylan-riley,Pacific Nations Cup,2026,1,80,2,0,10,5,54,10.76,25,2,0,0,0,3,0,4,1,0.67,1,0,0,1,0,0,0
 d|riley,dylan-riley,Rugby Hybrid Friendlies,2026,1,68,1,1,5,11,81,7.4,86,4,2,2,3,5,1,3,0,1.0,0,0,3,1,0,0,0
 d|riley,dylan-riley,Pacific Nations Cup,2025,3,229,1,1,5,22,78,3.55,63,5,2,2,3,23,2,14,1,0.93,1,0,4,6,0,0,0
 d|riley,dylan-riley,Nations Championship,2026,3,201,0,1,0,16,69,4.32,48,3,2,2,2,16,5,18,8,0.69,3,0,3,6,1,0,0
@@ -1874,7 +1883,7 @@ e|papier,embrose-papier,United Rugby Championship,2023/2024,21,1383,5,13,25,103,
 e|papier,embrose-papier,Investec Champions Cup,2023/2024,4,258,3,3,15,20,109,5.45,79,11,2,4,2,184,5,16,3,0.73,0,2,4,24,0,0,0
 e|papier,embrose-papier,Currie Cup,2024,1,71,1,0,5,4,31,7.83,21,2,2,0,1,47,2,0,1,0.0,0,0,1,6,0,0,0
 e|papier,embrose-papier,Currie Cup,2023,8,451,5,4,25,36,329,9.13,186,20,4,4,4,339,8,26,11,0.7,3,1,9,45,0,0,0
-e|setiano,emerick-setiano,TOP 14,2026/2027,1,53,0,0,0,3,2,0.53,7,0,0,0,0,1,1,3,0,0.75,0,0,0,0,0,0,0
+e|setiano,emerick-setiano,TOP 14,2026/2027,2,82,0,0,0,4,3,0.7,9,0,0,0,0,2,1,3,0,0.75,0,0,0,0,0,0,0
 e|setiano,emerick-setiano,Investec Champions Cup,2025/2026,2,79,0,0,0,2,4,1.8,2,0,0,0,0,0,0,7,2,0.78,0,0,0,0,0,0,0
 e|setiano,emerick-setiano,TOP 14,2025/2026,18,792,0,0,0,28,72,2.56,89,5,1,2,2,17,4,72,18,0.71,3,0,2,0,11,2,0
 e|setiano,emerick-setiano,Investec Champions Cup,2024/2025,3,127,0,0,0,7,10,1.47,16,1,0,0,0,2,0,21,3,0.88,1,0,0,0,3,0,0
@@ -1887,7 +1896,7 @@ e|boffelli,emiliano-boffelli,Rugby World Cup,2023,6,480,2,0,67,51,273,5.35,150,1
 e|boffelli,emiliano-boffelli,Challenge Cup,2023/2024,2,160,0,1,0,18,83,4.61,14,1,1,1,0,4,1,4,1,0.57,0,0,0,5,0,0,0
 e|boffelli,emiliano-boffelli,United Rugby Championship,2023/2024,5,260,0,0,0,21,63,3.0,33,1,2,1,1,5,0,3,4,0.38,0,0,1,4,1,0,0
 e|boffelli,emiliano-boffelli,The Rugby Championship,2022,6,479,1,0,69,28,134,4.77,54,3,3,3,3,18,2,16,5,0.7,0,1,5,9,0,0,0
-e|gailleton,emilien-gailleton,TOP 14,2026/2027,1,80,0,0,0,3,15,4.9,12,2,0,1,0,4,0,16,1,0.8,0,0,0,0,0,0,0
+e|gailleton,emilien-gailleton,TOP 14,2026/2027,2,160,1,2,5,11,120,10.91,65,4,3,1,0,8,0,21,6,0.7,0,1,0,0,1,0,0
 e|gailleton,emilien-gailleton,Six Nations,2026,2,140,2,1,10,14,122,8.73,99,7,3,2,0,6,0,21,4,0.7,0,3,0,0,2,0,0
 e|gailleton,emilien-gailleton,TOP 14,2025/2026,20,1395,8,3,40,101,619,6.13,453,41,14,2,8,45,8,108,23,0.68,9,4,16,11,4,0,0
 e|gailleton,emilien-gailleton,Challenge Cup,2025/2026,1,80,0,0,0,7,22,3.19,1,0,0,1,0,4,0,8,0,0.8,1,0,0,0,0,0,0
@@ -1907,7 +1916,7 @@ e|iyogun,emmanuel-iyogun,PREM Rugby,2024/2025,13,652,3,0,15,50,93,1.86,81,4,1,1,
 e|iyogun,emmanuel-iyogun,Investec Champions Cup,2023/2024,5,195,0,0,0,18,27,1.48,4,0,0,0,2,6,0,35,2,0.95,2,2,2,0,2,0,0
 e|iyogun,emmanuel-iyogun,PREM Rugby,2023/2024,8,333,1,0,5,31,32,1.04,38,1,1,1,1,14,1,56,1,0.93,4,0,2,0,8,0,0
 e|iyogun,emmanuel-iyogun,Rugby Hybrid Friendlies,2022/2023,1,40,0,0,0,1,2,0.0,0,0,0,0,0,0,0,3,0,1.0,0,0,0,0,0,0,0
-e|meafou,emmanuel-meafou,TOP 14,2026/2027,1,49,1,0,5,4,13,3.18,5,0,0,0,0,0,0,8,0,1.0,1,0,0,0,0,0,0
+e|meafou,emmanuel-meafou,TOP 14,2026/2027,2,99,1,0,5,8,19,2.41,11,0,0,0,1,1,0,11,0,0.92,2,2,1,0,0,0,0
 e|meafou,emmanuel-meafou,Six Nations,2026,5,223,1,0,5,37,88,2.37,77,5,0,4,1,17,2,36,2,0.9,8,2,2,1,3,0,0
 e|meafou,emmanuel-meafou,Nations Championship,2026,2,97,1,0,5,16,42,2.61,38,4,0,1,1,7,0,10,1,0.83,1,0,1,0,1,1,0
 e|meafou,emmanuel-meafou,Investec Champions Cup,2025/2026,6,353,1,0,5,41,74,1.81,83,6,0,3,4,19,4,45,5,0.88,5,3,4,0,2,0,0
@@ -1956,12 +1965,13 @@ e|mawi,eroni-mawi,Rugby World Cup,2023,5,263,0,0,0,18,17,0.94,31,0,0,1,4,4,1,29,
 e|mawi,eroni-mawi,Investec Champions Cup,2023/2024,1,30,0,0,0,4,15,3.83,0,1,0,1,0,2,0,1,0,1.0,0,0,0,0,0,0,0
 e|mawi,eroni-mawi,PREM Rugby,2023/2024,13,354,0,0,0,52,90,1.74,66,4,0,4,2,18,1,50,9,0.82,5,0,2,0,6,0,0
 e|mawi,eroni-mawi,Rugby Hybrid Friendlies,2022/2023,1,61,0,0,0,5,25,0.0,15,1,0,0,0,2,1,4,0,1.0,2,0,0,0,0,0,0
+e|haangana,esei-haangana,Pacific Nations Cup,2026,1,23,1,0,5,6,11,1.78,8,0,0,0,0,2,0,0,0,0.0,0,0,0,0,0,0,0
 e|haangana,esei-haangana,Rugby Hybrid Friendlies,2026,1,80,0,0,0,9,24,2.7,16,0,0,0,1,4,0,8,5,0.53,1,1,1,0,0,0,0
 e|haangana,esei-haangana,Nations Championship,2026,1,48,0,0,0,10,4,0.42,7,0,0,1,1,4,1,10,1,0.83,0,0,1,0,0,0,0
 e|haangana,esei-haangana,Japan Rugby League One,2025/2026,19,1067,3,1,15,149,344,2.31,328,19,2,8,12,84,7,145,13,0.88,13,4,16,1,7,0,0
 e|haangana,esei-haangana,Japan Rugby League One,2024/2025,20,1107,4,0,20,207,515,2.49,466,36,3,12,6,92,15,141,23,0.78,10,4,9,0,13,0,0
 e|haangana,esei-haangana,Japan Rugby League One,2023/2024,11,535,4,1,20,95,179,1.88,190,16,1,7,4,43,5,54,8,0.79,2,3,5,1,5,0,0
-e|abadie,esteban-abadie,TOP 14,2026/2027,1,80,0,0,0,3,13,4.2,10,2,0,1,1,11,0,18,0,0.95,2,0,2,0,1,0,0
+e|abadie,esteban-abadie,TOP 14,2026/2027,2,160,0,0,0,6,16,2.65,13,2,0,2,1,13,0,28,0,0.97,4,0,2,0,2,0,0
 e|abadie,esteban-abadie,Investec Champions Cup,2025/2026,6,234,0,0,0,31,73,2.35,68,3,1,3,3,29,1,35,5,0.83,5,2,3,2,4,1,0
 e|abadie,esteban-abadie,TOP 14,2025/2026,19,1136,3,1,15,104,287,2.76,185,9,0,8,10,109,7,153,9,0.84,14,4,14,0,15,0,0
 e|abadie,esteban-abadie,Investec Champions Cup,2024/2025,4,256,1,0,5,23,58,2.53,32,0,0,1,4,25,5,22,4,0.71,1,1,4,1,3,0,0
@@ -1969,7 +1979,7 @@ e|abadie,esteban-abadie,TOP 14,2024/2025,22,1635,1,1,5,109,298,2.73,158,16,6,16,
 e|abadie,esteban-abadie,Six Nations,2024,1,15,0,0,0,1,0,0.0,1,0,0,0,0,2,0,2,0,1.0,0,0,0,0,0,0,0
 e|abadie,esteban-abadie,Investec Champions Cup,2023/2024,2,160,0,0,0,10,77,7.69,29,2,0,0,4,11,0,20,0,0.95,2,0,4,0,1,0,0
 e|abadie,esteban-abadie,TOP 14,2023/2024,17,1260,1,1,5,82,253,3.08,166,11,4,4,7,102,9,149,13,0.83,19,9,11,3,8,0,0
-e|capilla,esteban-capilla,TOP 14,2026/2027,1,40,0,1,0,8,33,4.1,14,2,0,5,1,7,0,7,1,0.88,1,0,1,0,0,0,0
+e|capilla,esteban-capilla,TOP 14,2026/2027,2,80,0,1,0,13,37,2.86,19,3,0,6,1,10,1,9,1,0.82,1,1,1,0,1,0,0
 e|capilla,esteban-capilla,Rugby Hybrid Friendlies,2026,1,45,0,0,0,7,39,5.56,12,1,1,1,2,3,0,6,1,0.75,0,0,2,0,0,0,0
 e|capilla,esteban-capilla,TOP 14,2025/2026,17,1108,10,2,50,118,497,4.21,360,29,9,12,20,99,5,159,13,0.83,20,5,22,3,19,1,0
 e|capilla,esteban-capilla,Investec Champions Cup,2025/2026,1,50,0,0,0,4,7,1.75,6,1,0,0,0,6,1,7,2,0.78,1,0,0,0,1,0,0
@@ -2055,6 +2065,7 @@ e|ashman,ewan-ashman,Six Nations,2024,5,111,0,0,0,15,16,1.08,26,2,0,1,1,8,0,23,0
 e|ashman,ewan-ashman,Rugby World Cup,2023,3,102,1,0,5,20,70,3.5,52,6,2,2,2,12,0,13,2,0.87,0,1,2,0,1,0,0
 e|ashman,ewan-ashman,United Rugby Championship,2023/2024,14,769,6,0,30,84,258,3.08,185,17,1,6,3,42,3,115,8,0.86,12,3,5,2,6,0,0
 e|ashman,ewan-ashman,Challenge Cup,2023/2024,6,268,1,0,5,30,66,2.22,24,0,0,1,2,6,1,38,8,0.83,4,5,3,1,2,0,0
+e|johnson,ewan-johnson,TOP 14,2026/2027,1,20,0,0,0,4,2,0.53,4,0,0,0,0,1,0,2,0,1.0,0,0,0,0,0,0,0
 e|johnson,ewan-johnson,TOP 14,2025/2026,23,1252,0,0,0,101,102,1.01,167,1,1,2,12,60,2,139,13,0.82,12,4,17,1,19,0,0
 e|johnson,ewan-johnson,Investec Champions Cup,2025/2026,2,115,0,0,0,4,13,3.23,6,0,0,0,0,2,1,16,2,0.84,1,0,0,0,2,0,0
 e|johnson,ewan-johnson,Six Nations,2025,1,8,0,0,0,0,0,0.0,0,0,0,0,0,0,0,1,0,0.5,0,0,0,0,0,0,0
@@ -2068,6 +2079,7 @@ f|holland,fabian-holland,Hilux NPC,2024,6,330,2,1,10,46,58,1.26,57,0,0,2,2,23,2,
 f|holland,fabian-holland,Super Rugby Pacific,2024,13,908,1,0,5,79,103,1.3,132,9,1,2,9,52,3,177,16,0.86,12,11,14,0,7,1,0
 f|holland,fabian-holland,Hilux NPC,2023,10,529,2,0,10,49,129,2.62,158,8,3,3,8,41,2,96,9,0.91,10,9,8,0,7,0,0
 f|holland,fabian-holland,Super Rugby Pacific,2023,5,207,0,0,0,13,19,1.48,19,1,0,0,5,7,0,38,7,0.83,4,0,6,0,1,0,0
+f|brauboirie,fabien-brau-boirie,TOP 14,2026/2027,1,80,0,0,0,8,26,3.21,31,2,0,1,1,10,1,10,2,0.83,0,0,1,1,0,0,0
 f|brauboirie,fabien-brau-boirie,Six Nations,2026,2,146,1,0,5,16,112,7.03,96,10,3,4,4,19,2,31,0,0.97,0,1,4,0,0,0,0
 f|brauboirie,fabien-brau-boirie,Nations Championship,2026,3,229,0,1,0,22,158,7.17,96,7,2,4,2,18,0,37,7,0.77,4,2,2,0,0,0,0
 f|brauboirie,fabien-brau-boirie,Rugby Hybrid Friendlies,2026,1,25,1,0,5,3,51,17.0,48,3,1,0,1,2,1,2,1,0.67,0,0,1,0,0,0,0
@@ -2080,7 +2092,7 @@ f|brauboirie,fabien-brau-boirie,TOP 14,2024/2025,12,835,2,4,10,83,429,5.17,328,3
 f|brauboirie,fabien-brau-boirie,Challenge Cup,2024/2025,3,219,3,1,15,28,133,4.76,117,10,3,2,2,12,0,39,13,0.67,3,1,3,1,0,0,0
 f|brauboirie,fabien-brau-boirie,U20 Six Nations,2024,4,222,1,1,5,18,95,5.29,53,5,4,0,3,16,3,23,1,0.88,3,1,3,1,0,0,0
 f|brauboirie,fabien-brau-boirie,World Rugby Junior World Championship,2024,5,400,1,2,5,27,190,7.02,104,11,4,7,2,27,3,35,3,0.85,4,2,2,2,0,0,0
-f|isa,facundo-isa,TOP 14,2026/2027,1,80,0,0,0,15,65,4.31,39,2,0,0,0,5,1,19,1,0.79,0,1,1,1,2,0,0
+f|isa,facundo-isa,TOP 14,2026/2027,2,132,0,0,0,22,87,3.96,48,2,0,0,1,7,2,34,2,0.83,2,3,2,1,2,0,0
 f|isa,facundo-isa,Investec Champions Cup,2025/2026,2,108,1,0,5,18,13,0.72,20,1,0,2,2,6,1,12,3,0.75,0,0,4,0,3,0,0
 f|isa,facundo-isa,TOP 14,2025/2026,22,1209,4,0,20,222,604,2.72,418,32,0,10,14,61,11,165,23,0.81,9,13,16,2,14,0,0
 f|isa,facundo-isa,Investec Champions Cup,2024/2025,5,333,4,0,20,56,276,4.93,181,17,1,4,8,15,2,46,7,0.75,3,4,10,1,3,0,0
@@ -2094,7 +2106,7 @@ f|sanchezvalarolo,faustino-sanchez-valarolo,Nations Championship,2026,1,60,0,0,0
 f|sanchezvalarolo,faustino-sanchez-valarolo,Rugby Hybrid Friendlies,2024/2025,1,80,1,0,5,12,40,3.33,25,0,0,0,0,7,0,8,3,0.57,1,1,0,2,0,0,0
 f|sanchezvalarolo,faustino-sanchez-valarolo,World Rugby Junior World Championship,2024,4,300,0,0,0,29,72,2.47,59,12,1,0,2,12,1,34,5,0.77,3,1,2,2,2,0,0
 f|sanchezvalarolo,faustino-sanchez-valarolo,World Rugby Junior World Championship,2023,5,347,1,0,5,38,141,3.7,100,11,2,3,6,24,4,24,15,0.62,0,1,7,3,3,0,0
-f|mori,federico-mori,TOP 14,2026/2027,1,80,0,0,0,10,24,2.44,18,0,0,0,1,6,1,7,1,0.78,1,1,1,0,1,0,0
+f|mori,federico-mori,TOP 14,2026/2027,2,121,0,0,0,16,45,2.8,29,0,1,0,2,8,2,10,1,0.77,2,1,2,0,2,0,0
 f|mori,federico-mori,Investec Champions Cup,2025/2026,2,160,1,0,5,13,40,3.09,29,3,0,1,1,8,0,11,7,0.61,0,0,2,0,1,0,0
 f|mori,federico-mori,TOP 14,2025/2026,14,689,2,0,10,63,252,4.01,187,14,5,9,5,38,3,33,8,0.53,5,3,6,4,1,0,0
 f|mori,federico-mori,Challenge Cup,2024/2025,2,121,2,0,10,12,101,8.38,105,6,3,1,1,10,0,12,3,0.67,1,1,3,1,2,0,0
@@ -2227,14 +2239,14 @@ f|newell,fletcher-newell,Rugby World Cup,2023,5,166,1,0,5,12,23,1.93,31,3,0,0,0,
 f|newell,fletcher-newell,Super Rugby Pacific,2024,12,677,0,0,0,45,39,0.86,50,2,0,1,1,17,1,97,12,0.86,3,2,2,0,9,0,0
 f|newell,fletcher-newell,The Rugby Championship,2022,4,101,0,0,0,10,4,0.43,8,0,0,1,0,3,0,6,2,0.75,0,1,0,0,3,1,0
 f|newell,fletcher-newell,Super Rugby Pacific,2023,1,49,0,0,0,2,2,1.2,5,1,0,0,0,1,0,5,3,0.63,0,0,0,1,0,0,0
-f|vanverberghe,florent-vanverberghe,TOP 14,2026/2027,1,62,1,0,5,6,5,0.8,11,0,0,0,0,2,0,13,2,0.81,1,0,0,0,0,0,0
+f|vanverberghe,florent-vanverberghe,TOP 14,2026/2027,2,109,1,0,5,12,12,1.01,22,2,0,0,0,3,0,29,3,0.85,1,0,0,0,1,0,0
 f|vanverberghe,florent-vanverberghe,Investec Champions Cup,2025/2026,4,291,0,0,0,28,82,2.95,92,4,1,0,1,5,0,47,8,0.8,1,1,1,0,3,0,0
 f|vanverberghe,florent-vanverberghe,TOP 14,2025/2026,22,1260,1,1,5,115,211,1.83,216,10,0,1,6,54,5,206,19,0.86,7,4,9,0,15,1,0
 f|vanverberghe,florent-vanverberghe,Investec Champions Cup,2024/2025,2,118,0,0,0,23,54,2.37,37,1,1,0,1,6,0,15,2,0.75,0,0,2,0,2,1,0
 f|vanverberghe,florent-vanverberghe,TOP 14,2024/2025,21,1148,1,0,5,112,206,1.84,202,5,0,0,6,42,4,181,24,0.8,7,5,9,0,20,1,0
 f|vanverberghe,florent-vanverberghe,TOP 14,2023/2024,16,563,2,0,10,58,93,1.6,47,2,0,2,2,23,3,83,6,0.83,5,2,4,1,10,0,0
 f|vanverberghe,florent-vanverberghe,Challenge Cup,2023/2024,5,281,0,0,0,24,34,1.41,38,1,0,1,2,18,4,40,4,0.85,3,1,2,0,3,0,0
-f|verhaeghe,florian-verhaeghe,TOP 14,2026/2027,1,40,0,0,0,9,18,2.01,14,1,0,2,1,4,0,5,0,0.83,1,0,1,0,1,0,0
+f|verhaeghe,florian-verhaeghe,TOP 14,2026/2027,2,120,0,0,0,14,27,1.93,20,1,0,4,1,16,1,14,1,0.78,1,0,1,0,3,0,0
 f|verhaeghe,florian-verhaeghe,Nations Championship,2026,2,101,1,0,5,10,11,1.11,10,0,0,1,1,12,1,23,0,0.92,1,0,2,0,1,0,0
 f|verhaeghe,florian-verhaeghe,TOP 14,2025/2026,20,1408,1,1,5,125,193,1.54,169,8,6,32,11,145,10,159,16,0.79,10,7,14,0,11,1,1
 f|verhaeghe,florian-verhaeghe,Challenge Cup,2025/2026,5,331,1,0,5,37,56,1.5,63,0,0,10,5,28,1,39,5,0.78,3,1,6,0,7,0,0
@@ -2269,7 +2281,7 @@ f|mostert,franco-mostert,The Rugby Championship,2023,1,44,0,0,0,5,8,1.64,5,0,0,0
 f|mostert,franco-mostert,Rugby World Cup,2023,6,322,0,0,0,25,27,1.09,35,1,0,0,4,10,1,73,2,0.9,4,0,5,0,2,0,0
 f|mostert,franco-mostert,Japan Rugby League One,2023/2024,15,1133,2,0,10,112,223,1.99,152,8,4,1,9,79,6,229,22,0.85,14,9,13,3,12,1,0
 f|mostert,franco-mostert,The Rugby Championship,2022,6,248,1,0,5,12,36,3.04,43,1,1,0,2,7,0,41,3,0.84,1,0,3,0,2,0,0
-f|cros,francois-cros,TOP 14,2026/2027,1,80,0,0,0,2,0,0.0,4,0,0,0,1,1,0,11,1,0.92,2,0,1,1,0,0,0
+f|cros,francois-cros,TOP 14,2026/2027,2,152,0,0,0,4,3,0.85,10,1,0,0,2,5,1,18,1,0.82,2,2,2,1,1,0,0
 f|cros,francois-cros,Six Nations,2026,5,329,0,0,0,16,30,1.84,24,0,0,2,2,17,0,51,6,0.84,5,2,3,0,2,0,0
 f|cros,francois-cros,Investec Champions Cup,2025/2026,3,173,0,1,0,11,38,3.48,34,3,1,1,2,6,1,18,1,0.86,1,1,4,0,0,0,0
 f|cros,francois-cros,TOP 14,2025/2026,9,610,1,0,5,43,89,2.07,96,6,1,2,3,29,3,76,7,0.79,7,6,6,0,3,0,0
@@ -2288,6 +2300,7 @@ f|deklerk,francois-de-klerk,The Rugby Championship,2023,2,131,0,1,3,6,46,7.73,26
 f|deklerk,francois-de-klerk,Rugby World Cup,2023,6,326,0,4,6,18,24,1.32,12,1,0,2,1,220,8,27,13,0.61,1,3,3,36,4,0,0
 f|deklerk,francois-de-klerk,Japan Rugby League One,2023/2024,4,279,0,2,0,35,57,1.63,5,0,0,3,4,282,10,16,7,0.67,0,1,6,47,1,0,0
 f|deklerk,francois-de-klerk,The Rugby Championship,2022,4,92,0,0,0,3,15,4.93,0,0,0,1,2,43,2,6,2,0.6,1,0,2,7,5,2,0
+f|lomani,frank-lomani,Pacific Nations Cup,2026,1,67,1,0,5,6,28,4.75,5,0,0,2,0,51,1,6,0,0.86,0,0,0,11,0,0,0
 f|lomani,frank-lomani,Nations Championship,2026,3,170,0,2,0,4,47,11.78,12,1,0,2,0,138,5,26,9,0.72,0,2,0,13,1,0,0
 f|lomani,frank-lomani,Super Rugby Pacific,2026,9,545,0,6,0,38,248,6.52,103,10,4,2,7,354,17,83,12,0.75,0,4,12,56,5,0,0
 f|lomani,frank-lomani,Pacific Nations Cup,2024,4,274,2,2,10,19,129,6.79,62,9,1,1,2,272,9,35,11,0.69,1,0,6,36,2,0,0
@@ -2384,7 +2397,7 @@ g|drean,gael-drean,Investec Champions Cup,2024/2025,3,201,1,0,5,12,107,8.89,45,5
 g|drean,gael-drean,TOP 14,2024/2025,16,1215,12,2,60,79,602,7.63,274,32,14,6,10,19,2,54,14,0.61,6,3,16,13,5,0,0
 g|drean,gael-drean,Investec Champions Cup,2023/2024,2,160,1,0,5,9,28,3.17,24,2,3,2,2,5,1,11,7,0.55,1,2,3,4,0,0,0
 g|drean,gael-drean,TOP 14,2023/2024,17,1301,6,1,30,94,693,7.37,267,23,17,2,10,32,9,84,17,0.72,10,4,17,11,4,0,0
-g|fickou,gael-fickou,TOP 14,2026/2027,1,80,0,0,0,10,54,5.36,39,5,0,0,0,4,2,8,0,0.89,0,0,1,2,0,0,0
+g|fickou,gael-fickou,TOP 14,2026/2027,2,160,0,0,0,16,59,3.67,51,6,0,0,0,12,2,17,0,0.89,2,0,1,2,0,0,0
 g|fickou,gael-fickou,TOP 14,2025/2026,20,1204,6,3,30,71,355,5.0,248,18,10,6,12,63,12,146,16,0.81,18,3,17,10,4,0,0
 g|fickou,gael-fickou,Challenge Cup,2025/2026,2,160,1,0,5,15,56,3.72,27,4,0,4,1,14,1,14,2,0.7,2,0,1,0,1,0,0
 g|fickou,gael-fickou,Six Nations,2025,1,80,0,2,0,2,12,5.75,10,2,1,0,0,3,0,10,5,0.63,1,1,1,0,1,0,0
@@ -2396,7 +2409,7 @@ g|fickou,gael-fickou,Six Nations,2024,5,400,3,1,15,40,170,4.25,126,15,4,5,0,33,3
 g|fickou,gael-fickou,Rugby World Cup,2023,4,301,0,1,0,27,132,4.89,87,8,3,1,1,24,1,30,4,0.83,2,1,1,0,3,0,0
 g|fickou,gael-fickou,Investec Champions Cup,2023/2024,5,378,0,0,0,49,191,3.9,122,15,4,3,5,38,2,52,8,0.81,3,2,7,7,3,0,0
 g|fickou,gael-fickou,TOP 14,2023/2024,15,1119,2,2,10,100,472,4.72,375,27,4,9,6,94,11,108,20,0.76,5,4,8,14,9,0,0
-g|barlot,gaeton-barlot,TOP 14,2026/2027,1,51,0,0,0,1,2,1.5,1,0,0,1,0,4,0,12,1,0.92,1,0,0,0,0,0,0
+g|barlot,gaeton-barlot,TOP 14,2026/2027,2,69,0,0,0,4,17,4.2,16,0,0,2,1,7,2,17,1,0.89,1,0,1,0,0,0,0
 g|barlot,gaeton-barlot,Investec Champions Cup,2025/2026,7,214,1,0,5,16,29,1.79,30,2,1,2,0,10,0,41,4,0.87,3,0,0,0,2,0,0
 g|barlot,gaeton-barlot,TOP 14,2025/2026,16,626,3,0,15,67,190,2.83,113,3,1,8,6,54,1,110,15,0.81,6,4,10,1,2,0,0
 g|barlot,gaeton-barlot,Rugby Hybrid Friendlies,2024/2025,1,61,1,0,5,5,6,1.26,5,1,0,0,0,0,0,13,1,0.93,1,0,0,0,0,0,0
@@ -2431,7 +2444,7 @@ g|thomas,gareth-thomas,United Rugby Championship,2023/2024,10,416,0,0,0,32,27,0.
 g|thomas,gareth-thomas,Challenge Cup,2023/2024,5,278,1,0,5,21,14,0.64,29,2,0,0,2,12,1,30,4,0.83,3,1,3,0,1,0,0
 g|ringrose,garry-ringrose,Six Nations,2026,5,349,0,0,0,33,100,3.02,91,7,1,3,5,29,2,34,18,0.58,1,0,6,2,2,0,0
 g|ringrose,garry-ringrose,Nations Championship,2026,2,139,0,1,0,8,27,3.38,11,2,0,0,2,14,1,22,5,0.76,4,1,3,1,0,0,0
-g|ringrose,garry-ringrose,Investec Champions Cup,2025/2026,5,359,3,1,15,46,141,3.07,138,10,3,2,1,23,1,22,13,0.55,1,0,3,2,1,0,0
+g|ringrose,garry-ringrose,Investec Champions Cup,2025/2026,5,359,3,1,15,46,141,3.07,138,10,3,2,1,23,1,23,13,0.56,1,0,3,2,1,0,0
 g|ringrose,garry-ringrose,United Rugby Championship,2025/2026,7,384,2,1,10,31,80,2.6,51,5,0,2,1,33,0,27,14,0.56,0,1,2,6,0,0,0
 g|ringrose,garry-ringrose,Six Nations,2025,4,218,0,0,0,14,46,3.28,50,4,1,0,3,10,1,25,9,0.63,3,1,4,1,2,0,1
 g|ringrose,garry-ringrose,British & Irish Lions 2025,2025,4,213,3,0,15,28,108,3.86,77,9,2,2,2,12,1,19,4,0.76,1,0,3,2,2,0,0
@@ -2450,6 +2463,7 @@ g|coombes,gavin-coombes,United Rugby Championship,2024/2025,16,1204,6,3,30,206,4
 g|coombes,gavin-coombes,Investec Champions Cup,2023/2024,5,356,2,0,10,62,109,1.76,46,8,0,3,3,22,1,62,7,0.85,3,6,5,0,4,0,0
 g|coombes,gavin-coombes,United Rugby Championship,2023/2024,20,1332,5,4,25,231,476,2.06,371,17,2,10,11,107,10,225,21,0.85,14,11,17,0,8,0,0
 g|coombes,gavin-coombes,Rugby Hybrid Friendlies,2022/2023,1,57,0,0,0,11,60,0.0,28,1,0,0,1,4,1,8,2,0.0,0,0,0,0,0,0,0
+g|bell,george-bell,Hilux NPC,2026,1,35,1,0,5,7,31,4.44,23,4,1,2,0,2,0,7,0,1.0,1,0,0,0,1,0,0
 g|bell,george-bell,Super Rugby Pacific,2026,11,503,7,2,35,77,250,3.25,206,18,2,5,5,32,4,98,16,0.8,9,5,6,1,4,0,0
 g|bell,george-bell,Hilux NPC,2025,7,431,4,0,20,94,317,3.37,212,16,2,5,5,28,4,84,9,0.82,12,6,5,3,3,0,0
 g|bell,george-bell,Super Rugby Pacific,2025,6,139,1,0,5,21,44,2.09,25,4,0,0,0,4,0,35,3,0.9,3,0,1,0,1,0,0
@@ -2512,7 +2526,7 @@ g|kloska,george-kloska,PREM Rugby,2023/2024,10,193,0,0,0,14,15,1.09,30,3,0,1,0,4
 g|kloska,george-kloska,Investec Champions Cup,2023/2024,2,96,0,0,0,5,4,0.9,8,0,0,0,0,4,2,9,3,0.6,2,0,0,0,3,0,0
 g|martin,george-martin,Rugby Hybrid Friendlies,2026,1,51,0,0,0,3,0,0.0,4,0,0,0,0,3,0,14,1,0.93,0,0,0,0,0,0,0
 g|martin,george-martin,Nations Championship,2026,3,173,1,0,5,25,39,1.55,54,4,0,0,0,6,2,31,3,0.79,1,0,1,0,2,0,0
-g|martin,george-martin,PREM Rugby,2025/2026,7,310,1,0,5,40,72,1.79,85,5,1,3,1,16,0,49,5,0.86,6,0,3,0,2,0,0
+g|martin,george-martin,PREM Rugby,2025/2026,7,310,1,0,5,40,72,1.79,85,5,1,3,1,16,0,50,5,0.86,6,0,3,0,2,0,0
 g|martin,george-martin,Six Nations,2025,2,121,0,0,0,7,4,0.61,9,0,0,0,1,2,0,26,1,0.96,2,0,1,0,1,0,0
 g|martin,george-martin,Investec Champions Cup,2024/2025,2,148,0,0,0,29,31,1.06,48,2,1,1,1,12,1,14,2,0.82,1,0,1,0,0,0,0
 g|martin,george-martin,PREM Rugby,2024/2025,5,374,2,0,10,52,34,0.66,70,1,0,2,6,23,1,46,12,0.72,9,1,9,0,2,0,0
@@ -2535,7 +2549,7 @@ g|turner,george-turner,Six Nations,2024,5,283,0,0,0,29,83,2.85,46,6,0,0,2,16,4,4
 g|turner,george-turner,Rugby World Cup,2023,3,173,1,0,5,13,40,3.11,47,3,0,0,0,3,0,21,6,0.7,0,3,1,0,2,0,0
 g|turner,george-turner,Investec Champions Cup,2023/2024,4,174,0,1,0,18,38,2.11,24,0,0,1,2,16,0,22,4,0.73,2,0,3,0,2,0,0
 g|turner,george-turner,United Rugby Championship,2023/2024,7,254,2,0,10,31,56,1.81,40,3,0,0,1,16,1,39,5,0.81,3,0,2,0,4,0,0
-g|colombe,georges-henri-colombe,TOP 14,2026/2027,1,21,0,0,0,1,0,0.0,1,0,0,0,0,0,0,2,0,1.0,0,0,0,0,2,1,0
+g|colombe,georges-henri-colombe,TOP 14,2026/2027,2,39,1,0,5,6,14,2.25,24,2,0,0,0,1,0,3,0,0.6,0,0,0,0,2,1,0
 g|colombe,georges-henri-colombe,Six Nations,2026,1,26,0,0,0,3,2,0.67,5,0,0,0,0,0,0,6,0,1.0,1,0,1,0,1,0,0
 g|colombe,georges-henri-colombe,TOP 14,2025/2026,13,390,2,1,10,51,132,2.6,145,15,1,6,1,11,2,32,5,0.78,2,3,1,0,6,0,0
 g|colombe,georges-henri-colombe,Six Nations,2025,2,55,0,0,0,5,2,0.42,4,1,0,1,0,1,0,9,1,0.9,0,0,0,0,1,0,0
@@ -2568,7 +2582,7 @@ g|dare,giacomo-da-re,Challenge Cup,2025/2026,5,389,1,3,52,35,104,2.98,52,5,1,0,1
 g|dare,giacomo-da-re,United Rugby Championship,2024/2025,15,820,1,3,56,54,217,4.01,94,11,4,5,9,173,17,92,26,0.75,5,1,15,38,3,1,0
 g|dare,giacomo-da-re,Challenge Cup,2024/2025,4,245,0,0,2,22,113,5.12,68,4,2,3,3,50,7,11,5,0.69,0,0,5,14,1,0,0
 g|dare,giacomo-da-re,United Rugby Championship,2023/2024,4,125,1,0,5,23,150,6.54,7,1,2,1,2,14,2,1,3,0.25,1,0,2,8,0,0,0
-g|nicotera,giacomo-nicotera,TOP 14,2026/2027,1,49,0,1,0,3,22,7.17,5,0,1,0,0,7,1,8,2,0.73,1,0,1,0,0,0,0
+g|nicotera,giacomo-nicotera,TOP 14,2026/2027,2,111,0,1,0,10,32,3.2,10,0,1,0,1,10,3,20,5,0.71,1,0,3,0,0,0,0
 g|nicotera,giacomo-nicotera,Six Nations,2026,5,289,1,0,5,18,35,1.93,21,0,0,1,0,9,0,58,14,0.77,8,1,0,0,2,1,0
 g|nicotera,giacomo-nicotera,Challenge Cup,2025/2026,2,134,0,0,0,15,34,2.23,39,2,1,2,1,8,0,33,5,0.83,1,1,1,0,0,0,0
 g|nicotera,giacomo-nicotera,TOP 14,2025/2026,20,1051,2,0,10,62,128,2.06,102,4,1,2,5,36,4,178,36,0.78,15,6,6,0,7,1,0
@@ -2579,6 +2593,7 @@ g|nicotera,giacomo-nicotera,Six Nations,2024,5,205,0,0,0,12,26,2.17,29,0,0,1,0,9
 g|nicotera,giacomo-nicotera,Rugby World Cup,2023,3,166,0,0,0,10,5,0.51,13,0,0,0,1,3,1,33,4,0.85,1,1,4,0,1,0,0
 g|nicotera,giacomo-nicotera,United Rugby Championship,2023/2024,8,338,0,0,0,30,35,1.17,25,1,0,2,1,13,1,78,6,0.87,4,1,2,0,4,0,0
 g|nicotera,giacomo-nicotera,Challenge Cup,2023/2024,2,88,0,0,0,11,19,1.75,14,1,0,0,1,4,1,13,3,0.76,1,0,2,0,3,0,1
+g|lucchesi,gianmarcolucchesi,TOP 14,2026/2027,1,32,0,0,0,4,7,1.7,2,1,0,0,0,1,0,6,2,0.67,0,0,0,0,1,0,0
 g|lucchesi,gianmarcolucchesi,Nations Championship,2026,3,110,0,0,0,8,17,2.1,11,1,0,0,2,7,1,34,2,0.87,2,0,2,0,3,0,0
 g|lucchesi,gianmarcolucchesi,Investec Champions Cup,2025/2026,4,119,0,0,0,14,25,1.8,20,1,0,0,0,8,0,27,0,0.96,0,0,0,0,1,0,0
 g|lucchesi,gianmarcolucchesi,TOP 14,2025/2026,7,322,2,0,10,29,50,1.73,50,7,1,1,0,8,1,49,3,0.86,0,1,0,0,1,0,0
@@ -2588,6 +2603,7 @@ g|lucchesi,gianmarcolucchesi,TOP 14,2024/2025,11,454,5,0,25,48,92,1.92,61,7,0,4,
 g|lucchesi,gianmarcolucchesi,Six Nations,2024,5,195,0,0,0,10,4,0.36,6,0,0,0,1,6,0,53,5,0.84,2,4,2,0,4,0,0
 g|lucchesi,gianmarcolucchesi,United Rugby Championship,2023/2024,12,574,5,0,25,84,130,1.55,110,10,2,1,5,32,4,110,6,0.91,4,5,7,1,4,0,0
 g|lucchesi,gianmarcolucchesi,Challenge Cup,2023/2024,5,242,3,0,15,28,44,1.58,37,6,0,0,2,9,2,62,5,0.84,1,3,3,0,2,1,0
+g|beria,giorgi-beria,TOP 14,2026/2027,1,51,0,0,0,3,9,3.03,7,0,0,0,0,2,0,14,1,0.88,1,0,0,0,0,0,0
 g|beria,giorgi-beria,TOP 14,2025/2026,13,484,1,0,5,44,76,1.72,76,5,0,4,2,22,3,91,2,0.91,5,5,2,0,17,2,0
 g|beria,giorgi-beria,Challenge Cup,2025/2026,2,82,0,0,0,16,18,1.1,34,2,0,0,0,0,0,10,3,0.71,1,1,0,0,1,0,0
 g|beria,giorgi-beria,TOP 14,2024/2025,22,1110,0,0,0,137,169,1.23,184,14,0,7,7,38,6,132,24,0.75,5,4,10,0,22,0,0
@@ -2622,7 +2638,7 @@ g|bertranou,gonzalo-bertranou,Rugby World Cup,2023,4,244,0,1,0,14,38,2.75,33,3,0
 g|bertranou,gonzalo-bertranou,Challenge Cup,2023/2024,1,62,0,0,0,1,4,3.9,2,0,0,0,1,37,0,3,1,0.75,0,1,2,10,0,0,0
 g|bertranou,gonzalo-bertranou,United Rugby Championship,2023/2024,1,26,0,1,0,1,3,3.0,0,2,1,1,1,29,2,13,1,0.87,0,0,1,5,1,0,0
 g|bertranou,gonzalo-bertranou,The Rugby Championship,2022,5,267,1,2,5,16,49,3.05,24,4,0,0,1,178,6,34,3,0.77,1,2,2,11,4,1,0
-g|garcia,gonzalo-garcia,TOP 14,2026/2027,1,53,0,0,0,1,0,0.0,0,0,0,0,0,54,4,3,1,0.6,0,0,1,5,0,1,0
+g|garcia,gonzalo-garcia,TOP 14,2026/2027,2,75,0,1,0,1,0,0.0,0,0,0,0,0,67,5,3,1,0.6,0,0,1,6,0,1,0
 g|garcia,gonzalo-garcia,The Rugby Championship,2025,5,313,1,1,5,31,59,1.9,26,3,1,1,4,278,10,38,11,0.73,0,0,4,37,0,0,0
 g|garcia,gonzalo-garcia,Nations Championship,2026,3,172,0,1,0,16,42,2.64,22,1,1,2,3,227,3,12,5,0.71,0,1,3,20,0,0,0
 g|garcia,gonzalo-garcia,Challenge Cup,2025/2026,3,122,0,2,0,7,17,2.41,14,3,0,1,3,90,3,11,6,0.58,0,0,3,8,1,0,0
@@ -2690,7 +2706,7 @@ g|hiddleston,gregor-hiddleston,Investec Champions Cup,2024/2025,4,129,0,0,0,13,1
 g|hiddleston,gregor-hiddleston,United Rugby Championship,2024/2025,14,631,0,0,0,41,29,0.71,41,2,0,4,0,38,0,149,8,0.88,3,8,1,0,9,0,0
 g|hiddleston,gregor-hiddleston,Investec Champions Cup,2023/2024,2,73,0,0,0,5,0,0.0,5,0,0,0,0,7,0,14,1,0.93,0,1,0,0,1,0,0
 g|hiddleston,gregor-hiddleston,United Rugby Championship,2023/2024,7,192,3,0,15,26,55,2.11,20,3,0,2,2,14,1,30,1,0.94,0,1,2,0,3,0,0
-g|alldritt,gregory-alldritt,TOP 14,2026/2027,1,80,0,0,0,7,18,2.57,21,3,0,0,1,6,0,11,3,0.79,0,0,2,0,0,0,0
+g|alldritt,gregory-alldritt,TOP 14,2026/2027,2,111,0,0,0,10,20,2.0,23,3,0,0,1,7,0,14,3,0.78,0,2,2,0,0,0,0
 g|alldritt,gregory-alldritt,Investec Champions Cup,2025/2026,3,189,1,1,5,37,147,3.98,83,9,2,1,3,27,2,18,5,0.72,1,1,3,2,1,0,0
 g|alldritt,gregory-alldritt,TOP 14,2025/2026,24,1686,4,5,20,270,910,3.37,564,37,2,26,17,212,7,206,19,0.87,12,18,25,1,11,1,0
 g|alldritt,gregory-alldritt,Six Nations,2025,5,303,2,0,10,59,196,3.32,106,8,0,3,2,27,0,50,8,0.78,1,4,2,0,2,0,0
@@ -2700,7 +2716,7 @@ g|alldritt,gregory-alldritt,Six Nations,2024,4,279,0,0,0,49,115,2.35,104,8,0,3,3
 g|alldritt,gregory-alldritt,Rugby World Cup,2023,3,228,0,0,0,47,171,3.64,107,7,1,5,1,18,1,37,1,0.93,4,4,3,1,0,0,0
 g|alldritt,gregory-alldritt,Investec Champions Cup,2023/2024,4,320,1,1,5,57,142,2.49,81,15,0,3,8,35,4,52,2,0.9,1,5,8,2,4,0,0
 g|alldritt,gregory-alldritt,TOP 14,2023/2024,12,828,2,4,10,140,501,3.58,214,14,3,4,5,70,10,143,11,0.87,9,9,8,1,5,0,0
-g|cramont,guillaume-cramont,TOP 14,2026/2027,1,34,0,0,0,10,27,2.67,14,0,1,1,0,2,1,4,0,0.67,0,0,0,0,1,0,0
+g|cramont,guillaume-cramont,TOP 14,2026/2027,2,74,0,0,0,16,38,2.37,26,0,1,1,0,4,1,6,0,0.75,0,0,0,0,2,0,0
 g|cramont,guillaume-cramont,Investec Champions Cup,2025/2026,1,30,0,1,0,1,0,0.0,1,0,0,0,0,2,0,6,2,0.75,0,0,0,0,0,0,0
 g|cramont,guillaume-cramont,TOP 14,2025/2026,15,579,7,2,35,115,284,2.47,245,16,1,10,6,43,2,73,6,0.8,1,4,11,1,4,0,0
 g|cramont,guillaume-cramont,Investec Champions Cup,2024/2025,3,43,1,0,5,8,17,2.14,9,0,0,0,0,2,0,7,1,0.88,0,0,0,0,0,0,0
@@ -2754,7 +2770,7 @@ h|stewart,hamish-stewart,Super Rugby Pacific,2025,12,945,1,1,5,80,186,2.32,229,1
 h|stewart,hamish-stewart,Super Rugby Pacific,2024,14,1066,1,2,5,85,274,3.23,171,12,2,0,7,142,15,180,21,0.83,5,10,10,34,8,2,0
 h|stewart,hamish-stewart,Rugby Hybrid Friendlies,2022/2023,2,97,0,1,0,10,70,0.0,15,1,0,0,1,61,0,8,0,1.0,1,0,0,2,0,0,0
 h|stewart,hamish-stewart,Super Rugby Pacific,2023,14,978,1,2,7,93,342,3.68,218,14,2,2,6,161,14,155,10,0.84,5,7,10,36,8,1,0
-h|watson,hamish-watson,TOP 14,2026/2027,1,80,0,1,0,16,25,1.55,44,4,0,2,0,6,1,10,1,0.83,0,1,0,0,0,0,0
+h|watson,hamish-watson,TOP 14,2026/2027,2,137,1,1,5,22,46,2.11,50,5,0,2,0,9,1,19,1,0.83,0,2,0,0,1,0,0
 h|watson,hamish-watson,Investec Champions Cup,2025/2026,1,31,0,0,0,2,0,0.0,5,1,0,0,2,0,0,6,1,0.86,0,0,2,0,0,0,0
 h|watson,hamish-watson,United Rugby Championship,2025/2026,1,29,0,0,0,5,2,0.46,1,1,0,1,0,4,1,0,0,0.0,0,1,0,0,0,0,0
 h|watson,hamish-watson,PREM Rugby,2025/2026,6,246,0,1,0,13,34,2.63,12,1,0,2,0,13,1,53,1,0.91,2,3,0,0,3,0,0
@@ -2807,6 +2823,7 @@ h|byrne,harry-byrne,PREM Rugby,2024/2025,7,254,1,2,40,17,28,1.68,26,3,1,2,5,86,8
 h|byrne,harry-byrne,Six Nations,2024,2,32,0,0,2,4,14,3.4,3,0,0,0,1,16,0,3,0,0.75,0,0,1,2,1,1,0
 h|byrne,harry-byrne,Investec Champions Cup,2023/2024,5,134,0,0,11,9,31,3.48,15,2,0,0,1,37,2,7,3,0.7,1,0,2,15,0,0,0
 h|byrne,harry-byrne,United Rugby Championship,2023/2024,12,663,0,2,54,67,201,3.0,88,10,2,5,5,225,15,46,17,0.7,1,1,12,51,3,0,0
+h|hockings,harry-hockings,Pacific Nations Cup,2026,1,80,0,1,0,14,26,1.89,21,1,1,1,0,8,0,14,0,1.0,1,1,0,0,1,0,0
 h|hockings,harry-hockings,Nations Championship,2026,3,154,0,0,0,25,46,1.84,54,2,0,1,0,11,0,35,0,0.95,0,0,0,0,2,1,0
 h|hockings,harry-hockings,Japan Rugby League One,2025/2026,20,1537,3,4,15,200,382,1.91,356,13,3,16,21,163,7,236,23,0.84,9,12,25,1,9,0,0
 h|hockings,harry-hockings,Japan Rugby League One,2024/2025,16,1269,3,1,15,172,354,2.06,232,10,5,21,6,130,3,235,18,0.88,8,11,9,0,16,0,0
@@ -2820,7 +2837,7 @@ h|paterson,harry-paterson,United Rugby Championship,2024/2025,6,441,0,1,0,44,297
 h|paterson,harry-paterson,Six Nations,2024,1,80,0,0,0,10,79,7.92,25,2,1,1,1,5,1,1,1,0.5,0,0,1,3,0,0,0
 h|paterson,harry-paterson,Challenge Cup,2023/2024,3,164,0,0,0,12,62,5.17,20,3,0,0,0,5,1,10,5,0.63,4,1,1,3,1,0,0
 h|paterson,harry-paterson,United Rugby Championship,2023/2024,3,228,0,0,0,19,115,6.05,100,8,1,1,2,3,0,10,2,0.63,4,1,2,1,2,2,0
-h|plummer,harry-plummer,TOP 14,2026/2027,1,80,1,0,16,14,43,3.05,18,1,1,0,1,19,2,4,1,0.67,0,0,1,8,0,0,0
+h|plummer,harry-plummer,TOP 14,2026/2027,2,160,1,0,26,21,70,3.36,36,2,2,2,1,43,3,9,5,0.6,0,2,3,19,0,0,0
 h|plummer,harry-plummer,Rugby Hybrid Friendlies,2026,2,105,0,2,4,16,50,3.14,17,1,0,1,0,29,2,3,3,0.5,0,1,2,6,1,0,0
 h|plummer,harry-plummer,Investec Champions Cup,2025/2026,3,192,1,1,9,16,48,3.01,32,6,0,0,6,49,9,9,1,0.64,0,0,8,12,0,0,0
 h|plummer,harry-plummer,TOP 14,2025/2026,25,1893,6,6,295,197,918,4.66,618,70,8,18,17,358,31,109,33,0.69,5,1,30,227,7,1,0
@@ -2872,7 +2889,7 @@ h|kida,haruto-kida,Japan Rugby League One,2025/2026,17,1241,13,3,65,143,1137,7.9
 h|kida,haruto-kida,Japan Rugby League One,2024/2025,7,465,5,1,25,49,346,7.07,220,25,7,3,4,25,4,40,6,0.8,6,2,6,8,4,1,0
 h|kida,haruto-kida,Japan Rugby League One,2023/2024,9,694,4,3,20,85,638,7.51,244,31,12,12,10,49,9,31,7,0.67,4,2,11,22,3,0,0
 h|watanabe,haruto-watanabe,Rugby Hybrid Friendlies,2026,1,40,0,0,0,2,10,5.1,2,0,0,0,0,33,2,3,0,0.75,0,0,0,0,0,0,0
-h|kolingar,hassane-kolingar,TOP 14,2026/2027,1,34,0,0,0,4,6,1.38,9,0,0,0,1,0,0,5,3,0.63,2,0,1,0,2,0,0
+h|kolingar,hassane-kolingar,TOP 14,2026/2027,2,80,0,0,0,5,6,1.22,10,0,0,0,1,0,0,12,3,0.8,4,0,1,0,4,0,0
 h|kolingar,hassane-kolingar,TOP 14,2025/2026,18,719,1,0,5,59,81,1.37,156,16,0,3,4,14,4,160,9,0.91,20,3,4,0,11,0,0
 h|kolingar,hassane-kolingar,Rugby Hybrid Friendlies,2024/2025,1,33,0,0,0,2,1,0.5,1,0,0,0,0,0,0,4,0,1.0,0,0,0,0,1,0,0
 h|kolingar,hassane-kolingar,Investec Champions Cup,2024/2025,1,56,0,0,0,7,12,1.73,12,1,0,0,0,0,0,13,1,0.93,3,0,0,0,2,0,0
@@ -2935,6 +2952,7 @@ h|gavin,hugh-gavin,U20 Six Nations,2024,5,360,2,1,10,57,183,3.21,225,16,3,2,6,45
 h|gavin,hugh-gavin,World Rugby Junior World Championship,2024,4,256,1,3,5,39,187,4.81,183,13,4,6,0,44,4,42,5,0.84,6,2,2,4,5,0,0
 h|gavin,hugh-gavin,U20 Six Nations,2023,5,400,3,0,15,49,380,7.76,156,8,9,4,4,16,0,13,4,0.65,0,1,5,5,1,0,0
 h|gavin,hugh-gavin,World Rugby Junior World Championship,2023,5,273,0,0,0,20,56,2.82,48,3,0,2,1,15,2,22,4,0.85,1,1,2,0,1,0,0
+h|auradou,hugo-auradou,TOP 14,2026/2027,1,80,2,0,10,5,11,2.22,9,1,1,0,1,6,0,13,0,0.87,0,0,2,0,2,0,0
 h|auradou,hugo-auradou,Six Nations,2026,2,32,0,0,0,2,20,9.8,6,0,0,0,1,3,0,7,0,1.0,0,0,1,0,0,0,0
 h|auradou,hugo-auradou,Nations Championship,2026,3,140,0,0,0,13,22,1.72,13,0,0,0,1,11,1,19,3,0.86,3,0,1,1,1,0,0
 h|auradou,hugo-auradou,TOP 14,2025/2026,20,1374,2,1,10,119,322,2.71,231,9,7,9,15,137,8,152,26,0.78,10,6,20,1,19,3,0
@@ -2979,7 +2997,7 @@ h|paisami,hunter-paisami,Rugby Hybrid Friendlies,2023/2024,1,80,0,0,2,12,114,9.5
 h|paisami,hunter-paisami,Super Rugby Pacific,2024,13,995,3,4,15,126,505,4.01,418,37,6,4,11,118,9,107,22,0.71,17,7,14,22,11,2,0
 h|paisami,hunter-paisami,The Rugby Championship,2022,3,186,0,1,0,20,70,3.53,60,6,0,1,2,8,2,15,1,0.75,0,0,4,4,2,0,0
 h|paisami,hunter-paisami,Super Rugby Pacific,2023,6,333,0,0,0,39,126,3.24,100,3,0,1,2,27,2,36,5,0.73,1,1,4,5,3,0,0
-h|jones,huw-jones,TOP 14,2026/2027,1,29,0,0,0,3,20,6.5,6,1,0,0,1,1,1,0,0,0.0,0,0,1,0,0,0,0
+h|jones,huw-jones,TOP 14,2026/2027,2,109,0,0,0,13,134,10.29,58,4,2,2,1,7,2,9,0,0.75,1,0,3,1,0,0,0
 h|jones,huw-jones,Six Nations,2026,5,363,2,0,10,40,190,4.76,107,12,4,6,3,28,3,22,4,0.85,1,1,3,4,0,0,0
 h|jones,huw-jones,Investec Champions Cup,2025/2026,2,144,1,0,5,15,96,6.37,111,6,2,1,1,10,1,16,1,0.76,0,0,3,3,0,0,0
 h|jones,huw-jones,United Rugby Championship,2025/2026,4,295,0,0,0,23,141,6.13,70,11,2,2,3,28,5,14,5,0.64,0,0,3,1,1,0,0
@@ -3001,6 +3019,7 @@ i|henderson,iain-henderson,Rugby World Cup,2023,5,220,1,1,5,20,41,2.06,38,1,0,0,
 i|henderson,iain-henderson,Investec Champions Cup,2023/2024,4,320,0,0,0,34,65,1.91,43,1,0,1,3,20,0,46,5,0.84,2,3,4,0,2,0,0
 i|henderson,iain-henderson,United Rugby Championship,2023/2024,7,403,0,0,0,34,36,1.07,31,2,1,1,1,18,0,75,6,0.84,4,1,2,0,7,1,0
 i|henderson,iain-henderson,Challenge Cup,2023/2024,2,120,0,0,0,10,24,2.41,23,3,0,1,1,11,1,10,1,0.91,0,1,1,0,1,0,0
+i|diallo,ibrahim-diallo,TOP 14,2026/2027,1,32,0,0,0,2,5,2.45,4,0,0,0,0,1,0,6,0,0.86,3,0,0,0,1,0,0
 i|diallo,ibrahim-diallo,TOP 14,2025/2026,9,378,1,1,5,23,91,3.95,70,4,1,1,4,14,2,79,17,0.79,4,3,7,0,3,0,0
 i|diallo,ibrahim-diallo,Investec Champions Cup,2024/2025,4,250,0,0,0,23,62,2.69,42,5,0,1,4,11,0,37,3,0.84,5,0,5,0,3,2,0
 i|diallo,ibrahim-diallo,TOP 14,2024/2025,22,1349,2,0,10,128,372,2.91,305,19,3,1,9,43,2,213,21,0.82,10,3,13,0,17,1,1
@@ -3059,6 +3078,7 @@ i|tabuavou,inia-tabuavou,Pacific Nations Cup,2024,4,274,1,1,5,38,118,3.1,126,13,
 i|tabuavou,inia-tabuavou,Super Rugby Pacific,2025,11,648,0,2,0,57,135,2.38,122,8,4,1,5,99,6,75,15,0.74,2,10,6,5,5,0,0
 i|tabuavou,inia-tabuavou,Investec Champions Cup,2023/2024,2,88,1,1,5,9,45,4.97,15,0,1,0,1,8,2,11,4,0.69,1,0,1,0,2,0,0
 i|tabuavou,inia-tabuavou,TOP 14,2023/2024,6,270,1,1,5,28,139,4.97,99,10,3,2,2,19,3,26,5,0.79,3,1,2,3,1,0,0
+i|burua,inoke-burua,Pacific Nations Cup,2026,1,80,0,2,0,13,88,6.77,28,1,1,2,1,6,1,5,2,0.56,0,0,1,1,0,0,0
 i|burua,inoke-burua,Rugby Hybrid Friendlies,2026,1,80,1,0,5,10,26,2.56,15,1,0,0,1,3,0,5,3,0.45,1,0,2,0,0,0,0
 i|burua,inoke-burua,Japan Rugby League One,2025/2026,19,1452,15,6,75,203,1368,6.74,801,84,23,38,14,97,10,122,49,0.65,16,13,17,4,11,2,0
 i|burua,inoke-burua,Japan Rugby League One,2024/2025,11,423,4,1,20,41,297,7.24,160,22,7,2,4,17,3,37,10,0.71,5,3,5,1,1,0,0
@@ -3077,7 +3097,7 @@ i|neculai,ion-neculai,United Rugby Championship,2025/2026,9,224,0,0,0,19,34,1.77
 i|neculai,ion-neculai,United Rugby Championship,2024/2025,8,221,0,0,0,16,17,1.08,38,2,0,0,0,4,1,28,4,0.8,3,0,0,0,10,0,0
 i|neculai,ion-neculai,Challenge Cup,2023/2024,1,10,0,0,0,0,0,0.0,0,0,0,0,0,0,0,2,0,1.0,0,0,0,0,2,0,0
 i|neculai,ion-neculai,United Rugby Championship,2023/2024,3,75,0,0,0,6,12,2.08,8,0,0,0,0,2,1,10,2,0.83,0,0,1,0,4,1,0
-i|masi,iosefo-masi,TOP 14,2026/2027,1,68,0,1,0,4,20,5.08,20,2,0,0,1,1,0,6,2,0.6,0,0,1,0,1,0,0
+i|masi,iosefo-masi,TOP 14,2026/2027,2,148,1,1,5,15,97,6.48,36,3,0,1,1,9,1,14,5,0.58,1,1,1,0,1,0,0
 i|masi,iosefo-masi,TOP 14,2025/2026,11,623,4,3,20,50,402,8.03,292,29,7,8,5,29,4,65,16,0.68,10,6,7,2,6,0,0
 i|masi,iosefo-masi,Challenge Cup,2025/2026,3,119,0,1,0,15,107,7.15,86,8,2,0,3,6,3,8,2,0.62,1,1,3,0,2,0,0
 i|masi,iosefo-masi,Pacific Nations Cup,2024,4,270,3,0,15,31,253,8.16,110,8,4,5,6,25,5,17,4,0.68,3,0,6,1,1,0,0
@@ -3095,6 +3115,7 @@ i|mapusua,isaiah-mapusua,Japan Rugby League One,2025/2026,10,328,0,1,0,47,114,2.
 i|mapusua,isaiah-mapusua,Pacific Nations Cup,2024,4,102,0,0,0,7,16,2.29,16,3,0,0,1,5,0,21,1,0.95,1,0,1,0,2,0,0
 i|mapusua,isaiah-mapusua,Japan Rugby League One,2024/2025,11,671,2,1,10,76,177,2.32,176,30,2,5,6,36,4,89,14,0.77,4,3,7,3,11,0,0
 i|mapusua,isaiah-mapusua,Japan Rugby League One,2023/2024,14,671,4,0,20,82,278,3.4,180,20,7,3,7,41,4,95,16,0.79,9,5,11,1,8,1,0
+i|nasilasila,isoa-nasilasila,Pacific Nations Cup,2026,1,16,0,0,0,2,5,2.35,6,0,0,0,0,1,0,1,1,0.25,1,0,0,0,1,0,1
 i|nasilasila,isoa-nasilasila,Pacific Nations Cup,2025,4,263,0,0,0,17,25,1.47,34,1,0,1,1,17,1,33,5,0.85,0,0,1,1,2,0,0
 i|nasilasila,isoa-nasilasila,Nations Championship,2026,3,218,0,0,0,16,33,2.09,32,2,0,1,1,14,3,26,1,0.84,1,0,1,0,1,0,0
 i|nasilasila,isoa-nasilasila,Super Rugby Pacific,2026,14,942,0,0,0,88,182,2.07,216,11,0,2,8,51,1,115,16,0.82,9,3,10,0,5,0,0
@@ -3105,7 +3126,7 @@ i|nasilasila,isoa-nasilasila,Rugby World Cup,2023,5,386,0,1,0,31,57,1.84,72,1,1,
 i|nasilasila,isoa-nasilasila,Super Rugby Pacific,2024,10,612,1,0,5,57,89,1.57,93,2,1,0,5,40,5,56,17,0.69,1,1,6,1,4,0,0
 i|nasilasila,isoa-nasilasila,Rugby Hybrid Friendlies,2022/2023,1,80,0,1,0,6,43,0.0,30,2,1,1,0,11,0,9,1,0.0,1,0,0,0,0,0,0
 i|nasilasila,isoa-nasilasila,Super Rugby Pacific,2023,15,1146,0,0,0,96,162,1.69,138,6,0,3,5,59,5,124,28,0.75,3,3,6,0,4,0,0
-i|finesleleiwasa,issak-fines-leleiwasa,Hilux NPC,2026,6,334,1,4,5,19,47,2.46,24,8,2,3,2,372,10,25,7,0.63,2,2,5,34,1,0,0
+i|finesleleiwasa,issak-fines-leleiwasa,Hilux NPC,2026,8,410,2,4,10,25,65,2.59,32,8,2,3,3,455,15,28,9,0.58,2,3,7,37,3,0,0
 i|finesleleiwasa,issak-fines-leleiwasa,Super Rugby Pacific,2026,13,650,1,1,5,41,155,3.77,59,14,1,3,3,610,23,55,14,0.67,2,7,7,48,1,0,0
 i|finesleleiwasa,issak-fines-leleiwasa,Rugby Hybrid Friendlies,2024/2025,2,72,0,1,0,2,16,8.05,0,0,0,0,2,65,1,7,2,0.7,0,0,2,1,0,0,0
 i|finesleleiwasa,issak-fines-leleiwasa,Super Rugby Pacific,2025,9,205,0,1,0,14,50,3.61,39,10,2,4,1,234,4,22,7,0.56,0,0,1,8,1,0,0
@@ -3178,6 +3199,7 @@ j|conan,jack-conan,Six Nations,2024,5,161,1,0,5,32,57,1.78,70,4,0,0,0,10,1,30,4,
 j|conan,jack-conan,Rugby World Cup,2023,2,53,0,0,0,13,53,4.09,30,3,0,1,0,4,0,8,0,1.0,1,0,0,0,1,0,0
 j|conan,jack-conan,Investec Champions Cup,2023/2024,7,145,1,0,5,25,104,4.14,69,4,1,2,2,7,1,26,3,0.81,2,1,2,1,1,1,0
 j|conan,jack-conan,United Rugby Championship,2023/2024,8,421,2,1,10,53,229,4.32,170,12,2,3,3,18,1,61,5,0.85,7,3,5,0,2,0,0
+j|cornelsen,jack-cornelsen,Pacific Nations Cup,2026,1,75,1,0,5,6,40,6.68,17,0,0,0,1,11,0,7,2,0.64,0,1,1,0,1,1,0
 j|cornelsen,jack-cornelsen,Pacific Nations Cup,2025,2,144,0,0,0,8,15,1.9,13,0,0,1,1,10,0,15,0,0.88,0,0,1,0,1,0,0
 j|cornelsen,jack-cornelsen,Nations Championship,2026,3,221,0,0,0,14,30,2.11,30,2,0,0,3,11,0,42,5,0.82,1,0,3,0,2,0,0
 j|cornelsen,jack-cornelsen,Japan Rugby League One,2025/2026,15,1135,5,1,25,94,417,4.43,260,11,1,5,9,80,0,156,14,0.87,8,3,12,1,9,1,0
@@ -3220,7 +3242,7 @@ j|kenningham,jack-kenningham,Rugby Hybrid Friendlies,2022/2023,1,80,1,0,5,8,46,0
 j|mann,jack-mann,PREM Rugby,2025/2026,5,166,0,0,0,20,62,3.09,53,2,0,0,2,6,2,33,2,0.94,1,1,3,0,1,0,0
 j|mann,jack-mann,Investec Champions Cup,2024/2025,3,147,0,0,0,24,59,2.45,52,3,0,0,0,6,1,20,0,0.87,3,1,0,0,3,0,0
 j|mann,jack-mann,United Rugby Championship,2024/2025,11,611,2,0,10,87,244,2.81,193,15,2,2,3,25,4,131,5,0.92,9,2,3,0,6,0,0
-j|nowell,jack-nowell,TOP 14,2026/2027,1,76,0,0,0,7,39,5.51,33,3,1,0,1,2,1,1,1,0.33,0,0,1,1,0,0,0
+j|nowell,jack-nowell,TOP 14,2026/2027,2,156,1,0,5,13,67,5.14,54,5,2,0,2,6,1,10,1,0.67,0,0,2,2,0,0,0
 j|nowell,jack-nowell,Investec Champions Cup,2025/2026,2,124,1,0,5,16,101,6.33,79,6,0,1,0,9,0,14,3,0.78,1,2,0,0,0,0,0
 j|nowell,jack-nowell,TOP 14,2025/2026,18,1191,7,3,35,152,850,5.59,602,63,20,15,7,73,8,64,18,0.67,7,3,9,14,4,0,0
 j|nowell,jack-nowell,Investec Champions Cup,2024/2025,5,341,2,0,10,51,228,4.46,159,24,3,6,2,18,3,24,3,0.86,0,1,3,6,1,0,0
@@ -3245,6 +3267,7 @@ j|walker,jack-walker,Rugby World Cup,2023,1,26,0,0,0,3,9,2.9,7,0,0,0,0,1,0,5,0,1
 j|walker,jack-walker,Investec Champions Cup,2023/2024,7,429,2,0,10,37,55,1.5,36,1,0,1,0,10,0,65,4,0.92,3,0,0,0,0,1,0
 j|walker,jack-walker,PREM Rugby,2023/2024,13,786,4,0,20,64,85,1.33,53,2,1,1,4,19,2,108,15,0.79,3,3,4,0,3,0,0
 j|walker,jack-walker,Rugby Hybrid Friendlies,2022/2023,1,18,0,0,0,1,2,0.0,0,0,0,0,0,2,0,2,1,0.0,0,0,0,0,0,0,0
+j|willis,jack-willis,TOP 14,2026/2027,1,59,0,0,0,8,28,3.46,15,0,0,2,0,10,0,2,0,0.4,0,0,0,0,2,0,0
 j|willis,jack-willis,Investec Champions Cup,2025/2026,5,373,1,0,5,55,128,2.33,89,4,1,4,3,19,1,63,6,0.82,3,15,5,0,4,0,0
 j|willis,jack-willis,TOP 14,2025/2026,23,1332,6,6,30,262,777,2.96,601,40,7,31,9,103,8,173,10,0.87,12,21,11,1,17,1,0
 j|willis,jack-willis,Investec Champions Cup,2024/2025,7,439,2,1,10,70,263,3.75,145,9,2,6,4,32,5,50,10,0.76,2,8,5,0,11,0,0
@@ -3294,7 +3317,7 @@ j|reinach,jacobus-reinach,Rugby World Cup,2023,5,188,4,1,20,20,102,5.11,76,8,3,2
 j|reinach,jacobus-reinach,Challenge Cup,2023/2024,2,94,0,1,0,12,90,7.53,32,3,1,3,0,92,4,6,2,0.55,0,0,2,11,0,0,0
 j|reinach,jacobus-reinach,TOP 14,2023/2024,20,1092,6,7,30,132,514,3.89,231,29,4,10,20,799,42,86,28,0.63,5,7,30,133,6,0,0
 j|reinach,jacobus-reinach,The Rugby Championship,2022,1,8,0,0,0,0,0,0.0,0,0,0,0,0,1,0,2,1,0.67,0,0,0,1,0,0,0
-j|vantonder,jacobus-van-tonder,TOP 14,2026/2027,1,41,0,0,0,2,0,0.0,3,0,0,0,2,3,0,8,0,0.73,0,0,3,0,0,0,0
+j|vantonder,jacobus-van-tonder,TOP 14,2026/2027,2,57,0,0,0,4,2,0.55,5,0,0,0,2,3,0,11,0,0.73,0,0,3,0,0,0,0
 j|vantonder,jacobus-van-tonder,TOP 14,2025/2026,18,1051,0,0,0,66,153,2.32,149,7,3,3,3,51,2,172,7,0.85,8,7,6,0,12,0,0
 j|vantonder,jacobus-van-tonder,Challenge Cup,2025/2026,1,21,0,0,0,0,0,0.0,0,0,0,0,0,0,0,5,0,1.0,0,0,0,0,0,0,0
 j|vantonder,jacobus-van-tonder,Rugby Hybrid Friendlies,2024/2025,1,34,0,0,0,3,2,0.77,4,0,0,0,0,1,0,6,0,1.0,0,0,0,0,0,0,0
@@ -3512,7 +3535,7 @@ j|hendrikwessels,jan-hendrik-wessels,United Rugby Championship,2023/2024,5,118,0
 j|hendrikwessels,jan-hendrik-wessels,Investec Champions Cup,2023/2024,5,241,1,1,5,29,152,5.25,110,4,2,4,1,17,1,29,6,0.66,1,0,2,0,4,0,0
 j|hendrikwessels,jan-hendrik-wessels,Currie Cup,2024,1,65,0,0,0,7,11,1.6,4,0,0,0,2,6,2,6,1,0.86,1,1,2,0,1,0,0
 j|hendrikwessels,jan-hendrik-wessels,Currie Cup,2023,12,635,4,1,20,66,327,4.95,147,9,4,4,2,28,2,108,17,0.86,6,7,8,1,8,3,0
-j|tarrit,janick-tarrit,TOP 14,2026/2027,1,46,0,0,0,2,0,0.0,3,0,0,0,0,0,0,7,0,0.78,1,0,0,0,0,0,0
+j|tarrit,janick-tarrit,TOP 14,2026/2027,2,103,0,0,0,4,5,1.18,6,0,0,0,1,1,0,15,2,0.79,2,0,2,0,0,0,0
 j|tarrit,janick-tarrit,TOP 14,2025/2026,22,1106,4,1,20,76,214,2.81,182,10,2,3,7,21,1,200,20,0.83,19,3,9,0,7,0,1
 j|tarrit,janick-tarrit,Challenge Cup,2025/2026,1,28,0,0,0,1,1,0.8,1,0,0,0,0,0,0,2,0,1.0,0,0,0,0,2,0,0
 j|tarrit,janick-tarrit,Investec Champions Cup,2024/2025,1,53,0,0,0,4,10,2.63,3,0,0,0,0,0,0,3,0,0.75,0,1,1,0,1,0,0
@@ -3549,6 +3572,7 @@ j|sebastian,javan-sebastian,Six Nations,2024,1,9,0,0,0,0,0,0.0,0,0,0,0,0,0,0,1,0
 j|sebastian,javan-sebastian,Rugby World Cup,2023,1,59,0,0,0,7,8,1.21,17,2,0,0,1,3,1,3,1,0.75,0,0,1,0,2,0,0
 j|sebastian,javan-sebastian,Challenge Cup,2023/2024,2,88,1,0,5,6,14,2.27,4,0,0,0,1,5,0,11,0,0.92,0,0,1,0,4,0,0
 j|sebastian,javan-sebastian,United Rugby Championship,2023/2024,15,453,1,0,5,33,39,1.17,37,2,0,1,3,18,0,45,5,0.82,3,1,3,1,7,1,0
+j|gros,jean-baptiste-gros,TOP 14,2026/2027,1,32,0,0,0,1,0,0.0,1,0,0,0,0,0,0,4,0,1.0,0,1,0,0,1,0,0
 j|gros,jean-baptiste-gros,Six Nations,2026,5,255,0,0,0,17,17,0.98,19,1,0,0,0,6,0,53,0,0.98,11,1,0,0,1,0,0
 j|gros,jean-baptiste-gros,Investec Champions Cup,2025/2026,7,395,1,0,5,35,42,1.19,64,2,0,2,2,13,2,50,11,0.76,0,1,3,0,5,0,0
 j|gros,jean-baptiste-gros,TOP 14,2025/2026,12,533,0,0,0,57,75,1.31,96,3,0,6,8,22,5,86,9,0.83,5,1,8,0,11,0,0
@@ -3635,6 +3659,7 @@ j|obrien,jimmy-obrien,United Rugby Championship,2024/2025,16,1212,2,3,10,146,662
 j|obrien,jimmy-obrien,Rugby World Cup,2023,1,24,0,0,0,9,68,7.51,29,2,1,0,0,0,0,2,0,0.67,0,0,1,0,0,0,0
 j|obrien,jimmy-obrien,Investec Champions Cup,2023/2024,3,168,0,1,0,15,45,2.98,4,0,1,2,0,12,2,9,1,0.9,2,0,0,4,0,0,0
 j|obrien,jimmy-obrien,United Rugby Championship,2023/2024,8,611,4,2,20,81,515,6.36,216,18,9,9,8,43,3,29,8,0.71,0,1,13,20,2,0,0
+j|wainiqolo,jiuta-wainiqolo,TOP 14,2026/2027,1,80,2,3,10,13,206,15.85,116,9,6,4,0,13,0,4,1,0.67,1,1,0,4,0,0,0
 j|wainiqolo,jiuta-wainiqolo,Nations Championship,2026,3,240,0,0,0,29,206,7.09,144,26,3,7,2,21,2,24,5,0.75,1,1,4,2,0,0,0
 j|wainiqolo,jiuta-wainiqolo,TOP 14,2025/2026,20,1530,18,6,90,150,1492,9.95,874,73,28,26,13,124,30,106,27,0.65,17,14,19,23,7,3,0
 j|wainiqolo,jiuta-wainiqolo,Challenge Cup,2025/2026,2,101,0,0,0,11,100,9.13,56,9,1,1,3,7,2,3,1,0.75,0,0,3,0,2,0,0
@@ -3793,6 +3818,7 @@ j|williams,johnny-williams,Rugby World Cup,2023,1,68,0,0,0,14,73,5.23,40,0,1,0,1
 j|williams,johnny-williams,Rugby Hybrid Friendlies,2023/2024,1,80,0,0,0,13,30,2.32,32,3,0,0,1,9,2,7,2,0.54,0,0,1,0,1,0,0
 j|williams,johnny-williams,Challenge Cup,2023/2024,3,152,0,0,0,15,42,2.82,33,1,1,1,0,10,2,14,0,0.64,2,1,0,3,3,0,1
 j|williams,johnny-williams,United Rugby Championship,2023/2024,12,929,1,1,5,114,349,3.06,264,21,6,4,5,75,9,67,14,0.72,7,1,5,1,6,1,0
+j|nasova,joji-nasova,Pacific Nations Cup,2026,1,80,0,1,0,9,113,12.59,49,3,4,1,1,3,0,5,1,0.71,1,0,2,1,1,0,0
 j|nasova,joji-nasova,Pacific Nations Cup,2025,2,158,3,0,15,16,223,13.95,158,22,4,0,0,3,1,10,0,0.91,0,1,1,0,0,0,0
 j|nasova,joji-nasova,Super Rugby Pacific,2026,5,327,0,1,0,24,137,5.72,77,10,1,6,1,15,1,25,5,0.69,5,4,3,1,1,0,0
 j|danty,jonathan-danty,TOP 14,2025/2026,2,141,0,0,0,16,35,2.16,22,1,0,4,2,15,2,11,1,0.79,0,1,2,2,1,0,0
@@ -3814,7 +3840,7 @@ j|naikabula,jone-naikabula,Japan Rugby League One,2024/2025,16,1206,15,6,75,132,
 j|naikabula,jone-naikabula,Rugby World Cup,2023,4,208,2,0,10,25,130,5.2,63,5,2,2,1,8,0,12,3,0.67,2,0,2,2,0,0,0
 j|naikabula,jone-naikabula,Japan Rugby League One,2023/2024,11,715,12,4,60,75,751,10.02,391,38,19,5,4,28,5,63,15,0.67,5,6,5,11,3,1,0
 j|naikabula,jone-naikabula,Rugby Hybrid Friendlies,2022/2023,1,78,0,0,0,3,24,0.0,6,1,1,1,1,6,1,4,5,0.0,1,0,0,0,0,0,0
-j|gray,jonny-gray,TOP 14,2026/2027,1,57,0,0,0,6,12,2.02,9,0,0,1,1,4,0,13,1,0.81,0,0,1,0,0,0,0
+j|gray,jonny-gray,TOP 14,2026/2027,2,105,0,0,0,16,20,1.23,20,0,0,2,2,5,0,25,1,0.89,0,0,2,0,0,0,0
 j|gray,jonny-gray,Nations Championship,2026,2,98,1,0,5,19,22,1.18,25,0,0,1,1,9,0,14,3,0.78,0,0,2,0,0,0,0
 j|gray,jonny-gray,Investec Champions Cup,2025/2026,3,42,0,0,0,8,13,1.64,11,0,1,0,1,0,0,6,0,1.0,0,0,1,0,0,0,0
 j|gray,jonny-gray,Challenge Cup,2025/2026,1,20,0,0,0,0,0,0.0,0,0,0,0,0,1,0,3,0,1.0,0,0,0,0,0,0,0
@@ -3822,7 +3848,7 @@ j|gray,jonny-gray,TOP 14,2025/2026,10,457,0,0,0,37,70,1.88,69,0,0,4,1,32,2,90,2,
 j|gray,jonny-gray,Six Nations,2025,4,231,0,0,0,29,25,0.86,20,1,0,8,1,33,1,28,1,0.97,1,0,1,0,1,0,0
 j|gray,jonny-gray,Investec Champions Cup,2024/2025,2,81,0,0,0,7,6,0.83,10,0,0,1,0,2,0,26,0,0.87,2,1,0,0,1,0,0
 j|gray,jonny-gray,TOP 14,2024/2025,19,942,0,1,0,85,123,1.45,126,3,0,12,6,67,2,168,8,0.9,8,2,6,0,9,1,0
-j|hill,jonny-hill,TOP 14,2026/2027,1,46,0,0,0,5,7,1.4,7,0,0,0,1,2,0,3,2,0.33,1,0,1,0,0,0,0
+j|hill,jonny-hill,TOP 14,2026/2027,2,126,0,0,0,10,12,1.16,13,0,0,0,1,7,1,9,5,0.47,1,0,2,0,1,0,0
 j|hill,jonny-hill,Challenge Cup,2025/2026,2,60,1,0,5,5,8,1.5,7,1,0,0,2,5,1,8,2,0.8,0,0,2,0,1,0,0
 j|hill,jonny-hill,TOP 14,2025/2026,26,1813,2,1,10,107,204,1.91,192,7,2,6,13,103,3,273,45,0.78,18,8,15,3,23,1,0
 j|hill,jonny-hill,Investec Champions Cup,2024/2025,3,156,1,0,5,10,26,2.61,21,0,0,0,0,9,1,30,3,0.81,4,0,0,0,0,0,0
@@ -3891,13 +3917,14 @@ j|aukusosuaalii,joseph-aukuso-suaalii,Super Rugby Pacific,2026,5,380,0,0,0,42,15
 j|aukusosuaalii,joseph-aukuso-suaalii,British & Irish Lions 2025,2025,3,240,0,2,0,21,60,2.88,56,4,1,3,3,16,3,19,7,0.63,3,0,3,1,3,0,0
 j|aukusosuaalii,joseph-aukuso-suaalii,Super Rugby Pacific,2025,7,503,2,3,10,67,537,8.02,320,21,7,9,8,44,6,30,5,0.81,1,4,9,11,1,1,0
 j|carpenter,joseph-carpenter,Rugby Hybrid Friendlies,2026,1,80,0,1,0,9,63,7.0,35,5,0,0,1,4,0,5,1,0.71,0,4,1,2,0,0,0
-j|carpenter,joseph-carpenter,PREM Rugby,2025/2026,12,790,4,2,20,120,715,5.96,318,34,10,17,7,71,8,25,6,0.58,0,2,14,19,4,0,0
+j|carpenter,joseph-carpenter,PREM Rugby,2025/2026,12,790,4,2,20,120,715,5.96,318,34,10,17,7,72,8,25,6,0.58,0,2,14,19,4,0,0
 j|carpenter,joseph-carpenter,Investec Champions Cup,2025/2026,3,191,0,1,0,32,185,5.77,72,8,2,7,3,22,3,7,0,1.0,0,0,6,8,0,0,0
 j|carpenter,joseph-carpenter,Rugby Hybrid Friendlies,2024/2025,1,61,1,1,5,9,47,5.24,23,1,0,0,1,4,1,1,2,0.33,1,0,2,2,0,0,0
 j|carpenter,joseph-carpenter,PREM Rugby,2024/2025,19,1458,4,6,20,181,1242,6.86,676,70,17,16,25,107,16,45,16,0.56,1,6,34,34,5,1,0
 j|carpenter,joseph-carpenter,Investec Champions Cup,2024/2025,4,310,2,1,10,34,264,7.75,96,10,1,4,1,20,1,8,4,0.53,1,1,3,10,2,1,0
 j|carpenter,joseph-carpenter,PREM Rugby,2023/2024,15,1137,3,1,15,165,1120,6.78,503,57,12,12,13,58,6,52,14,0.68,4,5,18,40,5,1,0
 j|carpenter,joseph-carpenter,Investec Champions Cup,2023/2024,2,103,0,0,0,19,136,7.13,23,3,1,1,0,8,0,6,0,0.86,1,0,1,4,0,0,0
+j|tamani,joseva-tamani,Pacific Nations Cup,2026,1,19,0,0,0,0,0,0.0,0,0,0,0,1,0,0,2,2,0.5,0,0,1,0,0,0,0
 j|tamani,joseva-tamani,Hilux NPC,2026,5,376,0,0,0,38,120,3.14,80,6,1,2,4,28,2,47,10,0.8,0,0,7,1,4,0,0
 j|tamani,joseva-tamani,Super Rugby Pacific,2026,9,395,1,0,5,29,75,2.6,60,2,0,1,5,12,1,55,6,0.85,7,2,7,0,5,0,0
 j|tamani,joseva-tamani,Hilux NPC,2025,13,812,2,3,10,107,255,2.38,225,14,3,8,6,59,7,122,24,0.8,7,2,10,1,6,0,0
@@ -3991,7 +4018,7 @@ j|vanderflier,josh-van-der-flier,Six Nations,2024,5,269,0,0,0,27,79,2.93,72,2,0,
 j|vanderflier,josh-van-der-flier,Rugby World Cup,2023,5,323,0,0,0,32,141,4.42,91,5,2,2,0,37,0,55,9,0.8,3,3,0,0,1,0,0
 j|vanderflier,josh-van-der-flier,Investec Champions Cup,2023/2024,8,442,3,1,15,56,197,3.52,134,6,3,1,5,26,0,67,4,0.85,8,9,9,0,0,0,0
 j|vanderflier,josh-van-der-flier,United Rugby Championship,2023/2024,7,457,2,1,10,35,88,2.51,50,3,1,0,2,34,2,103,6,0.9,5,4,3,0,1,0,0
-j|brennan,joshua-brennan,TOP 14,2026/2027,1,31,0,0,0,0,0,0.0,0,0,0,0,1,1,0,1,0,1.0,0,0,1,0,0,0,0
+j|brennan,joshua-brennan,TOP 14,2026/2027,2,111,0,0,0,7,9,1.31,21,2,0,0,1,9,0,6,0,0.67,0,1,1,0,0,0,0
 j|brennan,joshua-brennan,Six Nations,2026,1,15,0,0,0,3,1,0.33,5,0,0,0,0,1,0,4,1,0.67,1,0,0,0,0,0,0
 j|brennan,joshua-brennan,Investec Champions Cup,2025/2026,6,162,1,0,5,14,26,1.86,39,4,0,0,3,6,0,30,3,0.83,2,0,4,0,0,0,0
 j|brennan,joshua-brennan,TOP 14,2025/2026,19,1064,3,0,15,126,281,2.23,263,17,1,5,9,55,5,132,14,0.84,12,2,12,0,10,0,0
@@ -4000,7 +4027,7 @@ j|brennan,joshua-brennan,TOP 14,2024/2025,23,1165,2,1,10,151,362,2.4,354,33,3,20
 j|brennan,joshua-brennan,Rugby Hybrid Friendlies,2023/2024,1,70,0,0,0,10,16,1.58,25,1,0,1,2,5,1,7,0,1.0,1,1,2,0,2,0,0
 j|brennan,joshua-brennan,Investec Champions Cup,2023/2024,5,70,0,0,0,4,27,6.75,11,2,0,1,0,1,0,15,2,0.88,1,0,0,0,0,0,0
 j|brennan,joshua-brennan,TOP 14,2023/2024,19,947,2,0,10,137,246,1.79,293,34,0,11,8,44,3,148,15,0.84,7,2,10,0,8,2,0
-j|tuisova,josua-tuisova,TOP 14,2026/2027,1,29,0,0,0,5,30,5.96,16,1,0,0,0,1,0,4,0,0.67,0,0,0,0,0,0,0
+j|tuisova,josua-tuisova,TOP 14,2026/2027,2,109,0,0,0,16,86,5.39,65,6,0,2,1,6,2,7,1,0.64,0,0,1,0,0,0,0
 j|tuisova,josua-tuisova,Nations Championship,2026,3,240,0,0,0,29,113,3.89,70,8,2,5,0,25,6,24,3,0.8,7,2,1,0,2,0,0
 j|tuisova,josua-tuisova,TOP 14,2025/2026,24,1328,4,7,20,142,718,5.06,573,50,12,16,5,89,15,133,15,0.76,14,13,6,3,15,3,1
 j|tuisova,josua-tuisova,Investec Champions Cup,2024/2025,2,159,0,1,0,20,58,2.91,86,10,2,2,0,6,1,21,1,0.84,1,2,0,0,3,1,0
@@ -4049,7 +4076,7 @@ j|postlethwaite,jude-postlethwaite,Rugby Hybrid Friendlies,2024/2025,2,160,1,1,5
 j|postlethwaite,jude-postlethwaite,Investec Champions Cup,2024/2025,4,299,0,1,0,37,116,3.15,121,10,2,3,3,27,6,33,4,0.8,2,1,5,2,0,0,0
 j|postlethwaite,jude-postlethwaite,United Rugby Championship,2024/2025,14,910,6,2,30,120,370,3.08,296,24,4,9,6,70,8,95,20,0.72,7,6,6,7,7,0,0
 j|postlethwaite,jude-postlethwaite,United Rugby Championship,2023/2024,10,478,0,1,0,60,168,2.8,130,8,1,7,3,41,7,66,2,0.89,3,1,6,2,2,0,0
-j|cancoriet,judicael-cancoriet,TOP 14,2026/2027,1,80,0,0,0,2,2,1.1,2,0,0,0,0,1,0,15,1,0.75,2,0,0,0,0,0,0
+j|cancoriet,judicael-cancoriet,TOP 14,2026/2027,2,136,0,0,0,9,6,0.71,13,1,0,1,0,3,1,20,1,0.8,2,0,1,0,0,0,0
 j|cancoriet,judicael-cancoriet,Investec Champions Cup,2025/2026,1,68,0,0,0,5,7,1.34,16,0,0,0,1,1,0,5,1,0.71,0,0,1,0,1,0,0
 j|cancoriet,judicael-cancoriet,TOP 14,2025/2026,14,966,4,1,20,73,230,3.15,173,14,3,7,6,28,4,114,8,0.81,12,4,6,1,7,1,0
 j|cancoriet,judicael-cancoriet,Challenge Cup,2025/2026,2,100,1,0,5,8,35,4.36,33,4,0,0,1,2,0,9,0,0.82,1,1,1,0,1,0,0
@@ -4064,6 +4091,7 @@ j|favre,jules-favre,Investec Champions Cup,2024/2025,4,194,0,0,0,15,46,3.08,28,3
 j|favre,jules-favre,TOP 14,2024/2025,22,1421,2,0,10,104,442,4.25,284,21,8,7,11,74,5,110,29,0.71,10,6,19,13,3,0,0
 j|favre,jules-favre,Investec Champions Cup,2023/2024,2,160,0,0,0,13,46,3.51,11,5,0,3,0,6,2,5,2,0.56,1,1,1,1,0,0,0
 j|favre,jules-favre,TOP 14,2023/2024,25,1573,5,1,25,115,331,2.87,251,17,6,4,7,96,8,127,25,0.73,11,6,9,9,7,0,0
+j|montoya,julian-montoya,TOP 14,2026/2027,1,58,1,0,5,5,0,0.06,4,0,0,0,0,2,0,11,1,0.92,0,0,0,0,1,0,0
 j|montoya,julian-montoya,The Rugby Championship,2025,6,421,1,0,5,27,72,2.66,43,3,1,1,1,15,0,68,7,0.87,2,1,1,0,1,0,0
 j|montoya,julian-montoya,Nations Championship,2026,3,216,0,0,0,19,25,1.29,18,0,0,0,0,19,1,54,5,0.87,0,1,0,0,1,0,0
 j|montoya,julian-montoya,Investec Champions Cup,2025/2026,1,28,0,0,0,8,11,1.33,7,0,0,0,0,2,0,5,1,0.83,0,1,0,0,0,0,0
@@ -4077,7 +4105,7 @@ j|montoya,julian-montoya,Rugby World Cup,2023,6,403,0,0,0,42,64,1.52,60,7,1,1,0,
 j|montoya,julian-montoya,Investec Champions Cup,2023/2024,4,302,0,0,0,26,57,2.2,53,5,0,0,2,5,0,53,2,0.9,4,2,3,0,2,0,0
 j|montoya,julian-montoya,PREM Rugby,2023/2024,11,734,3,0,15,60,141,2.35,52,6,1,3,2,35,1,105,8,0.86,8,6,5,1,6,0,0
 j|montoya,julian-montoya,The Rugby Championship,2022,6,411,0,0,0,20,36,1.79,26,2,0,2,1,11,0,66,9,0.83,1,5,4,0,4,0,0
-j|marchand,julien-marchand,TOP 14,2026/2027,1,49,0,0,0,4,17,4.15,7,0,0,0,0,3,0,9,1,0.82,0,0,0,0,0,0,0
+j|marchand,julien-marchand,TOP 14,2026/2027,2,101,2,1,10,13,62,4.76,32,1,0,0,2,8,1,11,1,0.85,0,1,2,1,0,0,0
 j|marchand,julien-marchand,Six Nations,2026,5,248,1,0,5,34,45,1.32,33,1,1,4,1,16,1,42,4,0.89,7,0,2,0,2,0,0
 j|marchand,julien-marchand,Investec Champions Cup,2025/2026,5,255,3,0,15,41,77,1.87,62,2,0,4,1,22,2,40,3,0.89,1,6,4,0,2,0,0
 j|marchand,julien-marchand,TOP 14,2025/2026,14,639,6,1,30,123,225,1.83,199,9,0,12,2,56,3,96,8,0.85,6,7,2,0,8,0,0
@@ -4097,7 +4125,7 @@ j|tipuric,justin-tipuric,Challenge Cup,2024/2025,3,151,0,0,0,9,26,2.87,18,1,0,0,
 j|tipuric,justin-tipuric,Rugby Hybrid Friendlies,2023/2024,1,80,0,0,0,7,19,2.76,12,1,0,3,0,9,0,10,1,0.83,0,1,0,0,0,0,0
 j|tipuric,justin-tipuric,United Rugby Championship,2023/2024,13,956,1,0,5,67,157,2.34,78,3,3,5,4,129,5,141,11,0.87,16,11,4,1,7,2,0
 j|tipuric,justin-tipuric,Challenge Cup,2023/2024,2,160,0,0,0,11,14,1.28,12,1,0,1,0,21,0,19,2,0.9,3,3,1,1,1,0,0
-j|piccardo,justo-piccardo,TOP 14,2026/2027,1,80,0,1,0,18,80,4.43,43,1,2,2,0,8,2,8,4,0.57,2,0,1,1,0,0,0
+j|piccardo,justo-piccardo,TOP 14,2026/2027,2,160,0,1,0,27,96,3.54,69,3,2,2,0,10,2,23,6,0.72,3,1,2,1,2,0,0
 j|piccardo,justo-piccardo,The Rugby Championship,2025,4,104,0,0,0,8,27,3.34,29,4,1,0,1,6,2,16,2,0.76,2,0,1,0,0,0,0
 j|piccardo,justo-piccardo,Nations Championship,2026,2,160,2,1,10,31,106,3.41,118,9,3,1,0,13,1,24,0,0.92,0,1,1,1,0,0,0
 j|piccardo,justo-piccardo,TOP 14,2025/2026,14,771,8,0,40,96,462,4.82,367,29,8,2,7,40,4,86,14,0.75,7,3,9,3,2,1,0
@@ -4114,6 +4142,7 @@ k|thomas,kalani-thomas,Super Rugby Pacific,2025,15,329,1,2,7,38,231,6.07,104,7,6
 k|thomas,kalani-thomas,Super Rugby Pacific,2024,15,339,0,3,0,37,138,3.74,70,7,3,5,3,337,6,31,7,0.74,2,0,6,14,2,0,0
 k|thomas,kalani-thomas,Hilux NPC,2023,10,473,4,4,20,39,174,4.45,127,18,4,5,8,549,20,28,5,0.85,1,4,8,16,0,0,0
 k|thomas,kalani-thomas,Super Rugby Pacific,2023,13,254,0,5,0,30,113,3.77,60,8,1,7,3,254,13,21,5,0.66,2,1,5,14,2,0,0
+k|ravouvou,kalaveti-ravouvou,Pacific Nations Cup,2026,1,56,0,0,0,3,0,0.0,7,1,0,0,1,4,1,8,3,0.67,0,0,1,0,0,0,0
 k|ravouvou,kalaveti-ravouvou,Pacific Nations Cup,2025,4,320,5,2,25,31,207,6.69,174,17,5,4,1,18,1,20,9,0.61,2,0,2,0,3,0,0
 k|ravouvou,kalaveti-ravouvou,Nations Championship,2026,2,117,0,1,0,12,80,6.7,66,3,0,2,1,5,0,5,3,0.45,1,0,1,1,0,0,0
 k|ravouvou,kalaveti-ravouvou,PREM Rugby,2025/2026,17,1240,12,3,60,132,1084,8.21,567,70,27,10,12,42,5,49,22,0.56,3,2,17,13,4,3,0
@@ -4125,7 +4154,7 @@ k|ravouvou,kalaveti-ravouvou,PREM Rugby,2023/2024,5,39,0,0,0,6,21,3.53,24,2,1,0,
 k|ravouvou,kalaveti-ravouvou,Investec Champions Cup,2023/2024,3,141,0,0,0,14,110,7.89,46,3,3,0,2,0,0,6,5,0.4,1,1,3,2,2,1,0
 k|ravouvou,kalaveti-ravouvou,Rugby Hybrid Friendlies,2022/2023,1,70,0,0,0,1,9,0.0,4,0,0,0,1,3,0,2,0,1.0,0,0,0,0,0,0,0
 k|ravouvou,kalaveti-ravouvou,Super Rugby Pacific,2023,14,915,3,4,15,111,562,5.06,392,47,9,16,6,49,6,78,18,0.68,6,3,7,5,2,0,0
-k|gourgues,kalvin-gourgues,TOP 14,2026/2027,1,74,0,1,0,4,27,6.7,9,1,0,1,1,10,0,8,2,0.73,0,0,1,2,0,0,0
+k|gourgues,kalvin-gourgues,TOP 14,2026/2027,2,154,1,2,5,17,134,7.85,64,3,2,1,1,18,0,16,6,0.67,0,2,1,3,0,0,0
 k|gourgues,kalvin-gourgues,Six Nations,2026,1,30,0,0,0,2,17,8.3,7,0,1,1,0,3,1,2,3,0.33,0,0,0,0,0,0,0
 k|gourgues,kalvin-gourgues,Nations Championship,2026,2,35,0,1,0,4,36,9.0,28,2,2,0,0,3,1,7,1,0.64,0,0,0,0,0,0,0
 k|gourgues,kalvin-gourgues,Investec Champions Cup,2025/2026,5,356,6,2,30,47,268,5.71,187,11,6,3,3,30,1,42,8,0.71,1,1,4,4,0,0,0
@@ -4142,6 +4171,7 @@ k|james,kane-james,World Rugby Junior World Championship,2025,5,317,2,0,10,41,16
 k|james,kane-james,PREM Rugby,2024/2025,2,34,0,0,0,11,20,1.82,27,1,1,0,0,2,0,6,0,1.0,1,0,0,0,1,0,0
 k|james,kane-james,U20 Six Nations,2024,4,72,1,0,5,13,15,1.16,19,4,0,0,1,2,1,10,1,0.83,3,0,3,0,3,0,0
 k|james,kane-james,World Rugby Junior World Championship,2024,5,208,1,0,5,28,136,4.88,88,7,1,1,1,9,0,42,5,0.82,5,0,2,0,3,1,0
+k|shimokawa1,kanji-shimokawa-1,Pacific Nations Cup,2026,1,80,0,1,0,6,14,2.3,10,1,0,0,0,6,0,16,0,0.89,1,0,1,0,1,0,0
 k|shimokawa1,kanji-shimokawa-1,Rugby Hybrid Friendlies,2026,1,80,0,0,0,8,3,0.4,13,0,0,0,0,4,0,11,0,0.79,0,0,1,0,0,0,0
 k|shimokawa1,kanji-shimokawa-1,Pacific Nations Cup,2025,4,264,1,0,5,21,66,3.14,34,2,1,0,3,11,2,38,1,0.9,1,1,3,0,1,0,0
 k|shimokawa1,kanji-shimokawa-1,Nations Championship,2026,2,103,0,0,0,8,16,2.0,22,2,0,0,0,4,0,16,2,0.89,1,0,0,1,1,0,0
@@ -4157,6 +4187,7 @@ k|himeno,kazuki-himeno,Japan Rugby League One,2024/2025,8,607,2,2,10,105,294,2.8
 k|himeno,kazuki-himeno,Rugby World Cup,2023,3,240,1,0,5,35,71,2.02,63,8,0,2,3,11,1,49,0,0.91,2,3,4,0,3,0,0
 k|himeno,kazuki-himeno,Japan Rugby League One,2023/2024,16,1253,2,1,10,190,469,2.47,363,38,4,13,7,104,15,217,29,0.81,5,15,10,1,10,0,0
 k|himeno,kazuki-himeno,Rugby Hybrid Friendlies,2022/2023,1,35,0,0,0,9,31,0.0,9,1,1,0,2,4,0,2,1,1.0,1,0,0,0,0,0,0
+k|ueda,kazuma-ueda,Pacific Nations Cup,2026,1,58,0,0,0,4,29,7.23,4,0,0,0,3,4,0,3,3,0.43,0,0,3,0,1,0,0
 k|ueda,kazuma-ueda,Rugby Hybrid Friendlies,2026,1,80,1,0,5,7,14,2.0,17,1,1,0,0,0,0,4,3,0.5,0,0,0,3,0,0,0
 k|ueda,kazuma-ueda,Nations Championship,2026,3,240,0,0,0,12,46,3.88,34,2,1,0,1,6,0,13,5,0.72,2,0,2,3,0,0,0
 k|ueda,kazuma-ueda,Japan Rugby League One,2025/2026,18,1195,10,3,50,114,833,7.31,402,38,20,8,10,54,2,48,19,0.59,2,3,19,16,3,0,0
@@ -4251,7 +4282,7 @@ k|assiratti,kieron-assiratti,United Rugby Championship,2024/2025,14,711,0,1,0,25
 k|assiratti,kieron-assiratti,Six Nations,2024,4,191,0,0,0,7,0,0.0,6,0,0,0,0,5,0,15,2,0.83,1,0,0,0,3,0,0
 k|assiratti,kieron-assiratti,Investec Champions Cup,2023/2024,4,193,0,0,0,5,4,0.72,2,0,0,0,0,6,1,19,7,0.68,1,0,0,0,2,0,0
 k|assiratti,kieron-assiratti,United Rugby Championship,2023/2024,11,583,1,0,5,22,33,1.49,47,5,2,2,2,21,0,71,3,0.9,2,1,5,0,5,0,0
-k|tixeront,killian-tixeront,TOP 14,2026/2027,1,48,0,0,0,0,0,0.0,0,0,0,0,0,2,0,10,1,0.83,1,0,1,0,1,0,0
+k|tixeront,killian-tixeront,TOP 14,2026/2027,2,80,0,0,0,2,6,3.05,8,1,0,0,1,5,0,15,1,0.88,2,1,2,0,3,0,0
 k|tixeront,killian-tixeront,Nations Championship,2026,3,88,0,0,0,5,27,5.48,18,1,1,0,0,5,0,24,6,0.73,1,0,0,0,1,0,0
 k|tixeront,killian-tixeront,Rugby Hybrid Friendlies,2026,1,35,0,1,0,3,36,12.17,14,2,1,1,0,8,0,7,1,0.88,0,0,0,0,1,0,0
 k|tixeront,killian-tixeront,Investec Champions Cup,2025/2026,3,201,0,0,0,6,22,3.72,15,1,0,0,1,9,2,29,5,0.71,3,0,1,0,1,0,0
@@ -4321,7 +4352,7 @@ k|rowe,kyle-rowe,United Rugby Championship,2024/2025,15,1104,5,5,25,127,676,5.32
 k|rowe,kyle-rowe,Six Nations,2024,3,174,0,0,0,16,125,7.84,98,12,3,2,3,12,2,10,2,0.71,1,0,5,6,1,0,0
 k|rowe,kyle-rowe,Investec Champions Cup,2023/2024,4,261,3,0,15,27,234,8.69,144,17,5,2,3,18,1,15,2,0.71,1,1,6,5,2,0,0
 k|rowe,kyle-rowe,United Rugby Championship,2023/2024,13,987,9,2,45,92,527,5.73,263,30,14,6,10,47,2,50,7,0.77,2,3,12,17,2,0,0
-k|sinckler,kyle-sinckler,TOP 14,2026/2027,1,53,0,0,0,2,0,0.0,3,0,0,0,0,2,1,7,0,1.0,1,0,0,1,0,0,0
+k|sinckler,kyle-sinckler,TOP 14,2026/2027,2,101,0,0,0,7,8,1.13,9,0,0,0,0,5,2,13,0,1.0,2,1,0,1,0,0,0
 k|sinckler,kyle-sinckler,Investec Champions Cup,2025/2026,7,441,0,0,0,51,73,1.44,92,3,0,1,2,21,0,58,2,0.97,1,0,3,1,9,0,0
 k|sinckler,kyle-sinckler,TOP 14,2025/2026,19,889,1,0,5,67,104,1.56,110,4,1,1,5,54,6,127,12,0.85,3,2,5,1,11,0,0
 k|sinckler,kyle-sinckler,Rugby Hybrid Friendlies,2024/2025,1,54,0,0,0,5,4,0.9,9,1,0,0,0,7,2,9,2,0.64,1,0,0,0,1,0,0
@@ -4410,13 +4441,13 @@ l|ikitau,len-ikitau,Super Rugby Pacific,2023,12,885,5,4,25,94,371,3.94,320,30,4,
 l|nouchi,lenni-nouchi,Six Nations,2026,4,98,0,0,0,18,68,3.79,66,4,0,1,1,8,2,33,2,0.92,4,1,1,0,1,1,0
 l|nouchi,lenni-nouchi,Nations Championship,2026,2,131,0,0,0,22,65,2.94,52,3,2,2,1,7,1,27,4,0.82,0,0,1,0,0,0,0
 l|nouchi,lenni-nouchi,TOP 14,2025/2026,20,1352,6,3,30,203,804,3.96,534,33,10,10,11,84,15,172,23,0.81,15,0,20,2,6,0,0
-l|nouchi,lenni-nouchi,Challenge Cup,2025/2026,4,263,1,0,5,45,214,4.74,119,8,1,4,2,22,2,44,8,0.83,4,0,2,1,0,0,0
+l|nouchi,lenni-nouchi,Challenge Cup,2025/2026,4,263,1,0,5,45,214,4.74,119,8,1,4,2,21,2,44,7,0.85,4,0,2,1,0,0,0
 l|nouchi,lenni-nouchi,TOP 14,2024/2025,22,1286,3,1,15,124,428,3.45,327,34,7,12,6,85,7,219,30,0.8,22,3,13,8,12,1,0
 l|nouchi,lenni-nouchi,Challenge Cup,2024/2025,3,218,0,3,0,24,107,4.45,73,7,5,10,0,31,4,38,9,0.75,3,1,1,1,1,0,0
 l|nouchi,lenni-nouchi,TOP 14,2023/2024,18,820,3,2,15,99,294,2.97,194,26,2,8,6,51,6,137,28,0.78,13,7,8,2,6,1,0
 l|nouchi,lenni-nouchi,U20 Six Nations,2023,5,336,3,0,15,32,120,3.76,93,10,0,4,2,18,2,64,0,0.93,5,3,2,1,6,2,0
 l|nouchi,lenni-nouchi,World Rugby Junior World Championship,2023,5,285,2,0,10,32,227,7.09,153,9,3,2,0,22,4,39,7,0.85,4,0,1,0,1,0,0
-l|barre,leo-barre,TOP 14,2026/2027,1,80,1,1,5,11,81,7.4,17,2,3,1,1,20,0,1,0,0.5,1,0,5,8,1,0,0
+l|barre,leo-barre,TOP 14,2026/2027,2,160,1,1,5,20,158,7.88,45,5,3,1,2,32,2,3,2,0.5,1,0,7,12,1,0,0
 l|barre,leo-barre,TOP 14,2025/2026,26,1829,12,8,62,202,1348,6.67,483,48,17,29,29,168,27,49,20,0.58,6,5,42,124,6,0,0
 l|barre,leo-barre,Challenge Cup,2025/2026,1,34,0,0,5,6,9,1.48,22,4,0,0,1,9,3,2,1,0.67,0,0,2,6,0,0,0
 l|barre,leo-barre,Six Nations,2025,1,80,2,0,10,15,131,8.76,73,6,1,3,2,11,0,2,1,0.67,0,1,2,3,0,0,0
@@ -4437,7 +4468,7 @@ l|brown,leon-brown,United Rugby Championship,2024/2025,3,178,0,0,0,12,27,2.26,34
 l|brown,leon-brown,Six Nations,2024,1,41,0,0,0,2,0,0.2,2,0,0,0,0,1,0,7,1,0.78,0,0,0,0,0,0,0
 l|brown,leon-brown,Challenge Cup,2023/2024,1,66,0,0,0,3,0,0.0,0,0,0,0,0,1,0,9,0,1.0,0,0,0,0,2,0,0
 l|brown,leon-brown,United Rugby Championship,2023/2024,3,73,0,0,0,3,12,3.83,8,1,0,1,0,3,1,13,0,0.93,0,1,0,0,5,0,0
-l|darricarrere,leon-darricarrere,TOP 14,2026/2027,1,64,0,0,0,11,30,2.75,39,3,0,1,1,2,0,1,0,1.0,0,1,1,1,1,0,0
+l|darricarrere,leon-darricarrere,TOP 14,2026/2027,2,121,0,0,0,13,30,2.32,47,3,0,1,1,6,1,4,1,0.8,1,1,1,1,1,0,0
 l|darricarrere,leon-darricarrere,TOP 14,2025/2026,18,1239,4,4,20,95,411,4.32,376,37,8,8,6,99,15,69,34,0.58,13,6,10,9,6,0,0
 l|darricarrere,leon-darricarrere,TOP 14,2024/2025,17,1129,2,1,10,82,372,4.53,214,14,4,12,8,51,8,69,27,0.61,4,6,13,7,8,0,0
 l|darricarrere,leon-darricarrere,U20 Six Nations,2024,1,71,0,1,0,2,8,4.0,4,0,0,1,2,5,3,5,0,1.0,0,1,2,0,1,0,0
@@ -4472,6 +4503,7 @@ l|etien,lester-etien,TOP 14,2024/2025,16,787,2,0,10,57,325,5.7,213,19,7,3,7,14,3
 l|etien,lester-etien,Investec Champions Cup,2024/2025,1,80,0,0,0,4,17,4.33,15,0,0,0,0,1,0,6,1,0.86,0,0,1,0,1,0,0
 l|etien,lester-etien,TOP 14,2023/2024,23,1708,4,2,20,132,592,4.49,281,32,1,8,17,42,4,104,24,0.73,10,11,26,6,10,0,0
 l|etien,lester-etien,Investec Champions Cup,2023/2024,3,123,1,0,5,14,24,1.68,17,7,1,0,0,2,1,6,2,0.67,0,2,0,0,0,0,0
+l|botia,levani-botia,TOP 14,2026/2027,1,39,0,1,0,4,9,2.15,18,1,0,0,0,1,0,5,1,0.83,1,2,0,0,1,1,0
 l|botia,levani-botia,Nations Championship,2026,1,42,0,0,0,5,9,1.82,5,0,0,0,1,0,0,8,0,1.0,3,0,1,0,3,1,0
 l|botia,levani-botia,Investec Champions Cup,2025/2026,3,190,0,0,0,26,102,3.94,73,5,2,5,0,15,3,34,3,0.87,0,5,0,1,2,0,0
 l|botia,levani-botia,TOP 14,2025/2026,25,1226,6,3,30,188,428,2.28,430,25,5,11,8,89,15,155,29,0.76,10,18,11,3,18,3,0
@@ -4480,6 +4512,7 @@ l|botia,levani-botia,TOP 14,2024/2025,13,599,3,0,15,53,106,2.01,94,6,1,5,2,33,3,
 l|botia,levani-botia,Rugby World Cup,2023,5,308,1,1,5,36,62,1.71,82,7,1,5,3,29,0,43,5,0.78,8,7,4,3,6,1,0
 l|botia,levani-botia,Investec Champions Cup,2023/2024,6,395,0,0,0,34,114,3.35,38,4,0,5,2,18,1,55,10,0.81,9,8,2,1,5,0,0
 l|botia,levani-botia,TOP 14,2023/2024,14,850,3,1,15,112,258,2.3,190,18,2,7,7,21,4,111,33,0.72,12,10,9,1,11,1,0
+l|ludlam,lewis-ludlam,TOP 14,2026/2027,1,70,0,0,0,15,58,3.85,36,4,1,0,1,0,0,11,0,1.0,1,2,1,0,1,0,0
 l|ludlam,lewis-ludlam,Investec Champions Cup,2025/2026,4,320,2,0,10,42,88,2.09,88,4,1,1,4,6,1,33,4,0.85,2,4,4,0,0,0,0
 l|ludlam,lewis-ludlam,TOP 14,2025/2026,18,1225,2,1,10,151,471,3.12,308,18,3,5,7,31,4,152,15,0.8,14,6,11,0,15,1,0
 l|ludlam,lewis-ludlam,Investec Champions Cup,2024/2025,6,418,0,0,0,48,146,3.04,95,5,2,1,3,16,2,69,2,0.93,5,2,7,0,2,1,0
@@ -4528,7 +4561,7 @@ l|dejager,lodewyk-de-jager,Japan Rugby League One,2023/2024,12,779,6,1,30,136,34
 l|dejager,lodewyk-de-jager,The Rugby Championship,2022,6,350,0,0,0,29,76,2.63,71,3,2,3,3,16,2,57,5,0.8,1,1,4,0,4,0,0
 l|cannone,lorenzo-cannone,Six Nations,2026,5,369,0,0,0,45,206,4.58,117,11,1,2,4,17,0,71,7,0.87,11,4,6,0,1,0,0
 l|cannone,lorenzo-cannone,Nations Championship,2026,2,123,0,0,0,21,69,3.27,48,4,0,0,0,3,0,33,1,0.97,0,0,0,1,1,0,0
-l|cannone,lorenzo-cannone,United Rugby Championship,2025/2026,10,584,0,0,0,75,203,2.71,168,10,2,2,5,23,3,78,8,0.82,5,7,5,0,4,0,0
+l|cannone,lorenzo-cannone,United Rugby Championship,2025/2026,10,584,0,0,0,75,203,2.71,168,10,2,2,5,23,3,77,8,0.82,5,7,5,0,4,0,0
 l|cannone,lorenzo-cannone,Challenge Cup,2025/2026,4,261,0,0,0,50,170,3.41,129,10,2,5,3,17,1,33,3,0.85,5,5,3,0,2,0,0
 l|cannone,lorenzo-cannone,Six Nations,2025,5,247,0,0,0,33,202,6.12,91,8,0,0,2,7,0,49,3,0.84,4,4,2,0,4,0,0
 l|cannone,lorenzo-cannone,Investec Champions Cup,2024/2025,3,226,0,0,0,45,146,3.24,131,7,1,0,0,6,0,36,4,0.84,3,3,0,0,2,0,0
@@ -4545,7 +4578,7 @@ l|pani,lorenzo-pani,Six Nations,2024,3,207,1,0,5,8,90,11.26,38,3,0,0,1,1,0,8,2,0
 l|pani,lorenzo-pani,Rugby World Cup,2023,2,121,1,0,5,11,69,6.27,28,3,0,0,0,2,1,2,1,0.67,0,1,0,2,0,0,0
 l|pani,lorenzo-pani,United Rugby Championship,2023/2024,11,813,3,5,15,108,673,6.23,268,27,10,10,5,51,10,13,12,0.5,1,1,12,64,1,0,0
 l|pani,lorenzo-pani,Challenge Cup,2023/2024,4,312,0,1,0,44,187,4.25,68,8,0,4,7,22,6,5,3,0.5,0,0,11,34,1,0,0
-l|zarantonello,loris-zarantonello,TOP 14,2026/2027,1,29,0,0,0,4,2,0.58,8,2,0,0,0,2,0,4,0,0.8,0,0,0,0,0,0,0
+l|zarantonello,loris-zarantonello,TOP 14,2026/2027,2,42,0,0,0,7,6,0.89,13,2,0,0,0,2,0,7,1,0.78,0,0,0,0,0,0,0
 l|zarantonello,loris-zarantonello,Investec Champions Cup,2025/2026,4,177,2,0,10,20,44,2.18,45,4,0,0,1,4,1,29,0,0.88,0,0,4,0,2,0,0
 l|zarantonello,loris-zarantonello,TOP 14,2025/2026,10,303,2,0,10,45,62,1.37,56,2,0,0,2,11,0,58,9,0.82,0,1,3,0,2,0,0
 l|zarantonello,loris-zarantonello,Investec Champions Cup,2024/2025,5,163,0,0,0,29,33,1.15,51,1,0,0,0,8,2,28,2,0.74,0,3,1,1,4,0,0
@@ -4563,7 +4596,7 @@ l|hennessey,louie-hennessey,World Rugby Junior World Championship,2024,5,344,2,1
 l|hennessey,louie-hennessey,PREM Rugby,2023/2024,2,23,1,0,5,3,10,3.4,3,0,1,0,1,0,0,1,0,1.0,0,0,2,0,0,0,0
 l|hennessey,louie-hennessey,U20 Six Nations,2023,4,280,1,2,5,29,124,4.27,78,4,2,4,3,14,2,26,6,0.7,0,1,4,2,4,0,0
 l|hennessey,louie-hennessey,World Rugby Junior World Championship,2023,5,384,3,1,15,39,224,5.74,75,5,6,6,4,25,6,21,9,0.7,2,0,5,2,3,1,0
-l|biellebiarrey,louis-bielle-biarrey,TOP 14,2026/2027,1,80,2,1,10,8,28,3.44,32,3,2,0,1,10,0,5,1,0.83,0,0,1,0,1,0,0
+l|biellebiarrey,louis-bielle-biarrey,TOP 14,2026/2027,2,160,2,1,10,15,59,3.93,40,6,2,0,3,16,0,11,3,0.79,2,1,4,2,1,0,0
 l|biellebiarrey,louis-bielle-biarrey,Six Nations,2026,5,400,9,4,45,41,339,8.27,157,18,15,2,6,34,3,28,11,0.64,3,1,11,19,0,0,0
 l|biellebiarrey,louis-bielle-biarrey,TOP 14,2025/2026,15,1027,13,6,65,96,806,8.4,320,31,20,10,9,121,7,44,16,0.59,3,2,14,26,6,1,0
 l|biellebiarrey,louis-bielle-biarrey,Investec Champions Cup,2025/2026,8,640,10,4,50,60,565,9.41,318,30,13,9,6,63,3,33,6,0.62,1,4,9,16,1,0,0
@@ -4576,13 +4609,13 @@ l|biellebiarrey,louis-bielle-biarrey,TOP 14,2023/2024,15,1011,5,2,25,106,667,6.2
 l|biellebiarrey,louis-bielle-biarrey,Investec Champions Cup,2023/2024,5,388,6,0,30,37,367,9.93,182,18,6,4,1,22,1,21,5,0.66,4,1,5,13,1,0,0
 l|biellebiarrey,louis-bielle-biarrey,Rugby Hybrid Friendlies,2022/2023,1,80,0,0,0,6,55,0.0,9,0,1,1,2,8,0,3,2,0.0,0,0,0,2,0,0,0
 l|biellebiarrey,louis-bielle-biarrey,U20 Six Nations,2023,3,219,2,2,10,26,184,7.07,79,10,4,3,2,17,0,7,0,0.7,0,1,3,11,0,0,0
-l|carbonel,louis-carbonel,TOP 14,2026/2027,1,80,0,1,8,15,75,4.99,26,3,0,0,1,20,1,3,1,0.6,0,1,4,9,0,0,0
+l|carbonel,louis-carbonel,TOP 14,2026/2027,2,142,0,1,17,20,95,4.73,58,9,1,1,1,36,2,5,3,0.56,0,1,5,15,1,0,0
 l|carbonel,louis-carbonel,TOP 14,2025/2026,24,1857,3,11,288,191,954,5.0,419,47,12,11,12,342,26,123,38,0.65,6,4,33,173,7,1,0
 l|carbonel,louis-carbonel,Investec Champions Cup,2024/2025,1,69,0,0,2,2,16,8.0,0,1,0,0,0,13,0,4,2,0.67,0,0,2,9,1,1,0
 l|carbonel,louis-carbonel,TOP 14,2024/2025,16,1029,2,5,137,66,316,4.78,143,18,2,3,8,228,15,68,22,0.62,2,1,17,119,2,0,0
 l|carbonel,louis-carbonel,TOP 14,2023/2024,24,1621,1,6,194,144,619,4.3,246,29,7,7,15,366,23,122,45,0.66,3,4,30,143,2,0,0
 l|carbonel,louis-carbonel,Challenge Cup,2023/2024,2,100,0,3,4,13,64,4.9,45,3,1,2,3,29,2,11,4,0.65,0,0,4,6,0,0,0
-l|lebrun,louis-le-brun,TOP 14,2026/2027,1,80,0,0,7,4,9,2.25,16,2,1,1,0,10,2,5,0,0.83,1,2,1,7,1,0,0
+l|lebrun,louis-le-brun,TOP 14,2026/2027,2,124,0,0,12,10,68,6.82,37,4,3,2,1,20,4,10,2,0.71,1,2,3,11,2,0,0
 l|lebrun,louis-le-brun,TOP 14,2025/2026,5,278,0,0,26,22,53,2.42,38,3,0,3,6,52,9,18,8,0.69,1,1,8,27,2,0,0
 l|lebrun,louis-le-brun,Investec Champions Cup,2024/2025,5,350,0,1,25,34,186,5.48,107,12,3,5,3,57,6,48,7,0.8,5,3,9,44,1,0,0
 l|lebrun,louis-le-brun,TOP 14,2024/2025,23,1437,4,7,141,154,712,4.62,349,36,3,11,17,238,30,160,33,0.76,9,12,30,138,11,3,0
@@ -4625,12 +4658,12 @@ l|dubois,lucas-dubois,Challenge Cup,2025/2026,2,160,0,0,0,15,72,4.8,60,8,1,1,3,8
 l|dubois,lucas-dubois,TOP 14,2024/2025,7,520,1,2,5,49,234,4.78,55,8,6,7,3,32,2,33,17,0.58,3,3,8,15,2,0,0
 l|dubois,lucas-dubois,TOP 14,2023/2024,15,998,5,4,27,90,492,5.47,271,28,7,15,17,48,7,47,18,0.58,6,3,21,13,3,1,0
 l|dubois,lucas-dubois,Challenge Cup,2023/2024,3,195,1,0,5,21,164,7.79,97,9,5,3,3,10,2,11,7,0.58,2,0,4,5,0,0,0
-l|martin,lucas-martin,TOP 14,2026/2027,1,46,1,0,5,14,42,3.04,33,2,0,2,1,7,0,3,0,0.75,0,0,1,0,1,0,0
+l|martin,lucas-martin,TOP 14,2026/2027,2,87,1,0,5,20,55,2.77,46,4,0,2,2,8,0,9,2,0.75,1,0,2,0,2,0,0
 l|martin,lucas-martin,TOP 14,2025/2026,23,951,11,0,55,140,384,2.74,373,20,6,8,10,45,8,151,17,0.82,25,3,15,0,6,0,0
 l|martin,lucas-martin,Investec Champions Cup,2025/2026,4,206,0,1,0,22,28,1.26,26,1,0,1,4,8,0,43,5,0.84,3,0,6,0,1,0,0
 l|martin,lucas-martin,TOP 14,2024/2025,23,760,5,0,25,87,232,2.66,202,15,2,9,8,47,7,114,6,0.86,15,4,8,2,12,1,0
 l|martin,lucas-martin,Challenge Cup,2024/2025,5,280,3,0,15,64,137,2.14,106,7,0,7,2,30,6,40,4,0.83,1,1,4,0,4,0,0
-l|paulos,lucas-paulos,TOP 14,2026/2027,1,41,0,0,0,4,6,1.53,11,0,0,0,1,0,0,5,1,0.83,0,1,1,0,0,0,0
+l|paulos,lucas-paulos,TOP 14,2026/2027,2,101,0,0,0,7,15,2.1,16,0,0,0,2,1,1,15,2,0.83,1,1,2,0,1,0,0
 l|paulos,lucas-paulos,The Rugby Championship,2025,1,41,0,0,0,1,0,0.0,0,0,0,0,0,1,1,4,1,0.8,0,0,0,0,0,0,0
 l|paulos,lucas-paulos,TOP 14,2025/2026,19,996,2,0,10,60,70,1.16,114,2,0,1,3,25,1,116,20,0.8,16,3,5,0,15,0,0
 l|paulos,lucas-paulos,Investec Champions Cup,2025/2026,3,240,2,0,10,14,16,1.18,24,1,0,0,0,10,3,24,5,0.83,3,2,1,0,0,0,0
@@ -4784,6 +4817,7 @@ m|tuitama,malo-tuitama,Japan Rugby League One,2025/2026,16,1213,11,2,55,155,1171
 m|tuitama,malo-tuitama,Pacific Nations Cup,2024,4,306,3,0,15,42,313,7.45,173,22,5,6,1,20,0,13,4,0.68,0,3,2,9,0,0,0
 m|tuitama,malo-tuitama,Japan Rugby League One,2024/2025,17,1229,11,6,55,185,1424,7.7,702,65,24,17,22,95,12,73,12,0.7,1,7,33,30,6,0,0
 m|tuitama,malo-tuitama,Japan Rugby League One,2023/2024,15,1200,15,2,75,170,1370,8.06,704,65,24,9,13,74,16,56,35,0.54,2,6,21,21,8,0,0
+m|harada,mamoru-harada,Pacific Nations Cup,2026,1,64,1,0,5,9,14,1.5,15,0,0,0,1,4,1,8,1,0.89,1,0,1,0,1,0,0
 m|harada,mamoru-harada,Rugby Hybrid Friendlies,2026,1,61,1,0,5,9,13,1.48,16,0,0,0,0,3,0,17,1,0.94,0,0,0,0,0,0,0
 m|harada,mamoru-harada,Nations Championship,2026,2,105,0,0,0,9,8,0.89,16,1,0,0,0,2,0,24,3,0.83,1,0,1,0,1,0,0
 m|harada,mamoru-harada,Super Rugby Pacific,2026,8,164,0,0,0,17,21,1.22,29,0,1,0,4,9,1,33,2,0.85,2,0,4,0,0,0,0
@@ -4837,7 +4871,7 @@ m|riccioni,marco-riccioni,PREM Rugby,2023/2024,11,559,1,0,5,29,19,0.65,36,3,0,0,
 m|vanstaden,marco-van-staden,The Rugby Championship,2025,4,231,0,0,0,32,95,2.98,67,4,1,0,2,4,1,22,8,0.63,1,2,3,0,7,0,0
 m|vanstaden,marco-van-staden,Nations Championship,2026,2,60,0,0,0,5,30,6.0,13,0,0,0,0,0,0,7,0,0.88,0,0,0,0,0,0,0
 m|vanstaden,marco-van-staden,Investec Champions Cup,2025/2026,4,134,1,0,5,11,15,1.37,25,2,0,2,3,3,0,27,5,0.77,0,0,4,0,2,0,0
-m|vanstaden,marco-van-staden,United Rugby Championship,2025/2026,15,466,3,0,15,56,186,3.32,172,6,2,3,4,15,1,66,9,0.83,4,3,10,0,6,1,0
+m|vanstaden,marco-van-staden,United Rugby Championship,2025/2026,15,466,3,0,15,55,181,3.29,168,6,2,3,4,15,1,66,9,0.83,4,3,10,0,6,1,0
 m|vanstaden,marco-van-staden,The Rugby Championship,2024,3,142,1,0,5,14,53,3.76,26,2,0,0,2,3,0,16,3,0.76,1,2,2,0,2,1,0
 m|vanstaden,marco-van-staden,Rugby Hybrid Friendlies,2024/2025,1,45,0,0,0,1,0,0.0,1,0,0,0,0,0,0,3,1,0.5,0,0,0,0,0,0,0
 m|vanstaden,marco-van-staden,Investec Champions Cup,2024/2025,1,58,0,0,0,12,40,3.32,34,4,0,0,0,1,1,8,0,0.8,1,0,0,0,1,0,0
@@ -4853,7 +4887,7 @@ m|zanon,marco-zanon,United Rugby Championship,2025/2026,13,692,2,0,10,72,208,2.8
 m|zanon,marco-zanon,Challenge Cup,2025/2026,5,246,0,0,0,14,40,2.82,33,2,0,0,0,16,3,26,1,0.87,1,1,4,2,2,0,0
 m|zanon,marco-zanon,United Rugby Championship,2024/2025,6,455,1,1,5,41,131,3.19,115,7,3,0,2,39,6,43,19,0.63,4,2,3,3,3,0,0
 m|zanon,marco-zanon,United Rugby Championship,2023/2024,15,800,4,2,20,115,240,2.09,211,28,3,4,7,56,8,98,25,0.74,10,3,10,4,3,0,0
-m|kremer,marcos-kremer,TOP 14,2026/2027,1,80,0,0,0,11,16,1.48,24,0,0,0,0,3,1,12,2,0.86,0,0,0,0,0,0,0
+m|kremer,marcos-kremer,TOP 14,2026/2027,2,160,0,0,0,16,34,2.16,41,1,0,1,0,9,1,29,6,0.78,6,0,1,0,1,0,0
 m|kremer,marcos-kremer,The Rugby Championship,2025,6,395,0,0,0,38,69,1.81,100,1,0,0,2,10,2,97,15,0.8,5,0,4,1,4,0,0
 m|kremer,marcos-kremer,Nations Championship,2026,2,140,1,0,5,14,15,1.09,21,0,0,1,3,11,1,25,2,0.83,4,0,3,0,1,0,0
 m|kremer,marcos-kremer,TOP 14,2025/2026,13,923,1,0,5,71,140,1.98,142,5,0,4,3,20,2,151,27,0.81,22,4,4,0,14,0,1
@@ -4909,11 +4943,11 @@ m|telea,mark-telea,The Rugby Championship,2023,2,152,1,1,5,29,167,5.77,92,11,6,3
 m|telea,mark-telea,Rugby World Cup,2023,4,311,3,2,15,56,330,5.89,238,40,8,3,2,12,2,25,5,0.74,2,2,5,2,1,0,0
 m|telea,mark-telea,Super Rugby Pacific,2024,15,1182,9,2,45,165,994,6.02,582,60,17,17,15,69,6,77,16,0.72,4,6,20,9,8,0,0
 m|telea,mark-telea,Super Rugby Pacific,2023,13,1013,12,3,60,159,1311,8.25,813,102,24,21,18,82,7,72,15,0.69,5,5,26,8,9,1,0
-m|gazzotti,marko-gazzotti,TOP 14,2026/2027,1,29,0,0,0,7,24,3.5,17,1,0,1,0,6,1,2,0,0.67,0,1,0,0,0,0,0
+m|gazzotti,marko-gazzotti,TOP 14,2026/2027,2,75,0,0,0,13,30,2.28,27,1,0,3,1,8,1,8,0,0.67,2,1,2,0,1,0,0
 m|gazzotti,marko-gazzotti,Nations Championship,2026,3,237,0,0,0,29,84,2.91,59,5,0,1,0,15,0,53,4,0.88,1,1,1,0,3,1,0
 m|gazzotti,marko-gazzotti,Rugby Hybrid Friendlies,2026,1,80,0,0,0,12,38,3.16,24,2,0,3,0,6,1,14,0,1.0,1,2,0,0,0,0,0
 m|gazzotti,marko-gazzotti,TOP 14,2025/2026,18,865,4,0,20,128,387,3.02,256,11,1,7,5,47,1,127,8,0.88,8,7,6,4,6,1,0
-m|gazzotti,marko-gazzotti,Investec Champions Cup,2025/2026,4,240,1,2,5,36,106,2.96,93,10,0,2,0,19,2,41,0,0.87,2,3,1,1,1,0,0
+m|gazzotti,marko-gazzotti,Investec Champions Cup,2025/2026,4,240,1,2,5,36,106,2.96,93,10,0,2,0,19,2,42,0,0.88,2,3,1,1,1,0,0
 m|gazzotti,marko-gazzotti,TOP 14,2024/2025,23,1206,1,1,5,140,532,3.8,321,27,3,13,6,70,9,237,14,0.87,16,8,9,2,10,0,0
 m|gazzotti,marko-gazzotti,Investec Champions Cup,2024/2025,6,272,0,0,0,29,81,2.81,57,2,0,1,2,8,3,48,3,0.83,3,2,3,0,5,2,0
 m|gazzotti,marko-gazzotti,U20 Six Nations,2024,1,80,0,0,0,10,43,4.32,18,0,1,1,1,3,0,7,0,1.0,1,0,1,1,3,0,0
@@ -4953,7 +4987,7 @@ m|bogado,martin-bogado,Rugby World Cup,2023,1,80,1,0,5,10,125,12.54,77,4,3,1,0,4
 m|bogado,martin-bogado,Rugby Hybrid Friendlies,2023/2024,1,80,1,1,5,12,39,3.27,22,9,1,0,1,5,2,0,1,0.0,0,0,1,3,0,0,0
 m|bogado,martin-bogado,Super Rugby Pacific,2024,5,242,0,0,0,20,137,6.83,56,5,3,0,2,9,2,12,7,0.57,1,1,2,8,1,0,0
 m|bogado,martin-bogado,Super Rugby Pacific,2023,4,253,2,0,10,19,187,9.82,27,5,0,0,1,1,0,15,6,0.52,1,0,2,7,1,0,0
-m|pagerelo,martin-page-relo,TOP 14,2026/2027,1,29,0,1,0,4,19,4.68,4,0,0,1,0,29,2,2,1,0.67,0,0,0,1,0,0,0
+m|pagerelo,martin-page-relo,TOP 14,2026/2027,2,75,0,1,0,9,22,2.44,7,1,0,1,0,54,3,7,4,0.54,2,0,0,6,0,0,0
 m|pagerelo,martin-page-relo,Investec Champions Cup,2025/2026,3,190,1,2,15,17,82,4.79,58,9,1,1,2,125,4,9,0,0.75,1,0,2,14,1,0,0
 m|pagerelo,martin-page-relo,TOP 14,2025/2026,11,526,2,3,33,44,274,6.22,102,10,3,3,6,471,23,25,6,0.63,1,0,10,45,3,0,0
 m|pagerelo,martin-page-relo,Six Nations,2025,5,258,0,1,0,17,98,5.78,44,6,1,2,2,158,5,10,6,0.48,0,1,6,49,1,0,0
@@ -4996,14 +5030,14 @@ m|carreras,mateo-carreras,TOP 14,2023/2024,5,384,1,0,5,41,266,6.49,100,18,5,5,2,
 m|soler,mateo-soler,Rugby Hybrid Friendlies,2024/2025,1,80,0,0,0,4,24,6.0,22,2,1,1,0,1,0,7,2,0.78,1,1,0,1,1,0,0
 m|soler,mateo-soler,Rugby Hybrid Friendlies,2023/2024,2,160,0,0,0,9,52,5.78,36,1,2,2,0,5,0,11,2,0.65,1,2,2,1,0,0,0
 m|soler,mateo-soler,World Rugby Junior World Championship,2023,5,350,2,1,10,42,350,8.33,234,22,4,2,3,17,2,26,7,0.79,4,4,4,7,3,2,0
-m|ferte,mathis-ferte,TOP 14,2026/2027,1,80,0,0,0,3,4,1.3,3,0,0,0,2,1,0,3,2,0.6,0,0,3,0,1,0,0
+m|ferte,mathis-ferte,TOP 14,2026/2027,2,160,1,0,5,9,53,5.9,19,1,1,1,3,2,0,9,2,0.82,0,0,6,1,1,0,0
 m|ferte,mathis-ferte,TOP 14,2025/2026,24,1609,8,2,40,141,1230,8.72,473,47,21,8,16,167,13,70,15,0.68,6,3,32,46,11,1,0
 m|ferte,mathis-ferte,Investec Champions Cup,2025/2026,7,404,2,0,10,25,176,7.02,63,13,4,0,2,6,1,16,6,0.64,3,2,4,12,1,0,0
 m|ferte,mathis-ferte,U20 Six Nations,2024,2,160,1,1,5,12,98,8.13,3,0,3,1,1,11,1,10,4,0.71,0,0,1,2,0,0,0
 m|ferte,mathis-ferte,World Rugby Junior World Championship,2024,5,335,3,1,15,23,290,12.59,88,8,8,1,4,41,6,5,2,0.63,1,0,7,14,2,0,0
 m|ferte,mathis-ferte,U20 Six Nations,2023,4,192,1,1,5,21,239,11.37,90,7,4,0,3,20,4,4,3,0.5,0,0,4,12,0,0,0
 m|ferte,mathis-ferte,World Rugby Junior World Championship,2023,4,277,4,0,20,32,243,7.6,56,8,2,3,2,19,1,5,2,0.71,0,0,3,15,0,0,0
-m|alemanno,matias-alemanno,TOP 14,2026/2027,1,50,0,0,0,2,2,1.15,0,0,0,0,0,4,0,9,0,1.0,0,0,0,0,0,0,0
+m|alemanno,matias-alemanno,TOP 14,2026/2027,2,108,0,0,0,2,2,1.15,0,0,0,0,0,10,0,19,0,0.95,0,0,0,0,1,0,0
 m|alemanno,matias-alemanno,Nations Championship,2026,3,132,0,0,0,9,9,1.02,22,1,0,0,0,9,0,20,2,0.83,0,1,0,0,1,0,0
 m|alemanno,matias-alemanno,Investec Champions Cup,2025/2026,3,217,0,0,0,3,5,1.53,4,0,1,0,1,12,0,39,2,0.89,4,0,1,0,3,0,0
 m|alemanno,matias-alemanno,PREM Rugby,2025/2026,15,931,2,0,10,45,126,2.8,117,9,1,0,7,43,4,123,7,0.9,8,5,10,1,6,0,0
@@ -5092,11 +5126,11 @@ m|halagahu,matthias-halagahu,Investec Champions Cup,2024/2025,5,232,0,0,0,16,17,
 m|halagahu,matthias-halagahu,TOP 14,2024/2025,17,880,0,1,0,82,125,1.52,119,3,1,1,8,38,2,174,13,0.86,10,9,10,1,13,2,0
 m|halagahu,matthias-halagahu,Investec Champions Cup,2023/2024,4,205,0,0,0,17,20,1.19,16,0,0,0,0,6,0,43,3,0.9,2,0,0,0,2,0,0
 m|halagahu,matthias-halagahu,TOP 14,2023/2024,22,885,0,0,0,88,115,1.3,85,2,1,1,6,44,4,178,14,0.89,19,3,10,1,11,1,0
-m|jalibert,matthieu-jalibert,TOP 14,2026/2027,1,51,0,0,0,8,47,5.9,16,1,2,1,0,19,0,4,2,0.67,0,0,1,9,0,0,0
+m|jalibert,matthieu-jalibert,TOP 14,2026/2027,2,131,0,0,0,17,119,7.0,37,5,4,5,0,44,0,15,4,0.75,0,0,3,18,0,0,0
 m|jalibert,matthieu-jalibert,Six Nations,2026,4,310,2,6,10,45,258,5.74,133,20,3,13,2,92,6,31,2,0.79,3,0,4,27,0,1,0
 m|jalibert,matthieu-jalibert,Nations Championship,2026,3,230,3,2,15,39,269,6.91,143,19,6,5,4,61,5,8,3,0.62,0,0,5,16,1,1,0
 m|jalibert,matthieu-jalibert,TOP 14,2025/2026,15,1066,6,15,93,182,1096,6.02,601,76,18,30,13,352,22,76,36,0.59,8,4,32,190,10,1,0
-m|jalibert,matthieu-jalibert,Investec Champions Cup,2025/2026,8,575,5,7,45,101,558,5.53,279,34,18,17,9,160,15,57,14,0.73,1,3,14,87,1,0,0
+m|jalibert,matthieu-jalibert,Investec Champions Cup,2025/2026,8,575,5,7,45,101,558,5.53,279,34,18,17,9,160,15,56,14,0.73,1,3,14,87,1,0,0
 m|jalibert,matthieu-jalibert,Six Nations,2025,1,66,0,0,0,14,46,3.32,10,3,0,2,0,19,3,5,5,0.5,0,0,1,4,0,0,0
 m|jalibert,matthieu-jalibert,TOP 14,2024/2025,19,1262,5,17,153,165,911,5.52,308,44,20,36,18,401,32,77,40,0.6,4,3,34,187,5,0,0
 m|jalibert,matthieu-jalibert,Investec Champions Cup,2024/2025,7,490,1,11,76,61,300,4.92,131,22,4,17,6,127,15,33,19,0.58,2,3,9,76,1,0,0
@@ -5171,7 +5205,7 @@ m|williamson,max-williamson,Investec Champions Cup,2024/2025,1,20,0,0,0,3,3,1.0,
 m|williamson,max-williamson,United Rugby Championship,2024/2025,11,459,0,0,0,40,46,1.16,65,8,0,2,1,23,1,49,7,0.82,1,1,3,0,3,0,0
 m|williamson,max-williamson,Investec Champions Cup,2023/2024,4,183,0,0,0,14,21,1.49,36,2,1,0,0,17,4,30,2,0.88,1,2,0,0,1,0,0
 m|williamson,max-williamson,United Rugby Championship,2023/2024,15,616,2,0,10,61,95,1.56,104,11,1,3,3,38,0,59,15,0.74,1,2,5,0,2,0,0
-m|lamothe,maxime-lamothe,TOP 14,2026/2027,1,29,0,0,0,1,20,19.5,19,3,1,0,1,1,0,2,2,0.5,0,0,1,0,0,0,0
+m|lamothe,maxime-lamothe,TOP 14,2026/2027,2,91,0,0,0,6,23,3.78,24,3,1,0,1,2,0,14,5,0.74,2,2,1,0,0,0,0
 m|lamothe,maxime-lamothe,Six Nations,2026,1,30,0,0,0,2,2,0.9,2,0,0,0,0,0,0,9,0,1.0,1,0,0,0,1,0,0
 m|lamothe,maxime-lamothe,Nations Championship,2026,3,152,2,0,10,13,31,2.37,34,5,0,1,1,4,1,27,2,0.84,0,0,1,0,1,0,0
 m|lamothe,maxime-lamothe,Rugby Hybrid Friendlies,2026,1,51,0,0,0,5,20,4.1,10,1,1,0,0,1,0,2,2,0.4,0,2,0,0,0,0,0
@@ -5181,7 +5215,7 @@ m|lamothe,maxime-lamothe,TOP 14,2024/2025,22,1041,5,0,25,87,323,3.72,236,25,2,8,
 m|lamothe,maxime-lamothe,Investec Champions Cup,2024/2025,8,444,3,2,15,39,125,3.21,67,4,0,7,2,36,3,56,11,0.76,3,4,5,0,1,0,0
 m|lamothe,maxime-lamothe,TOP 14,2023/2024,25,1303,7,0,35,114,221,1.94,215,12,1,2,6,46,5,203,15,0.85,13,11,9,3,9,1,0
 m|lamothe,maxime-lamothe,Investec Champions Cup,2023/2024,6,316,1,2,5,18,48,2.66,38,4,0,3,0,17,2,43,3,0.88,3,2,3,1,0,0,0
-m|lucu,maxime-lucu,TOP 14,2026/2027,1,80,1,1,19,4,26,6.5,27,1,0,0,0,42,3,8,0,0.8,0,0,0,10,0,0,0
+m|lucu,maxime-lucu,TOP 14,2026/2027,2,114,1,1,21,9,29,3.2,29,2,0,1,0,66,4,11,0,0.79,0,0,0,12,0,0,0
 m|lucu,maxime-lucu,Nations Championship,2026,3,206,1,3,37,5,14,2.76,1,1,0,0,3,206,7,29,6,0.81,0,0,4,25,0,0,0
 m|lucu,maxime-lucu,TOP 14,2025/2026,14,1051,4,5,118,74,327,4.42,143,15,5,6,6,807,28,120,30,0.73,1,3,14,139,1,0,0
 m|lucu,maxime-lucu,Investec Champions Cup,2025/2026,5,360,3,4,71,22,135,6.13,91,6,5,4,6,259,11,49,9,0.77,2,1,7,59,2,1,0
@@ -5205,6 +5239,7 @@ m|vivas,mayco-vivas,Rugby Hybrid Friendlies,2023/2024,1,60,0,0,0,4,8,2.0,12,3,0,
 m|vivas,mayco-vivas,PREM Rugby,2023/2024,11,448,0,0,0,33,69,2.1,60,7,0,5,3,12,3,76,12,0.83,1,2,3,0,6,0,0
 m|vivas,mayco-vivas,Challenge Cup,2023/2024,4,122,0,0,0,9,27,3.0,24,2,0,0,0,2,1,20,4,0.74,2,1,0,0,5,0,0
 m|vivas,mayco-vivas,The Rugby Championship,2022,3,56,0,0,0,5,3,0.58,6,0,0,0,0,1,0,16,0,1.0,0,0,0,0,2,0,0
+m|tuni,meli-tuni,Pacific Nations Cup,2026,1,13,0,0,0,0,0,0.0,0,0,0,0,0,0,0,3,0,1.0,0,1,0,0,0,0,0
 m|tuni,meli-tuni,Pacific Nations Cup,2025,1,8,0,0,0,1,1,1.3,2,0,0,0,0,0,0,0,0,0.0,0,0,0,0,1,0,0
 m|tuni,meli-tuni,Super Rugby Pacific,2026,2,111,1,0,5,7,5,0.73,9,0,0,0,0,5,0,11,0,1.0,0,0,0,0,1,0,0
 m|tuni,meli-tuni,Rugby Hybrid Friendlies,2024/2025,1,28,0,0,0,2,4,1.8,4,2,0,0,0,1,0,1,0,0.33,0,0,0,0,0,0,0
@@ -5212,7 +5247,7 @@ m|tuni,meli-tuni,Pacific Nations Cup,2024,1,12,0,0,0,1,0,0.0,1,0,0,0,0,1,0,1,0,1
 m|tuni,meli-tuni,Super Rugby Pacific,2025,4,130,0,0,0,4,5,1.28,5,0,0,1,0,6,1,14,1,0.78,0,1,0,0,4,0,0
 m|tuni,meli-tuni,Super Rugby Pacific,2024,1,21,0,0,0,1,1,1.3,2,0,0,0,1,0,0,1,0,1.0,0,0,1,0,0,0,0
 m|tuni,meli-tuni,Super Rugby Pacific,2023,5,161,0,0,0,7,3,0.46,5,0,0,0,0,3,2,21,2,0.88,1,1,0,0,3,0,0
-m|jaminet,melvyn-jaminet,TOP 14,2026/2027,1,80,0,1,14,9,101,11.23,15,3,1,0,1,5,0,4,1,0.8,0,0,3,13,0,0,0
+m|jaminet,melvyn-jaminet,TOP 14,2026/2027,2,160,0,1,19,20,181,9.07,49,5,2,1,2,15,2,5,4,0.56,0,0,6,15,0,0,0
 m|jaminet,melvyn-jaminet,TOP 14,2025/2026,18,1091,6,5,155,162,1086,6.7,310,31,8,17,14,119,17,15,18,0.36,1,1,39,103,4,1,0
 m|jaminet,melvyn-jaminet,Investec Champions Cup,2025/2026,3,182,0,1,19,22,72,3.27,63,10,1,3,1,24,2,6,4,0.55,0,0,3,13,0,0,0
 m|jaminet,melvyn-jaminet,Rugby Hybrid Friendlies,2024/2025,1,80,1,0,7,8,50,6.28,23,2,1,2,0,8,2,3,3,0.43,0,1,1,4,0,0,0
@@ -5221,6 +5256,7 @@ m|jaminet,melvyn-jaminet,Investec Champions Cup,2024/2025,2,160,2,2,50,15,154,10
 m|jaminet,melvyn-jaminet,Rugby World Cup,2023,4,131,2,0,27,22,119,5.43,46,4,3,0,1,9,1,4,1,0.8,0,1,1,9,2,0,0
 m|jaminet,melvyn-jaminet,TOP 14,2023/2024,13,1040,3,2,209,133,952,7.16,295,32,8,19,11,104,16,18,6,0.62,2,1,32,107,1,0,0
 m|jaminet,melvyn-jaminet,Investec Champions Cup,2023/2024,3,240,1,1,16,47,349,7.43,52,9,3,5,5,27,7,1,3,0.14,0,0,7,24,0,0,0
+m|doge,mesake-doge,Pacific Nations Cup,2026,1,67,0,0,0,3,2,0.67,5,0,0,0,1,5,0,4,0,0.67,0,0,1,0,0,0,0
 m|doge,mesake-doge,Pacific Nations Cup,2025,4,182,0,0,0,11,20,1.85,22,2,0,1,1,11,1,17,1,0.81,1,0,2,0,6,0,1
 m|doge,mesake-doge,Nations Championship,2026,2,102,0,0,0,2,5,2.4,0,0,0,0,0,3,0,15,2,0.88,0,0,0,0,2,0,0
 m|doge,mesake-doge,Super Rugby Pacific,2026,14,644,2,0,10,37,32,0.85,53,1,0,2,0,24,2,65,16,0.76,1,0,0,0,11,1,0
@@ -5229,6 +5265,7 @@ m|doge,mesake-doge,British & Irish Lions 2025,2025,1,34,0,0,0,6,0,0.0,6,0,0,0,0,
 m|doge,mesake-doge,Rugby World Cup,2023,4,98,2,0,10,12,16,1.33,20,0,0,0,1,2,0,11,0,1.0,1,1,1,0,2,0,0
 m|doge,mesake-doge,Super Rugby Pacific,2024,14,739,0,0,0,48,26,0.55,44,0,0,1,4,18,3,77,13,0.81,4,0,5,0,13,1,0
 m|doge,mesake-doge,Super Rugby Pacific,2023,4,231,1,0,5,19,28,1.46,34,1,1,1,0,2,0,33,4,0.85,0,0,1,0,5,0,0
+m|vocevoce,mesake-vocevoce,Pacific Nations Cup,2026,1,80,0,0,0,3,8,2.6,12,1,0,0,0,6,0,7,0,0.78,1,0,0,1,0,0,0
 m|vocevoce,mesake-vocevoce,Pacific Nations Cup,2025,4,191,2,0,10,13,75,5.77,50,6,1,1,1,21,1,22,0,0.92,3,1,4,0,3,0,0
 m|vocevoce,mesake-vocevoce,Nations Championship,2026,2,41,0,0,0,6,5,0.88,6,0,1,1,0,3,0,4,0,1.0,0,0,0,0,0,0,0
 m|vocevoce,mesake-vocevoce,Super Rugby Pacific,2026,12,594,1,0,5,58,153,2.64,148,3,1,0,17,38,5,80,6,0.82,6,4,18,2,6,1,0
@@ -5238,7 +5275,7 @@ m|vocevoce,mesake-vocevoce,Super Rugby Pacific,2025,12,805,1,1,5,68,125,1.83,143
 m|vocevoce,mesake-vocevoce,British & Irish Lions 2025,2025,1,13,0,0,0,4,8,1.98,6,0,0,0,0,1,0,0,0,0.0,0,1,0,0,0,0,0
 m|vocevoce,mesake-vocevoce,Super Rugby Pacific,2024,15,936,0,0,0,74,126,1.71,120,5,0,1,10,47,2,72,7,0.77,2,3,11,0,12,0,0
 m|vocevoce,mesake-vocevoce,World Rugby Junior World Championship,2023,5,349,1,0,5,37,111,3.0,103,7,1,2,2,21,0,37,2,0.95,0,1,3,1,2,0,0
-m|dolokoto,mesulame-dolokoto,Hilux NPC,2026,2,95,0,1,0,8,18,2.19,15,2,0,0,0,2,0,8,2,0.73,0,0,0,0,1,0,0
+m|dolokoto,mesulame-dolokoto,Hilux NPC,2026,3,125,0,1,0,10,24,2.44,17,2,0,0,0,5,0,9,3,0.69,0,0,0,0,1,0,0
 m|dolokoto,mesulame-dolokoto,Super Rugby Pacific,2026,2,41,0,0,0,6,14,2.33,10,2,0,0,0,0,0,3,1,0.5,0,0,0,0,0,0,0
 m|dolokoto,mesulame-dolokoto,Rugby Hybrid Friendlies,2024/2025,1,30,0,0,0,1,0,0.0,2,0,0,0,0,1,0,2,1,0.67,0,0,1,0,0,0,0
 m|dolokoto,mesulame-dolokoto,Pacific Nations Cup,2024,4,55,0,0,0,4,20,5.13,9,2,0,0,2,1,1,3,0,1.0,0,1,2,0,0,0,0
@@ -5282,7 +5319,7 @@ m|lamaro,michele-lamaro,Rugby World Cup,2023,4,268,1,1,5,16,46,2.88,34,1,0,2,2,2
 m|lamaro,michele-lamaro,United Rugby Championship,2023/2024,12,766,1,0,5,72,120,1.67,66,3,3,2,6,73,9,137,21,0.85,8,7,7,0,1,0,0
 m|lamaro,michele-lamaro,Challenge Cup,2023/2024,4,276,0,1,0,24,30,1.23,36,1,0,2,2,21,0,50,8,0.79,1,1,2,0,4,0,0
 m|lamaro,michele-lamaro,Rugby Hybrid Friendlies,2022/2023,1,80,0,0,0,8,36,0.0,16,1,0,0,1,5,0,6,4,0.0,0,0,0,1,0,0,0
-m|guillard,mickael-guillard,TOP 14,2026/2027,1,80,0,0,0,8,14,1.78,23,0,0,0,0,4,0,19,0,0.86,1,1,0,0,2,0,0
+m|guillard,mickael-guillard,TOP 14,2026/2027,2,160,0,0,0,14,26,1.86,35,0,0,1,0,8,1,31,0,0.89,1,2,0,0,2,0,0
 m|guillard,mickael-guillard,Six Nations,2026,5,207,0,1,0,41,94,2.29,86,3,1,3,0,9,1,48,2,0.91,6,4,1,0,2,0,0
 m|guillard,mickael-guillard,Nations Championship,2026,1,46,0,0,0,8,7,0.89,6,0,0,0,0,2,0,9,0,0.9,0,0,0,0,0,0,0
 m|guillard,mickael-guillard,Rugby Hybrid Friendlies,2026,1,51,0,0,0,10,0,0.05,15,0,0,1,1,4,1,4,0,0.8,0,0,1,0,0,0,0
@@ -5316,7 +5353,7 @@ m|belloni,mirko-belloni,U20 Six Nations,2024,5,375,1,1,5,45,261,5.8,158,12,3,2,1
 m|belloni,mirko-belloni,World Rugby Junior World Championship,2024,5,389,1,1,5,45,193,4.29,95,13,2,2,0,35,3,12,3,0.71,1,5,2,31,1,0,0
 m|haouas,mohammed-haouas,TOP 14,2026/2027,1,31,0,0,0,3,4,1.4,3,0,0,1,0,4,0,3,2,0.6,0,0,0,0,0,0,0
 m|haouas,mohammed-haouas,TOP 14,2025/2026,19,767,1,1,5,80,68,0.85,106,4,0,12,4,30,2,98,10,0.82,2,0,7,0,13,0,0
-m|haouas,mohammed-haouas,Challenge Cup,2025/2026,5,205,1,0,5,22,35,1.58,28,1,0,1,0,8,0,22,2,0.81,0,0,0,0,6,0,0
+m|haouas,mohammed-haouas,Challenge Cup,2025/2026,5,205,1,0,5,22,35,1.58,28,1,0,1,0,9,0,21,2,0.81,0,0,0,0,6,0,0
 m|haouas,mohammed-haouas,TOP 14,2024/2025,15,498,0,1,0,45,55,1.22,65,4,0,8,3,22,3,83,13,0.82,7,0,3,0,7,1,0
 m|haouas,mohammed-haouas,Challenge Cup,2024/2025,4,186,0,0,0,20,27,1.34,21,1,0,4,3,8,1,20,3,0.83,0,1,3,0,0,0,0
 m|ioane,monty-ioane,TOP 14,2026/2027,1,80,0,0,0,10,36,3.64,32,1,1,3,0,5,0,3,3,0.5,0,1,0,0,0,0,0
@@ -5378,6 +5415,7 @@ n|tetazchaparro,nahuel-tetaz-chaparro,Investec Champions Cup,2024/2025,1,11,0,0,
 n|tetazchaparro,nahuel-tetaz-chaparro,United Rugby Championship,2024/2025,5,178,0,0,0,16,23,1.46,26,1,0,0,2,2,0,35,2,0.9,2,0,3,0,4,0,0
 n|tetazchaparro,nahuel-tetaz-chaparro,The Rugby Championship,2023,2,43,0,0,0,11,17,1.52,18,0,0,1,0,1,0,3,0,1.0,0,0,0,0,0,0,0
 n|tetazchaparro,nahuel-tetaz-chaparro,The Rugby Championship,2022,4,186,0,0,0,10,21,2.07,20,0,0,0,0,0,0,12,4,0.63,0,0,0,0,3,0,0
+n|saito,naoto-saito,Pacific Nations Cup,2026,1,56,0,0,0,1,0,0.0,1,0,0,0,0,45,1,2,2,0.5,0,0,0,1,0,0,0
 n|saito,naoto-saito,Nations Championship,2026,3,227,0,2,0,7,30,4.29,10,1,2,1,0,240,9,19,5,0.68,0,0,0,24,4,0,0
 n|saito,naoto-saito,TOP 14,2025/2026,14,494,2,5,10,14,90,6.4,30,1,0,3,2,489,20,20,14,0.48,0,1,4,46,1,0,0
 n|saito,naoto-saito,Rugby Hybrid Friendlies,2024/2025,2,91,0,2,0,3,3,0.97,0,0,0,0,2,92,6,3,1,0.6,0,0,3,5,2,0,0
@@ -5512,7 +5550,7 @@ n|smith,nicky-smith,United Rugby Championship,2023/2024,13,719,3,2,15,46,26,0.57
 n|smith,nicky-smith,Challenge Cup,2023/2024,4,94,0,0,0,9,6,0.62,11,0,0,1,0,5,1,8,1,0.89,1,1,0,0,2,0,0
 n|damorim,nicolas-damorim,Rugby Hybrid Friendlies,2024/2025,1,80,0,0,0,11,35,3.22,35,3,1,1,0,6,0,9,1,0.9,0,1,0,0,1,0,0
 n|damorim,nicolas-damorim,Rugby Hybrid Friendlies,2023/2024,1,58,0,0,0,1,0,0.0,0,0,0,0,0,1,0,3,3,0.5,0,1,0,0,1,0,0
-n|depoortere,nicolas-depoortere,TOP 14,2026/2027,1,80,0,1,0,9,53,5.89,29,3,0,1,0,9,2,6,0,0.67,0,1,0,0,0,0,0
+n|depoortere,nicolas-depoortere,TOP 14,2026/2027,2,101,0,1,0,11,59,5.34,30,3,0,2,0,11,2,10,1,0.71,0,1,0,0,1,0,0
 n|depoortere,nicolas-depoortere,Six Nations,2026,2,124,0,0,0,11,52,4.74,57,7,1,1,3,8,1,19,5,0.7,1,0,4,1,0,0,0
 n|depoortere,nicolas-depoortere,Nations Championship,2026,1,11,0,0,0,3,4,1.43,4,0,0,0,0,0,0,1,1,0.5,0,0,1,0,0,0,0
 n|depoortere,nicolas-depoortere,Rugby Hybrid Friendlies,2026,1,55,1,0,5,7,32,4.6,32,2,1,0,0,2,0,3,2,0.5,0,0,0,0,1,0,0
@@ -5560,7 +5598,7 @@ n|lolesio,noah-lolesio,Super Rugby Pacific,2024,15,1146,1,7,150,86,462,5.37,147,
 n|lolesio,noah-lolesio,TOP 14,2023/2024,6,220,0,2,20,37,113,3.05,21,3,1,1,2,62,5,9,4,0.6,1,0,5,20,1,0,0
 n|lolesio,noah-lolesio,The Rugby Championship,2022,2,125,0,2,13,8,36,4.51,29,1,1,0,0,13,1,5,3,0.5,0,0,1,9,0,0,0
 n|lolesio,noah-lolesio,Super Rugby Pacific,2023,15,788,2,2,97,64,312,4.87,152,16,5,1,3,183,9,67,21,0.66,2,1,10,53,2,0,0
-n|nene,noah-tisie-nene,TOP 14,2026/2027,1,80,0,0,0,11,98,8.89,41,6,2,1,0,10,1,4,2,0.57,0,0,0,2,0,0,0
+n|nene,noah-tisie-nene,TOP 14,2026/2027,2,114,0,0,0,16,110,6.85,65,7,2,2,0,12,1,6,2,0.55,0,0,0,3,0,0,0
 n|nene,noah-tisie-nene,Six Nations,2026,1,13,0,0,0,3,16,5.43,0,0,1,1,1,2,1,1,0,1.0,0,0,1,0,1,0,0
 n|nene,noah-tisie-nene,TOP 14,2025/2026,18,1213,9,4,45,134,620,4.63,530,54,13,8,7,81,13,99,17,0.71,5,6,9,21,8,0,0
 n|nene,noah-tisie-nene,Challenge Cup,2025/2026,2,42,1,0,5,5,43,8.56,12,2,1,2,2,3,1,5,3,0.56,1,1,2,3,0,0,0
@@ -5592,7 +5630,7 @@ n|mchunu,ntuthuko-mchunu,Challenge Cup,2023/2024,8,146,0,0,0,15,32,2.11,5,1,1,1,
 n|mchunu,ntuthuko-mchunu,Currie Cup,2024,4,225,0,0,0,14,16,1.17,25,4,0,1,3,7,0,18,1,0.86,2,1,3,0,6,0,0
 n|mchunu,ntuthuko-mchunu,Rugby Hybrid Friendlies,2022/2023,2,115,1,0,5,11,61,0.0,38,2,1,0,0,3,0,15,2,0.0,1,0,0,0,0,0,0
 n|mchunu,ntuthuko-mchunu,Currie Cup,2023,3,112,3,0,15,30,41,1.38,34,5,0,0,0,2,0,13,1,0.93,0,0,1,0,2,0,0
-o|tuungafasi,ofa-tuungafasi,Hilux NPC,2026,4,156,0,0,0,13,8,0.65,16,0,0,0,1,4,0,30,3,0.91,3,1,1,0,2,0,0
+o|tuungafasi,ofa-tuungafasi,Hilux NPC,2026,5,182,0,0,0,16,8,0.53,19,0,0,0,1,4,0,33,5,0.87,4,1,1,0,2,0,0
 o|tuungafasi,ofa-tuungafasi,Super Rugby Pacific,2026,13,562,1,0,5,60,75,1.25,94,0,1,1,6,16,1,84,13,0.83,7,0,6,0,10,0,0
 o|tuungafasi,ofa-tuungafasi,The Rugby Championship,2024,4,72,0,0,0,5,8,1.68,6,0,0,0,1,1,0,12,1,0.92,1,0,1,0,2,1,0
 o|tuungafasi,ofa-tuungafasi,Super Rugby Pacific,2025,4,178,0,0,0,14,5,0.36,12,0,0,0,1,1,1,37,8,0.76,0,0,2,0,9,0,0
@@ -5695,7 +5733,7 @@ o|beard,oscar-beard,Rugby Hybrid Friendlies,2023/2024,1,80,1,1,5,8,131,16.34,111
 o|beard,oscar-beard,Investec Champions Cup,2023/2024,7,312,1,2,5,32,211,6.58,130,10,3,2,0,21,0,33,7,0.72,1,1,0,2,1,0,0
 o|beard,oscar-beard,PREM Rugby,2023/2024,17,923,1,3,5,84,283,3.37,181,21,3,4,4,37,3,79,17,0.68,3,5,5,18,4,0,0
 o|beard,oscar-beard,Rugby Hybrid Friendlies,2022/2023,1,80,2,0,10,12,123,0.0,21,3,3,1,0,3,0,4,1,0.0,0,0,0,1,0,0,0
-o|jegou,oscar-jegou,TOP 14,2026/2027,1,73,0,0,0,4,20,4.95,15,1,1,1,2,2,0,12,0,0.86,0,1,2,0,3,0,0
+o|jegou,oscar-jegou,TOP 14,2026/2027,1,72,0,0,0,4,20,4.95,15,1,1,1,2,2,0,12,0,0.86,0,1,2,0,3,0,0
 o|jegou,oscar-jegou,Six Nations,2026,4,295,1,0,5,31,85,2.74,68,5,1,2,3,32,2,69,6,0.84,12,4,6,0,2,0,0
 o|jegou,oscar-jegou,Nations Championship,2026,2,126,0,0,0,14,19,1.36,19,3,0,0,1,9,1,20,2,0.91,3,0,2,1,1,0,0
 o|jegou,oscar-jegou,Investec Champions Cup,2025/2026,3,240,2,0,10,25,53,2.11,61,4,2,1,1,35,3,22,7,0.69,2,1,3,0,1,0,0
@@ -5767,7 +5805,7 @@ p|buonfiglio,paolo-buonfiglio,United Rugby Championship,2025/2026,13,470,0,0,0,1
 p|buonfiglio,paolo-buonfiglio,Challenge Cup,2024/2025,2,45,0,0,0,0,0,0.0,0,0,0,0,0,1,0,6,2,0.75,0,0,0,0,1,0,0
 p|buonfiglio,paolo-buonfiglio,United Rugby Championship,2024/2025,6,160,0,0,0,4,4,0.88,4,0,0,0,1,2,0,28,6,0.78,0,1,1,0,1,0,0
 p|buonfiglio,paolo-buonfiglio,United Rugby Championship,2023/2024,2,99,0,0,0,2,8,4.2,5,0,0,0,0,1,0,11,1,0.85,0,0,0,0,1,0,0
-p|garbisi,paolo-garbisi,TOP 14,2026/2027,1,80,0,0,8,12,39,3.24,13,1,0,0,1,15,1,4,1,0.8,0,2,2,7,0,0,0
+p|garbisi,paolo-garbisi,TOP 14,2026/2027,2,142,1,0,13,20,75,3.75,34,2,1,0,1,38,3,8,2,0.67,0,2,2,10,0,0,0
 p|garbisi,paolo-garbisi,Six Nations,2026,5,400,1,1,39,25,67,2.7,43,4,1,1,6,102,5,35,6,0.74,0,2,9,44,1,0,0
 p|garbisi,paolo-garbisi,Nations Championship,2026,3,213,0,1,7,12,35,2.92,19,3,0,0,2,47,4,28,5,0.65,1,0,3,12,2,0,0
 p|garbisi,paolo-garbisi,Investec Champions Cup,2025/2026,2,67,0,0,0,4,18,4.45,0,0,0,0,1,15,3,3,1,0.6,1,0,1,8,0,0,0
@@ -5804,7 +5842,7 @@ p|tuipulotu,patrick-tuipulotu,Super Rugby Pacific,2024,10,695,2,0,10,106,289,2.7
 p|tuipulotu,patrick-tuipulotu,Hilux NPC,2023,4,320,0,0,0,30,52,1.72,68,1,0,2,1,19,2,27,7,0.79,1,2,1,0,2,0,0
 p|tuipulotu,patrick-tuipulotu,Rugby Hybrid Friendlies,2022/2023,2,160,0,0,0,18,80,0.0,31,2,0,1,0,13,1,23,0,1.0,1,0,0,0,0,0,0
 p|tuipulotu,patrick-tuipulotu,Super Rugby Pacific,2023,10,657,3,1,15,67,140,2.09,127,6,1,4,6,42,2,71,14,0.78,7,3,7,0,4,0,0
-p|boudehent,paul-boudehent,TOP 14,2026/2027,1,48,0,0,0,4,13,3.2,6,0,0,0,0,4,0,2,0,0.67,0,0,1,1,0,0,0
+p|boudehent,paul-boudehent,TOP 14,2026/2027,2,128,0,0,0,12,54,4.46,23,0,0,0,1,7,0,9,2,0.75,1,0,2,1,0,0,0
 p|boudehent,paul-boudehent,Investec Champions Cup,2025/2026,1,80,0,0,0,6,1,0.15,9,2,0,1,0,8,3,7,0,0.78,0,0,0,0,2,0,0
 p|boudehent,paul-boudehent,TOP 14,2025/2026,15,982,4,1,20,100,318,3.18,283,15,2,7,7,68,7,109,10,0.83,12,3,11,2,12,0,0
 p|boudehent,paul-boudehent,Six Nations,2025,5,304,2,0,10,25,69,2.77,43,1,2,0,1,7,0,43,2,0.86,7,0,3,1,5,0,0
@@ -5824,7 +5862,7 @@ p|devilliers,paul-de-villiers,Currie Cup,2025,2,141,1,0,5,15,33,2.18,23,1,0,1,2,
 p|devilliers,paul-de-villiers,Currie Cup,2024,8,491,2,2,10,44,114,2.58,105,10,2,4,2,25,2,82,14,0.73,6,12,6,0,5,1,0
 p|devilliers,paul-de-villiers,World Rugby Junior World Championship,2023,5,396,0,2,0,32,67,2.09,42,3,0,0,3,18,3,69,10,0.87,7,5,3,0,5,0,0
 p|devilliers,paul-de-villiers,Currie Cup,2023,3,227,0,0,0,23,118,5.14,76,5,1,2,2,12,2,40,3,0.93,2,3,3,0,0,0,0
-p|gabrillagues,paul-gabrillagues,TOP 14,2026/2027,1,80,0,0,0,3,0,0.0,4,0,0,0,0,8,0,9,0,0.9,1,1,0,0,1,0,0
+p|gabrillagues,paul-gabrillagues,TOP 14,2026/2027,2,160,0,0,0,7,4,0.53,10,1,0,0,0,17,0,20,0,0.83,1,1,0,0,2,0,0
 p|gabrillagues,paul-gabrillagues,TOP 14,2025/2026,24,1536,1,0,5,73,124,1.7,127,6,0,10,7,106,3,221,15,0.84,13,3,12,1,12,1,0
 p|gabrillagues,paul-gabrillagues,Challenge Cup,2025/2026,2,134,0,0,0,11,14,1.31,18,1,1,0,1,12,2,27,0,0.96,1,3,1,0,0,0,0
 p|gabrillagues,paul-gabrillagues,TOP 14,2024/2025,25,1808,1,0,5,113,142,1.25,162,12,0,5,4,77,5,230,10,0.87,18,4,9,0,7,0,0
@@ -5841,7 +5879,7 @@ p|willemse,paul-willemse,TOP 14,2024/2025,2,28,0,0,0,5,5,0.96,16,1,0,0,2,0,0,3,0
 p|willemse,paul-willemse,Six Nations,2024,1,21,0,0,0,1,1,1.2,2,0,0,0,0,0,0,10,0,0.91,0,0,0,0,2,1,1
 p|willemse,paul-willemse,TOP 14,2023/2024,10,623,2,1,10,55,68,1.24,57,3,0,5,4,21,1,128,3,0.92,14,3,4,0,8,2,0
 p|willemse,paul-willemse,Challenge Cup,2023/2024,4,196,2,1,10,46,76,1.65,60,5,1,0,1,9,0,21,3,0.72,3,0,1,0,4,0,1
-p|mauvaka,peato-mauvaka,TOP 14,2026/2027,1,31,0,0,0,1,9,8.8,5,0,0,0,0,0,0,2,0,1.0,0,0,0,0,2,0,0
+p|mauvaka,peato-mauvaka,TOP 14,2026/2027,2,59,0,0,0,5,18,3.52,18,2,0,1,0,3,0,5,1,0.71,1,0,1,0,2,0,0
 p|mauvaka,peato-mauvaka,Six Nations,2026,4,122,0,0,0,10,20,2.04,18,0,0,1,0,6,0,32,1,0.97,3,1,1,0,0,0,0
 p|mauvaka,peato-mauvaka,Nations Championship,2026,2,71,0,0,0,6,20,3.32,16,2,0,0,0,4,2,11,1,0.73,0,0,1,0,1,0,0
 p|mauvaka,peato-mauvaka,Investec Champions Cup,2025/2026,4,168,2,0,10,13,30,2.28,26,4,0,2,4,11,2,19,2,0.83,0,2,4,0,1,0,0
@@ -5853,7 +5891,7 @@ p|mauvaka,peato-mauvaka,Six Nations,2024,5,211,0,0,0,19,39,2.06,25,1,0,1,0,13,3,
 p|mauvaka,peato-mauvaka,Rugby World Cup,2023,5,270,3,2,15,33,201,6.09,123,9,5,3,3,23,2,32,6,0.8,1,2,3,1,0,0,0
 p|mauvaka,peato-mauvaka,Investec Champions Cup,2023/2024,8,446,5,4,25,45,195,4.33,73,9,5,4,5,31,1,71,18,0.77,6,6,6,1,3,1,0
 p|mauvaka,peato-mauvaka,TOP 14,2023/2024,12,512,5,1,25,59,178,3.03,123,10,1,3,2,30,2,60,10,0.8,1,3,6,1,2,0,0
-p|yato,peceli-yato,TOP 14,2026/2027,1,23,0,0,0,7,29,4.19,17,2,0,0,1,0,0,4,0,1.0,1,0,2,0,0,0,0
+p|yato,peceli-yato,TOP 14,2026/2027,2,55,2,0,10,11,43,3.87,25,4,0,0,2,0,0,12,0,0.92,1,0,3,0,0,0,0
 p|yato,peceli-yato,Nations Championship,2026,2,80,0,0,0,8,13,1.68,11,0,0,2,0,2,0,10,0,1.0,0,2,1,0,1,0,0
 p|yato,peceli-yato,TOP 14,2025/2026,17,882,6,0,30,136,528,3.89,336,25,6,14,9,32,8,94,14,0.82,4,7,10,1,6,0,0
 p|yato,peceli-yato,Challenge Cup,2025/2026,2,127,1,0,5,21,81,3.85,96,8,2,5,1,8,2,5,1,0.56,0,0,2,0,5,0,0
@@ -5885,6 +5923,7 @@ p|matawalu,peni-matawalu,Rugby World Cup,2023,1,4,0,0,0,0,0,0.0,0,0,0,0,0,1,0,2,
 p|matawalu,peni-matawalu,Super Rugby Pacific,2024,11,329,0,2,0,26,62,2.38,19,9,1,4,1,386,5,28,5,0.78,1,6,3,18,2,1,0
 p|matawalu,peni-matawalu,Rugby Hybrid Friendlies,2022/2023,1,24,0,0,0,4,26,0.0,9,0,0,1,1,15,2,1,0,1.0,0,0,0,3,0,0,0
 p|matawalu,peni-matawalu,Super Rugby Pacific,2023,15,511,1,3,5,45,192,4.26,48,8,1,13,6,489,20,42,13,0.58,2,1,7,34,0,0,0
+p|ravai,peni-ravai,Pacific Nations Cup,2026,1,67,1,0,5,2,12,5.9,2,0,1,0,0,1,0,7,1,0.78,0,0,0,0,0,0,0
 p|ravai,peni-ravai,Nations Championship,2026,3,104,0,0,0,7,8,1.09,12,0,0,1,1,3,0,13,2,0.81,1,0,1,0,4,0,0
 p|ravai,peni-ravai,Super Rugby Pacific,2026,11,347,0,1,0,36,52,1.46,76,7,0,4,0,15,1,41,8,0.73,3,1,0,0,6,0,0
 p|ravai,peni-ravai,Pacific Nations Cup,2024,3,58,0,0,0,7,36,5.13,13,4,0,1,0,2,0,0,2,0.0,0,1,1,0,1,0,0
@@ -5939,20 +5978,20 @@ p|buthelezi,phendulani-buthelezi,Challenge Cup,2023/2024,8,593,2,0,10,55,220,4.0
 p|buthelezi,phendulani-buthelezi,Currie Cup,2024,3,209,0,0,0,19,47,2.47,33,2,0,0,3,3,0,18,6,0.64,3,1,4,0,0,0,0
 p|buthelezi,phendulani-buthelezi,Rugby Hybrid Friendlies,2022/2023,2,84,0,0,0,4,14,0.0,6,0,1,1,2,1,0,12,0,1.0,0,0,0,0,0,0,0
 p|buthelezi,phendulani-buthelezi,Currie Cup,2023,1,80,0,0,0,18,20,1.13,33,2,0,0,0,0,0,8,1,0.89,0,0,0,0,0,0,0
-p|bochaton,pierre-bochaton,TOP 14,2026/2027,1,61,1,0,5,4,17,4.15,8,0,0,0,1,3,1,13,2,0.87,0,0,1,0,0,0,0
+p|bochaton,pierre-bochaton,TOP 14,2026/2027,2,141,1,1,5,6,28,4.67,19,1,0,1,1,7,1,27,3,0.82,3,0,2,0,0,0,0
 p|bochaton,pierre-bochaton,Nations Championship,2026,1,34,0,0,0,4,5,1.15,4,1,0,0,0,0,0,5,0,0.83,0,0,0,0,1,0,0
 p|bochaton,pierre-bochaton,TOP 14,2025/2026,16,1022,1,1,5,85,280,3.3,161,12,3,8,8,61,2,145,20,0.81,7,4,10,0,9,0,0
-p|bochaton,pierre-bochaton,Investec Champions Cup,2025/2026,4,225,0,0,0,10,46,4.61,25,1,0,1,0,6,2,44,5,0.86,2,0,3,0,0,0,0
+p|bochaton,pierre-bochaton,Investec Champions Cup,2025/2026,4,225,0,0,0,10,46,4.61,25,1,0,1,0,6,2,43,5,0.86,2,0,3,0,0,0,0
 p|bochaton,pierre-bochaton,TOP 14,2024/2025,17,1037,0,1,0,67,165,2.46,167,7,2,5,5,41,3,174,13,0.84,7,4,8,0,11,1,0
 p|bochaton,pierre-bochaton,Investec Champions Cup,2024/2025,4,137,1,0,5,10,32,3.2,17,0,1,0,0,1,0,30,5,0.73,0,0,1,0,1,0,0
 p|bochaton,pierre-bochaton,TOP 14,2023/2024,16,940,2,0,10,53,195,3.68,121,3,5,1,4,43,1,129,11,0.82,6,6,8,0,9,0,0
 p|bochaton,pierre-bochaton,Investec Champions Cup,2023/2024,3,231,0,0,0,7,23,3.33,25,1,1,0,2,6,0,39,2,0.87,2,2,4,0,3,0,0
-p|boudehent,pierre-boudehent,TOP 14,2026/2027,1,80,0,0,0,13,29,2.25,32,1,0,0,3,6,3,5,1,0.71,2,0,3,1,1,0,0
+p|boudehent,pierre-boudehent,TOP 14,2026/2027,2,160,0,0,0,23,63,2.73,59,2,0,1,3,12,4,15,2,0.75,5,0,3,1,2,0,0
 p|boudehent,pierre-boudehent,Investec Champions Cup,2024/2025,1,80,0,0,0,13,18,1.35,32,0,0,0,1,2,0,13,1,0.87,1,0,1,0,0,0,0
 p|boudehent,pierre-boudehent,TOP 14,2024/2025,11,651,2,0,10,59,206,3.48,194,12,2,8,3,49,2,70,10,0.77,9,1,5,9,3,0,0
 p|boudehent,pierre-boudehent,Investec Champions Cup,2023/2024,1,68,0,0,0,3,11,3.73,3,1,0,0,0,1,0,9,0,1.0,1,0,0,0,0,0,0
 p|boudehent,pierre-boudehent,TOP 14,2023/2024,12,501,0,0,0,37,97,2.61,82,4,1,1,4,19,2,48,3,0.87,3,0,6,1,4,0,0
-p|bourgarit,pierre-bourgarit,TOP 14,2026/2027,1,48,0,0,0,4,9,2.15,6,0,0,0,0,2,1,4,0,0.8,1,1,0,0,0,0,0
+p|bourgarit,pierre-bourgarit,TOP 14,2026/2027,2,97,0,0,0,6,9,1.43,9,0,0,0,1,2,1,14,0,0.82,2,1,1,0,1,0,0
 p|bourgarit,pierre-bourgarit,TOP 14,2025/2026,9,321,2,0,10,35,98,2.79,79,4,0,0,2,19,2,43,3,0.86,1,2,2,1,7,0,0
 p|bourgarit,pierre-bourgarit,Investec Champions Cup,2024/2025,1,49,0,0,0,4,3,0.75,4,0,0,0,0,3,0,6,1,0.75,0,0,0,0,1,0,0
 p|bourgarit,pierre-bourgarit,TOP 14,2024/2025,9,422,3,0,15,52,182,3.5,143,12,4,0,1,23,6,57,5,0.88,1,6,4,0,5,1,0
@@ -5962,7 +6001,7 @@ p|bourgarit,pierre-bourgarit,TOP 14,2023/2024,4,218,3,0,15,25,67,2.67,27,0,2,1,4
 p|bruno,pierre-bruno,Rugby World Cup,2023,2,97,0,0,0,13,48,3.72,32,4,1,2,1,3,0,5,5,0.42,2,0,2,3,0,0,0
 p|bruno,pierre-bruno,Challenge Cup,2023/2024,4,236,0,0,0,16,72,4.52,40,3,1,2,1,10,1,5,3,0.5,3,0,3,2,0,0,0
 p|bruno,pierre-bruno,United Rugby Championship,2023/2024,7,472,0,2,0,54,222,4.11,108,20,4,6,7,30,7,27,7,0.64,0,1,9,11,2,0,0
-p|henriazagoh,pierre-henri-azagoh,TOP 14,2026/2027,1,61,0,0,0,6,6,1.05,9,0,0,0,0,6,0,17,0,0.89,1,2,0,0,4,0,0
+p|henriazagoh,pierre-henri-azagoh,TOP 14,2026/2027,2,87,0,0,0,8,8,0.96,14,0,0,0,0,6,0,21,0,0.91,1,2,1,0,5,0,0
 p|henriazagoh,pierre-henri-azagoh,TOP 14,2025/2026,26,1246,1,0,5,76,158,2.08,165,7,1,7,11,59,8,244,21,0.84,17,4,16,0,20,1,0
 p|henriazagoh,pierre-henri-azagoh,Challenge Cup,2025/2026,4,243,0,1,0,28,36,1.29,38,1,0,3,2,14,2,45,1,0.88,4,0,4,0,0,0,0
 p|henriazagoh,pierre-henri-azagoh,TOP 14,2024/2025,14,676,1,0,5,44,141,3.21,136,11,1,1,1,16,2,120,11,0.85,12,3,5,0,14,3,0
@@ -6005,7 +6044,7 @@ p|stephdutoit,pieter-steph-du-toit,The Rugby Championship,2023,3,196,1,0,5,22,52
 p|stephdutoit,pieter-steph-du-toit,Rugby World Cup,2023,5,386,1,0,5,33,76,2.3,59,2,3,1,4,15,2,66,12,0.78,6,1,4,0,3,0,0
 p|stephdutoit,pieter-steph-du-toit,Japan Rugby League One,2023/2024,11,821,0,4,0,89,315,3.54,170,9,4,8,10,67,9,94,20,0.72,5,4,17,2,6,1,0
 p|stephdutoit,pieter-steph-du-toit,The Rugby Championship,2022,4,245,0,0,0,13,80,6.15,25,1,1,3,4,8,1,29,7,0.76,1,0,5,1,1,0,0
-p|ceccarelli,pietro-ceccarelli,TOP 14,2026/2027,1,73,0,0,0,3,4,1.43,4,0,0,0,0,2,0,8,3,0.67,1,0,0,0,1,0,0
+p|ceccarelli,pietro-ceccarelli,TOP 14,2026/2027,2,137,0,0,0,10,12,1.23,12,0,0,0,1,3,0,20,4,0.8,1,0,1,0,1,0,0
 p|ceccarelli,pietro-ceccarelli,Challenge Cup,2025/2026,4,172,1,0,5,8,10,1.24,18,0,0,0,0,4,1,16,2,0.89,0,1,0,0,2,0,0
 p|ceccarelli,pietro-ceccarelli,TOP 14,2025/2026,18,667,1,0,5,35,29,0.84,45,0,0,0,2,5,1,86,7,0.84,3,1,3,0,11,0,0
 p|ceccarelli,pietro-ceccarelli,Challenge Cup,2024/2025,2,85,0,0,0,3,1,0.3,2,0,0,0,1,2,0,12,1,0.92,0,0,1,0,2,0,0
@@ -6028,7 +6067,7 @@ p|loganimasi,ponipate-loganimasi,Pacific Nations Cup,2025,4,317,0,1,0,30,208,6.9
 p|loganimasi,ponipate-loganimasi,Super Rugby Pacific,2026,5,342,0,2,0,34,197,5.79,98,6,5,4,2,22,3,8,5,0.62,1,1,2,8,1,0,0
 p|loganimasi,ponipate-loganimasi,Pacific Nations Cup,2024,1,24,2,0,10,4,55,13.85,41,3,2,0,0,1,0,1,1,0.33,0,0,0,0,1,0,0
 p|loganimasi,ponipate-loganimasi,Super Rugby Pacific,2025,12,940,6,2,30,89,673,7.56,319,23,19,5,6,31,1,53,15,0.6,2,3,15,21,5,0,0
-p|tuilagi,posolo-tuilagi,TOP 14,2026/2027,1,23,0,0,0,4,14,3.5,15,1,0,1,1,2,1,2,0,1.0,0,0,1,0,1,0,0
+p|tuilagi,posolo-tuilagi,TOP 14,2026/2027,2,49,0,0,0,6,15,2.57,17,1,0,1,1,2,1,6,1,0.86,1,0,1,0,2,0,0
 p|tuilagi,posolo-tuilagi,TOP 14,2025/2026,10,411,2,0,10,74,180,2.43,155,12,0,5,7,16,0,61,11,0.75,4,7,7,0,7,1,0
 p|tuilagi,posolo-tuilagi,Challenge Cup,2025/2026,3,146,0,0,0,16,73,4.58,90,5,1,0,0,4,1,15,0,0.94,0,0,1,0,1,0,0
 p|tuilagi,posolo-tuilagi,TOP 14,2024/2025,10,425,1,0,5,54,87,1.61,139,16,0,2,4,11,0,52,9,0.79,2,6,5,0,6,1,0
@@ -6056,14 +6095,14 @@ q|horn,quan-horn,Currie Cup,2023,5,387,0,0,0,40,273,6.82,136,17,1,5,4,16,1,16,4,
 q|tupaea,quinn-tupaea,The Rugby Championship,2025,5,150,3,1,15,17,89,5.26,68,6,4,0,1,7,1,15,6,0.63,0,0,3,2,0,0,0
 q|tupaea,quinn-tupaea,Rugby Hybrid Friendlies,2026,1,80,0,0,0,15,54,3.58,54,5,2,4,1,15,1,5,2,0.71,1,1,1,3,0,0,0
 q|tupaea,quinn-tupaea,Nations Championship,2026,2,127,0,0,0,25,55,2.19,36,3,0,1,1,19,1,15,3,0.75,1,2,1,0,2,0,0
-q|tupaea,quinn-tupaea,Super Rugby Pacific,2026,15,1118,8,5,40,169,702,4.15,531,40,12,12,8,141,11,167,31,0.8,7,16,12,18,11,0,0
+q|tupaea,quinn-tupaea,Super Rugby Pacific,2026,15,1118,8,5,40,169,702,4.15,531,40,12,12,8,141,11,168,31,0.8,7,16,12,18,11,0,0
 q|tupaea,quinn-tupaea,Rugby Hybrid Friendlies,2024/2025,2,143,1,1,5,17,101,5.93,56,6,2,4,1,9,1,19,2,0.83,0,1,1,1,2,0,0
 q|tupaea,quinn-tupaea,Super Rugby Pacific,2025,16,1119,4,2,20,189,589,3.12,473,36,13,7,14,111,9,151,18,0.83,10,10,20,15,9,0,0
 q|tupaea,quinn-tupaea,Hilux NPC,2024,8,622,3,0,15,105,501,4.77,211,19,9,15,9,68,13,68,19,0.72,2,13,10,9,5,0,0
 q|tupaea,quinn-tupaea,Super Rugby Pacific,2024,14,676,2,3,10,108,493,4.57,368,23,7,5,3,62,4,75,13,0.76,2,10,6,6,6,0,0
 q|tupaea,quinn-tupaea,Hilux NPC,2023,6,386,1,1,5,71,479,6.74,354,29,7,6,3,36,5,38,4,0.86,2,3,4,3,7,0,0
 q|tupaea,quinn-tupaea,The Rugby Championship,2022,5,75,0,0,0,14,40,2.88,44,0,0,2,0,4,0,8,3,0.73,0,2,0,0,1,0,0
-r|slimani,rabah-slimani,TOP 14,2026/2027,1,27,0,0,0,0,0,0.0,0,0,0,0,0,0,0,2,1,0.5,0,0,1,0,0,0,0
+r|slimani,rabah-slimani,TOP 14,2026/2027,2,59,0,0,0,2,0,0.0,1,0,0,0,0,1,0,3,1,0.5,0,0,1,0,2,0,0
 r|slimani,rabah-slimani,Investec Champions Cup,2025/2026,2,33,0,0,0,0,0,0.0,0,0,0,0,0,0,0,4,0,0.67,0,0,0,0,1,0,0
 r|slimani,rabah-slimani,United Rugby Championship,2025/2026,13,469,0,1,0,15,16,1.07,22,0,0,0,1,21,2,54,5,0.86,1,2,1,0,11,1,0
 r|slimani,rabah-slimani,Rugby Hybrid Friendlies,2024/2025,1,46,0,0,0,0,0,0.0,0,0,0,0,0,1,0,7,2,0.78,0,0,0,0,0,0,0
@@ -6157,7 +6196,7 @@ r|ruddock,rhys-ruddock,Rugby Hybrid Friendlies,2022/2023,1,40,0,0,0,3,31,0.0,12,
 r|webb,rhys-webb,Rugby Hybrid Friendlies,2022/2023,1,24,1,0,5,4,42,0.0,19,1,1,2,0,15,0,3,0,1.0,0,0,0,2,0,0,0
 r|favretto,riccardo-favretto,Six Nations,2026,5,82,0,0,0,10,17,1.73,16,1,0,0,0,4,1,13,2,0.81,2,1,0,0,0,0,0
 r|favretto,riccardo-favretto,Nations Championship,2026,3,130,0,0,0,6,4,0.7,8,0,0,0,0,3,1,25,2,0.81,3,0,1,0,0,0,0
-r|favretto,riccardo-favretto,United Rugby Championship,2025/2026,15,918,0,0,0,86,212,2.46,186,16,1,5,7,57,9,122,8,0.8,11,0,10,0,6,0,0
+r|favretto,riccardo-favretto,United Rugby Championship,2025/2026,15,918,0,0,0,86,212,2.46,186,16,1,5,7,57,9,123,8,0.8,11,0,10,0,6,0,0
 r|favretto,riccardo-favretto,Challenge Cup,2025/2026,5,204,0,1,0,23,94,4.11,78,4,1,2,2,14,1,25,2,0.83,1,0,2,0,1,0,0
 r|favretto,riccardo-favretto,Six Nations,2025,2,18,0,0,0,0,0,0.0,0,0,0,0,0,1,0,1,0,1.0,0,0,0,0,0,0,0
 r|favretto,riccardo-favretto,Investec Champions Cup,2024/2025,3,104,0,0,0,8,50,6.2,44,3,1,1,0,4,0,16,0,0.94,0,0,1,0,1,0,0
@@ -6255,7 +6294,7 @@ r|smith,robbie-smith,Rugby Hybrid Friendlies,2022/2023,1,36,0,0,0,3,7,0.0,0,0,0,
 r|baloucoune,robert-baloucoune,Six Nations,2026,4,305,3,1,15,31,175,5.63,116,12,8,2,6,16,4,22,4,0.67,4,4,9,2,0,0,0
 r|baloucoune,robert-baloucoune,Nations Championship,2026,1,80,0,0,0,8,35,4.36,8,0,0,0,1,2,0,15,2,0.83,2,0,1,1,0,0,0
 r|baloucoune,robert-baloucoune,United Rugby Championship,2025/2026,5,327,5,0,25,34,269,7.92,150,8,4,5,6,19,3,23,1,0.85,1,1,7,2,1,0,0
-r|baloucoune,robert-baloucoune,Challenge Cup,2025/2026,3,214,2,2,10,29,176,6.08,118,9,4,5,5,12,2,13,3,0.76,0,2,7,3,0,0,0
+r|baloucoune,robert-baloucoune,Challenge Cup,2025/2026,3,214,2,2,10,29,176,6.08,118,8,4,5,5,12,2,13,3,0.76,0,2,7,4,0,0,0
 r|baloucoune,robert-baloucoune,Rugby Hybrid Friendlies,2024/2025,1,80,2,0,10,10,53,5.31,17,2,1,1,2,6,0,5,0,0.83,0,0,2,0,0,0,0
 r|baloucoune,robert-baloucoune,United Rugby Championship,2024/2025,2,99,1,0,5,13,59,4.57,15,1,2,1,2,4,1,6,3,0.55,0,0,2,2,0,0,0
 r|baloucoune,robert-baloucoune,Investec Champions Cup,2023/2024,4,320,0,0,0,35,260,7.43,123,6,4,1,2,9,0,17,5,0.55,1,2,4,1,1,0,0
@@ -6270,7 +6309,7 @@ r|leota,robert-leota,Rugby World Cup,2023,4,139,0,0,0,11,42,3.85,41,1,1,0,0,5,0,
 r|leota,robert-leota,Rugby Hybrid Friendlies,2023/2024,1,50,0,0,0,1,0,0.0,1,0,0,0,0,1,0,7,1,0.88,0,0,0,0,0,0,0
 r|leota,robert-leota,Super Rugby Pacific,2024,12,688,0,1,0,72,242,3.36,183,12,3,3,6,33,2,96,10,0.77,4,2,7,0,8,0,0
 r|leota,robert-leota,The Rugby Championship,2022,4,53,0,0,0,12,22,1.81,31,1,0,1,0,5,0,8,0,1.0,0,1,0,0,2,0,0
-r|bruni,rodrigo-bruni,TOP 14,2026/2027,1,50,0,0,0,10,33,3.33,30,1,0,0,0,4,1,4,0,1.0,0,0,1,0,0,0,0
+r|bruni,rodrigo-bruni,TOP 14,2026/2027,2,83,0,0,0,14,50,3.56,44,3,0,0,0,4,1,9,0,1.0,1,0,1,0,0,0,0
 r|bruni,rodrigo-bruni,TOP 14,2025/2026,16,1068,4,1,20,126,452,3.59,398,15,5,9,14,51,8,137,22,0.79,21,10,16,5,15,1,1
 r|bruni,rodrigo-bruni,TOP 14,2024/2025,20,1500,6,0,30,142,421,2.96,394,30,3,9,7,68,9,186,35,0.77,29,18,10,7,20,0,0
 r|bruni,rodrigo-bruni,Challenge Cup,2024/2025,3,221,1,0,5,27,63,2.34,36,2,0,1,2,15,0,28,1,0.9,1,4,3,2,2,0,0
@@ -6290,7 +6329,7 @@ r|isgro,rodrigo-isgro,PREM Rugby,2024/2025,11,653,5,1,25,80,491,6.13,223,25,13,9
 r|isgro,rodrigo-isgro,The Rugby Championship,2023,1,73,0,0,0,10,81,8.06,30,2,1,0,3,3,1,2,1,0.5,0,0,3,0,0,0,0
 r|isgro,rodrigo-isgro,Rugby World Cup,2023,1,69,1,0,5,8,65,8.09,26,4,2,1,0,3,0,5,2,0.71,0,0,0,0,1,1,0
 r|isgro,rodrigo-isgro,Rugby Hybrid Friendlies,2023/2024,1,80,1,0,5,12,92,7.68,32,3,1,0,2,3,1,1,1,0.2,0,0,2,1,1,0,0
-r|neti,rodrigue-neti,TOP 14,2026/2027,1,56,0,0,0,1,0,0.0,2,0,0,0,0,1,0,2,0,0.67,0,0,0,0,1,0,0
+r|neti,rodrigue-neti,TOP 14,2026/2027,2,84,0,0,0,4,13,3.33,10,0,1,0,0,1,0,3,1,0.38,1,0,0,0,1,0,0
 r|neti,rodrigue-neti,Six Nations,2026,5,145,0,0,0,8,11,1.36,12,0,0,0,1,9,1,27,2,0.9,5,0,1,0,0,0,0
 r|neti,rodrigue-neti,Investec Champions Cup,2025/2026,3,110,0,0,0,4,6,1.43,8,0,0,1,1,2,0,17,0,0.94,0,0,1,0,1,0,0
 r|neti,rodrigue-neti,TOP 14,2025/2026,14,691,0,2,0,40,38,0.96,63,2,1,1,1,38,3,61,7,0.85,2,1,1,0,9,0,0
@@ -6305,14 +6344,14 @@ r|briatte,romain-briatte,TOP 14,2024/2025,22,1470,1,1,5,136,256,1.88,211,6,1,6,1
 r|briatte,romain-briatte,Investec Champions Cup,2024/2025,1,70,0,1,0,6,16,2.67,2,0,0,0,1,6,0,14,0,0.93,0,0,4,0,1,0,0
 r|briatte,romain-briatte,TOP 14,2023/2024,23,1591,4,0,20,90,224,2.49,106,7,4,4,11,83,12,252,37,0.82,23,14,16,1,10,0,0
 r|briatte,romain-briatte,Investec Champions Cup,2023/2024,1,24,0,0,0,1,0,0.0,0,1,0,0,0,1,0,7,3,0.7,0,0,0,0,0,0,0
-r|buros,romain-buros,TOP 14,2026/2027,1,80,0,0,0,13,98,7.53,55,5,2,1,2,11,0,6,0,0.86,0,3,3,4,0,0,0
+r|buros,romain-buros,TOP 14,2026/2027,2,160,0,0,0,28,160,5.7,77,8,2,3,4,19,1,12,1,0.8,0,3,6,7,3,0,0
 r|buros,romain-buros,TOP 14,2025/2026,15,1004,7,1,35,125,625,5.0,227,15,6,7,11,113,14,35,13,0.61,8,2,18,56,2,0,0
 r|buros,romain-buros,Investec Champions Cup,2025/2026,2,112,0,0,0,10,33,3.28,16,2,0,0,1,6,1,4,2,0.67,0,0,4,6,0,0,0
 r|buros,romain-buros,TOP 14,2024/2025,17,1254,6,4,30,169,921,5.45,332,23,11,25,23,148,13,59,10,0.73,4,2,31,49,2,0,0
 r|buros,romain-buros,Investec Champions Cup,2024/2025,4,206,1,2,5,38,219,5.77,73,9,5,3,3,25,3,3,1,0.5,0,0,4,7,1,0,0
 r|buros,romain-buros,TOP 14,2023/2024,23,1610,5,3,25,229,1167,5.09,396,38,14,21,22,133,9,55,25,0.59,6,3,40,100,2,1,0
 r|buros,romain-buros,Investec Champions Cup,2023/2024,6,464,5,8,25,86,447,5.2,205,27,7,5,1,60,4,10,8,0.45,3,0,6,24,2,0,0
-r|ntamack,romain-ntamack,TOP 14,2026/2027,1,80,1,0,5,5,20,3.94,17,1,1,0,2,13,3,3,0,0.6,0,0,2,5,0,0,0
+r|ntamack,romain-ntamack,TOP 14,2026/2027,2,160,1,0,13,22,118,5.35,51,4,2,0,3,48,3,8,3,0.53,0,0,5,14,0,0,0
 r|ntamack,romain-ntamack,Nations Championship,2026,2,160,1,2,7,15,71,4.73,40,7,1,1,0,45,2,22,6,0.76,0,0,2,8,0,0,0
 r|ntamack,romain-ntamack,Investec Champions Cup,2025/2026,3,230,1,0,5,18,107,5.94,20,1,0,2,1,58,2,28,6,0.74,1,0,2,11,1,1,0
 r|ntamack,romain-ntamack,TOP 14,2025/2026,18,1265,4,7,117,107,605,5.65,239,24,8,12,9,346,26,93,17,0.75,1,7,17,85,2,0,0
@@ -6321,7 +6360,7 @@ r|ntamack,romain-ntamack,Investec Champions Cup,2024/2025,7,508,1,2,5,45,226,5.0
 r|ntamack,romain-ntamack,TOP 14,2024/2025,12,752,4,3,39,56,288,5.13,180,16,3,6,6,185,16,58,12,0.75,3,5,17,54,4,0,0
 r|ntamack,romain-ntamack,Investec Champions Cup,2023/2024,4,319,1,2,5,29,131,4.52,83,8,1,3,5,64,5,32,7,0.78,1,4,8,18,2,0,0
 r|ntamack,romain-ntamack,TOP 14,2023/2024,4,254,0,2,2,27,158,5.84,147,13,3,0,1,59,6,15,2,0.79,2,2,2,14,2,0,0
-r|taofifenua,romain-taofifenua,TOP 14,2026/2027,1,34,0,0,0,2,2,0.9,3,0,0,1,0,4,0,2,0,1.0,0,0,0,0,0,0,0
+r|taofifenua,romain-taofifenua,TOP 14,2026/2027,2,99,0,0,0,9,6,0.62,17,0,0,2,0,10,1,3,0,0.75,0,0,0,0,0,0,0
 r|taofifenua,romain-taofifenua,Rugby Hybrid Friendlies,2026,1,61,0,0,0,4,1,0.35,4,0,0,2,1,6,2,4,0,1.0,0,0,1,1,0,0,0
 r|taofifenua,romain-taofifenua,TOP 14,2025/2026,20,1059,5,1,25,126,201,1.6,204,13,0,7,9,49,9,92,11,0.75,6,8,13,0,12,1,1
 r|taofifenua,romain-taofifenua,Challenge Cup,2025/2026,3,130,0,0,0,16,63,3.94,73,10,1,1,3,8,0,18,0,0.9,3,1,3,0,2,1,0
@@ -6439,6 +6478,7 @@ r|love,ruben-love,Super Rugby Pacific,2024,13,925,2,7,10,108,909,8.42,318,31,11,
 r|love,ruben-love,Hilux NPC,2023,10,774,4,1,24,93,580,6.24,244,25,6,1,10,91,16,24,7,0.69,0,4,12,37,7,0,0
 r|love,ruben-love,Rugby Hybrid Friendlies,2022/2023,3,206,1,3,5,19,194,0.0,72,6,4,1,3,17,3,5,1,0.0,0,0,0,9,0,0,0
 r|love,ruben-love,Super Rugby Pacific,2023,1,7,0,0,0,2,1,0.3,11,1,0,0,1,2,0,0,0,0.0,0,0,1,0,0,0,0
+r|vanheerden,ruben-van-heerden,TOP 14,2026/2027,1,16,0,0,0,1,1,1.2,2,0,0,0,0,0,0,4,0,1.0,1,0,0,0,0,0,0
 r|vanheerden,ruben-van-heerden,Rugby Hybrid Friendlies,2026,1,80,0,0,0,9,19,2.1,14,0,0,0,0,5,0,17,0,1.0,0,1,0,0,0,0,0
 r|vanheerden,ruben-van-heerden,Nations Championship,2026,1,80,0,0,0,2,0,0.0,6,0,0,0,0,5,0,11,0,0.92,0,0,0,0,2,0,0
 r|vanheerden,ruben-van-heerden,United Rugby Championship,2025/2026,14,635,1,0,5,65,144,2.21,122,4,0,1,3,36,2,101,4,0.87,10,0,4,0,3,1,0
@@ -6506,6 +6546,7 @@ r|nakamura,ryoto-nakamura,Japan Rugby League One,2024/2025,12,390,0,1,0,49,89,1.
 r|nakamura,ryoto-nakamura,Rugby World Cup,2023,4,305,1,0,5,13,41,3.16,33,5,2,1,1,27,5,28,9,0.7,2,2,1,0,3,0,0
 r|nakamura,ryoto-nakamura,Japan Rugby League One,2023/2024,14,757,2,4,10,95,216,2.27,102,8,3,4,8,116,8,86,17,0.75,3,4,11,25,3,0,0
 r|nakamura,ryoto-nakamura,Rugby Hybrid Friendlies,2022/2023,3,203,0,1,0,8,52,0.0,24,1,1,3,0,87,2,14,6,0.0,1,0,0,4,0,0,0
+r|ito,ryunosuke-ito,Pacific Nations Cup,2026,1,80,0,1,0,4,27,6.68,27,1,1,0,3,30,2,3,2,0.43,0,1,3,8,0,0,0
 r|ito,ryunosuke-ito,Rugby Hybrid Friendlies,2026,1,80,0,3,0,15,88,5.88,67,6,1,1,5,38,7,1,3,0.17,0,0,5,11,0,0,0
 r|ito,ryunosuke-ito,Nations Championship,2026,3,222,0,0,0,17,79,4.65,15,3,0,1,1,74,4,5,5,0.45,0,0,6,33,0,0,0
 r|ito,ryunosuke-ito,World Rugby U20 Trophy,2024,4,234,0,5,0,26,297,11.43,174,19,5,4,4,103,12,21,12,0.55,0,1,5,10,1,0,0
@@ -6565,6 +6606,7 @@ s|darry,sam-darry,Hilux NPC,2024,2,160,0,0,0,37,71,1.93,55,2,0,2,5,10,1,13,2,0.8
 s|darry,sam-darry,Super Rugby Pacific,2024,11,662,3,0,15,74,120,1.62,131,6,0,3,3,43,2,94,9,0.82,6,1,4,3,7,0,0
 s|darry,sam-darry,Hilux NPC,2023,8,555,0,1,0,55,78,1.43,88,3,1,1,5,40,6,85,12,0.87,2,1,6,0,5,0,0
 s|darry,sam-darry,Super Rugby Pacific,2023,7,413,3,0,15,36,64,1.79,43,1,0,0,4,22,0,53,4,0.84,1,2,4,0,3,0,0
+s|greene,sam-greene,Pacific Nations Cup,2026,1,80,1,0,23,9,92,10.26,54,5,2,0,1,4,1,3,1,0.75,0,0,1,2,1,0,0
 s|greene,sam-greene,Rugby Hybrid Friendlies,2026,1,12,0,0,0,1,3,3.3,2,0,0,0,0,0,0,1,0,1.0,0,0,0,1,0,0,0
 s|greene,sam-greene,Pacific Nations Cup,2025,3,240,1,1,5,19,84,4.4,29,1,3,2,1,23,1,7,1,0.7,2,0,1,5,1,0,0
 s|greene,sam-greene,Nations Championship,2026,1,40,0,0,0,2,1,0.55,1,0,0,0,1,1,0,4,0,1.0,0,0,2,0,0,0,0
@@ -6599,6 +6641,7 @@ s|prendergast,sam-prendergast,United Rugby Championship,2023/2024,13,407,1,6,36,
 s|prendergast,sam-prendergast,U20 Six Nations,2023,5,367,0,6,69,24,75,3.13,46,11,1,3,1,173,15,23,10,0.64,2,2,2,43,0,0,0
 s|prendergast,sam-prendergast,World Rugby Junior World Championship,2023,5,344,1,5,38,10,58,5.83,9,1,0,0,0,119,5,29,16,0.64,2,3,5,37,0,0,0
 s|prendergast,sam-prendergast,Rugby Hybrid Friendlies,2022/2023,1,32,0,0,0,4,22,0.0,11,1,0,0,0,5,0,4,1,0.0,1,0,0,4,0,0,0
+s|simmonds,sam-simmonds,TOP 14,2026/2027,1,80,0,1,0,13,86,6.6,37,2,1,3,1,11,1,4,0,1.0,0,0,1,0,0,0,0
 s|simmonds,sam-simmonds,TOP 14,2025/2026,22,1503,6,0,30,260,1094,4.21,721,53,5,15,12,123,16,227,16,0.83,12,5,18,0,7,1,0
 s|simmonds,sam-simmonds,Challenge Cup,2024/2025,4,255,1,0,5,47,158,3.36,86,7,1,7,1,20,0,38,0,0.83,3,2,1,0,3,0,0
 s|simmonds,sam-simmonds,TOP 14,2024/2025,17,717,1,3,5,81,348,4.29,244,21,2,4,4,28,1,95,5,0.88,10,4,6,1,2,0,0
@@ -6628,7 +6671,7 @@ s|wainwright,sam-wainwright,United Rugby Championship,2024/2025,15,513,0,0,0,23,
 s|wainwright,sam-wainwright,Rugby Hybrid Friendlies,2023/2024,1,41,0,0,0,5,5,1.06,9,0,0,0,0,0,0,2,0,0.67,0,0,0,0,1,0,0
 s|wainwright,sam-wainwright,Challenge Cup,2023/2024,2,78,0,0,0,7,5,0.76,7,0,0,0,1,4,0,4,0,1.0,0,0,1,0,1,0,0
 s|wainwright,sam-wainwright,United Rugby Championship,2023/2024,14,617,0,0,0,26,40,1.53,21,0,1,2,1,11,1,83,8,0.87,5,3,1,0,11,0,0
-s|finau,samipeni-finau,Hilux NPC,2026,4,284,0,1,0,35,109,3.11,116,7,0,0,1,23,2,42,6,0.81,3,1,1,0,2,0,0
+s|finau,samipeni-finau,Hilux NPC,2026,5,364,0,1,0,49,129,2.63,133,9,0,1,2,31,2,52,9,0.8,5,1,3,1,2,0,0
 s|finau,samipeni-finau,The Rugby Championship,2025,1,9,0,0,0,1,2,2.2,1,0,0,0,0,0,0,0,0,0.0,0,0,0,0,0,0,0
 s|finau,samipeni-finau,Super Rugby Pacific,2026,13,683,3,1,15,80,243,3.03,235,14,4,2,6,47,4,79,15,0.71,4,5,12,2,7,0,0
 s|finau,samipeni-finau,Hilux NPC,2025,3,218,1,0,5,31,80,2.58,83,2,1,3,3,24,1,40,5,0.87,6,0,5,0,3,0,0
@@ -6648,6 +6691,7 @@ s|taukeiaho,samisoni-taukeiaho,Rugby World Cup,2023,5,154,0,0,0,30,42,1.4,64,6,0
 s|taukeiaho,samisoni-taukeiaho,Super Rugby Pacific,2024,14,690,3,0,15,110,225,2.05,270,25,2,2,3,24,4,121,7,0.87,8,5,5,0,7,0,0
 s|taukeiaho,samisoni-taukeiaho,The Rugby Championship,2022,6,302,5,0,25,52,114,2.18,128,8,0,4,3,13,1,36,5,0.82,5,1,4,0,4,0,0
 s|taukeiaho,samisoni-taukeiaho,Super Rugby Pacific,2023,15,893,2,1,10,146,352,2.41,432,50,4,8,6,32,1,163,13,0.84,14,5,9,0,9,0,0
+s|tua,samisoni-tua,Pacific Nations Cup,2026,1,23,0,0,0,4,12,3.13,12,1,0,0,1,0,0,4,0,1.0,0,0,1,0,0,0,0
 s|tua,samisoni-tua,Nations Championship,2026,1,80,0,0,0,15,39,2.62,26,2,0,1,1,3,0,6,1,0.86,2,0,1,0,0,0,0
 s|tua,samisoni-tua,Japan Rugby League One,2025/2026,4,283,0,1,0,45,171,3.79,127,13,1,1,3,10,2,45,8,0.78,0,3,6,0,1,0,0
 s|tua,samisoni-tua,Rugby Hybrid Friendlies,2024/2025,2,136,1,0,5,15,66,4.37,43,4,0,0,0,7,1,4,1,0.44,0,1,0,0,1,0,0
@@ -6701,6 +6745,7 @@ s|carreras,santiago-carreras,Rugby World Cup,2023,7,387,2,1,14,63,276,4.38,153,1
 s|carreras,santiago-carreras,PREM Rugby,2023/2024,10,787,3,5,56,113,472,4.18,103,17,6,5,10,121,8,44,25,0.59,4,3,20,67,4,1,0
 s|carreras,santiago-carreras,Challenge Cup,2023/2024,5,400,0,0,51,40,222,5.56,57,7,2,3,7,38,4,15,11,0.52,0,0,9,34,3,0,0
 s|carreras,santiago-carreras,The Rugby Championship,2022,6,396,0,2,0,34,88,2.6,52,4,1,0,6,67,14,27,8,0.69,0,1,11,52,4,1,0
+s|chocobares,santiago-chocobares,TOP 14,2026/2027,1,80,1,0,5,10,50,5.02,43,2,1,2,1,12,0,9,2,0.75,0,0,1,0,0,0,0
 s|chocobares,santiago-chocobares,The Rugby Championship,2025,6,459,1,1,5,46,168,3.66,146,10,3,1,1,36,2,45,7,0.78,2,0,2,0,3,0,0
 s|chocobares,santiago-chocobares,Investec Champions Cup,2025/2026,4,315,0,0,0,27,59,2.18,62,6,0,7,5,35,3,31,11,0.65,1,1,6,0,3,0,0
 s|chocobares,santiago-chocobares,TOP 14,2025/2026,13,944,2,1,10,121,493,4.08,309,19,4,13,6,106,11,73,8,0.8,4,0,10,6,11,1,0
@@ -6717,7 +6762,7 @@ s|cordero,santiago-cordero,Challenge Cup,2024/2025,4,293,1,2,5,42,322,7.66,144,2
 s|cordero,santiago-cordero,United Rugby Championship,2024/2025,16,936,0,1,0,124,539,4.34,234,31,3,20,12,92,5,22,22,0.42,1,2,20,29,1,1,0
 s|cordero,santiago-cordero,United Rugby Championship,2023/2024,2,98,0,0,0,12,105,8.77,33,2,0,1,1,11,2,1,1,0.25,1,0,1,1,0,0,0
 s|cordero,santiago-cordero,The Rugby Championship,2022,3,156,0,0,0,8,31,3.83,37,3,0,2,1,6,0,2,2,0.4,0,0,2,2,0,0,0
-s|grondona,santiago-grondona,TOP 14,2026/2027,1,28,0,0,0,2,8,3.95,6,2,0,1,0,1,0,14,1,0.93,0,0,0,0,0,0,0
+s|grondona,santiago-grondona,TOP 14,2026/2027,2,97,0,0,0,8,38,4.81,24,2,0,1,0,4,0,22,2,0.81,0,0,1,1,3,1,0
 s|grondona,santiago-grondona,The Rugby Championship,2025,1,48,0,0,0,6,20,3.4,12,0,0,0,0,4,0,9,2,0.82,0,0,0,0,1,0,0
 s|grondona,santiago-grondona,Nations Championship,2026,3,186,0,0,0,9,16,1.72,14,0,0,0,2,15,3,29,3,0.83,0,0,2,0,1,0,0
 s|grondona,santiago-grondona,Investec Champions Cup,2025/2026,4,267,1,0,5,14,18,1.29,17,0,0,0,3,23,3,33,9,0.73,2,1,3,0,0,0,0
@@ -6806,7 +6851,7 @@ s|macalou,sekou-macalou,Investec Champions Cup,2024/2025,3,120,1,0,5,11,55,4.99,
 s|macalou,sekou-macalou,Rugby World Cup,2023,2,92,0,0,0,14,108,7.74,23,1,0,2,1,7,1,11,3,0.69,1,1,2,0,2,0,0
 s|macalou,sekou-macalou,TOP 14,2023/2024,17,1105,3,2,15,94,467,4.97,272,20,7,6,17,80,12,125,25,0.77,12,18,19,4,12,1,0
 s|macalou,sekou-macalou,Investec Champions Cup,2023/2024,2,95,0,0,0,11,84,7.62,79,12,2,0,1,6,1,12,3,0.8,0,1,1,0,0,0,0
-s|ravutaumada,selestino-ravutaumada,TOP 14,2026/2027,1,80,0,0,0,11,83,7.54,27,1,1,0,0,2,1,4,4,0.4,0,2,1,1,2,0,0
+s|ravutaumada,selestino-ravutaumada,TOP 14,2026/2027,2,150,0,0,0,17,106,6.23,36,1,2,2,1,7,1,8,8,0.38,1,2,2,2,2,1,0
 s|ravutaumada,selestino-ravutaumada,Nations Championship,2026,2,148,2,0,10,21,146,6.97,51,6,4,5,1,11,1,17,5,0.59,2,0,1,2,1,0,0
 s|ravutaumada,selestino-ravutaumada,TOP 14,2025/2026,11,683,4,1,20,49,564,11.5,293,28,7,9,7,22,4,47,19,0.57,9,3,10,3,5,2,0
 s|ravutaumada,selestino-ravutaumada,Challenge Cup,2025/2026,3,229,2,0,10,28,256,9.16,159,14,7,3,4,7,0,12,7,0.57,3,0,5,4,3,1,0
@@ -6828,12 +6873,13 @@ s|masirewa,semisi-masirewa,Japan Rugby League One,2025/2026,1,40,0,0,0,6,50,8.28
 s|masirewa,semisi-masirewa,Rugby World Cup,2023,2,61,0,0,0,7,26,3.7,42,4,2,0,2,3,1,1,4,0.2,0,0,3,5,0,0,0
 s|masirewa,semisi-masirewa,Japan Rugby League One,2023/2024,6,426,4,2,20,63,427,6.77,212,27,5,6,5,35,7,13,3,0.65,1,0,12,47,3,0,0
 s|masirewa,semisi-masirewa,Rugby Hybrid Friendlies,2022/2023,1,80,2,0,0,7,67,0.0,44,6,1,0,1,2,1,2,1,0.0,0,0,0,1,0,0,0
+s|kimura,sena-kimura,Pacific Nations Cup,2026,1,34,0,0,0,6,24,4.0,18,1,1,0,0,1,0,5,0,1.0,1,0,0,0,1,0,0
 s|kimura,sena-kimura,Pacific Nations Cup,2025,2,77,0,0,0,5,12,2.42,5,0,0,0,0,1,0,11,0,0.92,0,0,0,0,0,0,0
 s|kimura,sena-kimura,Japan Rugby League One,2025/2026,18,1173,0,0,0,65,49,0.75,86,4,0,4,3,48,7,152,20,0.83,5,0,3,0,18,0,0
 s|kimura,sena-kimura,Rugby Hybrid Friendlies,2024/2025,1,28,0,0,0,3,11,3.6,10,1,0,0,1,0,0,7,1,0.88,0,0,1,0,1,0,0
 s|kimura,sena-kimura,Japan Rugby League One,2024/2025,19,1182,2,1,10,68,96,1.4,126,10,2,1,0,35,4,149,19,0.82,1,2,0,0,12,1,0
 s|kimura,sena-kimura,Japan Rugby League One,2023/2024,14,754,1,1,5,50,83,1.67,96,9,1,3,4,28,1,96,8,0.86,5,2,6,0,7,0,0
-s|uru,seru-uru,TOP 14,2026/2027,1,80,1,0,5,11,47,4.31,20,1,0,0,2,2,1,12,1,0.75,0,1,2,0,3,0,0
+s|uru,seru-uru,TOP 14,2026/2027,2,160,1,1,5,22,67,3.03,38,2,0,4,3,9,1,16,1,0.76,0,2,3,0,4,0,0
 s|uru,seru-uru,Super Rugby Pacific,2026,13,867,2,1,10,118,233,1.97,186,14,2,9,8,54,9,132,10,0.87,7,6,11,3,12,0,0
 s|uru,seru-uru,The Rugby Championship,2024,1,18,0,0,0,2,1,0.35,2,0,0,1,0,2,0,2,0,1.0,0,0,0,0,2,1,0
 s|uru,seru-uru,British & Irish Lions 2025,2025,1,51,1,0,5,1,2,1.7,0,2,0,2,1,4,2,4,1,0.8,0,1,1,0,1,0,0
@@ -6843,7 +6889,7 @@ s|uru,seru-uru,Rugby Hybrid Friendlies,2023/2024,3,175,0,0,0,27,120,4.44,91,4,2,
 s|uru,seru-uru,Super Rugby Pacific,2024,11,785,4,0,20,140,299,2.13,211,13,4,10,9,77,17,98,4,0.9,3,5,13,4,8,0,0
 s|uru,seru-uru,Rugby Hybrid Friendlies,2022/2023,3,146,0,0,0,17,159,0.0,18,2,3,4,2,64,0,14,3,0.0,0,0,0,0,0,0,0
 s|uru,seru-uru,Super Rugby Pacific,2023,13,838,0,1,0,101,149,1.48,142,3,0,5,7,43,3,128,11,0.82,3,5,8,5,13,2,0
-s|tamanivalu,seta-tamanivalu,Hilux NPC,2026,6,373,1,1,5,39,102,2.63,88,4,1,1,6,33,6,31,8,0.65,2,6,8,1,1,0,0
+s|tamanivalu,seta-tamanivalu,Hilux NPC,2026,7,406,1,1,5,44,122,2.78,104,4,1,1,6,36,6,32,8,0.64,2,6,8,2,2,0,0
 s|tamanivalu,seta-tamanivalu,Pacific Nations Cup,2025,3,134,2,0,10,11,75,6.8,74,4,1,1,1,14,2,7,2,0.7,0,0,1,3,2,0,0
 s|tamanivalu,seta-tamanivalu,Japan Rugby League One,2025/2026,16,1110,8,1,40,107,263,2.46,224,21,2,16,18,94,22,74,15,0.72,3,5,22,5,7,1,0
 s|tamanivalu,seta-tamanivalu,Japan Rugby League One,2024/2025,16,1130,9,4,45,139,554,3.98,381,31,11,31,17,135,23,85,25,0.69,5,7,21,14,9,0,0
@@ -6871,7 +6917,7 @@ s|lee,seungsin-lee,Japan Rugby League One,2024/2025,18,1382,5,7,55,127,622,4.9,2
 s|lee,seungsin-lee,Rugby World Cup,2023,1,4,0,0,0,0,0,0.0,0,0,0,0,0,0,0,1,1,0.5,0,0,0,1,0,0,0
 s|lee,seungsin-lee,Japan Rugby League One,2023/2024,16,1219,3,9,23,133,618,4.65,354,36,15,14,8,133,19,104,39,0.65,6,2,13,50,4,0,0
 s|lee,seungsin-lee,Rugby Hybrid Friendlies,2022/2023,3,218,0,0,38,18,101,0.0,40,3,1,2,1,214,4,9,7,0.0,0,0,0,22,0,0,0
-s|reece,sevu-reece,TOP 14,2026/2027,1,80,0,1,0,4,10,2.4,3,0,0,0,1,7,0,4,2,0.57,1,0,2,0,0,0,0
+s|reece,sevu-reece,TOP 14,2026/2027,2,160,0,1,0,11,48,4.35,18,2,0,1,3,12,2,10,2,0.71,1,1,4,0,1,0,0
 s|reece,sevu-reece,The Rugby Championship,2025,2,128,2,0,10,13,57,4.4,32,3,1,2,1,9,3,10,1,0.83,2,1,2,3,3,1,0
 s|reece,sevu-reece,Super Rugby Pacific,2026,14,1091,8,5,42,117,709,6.06,266,42,20,20,15,125,13,63,19,0.68,7,5,27,20,4,0,0
 s|reece,sevu-reece,Hilux NPC,2025,1,80,0,0,0,8,20,2.44,13,0,0,2,1,4,0,2,3,0.33,0,0,1,0,0,0,0
@@ -6904,6 +6950,7 @@ s|kakinaga,shinnosuke-kakinaga,Japan Rugby League One,2025/2026,2,81,0,0,0,8,12,
 s|kakinaga,shinnosuke-kakinaga,Japan Rugby League One,2024/2025,8,347,0,1,0,26,48,1.85,33,2,2,3,1,9,1,36,4,0.84,1,5,1,0,3,0,0
 s|kakinaga,shinnosuke-kakinaga,Japan Rugby League One,2023/2024,11,483,1,0,5,34,43,1.26,33,1,2,3,1,21,2,54,8,0.82,1,5,1,0,3,0,0
 s|kakinaga,shinnosuke-kakinaga,Rugby Hybrid Friendlies,2022/2023,1,45,0,0,0,3,7,0.0,0,1,0,1,0,1,0,5,2,0.0,1,0,0,0,0,0,0
+s|fujiwara,shinobu-fujiwara,Pacific Nations Cup,2026,1,24,0,1,0,1,0,0.0,0,0,0,0,1,40,1,0,1,0.0,0,0,1,4,1,0,0
 s|fujiwara,shinobu-fujiwara,Pacific Nations Cup,2025,4,221,1,4,5,11,51,4.61,2,1,1,0,3,206,7,13,4,0.62,0,0,4,22,4,0,0
 s|fujiwara,shinobu-fujiwara,Japan Rugby League One,2025/2026,14,830,5,9,25,67,323,4.83,192,21,9,1,9,657,13,76,32,0.62,2,3,16,71,8,0,0
 s|fujiwara,shinobu-fujiwara,Pacific Nations Cup,2024,4,246,1,2,5,11,35,3.15,6,2,0,0,3,285,12,21,4,0.78,0,0,3,11,0,0,0
@@ -6940,6 +6987,7 @@ s|yamamoto,shu-yamamoto,Japan Rugby League One,2025/2026,14,623,1,0,5,40,118,2.9
 s|yamamoto,shu-yamamoto,Rugby Hybrid Friendlies,2024/2025,5,198,1,0,5,12,58,4.84,44,3,2,0,0,8,0,15,1,0.83,0,0,0,0,0,0,0
 s|yamamoto,shu-yamamoto,Japan Rugby League One,2024/2025,2,42,0,0,0,1,1,0.8,0,0,0,0,0,2,0,1,1,0.33,0,0,0,0,0,0,0
 s|yamamoto,shu-yamamoto,Japan Rugby League One,2023/2024,1,12,0,0,0,0,0,0.0,0,0,0,0,0,0,0,2,0,0.67,0,0,0,0,0,0,0
+s|takeuchi1,shuhei-takeuchi-1,Pacific Nations Cup,2026,1,46,0,0,0,4,2,0.55,8,0,0,0,0,2,1,6,0,0.86,1,0,0,0,0,0,0
 s|takeuchi1,shuhei-takeuchi-1,Rugby Hybrid Friendlies,2026,1,72,0,0,0,3,2,0.83,5,0,0,0,0,2,0,14,0,0.88,0,1,0,0,1,0,0
 s|takeuchi1,shuhei-takeuchi-1,Pacific Nations Cup,2025,4,238,0,1,0,25,127,5.1,93,8,2,4,0,10,1,31,0,0.91,2,1,0,0,5,0,0
 s|takeuchi1,shuhei-takeuchi-1,Nations Championship,2026,2,111,0,0,0,16,23,1.43,23,0,0,0,0,5,0,18,1,0.95,1,0,0,0,1,0,0
@@ -7010,7 +7058,7 @@ s|fifita,siosaia-fifita,Japan Rugby League One,2024/2025,17,1230,3,1,15,179,904,
 s|fifita,siosaia-fifita,Rugby World Cup,2023,1,80,0,1,0,12,76,6.33,42,6,2,1,0,9,2,6,3,0.6,0,0,0,0,1,0,0
 s|fifita,siosaia-fifita,Japan Rugby League One,2023/2024,16,1280,5,4,25,152,782,5.15,558,67,9,11,15,76,9,106,28,0.65,13,7,18,13,7,0,0
 s|fifita,siosaia-fifita,Rugby Hybrid Friendlies,2022/2023,3,213,1,0,5,23,201,0.0,64,3,2,4,3,243,0,15,5,0.0,1,0,0,1,0,0,0
-s|falatea,sipili-falatea,TOP 14,2026/2027,1,42,1,0,5,3,5,1.73,4,0,0,0,0,2,1,7,1,0.88,0,0,0,0,0,0,0
+s|falatea,sipili-falatea,TOP 14,2026/2027,2,88,1,0,5,3,5,1.73,4,0,0,0,0,2,1,10,1,0.91,1,0,0,0,0,0,0
 s|falatea,sipili-falatea,Nations Championship,2026,1,25,0,0,0,4,6,1.6,5,0,0,1,0,1,0,5,0,1.0,1,1,0,0,0,0,0
 s|falatea,sipili-falatea,Rugby Hybrid Friendlies,2026,1,44,0,0,0,4,11,2.75,5,0,0,0,1,0,0,3,0,0.6,0,0,1,0,0,0,0
 s|falatea,sipili-falatea,Investec Champions Cup,2025/2026,1,47,0,0,0,5,4,0.8,14,0,0,1,0,1,0,4,1,0.8,0,0,0,0,0,0,0
@@ -7020,7 +7068,7 @@ s|falatea,sipili-falatea,TOP 14,2024/2025,18,761,3,0,15,65,100,1.53,102,8,2,7,5,
 s|falatea,sipili-falatea,Rugby World Cup,2023,1,31,0,0,0,1,0,0.0,0,0,0,1,0,1,0,1,1,0.5,0,0,0,0,0,0,0
 s|falatea,sipili-falatea,Investec Champions Cup,2023/2024,2,83,0,0,0,7,28,4.04,21,1,1,1,1,2,1,18,1,0.95,0,1,2,0,3,0,0
 s|falatea,sipili-falatea,TOP 14,2023/2024,4,185,0,0,0,24,50,2.07,33,4,0,2,0,6,0,23,3,0.77,4,0,1,0,5,0,0
-s|maqala,sireli-maqala,TOP 14,2026/2027,1,80,0,0,0,7,18,2.61,25,6,1,1,0,2,1,4,5,0.44,0,2,0,1,0,0,0
+s|maqala,sireli-maqala,TOP 14,2026/2027,2,160,0,0,0,11,59,5.35,49,7,1,1,0,4,2,8,8,0.42,1,2,0,1,0,0,0
 s|maqala,sireli-maqala,TOP 14,2025/2026,17,1124,8,3,40,100,744,7.44,503,40,10,11,15,39,6,79,17,0.66,4,12,24,12,11,2,0
 s|maqala,sireli-maqala,Investec Champions Cup,2025/2026,2,146,1,0,5,7,36,5.17,13,0,0,1,2,2,0,16,3,0.76,0,3,3,0,3,0,0
 s|maqala,sireli-maqala,TOP 14,2024/2025,20,1550,11,0,55,161,1008,6.26,650,77,21,19,17,64,21,96,24,0.65,1,18,22,5,15,1,0
@@ -7076,6 +7124,7 @@ s|kitshoff,steven-kitshoff,Challenge Cup,2023/2024,2,119,0,0,0,19,32,1.71,34,3,0
 s|kitshoff,steven-kitshoff,United Rugby Championship,2023/2024,8,370,0,0,0,33,36,1.09,37,3,0,1,3,9,0,46,3,0.92,2,1,3,0,4,0,0
 s|kitshoff,steven-kitshoff,Currie Cup,2024,3,158,0,0,0,13,14,1.08,16,1,0,0,0,8,0,15,2,0.88,1,2,0,0,1,0,0
 s|kitshoff,steven-kitshoff,The Rugby Championship,2022,6,322,0,0,0,24,57,2.36,52,4,1,1,0,13,2,30,8,0.79,2,3,0,0,2,0,0
+s|hogg,stuart-hogg,TOP 14,2026/2027,1,23,0,1,5,4,12,2.98,13,1,1,0,0,5,0,3,0,1.0,1,0,2,2,0,0,0
 s|hogg,stuart-hogg,Challenge Cup,2025/2026,4,266,0,1,14,18,143,7.93,98,5,1,3,2,55,5,25,3,0.76,0,0,3,21,2,0,0
 s|hogg,stuart-hogg,TOP 14,2025/2026,7,215,2,2,15,27,126,4.67,74,7,3,6,4,25,3,11,6,0.58,0,0,7,26,2,0,0
 s|hogg,stuart-hogg,Challenge Cup,2024/2025,1,80,0,0,6,10,36,3.64,49,6,1,1,2,11,1,6,0,0.86,1,1,2,5,0,0,0
@@ -7098,9 +7147,9 @@ s|vunivalu,suliasi-vunivalu,TOP 14,2024/2025,2,73,0,0,0,6,8,1.28,10,0,0,0,1,2,1,
 s|vunivalu,suliasi-vunivalu,The Rugby Championship,2023,1,70,0,0,0,4,24,5.88,27,4,1,1,1,2,1,4,1,0.67,1,0,1,1,4,1,0
 s|vunivalu,suliasi-vunivalu,Rugby World Cup,2023,4,83,1,0,5,17,87,5.12,36,2,2,0,1,1,0,7,0,0.78,0,0,3,2,1,0,0
 s|vunivalu,suliasi-vunivalu,Super Rugby Pacific,2024,12,635,2,0,10,54,384,7.11,185,18,7,2,4,9,1,31,13,0.56,4,0,6,8,3,1,1
-s|vunivalu,suliasi-vunivalu,Super Rugby Pacific,2023,12,895,7,3,35,88,656,7.46,196,19,9,8,11,33,6,42,15,0.55,4,1,13,14,3,0,0
 s|vunivalu,suliasi-vunivalu,Rugby Hybrid Friendlies,2022/2023,3,200,1,0,5,19,166,0.0,55,4,0,5,2,123,4,10,5,0.0,2,0,0,0,0,0,0
-s|rebbadj,swan-rebbadj,TOP 14,2026/2027,1,64,0,0,0,6,19,3.15,12,0,0,1,0,5,0,7,3,0.64,0,2,0,0,1,0,0
+s|vunivalu,suliasi-vunivalu,Super Rugby Pacific,2023,12,895,7,3,35,88,656,7.46,196,19,9,8,11,33,6,42,15,0.55,4,1,13,14,3,0,0
+s|rebbadj,swan-rebbadj,TOP 14,2026/2027,2,139,0,0,0,9,32,3.51,27,2,1,1,0,8,0,12,3,0.67,0,3,0,0,2,0,0
 s|rebbadj,swan-rebbadj,Investec Champions Cup,2025/2026,1,67,0,0,0,3,10,3.47,5,0,0,0,2,3,0,6,0,1.0,1,0,2,0,0,0,0
 s|rebbadj,swan-rebbadj,TOP 14,2025/2026,10,525,0,0,0,25,36,1.42,36,0,0,1,1,19,3,73,11,0.8,5,2,4,0,8,2,0
 s|rebbadj,swan-rebbadj,Investec Champions Cup,2024/2025,3,97,0,0,0,4,4,0.93,15,1,0,0,1,4,0,8,0,0.89,0,1,2,0,1,0,0
@@ -7273,12 +7322,14 @@ t|williams,teddy-williams,Six Nations,2024,1,14,0,0,0,3,1,0.47,5,0,0,0,0,0,0,4,0
 t|williams,teddy-williams,Rugby Hybrid Friendlies,2023/2024,1,32,0,0,0,3,2,0.67,1,0,0,0,0,1,0,5,1,0.71,0,0,0,0,2,0,0
 t|williams,teddy-williams,Investec Champions Cup,2023/2024,4,221,0,1,0,19,21,1.09,30,4,0,0,1,18,3,30,2,0.83,4,0,1,0,3,0,0
 t|williams,teddy-williams,United Rugby Championship,2023/2024,10,716,0,2,0,59,135,2.29,112,3,2,5,1,50,3,132,12,0.87,9,3,2,0,8,0,0
+t|matiu,temo-matiu,TOP 14,2026/2027,1,80,0,0,0,5,16,3.3,11,0,1,0,1,8,0,13,4,0.65,3,0,1,0,0,0,0
 t|matiu,temo-matiu,Six Nations,2026,1,41,0,0,0,8,7,0.89,12,0,0,1,0,2,1,11,1,0.85,0,0,1,0,1,0,0
 t|matiu,temo-matiu,Rugby Hybrid Friendlies,2026,1,80,0,0,0,8,10,1.25,17,1,0,2,0,5,0,10,1,0.77,2,0,0,0,1,0,0
 t|matiu,temo-matiu,TOP 14,2025/2026,20,1270,3,2,15,161,705,4.38,514,35,7,8,25,83,5,172,25,0.77,6,7,29,0,11,0,0
 t|matiu,temo-matiu,Investec Champions Cup,2025/2026,8,437,1,2,5,60,238,3.97,196,18,3,6,5,33,4,74,5,0.86,8,1,8,0,4,0,0
 t|matiu,temo-matiu,TOP 14,2024/2025,20,1085,5,0,25,97,372,3.84,254,10,5,7,12,63,6,140,34,0.74,13,5,15,0,8,1,0
 t|matiu,temo-matiu,Investec Champions Cup,2024/2025,1,80,0,0,0,6,12,2.05,11,1,0,0,4,9,1,14,2,0.88,0,2,4,0,2,0,0
+t|mayanavanua,temo-mayanavanua,Pacific Nations Cup,2026,1,57,0,0,0,6,9,1.57,13,0,0,0,0,2,1,4,3,0.5,0,0,0,0,0,0,0
 t|mayanavanua,temo-mayanavanua,Pacific Nations Cup,2025,4,186,0,0,0,10,23,2.3,17,1,1,0,3,8,2,18,3,0.78,0,2,3,0,1,0,0
 t|mayanavanua,temo-mayanavanua,Nations Championship,2026,3,181,0,0,0,16,26,1.65,32,2,0,2,1,8,0,25,8,0.74,0,3,1,0,0,0,0
 t|mayanavanua,temo-mayanavanua,Super Rugby Pacific,2026,7,504,2,0,10,56,105,1.88,111,4,3,0,1,18,4,55,11,0.75,7,1,1,0,3,0,0
@@ -7291,6 +7342,7 @@ t|mayanavanua,temo-mayanavanua,PREM Rugby,2023/2024,12,440,0,0,0,58,67,1.15,74,1
 t|mayanavanua,temo-mayanavanua,Rugby Hybrid Friendlies,2022/2023,1,65,0,0,0,12,50,0.0,28,0,0,1,0,3,0,3,1,0.0,0,0,0,0,0,0,0
 t|tela,teti-tela,Rugby World Cup,2023,4,249,0,1,2,12,23,1.9,14,2,0,0,1,62,5,6,1,0.67,0,0,3,6,1,0,0
 t|tela,teti-tela,Super Rugby Pacific,2023,14,950,1,2,31,33,65,1.97,39,5,0,2,3,183,13,59,18,0.64,4,2,8,27,3,0,0
+t|ikanivere,tevita-ikanivere,Pacific Nations Cup,2026,1,67,1,1,5,7,22,3.1,22,1,1,1,0,5,1,7,2,0.7,1,0,0,1,0,0,0
 t|ikanivere,tevita-ikanivere,Pacific Nations Cup,2025,4,259,3,0,15,39,93,2.38,83,6,0,1,1,12,1,26,7,0.74,0,3,2,1,1,0,0
 t|ikanivere,tevita-ikanivere,Nations Championship,2026,3,208,2,0,10,24,32,1.32,36,3,0,1,4,9,3,31,2,0.91,1,1,6,1,2,0,0
 t|ikanivere,tevita-ikanivere,Japan Rugby League One,2025/2026,17,896,10,3,50,123,356,2.89,259,14,4,9,7,82,11,123,12,0.87,8,20,13,2,10,0,0
@@ -7311,6 +7363,7 @@ t|tatafu,tevita-tatafu,Investec Champions Cup,2024/2025,4,190,1,0,5,17,90,5.3,65
 t|tatafu,tevita-tatafu,TOP 14,2023/2024,23,1499,5,2,25,211,873,4.14,611,77,4,20,12,97,10,180,15,0.82,8,9,15,1,16,2,0
 t|tatafu,tevita-tatafu,Investec Champions Cup,2023/2024,4,230,2,3,10,32,148,4.63,116,11,2,4,4,19,2,36,5,0.82,4,2,4,0,3,0,0
 t|tatafu,tevita-tatafu,Rugby Hybrid Friendlies,2022/2023,2,69,2,0,10,17,86,0.0,27,4,1,1,1,30,0,7,0,1.0,0,0,0,0,0,0,0
+t|attissogbe,theo-attissogbe,TOP 14,2026/2027,1,70,2,1,10,8,118,14.8,43,3,3,2,0,7,1,2,0,1.0,0,0,0,2,0,0,0
 t|attissogbe,theo-attissogbe,Six Nations,2026,5,400,5,2,25,57,306,5.37,100,11,12,6,8,32,4,30,5,0.71,2,1,13,3,2,0,0
 t|attissogbe,theo-attissogbe,Nations Championship,2026,3,240,2,1,10,35,213,6.08,60,7,6,5,3,23,3,37,2,0.88,2,1,3,4,1,0,0
 t|attissogbe,theo-attissogbe,Rugby Hybrid Friendlies,2026,1,80,0,1,0,6,34,5.65,7,0,0,1,2,9,0,5,4,0.36,0,0,3,1,0,0,0
@@ -7336,7 +7389,7 @@ t|dan,theo-dan,Six Nations,2024,5,85,0,0,0,8,33,4.13,30,3,0,0,0,1,0,22,5,0.81,1,
 t|dan,theo-dan,Rugby World Cup,2023,4,121,3,1,15,17,38,2.21,43,3,1,0,0,4,1,14,6,0.58,0,1,0,0,2,0,0
 t|dan,theo-dan,Investec Champions Cup,2023/2024,5,222,2,0,10,36,140,3.9,144,15,1,4,1,13,0,17,10,0.59,3,1,1,1,2,0,0
 t|dan,theo-dan,PREM Rugby,2023/2024,14,544,5,0,25,108,376,3.48,307,35,6,5,6,24,4,60,21,0.69,9,3,11,2,3,0,0
-t|forner,theo-forner,TOP 14,2026/2027,1,80,1,0,5,8,131,16.35,80,4,1,1,1,2,0,6,1,0.67,1,0,1,2,2,0,0
+t|forner,theo-forner,TOP 14,2026/2027,2,160,2,0,10,21,242,11.53,130,9,3,3,3,8,1,9,2,0.6,1,0,3,3,3,0,0
 t|forner,theo-forner,TOP 14,2025/2026,16,1243,3,3,15,97,933,9.62,310,26,15,14,27,72,13,72,43,0.51,6,15,33,34,3,0,0
 t|forner,theo-forner,Challenge Cup,2025/2026,2,142,0,0,0,16,102,6.39,44,2,4,0,1,2,2,8,4,0.57,0,1,4,4,0,0,0
 t|millet,theo-millet,TOP 14,2026/2027,1,80,0,0,0,7,58,8.34,66,2,2,0,0,7,0,8,4,0.62,0,0,0,0,0,0,0
@@ -7346,7 +7399,7 @@ t|millet,theo-millet,TOP 14,2024/2025,15,1033,1,3,5,96,355,3.7,218,15,1,5,6,106,
 t|millet,theo-millet,Challenge Cup,2024/2025,5,384,0,2,0,40,227,5.69,112,8,3,6,3,51,1,59,7,0.83,7,2,4,4,1,0,0
 t|millet,theo-millet,TOP 14,2023/2024,25,1778,5,2,25,140,515,3.68,376,24,6,7,16,138,19,228,35,0.79,32,3,19,14,8,1,0
 t|millet,theo-millet,Challenge Cup,2023/2024,1,58,0,0,0,8,19,2.43,32,2,0,2,2,9,1,9,1,0.82,1,0,2,1,0,0,0
-t|flament,thibaud-flament,TOP 14,2026/2027,1,80,0,0,0,8,13,1.64,11,1,0,0,1,6,1,3,3,0.33,0,0,1,0,0,0,0
+t|flament,thibaud-flament,TOP 14,2026/2027,2,110,0,0,0,13,23,1.75,24,1,0,0,1,6,1,7,4,0.44,1,0,1,0,1,0,0
 t|flament,thibaud-flament,Six Nations,2026,4,224,0,0,0,26,35,1.35,56,0,0,3,1,19,0,31,2,0.89,2,0,1,0,1,0,0
 t|flament,thibaud-flament,Investec Champions Cup,2025/2026,6,458,0,1,0,43,103,2.4,91,4,1,5,4,41,3,55,8,0.85,1,0,7,0,1,0,0
 t|flament,thibaud-flament,TOP 14,2025/2026,16,886,2,1,10,115,255,2.22,220,7,2,9,5,72,4,77,9,0.79,1,2,5,0,2,0,0
@@ -7357,7 +7410,7 @@ t|flament,thibaud-flament,Six Nations,2024,2,160,0,0,0,14,13,0.92,14,0,0,2,0,13,
 t|flament,thibaud-flament,Rugby World Cup,2023,5,276,1,0,5,15,41,2.74,33,2,1,5,1,14,1,39,3,0.89,0,1,1,0,1,0,0
 t|flament,thibaud-flament,Investec Champions Cup,2023/2024,5,314,1,2,5,18,59,3.3,11,0,2,2,2,18,0,48,6,0.87,4,1,2,0,3,0,0
 t|flament,thibaud-flament,TOP 14,2023/2024,12,809,0,0,0,89,174,1.95,152,3,2,5,8,51,2,86,9,0.83,9,0,10,0,7,0,0
-t|daubagna,thibault-daubagna,TOP 14,2026/2027,1,20,0,0,0,1,0,0.0,0,0,0,0,0,11,1,4,1,0.8,0,0,0,3,0,0,0
+t|daubagna,thibault-daubagna,TOP 14,2026/2027,2,78,0,0,0,5,16,3.26,8,1,0,0,1,41,1,8,1,0.8,0,0,1,11,0,0,0
 t|daubagna,thibault-daubagna,TOP 14,2025/2026,22,985,2,10,10,61,293,4.81,175,15,8,10,5,861,14,64,12,0.74,2,2,14,155,6,0,0
 t|daubagna,thibault-daubagna,Challenge Cup,2025/2026,1,48,0,0,0,4,9,2.18,2,0,0,0,0,68,4,1,0,1.0,0,0,0,2,0,0,0
 t|daubagna,thibault-daubagna,Investec Champions Cup,2025/2026,1,55,0,1,0,2,0,0.0,0,0,0,1,0,27,0,8,0,0.89,1,0,0,3,1,0,0
@@ -7396,6 +7449,7 @@ t|farrell,thomas-farrell,Rugby Hybrid Friendlies,2024/2025,1,80,1,1,5,12,46,3.88
 t|farrell,thomas-farrell,Investec Champions Cup,2023/2024,2,135,0,0,0,12,27,2.23,20,4,0,0,0,6,0,13,6,0.52,0,2,0,0,2,0,0
 t|farrell,thomas-farrell,United Rugby Championship,2023/2024,9,659,2,2,10,93,260,2.8,272,24,6,7,1,55,6,50,14,0.74,6,2,5,3,1,0,0
 t|farrell,thomas-farrell,Challenge Cup,2023/2024,2,61,0,0,0,10,50,4.97,8,3,0,3,0,8,0,0,0,0.0,0,0,1,2,1,0,0
+t|gallo,thomas-gallo,TOP 14,2026/2027,1,57,0,0,0,2,2,0.75,2,0,0,0,2,0,0,9,0,0.9,0,0,2,0,1,0,0
 t|gallo,thomas-gallo,United Rugby Championship,2025/2026,9,440,1,0,5,42,91,2.16,100,15,3,4,7,10,2,79,10,0.85,3,6,8,0,8,1,0
 t|gallo,thomas-gallo,Challenge Cup,2025/2026,4,195,1,0,5,27,38,1.4,55,9,1,2,1,4,1,22,1,0.81,1,2,1,0,5,0,0
 t|gallo,thomas-gallo,The Rugby Championship,2024,6,379,0,0,0,29,50,1.72,34,6,2,2,3,5,0,64,4,0.88,5,1,4,0,5,0,0
@@ -7406,7 +7460,7 @@ t|gallo,thomas-gallo,Rugby World Cup,2023,6,421,0,0,0,56,105,1.88,145,25,0,2,2,1
 t|gallo,thomas-gallo,United Rugby Championship,2023/2024,12,673,0,0,0,57,145,2.54,153,20,3,4,7,15,1,106,16,0.83,5,2,7,1,11,0,0
 t|gallo,thomas-gallo,Challenge Cup,2023/2024,6,297,1,0,5,26,56,2.15,61,8,1,1,1,8,2,43,1,0.88,3,0,2,1,5,0,0
 t|gallo,thomas-gallo,The Rugby Championship,2022,5,237,2,0,10,19,55,2.87,67,10,1,1,2,2,0,47,4,0.9,0,0,2,1,4,0,0
-t|laclayat,thomas-laclayat,TOP 14,2026/2027,1,56,0,0,0,1,0,0.0,0,0,0,0,0,1,0,4,0,1.0,0,0,0,0,1,0,0
+t|laclayat,thomas-laclayat,TOP 14,2026/2027,2,108,0,0,0,4,0,0.0,3,0,0,0,0,3,0,8,0,1.0,0,1,1,0,1,0,0
 t|laclayat,thomas-laclayat,TOP 14,2025/2026,22,1042,2,0,10,68,71,1.04,131,7,0,1,1,28,5,100,10,0.88,2,9,2,0,14,0,0
 t|laclayat,thomas-laclayat,Investec Champions Cup,2025/2026,1,18,0,0,0,2,0,0.05,1,0,0,0,0,0,0,2,0,1.0,1,0,0,0,1,1,0
 t|laclayat,thomas-laclayat,TOP 14,2024/2025,19,759,1,0,5,44,83,1.88,84,8,0,0,1,15,0,81,6,0.8,3,4,5,0,16,1,0
@@ -7414,6 +7468,7 @@ t|laclayat,thomas-laclayat,Challenge Cup,2024/2025,2,69,0,0,0,4,8,1.9,5,1,0,0,0,
 t|laclayat,thomas-laclayat,Investec Champions Cup,2024/2025,1,44,0,0,0,3,10,3.43,6,2,0,0,0,2,1,7,0,1.0,1,0,0,0,1,0,0
 t|laclayat,thomas-laclayat,TOP 14,2023/2024,17,723,5,0,25,57,94,1.65,87,10,0,0,3,17,4,58,3,0.84,2,5,4,0,12,2,0
 t|laclayat,thomas-laclayat,Investec Champions Cup,2023/2024,3,133,0,0,0,8,13,1.68,4,1,0,0,2,1,0,13,2,0.87,3,0,2,0,4,0,0
+t|lavault,thomas-lavault,TOP 14,2026/2027,1,33,0,0,0,4,7,1.85,6,0,0,0,0,2,0,7,0,0.88,0,0,0,0,0,0,0
 t|lavault,thomas-lavault,Investec Champions Cup,2025/2026,1,55,0,0,0,7,23,3.26,8,0,1,1,1,6,0,2,0,1.0,0,0,1,0,0,0,0
 t|lavault,thomas-lavault,TOP 14,2025/2026,17,800,1,1,5,62,123,1.98,102,2,0,2,5,55,5,85,7,0.83,4,0,7,0,13,2,0
 t|lavault,thomas-lavault,Challenge Cup,2025/2026,2,148,0,0,0,5,11,2.24,3,0,0,0,2,3,0,19,2,0.9,2,0,2,0,1,0,0
@@ -7421,7 +7476,7 @@ t|lavault,thomas-lavault,Investec Champions Cup,2024/2025,4,246,0,0,0,13,8,0.58,
 t|lavault,thomas-lavault,TOP 14,2024/2025,25,1409,0,1,0,68,130,1.91,106,5,1,4,8,79,6,164,21,0.8,6,2,12,1,11,1,0
 t|lavault,thomas-lavault,Investec Champions Cup,2023/2024,5,201,0,0,0,8,7,0.91,4,0,0,1,0,11,1,33,2,0.85,3,0,0,0,2,0,0
 t|lavault,thomas-lavault,TOP 14,2023/2024,20,1373,0,0,0,63,119,1.89,109,2,2,1,5,63,5,159,20,0.82,4,5,6,0,8,1,1
-t|ramos,thomas-ramos,TOP 14,2026/2027,1,80,0,0,12,4,3,0.85,3,0,0,0,0,7,2,3,2,0.5,0,0,1,7,0,0,0
+t|ramos,thomas-ramos,TOP 14,2026/2027,2,145,0,0,12,20,46,2.31,11,1,1,0,0,22,4,6,2,0.67,0,0,1,14,2,0,0
 t|ramos,thomas-ramos,Six Nations,2026,5,400,3,4,74,57,298,5.22,172,17,5,10,11,98,11,13,4,0.65,0,0,15,20,1,0,0
 t|ramos,thomas-ramos,Investec Champions Cup,2025/2026,6,480,1,6,72,61,347,5.69,146,24,5,12,6,97,8,9,3,0.56,0,0,12,36,2,0,0
 t|ramos,thomas-ramos,TOP 14,2025/2026,15,964,2,8,151,131,611,4.67,259,28,8,12,16,202,23,31,7,0.63,1,1,27,80,5,0,0
@@ -7432,6 +7487,7 @@ t|ramos,thomas-ramos,Six Nations,2024,5,400,0,0,63,34,202,5.94,115,17,1,4,3,108,
 t|ramos,thomas-ramos,Rugby World Cup,2023,4,296,1,2,74,44,199,4.53,42,5,3,1,2,47,6,7,3,0.54,1,1,5,32,1,0,0
 t|ramos,thomas-ramos,Investec Champions Cup,2023/2024,7,373,3,4,77,57,219,3.84,106,13,4,4,3,75,5,35,8,0.73,3,1,5,46,2,0,0
 t|ramos,thomas-ramos,TOP 14,2023/2024,13,914,5,6,155,141,615,4.36,293,36,12,15,8,201,23,37,13,0.62,3,0,23,94,2,0,0
+t|costley,tiennan-costley,Pacific Nations Cup,2026,1,22,0,1,0,5,70,14.08,57,4,1,0,0,2,1,2,0,1.0,0,0,0,0,0,0,0
 t|costley,tiennan-costley,Rugby Hybrid Friendlies,2026,1,65,0,0,0,1,1,0.7,3,0,0,0,2,5,0,10,0,1.0,0,0,2,0,1,0,0
 t|costley,tiennan-costley,Pacific Nations Cup,2025,3,30,0,0,0,1,2,2.2,1,0,0,1,1,2,0,9,0,1.0,1,1,1,0,2,0,0
 t|costley,tiennan-costley,Nations Championship,2026,3,82,0,0,0,12,32,2.68,26,2,0,3,0,9,0,14,1,0.82,2,0,0,0,0,0,0
@@ -7471,7 +7527,7 @@ t|halafihi,toa-halafihi,Challenge Cup,2023/2024,4,203,0,1,0,27,126,4.67,119,8,2,
 t|halafihi,toa-halafihi,United Rugby Championship,2023/2024,16,821,2,0,10,115,301,2.62,203,17,2,4,5,39,2,161,10,0.87,11,9,5,0,7,1,0
 t|clarkson,tom-clarkson,Six Nations,2026,3,120,0,0,0,7,4,0.64,17,1,0,0,2,4,0,18,0,0.86,4,0,2,1,3,0,0
 t|clarkson,tom-clarkson,Nations Championship,2026,3,98,1,1,5,11,9,0.82,19,1,0,0,0,3,0,16,1,0.89,0,0,0,0,0,0,0
-t|clarkson,tom-clarkson,Investec Champions Cup,2025/2026,8,413,1,0,5,37,43,1.16,76,3,0,0,0,14,1,36,5,0.77,0,1,0,0,8,0,0
+t|clarkson,tom-clarkson,Investec Champions Cup,2025/2026,8,413,1,0,5,37,43,1.16,76,3,0,0,0,14,1,35,5,0.76,0,1,0,0,8,0,0
 t|clarkson,tom-clarkson,United Rugby Championship,2025/2026,13,634,2,0,10,73,117,1.6,144,5,1,0,4,28,2,67,7,0.81,3,4,4,1,14,1,0
 t|clarkson,tom-clarkson,Six Nations,2025,4,112,0,0,0,8,7,0.84,10,1,0,0,0,2,0,10,2,0.67,0,0,0,0,3,0,0
 t|clarkson,tom-clarkson,British & Irish Lions 2025,2025,1,29,0,0,0,1,0,0.0,1,0,0,0,0,0,0,8,0,1.0,0,0,0,0,0,0,0
@@ -7483,7 +7539,7 @@ t|clarkson,tom-clarkson,Rugby Hybrid Friendlies,2022/2023,1,44,0,0,0,2,4,0.0,0,0
 t|curry,tom-curry,Six Nations,2026,3,116,0,0,0,7,7,1.06,9,0,0,0,1,11,0,16,3,0.73,2,0,1,0,2,1,0
 t|curry,tom-curry,Rugby Hybrid Friendlies,2026,1,51,0,0,0,4,19,4.65,3,0,0,0,2,6,1,12,2,0.75,1,2,2,0,0,0,0
 t|curry,tom-curry,Nations Championship,2026,3,87,0,1,0,5,5,1.04,6,0,0,0,0,11,1,28,4,0.82,0,0,0,0,2,0,0
-t|curry,tom-curry,PREM Rugby,2025/2026,7,437,0,0,0,42,117,2.79,86,9,0,3,2,27,3,82,10,0.83,9,3,2,0,7,2,0
+t|curry,tom-curry,PREM Rugby,2025/2026,7,437,0,0,0,41,117,2.86,86,8,0,3,1,26,2,82,10,0.83,9,3,1,0,7,2,0
 t|curry,tom-curry,Investec Champions Cup,2025/2026,2,128,0,0,0,11,23,2.06,9,1,0,2,1,8,3,32,4,0.84,4,0,1,0,0,0,0
 t|curry,tom-curry,Six Nations,2025,5,343,2,1,10,25,70,2.81,66,7,0,2,4,22,3,45,5,0.87,6,6,5,2,0,0,0
 t|curry,tom-curry,British & Irish Lions 2025,2025,6,392,2,2,10,30,63,2.11,48,7,1,3,5,36,4,73,12,0.81,10,4,5,0,5,0,0
@@ -7565,6 +7621,7 @@ t|rogers,tom-rogers,United Rugby Championship,2024/2025,13,910,4,0,20,71,535,7.5
 t|rogers,tom-rogers,Rugby Hybrid Friendlies,2023/2024,1,71,1,2,0,6,53,8.77,38,5,1,1,1,2,1,5,1,0.83,1,0,1,1,1,0,0
 t|rogers,tom-rogers,Challenge Cup,2023/2024,3,237,0,0,0,29,239,8.23,72,6,0,4,2,12,0,14,3,0.58,1,1,3,5,2,0,0
 t|rogers,tom-rogers,United Rugby Championship,2023/2024,11,741,3,1,15,47,289,6.15,162,16,4,3,2,20,0,40,19,0.63,3,4,7,6,6,1,0
+t|spring,tom-spring,TOP 14,2026/2027,1,80,1,0,5,8,71,8.91,36,3,0,1,2,4,0,0,2,0.0,0,0,2,1,0,0,0
 t|spring,tom-spring,Rugby Hybrid Friendlies,2026,1,80,0,1,0,10,120,12.02,29,4,2,2,1,9,1,3,1,0.6,0,0,2,3,0,0,0
 t|spring,tom-spring,TOP 14,2025/2026,23,1545,13,6,73,195,1115,5.72,550,54,16,16,20,168,13,101,36,0.62,7,9,34,62,7,1,0
 t|spring,tom-spring,Investec Champions Cup,2025/2026,4,262,2,0,18,21,123,5.87,56,6,4,2,2,22,3,19,5,0.68,2,2,5,16,0,0,0
@@ -7573,6 +7630,7 @@ t|spring,tom-spring,Challenge Cup,2024/2025,5,300,1,2,5,36,220,6.1,91,10,3,6,4,6
 t|spring,tom-spring,TOP 14,2023/2024,13,551,2,1,10,83,800,9.64,305,25,9,7,8,27,4,14,11,0.52,0,1,16,28,0,0,0
 t|spring,tom-spring,Challenge Cup,2023/2024,1,80,2,0,15,6,69,11.47,57,5,0,1,1,17,0,4,3,0.57,0,1,1,6,0,0,0
 t|spring,tom-spring,Investec Champions Cup,2023/2024,4,163,2,2,10,22,169,7.66,50,6,5,2,0,15,0,9,1,0.9,0,0,0,4,1,0,0
+t|staniforth,tom-staniforth,TOP 14,2026/2027,1,33,0,0,0,12,15,1.25,18,0,0,0,1,2,1,4,1,0.8,0,0,1,0,0,0,0
 t|staniforth,tom-staniforth,Nations Championship,2026,3,108,0,0,0,23,17,0.73,28,0,0,1,1,2,0,32,1,0.91,3,1,1,0,1,0,0
 t|staniforth,tom-staniforth,Rugby Hybrid Friendlies,2026,1,80,0,0,0,18,13,0.74,30,1,0,0,0,5,1,15,1,0.94,0,0,0,0,0,0,0
 t|staniforth,tom-staniforth,Investec Champions Cup,2025/2026,3,142,0,0,0,18,26,1.43,32,0,0,0,0,8,0,30,5,0.81,1,2,0,0,1,0,0
@@ -7582,14 +7640,14 @@ t|staniforth,tom-staniforth,Challenge Cup,2023/2024,2,135,0,0,0,18,25,1.39,28,2,
 t|stewart,tom-stewart,Six Nations,2026,1,17,0,0,0,2,2,0.95,5,0,0,0,0,0,0,4,0,1.0,0,0,0,0,0,0,0
 t|stewart,tom-stewart,Nations Championship,2026,1,21,1,0,5,3,11,3.77,19,2,1,0,0,1,0,3,1,0.75,0,0,0,0,0,0,0
 t|stewart,tom-stewart,United Rugby Championship,2025/2026,14,820,6,0,30,80,239,2.99,173,15,4,3,5,40,2,178,12,0.88,13,8,7,1,4,0,0
-t|stewart,tom-stewart,Challenge Cup,2025/2026,7,426,3,2,15,53,177,3.34,90,8,4,2,4,26,3,70,5,0.86,1,4,6,3,2,0,0
+t|stewart,tom-stewart,Challenge Cup,2025/2026,7,426,3,2,15,53,177,3.34,90,8,4,2,4,26,3,71,5,0.87,1,4,6,3,2,0,0
 t|stewart,tom-stewart,Rugby Hybrid Friendlies,2024/2025,1,80,0,0,0,9,41,4.53,19,3,0,0,4,8,0,15,3,0.79,0,0,4,0,2,0,0
 t|stewart,tom-stewart,Investec Champions Cup,2024/2025,2,43,0,0,0,7,9,1.33,9,1,0,0,0,2,0,4,2,0.57,0,1,0,0,0,0,0
 t|stewart,tom-stewart,United Rugby Championship,2024/2025,7,187,0,0,0,37,73,1.96,49,2,0,3,3,12,1,31,2,0.74,4,3,4,2,1,0,0
 t|stewart,tom-stewart,Investec Champions Cup,2023/2024,4,188,1,0,5,20,70,3.51,42,2,2,1,3,9,1,26,4,0.74,2,0,5,1,0,0,0
 t|stewart,tom-stewart,United Rugby Championship,2023/2024,17,857,8,1,40,115,218,1.89,135,9,3,2,10,40,4,136,13,0.83,8,5,14,2,8,0,0
 t|stewart,tom-stewart,Challenge Cup,2023/2024,1,41,0,0,0,5,6,1.12,7,3,0,0,0,1,0,3,1,0.5,0,1,0,0,0,0,0
-t|willis,tom-willis,TOP 14,2026/2027,1,51,2,0,10,15,61,4.05,51,7,0,0,1,4,1,13,0,0.93,1,1,1,0,1,0,0
+t|willis,tom-willis,TOP 14,2026/2027,2,85,2,0,10,24,84,3.48,68,8,0,3,1,10,3,18,0,0.95,2,3,1,0,2,0,0
 t|willis,tom-willis,Investec Champions Cup,2025/2026,5,327,2,0,10,77,236,3.06,183,24,0,8,2,18,1,53,4,0.88,4,3,3,0,4,0,0
 t|willis,tom-willis,PREM Rugby,2025/2026,18,1171,2,1,10,245,772,3.15,642,101,4,26,15,88,13,185,19,0.84,14,19,16,0,6,0,0
 t|willis,tom-willis,Six Nations,2025,5,180,1,1,5,32,103,3.23,89,10,1,3,1,9,1,38,1,0.9,1,3,1,0,2,0,0
@@ -7740,6 +7798,7 @@ t|nyakane,trevor-nyakane,Investec Champions Cup,2023/2024,5,205,0,0,0,16,23,1.44
 t|nyakane,trevor-nyakane,TOP 14,2023/2024,15,754,0,0,0,66,73,1.11,103,7,0,1,3,11,2,108,13,0.82,8,3,4,0,6,0,0
 t|nyakane,trevor-nyakane,Currie Cup,2024,5,228,1,0,5,14,18,1.3,35,3,1,0,0,4,0,12,3,0.63,0,0,0,0,3,0,0
 t|nyakane,trevor-nyakane,The Rugby Championship,2022,3,76,0,0,0,2,1,0.6,7,0,0,0,0,0,0,9,0,1.0,0,0,0,0,2,0,0
+t|samusamuvodre,tuidraki-samusamuvodre,Pacific Nations Cup,2026,1,24,0,0,0,1,5,5.4,5,1,0,0,0,4,1,3,0,1.0,0,0,0,0,0,0,0
 t|samusamuvodre,tuidraki-samusamuvodre,Rugby Hybrid Friendlies,2026,1,17,0,0,0,0,0,0.0,0,0,0,0,1,2,0,0,1,0.0,0,0,1,1,0,0,0
 t|samusamuvodre,tuidraki-samusamuvodre,Pacific Nations Cup,2025,2,132,0,1,0,11,55,5.02,34,4,0,0,1,10,1,6,0,1.0,0,0,2,2,1,0,0
 t|samusamuvodre,tuidraki-samusamuvodre,Super Rugby Pacific,2026,11,823,3,3,15,48,270,5.61,235,20,7,3,3,61,8,64,18,0.65,10,6,5,5,5,0,0
@@ -7771,6 +7830,7 @@ t|lomax,tyrel-lomax,Rugby World Cup,2023,5,223,0,0,0,21,15,0.73,31,0,0,0,1,5,0,3
 t|lomax,tyrel-lomax,Super Rugby Pacific,2024,10,527,1,0,5,35,45,1.27,61,1,0,3,3,16,2,71,14,0.77,3,2,3,0,8,0,0
 t|lomax,tyrel-lomax,The Rugby Championship,2022,6,305,0,0,0,20,25,1.27,33,0,0,1,0,5,1,33,9,0.77,0,1,0,0,8,0,0
 t|lomax,tyrel-lomax,Super Rugby Pacific,2023,13,759,2,0,10,52,78,1.49,104,4,1,1,4,24,3,97,25,0.75,5,5,4,0,7,0,0
+u|seunes,ugo-seunes,TOP 14,2026/2027,1,25,1,0,9,2,4,1.75,5,0,0,0,2,9,0,0,0,0.0,0,0,2,0,0,0,0
 u|seunes,ugo-seunes,TOP 14,2025/2026,24,1243,0,7,164,62,356,5.75,68,5,4,5,16,202,14,98,41,0.64,7,4,33,125,4,0,0
 u|atonio,uini-atonio,Investec Champions Cup,2025/2026,3,126,0,0,0,11,11,1.03,12,1,0,0,1,8,1,8,2,0.8,0,0,1,0,4,1,0
 u|atonio,uini-atonio,TOP 14,2025/2026,3,143,0,0,0,9,2,0.21,16,0,0,0,1,5,0,7,2,0.7,0,0,1,0,0,0,0
@@ -7816,6 +7876,7 @@ v|miramira,vilive-miramira,Super Rugby Pacific,2025,6,182,0,0,0,20,43,2.13,40,6,
 v|miramira,vilive-miramira,Rugby World Cup,2023,1,5,0,0,0,2,0,0.0,5,1,0,0,0,0,0,0,1,0.0,0,0,0,0,1,0,0
 v|miramira,vilive-miramira,Super Rugby Pacific,2024,12,610,0,0,0,61,172,2.82,141,12,1,2,3,32,6,48,7,0.76,2,10,4,1,6,0,0
 v|miramira,vilive-miramira,Super Rugby Pacific,2023,10,668,2,1,10,81,272,3.36,154,7,3,7,5,35,7,96,15,0.77,1,8,9,0,12,0,0
+v|habosi,vinaya-habosi,TOP 14,2026/2027,1,23,0,0,0,2,10,5.2,11,1,0,1,0,2,0,0,0,0.0,0,0,0,0,0,0,0
 v|habosi,vinaya-habosi,TOP 14,2025/2026,23,1524,3,2,15,140,700,5.0,527,44,5,30,12,52,12,134,33,0.69,18,13,14,4,7,1,0
 v|habosi,vinaya-habosi,Challenge Cup,2025/2026,1,40,0,0,0,5,9,1.86,10,2,0,1,0,2,0,5,2,0.71,0,0,0,0,1,0,0
 v|habosi,vinaya-habosi,Investec Champions Cup,2024/2025,3,183,3,0,15,23,129,5.62,130,16,6,4,3,9,0,10,7,0.53,2,2,5,2,1,0,0
@@ -7850,6 +7911,7 @@ v|tshituka,vincent-tshituka,United Rugby Championship,2023/2024,10,587,0,0,0,67,
 v|tshituka,vincent-tshituka,Challenge Cup,2023/2024,4,302,1,0,5,37,138,3.73,62,5,2,1,1,10,3,37,6,0.76,2,2,4,1,3,0,0
 v|tshituka,vincent-tshituka,Currie Cup,2024,4,283,0,0,0,34,218,6.41,105,9,3,1,4,13,2,31,2,0.82,2,1,4,2,1,0,0
 v|tshituka,vincent-tshituka,Currie Cup,2023,3,147,0,0,0,24,58,2.44,53,3,1,2,2,5,1,16,3,0.84,0,1,2,0,1,0,0
+v|vakatawa,virimi-vakatawa,Pacific Nations Cup,2026,1,80,0,1,0,11,31,2.85,23,3,0,3,0,10,1,8,1,0.67,2,1,0,1,1,0,0
 v|vakatawa,virimi-vakatawa,Nations Championship,2026,1,68,0,0,0,2,0,0.0,3,0,0,0,1,4,0,13,1,0.76,1,1,2,0,0,0,0
 v|vakatawa,virimi-vakatawa,Rugby Hybrid Friendlies,2026,2,160,1,2,5,25,176,7.05,68,7,2,5,1,15,5,6,1,0.67,0,0,2,2,0,0,0
 v|vakatawa,virimi-vakatawa,Super Rugby Pacific,2026,10,596,1,2,5,93,400,4.3,291,28,9,15,8,72,11,46,15,0.66,3,5,11,2,3,0,0
@@ -8000,7 +8062,7 @@ y|peysson,yann-peysson,Investec Champions Cup,2024/2025,2,79,0,0,0,11,32,2.95,24
 y|peysson,yann-peysson,TOP 14,2024/2025,4,177,0,0,0,10,47,4.72,17,1,0,0,1,13,0,38,4,0.83,1,0,1,0,4,0,0
 y|peysson,yann-peysson,TOP 14,2023/2024,9,485,1,0,5,48,234,4.87,53,6,3,5,10,61,8,42,11,0.7,3,1,11,1,3,0,0
 y|peysson,yann-peysson,Challenge Cup,2023/2024,4,213,0,0,0,14,25,1.79,18,2,0,0,2,19,1,17,4,0.68,1,1,2,0,2,0,0
-y|tanga,yoan-tanga,TOP 14,2026/2027,1,59,0,0,0,11,19,1.73,19,2,0,2,1,14,0,13,0,0.93,1,0,1,1,1,0,0
+y|tanga,yoan-tanga,TOP 14,2026/2027,2,139,0,0,0,22,27,1.21,31,3,0,2,2,19,0,22,2,0.88,1,0,3,1,1,0,0
 y|tanga,yoan-tanga,Rugby Hybrid Friendlies,2026,1,30,0,1,0,13,41,3.16,34,2,1,1,1,6,0,2,0,1.0,0,0,1,2,0,0,0
 y|tanga,yoan-tanga,TOP 14,2025/2026,23,1242,4,3,20,232,655,2.82,528,39,8,25,14,144,10,168,16,0.86,5,12,27,12,12,0,0
 y|tanga,yoan-tanga,Challenge Cup,2025/2026,3,214,1,0,5,65,253,3.9,134,10,2,3,2,32,6,22,3,0.79,1,0,4,1,3,0,0
@@ -8008,12 +8070,12 @@ y|tanga,yoan-tanga,Investec Champions Cup,2024/2025,4,191,2,0,10,31,73,2.36,58,4
 y|tanga,yoan-tanga,TOP 14,2024/2025,16,768,1,1,5,122,344,2.82,273,20,3,11,8,66,4,100,12,0.85,9,5,11,5,5,0,0
 y|tanga,yoan-tanga,Investec Champions Cup,2023/2024,6,260,1,0,5,30,77,2.56,35,6,0,1,2,10,1,35,9,0.78,2,1,2,1,1,0,0
 y|tanga,yoan-tanga,TOP 14,2023/2024,22,1225,2,2,10,184,645,3.5,382,30,7,6,11,93,3,116,23,0.74,8,3,13,7,12,0,0
-y|moefana,yoram-moefana,TOP 14,2026/2027,1,51,0,0,0,5,47,9.42,29,3,1,2,0,8,0,7,3,0.7,0,0,0,0,0,0,0
+y|moefana,yoram-moefana,TOP 14,2026/2027,2,110,0,0,0,13,98,7.55,63,5,2,3,1,12,1,14,3,0.78,2,0,1,0,0,0,0
 y|moefana,yoram-moefana,Six Nations,2026,3,210,0,1,0,27,99,3.67,66,3,3,5,2,20,2,17,9,0.57,1,1,2,0,1,0,0
 y|moefana,yoram-moefana,Nations Championship,2026,3,205,0,0,0,29,178,6.15,98,7,3,3,0,22,2,31,1,0.91,7,1,1,1,2,0,0
 y|moefana,yoram-moefana,Rugby Hybrid Friendlies,2026,1,80,0,1,0,12,21,1.75,18,2,0,2,0,10,1,11,3,0.65,1,0,0,0,1,0,0
 y|moefana,yoram-moefana,TOP 14,2025/2026,12,805,0,3,0,113,373,3.3,284,27,7,17,5,97,8,77,16,0.73,3,2,9,6,4,0,0
-y|moefana,yoram-moefana,Investec Champions Cup,2025/2026,8,557,1,1,5,70,268,3.83,110,11,6,5,7,58,7,59,7,0.83,3,3,9,1,6,0,0
+y|moefana,yoram-moefana,Investec Champions Cup,2025/2026,8,557,1,1,5,70,268,3.83,110,11,6,5,7,58,7,59,8,0.82,3,3,9,1,6,0,0
 y|moefana,yoram-moefana,Six Nations,2025,5,400,2,2,10,46,186,4.03,118,12,3,4,1,39,1,54,13,0.73,3,0,2,3,0,0,0
 y|moefana,yoram-moefana,TOP 14,2024/2025,14,932,1,3,5,107,455,4.26,306,32,7,14,10,82,13,114,22,0.75,10,9,15,9,5,0,1
 y|moefana,yoram-moefana,Investec Champions Cup,2024/2025,8,624,1,2,5,60,219,3.65,181,13,3,10,6,49,3,94,22,0.71,8,1,8,1,3,1,0
@@ -8044,6 +8106,7 @@ y|nagare,yutaka-nagare,Japan Rugby League One,2024/2025,19,1168,1,13,5,12,37,3.0
 y|nagare,yutaka-nagare,Rugby World Cup,2023,2,125,0,3,0,4,10,2.53,0,0,0,0,0,90,2,7,1,0.78,0,1,1,22,0,0,0
 y|nagare,yutaka-nagare,Japan Rugby League One,2023/2024,13,668,1,13,5,9,23,2.6,0,0,0,0,6,740,13,22,25,0.41,2,1,6,42,1,0,0
 y|nagare,yutaka-nagare,Rugby Hybrid Friendlies,2022/2023,1,21,0,1,0,2,18,0.0,5,0,0,0,0,27,2,4,1,0.0,0,0,0,7,0,0,0
+y|hirose,yuya-hirose,Pacific Nations Cup,2026,1,57,1,0,5,5,31,6.18,29,2,0,1,0,7,1,3,1,0.75,0,0,0,2,0,0,0
 y|hirose,yuya-hirose,Pacific Nations Cup,2025,4,140,0,1,0,11,52,4.68,27,1,2,0,0,14,1,12,7,0.57,1,0,0,2,1,0,0
 y|hirose,yuya-hirose,Nations Championship,2026,2,112,0,1,0,6,10,1.63,20,2,1,0,0,8,0,6,3,0.5,1,0,0,5,1,0,0
 y|hirose,yuya-hirose,Japan Rugby League One,2025/2026,17,1008,0,1,0,66,232,3.52,121,12,2,6,7,104,10,100,24,0.71,1,1,11,19,7,0,0
@@ -8052,7 +8115,7 @@ y|hirose,yuya-hirose,Japan Rugby League One,2024/2025,16,695,3,5,22,58,195,3.37,
 y|hirose,yuya-hirose,Japan Rugby League One,2023/2024,0,0,0,0,0,0,0,0.0,0,0,0,0,0,0,0,0,0,0.0,0,0,0,0,0,0,0
 z|ward,zac-ward,Rugby Hybrid Friendlies,2026,1,80,0,0,0,9,33,3.69,26,1,0,2,2,3,0,3,4,0.43,0,0,4,0,0,0,0
 z|ward,zac-ward,United Rugby Championship,2025/2026,13,986,11,2,55,126,1129,8.96,763,58,21,6,10,46,6,54,19,0.7,5,6,22,10,7,1,0
-z|ward,zac-ward,Challenge Cup,2025/2026,7,487,4,2,20,52,402,7.72,275,27,12,3,11,18,5,30,5,0.68,2,1,12,4,2,1,0
+z|ward,zac-ward,Challenge Cup,2025/2026,7,487,4,2,20,52,402,7.72,275,27,12,3,11,18,5,29,5,0.67,2,1,12,4,2,1,0
 z|ward,zac-ward,Rugby Hybrid Friendlies,2024/2025,1,41,0,0,0,4,28,6.93,18,1,1,0,1,2,0,0,0,0.0,0,0,1,0,0,0,0
 z|ward,zac-ward,Investec Champions Cup,2024/2025,3,221,2,0,10,25,199,7.96,127,11,3,0,3,8,0,16,1,0.8,1,2,5,5,2,0,0
 z|ward,zac-ward,United Rugby Championship,2024/2025,6,344,1,1,5,31,236,7.62,151,24,4,0,4,15,0,22,6,0.73,2,0,8,5,0,0,0

@@ -3,12 +3,41 @@
   "csv_name": "Isoa Nasilasila",
   "bio": {
     "Nationality": "Fiji",
-    "Age": "26",
+    "Age": "27",
     "Position": "Lock",
     "Height": "197cm",
     "Weight": "117kg"
   },
   "competition_stats": [
+    {
+      "competition": "Pacific Nations Cup",
+      "season": "2026",
+      "games": 1,
+      "minutes": 16,
+      "tries": 0,
+      "try_assists": 0,
+      "points": 0,
+      "carries": 2,
+      "metres": 5,
+      "av_gain": 2.35,
+      "post_contact_metres": 6,
+      "defenders_beaten": null,
+      "clean_breaks": 0,
+      "offloads": 0,
+      "handling_errors": 0,
+      "passes": 1,
+      "bad_passes": 0,
+      "tackles": 1,
+      "missed_tackles": 1,
+      "tackles_success_pct": 0.25,
+      "dominant_tackles": 1,
+      "turnovers_won": 0,
+      "turnovers_conceded": 0,
+      "kicks_from_hand": 0,
+      "penalties_conceded": 1,
+      "yellow_cards": 0,
+      "red_cards": 1
+    },
     {
       "competition": "Pacific Nations Cup",
       "season": "2025",
@@ -559,6 +588,19 @@
       "tries": 0,
       "yellow_cards": 0,
       "red_cards": 0,
+      "conversions": 0
+    },
+    {
+      "competition": "Pacific Nations Cup",
+      "match": "Fiji vs Canada",
+      "date": "12 Sep 2026",
+      "opposition": "Canada",
+      "win": true,
+      "draw": false,
+      "mins": 16,
+      "tries": 0,
+      "yellow_cards": 0,
+      "red_cards": 1,
       "conversions": 0
     },
     {

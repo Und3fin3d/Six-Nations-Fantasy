@@ -10,6 +10,35 @@
   },
   "competition_stats": [
     {
+      "competition": "Pacific Nations Cup",
+      "season": "2026",
+      "games": 1,
+      "minutes": 24,
+      "tries": 0,
+      "try_assists": 0,
+      "points": 0,
+      "carries": 1,
+      "metres": 5,
+      "av_gain": 5.4,
+      "post_contact_metres": 5,
+      "defenders_beaten": 1,
+      "clean_breaks": 0,
+      "offloads": 0,
+      "handling_errors": 0,
+      "passes": 4,
+      "bad_passes": 1,
+      "tackles": 3,
+      "missed_tackles": null,
+      "tackles_success_pct": 1,
+      "dominant_tackles": 0,
+      "turnovers_won": 0,
+      "turnovers_conceded": 0,
+      "kicks_from_hand": 0,
+      "penalties_conceded": 0,
+      "yellow_cards": 0,
+      "red_cards": 0
+    },
+    {
       "competition": "Rugby Hybrid Friendlies",
       "season": "2026",
       "games": 1,
@@ -185,6 +214,32 @@
     }
   ],
   "match_log": [
+    {
+      "competition": "Pacific Nations Cup",
+      "match": "Fiji vs Japan",
+      "date": "19 Sep 2026",
+      "opposition": "Japan",
+      "win": false,
+      "draw": false,
+      "mins": 59,
+      "tries": 0,
+      "yellow_cards": 0,
+      "red_cards": 0,
+      "conversions": 0
+    },
+    {
+      "competition": "Pacific Nations Cup",
+      "match": "Fiji vs Canada",
+      "date": "12 Sep 2026",
+      "opposition": "Canada",
+      "win": true,
+      "draw": false,
+      "mins": 24,
+      "tries": 0,
+      "yellow_cards": 0,
+      "red_cards": 0,
+      "conversions": 0
+    },
     {
       "competition": "Pacific Nations Cup",
       "match": "Samoa vs Fiji",

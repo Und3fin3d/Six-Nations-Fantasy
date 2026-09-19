@@ -11,6 +11,35 @@
   "competition_stats": [
     {
       "competition": "Pacific Nations Cup",
+      "season": "2026",
+      "games": 1,
+      "minutes": 57,
+      "tries": 1,
+      "try_assists": 0,
+      "points": 5,
+      "carries": 5,
+      "metres": 31,
+      "av_gain": 6.18,
+      "post_contact_metres": 29,
+      "defenders_beaten": 2,
+      "clean_breaks": 0,
+      "offloads": 1,
+      "handling_errors": 0,
+      "passes": 7,
+      "bad_passes": 1,
+      "tackles": 3,
+      "missed_tackles": 1,
+      "tackles_success_pct": 0.75,
+      "dominant_tackles": 0,
+      "turnovers_won": 0,
+      "turnovers_conceded": 0,
+      "kicks_from_hand": 2,
+      "penalties_conceded": 0,
+      "yellow_cards": 0,
+      "red_cards": 0
+    },
+    {
+      "competition": "Pacific Nations Cup",
       "season": "2025",
       "games": 4,
       "minutes": 140,
@@ -185,6 +214,32 @@
     }
   ],
   "match_log": [
+    {
+      "competition": "Pacific Nations Cup",
+      "match": "Fiji vs Japan",
+      "date": "19 Sep 2026",
+      "opposition": "Fiji",
+      "win": true,
+      "draw": false,
+      "mins": 32,
+      "tries": 0,
+      "yellow_cards": 0,
+      "red_cards": 0,
+      "conversions": 0
+    },
+    {
+      "competition": "Pacific Nations Cup",
+      "match": "Japan vs USA",
+      "date": "12 Sep 2026",
+      "opposition": "USA",
+      "win": true,
+      "draw": false,
+      "mins": 57,
+      "tries": 1,
+      "yellow_cards": 0,
+      "red_cards": 0,
+      "conversions": 0
+    },
     {
       "competition": "Pacific Nations Cup",
       "match": "Japan vs Fiji",

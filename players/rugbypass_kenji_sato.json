@@ -187,6 +187,19 @@
   "match_log": [
     {
       "competition": "Pacific Nations Cup",
+      "match": "Fiji vs Japan",
+      "date": "19 Sep 2026",
+      "opposition": "Fiji",
+      "win": true,
+      "draw": false,
+      "mins": 10,
+      "tries": 0,
+      "yellow_cards": 0,
+      "red_cards": 0,
+      "conversions": 0
+    },
+    {
+      "competition": "Pacific Nations Cup",
       "match": "Japan vs Fiji",
       "date": "21 Sep 2025",
       "opposition": "Fiji",

@@ -1,4 +1,4 @@
-name: Friendly-15 and bounded domain research
+name: Friendly-15 complete-cohort domain research
 
 on:
   push:
@@ -21,40 +21,53 @@ jobs:
     timeout-minutes: 5
     permissions:
       contents: write
+      actions: write
     outputs:
       sha: ${{ steps.commit.outputs.sha }}
     steps:
-      - uses: actions/checkout@v5
-        with:
-          lfs: false
-      - name: Restore locally tested source with exact integrity verification
+      - name: Ensure the superseded incomplete-cohort run has stopped
         env:
           GH_TOKEN: ${{ github.token }}
         run: |
-          gh api repos/$GITHUB_REPOSITORY/git/blobs/d7b78b5fc146e47a6d98ef640529a1381fc938b9 --jq .content > /tmp/source.b64
+          status=$(gh api repos/$GITHUB_REPOSITORY/actions/runs/35475086184 --jq .status)
+          if [ "$status" != completed ]; then
+            gh api --method POST repos/$GITHUB_REPOSITORY/actions/runs/35475086184/cancel || true
+            for attempt in $(seq 1 12); do
+              status=$(gh api repos/$GITHUB_REPOSITORY/actions/runs/35475086184 --jq .status)
+              [ "$status" = completed ] && break
+              sleep 5
+            done
+            [ "$status" = completed ]
+          fi
+      - uses: actions/checkout@v5
+        with:
+          ref: codex/friendly-stat-validation-20260919
+          lfs: false
+      - name: Apply tested full-teamsheet correction and invalidate old selection
+        run: |
           python - <<'PY'
-          import base64, gzip, hashlib
           from pathlib import Path
-          text = ''.join(Path('/tmp/source.b64').read_text().split())
-          for transmitted, original in [('GfpU7i4gs3','GfpU7i2gs3'), ('BvncU3vj','BvncUvj'), ('FTUT6vJiQ+LwT7','FTUT6vJiQ+TwT7'), ('4tVqsWMe','4tVqsMe')]:
-              text = text.replace(transmitted, original)
-          text = text.rstrip('=')
-          text += '=' * (-len(text) % 4)
-          patch = gzip.decompress(base64.b64decode(text))
-          assert hashlib.sha256(patch).hexdigest() == 'd67184c9f76d980fcacbf1c32d33afe2ad8b9f5135e110c1bf87d5f0f4757d64'
-          Path('/tmp/friendly.patch').write_bytes(patch)
+          p = Path('model/unified/domain_experiment.py')
+          text = p.read_text()
+          old = 'truth = store[store.fixture_id.eq(fixture)].sort_values(KEY).reset_index(drop=True)'
+          assert text.count(old) == 1
+          text = text.replace(old, 'truth = complete_fixture_cohort(store, fixture, DATA / "cache")')
+          text = text.replace('from .friendly_eval import score_stats, summarise_stats, validate_manifest', 'from .friendly_eval import score_stats, summarise_stats, validate_manifest\nfrom .friendly_cohort import complete_fixture_cohort')
+          text = text.replace('truth[[*KEY, "position", "started", "minutes", *STABLE_EVENTS,', 'truth[[*KEY, "position", "started", "canonical_player", "minutes", *STABLE_EVENTS,')
+          p.write_text(text)
+          for name in ('selection.json', 'development_metrics.csv'):
+              Path('data/unified/friendly15', name).unlink(missing_ok=True)
           PY
-          git apply --check /tmp/friendly.patch
-          git apply /tmp/friendly.patch
-          git diff --check
           python -m compileall -q model tests
+          git diff --check
       - id: commit
-        name: Save source and tests on the isolated research branch
+        name: Save corrected source on the isolated research branch
         run: |
           git config user.name 'github-actions[bot]'
           git config user.email '41898282+github-actions[bot]@users.noreply.github.com'
-          git add model tests/test_friendly_eval.py tests/test_domain_weights.py data/unified/friendly15/*.json
-          git commit -m 'Add immutable Friendly-15 metrics and consistent domain-weighted residuals'
+          git add model/unified/domain_experiment.py
+          git add -u data/unified/friendly15
+          git commit -m 'Evaluate complete cached friendly teamsheets and reset superseded selection'
           git push origin HEAD:codex/friendly-stat-validation-20260919
           echo "sha=$(git rev-parse HEAD)" >> "$GITHUB_OUTPUT"
 
@@ -82,7 +95,7 @@ jobs:
           echo "LD_LIBRARY_PATH=$RUNNER_TEMP/py311/lib" >> "$GITHUB_ENV"
           echo "$RUNNER_TEMP/py311/bin" >> "$GITHUB_PATH"
           git lfs pull --include='data/unified/player_match.csv,data/unified/raw_benchmark/v1/player_match.csv,data/ncr/club_player_match.csv,data/unified/raw_benchmark/v1/models/p3_event_50/nations_championship_2026.pkl' --exclude=''
-      - name: Verify entire repository and prepare shared inputs
+      - name: Verify repository and prepare shared inputs
         run: |
           python -m pip install 'beautifulsoup4>=4.12,<5' 'requests>=2.31,<3'
           python model_env_preflight.py
@@ -160,7 +173,6 @@ jobs:
     outputs:
       sha: ${{ steps.select.outputs.sha }}
       engines: ${{ steps.select.outputs.engines }}
-      selected: ${{ steps.select.outputs.selected }}
     steps:
       - uses: actions/checkout@v5
         with:
@@ -184,7 +196,7 @@ jobs:
           echo "LD_LIBRARY_PATH=$RUNNER_TEMP/py311/lib" >> "$GITHUB_ENV"
           echo "$RUNNER_TEMP/py311/bin" >> "$GITHUB_PATH"
       - id: select
-        name: Freeze selection before viewing the 15 test games or fantasy results
+        name: Freeze selection before viewing test games or fantasy results
         run: |
           python - <<'PY'
           import json, os
@@ -198,12 +210,16 @@ jobs:
           assert len(manifests) == 12
           for key in ['source_sha256', 'store_sha256', 'features_sha256', 'weight_config_sha256', 'candidate_configs']:
               assert all(m[key] == manifests[0][key] for m in manifests), key
+          for path in Path('development').rglob('truth.csv'):
+              truth = pd.read_csv(path)
+              assert truth['team'].nunique() == 2
           metrics = pd.concat([pd.read_csv(p,dtype={'fixture_id':str}) for p in files],ignore_index=True)
           fixture_ids = [f['fixture_id'] for f in json.loads(Path('data/unified/friendly15/development_fixtures.json').read_text())['fixtures']]
           selection = select_development(metrics, fixture_ids)
           selection['source_sha256'] = manifests[0]['source_sha256']
           selection['store_sha256'] = manifests[0]['store_sha256']
           selection['development_metrics_sha256'] = __import__('hashlib').sha256(metrics.to_csv(index=False).encode()).hexdigest()
+          selection['cohort'] = 'both_cached_teams'
           Path('data/unified/friendly15/selection.json').write_text(json.dumps(selection,indent=2,sort_keys=True)+'\n')
           metrics.to_csv('data/unified/friendly15/development_metrics.csv',index=False)
           summary, per_stat = summarise_stats(metrics, fixture_ids)
@@ -211,12 +227,11 @@ jobs:
           print('SELECTED:', selection['selected'])
           with open(os.environ['GITHUB_OUTPUT'],'a') as out:
               out.write('engines='+CONTROL+(' '+selection['selected'] if selection['selected'] else '')+'\n')
-              out.write('selected='+str(selection['selected'] is not None).lower()+'\n')
           PY
           git config user.name 'github-actions[bot]'
           git config user.email '41898282+github-actions[bot]@users.noreply.github.com'
           git add data/unified/friendly15/selection.json data/unified/friendly15/development_metrics.csv
-          git commit -m 'Freeze development-only domain selection before confirmation'
+          git commit -m 'Freeze complete-cohort development selection before confirmation'
           git push origin HEAD:codex/friendly-stat-validation-20260919
           echo "sha=$(git rev-parse HEAD)" >> "$GITHUB_OUTPUT"
       - uses: actions/upload-artifact@v4
@@ -261,7 +276,7 @@ jobs:
           echo "PYTHONHOME=$RUNNER_TEMP/py311" >> "$GITHUB_ENV"
           echo "LD_LIBRARY_PATH=$RUNNER_TEMP/py311/lib" >> "$GITHUB_ENV"
           echo "$RUNNER_TEMP/py311/bin" >> "$GITHUB_PATH"
-      - name: Compare only the previously selected candidate and fixed controls
+      - name: Compare only selected candidate and fixed controls
         run: python -u -m model.unified.domain_experiment --output results --job '${{ matrix.job }}' --engines ${{ needs.selection.outputs.engines }} | tee run.log
       - name: Package prediction evidence without training tables or fitted binaries
         run: |

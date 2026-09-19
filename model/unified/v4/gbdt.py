@@ -20,7 +20,7 @@ import pandas as pd
 
 from ..contracts import EventDistribution, RawPrediction
 from ..features import FeatureEncoder, numeric_feature_columns
-from ..gbdt import UniversalGBDT
+from ..gbdt import UniversalGBDT, training_weights
 from ..schema import distribution_family
 from .features import EB_EVENTS, V4_BASE_NUMERIC, V4_FEATURE_PREFIXES
 
@@ -114,6 +114,7 @@ class V4GBDT(UniversalGBDT):
         X = np.column_stack([cat, numeric])
         minutes = pd.to_numeric(frame["minutes"], errors="coerce")
         k_by_event = fit_shrinkage_k(frame)
+        weight = training_weights(frame, self.weighting, self.time_half_life_days)
         for event in EB_EVENTS:
             model = self.models.get(event)
             if model is None or distribution_family(event) == "bernoulli":
@@ -128,11 +129,16 @@ class V4GBDT(UniversalGBDT):
             else:
                 predicted = np.clip(model.predict(X[valid]), 1e-6, None)
             players = frame.loc[valid, "player_id"].astype(str).to_numpy()
-            table = pd.DataFrame({"player": players, "actual": actual, "pred": predicted})
+            # Use the tree loss weights here too: otherwise club-dominated
+            # residual sums can undo international or recency weighting.
+            observed_weight = weight[valid]
+            table = pd.DataFrame({"player": players, "actual": actual * observed_weight,
+                                  "pred": predicted * observed_weight})
             agg = table.groupby("player").sum()
             # Prior mass = expected events over K moment-matched minutes at the
             # pooled rate (same K machinery as the feature variant; not pinned).
-            pooled_rate = float(actual.sum() / max(minutes[valid].sum(), 1.0)) * 80.0
+            pooled_rate = float((actual * observed_weight).sum() / max(
+                (minutes[valid].to_numpy(float) * observed_weight).sum(), 1.0)) * 80.0
             alpha = max(k_by_event.get(event, 220.0) * pooled_rate / 80.0, 0.5)
             effect = (alpha + agg["actual"]) / (alpha + agg["pred"])
             effect = effect.clip(*EFFECT_BOUNDS)

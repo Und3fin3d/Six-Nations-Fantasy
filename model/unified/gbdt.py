@@ -13,6 +13,37 @@ from .features import FeatureEncoder
 from .schema import EVENTS, distribution_family
 
 
+def training_weights(
+    frame: pd.DataFrame, weighting: str = "natural",
+    time_half_life_days: float | None = None,
+) -> np.ndarray:
+    """Shared loss and residual-calibration weights, normalised to mean one."""
+    if frame.empty:
+        raise ValueError("training frame must not be empty")
+    if time_half_life_days is not None and (
+        not np.isfinite(time_half_life_days) or time_half_life_days <= 0
+    ):
+        raise ValueError("time half-life must be finite and positive")
+    level = frame["competition_level"].fillna("unknown").astype(str)
+    sample_weight = np.ones(len(frame), dtype=float)
+    if weighting == "level_balanced":
+        domain_count = level.map(level.value_counts()).to_numpy(float)
+        sample_weight *= len(frame) / np.maximum(domain_count, 1)
+    elif weighting == "international_x2":
+        sample_weight *= np.where(level.eq("international"), 2.0, 1.0)
+    elif weighting == "international_x4":
+        sample_weight *= np.where(level.eq("international"), 4.0, 1.0)
+    elif weighting != "natural":
+        raise ValueError(f"unknown weighting scheme {weighting!r}")
+    if time_half_life_days:
+        dates = pd.to_datetime(frame["date"], errors="coerce")
+        age = (dates.max() + pd.Timedelta(days=1) - dates).dt.days
+        age = age.fillna(0).clip(lower=0).to_numpy(float)
+        sample_weight *= np.power(0.5, age / float(time_half_life_days))
+    sample_weight /= sample_weight.mean()
+    return sample_weight
+
+
 class _ConstantProbability:
     def __init__(self, probability: float):
         self.probability = float(probability)
@@ -58,23 +89,7 @@ class UniversalGBDT:
         # historical default unchanged until the challenger clears its gates.
         fit_kwargs = ({"categorical_feature": list(range(cat.shape[1]))}
                       if self.native_categories else {})
-        level = frame["competition_level"].fillna("unknown").astype(str)
-        sample_weight = np.ones(len(frame), dtype=float)
-        if self.weighting == "level_balanced":
-            domain_count = level.map(level.value_counts()).to_numpy(float)
-            sample_weight *= len(frame) / np.maximum(domain_count, 1)
-        elif self.weighting == "international_x2":
-            sample_weight *= np.where(level.eq("international"), 2.0, 1.0)
-        elif self.weighting == "international_x4":
-            sample_weight *= np.where(level.eq("international"), 4.0, 1.0)
-        elif self.weighting != "natural":
-            raise ValueError(f"unknown weighting scheme {self.weighting!r}")
-        if self.time_half_life_days:
-            dates = pd.to_datetime(frame["date"], errors="coerce")
-            age = (dates.max() + pd.Timedelta(days=1) - dates).dt.days
-            age = age.fillna(0).clip(lower=0).to_numpy(float)
-            sample_weight *= np.power(0.5, age / float(self.time_half_life_days))
-        sample_weight /= sample_weight.mean()
+        sample_weight = training_weights(frame, self.weighting, self.time_half_life_days)
         targets = ("minutes",) + self.events
         for target in targets:
             mask_col = f"available__{target}"

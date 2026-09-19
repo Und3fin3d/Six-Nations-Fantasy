@@ -1,0 +1,167 @@
+{
+  "asof": "2026-09-19T00:00:00+00:00",
+  "availability": "earlier results require kickoff plus strictly more than three hours",
+  "count": 15,
+  "count_targets": [
+    "tries",
+    "try_assists",
+    "conversion_goals",
+    "missed_conversion_goals",
+    "penalty_goals",
+    "missed_penalty_goals",
+    "drop_goals_converted",
+    "drop_goal_missed",
+    "defenders_beaten",
+    "clean_breaks",
+    "offload",
+    "runs",
+    "tackles",
+    "missed_tackles",
+    "rucks_won",
+    "rucks_lost",
+    "passes",
+    "bad_passes",
+    "turnovers_conceded",
+    "penalties_conceded",
+    "yellow_cards",
+    "red_cards"
+  ],
+  "eligible_count": 206,
+  "fixtures": [
+    {
+      "away": "Fiji",
+      "cache_sha256": "8b7becd06530ad322804baffdd8755ed758aa22dff12ec8a50d7ad37f62a82a8",
+      "fixture_id": "8518300",
+      "home": "France",
+      "kickoff": "2025-11-15T20:10:00+00:00"
+    },
+    {
+      "away": "Argentina",
+      "cache_sha256": "77043042e30cf0855442707ae6036b59b1191069baa22da255c988ad4d0a4e84",
+      "fixture_id": "8518309",
+      "home": "Scotland",
+      "kickoff": "2025-11-16T15:10:00+00:00"
+    },
+    {
+      "away": "Japan",
+      "cache_sha256": "6c9e887f91bc8c805747004b8c73008677513d9756f170d055f506508a2f409e",
+      "fixture_id": "8518390",
+      "home": "Georgia",
+      "kickoff": "2025-11-22T12:00:00+00:00"
+    },
+    {
+      "away": "New Zealand",
+      "cache_sha256": "18b202a949ec705a13e41e1c4db6c02afd0fdccb0200f68e3091d1d4027cdb70",
+      "fixture_id": "8518318",
+      "home": "Wales",
+      "kickoff": "2025-11-22T15:10:00+00:00"
+    },
+    {
+      "away": "Fiji",
+      "cache_sha256": "45ef303db2bbb2852ae6c39dd0660c8c553263c6b7ce9bf5db5866d744af404c",
+      "fixture_id": "8544553",
+      "home": "Spain",
+      "kickoff": "2025-11-22T16:00:00+00:00"
+    },
+    {
+      "away": "South Africa",
+      "cache_sha256": "84c92288d1a11b987229b9e736cc042b2826c8a944d438db6be99060f5acd5fe",
+      "fixture_id": "8518327",
+      "home": "Ireland",
+      "kickoff": "2025-11-22T17:40:00+00:00"
+    },
+    {
+      "away": "Chile",
+      "cache_sha256": "83f8bf3a8991ebff9520e43f0b6b2755decff24a5e1ffe6e202a75b78b6242df",
+      "fixture_id": "8518336",
+      "home": "Italy",
+      "kickoff": "2025-11-22T20:10:00+00:00"
+    },
+    {
+      "away": "Australia",
+      "cache_sha256": "e9fff0629f0c03bbe7405960cb8b303ea78f2b8a5a0a08b40e8e564fd1c2052d",
+      "fixture_id": "8518345",
+      "home": "France",
+      "kickoff": "2025-11-22T20:10:00+00:00"
+    },
+    {
+      "away": "Tonga",
+      "cache_sha256": "12dd56fd3bf379fdf73af54d5f0c82653ea0f336520bbae33beb220eb7e8952e",
+      "fixture_id": "8518354",
+      "home": "Scotland",
+      "kickoff": "2025-11-23T13:40:00+00:00"
+    },
+    {
+      "away": "Argentina",
+      "cache_sha256": "2d26dc2054eda1b99971f4b0d29569b66a16b3e022582b0ae546aa0bca9841ea",
+      "fixture_id": "8518363",
+      "home": "England",
+      "kickoff": "2025-11-23T16:10:00+00:00"
+    },
+    {
+      "away": "South Africa",
+      "cache_sha256": "4431337534406e3421ee6c8a81b2cf39f9c2719b5cbb8e183c84dd7f70b68530",
+      "fixture_id": "8518372",
+      "home": "Wales",
+      "kickoff": "2025-11-29T15:10:00+00:00"
+    },
+    {
+      "away": "Australia",
+      "cache_sha256": "26304cd28c288f18f4787482d527ddf7821ac618ff1b032cf78c293cff761e7f",
+      "fixture_id": "8546596",
+      "home": "Japan",
+      "kickoff": "2026-08-08T10:05:00+00:00"
+    },
+    {
+      "away": "South Africa",
+      "cache_sha256": "021572c6895d543bc57594efd17f9879817b4775e01f63d847474b745b691a4e",
+      "fixture_id": "8553454",
+      "home": "Argentina",
+      "kickoff": "2026-08-08T19:00:00+00:00"
+    },
+    {
+      "away": "Japan",
+      "cache_sha256": "082812c713e79329edaaf1dc3de681bc5b7eb86800a31fc83ef917e1d476a587",
+      "fixture_id": "8546605",
+      "home": "Australia",
+      "kickoff": "2026-08-15T05:15:00+00:00"
+    },
+    {
+      "away": "New Zealand",
+      "cache_sha256": "69128c2b29ad47dce98723833bc102e82e1461277162919c1eaa4ae66de2f838",
+      "fixture_id": "8545138",
+      "home": "South Africa",
+      "kickoff": "2026-08-22T15:10:00+00:00"
+    }
+  ],
+  "label_scope": "no official fantasy labels in this repository; not a claim about all platforms",
+  "lineup_basis": "historical oracle teamsheets; kickoff is the prediction lock proxy",
+  "selection": "latest completed canonical comp_id=30, excluding fantasy-labelled fixtures",
+  "targets": [
+    "minutes",
+    "tries",
+    "try_assists",
+    "conversion_goals",
+    "missed_conversion_goals",
+    "penalty_goals",
+    "missed_penalty_goals",
+    "drop_goals_converted",
+    "drop_goal_missed",
+    "defenders_beaten",
+    "clean_breaks",
+    "offload",
+    "runs",
+    "tackles",
+    "missed_tackles",
+    "rucks_won",
+    "rucks_lost",
+    "passes",
+    "bad_passes",
+    "turnovers_conceded",
+    "penalties_conceded",
+    "yellow_cards",
+    "red_cards",
+    "metres"
+  ],
+  "version": 1
+}

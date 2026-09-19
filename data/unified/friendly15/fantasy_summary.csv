@@ -1,0 +1,10 @@
+competition,season,engine,mae,team_points,rounds
+ncr,2026,empirical_baseline,8.401189018732959,1578.0,3
+ncr,2026,p3_balanced_recent_native,8.403138530845277,1694.0,3
+ncr,2026,p3_robust_native,8.364626382376448,1740.0,3
+six_nations,2025,empirical_baseline,7.139481450020274,2410.0,5
+six_nations,2025,p3_balanced_recent_native,7.198233430767914,2275.0,5
+six_nations,2025,p3_robust_native,7.2318968504966845,2416.0,5
+six_nations,2026,empirical_baseline,7.389271159804082,2548.0,5
+six_nations,2026,p3_balanced_recent_native,7.250683160201879,2519.0,5
+six_nations,2026,p3_robust_native,7.254336422529455,2550.0,5

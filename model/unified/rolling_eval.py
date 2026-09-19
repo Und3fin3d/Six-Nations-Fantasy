@@ -197,7 +197,7 @@ def evaluate(slate: Slate, engine: str, points: np.ndarray, output: Path) -> dic
         team_points=team_points(squad,slate.team_actuals),budget_verified=slate.budget_verified,lineup_basis=slate.lineup_basis)
 
 
-def run(output: Path, competitions: tuple[str,...], *, prepare_only: bool=False, round_job: str | None=None) -> pd.DataFrame:
+def run(output: Path, competitions: tuple[str,...], *, prepare_only: bool=False, round_job: str | None=None, native_categories: bool=False) -> pd.DataFrame:
     from model_env_preflight import check
     errors = check(ROOT/'requirements-model.txt')
     if errors and not prepare_only:
@@ -208,6 +208,7 @@ def run(output: Path, competitions: tuple[str,...], *, prepare_only: bool=False,
         return pd.DataFrame()
     manifest_path = output/'run_manifest.json'
     manifest = {
+        'native_categories': bool(native_categories),
         'source_base_commit': '64485d2e374178b51108a298683b9ba43ab9628b',
         'python': platform.python_version(),
         'packages': {name: version(name) for name in ('numpy','pandas','scipy','scikit-learn','lightgbm','torch')},
@@ -253,7 +254,8 @@ def run(output: Path, competitions: tuple[str,...], *, prepare_only: bool=False,
             blend = EventBlend50.load(path)
         else:
             empirical = EmpiricalEventModel(asof=slate.cutoff).fit(train)
-            v4 = V4GBDT(events=(*STABLE_EVENTS,*EXTENDED_EVENTS),weighting='natural',pool_player_id=True,player_effects=True).fit(features)
+            v4 = V4GBDT(events=(*STABLE_EVENTS,*EXTENDED_EVENTS),weighting='natural',pool_player_id=True,
+                player_effects=True,native_categories=native_categories).fit(features)
             blend = EventBlend50(empirical,v4)
             blend.save(path)
         models = {'p3_rolling': blend,'p3_weighted': EventWeightedBlend(blend.empirical,blend.v4,
@@ -262,6 +264,8 @@ def run(output: Path, competitions: tuple[str,...], *, prepare_only: bool=False,
         models['p3_robust'] = EventWeightedBlend(robust, blend.v4,
             weight_v4=config['default_weight_v4'], event_weights_v4=config['event_weights_v4'])
         for name,model in models.items():
+            if native_categories:
+                name += "_native"
             model.save(model_dir/f'{name}.pkl')
             raw = model.predict_frame(candidates)
             (model_dir/f'{name}.jsonl').write_text(''.join(json.dumps(p.to_dict())+'\n' for p in raw))
@@ -281,7 +285,7 @@ def run(output: Path, competitions: tuple[str,...], *, prepare_only: bool=False,
             controls = [slate]
         for control in controls:
             _,old_candidates = build_frozen_feature_frames(old_train,control.candidates,v4=True,prepared_train=old_features)
-            results.append(evaluate(control,'p3_tournament_frozen',expected_points(old_model.predict_frame(old_candidates),control.competition),output))
+            results.append(evaluate(control,'p3_tournament_frozen_native' if native_categories else 'p3_tournament_frozen',expected_points(old_model.predict_frame(old_candidates),control.competition),output))
         manifests.append({'slate': slate.name,'cutoff': slate.cutoff.isoformat(),'training_rows': len(train),
             'training_fixtures': int(train.fixture_id.nunique()),'training_match_at_max': train.match_at.max().isoformat(),
             'same_tournament_prior_rows': int((train.competition_id_cache.eq(696 if slate.competition=='ncr' else 1266)&train.calendar_year.eq(slate.season)).sum()),
@@ -303,9 +307,10 @@ def main() -> None:
     parser.add_argument('--output',type=Path,default=DEFAULT_OUTPUT)
     parser.add_argument('--competitions',nargs='+',choices=['ncr','six_nations'],default=['six_nations','ncr'])
     parser.add_argument('--prepare-only',action='store_true')
+    parser.add_argument('--native-categories',action='store_true',help='Research-only native categorical tree splits; no promotion')
     parser.add_argument('--round-job',help='Fit one round; season-first jobs also emit every frozen control')
     args = parser.parse_args()
-    run(args.output,tuple(args.competitions),prepare_only=args.prepare_only,round_job=args.round_job)
+    run(args.output,tuple(args.competitions),prepare_only=args.prepare_only,round_job=args.round_job,native_categories=args.native_categories)
 
 if __name__ == '__main__':
     main()

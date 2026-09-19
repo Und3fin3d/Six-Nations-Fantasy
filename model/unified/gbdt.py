@@ -34,6 +34,7 @@ class UniversalGBDT:
         weighting: str = "level_balanced",
         time_half_life_days: float | None = None,
         n_estimators: int = 180, num_leaves: int = 23,
+        native_categories: bool = False,
     ):
         self.events = tuple(events)
         self.random_state = random_state
@@ -41,6 +42,7 @@ class UniversalGBDT:
         self.time_half_life_days = time_half_life_days
         self.n_estimators = n_estimators
         self.num_leaves = num_leaves
+        self.native_categories = bool(native_categories)
         self.encoder = FeatureEncoder()
         self.models: dict[str, object] = {}
         self.dispersion: dict[str, float] = {}
@@ -51,6 +53,11 @@ class UniversalGBDT:
         self.encoder.fit(frame)
         cat, numeric = self.encoder.transform(frame)
         X = np.column_stack([cat, numeric])
+        # NumPy matrices have no category dtype. "auto" otherwise treats these
+        # train-only identity codes as ordered numeric quantities. Keep the
+        # historical default unchanged until the challenger clears its gates.
+        fit_kwargs = ({"categorical_feature": list(range(cat.shape[1]))}
+                      if self.native_categories else {})
         level = frame["competition_level"].fillna("unknown").astype(str)
         sample_weight = np.ones(len(frame), dtype=float)
         if self.weighting == "level_balanced":
@@ -89,14 +96,14 @@ class UniversalGBDT:
                     model = _ConstantProbability(float(binary.mean()))
                 else:
                     model = lgb.LGBMClassifier(objective="binary", **kwargs)
-                    model.fit(X[valid], binary, sample_weight=sample_weight[valid])
+                    model.fit(X[valid], binary, sample_weight=sample_weight[valid], **fit_kwargs)
                 fitted = model.predict_proba(X[valid])[:, 1]
             else:
                 objective = "tweedie" if family == "lognormal" else "poisson"
                 model = lgb.LGBMRegressor(
                     objective=objective, tweedie_variance_power=1.35, **kwargs,
                 )
-                model.fit(X[valid], y, sample_weight=sample_weight[valid])
+                model.fit(X[valid], y, sample_weight=sample_weight[valid], **fit_kwargs)
                 fitted = np.clip(model.predict(X[valid]), 0, None)
             resid_var = float(np.mean((y - fitted) ** 2))
             mean = float(np.mean(fitted))

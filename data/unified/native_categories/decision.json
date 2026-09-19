@@ -1,0 +1,16 @@
+{
+  "pr_opened": false,
+  "promoted": false,
+  "all_tournament_gate_passed": false,
+  "candidate": "p3_robust_native",
+  "reason": [
+    "Six Nations 2025 MAE remains worse than empirical.",
+    "Six Nations squad results are price-free and gains are only 6 and 2 points.",
+    "All squad-points bootstrap intervals include zero."
+  ],
+  "round_jobs": 13,
+  "model_round_evaluations": 65,
+  "full_tests_passed": 121,
+  "tested_commit": "2f7deeda95cb5c2f8e2924271b964d4ce49238dc",
+  "workflow_run": 35470275137
+}

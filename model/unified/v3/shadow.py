@@ -77,8 +77,11 @@ def ncr_candidates(gw: int, projection: pd.DataFrame | None = None) -> pd.DataFr
         opponent, fixture_id, date = by_team[str(row.team)]
         pos = POSITION[str(row.pos)]
         started = str(row.status).upper() == "P"
+        # New projections carry the exact identity used by the empirical model.
+        # Missing history is a cold start, not permission to use a fuzzy namesake.
+        history_id = getattr(row, "history_player_id", row.api_player_id)
         api_id = (
-            str(int(row.api_player_id)) if pd.notna(row.api_player_id)
+            str(int(history_id)) if pd.notna(history_id)
             else f"fantasy_{int(row.id)}"
         )
         records.append({
@@ -86,7 +89,7 @@ def ncr_candidates(gw: int, projection: pd.DataFrame | None = None) -> pd.DataFr
             "competition_id": 9999, "competition_level": "international",
             "season": 2026, "round": gw, "fixture_id": fixture_id,
             "player_id": api_id, "fantasy_id": int(row.id),
-            "player_name": row.full_name if isinstance(row.full_name, str) else row.name,
+            "player_name": row.name,
             "team": row.team, "opponent": opponent, "position": pos,
             "is_forward": pos in FORWARD_POSITIONS, "started": started,
             "jersey": START_JERSEY[str(row.pos)] if started else BENCH_JERSEY[str(row.pos)],

@@ -393,6 +393,7 @@ def build_projection(
             supersub_exp = per80 * (bench_min / 80) * 3.0    # bench player as super sub → 3x
 
         recs.append(dict(id=pl.id, name=pl.full_name, team=team, hemi=pl.hemisphere,
+                         history_player_id=pid_map.get(pl.id, np.nan),
                          pos=pos, value=pl.value, sel=pl.sel_percentage, status=status,
                          opp=opp.get(team), home=home.get(team), n_hist=n, rp_min=int(rp_min),
                          wr_margin=round(margin, 1),      # model's own expected margin

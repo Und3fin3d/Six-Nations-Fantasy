@@ -112,7 +112,7 @@
       "clean_breaks": 0,
       "offloads": 1,
       "handling_errors": 1,
-      "passes": 20,
+      "passes": 19,
       "bad_passes": 0,
       "tackles": 23,
       "missed_tackles": 3,

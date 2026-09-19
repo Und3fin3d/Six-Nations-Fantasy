@@ -141,6 +141,19 @@
     },
     {
       "competition": "Top 14",
+      "match": "Clermont vs Stade Francais",
+      "date": "12 Sep 2026",
+      "opposition": "Stade Francais",
+      "win": true,
+      "draw": false,
+      "mins": 71,
+      "tries": 0,
+      "yellow_cards": 0,
+      "red_cards": 0,
+      "conversions": 0
+    },
+    {
+      "competition": "Top 14",
       "match": "Lyon vs Clermont",
       "date": "5 Sep 2026",
       "opposition": "Lyon",

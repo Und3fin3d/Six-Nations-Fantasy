@@ -811,6 +811,19 @@
     },
     {
       "competition": "Hilux NPC",
+      "match": "Bay of Plenty vs Hawkes Bay",
+      "date": "19 Sep 2026",
+      "opposition": "Bay of Plenty",
+      "win": false,
+      "draw": false,
+      "mins": 8,
+      "tries": 0,
+      "yellow_cards": 0,
+      "red_cards": 0,
+      "conversions": 0
+    },
+    {
+      "competition": "Hilux NPC",
       "match": "Southland Stags vs Hawkes Bay",
       "date": "27 Aug 2026",
       "opposition": "Southland Stags",

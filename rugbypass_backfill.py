@@ -237,6 +237,7 @@ def refresh_existing(*, delay: float):
     results = []
     changed = unchanged = failed = 0
     retained = {"bio": 0, "competition_stats": 0, "match_log": 0}
+    retained_historical_competition_rows = 0
 
     for i, path in enumerate(paths, 1):
         old = json.loads(path.read_text())
@@ -264,6 +265,17 @@ def refresh_existing(*, delay: float):
                 retained[field] += 1
                 retained_fields.append(field)
 
+        competition_keys = {
+            (row.get("competition"), row.get("season"))
+            for row in fresh["competition_stats"]
+        }
+        historical_rows = [
+            row for row in old.get("competition_stats", [])
+            if (row.get("competition"), row.get("season")) not in competition_keys
+        ]
+        fresh["competition_stats"].extend(historical_rows)
+        retained_historical_competition_rows += len(historical_rows)
+
         if fresh != old:
             path.write_text(json.dumps(fresh, indent=2))
             changed += 1
@@ -284,6 +296,7 @@ def refresh_existing(*, delay: float):
         "unchanged_profiles": unchanged,
         "failed_profiles_kept": failed,
         "retained_nonempty_sections": retained,
+        "retained_historical_competition_rows": retained_historical_competition_rows,
         "results": results,
     }
     manifest_dir = BASE / "data"

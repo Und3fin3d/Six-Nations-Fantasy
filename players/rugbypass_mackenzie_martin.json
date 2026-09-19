@@ -732,6 +732,32 @@
     },
     {
       "competition": "Pro D2",
+      "match": "US Montauban vs Beziers",
+      "date": "18 Sep 2026",
+      "opposition": "US Montauban",
+      "win": false,
+      "draw": false,
+      "mins": 57,
+      "tries": 0,
+      "yellow_cards": 0,
+      "red_cards": 0,
+      "conversions": 0
+    },
+    {
+      "competition": "Pro D2",
+      "match": "Beziers vs USON Nevers",
+      "date": "11 Sep 2026",
+      "opposition": "USON Nevers",
+      "win": true,
+      "draw": false,
+      "mins": 60,
+      "tries": 0,
+      "yellow_cards": 0,
+      "red_cards": 0,
+      "conversions": 0
+    },
+    {
+      "competition": "Pro D2",
       "match": "Nice vs Beziers",
       "date": "4 Sep 2026",
       "opposition": "Nice",

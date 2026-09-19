@@ -274,6 +274,19 @@
   "match_log": [
     {
       "competition": "Internationals",
+      "match": "South Africa vs New Zealand",
+      "date": "12 Sep 2026",
+      "opposition": "South Africa",
+      "win": false,
+      "draw": false,
+      "mins": 80,
+      "tries": 0,
+      "yellow_cards": 0,
+      "red_cards": 0,
+      "conversions": 0
+    },
+    {
+      "competition": "Internationals",
       "match": "New Zealand vs South Africa",
       "date": "25 Aug 2023",
       "opposition": "South Africa",

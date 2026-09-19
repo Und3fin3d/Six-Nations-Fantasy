@@ -1710,6 +1710,19 @@
     },
     {
       "competition": "Top 14",
+      "match": "Castres vs Toulon",
+      "date": "19 Sep 2026",
+      "opposition": "Castres",
+      "win": false,
+      "draw": true,
+      "mins": 29,
+      "tries": 0,
+      "yellow_cards": 0,
+      "red_cards": 0,
+      "conversions": 0
+    },
+    {
+      "competition": "Top 14",
       "match": "Toulon vs Bordeaux",
       "date": "31 May 2026",
       "opposition": "Bordeaux",

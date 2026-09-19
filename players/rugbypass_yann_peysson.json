@@ -389,6 +389,32 @@
     },
     {
       "competition": "Pro D2",
+      "match": "Aurillac vs Brive",
+      "date": "17 Sep 2026",
+      "opposition": "Aurillac",
+      "win": true,
+      "draw": false,
+      "mins": 80,
+      "tries": 0,
+      "yellow_cards": 0,
+      "red_cards": 0,
+      "conversions": 0
+    },
+    {
+      "competition": "Pro D2",
+      "match": "Brive vs Nice",
+      "date": "11 Sep 2026",
+      "opposition": "Nice",
+      "win": true,
+      "draw": false,
+      "mins": 80,
+      "tries": 0,
+      "yellow_cards": 0,
+      "red_cards": 0,
+      "conversions": 0
+    },
+    {
+      "competition": "Pro D2",
       "match": "Agen vs Brive",
       "date": "4 Sep 2026",
       "opposition": "Agen",

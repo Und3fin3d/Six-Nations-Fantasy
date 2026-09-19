@@ -1183,6 +1183,19 @@
     },
     {
       "competition": "Pro D2",
+      "match": "Agen vs Oyonnax",
+      "date": "18 Sep 2026",
+      "opposition": "Agen",
+      "win": true,
+      "draw": false,
+      "mins": 34,
+      "tries": 0,
+      "yellow_cards": 0,
+      "red_cards": 0,
+      "conversions": 0
+    },
+    {
+      "competition": "Pro D2",
       "match": "Vannes vs Oyonnax",
       "date": "28 May 2026",
       "opposition": "Vannes",

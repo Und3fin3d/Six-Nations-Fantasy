@@ -35,6 +35,8 @@ jobs:
       - uses: actions/checkout@v5
         with:
           ref: codex/rolling-history-parity-20260919
+      - name: Materialize only the required LFS history
+        run: git lfs pull --include='data/ncr/club_player_match.csv' --exclude=''
       - uses: actions/setup-python@v6
         with:
           python-version: '3.11'
@@ -65,11 +67,13 @@ jobs:
         run: |
           python -m model.unified.rolling_evaluation --prepare
           python -m pip freeze > data/unified/rolling_history/environment.txt
+          cp data/ncr/club_player_match.csv data/unified/rolling_history/club_player_match.csv
       - uses: actions/upload-artifact@v4
         with:
           name: rolling-input
           path: |
             data/unified/rolling_history/player_match.csv
+            data/unified/rolling_history/club_player_match.csv
             data/unified/rolling_history/store_manifest.json
             data/unified/rolling_history/source_report.json
             data/unified/rolling_history/tests.log
@@ -105,7 +109,9 @@ jobs:
           name: rolling-input
           path: data/unified/rolling_history
       - name: Fit and compare using all prior rounds
-        run: python -u -m model.unified.rolling_evaluation --round '${{ matrix.round }}' 2>&1 | tee 'data/unified/rolling_history/${{ matrix.round }}.log'
+        run: |
+          cp data/unified/rolling_history/club_player_match.csv data/ncr/club_player_match.csv
+          python -u -m model.unified.rolling_evaluation --round '${{ matrix.round }}' 2>&1 | tee 'data/unified/rolling_history/${{ matrix.round }}.log'
       - uses: actions/upload-artifact@v4
         if: always()
         with:

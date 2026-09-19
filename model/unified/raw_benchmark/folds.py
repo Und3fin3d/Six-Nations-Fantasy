@@ -127,11 +127,20 @@ def evaluation_frame(store: pd.DataFrame, fold: HistoricalFold) -> pd.DataFrame:
 
 
 def masked_candidates(evaluation: pd.DataFrame) -> pd.DataFrame:
+    """Remove historical outcomes, including auxiliary source availability flags."""
     candidates = evaluation.copy()
-    for target in ("minutes", *EVENTS):
+    targets = {"minutes", *EVENTS}
+    targets.update(
+        col.removeprefix("available__")
+        for col in candidates.columns if col.startswith("available__")
+    )
+    for target in targets:
         if target in candidates:
-            candidates[target] = pd.NA
+            candidates[target] = float("nan")
         candidates[f"available__{target}"] = False
+    for column in ("team_score", "opp_score", "official_pts", "fantasy_points"):
+        if column in candidates:
+            candidates[column] = float("nan")
     candidates["source"] = "raw_benchmark_candidate"
     candidates["source_priority"] = 999
     return candidates

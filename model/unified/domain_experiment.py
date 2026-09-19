@@ -22,6 +22,7 @@ from .contracts import RawPrediction
 from .data import ROOT
 from .features import build_pit_features
 from .friendly_eval import score_stats, summarise_stats, validate_manifest
+from .friendly_cohort import complete_fixture_cohort
 from .raw_benchmark.blend import EventWeightedBlend
 from .raw_benchmark.config import STABLE_EVENTS, EXTENDED_EVENTS
 from .raw_benchmark.coverage import sha256
@@ -134,7 +135,7 @@ def run_job(output: Path, job: str, engines: tuple[str, ...]) -> None:
         if chosen is None:
             raise ValueError("fixture is not in the frozen manifest")
         cutoff = pd.Timestamp(chosen["kickoff"])
-        truth = store[store.fixture_id.eq(fixture)].sort_values(KEY).reset_index(drop=True)
+        truth = complete_fixture_cohort(store, fixture, DATA / "cache")
         candidates = masked_candidates(truth.drop(columns=["team_score", "opp_score"], errors="ignore"))
         source_manifest["fixture_manifest_sha256"] = sha256(manifest_path)
     else:
@@ -165,7 +166,7 @@ def run_job(output: Path, job: str, engines: tuple[str, ...]) -> None:
         control_raw = EmpiricalEventModel(asof=cutoff).fit(train).predict_frame(candidate_features)
         _save_raw(directory / "empirical_raw.jsonl", control_raw)
         metrics.append(score_stats(truth, control_raw, engine="empirical_raw"))
-        truth[[*KEY, "position", "started", "minutes", *STABLE_EVENTS,
+        truth[[*KEY, "position", "started", "canonical_player", "minutes", *STABLE_EVENTS,
                "available__minutes", *(f"available__{e}" for e in STABLE_EVENTS)]].to_csv(directory / "truth.csv", index=False)
     else:
         if slate.baseline is None:

@@ -8,9 +8,10 @@ on:
 
 permissions:
   contents: read
+  actions: read
 
 concurrency:
-  group: rolling-history-validation
+  group: rolling-history-fixed-masks
   cancel-in-progress: false
 
 defaults:
@@ -22,21 +23,16 @@ env:
   OPENBLAS_NUM_THREADS: '1'
   MKL_NUM_THREADS: '2'
   PYTEST_DISABLE_PLUGIN_AUTOLOAD: '1'
+  OUTPUT_DIR: data/unified/rolling_history_v2
 
 jobs:
   prepare:
     runs-on: ubuntu-latest
-    timeout-minutes: 20
-    permissions:
-      contents: write
-    outputs:
-      revision: ${{ steps.revision.outputs.sha }}
+    timeout-minutes: 15
     steps:
       - uses: actions/checkout@v5
         with:
-          ref: codex/rolling-history-parity-20260919
-      - name: Materialize only the required LFS history
-        run: git lfs pull --include='data/ncr/club_player_match.csv' --exclude=''
+          persist-credentials: false
       - uses: actions/setup-python@v6
         with:
           python-version: '3.11'
@@ -44,42 +40,38 @@ jobs:
           cache-dependency-path: requirements-model.txt
       - name: Install pinned dependencies
         run: |
-          python -m pip install -r requirements-model.txt pytest
-          python -m pip install torch==2.7.1 --index-url https://download.pytorch.org/whl/cpu
-      - name: Apply guarded fixes and run regression tests
-        run: |
-          python .github/scripts/apply_rolling_fixes.py
-          mkdir -p data/unified/rolling_history
-          python -m pytest -q tests/test_rolling_history.py tests/test_unified_raw_benchmark.py tests/test_unified_model.py 2>&1 | tee data/unified/rolling_history/tests.log
-          git diff --check
-      - name: Save tested fixes on the working branch only
-        id: revision
-        run: |
-          if ! git diff --quiet -- model tests; then
-            git config user.name 'github-actions[bot]'
-            git config user.email '41898282+github-actions[bot]@users.noreply.github.com'
-            git add model tests
-            git commit -m 'Fix rolling history boundaries and match-level feature leakage'
-            git push origin HEAD:codex/rolling-history-parity-20260919
-          fi
-          echo "sha=$(git rev-parse HEAD)" >> "$GITHUB_OUTPUT"
-      - name: Rebuild current history from permanent caches
-        run: |
-          python -m model.unified.rolling_evaluation --prepare
-          python -m pip freeze > data/unified/rolling_history/environment.txt
-          cp data/ncr/club_player_match.csv data/unified/rolling_history/club_player_match.csv
-      - uses: actions/upload-artifact@v4
+          python -m pip install -q -r requirements-model.txt pytest
+          python -m pip install -q torch==2.7.1 --index-url https://download.pytorch.org/whl/cpu
+      - uses: actions/download-artifact@v4
         with:
           name: rolling-input
-          path: |
-            data/unified/rolling_history/player_match.csv
-            data/unified/rolling_history/club_player_match.csv
-            data/unified/rolling_history/store_manifest.json
-            data/unified/rolling_history/source_report.json
-            data/unified/rolling_history/tests.log
-            data/unified/rolling_history/environment.txt
-          compression-level: 1
+          run-id: 35461768013
+          github-token: ${{ github.token }}
+          path: data/unified/rolling_history_v2
+      - name: Test and validate all round inputs before training
+        run: |
+          cp "$OUTPUT_DIR/club_player_match.csv" data/ncr/club_player_match.csv
+          python -m pytest -q tests/test_rolling_history.py tests/test_candidate_outcome_mask.py tests/test_unified_raw_benchmark.py tests/test_unified_model.py | tee "$OUTPUT_DIR/tests.log"
+          python - <<'PY'
+          import os
+          from pathlib import Path
+          from model.unified.rolling_evaluation import prepare_store, cohort, ROUND_IDS, GRAIN
+          store = prepare_store(Path(os.environ['OUTPUT_DIR']))
+          for round_id in ROUND_IDS:
+              cutoff, candidates, labels, baseline = cohort(store, round_id)
+              assert len(candidates) == len(labels)
+              assert not candidates.duplicated(GRAIN).any()
+              assert not candidates.filter(like='available__').any().any(), round_id
+              print(round_id, cutoff, len(candidates), flush=True)
+          PY
+          python -m pip freeze > "$OUTPUT_DIR/environment.txt"
+          git diff --check
+      - uses: actions/upload-artifact@v4
+        with:
+          name: rolling-input-validated
+          path: data/unified/rolling_history_v2
           retention-days: 7
+          compression-level: 1
 
   compare:
     needs: prepare
@@ -93,7 +85,6 @@ jobs:
     steps:
       - uses: actions/checkout@v5
         with:
-          ref: ${{ needs.prepare.outputs.revision }}
           persist-credentials: false
       - uses: actions/setup-python@v6
         with:
@@ -102,24 +93,24 @@ jobs:
           cache-dependency-path: requirements-model.txt
       - name: Install pinned dependencies
         run: |
-          python -m pip install -r requirements-model.txt pytest
-          python -m pip install torch==2.7.1 --index-url https://download.pytorch.org/whl/cpu
+          python -m pip install -q -r requirements-model.txt pytest
+          python -m pip install -q torch==2.7.1 --index-url https://download.pytorch.org/whl/cpu
       - uses: actions/download-artifact@v4
         with:
-          name: rolling-input
-          path: data/unified/rolling_history
+          name: rolling-input-validated
+          path: data/unified/rolling_history_v2
       - name: Fit and compare using all prior rounds
         run: |
-          cp data/unified/rolling_history/club_player_match.csv data/ncr/club_player_match.csv
-          python -u -m model.unified.rolling_evaluation --round '${{ matrix.round }}' 2>&1 | tee 'data/unified/rolling_history/${{ matrix.round }}.log'
+          cp "$OUTPUT_DIR/club_player_match.csv" data/ncr/club_player_match.csv
+          python -u -m model.unified.rolling_evaluation --output "$OUTPUT_DIR" --round '${{ matrix.round }}' 2>&1 | tee "$OUTPUT_DIR/${{ matrix.round }}.log"
       - uses: actions/upload-artifact@v4
         if: always()
         with:
           name: result-${{ matrix.round }}
           path: |
-            data/unified/rolling_history/${{ matrix.round }}
-            data/unified/rolling_history/${{ matrix.round }}.log
-          retention-days: 7
+            data/unified/rolling_history_v2/${{ matrix.round }}
+            data/unified/rolling_history_v2/${{ matrix.round }}.log
+          retention-days: 14
 
   report:
     needs: [prepare, compare]
@@ -128,6 +119,7 @@ jobs:
     timeout-minutes: 15
     permissions:
       contents: write
+      actions: read
     steps:
       - uses: actions/checkout@v5
         with:
@@ -135,34 +127,37 @@ jobs:
       - uses: actions/setup-python@v6
         with:
           python-version: '3.11'
+          cache: pip
+          cache-dependency-path: requirements-model.txt
       - name: Install pinned dependencies
         run: |
-          python -m pip install -r requirements-model.txt
-          python -m pip install torch==2.7.1 --index-url https://download.pytorch.org/whl/cpu
+          python -m pip install -q -r requirements-model.txt
+          python -m pip install -q torch==2.7.1 --index-url https://download.pytorch.org/whl/cpu
       - uses: actions/download-artifact@v4
         with:
           pattern: result-*
-          path: data/unified/rolling_history
+          path: data/unified/rolling_history_v2
           merge-multiple: true
       - uses: actions/download-artifact@v4
         with:
-          name: rolling-input
+          name: rolling-input-validated
           path: /tmp/rolling-input
-      - name: Summarize and preserve the audit trail without a PR
+      - name: Preserve compact results on the working branch without a PR
         run: |
-          cp /tmp/rolling-input/tests.log /tmp/rolling-input/environment.txt /tmp/rolling-input/store_manifest.json /tmp/rolling-input/source_report.json data/unified/rolling_history/
-          python -m model.unified.rolling_evaluation --summarize 2>&1 | tee data/unified/rolling_history/REPORT.txt
+          cp /tmp/rolling-input/tests.log /tmp/rolling-input/environment.txt /tmp/rolling-input/store_manifest.json /tmp/rolling-input/source_report.json "$OUTPUT_DIR/"
+          python -m model.unified.rolling_evaluation --output "$OUTPUT_DIR" --summarize 2>&1 | tee "$OUTPUT_DIR/REPORT.txt"
           git config user.name 'github-actions[bot]'
           git config user.email '41898282+github-actions[bot]@users.noreply.github.com'
-          git add data/unified/rolling_history/{metrics.csv,summary.csv,decision.json,REPORT.txt,tests.log,environment.txt,store_manifest.json,source_report.json}
-          find data/unified/rolling_history -mindepth 2 -maxdepth 2 \( -name '*.csv' -o -name manifest.json -o -name metrics.json \) -print0 | xargs -0 -r git add
+          git add "$OUTPUT_DIR"/{metrics.csv,summary.csv,decision.json,REPORT.txt,tests.log,environment.txt,store_manifest.json,source_report.json}
+          find "$OUTPUT_DIR" -mindepth 2 -maxdepth 2 \( -name '*.csv' -o -name manifest.json -o -name metrics.json \) -print0 | xargs -0 -r git add
           if ! git diff --cached --quiet; then
-            git commit -m 'Record matched rolling-round results without model promotion'
+            git commit -m 'Record rolling comparison and fixed challengers without promotion'
+            git pull --rebase origin codex/rolling-history-parity-20260919
             git push origin HEAD:codex/rolling-history-parity-20260919
           fi
       - uses: actions/upload-artifact@v4
         if: always()
         with:
           name: rolling-evaluation-report
-          path: data/unified/rolling_history
+          path: data/unified/rolling_history_v2
           retention-days: 14

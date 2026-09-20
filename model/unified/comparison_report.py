@@ -77,7 +77,7 @@ def report(output: Path, previous: Path, destination: Path, candidate: str):
     directories = {p.name: p for p in (output / "jobs").iterdir() if p.is_dir()}
     if set(directories) != required_jobs:
         raise ValueError("comparison must contain exactly 28 completed jobs")
-    store = pd.read_csv(output / "inputs/player_match.csv", low_memory=False, parse_dates=["date", "match_at"])
+    store = pd.read_csv(output / "inputs/player_match.csv", low_memory=False, dtype={key: str for key in KEY}, parse_dates=["date", "match_at"])
     slates = {s.name: s for s in official_slates(store, ("ncr", "six_nations"))}
     stat_frames, fantasy_frames, manifests = [], [], []
     audits = dict(stat_maes=0, fantasy_maes=0, squad_totals=0, ncr_budget_checks=0,

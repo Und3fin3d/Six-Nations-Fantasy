@@ -16,7 +16,55 @@ env:
   OPENBLAS_NUM_THREADS: '1'
 
 jobs:
+  source:
+    runs-on: ubuntu-latest
+    timeout-minutes: 5
+    permissions:
+      contents: write
+      actions: write
+    outputs:
+      sha: ${{ steps.fix.outputs.sha }}
+    steps:
+      - name: Stop superseded run with the incorrect evidence-reader types
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: |
+          status=$(gh api repos/$GITHUB_REPOSITORY/actions/runs/35478225644 --jq .status)
+          if [ "$status" != completed ]; then
+            gh api --method POST repos/$GITHUB_REPOSITORY/actions/runs/35478225644/cancel
+            for attempt in $(seq 1 24); do
+              status=$(gh api repos/$GITHUB_REPOSITORY/actions/runs/35478225644 --jq .status)
+              [ "$status" = completed ] && break
+              sleep 5
+            done
+            [ "$status" = completed ]
+          fi
+      - uses: actions/checkout@v5
+        with:
+          ref: codex/seedbag-search-20260920
+          lfs: false
+      - id: fix
+        name: Preserve text identifiers when reading audit inputs
+        run: |
+          python - <<'PY'
+          from pathlib import Path
+          path = Path('model/unified/comparison_report.py')
+          text = path.read_text()
+          old = 'store = pd.read_csv(output / "inputs/player_match.csv", low_memory=False, parse_dates=["date", "match_at"])'
+          new = 'store = pd.read_csv(output / "inputs/player_match.csv", low_memory=False, dtype={key: str for key in KEY}, parse_dates=["date", "match_at"])'
+          assert text.count(old) == 1
+          path.write_text(text.replace(old,new))
+          PY
+          git diff --check
+          git config user.name 'github-actions[bot]'
+          git config user.email '41898282+github-actions[bot]@users.noreply.github.com'
+          git add model/unified/comparison_report.py
+          git commit -m 'Preserve fixture and player ID types in comparison audit'
+          git push origin HEAD:codex/seedbag-search-20260920
+          echo "sha=$(git rev-parse HEAD)" >> "$GITHUB_OUTPUT"
+
   prepare:
+    needs: source
     runs-on: ubuntu-latest
     timeout-minutes: 20
     outputs:
@@ -24,6 +72,7 @@ jobs:
     steps:
       - uses: actions/checkout@v5
         with:
+          ref: ${{ needs.source.outputs.sha }}
           lfs: false
           persist-credentials: false
       - uses: actions/download-artifact@v4
@@ -86,7 +135,7 @@ jobs:
           retention-days: 14
 
   compare:
-    needs: prepare
+    needs: [source, prepare]
     runs-on: ubuntu-latest
     timeout-minutes: 30
     strategy:
@@ -96,6 +145,7 @@ jobs:
     steps:
       - uses: actions/checkout@v5
         with:
+          ref: ${{ needs.source.outputs.sha }}
           lfs: false
           persist-credentials: false
       - uses: actions/download-artifact@v4
@@ -133,7 +183,7 @@ jobs:
           retention-days: 14
 
   audit:
-    needs: [prepare, compare]
+    needs: [source, prepare, compare]
     runs-on: ubuntu-latest
     timeout-minutes: 20
     permissions:
@@ -142,6 +192,7 @@ jobs:
     steps:
       - uses: actions/checkout@v5
         with:
+          ref: ${{ needs.source.outputs.sha }}
           lfs: false
       - uses: actions/download-artifact@v4
         with:
@@ -183,7 +234,7 @@ jobs:
         run: |
           python -u -m model.unified.comparison_report --output results --previous previous_results --destination data/unified/seedbag_search --candidate p3_seedbag_native | tee audit.log
           cat validation/full-tests.txt
-          printf '\n## Completed run\n\nSource commit: `%s`. Workflow run: `%s`.\n\n```text\n' "$GITHUB_SHA" "$GITHUB_RUN_ID" >> data/unified/seedbag_search/REPORT.md
+          printf '\n## Completed run\n\nTested source commit: `%s`. Workflow run: `%s`.\n\n```text\n' "$(cat validation/tested-commit.txt)" "$GITHUB_RUN_ID" >> data/unified/seedbag_search/REPORT.md
           cat validation/full-tests.txt >> data/unified/seedbag_search/REPORT.md
           printf '\n```\n' >> data/unified/seedbag_search/REPORT.md
           cp validation/tested-commit.txt validation/tested-environment.txt data/unified/seedbag_search/

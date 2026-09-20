@@ -1,0 +1,207 @@
+name: Fixed-seed candidate (all four evaluations)
+
+on:
+  push:
+    branches: [codex/seedbag-search-20260920]
+    paths: [.github/workflows/seedbag-research.yml]
+
+permissions:
+  contents: read
+  actions: read
+
+env:
+  PYTEST_DISABLE_PLUGIN_AUTOLOAD: '1'
+  PYTHONWARNINGS: ignore
+  OMP_NUM_THREADS: '2'
+  OPENBLAS_NUM_THREADS: '1'
+
+jobs:
+  prepare:
+    runs-on: ubuntu-latest
+    timeout-minutes: 20
+    outputs:
+      matrix: ${{ steps.matrix.outputs.matrix }}
+    steps:
+      - uses: actions/checkout@v5
+        with:
+          lfs: false
+          persist-credentials: false
+      - uses: actions/download-artifact@v4
+        with:
+          name: pinned-cpu-environment
+          run-id: 35467219925
+          github-token: ${{ github.token }}
+          path: ${{ runner.temp }}/env
+      - name: Restore pinned environment and original historical data
+        run: |
+          mkdir "$RUNNER_TEMP/py311"
+          tar -xzf "$RUNNER_TEMP/env/6n-python311.tar.gz" -C "$RUNNER_TEMP/py311"
+          echo "PYTHONHOME=$RUNNER_TEMP/py311" >> "$GITHUB_ENV"
+          echo "LD_LIBRARY_PATH=$RUNNER_TEMP/py311/lib" >> "$GITHUB_ENV"
+          echo "$RUNNER_TEMP/py311/bin" >> "$GITHUB_PATH"
+          git lfs pull --include='data/unified/player_match.csv,data/unified/raw_benchmark/v1/player_match.csv,data/ncr/club_player_match.csv,data/unified/raw_benchmark/v1/models/p3_event_50/nations_championship_2026.pkl' --exclude=''
+      - name: Run full regression suite before any comparison
+        run: |
+          python -m pip install 'beautifulsoup4>=4.12,<5' 'requests>=2.31,<3'
+          python model_env_preflight.py
+          git rev-parse HEAD > tested-commit.txt
+          python -m pip freeze > tested-environment.txt
+          python -m pytest -q tests | tee full-tests.txt
+          python -m compileall -q model tests
+          git diff --check
+      - name: Prepare shared prior-only inputs
+        run: |
+          python -u -m model.unified.domain_experiment --prepare-only --output results
+          cp data/ncr/club_player_match.csv results/inputs/club_player_match.csv
+          tar -czf prepared-inputs.tar.gz -C results inputs
+      - id: matrix
+        name: Require the original 15 friendlies and all 13 fantasy rounds
+        run: |
+          python - <<'PY'
+          import json, os
+          from pathlib import Path
+          fixed = json.loads(Path('data/unified/friendly15/fixtures.json').read_text())
+          ids = [str(row['fixture_id']) for row in fixed['fixtures']]
+          assert len(ids) == len(set(ids)) == 15
+          jobs = [f'test:{f}' for f in ids]
+          jobs += [f'{c}_{y}_r{r}' for c,y,n in [('ncr',2026,3),('six_nations',2025,5),('six_nations',2026,5)] for r in range(1,n+1)]
+          assert len(jobs) == 28
+          matrix = {'include': [{'job': job, 'id': job.replace(':','_')} for job in jobs]}
+          with open(os.environ['GITHUB_OUTPUT'],'a') as handle:
+              handle.write('matrix=' + json.dumps(matrix) + '\n')
+          PY
+      - uses: actions/upload-artifact@v4
+        with:
+          name: seedbag-prepared-inputs
+          path: prepared-inputs.tar.gz
+          retention-days: 3
+      - uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: seedbag-full-validation
+          path: |
+            full-tests.txt
+            tested-commit.txt
+            tested-environment.txt
+          retention-days: 14
+
+  compare:
+    needs: prepare
+    runs-on: ubuntu-latest
+    timeout-minutes: 30
+    strategy:
+      fail-fast: false
+      max-parallel: 14
+      matrix: ${{ fromJSON(needs.prepare.outputs.matrix) }}
+    steps:
+      - uses: actions/checkout@v5
+        with:
+          lfs: false
+          persist-credentials: false
+      - uses: actions/download-artifact@v4
+        with:
+          name: pinned-cpu-environment
+          run-id: 35467219925
+          github-token: ${{ github.token }}
+          path: ${{ runner.temp }}/env
+      - uses: actions/download-artifact@v4
+        with:
+          name: seedbag-prepared-inputs
+          path: ${{ runner.temp }}/inputs
+      - name: Restore identical history and numerical environment
+        run: |
+          mkdir "$RUNNER_TEMP/py311" results
+          tar -xzf "$RUNNER_TEMP/env/6n-python311.tar.gz" -C "$RUNNER_TEMP/py311"
+          tar -xzf "$RUNNER_TEMP/inputs/prepared-inputs.tar.gz" -C results
+          cp results/inputs/club_player_match.csv data/ncr/club_player_match.csv
+          echo "PYTHONHOME=$RUNNER_TEMP/py311" >> "$GITHUB_ENV"
+          echo "LD_LIBRARY_PATH=$RUNNER_TEMP/py311/lib" >> "$GITHUB_ENV"
+          echo "$RUNNER_TEMP/py311/bin" >> "$GITHUB_PATH"
+      - name: Fit fixed seeds and compare at the historical lock
+        run: python -u -m model.unified.domain_experiment --study seedbag --output results --job '${{ matrix.job }}' | tee run.log
+      - name: Preserve predictions, not fitted binaries
+        if: always()
+        run: |
+          if [ -d results/jobs ]; then tar -czf evidence.tar.gz -C results jobs; fi
+      - uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: seedbag-job-${{ matrix.id }}
+          path: |
+            evidence.tar.gz
+            run.log
+          retention-days: 14
+
+  audit:
+    needs: [prepare, compare]
+    runs-on: ubuntu-latest
+    timeout-minutes: 20
+    permissions:
+      contents: write
+      actions: read
+    steps:
+      - uses: actions/checkout@v5
+        with:
+          lfs: false
+      - uses: actions/download-artifact@v4
+        with:
+          name: pinned-cpu-environment
+          run-id: 35467219925
+          github-token: ${{ github.token }}
+          path: ${{ runner.temp }}/env
+      - uses: actions/download-artifact@v4
+        with:
+          name: seedbag-prepared-inputs
+          path: ${{ runner.temp }}/inputs
+      - uses: actions/download-artifact@v4
+        with:
+          pattern: seedbag-job-*
+          path: evidence
+      - uses: actions/download-artifact@v4
+        with:
+          name: seedbag-full-validation
+          path: validation
+      - uses: actions/download-artifact@v4
+        with:
+          name: friendly-research-evidence
+          run-id: 35475684776
+          github-token: ${{ github.token }}
+          path: previous-archive
+      - name: Restore evidence for independent recalculation
+        run: |
+          mkdir "$RUNNER_TEMP/py311" results previous previous_results
+          tar -xzf "$RUNNER_TEMP/env/6n-python311.tar.gz" -C "$RUNNER_TEMP/py311"
+          tar -xzf "$RUNNER_TEMP/inputs/prepared-inputs.tar.gz" -C results
+          cp results/inputs/club_player_match.csv data/ncr/club_player_match.csv
+          for archive in evidence/*/evidence.tar.gz; do tar -xzf "$archive" -C results; done
+          tar -xzf previous-archive/friendly-research-evidence.tar.gz -C previous
+          for archive in previous/confirmation/*/evidence.tar.gz; do tar -xzf "$archive" -C previous_results; done
+          echo "PYTHONHOME=$RUNNER_TEMP/py311" >> "$GITHUB_ENV"
+          echo "LD_LIBRARY_PATH=$RUNNER_TEMP/py311/lib" >> "$GITHUB_ENV"
+          echo "$RUNNER_TEMP/py311/bin" >> "$GITHUB_PATH"
+      - name: Verify all scores, constraints, controls and four-evaluation completeness
+        run: |
+          python -u -m model.unified.comparison_report --output results --previous previous_results --destination data/unified/seedbag_search --candidate p3_seedbag_native | tee audit.log
+          cat validation/full-tests.txt
+          printf '\n## Completed run\n\nSource commit: `%s`. Workflow run: `%s`.\n\n```text\n' "$GITHUB_SHA" "$GITHUB_RUN_ID" >> data/unified/seedbag_search/REPORT.md
+          cat validation/full-tests.txt >> data/unified/seedbag_search/REPORT.md
+          printf '\n```\n' >> data/unified/seedbag_search/REPORT.md
+          cp validation/tested-commit.txt validation/tested-environment.txt data/unified/seedbag_search/
+          git diff --check
+      - name: Save research evidence only on the working branch
+        run: |
+          git config user.name 'github-actions[bot]'
+          git config user.email '41898282+github-actions[bot]@users.noreply.github.com'
+          git add data/unified/seedbag_search
+          git commit -m 'Record complete seed-averaging comparison without model promotion'
+          git push origin HEAD:codex/seedbag-search-20260920
+      - name: Package full comparison evidence
+        if: always()
+        run: |
+          tar -czf seedbag-research-evidence.tar.gz evidence validation data/unified/seedbag_search audit.log
+      - uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: seedbag-research-evidence
+          path: seedbag-research-evidence.tar.gz
+          retention-days: 14

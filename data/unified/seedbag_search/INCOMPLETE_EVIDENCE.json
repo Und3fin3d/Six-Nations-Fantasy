@@ -1,0 +1,175 @@
+{
+  "jobs": [
+    {
+      "job": "ncr_2026_r1",
+      "missing_raw": []
+    },
+    {
+      "job": "ncr_2026_r2",
+      "missing_raw": [
+        "p3_seedbag_native"
+      ]
+    },
+    {
+      "job": "ncr_2026_r3",
+      "missing_raw": []
+    },
+    {
+      "job": "six_nations_2025_r1",
+      "missing_raw": []
+    },
+    {
+      "job": "six_nations_2025_r2",
+      "missing_raw": []
+    },
+    {
+      "job": "six_nations_2025_r3",
+      "missing_raw": []
+    },
+    {
+      "job": "six_nations_2025_r4",
+      "missing_raw": []
+    },
+    {
+      "job": "six_nations_2025_r5",
+      "missing_raw": []
+    },
+    {
+      "job": "six_nations_2026_r1",
+      "missing_raw": []
+    },
+    {
+      "job": "six_nations_2026_r2",
+      "missing_raw": []
+    },
+    {
+      "job": "six_nations_2026_r3",
+      "missing_raw": []
+    },
+    {
+      "job": "six_nations_2026_r4",
+      "missing_raw": []
+    },
+    {
+      "job": "six_nations_2026_r5",
+      "missing_raw": []
+    },
+    {
+      "job": "test_8518300",
+      "missing_raw": []
+    },
+    {
+      "job": "test_8518309",
+      "missing_raw": []
+    },
+    {
+      "job": "test_8518318",
+      "missing_raw": []
+    },
+    {
+      "job": "test_8518327",
+      "missing_raw": []
+    },
+    {
+      "job": "test_8518336",
+      "missing_raw": []
+    },
+    {
+      "job": "test_8518345",
+      "missing_raw": []
+    },
+    {
+      "job": "test_8518354",
+      "missing_raw": []
+    },
+    {
+      "job": "test_8518363",
+      "missing_raw": []
+    },
+    {
+      "job": "test_8518372",
+      "missing_raw": []
+    },
+    {
+      "job": "test_8518390",
+      "missing_raw": []
+    },
+    {
+      "job": "test_8544553",
+      "missing_raw": []
+    },
+    {
+      "job": "test_8545138",
+      "missing_raw": []
+    },
+    {
+      "job": "test_8546596",
+      "missing_raw": []
+    },
+    {
+      "job": "test_8546605",
+      "missing_raw": []
+    },
+    {
+      "job": "test_8553454",
+      "missing_raw": []
+    }
+  ],
+  "duplicates": [
+    {
+      "fixture_id": "291583",
+      "player_id": "232158",
+      "player_name": "Eddie James",
+      "team": "Wales",
+      "opponent": "Argentina",
+      "position": "Centre",
+      "job": "ncr_2026_r2",
+      "index": 219,
+      "fantasy_row": {
+        "id": "237271",
+        "predicted": "10.77123422039312",
+        "actual": "2.0"
+      }
+    },
+    {
+      "fixture_id": "291583",
+      "player_id": "232158",
+      "player_name": "Kane James",
+      "team": "Wales",
+      "opponent": "Argentina",
+      "position": "Back-row",
+      "job": "ncr_2026_r2",
+      "index": 233,
+      "fantasy_row": {
+        "id": "243167",
+        "predicted": "5.542090443514065",
+        "actual": "3.0"
+      }
+    }
+  ],
+  "crosswalk": [
+    {
+      "fantasy_id": "237271",
+      "full_name": "Eddie James",
+      "team": "Wales",
+      "skill_desc": "CENTRE",
+      "value": "5.0",
+      "api_player_id": "232158.0",
+      "rp_slug": "eddie-james",
+      "in_api": "True",
+      "in_rp": "True"
+    },
+    {
+      "fantasy_id": "243167",
+      "full_name": "Kane James",
+      "team": "Wales",
+      "skill_desc": "LOOSE FORWARD",
+      "value": "3.0",
+      "api_player_id": "232158.0",
+      "rp_slug": "kane-james",
+      "in_api": "True",
+      "in_rp": "True"
+    }
+  ],
+  "cache_players": []
+}

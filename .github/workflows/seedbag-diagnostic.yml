@@ -1,0 +1,84 @@
+name: Diagnose incomplete candidate evidence
+on:
+  push:
+    branches: [codex/seedbag-search-20260920]
+    paths: [.github/workflows/seedbag-diagnostic.yml]
+permissions:
+  contents: write
+  actions: read
+defaults:
+  run:
+    shell: bash
+jobs:
+  inspect:
+    runs-on: ubuntu-latest
+    timeout-minutes: 5
+    steps:
+      - uses: actions/checkout@v5
+        with:
+          lfs: false
+      - uses: actions/download-artifact@v4
+        with:
+          name: seedbag-research-evidence
+          run-id: 35478343154
+          github-token: ${{ github.token }}
+          path: prior
+      - name: Inspect complete support and duplicate identities without changing forecasts
+        run: |
+          mkdir extracted results
+          tar -xzf prior/seedbag-research-evidence.tar.gz -C extracted
+          for archive in extracted/evidence/*/evidence.tar.gz; do tar -xzf "$archive" -C results; done
+          python - <<'PY'
+          import csv,json
+          from collections import Counter
+          from pathlib import Path
+          findings = {'jobs':[], 'duplicates':[], 'crosswalk':[], 'cache_players':[]}
+          bad_ids = set()
+          fixture_ids = set()
+          for directory in sorted(Path('results/jobs').iterdir()):
+              expected = ['empirical_raw','p3_robust_native','p3_seedbag_native'] if directory.name.startswith('test_') else ['p3_robust_native','p3_seedbag_native']
+              missing = [engine for engine in expected if not (directory/f'{engine}.jsonl').exists()]
+              findings['jobs'].append({'job':directory.name,'missing_raw':missing})
+              raw = [json.loads(line) for line in (directory/'p3_robust_native.jsonl').read_text().splitlines()]
+              counts = Counter((p['fixture_id'],p['player_id'],p['team']) for p in raw)
+              for index,p in enumerate(raw):
+                  if counts[(p['fixture_id'],p['player_id'],p['team'])] > 1:
+                      record = {k:p[k] for k in ['fixture_id','player_id','player_name','team','opponent','position']}
+                      record.update(job=directory.name,index=index)
+                      predictions = directory/directory.name/'p3_robust_native_predictions.csv'
+                      if predictions.exists():
+                          rows = list(csv.DictReader(predictions.open()))
+                          record['fantasy_row'] = rows[index]
+                      findings['duplicates'].append(record)
+                      bad_ids.add(p['player_id'])
+                      fixture_ids.add(p['fixture_id'])
+          def norm(value):
+              try: return str(int(float(value)))
+              except (TypeError,ValueError): return str(value)
+          for row in csv.DictReader(Path('data/ncr/ncr_player_crosswalk.csv').open()):
+              if norm(row.get('api_player_id')) in bad_ids:
+                  findings['crosswalk'].append(row)
+          def walk(value):
+              if isinstance(value,dict):
+                  if any(k in value for k in ['name','full_name','display_name','player_name']):
+                      simple = {k:v for k,v in value.items() if isinstance(v,(str,int,float,bool,type(None)))}
+                      if simple:
+                          yield simple
+                  for child in value.values():
+                      yield from walk(child)
+              elif isinstance(value,list):
+                  for child in value:
+                      yield from walk(child)
+          for fixture in fixture_ids:
+              for path in Path('data/cache').rglob('*'+fixture+'*.json'):
+                  payload = json.loads(path.read_text())
+                  findings['cache_players'].append({'file':str(path),'named_records':list(walk(payload))[:150]})
+          path = Path('data/unified/seedbag_search/INCOMPLETE_EVIDENCE.json')
+          path.write_text(json.dumps(findings,indent=2)+'\n')
+          print(path.read_text())
+          PY
+          git config user.name 'github-actions[bot]'
+          git config user.email '41898282+github-actions[bot]@users.noreply.github.com'
+          git add data/unified/seedbag_search/INCOMPLETE_EVIDENCE.json
+          git commit -m 'Record identity-collision diagnostic; initial candidate scoreboard is invalid'
+          git push origin HEAD:codex/seedbag-search-20260920

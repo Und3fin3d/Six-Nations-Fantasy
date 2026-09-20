@@ -1,4 +1,4 @@
-"""Bounded shared-domain experiment and fixed Friendly-15 evaluation.
+"""Bounded shared-domain experiments and fixed Friendly-15 evaluation.
 
 Reuses the matched-history runner's data, scorers and squad optimiser. Output
 is research evidence only; this module never changes a model route or a PR.
@@ -31,6 +31,7 @@ from .raw_benchmark.robust_empirical import RobustEmpiricalEventModel
 from .raw_benchmark.features import build_frozen_feature_frames
 from .raw_benchmark.folds import masked_candidates
 from .rolling_eval import prepare_store, official_slates, evaluate, expected_points
+from .uniform_ensemble import UniformRawEnsemble
 from .v4.features import add_v4_base_stats
 from .v4.gbdt import V4GBDT
 
@@ -44,6 +45,16 @@ CONTROL = "p3_robust_native"
 class Candidate:
     weighting: str
     half_life_days: float | None = None
+    seeds: tuple[int, ...] = (17,)
+    player_identity: bool = False
+
+    def __post_init__(self) -> None:
+        if type(self.player_identity) is not bool:
+            raise ValueError("player_identity must be boolean")
+        if (not isinstance(self.seeds, tuple) or not self.seeds
+            or any(type(seed) is not int or seed < 0 for seed in self.seeds)
+            or len(set(self.seeds)) != len(self.seeds)):
+            raise ValueError("seeds must be a nonempty tuple of distinct nonnegative integers")
 
 
 CANDIDATES = {
@@ -51,6 +62,28 @@ CANDIDATES = {
     "p3_balanced_native": Candidate("level_balanced"),
     "p3_balanced_recent_native": Candidate("level_balanced", 730.0),
 }
+STUDIES = {
+    "domain": CANDIDATES,
+    "identity": {
+        CONTROL: Candidate("natural"),
+        "p3_identity_native": Candidate("natural", player_identity=True),
+    },
+    "seedbag": {
+        CONTROL: Candidate("natural"),
+        "p3_seedbag_native": Candidate("natural", seeds=(17, 29, 43)),
+    },
+}
+
+
+def candidate_tree(settings: Candidate, seed: int) -> V4GBDT:
+    """One factory used by both evaluation and flag-wiring regression tests."""
+    return V4GBDT(
+        events=(*STABLE_EVENTS, *EXTENDED_EVENTS), weighting=settings.weighting,
+        time_half_life_days=settings.half_life_days,
+        pool_player_id=not settings.player_identity,
+        player_effects=not settings.player_identity,
+        native_categories=True, random_state=seed,
+    )
 
 
 def forbidden_fixtures(store: pd.DataFrame) -> set[str]:
@@ -92,23 +125,31 @@ def _save_raw(path: Path, raw: list[RawPrediction]) -> None:
     path.write_text("".join(json.dumps(p.to_dict(), sort_keys=True) + "\n" for p in raw))
 
 
-def run_job(output: Path, job: str, engines: tuple[str, ...]) -> None:
+def run_job(output: Path, job: str, engines: tuple[str, ...], *, study: str = "domain") -> None:
     """A job is dev:<fixture>, test:<fixture>, or an official slate name."""
-    if not engines or set(engines) - set(CANDIDATES):
-        raise ValueError("unknown or empty candidate set")
+    if study not in STUDIES:
+        raise ValueError("unknown study")
+    specs = STUDIES[study]
+    if not engines or len(engines) != len(set(engines)) or set(engines) - set(specs):
+        raise ValueError("unknown, duplicate or empty candidate set")
     from model_env_preflight import check
     errors = check(ROOT / "requirements-model.txt")
     if errors:
         raise RuntimeError("incompatible model environment: " + "; ".join(errors))
-    selection_path = CONFIG_DIR / "selection.json"
+    selection_dir = CONFIG_DIR if study == "domain" else DATA / "unified" / {"seedbag": "seedbag_search", "identity": "identity_search"}[study]
+    selection_path = selection_dir / "selection.json"
     if not job.startswith("dev:"):
         allowed = {CONTROL}
         if selection_path.exists():
             selection = json.loads(selection_path.read_text())
             if selection["selected"] is not None:
                 allowed.add(selection["selected"])
+            if study in {"seedbag", "identity"}:
+                actual_specs = json.loads(json.dumps({name: asdict(spec) for name, spec in specs.items()}))
+                if selection.get("candidate_configs") != actual_specs:
+                    raise ValueError("candidate settings differ from the frozen plan")
         if set(engines) - allowed:
-            raise ValueError("test/fantasy engines must be admitted by frozen development selection")
+            raise ValueError("test/fantasy engines must be admitted by a frozen selection or evaluation plan")
     start = time.monotonic()
     store = prepare(output)
     prepared = pd.read_pickle(output / "inputs" / "domain_features.pkl")
@@ -119,8 +160,8 @@ def run_job(output: Path, job: str, engines: tuple[str, ...]) -> None:
         "weight_config_sha256": sha256(DATA / "unified" / "p3_hillclimb" / "config.json"),
         "python": platform.python_version(),
         "packages": {name: version(name) for name in ("numpy", "pandas", "scipy", "scikit-learn", "lightgbm")},
-        "candidate_configs": {name: asdict(CANDIDATES[name]) for name in engines},
-        "job": job,
+        "candidate_configs": {name: asdict(specs[name]) for name in engines},
+        "job": job, "study": study,
     }
     if not job.startswith("dev:") and selection_path.exists():
         source_manifest["selection_sha256"] = sha256(selection_path)
@@ -174,14 +215,19 @@ def run_job(output: Path, job: str, engines: tuple[str, ...]) -> None:
             baseline = project_candidates(slate.candidates, train, slate.competition, wr, asof=cutoff)
             slate.baseline = baseline.set_index("label_row_id").reindex(slate.candidates.label_row_id).predicted_points.to_numpy(float)
         metrics.append(pd.DataFrame([evaluate(slate, "empirical_baseline", slate.baseline, directory)]))
+    fitted = {}
     for name in engines:
-        settings = CANDIDATES[name]
-        print(f"Fitting {job}: {name}", flush=True)
-        tree = V4GBDT(events=(*STABLE_EVENTS, *EXTENDED_EVENTS), weighting=settings.weighting,
-            time_half_life_days=settings.half_life_days, pool_player_id=True,
-            player_effects=True, native_categories=True).fit(features)
-        model = EventWeightedBlend(robust, tree, weight_v4=blend_config["default_weight_v4"],
-                                  event_weights_v4=blend_config["event_weights_v4"])
+        settings = specs[name]
+        members = []
+        for seed in settings.seeds:
+            key = (settings.weighting, settings.half_life_days, seed, settings.player_identity)
+            if key not in fitted:
+                print(f"Fitting {job}: {name}, seed={seed}", flush=True)
+                tree = candidate_tree(settings, seed).fit(features)
+                fitted[key] = EventWeightedBlend(robust, tree,
+                    weight_v4=blend_config["default_weight_v4"], event_weights_v4=blend_config["event_weights_v4"])
+            members.append(fitted[key])
+        model = members[0] if len(members) == 1 else UniformRawEnsemble(tuple(members))
         raw = model.predict_frame(candidate_features)
         _save_raw(directory / f"{name}.jsonl", raw)
         if slate is None:
@@ -189,7 +235,6 @@ def run_job(output: Path, job: str, engines: tuple[str, ...]) -> None:
         else:
             metrics.append(pd.DataFrame([evaluate(slate, name, expected_points(raw, slate.competition), directory)]))
         pd.concat(metrics, ignore_index=True).to_csv(directory / "metrics.csv", index=False)
-        del model, tree
     print(f"Completed {job} in {time.monotonic()-start:.1f}s", flush=True)
 
 
@@ -225,12 +270,14 @@ def main() -> None:
     parser.add_argument("--output", type=Path, required=True)
     parser.add_argument("--prepare-only", action="store_true")
     parser.add_argument("--job")
-    parser.add_argument("--engines", nargs="+", choices=list(CANDIDATES), default=list(CANDIDATES))
+    parser.add_argument("--study", choices=list(STUDIES), default="domain")
+    parser.add_argument("--engines", nargs="+", default=None)
     args = parser.parse_args()
     if args.prepare_only:
         prepare(args.output)
     elif args.job:
-        run_job(args.output, args.job, tuple(args.engines))
+        engines = tuple(args.engines) if args.engines is not None else tuple(STUDIES[args.study])
+        run_job(args.output, args.job, engines, study=args.study)
     else:
         parser.error("supply --job or --prepare-only")
 

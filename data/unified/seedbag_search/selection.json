@@ -1,0 +1,13 @@
+{
+  "selected": "p3_seedbag_native",
+  "selection_method": "prespecified hypothesis; no outcome-based selection",
+  "selection_used_friendly15": false,
+  "selection_used_fantasy_outcomes": false,
+  "candidate_configs": {
+    "p3_robust_native": {"weighting": "natural", "half_life_days": null, "seeds": [17]},
+    "p3_seedbag_native": {"weighting": "natural", "half_life_days": null, "seeds": [17, 29, 43]}
+  },
+  "friendly_fixture_manifest": "data/unified/friendly15/fixtures.json",
+  "required_fantasy_seasons": ["ncr_2026", "six_nations_2025", "six_nations_2026"],
+  "promotion_authorized": false
+}

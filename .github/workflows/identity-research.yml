@@ -1,0 +1,285 @@
+name: Native identity candidate (all four evaluations)
+
+on:
+  push:
+    branches: [codex/native-identity-search-20260920]
+    paths: [.github/workflows/identity-research.yml]
+
+permissions:
+  contents: read
+  actions: read
+
+defaults:
+  run:
+    shell: bash
+
+env:
+  PYTEST_DISABLE_PLUGIN_AUTOLOAD: '1'
+  PYTHONWARNINGS: ignore
+  OMP_NUM_THREADS: '2'
+  OPENBLAS_NUM_THREADS: '1'
+
+jobs:
+  source:
+    runs-on: ubuntu-latest
+    timeout-minutes: 5
+    permissions:
+      contents: write
+    outputs:
+      sha: ${{ steps.source.outputs.sha }}
+    steps:
+      - uses: actions/checkout@v5
+        with:
+          lfs: false
+      - id: source
+        name: Reuse shared candidate runner and complete-comparison audit
+        run: |
+          git fetch origin 3b18a40c8e149bdc52a9e726bb70f1aa3833e420 --depth=1
+          for path in model/unified/domain_experiment.py model/unified/uniform_ensemble.py model/unified/comparison_report.py tests/test_uniform_ensemble.py tests/test_comparison_report.py tests/test_comparison_store_ids.py data/unified/seedbag_search/selection.json; do
+            mkdir -p "$(dirname "$path")"
+            git show 3b18a40c8e149bdc52a9e726bb70f1aa3833e420:"$path" > "$path"
+          done
+          python - <<'PY'
+          import json
+          from pathlib import Path
+          p = Path('model/unified/domain_experiment.py')
+          text = p.read_text()
+          def once(old,new):
+              global text
+              assert text.count(old) == 1, old
+              text = text.replace(old,new)
+          once('    seeds: tuple[int, ...] = (17,)','    seeds: tuple[int, ...] = (17,)\n    player_identity: bool = False')
+          once('    def __post_init__(self) -> None:\n        if (not isinstance', '    def __post_init__(self) -> None:\n        if type(self.player_identity) is not bool:\n            raise ValueError("player_identity must be boolean")\n        if (not isinstance')
+          once('STUDIES = {\n    "domain": CANDIDATES,','STUDIES = {\n    "domain": CANDIDATES,\n    "identity": {\n        CONTROL: Candidate("natural"),\n        "p3_identity_native": Candidate("natural", player_identity=True),\n    },')
+          once('selection_dir = CONFIG_DIR if study == "domain" else DATA / "unified" / "seedbag_search"', 'selection_dir = CONFIG_DIR if study == "domain" else DATA / "unified" / {"seedbag": "seedbag_search", "identity": "identity_search"}[study]')
+          once('if study == "seedbag":','if study in {"seedbag", "identity"}:')
+          once('key = (settings.weighting, settings.half_life_days, seed)', 'key = (settings.weighting, settings.half_life_days, seed, settings.player_identity)')
+          old = '''                tree = V4GBDT(events=(*STABLE_EVENTS, *EXTENDED_EVENTS), weighting=settings.weighting,
+                              time_half_life_days=settings.half_life_days, pool_player_id=True,
+                              player_effects=True, native_categories=True, random_state=seed).fit(features)'''
+          # Whitespace-insensitive boundary: exactly the known tree construction.
+          start = text.index('                tree = V4GBDT(events=')
+          end = text.index('.fit(features)',start) + len('.fit(features)')
+          segment = text[start:end]
+          assert 'pool_player_id=True' in segment and 'player_effects=True' in segment
+          text = text[:start] + '                tree = candidate_tree(settings, seed).fit(features)' + text[end:]
+          helper = '''def candidate_tree(settings: Candidate, seed: int) -> V4GBDT:
+              """One factory used by both evaluation and flag-wiring regression tests."""
+              return V4GBDT(
+                  events=(*STABLE_EVENTS, *EXTENDED_EVENTS), weighting=settings.weighting,
+                  time_half_life_days=settings.half_life_days,
+                  pool_player_id=not settings.player_identity,
+                  player_effects=not settings.player_identity,
+                  native_categories=True, random_state=seed,
+              )
+
+
+          '''
+          # Remove the YAML-indented continuation padding, retaining Python indentation.
+          import textwrap
+          helper = helper.replace('\n    ', '\n', 0) if False else helper
+          helper = 'def candidate_tree(settings: Candidate, seed: int) -> V4GBDT:\n' + '\n'.join(line[10:] if line.startswith('          ') else line for line in helper.splitlines()[1:])
+          once('def forbidden_fixtures(store: pd.DataFrame) -> set[str]:', helper + '\ndef forbidden_fixtures(store: pd.DataFrame) -> set[str]:')
+          p.write_text(text)
+          manifest_path = Path('data/unified/seedbag_search/selection.json')
+          manifest = json.loads(manifest_path.read_text())
+          for spec in manifest['candidate_configs'].values():
+              spec['player_identity'] = False
+          manifest_path.write_text(json.dumps(manifest,indent=2)+'\n')
+          p = Path('model/unified/comparison_report.py')
+          text = p.read_text()
+          text = text.replace('# Fixed-seed candidate: complete four-evaluation comparison', '# Candidate: complete four-evaluation comparison')
+          text = text.replace('One prespecified candidate; seeds 17, 29 and 43 receive equal weight.', 'One prespecified native player-identity candidate; seed 17 and all other settings remain fixed.')
+          text = text.replace('--study seedbag', '--study identity').replace('--candidate p3_seedbag_native', '--candidate p3_identity_native')
+          text = text.replace('nor a three-seed average', 'nor one historical representation test')
+          p.write_text(text)
+          PY
+          python -m compileall -q model tests
+          git diff --check
+          git config user.name 'github-actions[bot]'
+          git config user.email '41898282+github-actions[bot]@users.noreply.github.com'
+          git add model tests data/unified/seedbag_search/selection.json
+          git commit -m 'Add opt-in native player identity with identical complete evaluation protocol'
+          git push origin HEAD:codex/native-identity-search-20260920
+          echo "sha=$(git rev-parse HEAD)" >> "$GITHUB_OUTPUT"
+
+  prepare:
+    needs: source
+    runs-on: ubuntu-latest
+    timeout-minutes: 15
+    outputs:
+      matrix: ${{ steps.matrix.outputs.matrix }}
+    steps:
+      - uses: actions/checkout@v5
+        with:
+          ref: ${{ needs.source.outputs.sha }}
+          lfs: false
+          persist-credentials: false
+      - uses: actions/download-artifact@v4
+        with:
+          name: pinned-cpu-environment
+          run-id: 35467219925
+          github-token: ${{ github.token }}
+          path: ${{ runner.temp }}/env
+      - name: Restore pinned environment and original LFS test inputs
+        run: |
+          mkdir "$RUNNER_TEMP/py311"
+          tar -xzf "$RUNNER_TEMP/env/6n-python311.tar.gz" -C "$RUNNER_TEMP/py311"
+          echo "PYTHONHOME=$RUNNER_TEMP/py311" >> "$GITHUB_ENV"
+          echo "LD_LIBRARY_PATH=$RUNNER_TEMP/py311/lib" >> "$GITHUB_ENV"
+          echo "$RUNNER_TEMP/py311/bin" >> "$GITHUB_PATH"
+          git lfs pull --include='data/unified/player_match.csv,data/unified/raw_benchmark/v1/player_match.csv,data/ncr/club_player_match.csv,data/unified/raw_benchmark/v1/models/p3_event_50/nations_championship_2026.pkl' --exclude=''
+      - name: Run the complete test suite before evaluating results
+        run: |
+          python -m pip install 'beautifulsoup4>=4.12,<5' 'requests>=2.31,<3'
+          python model_env_preflight.py
+          git rev-parse HEAD > tested-commit.txt
+          python -m pip freeze > tested-environment.txt
+          python -m pytest -q tests | tee full-tests.txt
+          git diff --check
+      - id: matrix
+        name: Preserve all fifteen friendlies and thirteen fantasy rounds
+        run: |
+          python - <<'PY'
+          import json,os
+          from pathlib import Path
+          ids = [str(row['fixture_id']) for row in json.loads(Path('data/unified/friendly15/fixtures.json').read_text())['fixtures']]
+          assert len(ids) == len(set(ids)) == 15
+          jobs = [f'test:{f}' for f in ids]
+          jobs += [f'{c}_{y}_r{r}' for c,y,n in [('ncr',2026,3),('six_nations',2025,5),('six_nations',2026,5)] for r in range(1,n+1)]
+          with open(os.environ['GITHUB_OUTPUT'],'a') as handle:
+              handle.write('matrix='+json.dumps({'include':[{'job':j,'id':j.replace(':','_')} for j in jobs]})+'\n')
+          PY
+      - uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: identity-full-validation
+          path: |
+            full-tests.txt
+            tested-commit.txt
+            tested-environment.txt
+          retention-days: 14
+
+  compare:
+    needs: [source,prepare]
+    runs-on: ubuntu-latest
+    timeout-minutes: 25
+    strategy:
+      fail-fast: false
+      max-parallel: 10
+      matrix: ${{ fromJSON(needs.prepare.outputs.matrix) }}
+    steps:
+      - uses: actions/checkout@v5
+        with:
+          ref: ${{ needs.source.outputs.sha }}
+          lfs: false
+          persist-credentials: false
+      - uses: actions/download-artifact@v4
+        with:
+          name: pinned-cpu-environment
+          run-id: 35467219925
+          github-token: ${{ github.token }}
+          path: ${{ runner.temp }}/env
+      - uses: actions/download-artifact@v4
+        with:
+          name: seedbag-prepared-inputs
+          run-id: 35478343154
+          github-token: ${{ github.token }}
+          path: ${{ runner.temp }}/inputs
+      - name: Restore identical cached history and pinned environment
+        run: |
+          mkdir "$RUNNER_TEMP/py311" results
+          tar -xzf "$RUNNER_TEMP/env/6n-python311.tar.gz" -C "$RUNNER_TEMP/py311"
+          tar -xzf "$RUNNER_TEMP/inputs/prepared-inputs.tar.gz" -C results
+          cp results/inputs/club_player_match.csv data/ncr/club_player_match.csv
+          echo "PYTHONHOME=$RUNNER_TEMP/py311" >> "$GITHUB_ENV"
+          echo "LD_LIBRARY_PATH=$RUNNER_TEMP/py311/lib" >> "$GITHUB_ENV"
+          echo "$RUNNER_TEMP/py311/bin" >> "$GITHUB_PATH"
+      - name: Fit the fixed identity alternative and controls
+        run: python -u -m model.unified.domain_experiment --study identity --output results --job '${{ matrix.job }}' | tee run.log
+      - name: Preserve prediction evidence only
+        if: always()
+        run: if [ -d results/jobs ]; then tar -czf evidence.tar.gz -C results jobs; fi
+      - uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: identity-job-${{ matrix.id }}
+          path: |
+            evidence.tar.gz
+            run.log
+          retention-days: 14
+
+  audit:
+    needs: [source,prepare,compare]
+    runs-on: ubuntu-latest
+    timeout-minutes: 20
+    permissions:
+      contents: write
+      actions: read
+    steps:
+      - uses: actions/checkout@v5
+        with:
+          ref: ${{ needs.source.outputs.sha }}
+          lfs: false
+      - uses: actions/download-artifact@v4
+        with:
+          name: pinned-cpu-environment
+          run-id: 35467219925
+          github-token: ${{ github.token }}
+          path: ${{ runner.temp }}/env
+      - uses: actions/download-artifact@v4
+        with:
+          name: seedbag-prepared-inputs
+          run-id: 35478343154
+          github-token: ${{ github.token }}
+          path: ${{ runner.temp }}/inputs
+      - uses: actions/download-artifact@v4
+        with:
+          pattern: identity-job-*
+          path: evidence
+      - uses: actions/download-artifact@v4
+        with:
+          name: identity-full-validation
+          path: validation
+      - uses: actions/download-artifact@v4
+        with:
+          name: friendly-research-evidence
+          run-id: 35475684776
+          github-token: ${{ github.token }}
+          path: previous-archive
+      - name: Restore current and preceding evidence
+        run: |
+          mkdir "$RUNNER_TEMP/py311" results previous previous_results
+          tar -xzf "$RUNNER_TEMP/env/6n-python311.tar.gz" -C "$RUNNER_TEMP/py311"
+          tar -xzf "$RUNNER_TEMP/inputs/prepared-inputs.tar.gz" -C results
+          cp results/inputs/club_player_match.csv data/ncr/club_player_match.csv
+          for archive in evidence/*/evidence.tar.gz; do tar -xzf "$archive" -C results; done
+          tar -xzf previous-archive/friendly-research-evidence.tar.gz -C previous
+          for archive in previous/confirmation/*/evidence.tar.gz; do tar -xzf "$archive" -C previous_results; done
+          echo "PYTHONHOME=$RUNNER_TEMP/py311" >> "$GITHUB_ENV"
+          echo "LD_LIBRARY_PATH=$RUNNER_TEMP/py311/lib" >> "$GITHUB_ENV"
+          echo "$RUNNER_TEMP/py311/bin" >> "$GITHUB_PATH"
+      - name: Verify complete four-evaluation results and unchanged controls
+        run: |
+          python -u -m model.unified.comparison_report --output results --previous previous_results --destination data/unified/identity_search --candidate p3_identity_native | tee audit.log
+          printf '\n## Completed run\n\nTested source: `%s`. Workflow run: `%s`.\n\n```text\n' "$(cat validation/tested-commit.txt)" "$GITHUB_RUN_ID" >> data/unified/identity_search/REPORT.md
+          cat validation/full-tests.txt >> data/unified/identity_search/REPORT.md
+          printf '\n```\n' >> data/unified/identity_search/REPORT.md
+          cp validation/tested-commit.txt validation/tested-environment.txt data/unified/identity_search/
+          git diff --check
+      - name: Save research evidence on this branch only
+        run: |
+          git config user.name 'github-actions[bot]'
+          git config user.email '41898282+github-actions[bot]@users.noreply.github.com'
+          git add data/unified/identity_search
+          git commit -m 'Record native-identity comparison without model promotion'
+          git push origin HEAD:codex/native-identity-search-20260920
+      - name: Package comparison evidence
+        if: always()
+        run: tar -czf identity-research-evidence.tar.gz evidence validation data/unified/identity_search audit.log
+      - uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: identity-research-evidence
+          path: identity-research-evidence.tar.gz
+          retention-days: 14

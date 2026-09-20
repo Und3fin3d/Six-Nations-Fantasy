@@ -1,0 +1,11 @@
+{
+  "selected": "p3_identity_native",
+  "selection_method": "prespecified representation hypothesis; no outcome-based selection",
+  "selection_used_friendly15": false,
+  "selection_used_fantasy_outcomes": false,
+  "candidate_configs": {
+    "p3_robust_native": {"weighting": "natural", "half_life_days": null, "seeds": [17], "player_identity": false},
+    "p3_identity_native": {"weighting": "natural", "half_life_days": null, "seeds": [17], "player_identity": true}
+  },
+  "promotion_authorized": false
+}

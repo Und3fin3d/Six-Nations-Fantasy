@@ -1,0 +1,59 @@
+name: Verify James player identities
+on:
+  push:
+    branches: [codex/seedbag-search-20260920]
+    paths: [.github/workflows/identity-source-audit.yml]
+permissions:
+  contents: write
+  actions: read
+defaults:
+  run:
+    shell: bash
+jobs:
+  verify:
+    runs-on: ubuntu-latest
+    timeout-minutes: 5
+    steps:
+      - uses: actions/checkout@v5
+        with:
+          lfs: false
+      - uses: actions/download-artifact@v4
+        with:
+          name: seedbag-prepared-inputs
+          run-id: 35478343154
+          github-token: ${{ github.token }}
+          path: prior
+      - name: Inspect names, IDs and prior-history dates without model tuning
+        run: |
+          mkdir prepared
+          tar -xzf prior/prepared-inputs.tar.gz -C prepared
+          python - <<'PY'
+          import csv,json,hashlib
+          from pathlib import Path
+          grouped = {}
+          for row in csv.DictReader(Path('prepared/inputs/player_match.csv').open()):
+              name = row.get('player_name','')
+              normalized = name.lower()
+              if row.get('player_id') != '232158' and not ('james' in normalized and ('kane' in normalized or 'eddie' in normalized)):
+                  continue
+              key = (row['player_id'],name,row['team'],row.get('competition_level'))
+              group = grouped.setdefault(key, {'player_id':row['player_id'],'name':name,'team':row['team'],'level':row.get('competition_level'),'dates':[],'fixtures':set(),'before_ncr_gw1':0})
+              group['dates'].append(row['date'])
+              group['fixtures'].add(row['fixture_id'])
+              group['before_ncr_gw1'] += row['date'][:10] < '2026-07-04'
+          rows = []
+          for group in grouped.values():
+              group['first_date'],group['last_date'] = min(group['dates']),max(group['dates'])
+              group['rows'] = len(group.pop('dates'))
+              group['fixtures'] = sorted(group['fixtures'])
+              rows.append(group)
+          payload = {'historical_identities':rows}
+          path = Path('data/unified/seedbag_search/IDENTITY_SOURCE.json')
+          path.write_text(json.dumps(payload,indent=2)+'\n')
+          print(path.read_text())
+          PY
+          git config user.name 'github-actions[bot]'
+          git config user.email '41898282+github-actions[bot]@users.noreply.github.com'
+          git add data/unified/seedbag_search/IDENTITY_SOURCE.json
+          git commit -m 'Record historical identity evidence for the NCR crosswalk collision'
+          git push origin HEAD:codex/seedbag-search-20260920

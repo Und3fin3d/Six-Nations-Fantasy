@@ -10,6 +10,7 @@ import pandas as pd
 from ..features import build_pit_features, team_margin_form, grouped_ewm
 from ..schema import EVENTS
 from ..v4.features import add_v4_base_stats
+from .positions import prior_supported_positions
 
 
 def _last_by_player(frame: pd.DataFrame, values: pd.Series) -> pd.Series:
@@ -33,6 +34,8 @@ def build_frozen_feature_frames(
             raise ValueError("prepared training features do not match the historical cohort")
         training_features = prepared_train
     candidate_features = candidates.copy()
+    if 'position_source' in candidate_features:
+        candidate_features = prior_supported_positions(candidate_features, ordered)
     candidate_features["date"] = pd.to_datetime(candidate_features["date"], errors="coerce")
     players = ordered["player_id"]
     player_group = ordered.groupby("player_id", sort=False)

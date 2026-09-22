@@ -95,6 +95,9 @@ def run(output, fold_name):
     prepared = add_v4_base_stats(build_pit_features(store))
     features, candidates = build_frozen_feature_frames(
         train, masked_candidates(evaluation), v4=True, prepared_train=prepared.loc[train.index])
+    evaluation[['position','position_source','is_forward']] = candidates[['position','position_source','is_forward']].to_numpy()
+    candidates[['fixture_id','player_id','team','position','position_source','is_forward']].to_csv(
+        output/'candidate_roles.csv', index=False)
     config = json.loads((ROOT/'data/unified/p3_hillclimb/config.json').read_text())
     directory = output/'models'
     directory.mkdir(exist_ok=True)

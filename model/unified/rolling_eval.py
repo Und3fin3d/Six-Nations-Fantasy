@@ -33,6 +33,7 @@ from .raw_benchmark.robust_empirical import RobustEmpiricalEventModel
 from .raw_benchmark.config import STABLE_EVENTS, EXTENDED_EVENTS
 from .raw_benchmark.features import build_frozen_feature_frames
 from .raw_benchmark.folds import masked_candidates
+from .raw_benchmark.positions import prior_supported_positions
 from .raw_benchmark.blend import EventBlend50, EventWeightedBlend
 from .v4.gbdt import V4GBDT
 from .v4.features import add_v4_base_stats
@@ -73,7 +74,7 @@ def prepare_store(output: Path) -> pd.DataFrame:
     directory.mkdir(parents=True, exist_ok=True)
     path = directory / 'player_match.csv'
     inputs = {str(p.relative_to(ROOT)): sha256(p) for p, *_ in DEFAULT_SOURCES}
-    for name in ('official_labels.py', 'compare_api_official.py'):
+    for name in ('official_labels.py', 'compare_api_official.py', 'model/unified/raw_benchmark/positions.py'):
         inputs[name] = sha256(ROOT/name)
     for p in (DATA/'official_player_match.csv', DATA/'rp_compstats.csv', DATA/'wr_rankings.csv'):
         inputs[str(p.relative_to(ROOT))] = sha256(p)
@@ -89,6 +90,7 @@ def prepare_store(output: Path) -> pd.DataFrame:
     legacy = directory/'canonical.csv'
     build_canonical_store(asof='2026-09-19').to_csv(legacy, index=False)
     store, _, report = build_corrected_store(legacy)
+    store = prior_supported_positions(store, store)
     venue, cache_hashes = {}, {}
     for fixture in store.fixture_id.astype(str).unique():
         source = DATA/'cache'/f'match_{fixture}.json'
@@ -108,6 +110,13 @@ def prepare_store(output: Path) -> pd.DataFrame:
     return store
 
 
+def validate_six_nations_pool(rows, name):
+    if rows.team.nunique() != 6 or not rows.groupby('team').size().eq(23).all():
+        raise ValueError(f'{name}: incomplete Six Nations teamsheets')
+    if rows.position.eq('Unknown').any():
+        raise ValueError(f'{name}: candidate playing roles are unknown')
+
+
 def official_slates(store: pd.DataFrame, competitions: tuple[str, ...]) -> list[Slate]:
     slates = []
     if 'six_nations' in competitions:
@@ -119,8 +128,7 @@ def official_slates(store: pd.DataFrame, competitions: tuple[str, ...]) -> list[
             raise ValueError('Six Nations official label coverage is incomplete')
         for (year, round_no), rows in joined.groupby(['season','round']):
             rows = rows.sort_values(KEY).reset_index(drop=True)
-            if rows.team.nunique() != 6 or not rows.groupby('team').size().eq(23).all():
-                raise ValueError(f'{year}/round {round_no}: incomplete Six Nations teamsheets')
+            validate_six_nations_pool(rows, f'{year}/round {round_no}')
             cutoff = pd.to_datetime(rows.match_at, utc=True).min()
             ids = np.arange(1, len(rows)+1)
             pool = pd.DataFrame({'id': ids, 'name': rows.player_name, 'team': rows.team,

@@ -2,7 +2,7 @@
 
 PR #20 was merged as an incremental correctness and research change. Its `p3_robust_native` model remains the retained shared research reference. No evaluated model has established universal deployment superiority.
 
-Issue #21 records a later retained candidate: corrected identities, the historical goal-kicking-role gate and an independent robust minutes head. That package is absent from both open pull requests. The remote `codex/unified-refinements-pr-20260920` branch currently points to the unchanged PR #20 head. Closing the documentation issue does not complete its outstanding research actions or publish that package.
+Issue #21 records a later retained candidate: corrected identities, the historical goal-kicking-role gate and an independent robust minutes head. That package is absent from PR #7 and PR #20. At the merge review, the remote `codex/unified-refinements-pr-20260920` branch pointed to the unchanged PR #20 head. Closing the documentation issue does not complete its outstanding research actions or publish that package.
 
 ## Comparable recorded results
 
@@ -44,7 +44,7 @@ The rolling-origin design follows [Forecasting: Principles and Practice](https:/
 
 The reviewed PR #20 head was `73fb3ce9a010480ed2443a6bca1eefc395d55072`, against main `64485d2e374178b51108a298683b9ba43ab9628b`. Its model and test files exactly match the source from the recorded successful 121-test Actions run.
 
-After the cache correction, all 121 existing tests passed locally in 314.02 seconds. The run used Python 3.11.15 and the pinned `requirements-model.txt` and `requirements-unified.txt` packages, with external pytest plugins disabled and `OMP_THREAD_LIMIT=2`. It included the genuine frozen LFS model and the neural path. There were 156 pandas fragmentation warnings. The environment preflight, CLI help, all nine input hashes and `git diff --check` also passed. An earlier attempt in the existing Python 3.12 environment stopped during collection because BeautifulSoup was missing; the complete pinned-environment run supersedes it. No full historical comparison was refitted for this review.
+After the cache correction, all 121 existing tests passed locally in 314.02 seconds. The run used Python 3.11.15 and the pinned `requirements-model.txt` and `requirements-unified.txt` packages, with external pytest plugins disabled and `OMP_THREAD_LIMIT=2`. It included the genuine frozen LFS model and the neural path. There were 156 pandas fragmentation warnings. The environment preflight, CLI help, all nine input hashes and `git diff --check` also passed. An earlier attempt in the existing Python 3.12 environment stopped during collection because BeautifulSoup was missing; the complete pinned-environment run supersedes it. No full historical comparison was refitted for this merge review. The subsequent [independent audit](../data/unified/pr20_verification/REPORT.md) recalculated all 13 rounds and freshly fitted NCR GW2. That fit reproduced all four MAEs, squads and team totals, with expected-point differences at most 1.07e-14.
 
 The independent specification review found one cache-provenance defect. The run manifest now hashes all nine previously omitted evaluation files before accepting cached models. These include fixtures, teams, crosswalk, official feeds, saved projections and Six Nations targets. The reviewer checked the full exercised data-loading call graph and accepted the correction. No model parameters, fitted artifacts, tests or production routing were changed during this review.
 

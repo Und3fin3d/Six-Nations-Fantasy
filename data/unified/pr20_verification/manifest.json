@@ -5,15 +5,23 @@
   "native_artifact_id": 10592363356,
   "rolling_workflow_run": 35468499645,
   "rolling_artifact_id": 10592111768,
-  "method": "Independent recalculation from saved real predictions, squads and official outcomes; no generated tests",
+  "method": "Independent recalculation of all saved predictions, squads and official outcomes; fresh NCR GW2 fit; no generated tests",
   "files": {
     "REPORT.md": {
-      "sha256": "3026a96e4425d5b103a5936f714757a6bdcf0e401104d4a99307cec4c405c419",
-      "bytes": 6413
+      "sha256": "aa0854881daf130a40952a260bfb5c22b982d6761dc6cf98e905097708320862",
+      "bytes": 7827
     },
     "baseline_parity.csv": {
       "sha256": "b477c76cae332b8835f0598f10841e0decc7b45edf80c9e327b1914acba7410e",
       "bytes": 551
+    },
+    "fresh_ncr_gw2.csv": {
+      "sha256": "dbd97f28ca7ff9b1814e3a96d3cff8809a72fd520d5f4bc8011ccd699a02c468",
+      "bytes": 589
+    },
+    "fresh_ncr_gw2.json": {
+      "sha256": "45e19535d119952ca8369c752cb1c8385848fb1f621a3fd905fc4650d7b184c0",
+      "bytes": 778
     },
     "intervals.csv": {
       "sha256": "577fe4421a1de0df60ea6308a343facd46bf16c078d5dae0081e03311d62b120",
@@ -34,6 +42,10 @@
     "verification.json": {
       "sha256": "1289ef2b27af607d3b1a05be7520104971cb8444e2d10b5033f284a6dfe645fc",
       "bytes": 542
+    },
+    "evidence/fresh-ncr-gw2-evidence.tar.gz": {
+      "sha256": "69c71701c8d65de8058c710b50b676bfc03796a30e213339248a472a3d91c497",
+      "bytes": 685488
     },
     "evidence/native-comparison-evidence.tar.gz": {
       "sha256": "b4a5891d9ca574f1d5d13669f9de8b66eac2579381f4f37dec06b389f7d95c8a",

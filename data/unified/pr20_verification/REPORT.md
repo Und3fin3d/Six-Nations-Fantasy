@@ -32,6 +32,14 @@ The NCR candidate scores 513, 694 and 533 against empirical 529, 493 and 556. It
 
 `verification.json`, `round_metrics.csv`, `summary.csv`, `intervals.csv` and `baseline_parity.csv` preserve the calculations. The two original compressed Actions evidence packages are retained in `evidence/`; their hashes and origins are in `manifest.json`. These preserve the saved predictions instead of depending solely on expiring Actions storage.
 
+## Fresh NCR GW2 reproduction
+
+A new fit from corrected PR #20 source `599a51987eaac8830c6d1b20870c8c6c3b6747b7` reproduced the decisive NCR GW2 comparison. The isolated run rebuilt the original 174,508-row store. Its store and weight hashes match the original job. The round manifest also matches: 171,794 training rows, 3,782 fixtures and 276 earlier NCR rows. The only model-source difference is the reviewed evaluation-input manifest correction.
+
+All four MAEs, selected player IDs, captain/substitute assignments and realised team totals match the original job. Fresh expected-point differences are at most 1.07e-14. `p3_robust_native` again has MAE 8.308258510134976 and 694 team points, against empirical 8.39324427480916 and 493. The rolling and weighted candidates reproduce 737 and 681 team points respectively. This confirms the recorded result; it does not remove its selection and coverage limits.
+
+The run used Python 3.11.15 and the pinned numerical packages with `OMP_THREAD_LIMIT=2` and `OPENBLAS_NUM_THREADS=1`. Its fit-and-score stage took 730.9 seconds. `fresh_ncr_gw2.csv` records every candidate comparison. `fresh_ncr_gw2.json` records the command and provenance checks. `evidence/fresh-ncr-gw2-evidence.tar.gz` preserves the new predictions, squads, manifests and log, without fitted binaries. Only this round was freshly fitted; all 13 rounds were recalculated from their saved evidence.
+
 ## Newly identified limitation: incomplete Six Nations pools
 
 `rolling_eval.official_slates` filters `model_targets.csv` on `official_pts.notna()` before constructing the comparison and optimiser pool. This excludes 38 of 1,380 teamsheet rows: 16 in 2025 and 22 in 2026. The actual totals are 674 and 668 candidates across the respective seasons. Individual rounds have 131–137 candidates instead of 138.

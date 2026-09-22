@@ -842,3 +842,5 @@ date,comp,team,team_id,opponent,opponent_id,team_score,opp_score,margin,result,r
 2026-09-12,Pacific Nations Cup 2026,Japan,49,USA,51,63,14,49,W,,False
 2026-09-12,Rugby’s Greatest Rivalry 2026,New Zealand,37,South Africa,39,28,43,-15,L,,True
 2026-09-12,Rugby’s Greatest Rivalry 2026,South Africa,39,New Zealand,37,43,28,15,W,,True
+2026-09-19,Pacific Nations Cup 2026,Fiji,46,Japan,49,15,20,-5,L,,True
+2026-09-19,Pacific Nations Cup 2026,Japan,49,Fiji,46,20,15,5,W,,True

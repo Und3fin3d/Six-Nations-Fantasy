@@ -1,0 +1,233 @@
+{
+  "workflow_run": 35737817588,
+  "source_commit": "3d231176050e1c5692497dfb11db13ef7f5b2dc4",
+  "jobs": [
+    {
+      "name": "comparison-raw-autumn_internationals_2022",
+      "bundle": "raw-2022-2024.tar.gz",
+      "sha256": "8bda054d11884027bb284754f04fbf152690e59d2710a6bfa1399f78bc082fa6",
+      "bytes": 2608062
+    },
+    {
+      "name": "comparison-raw-autumn_internationals_2024",
+      "bundle": "raw-2022-2024.tar.gz",
+      "sha256": "a5cf724bb5aa03f70a52da6def4805111dbebc2f25367ed9aba4ccf0f4cdc652",
+      "bytes": 3006977
+    },
+    {
+      "name": "comparison-raw-autumn_internationals_2025",
+      "bundle": "raw-2025-2026.tar.gz",
+      "sha256": "c8246f62b70de6f124ca137e1ace3b78f05f2f1c0213db1e9f7d6d64751a430a",
+      "bytes": 3318596
+    },
+    {
+      "name": "comparison-raw-british_irish_lions_2025",
+      "bundle": "raw-2025-2026.tar.gz",
+      "sha256": "86ffe626a1269cd02a97eca72a058b6b01405bcf1453fc1ad752d091cc4b3df4",
+      "bytes": 1493128
+    },
+    {
+      "name": "comparison-raw-nations_championship_2026",
+      "bundle": "raw-2025-2026.tar.gz",
+      "sha256": "f7497504bf5d7c7846b999a906468a051c27fe25cda550fba917b597820e7d2a",
+      "bytes": 2467607
+    },
+    {
+      "name": "comparison-raw-pacific_nations_cup_2022",
+      "bundle": "raw-2022-2024.tar.gz",
+      "sha256": "a6156f9b7a594c1389bed663c57e8c34162854413e9560843d7e782b8047030e",
+      "bytes": 951112
+    },
+    {
+      "name": "comparison-raw-pacific_nations_cup_2024",
+      "bundle": "raw-2022-2024.tar.gz",
+      "sha256": "ea5c88ae92bb365cf8279c7155c70410ba68c0a5b99187a2836a1b953380cfae",
+      "bytes": 1522305
+    },
+    {
+      "name": "comparison-raw-pacific_nations_cup_2025",
+      "bundle": "raw-2025-2026.tar.gz",
+      "sha256": "002dc9d8f573512810d633cf58862cd2a9b5c94bf788cb0aa9f2a18e2863a497",
+      "bytes": 1585284
+    },
+    {
+      "name": "comparison-raw-rugby_championship_2022",
+      "bundle": "raw-2022-2024.tar.gz",
+      "sha256": "cc3f3bf6af196bc7f9fd5f0d6eb441506eb7d0aadf6c413ac2382dd7ac45329e",
+      "bytes": 1565575
+    },
+    {
+      "name": "comparison-raw-rugby_championship_2023",
+      "bundle": "raw-2022-2024.tar.gz",
+      "sha256": "5d5bb147bf504cf30a664f8b0d75bb96d5ee6482703987230688e54326a25ec5",
+      "bytes": 1005908
+    },
+    {
+      "name": "comparison-raw-rugby_championship_2024",
+      "bundle": "raw-2022-2024.tar.gz",
+      "sha256": "ab6857420f20de47e2746e0e5de5a53af50cf334d436be8f4ac0cab62fe8aa23",
+      "bytes": 1678195
+    },
+    {
+      "name": "comparison-raw-rugby_championship_2025",
+      "bundle": "raw-2025-2026.tar.gz",
+      "sha256": "f998a402e8005e0a1ffbde97a9ed6d6846239933ecca77bad54890a663b42b13",
+      "bytes": 1719833
+    },
+    {
+      "name": "comparison-raw-rugby_world_cup_2023",
+      "bundle": "raw-2022-2024.tar.gz",
+      "sha256": "c4427ff69d7e57b75bcd556f18fe6384d0cfefbfb3e90f92c1ff7344df656cb3",
+      "bytes": 5075633
+    },
+    {
+      "name": "comparison-raw-six_nations_2022",
+      "bundle": "raw-2022-2024.tar.gz",
+      "sha256": "007f30c16bf1c5d36127e16d02087b0c160752caf6c96d90ba00ab7c7156c564",
+      "bytes": 1837083
+    },
+    {
+      "name": "comparison-raw-six_nations_2023",
+      "bundle": "raw-2022-2024.tar.gz",
+      "sha256": "7a59e1337cd4c708d8352b4002bb8df166fcf1f41ffef082115509c7ac81578c",
+      "bytes": 1859298
+    },
+    {
+      "name": "comparison-raw-six_nations_2024",
+      "bundle": "raw-2022-2024.tar.gz",
+      "sha256": "19ff4fba0271054530f8df1cfefa9d8df2517d51663d493fa18214117e13c8ac",
+      "bytes": 1982708
+    },
+    {
+      "name": "comparison-raw-six_nations_2025",
+      "bundle": "raw-2025-2026.tar.gz",
+      "sha256": "4f474234e88431bc0aa76097b9e165758feddedaf1f418bbacae3c3d04b5e2d6",
+      "bytes": 1996506
+    },
+    {
+      "name": "comparison-raw-six_nations_2026",
+      "bundle": "raw-2025-2026.tar.gz",
+      "sha256": "223b8f35597465f0e1c74e33218f6b4adea115443588ae5bdc398f00f52cc0b0",
+      "bytes": 2049188
+    },
+    {
+      "name": "comparison-raw-summer_internationals_2022",
+      "bundle": "raw-2022-2024.tar.gz",
+      "sha256": "e9c2ebc2f8ec5b518dbdce0279fccd033492021fb02e2b70d1853696f7902abe",
+      "bytes": 2256235
+    },
+    {
+      "name": "comparison-raw-summer_internationals_2023",
+      "bundle": "raw-2022-2024.tar.gz",
+      "sha256": "5f9d66fae471fa35338628871d542094a2ecfa0c8db77bae506261897fddd870",
+      "bytes": 2970004
+    },
+    {
+      "name": "comparison-raw-summer_internationals_2024",
+      "bundle": "raw-2022-2024.tar.gz",
+      "sha256": "0b20d8c8882a560c5758c458797c41551e85c259d84cc9d93f701b52215ea212",
+      "bytes": 2973567
+    },
+    {
+      "name": "comparison-raw-summer_internationals_2025",
+      "bundle": "raw-2025-2026.tar.gz",
+      "sha256": "ce10f028a7387c98de7e5629a2ad620726a6f0d7257e19ba77e34ca2170ae365",
+      "bytes": 2395833
+    },
+    {
+      "name": "comparison-slate-ncr_2026_r1",
+      "bundle": "official.tar.gz",
+      "sha256": "d5f00577d575a3562b697a3fe522ec79bd5331957f8e40bf74ac5e9d2795f776",
+      "bytes": 697569
+    },
+    {
+      "name": "comparison-slate-ncr_2026_r2",
+      "bundle": "official.tar.gz",
+      "sha256": "5487e3a7c93b2caeb26b1015e29def216b18952af790e8137bb3a321fea0dc6f",
+      "bytes": 758681
+    },
+    {
+      "name": "comparison-slate-ncr_2026_r3",
+      "bundle": "official.tar.gz",
+      "sha256": "360adad49e71a67538968f95effa772e6b428a7b64e5ecef598786a9ae6a0c82",
+      "bytes": 772900
+    },
+    {
+      "name": "comparison-slate-six_nations_2025_r1",
+      "bundle": "official.tar.gz",
+      "sha256": "a520447ac8ce963eaa49f2bc5f64f8153124cbfef6ca5bd3bfe4b41749cda08a",
+      "bytes": 499109
+    },
+    {
+      "name": "comparison-slate-six_nations_2025_r2",
+      "bundle": "official.tar.gz",
+      "sha256": "4268cad56837fbf95aedfaeabb0fe101d5c5d60b844f5da386c2637734b3c469",
+      "bytes": 497289
+    },
+    {
+      "name": "comparison-slate-six_nations_2025_r3",
+      "bundle": "official.tar.gz",
+      "sha256": "3f27e52bcc6a5b013ebd9c25e7a95882c12ff08d6528fd37f2a8855a6b55c989",
+      "bytes": 496426
+    },
+    {
+      "name": "comparison-slate-six_nations_2025_r4",
+      "bundle": "official.tar.gz",
+      "sha256": "bf2e56fc5aaaea33d5c824ca3dda92ebc8a7bedb80260d3b98289466b995de88",
+      "bytes": 496334
+    },
+    {
+      "name": "comparison-slate-six_nations_2025_r5",
+      "bundle": "official.tar.gz",
+      "sha256": "81c3b0e958bd5b7ee6262ae546fb5bb484ebd40394178c66c8aa79ce7581255c",
+      "bytes": 496887
+    },
+    {
+      "name": "comparison-slate-six_nations_2026_r1",
+      "bundle": "official.tar.gz",
+      "sha256": "28a822d30acaebfa8dd66c328d182f7ef2d8584319ca3841c435fa7c16c7e277",
+      "bytes": 507124
+    },
+    {
+      "name": "comparison-slate-six_nations_2026_r2",
+      "bundle": "official.tar.gz",
+      "sha256": "665b38a7c7e3e87a54ec81aefce54cfcfcf0ad2716daa45620f9f1cfd106afd2",
+      "bytes": 503848
+    },
+    {
+      "name": "comparison-slate-six_nations_2026_r3",
+      "bundle": "official.tar.gz",
+      "sha256": "9700613bd366c8a2f1f8042deb1ab8e9f20226910d262c1f112e18ac4cfe9b7c",
+      "bytes": 502577
+    },
+    {
+      "name": "comparison-slate-six_nations_2026_r4",
+      "bundle": "official.tar.gz",
+      "sha256": "7201ee9c2f4893d805ba8db604a8c380af8555ec6d5a65fee7fa98cd3572af62",
+      "bytes": 503741
+    },
+    {
+      "name": "comparison-slate-six_nations_2026_r5",
+      "bundle": "official.tar.gz",
+      "sha256": "810ad5cc2bc4c847ccf3592c35377c074d4550fb1cbac9e4b2d18eaa630c6018",
+      "bytes": 502577
+    }
+  ],
+  "bundles": [
+    {
+      "path": "raw-2022-2024.tar.gz",
+      "sha256": "dd97415d0e4807e904fc9b0bc621023af0504d5801387ca79d9faa3d3b1f8bd9",
+      "bytes": 31246795
+    },
+    {
+      "path": "raw-2025-2026.tar.gz",
+      "sha256": "047c3a93cd89a6b6015ab6c47a1605bfe5dc17b98691a1c859ccc2b45acd9d9e",
+      "bytes": 16999298
+    },
+    {
+      "path": "official.tar.gz",
+      "sha256": "3dc40e10b5f2a2ff804fa9d60e6568eea08aabeff48a7ce79e9782f459605293",
+      "bytes": 7185743
+    }
+  ]
+}

@@ -46,6 +46,7 @@ import numpy as np
 import pandas as pd
 
 from compare_api_official import norm_key
+from official_labels import match_official
 
 BASE = Path(__file__).parent
 DATA = BASE / "data"
@@ -500,13 +501,9 @@ def build(half_life: float) -> pd.DataFrame:
     # FORM signal. has_potm_label marks rows where a label exists at all, so the
     # rate is taken only over labelled prior matches (not diluted by 2024/club).
     off = pd.read_csv(DATA / "official_player_match.csv")
-    off["nk"] = off["name"].map(norm_key)
-    off["potm"] = pd.to_numeric(off["POTM"], errors="coerce").fillna(0)
-    off_potm = (off.dropna(subset=["Pts"])
-                  .drop_duplicates(["season", "round", "team", "nk"])
-                  [["season", "round", "team", "nk", "potm"]])
-    ap["nk"] = ap["player_name"].map(norm_key)
-    ap = ap.merge(off_potm, on=["season", "round", "team", "nk"], how="left")
+    six = ap[ap.comp_id.eq(1266)]
+    labels = match_official(six, off.dropna(subset=['Pts']))
+    ap['potm'] = labels['POTM']
     ap["has_potm_label"] = ap["potm"].notna()
     ap["potm"] = ap["potm"].fillna(0)
 

@@ -33,6 +33,7 @@ from .raw_benchmark.robust_empirical import RobustEmpiricalEventModel
 from .raw_benchmark.config import STABLE_EVENTS, EXTENDED_EVENTS
 from .raw_benchmark.features import build_frozen_feature_frames
 from .raw_benchmark.folds import masked_candidates
+from .raw_benchmark.positions import prior_supported_positions
 from .raw_benchmark.blend import EventBlend50, EventWeightedBlend
 from .v4.gbdt import V4GBDT
 from .v4.features import add_v4_base_stats
@@ -73,27 +74,30 @@ def prepare_store(output: Path) -> pd.DataFrame:
     directory.mkdir(parents=True, exist_ok=True)
     path = directory / 'player_match.csv'
     inputs = {str(p.relative_to(ROOT)): sha256(p) for p, *_ in DEFAULT_SOURCES}
+    for name in ('official_labels.py', 'compare_api_official.py', 'model/unified/raw_benchmark/positions.py',
+                 'model/unified/raw_benchmark/coverage.py', 'model/unified/data.py', 'model/unified/rolling_eval.py'):
+        inputs[name] = sha256(ROOT/name)
     for p in (DATA/'official_player_match.csv', DATA/'rp_compstats.csv', DATA/'wr_rankings.csv'):
         inputs[str(p.relative_to(ROOT))] = sha256(p)
     manifest = directory/'sources.json'
+    cache_hashes = {p.stem.removeprefix('match_'): sha256(p) for p in sorted((DATA/'cache').glob('match_*.json'))}
     if path.exists():
         previous = json.loads(manifest.read_text())
-        if previous['inputs'] != inputs or previous['store_sha256'] != sha256(path):
+        if (previous['inputs'] != inputs or previous['store_sha256'] != sha256(path)
+                or previous['cache_sha256'] != cache_hashes):
             raise ValueError('research inputs changed; choose a new output directory')
-        for fixture, digest in previous['cache_sha256'].items():
-            if sha256(DATA/'cache'/f'match_{fixture}.json') != digest:
-                raise ValueError('cached match changed; choose a new output directory')
         return pd.read_csv(path, low_memory=False, dtype={key: str for key in KEY}, parse_dates=['date','match_at'])
     legacy = directory/'canonical.csv'
-    build_canonical_store(asof='2026-09-19').to_csv(legacy, index=False)
-    store, _, report = build_corrected_store(legacy)
-    venue, cache_hashes = {}, {}
+    asof = '2026-09-22'
+    build_canonical_store(asof=asof).to_csv(legacy, index=False)
+    store, _, report = build_corrected_store(legacy, complete_asof=asof)
+    store = prior_supported_positions(store, store)
+    venue = {}
     for fixture in store.fixture_id.astype(str).unique():
         source = DATA/'cache'/f'match_{fixture}.json'
         match = json.loads(source.read_text())['results']['match']
         venue[(fixture, str(match['home_team']))] = 'home'
         venue[(fixture, str(match['away_team']))] = 'away'
-        cache_hashes[fixture] = sha256(source)
     store['home_away'] = [venue.get((str(r.fixture_id), str(r.team)), '') for r in store.itertuples()]
     if store.home_away.eq('').any() or store.duplicated(KEY).any():
         raise ValueError('missing venue or duplicate player-match keys')
@@ -106,16 +110,25 @@ def prepare_store(output: Path) -> pd.DataFrame:
     return store
 
 
+def validate_six_nations_pool(rows, name):
+    if rows.team.nunique() != 6 or not rows.groupby('team').size().eq(23).all():
+        raise ValueError(f'{name}: incomplete Six Nations teamsheets')
+    if rows.position.eq('Unknown').any():
+        raise ValueError(f'{name}: candidate playing roles are unknown')
+
+
 def official_slates(store: pd.DataFrame, competitions: tuple[str, ...]) -> list[Slate]:
     slates = []
     if 'six_nations' in competitions:
         labels = pd.read_csv(DATA/'model_targets.csv', dtype={'fixture_id': str, 'player_id': str})
-        labels = labels[labels.season.isin([2025,2026]) & labels.official_pts.notna()][KEY+['official_pts']]
-        joined = store.merge(labels, on=KEY, how='inner', validate='one_to_one')
-        if len(joined) != len(labels):
+        labels = labels[labels.season.isin([2025,2026])][KEY+['official_pts']]
+        six = store[store.competition_id_cache.eq(1266) & store.calendar_year.isin([2025,2026])]
+        joined = six.merge(labels, on=KEY, how='left', validate='one_to_one')
+        if len(six.merge(labels[KEY], on=KEY, how='inner')) != len(labels):
             raise ValueError('Six Nations official label coverage is incomplete')
         for (year, round_no), rows in joined.groupby(['season','round']):
             rows = rows.sort_values(KEY).reset_index(drop=True)
+            validate_six_nations_pool(rows, f'{year}/round {round_no}')
             cutoff = pd.to_datetime(rows.match_at, utc=True).min()
             ids = np.arange(1, len(rows)+1)
             pool = pd.DataFrame({'id': ids, 'name': rows.player_name, 'team': rows.team,
@@ -128,7 +141,7 @@ def official_slates(store: pd.DataFrame, competitions: tuple[str, ...]) -> list[
             candidates = masked_candidates(rows.drop(columns=['official_pts','team_score','opp_score'], errors='ignore'))
             candidates['label_row_id'] = ids
             slates.append(Slate(f'six_nations_{int(year)}_r{int(round_no)}','six_nations',int(year),int(round_no),
-                cutoff,candidates,pool,actual,team_actuals,False,'oracle teamsheet; kickoff lock proxy; NO archived prices'))
+                cutoff,candidates,pool,actual,team_actuals,False,'complete teamsheet pool; kickoff lock proxy; NO archived prices; missing scores remain unknown'))
     if 'ncr' in competitions:
         fixtures = pd.read_csv(DATA/'ncr'/'ncr_fixtures.csv')
         for gw in (1,2,3):
@@ -198,9 +211,41 @@ def evaluate(slate: Slate, engine: str, points: np.ndarray, output: Path) -> dic
     directory.mkdir(parents=True,exist_ok=True)
     squad.to_csv(directory/f'{engine}_squad.csv',index=False)
     pd.DataFrame({'id': pool.id,'predicted': points,'actual': slate.actual}).to_csv(directory/f'{engine}_predictions.csv',index=False)
+    labelled = np.isfinite(slate.actual)
+    if not labelled.any():
+        raise ValueError(f'{slate.name}: no observed outcomes')
+    actual_by_id = dict(zip(pool.id, slate.actual))
+    missing_selected = sum(not np.isfinite(actual_by_id[i]) for i in squad.id)
     return dict(slate=slate.name,competition=slate.competition,season=slate.season,round=slate.round,
-        engine=engine,n=len(points),mae=float(np.abs(points-slate.actual).mean()),
+        engine=engine,n=len(points),n_labelled=int(labelled.sum()),
+        n_unlabelled=int((~labelled).sum()),team_unlabelled=missing_selected,
+        mae=float(np.abs(points[labelled]-slate.actual[labelled]).mean()),
         team_points=team_points(squad,slate.team_actuals),budget_verified=slate.budget_verified,lineup_basis=slate.lineup_basis)
+
+
+def fit_comparison_models(train, features, cutoff, model_dir, config, native_categories):
+    path = model_dir/'p3.pkl'
+    if path.exists():
+        blend = EventBlend50.load(path)
+    else:
+        empirical = EmpiricalEventModel(asof=cutoff).fit(train)
+        v4 = V4GBDT(events=(*STABLE_EVENTS,*EXTENDED_EVENTS),weighting='natural',pool_player_id=True,
+            player_effects=True,native_categories=native_categories).fit(features)
+        blend = EventBlend50(empirical,v4)
+        blend.save(path)
+    models = {'p3_rolling': blend,'p3_weighted': EventWeightedBlend(blend.empirical,blend.v4,
+        weight_v4=config['default_weight_v4'],event_weights_v4=config['event_weights_v4'])}
+    robust = RobustEmpiricalEventModel(asof=cutoff).fit(train)
+    models['p3_robust'] = EventWeightedBlend(robust, blend.v4,
+        weight_v4=config['default_weight_v4'], event_weights_v4=config['event_weights_v4'])
+    return blend, models
+
+
+def season_summary(metrics):
+    return metrics.groupby(['competition','season','engine']).agg(
+        mae=('mae','mean'),team_points=('team_points',lambda values: values.sum(min_count=len(values))),
+        labelled_players=('n_labelled','sum'),unlabelled_players=('n_unlabelled','sum'),
+        scored_teams=('team_points','count'),rounds=('round','nunique')).reset_index()
 
 
 def run(output: Path, competitions: tuple[str,...], *, prepare_only: bool=False, round_job: str | None=None, native_categories: bool=False) -> pd.DataFrame:
@@ -215,10 +260,11 @@ def run(output: Path, competitions: tuple[str,...], *, prepare_only: bool=False,
     manifest_path = output/'run_manifest.json'
     manifest = {
         'native_categories': bool(native_categories),
-        'source_base_commit': '64485d2e374178b51108a298683b9ba43ab9628b',
+        'source_base_commit': '086b474334a50d4e3d34880a20fdd4e6d573cd85',
         'python': platform.python_version(),
         'packages': {name: version(name) for name in ('numpy','pandas','scipy','scikit-learn','lightgbm','torch')},
-        'source_sha256': {str(path.relative_to(ROOT)): sha256(path) for path in sorted((ROOT/'model').rglob('*.py'))},
+        'source_sha256': {str(path.relative_to(ROOT)): sha256(path) for path in
+            [*sorted((ROOT/'model').rglob('*.py')), ROOT/'official_labels.py', ROOT/'compare_api_official.py']},
         'store_sha256': sha256(output/'inputs'/'player_match.csv'),
         'evaluation_inputs_sha256': {name: sha256(DATA/name) for name in EVALUATION_INPUTS},
         'weight_config_sha256': sha256(DATA/'unified'/'p3_hillclimb'/'config.json'),
@@ -256,20 +302,7 @@ def run(output: Path, competitions: tuple[str,...], *, prepare_only: bool=False,
         results.append(evaluate(slate,'empirical_baseline',slate.baseline,output))
         model_dir = output/'models'/slate.name
         model_dir.mkdir(parents=True,exist_ok=True)
-        path = model_dir/'p3.pkl'
-        if path.exists():
-            blend = EventBlend50.load(path)
-        else:
-            empirical = EmpiricalEventModel(asof=slate.cutoff).fit(train)
-            v4 = V4GBDT(events=(*STABLE_EVENTS,*EXTENDED_EVENTS),weighting='natural',pool_player_id=True,
-                player_effects=True,native_categories=native_categories).fit(features)
-            blend = EventBlend50(empirical,v4)
-            blend.save(path)
-        models = {'p3_rolling': blend,'p3_weighted': EventWeightedBlend(blend.empirical,blend.v4,
-            weight_v4=config['default_weight_v4'],event_weights_v4=config['event_weights_v4'])}
-        robust = RobustEmpiricalEventModel(asof=slate.cutoff).fit(train)
-        models['p3_robust'] = EventWeightedBlend(robust, blend.v4,
-            weight_v4=config['default_weight_v4'], event_weights_v4=config['event_weights_v4'])
+        blend, models = fit_comparison_models(train, features, slate.cutoff, model_dir, config, native_categories)
         for name,model in models.items():
             if native_categories:
                 name += "_native"
@@ -292,6 +325,8 @@ def run(output: Path, competitions: tuple[str,...], *, prepare_only: bool=False,
             controls = [slate]
         for control in controls:
             _,old_candidates = build_frozen_feature_frames(old_train,control.candidates,v4=True,prepared_train=old_features)
+            role_columns = control.candidates.columns.intersection(['position','is_forward','position_source'])
+            old_candidates[role_columns] = control.candidates[role_columns].to_numpy()
             results.append(evaluate(control,'p3_tournament_frozen_native' if native_categories else 'p3_tournament_frozen',expected_points(old_model.predict_frame(old_candidates),control.competition),output))
         manifests.append({'slate': slate.name,'cutoff': slate.cutoff.isoformat(),'training_rows': len(train),
             'training_fixtures': int(train.fixture_id.nunique()),'training_match_at_max': train.match_at.max().isoformat(),
@@ -302,8 +337,7 @@ def run(output: Path, competitions: tuple[str,...], *, prepare_only: bool=False,
         (output/'round_manifests.json').write_text(json.dumps(manifests,indent=2))
         print(metrics[metrics.slate.eq(slate.name)][['engine','mae','team_points']].to_string(index=False),flush=True)
         print(f'Finished in {time.monotonic()-start:.1f}s',flush=True)
-    summary = pd.DataFrame(results).groupby(['competition','season','engine']).agg(
-        mae=('mae','mean'),team_points=('team_points','sum'),rounds=('round','nunique')).reset_index()
+    summary = season_summary(pd.DataFrame(results))
     summary.to_csv(output/'summary.csv',index=False)
     print(summary.to_string(index=False),flush=True)
     return summary

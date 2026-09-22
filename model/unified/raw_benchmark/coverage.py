@@ -5,12 +5,12 @@ from __future__ import annotations
 import collections
 import hashlib
 import json
-import re
-import unicodedata
 from pathlib import Path
 
 import numpy as np
 import pandas as pd
+
+from official_labels import match_official
 
 from ingest_6n import derive_minutes, player_minutes
 
@@ -38,16 +38,6 @@ def _number(value: object) -> float:
         return float("nan")
 
 
-def _name_key(name: object) -> str:
-    if not isinstance(name, str) or not name.strip():
-        return ""
-    plain = unicodedata.normalize("NFKD", name).encode("ascii", "ignore").decode()
-    parts = plain.strip().split()
-    initial = parts[0][0].lower()
-    surname = "".join(parts[1:] if len(parts) > 1 else parts)
-    return initial + "|" + re.sub(r"[^a-z]", "", surname.lower())
-
-
 def _hemisphere(team: object) -> str:
     from .config import NORTH, SOUTH
     if str(team) in NORTH:
@@ -73,6 +63,7 @@ def parse_cache_fixture(path: Path) -> tuple[dict, list[dict], list[dict]]:
         "source_season": match.get("season"),
         "source_game_week": match.get("game_week"),
         "source_round": match.get("round_id"),
+        "match_status": match.get("status"),
     }
     off, on, cards = derive_minutes(payload.get("events") or [])
     players: list[dict] = []
@@ -99,6 +90,10 @@ def parse_cache_fixture(path: Path) -> tuple[dict, list[dict], list[dict]]:
                 "player_name_cache": player.get("name"),
                 "team": team,
                 "opponent_cache": match.get(f"{opponent_side}_team"),
+                "team_id_cache": match.get(f"{side}_id"),
+                "opponent_id_cache": match.get(f"{opponent_side}_id"),
+                "team_score_cache": match.get(f"{side}_score"),
+                "opp_score_cache": match.get(f"{opponent_side}_score"),
                 "jersey_cache": player.get("position"),
                 "started_cache": started,
                 "minutes_cache": player_minutes(pid, started, off, on),
@@ -165,28 +160,13 @@ def _attach_official_extensions(store: pd.DataFrame) -> tuple[pd.DataFrame, dict
     if not OFFICIAL.exists():
         return out, report
     official = pd.read_csv(OFFICIAL, low_memory=False)
-    official["name_key"] = official["name"].map(_name_key)
-    official["competition_id"] = 1266
-    report["official_rows"] = int(len(official))
-
-    six = out[pd.to_numeric(out["competition_id"], errors="coerce").eq(1266)].copy()
-    six["name_key"] = six["player_name"].map(_name_key)
-    fixture_keys = six[["season", "round", "team", "fixture_id"]].drop_duplicates()
-    duplicate = fixture_keys.duplicated(["season", "round", "team"], keep=False)
-    if duplicate.any():
-        report["ambiguous_keys"] = int(duplicate.sum())
-        raise ValueError("official Six Nations fixture map is ambiguous")
-    official = official.merge(
-        fixture_keys, on=["season", "round", "team"], how="left", validate="many_to_one",
-    )
-    official = official.dropna(subset=["fixture_id"])
-    keep = ["fixture_id", "team", "name_key", *OFFICIAL_COLUMNS]
-    official = official[keep].drop_duplicates(["fixture_id", "team", "name_key"])
-
-    out["name_key"] = out["player_name"].map(_name_key)
-    merged = out[["fixture_id", "team", "name_key"]].merge(
-        official, on=["fixture_id", "team", "name_key"], how="left", validate="many_to_one",
-    )
+    report['official_rows'] = int(len(official))
+    six = out[pd.to_numeric(out['competition_id'], errors='coerce').eq(1266)].copy()
+    fixture_keys = six[['season', 'round', 'team', 'fixture_id']].drop_duplicates()
+    if fixture_keys.duplicated(['season', 'round', 'team']).any():
+        raise ValueError('official Six Nations fixture map is ambiguous')
+    labels = match_official(six, official)
+    merged = labels.reindex(out.index)
     matched = pd.Series(False, index=out.index)
     for source_col, event in OFFICIAL_COLUMNS.items():
         values = pd.to_numeric(merged[source_col], errors="coerce")
@@ -196,14 +176,60 @@ def _attach_official_extensions(store: pd.DataFrame) -> tuple[pd.DataFrame, dict
         out.loc[valid, f"provenance__{event}"] = "official_fixture_player"
         matched |= valid
     report["matched_rows"] = int(matched.sum())
-    return out.drop(columns="name_key"), report
+    return out, report
 
 
-def build_corrected_store(legacy_path: Path = LEGACY_STORE) -> tuple[pd.DataFrame, pd.DataFrame, dict]:
+def complete_cache_population(legacy, metadata, players, asof):
+    keys = ["fixture_id", "player_id", "team"]
+    inventory = metadata.copy()
+    inventory['cached_players'] = inventory.fixture_id.map(players.groupby('fixture_id').size()).fillna(0).astype(int)
+    inventory['included'] = (inventory.match_status.eq('Result')
+        & inventory.match_at.lt(pd.Timestamp(asof, tz='UTC')) & inventory.cached_players.gt(0))
+    included = inventory.loc[inventory.included, 'fixture_id']
+    if not set(legacy.fixture_id).issubset(set(included)):
+        raise ValueError('Canonical fixtures lack completed cached teamsheets before the research cutoff')
+    players = players[players.fixture_id.isin(included)].copy()
+    extra = players.merge(legacy[keys], on=keys, how='left', indicator=True, validate='one_to_one')
+    extra = extra[extra._merge.eq('left_only')].copy()
+    fields = ('player_name', 'opponent', 'team_id', 'opponent_id', 'team_score', 'opp_score', 'jersey', 'started')
+    additions = extra[keys + [f'{name}_cache' for name in fields]].rename(
+        columns={f'{name}_cache': name for name in fields})
+    additions['date'] = extra.match_at.dt.tz_convert(None).dt.normalize()
+    additions['competition_id'] = extra.competition_id_cache
+    additions['competition'] = extra.competition_cache
+    levels = legacy[['competition_id', 'competition_level']].drop_duplicates()
+    if levels.competition_id.duplicated().any():
+        raise ValueError('Competition level is ambiguous')
+    additions['competition_level'] = additions.competition_id.map(levels.set_index('competition_id').competition_level)
+    if additions.competition_level.isna().any():
+        raise ValueError('Cached additions include an unclassified competition')
+    additions['season'] = extra.calendar_year
+    additions['round'] = extra.source_game_week
+    additions['source'] = 'permanent_cache_teamsheet'
+    additions['source_count'] = 1
+    additions['source_priority'] = 0
+    complete = pd.concat([legacy, additions], ignore_index=True, sort=False)
+    if set(map(tuple, complete[keys].to_numpy())) != set(map(tuple, players[keys].to_numpy())):
+        raise ValueError('Research population differs from completed cached teamsheets')
+    report = {'asof_exclusive': asof, 'cached_player_rows_added': len(additions),
+              'cached_fixtures_added': len(set(included) - set(legacy.fixture_id)),
+              'inventory': json.loads(inventory.to_json(orient='records', date_format='iso'))}
+    return complete, players, report
+
+
+def build_corrected_store(legacy_path: Path = LEGACY_STORE, *, complete_asof=None) -> tuple[pd.DataFrame, pd.DataFrame, dict]:
     legacy = pd.read_csv(legacy_path, low_memory=False)
     legacy["fixture_id"] = legacy["fixture_id"].astype(str)
     legacy["player_id"] = legacy["player_id"].astype(str)
-    metadata, cache_players, coverage = build_cache_tables(set(legacy["fixture_id"]))
+    fixture_ids = (set(path.stem.removeprefix('match_') for path in CACHE.glob('match_*.json'))
+                   if complete_asof else set(legacy["fixture_id"]))
+    metadata, cache_players, coverage = build_cache_tables(fixture_ids)
+    population_report = {}
+    canonical_ids = set(legacy.fixture_id)
+    if complete_asof:
+        legacy, cache_players, population_report = complete_cache_population(legacy, metadata, cache_players, complete_asof)
+        metadata = metadata[metadata.fixture_id.isin(legacy.fixture_id)]
+        coverage = coverage[coverage.fixture_id.isin(legacy.fixture_id)]
     keys = ["fixture_id", "player_id", "team"]
     if cache_players.duplicated(keys).any():
         raise ValueError("cache player truth is not unique at fixture/player grain")
@@ -231,6 +257,7 @@ def build_corrected_store(legacy_path: Path = LEGACY_STORE) -> tuple[pd.DataFram
     drop_helpers = [
         "player_name_cache", "team_cache", "opponent_cache", "jersey_cache", "started_cache",
         "date_cache",
+        "team_id_cache", "opponent_id_cache", "team_score_cache", "opp_score_cache",
     ]
     out = out.drop(columns=[c for c in drop_helpers if c in out], errors="ignore")
     out["match_at"] = pd.to_datetime(out["match_at"], utc=True)
@@ -251,7 +278,7 @@ def build_corrected_store(legacy_path: Path = LEGACY_STORE) -> tuple[pd.DataFram
     legacy_ids = set(legacy["fixture_id"])
     international = out[out["competition_level"].eq("international")]
     report = {
-        "canonical_fixtures": len(legacy_ids),
+        "canonical_fixtures": len(canonical_ids),
         "cached_fixtures": int(metadata["fixture_id"].nunique()),
         "international_fixtures": int(international["fixture_id"].nunique()),
         "official": official_report,
@@ -259,6 +286,7 @@ def build_corrected_store(legacy_path: Path = LEGACY_STORE) -> tuple[pd.DataFram
         "legacy_store_sha256": sha256(legacy_path),
         "unobserved_rubric_events": list(UNOBSERVED_RUBRIC_EVENTS),
         "diagnostic_only_events": list(DIAGNOSTIC_ONLY_EVENTS),
+        "population": population_report,
     }
     return out.sort_values(["match_at", "fixture_id", "team", "player_id"]), coverage, report
 

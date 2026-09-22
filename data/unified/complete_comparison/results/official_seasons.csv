@@ -1,0 +1,16 @@
+competition,season,engine,mae,team_points,labelled_players,unlabelled_players,scored_teams,rounds
+ncr,2026,empirical_baseline,8.401066785861131,1578.0,758,0,3,3
+ncr,2026,p3_robust_native,8.370498379961356,1739.0,758,0,3,3
+ncr,2026,p3_rolling_native,8.404417615775085,1682.0,758,0,3,3
+ncr,2026,p3_tournament_frozen_native,8.404459872307326,1685.0,758,0,3,3
+ncr,2026,p3_weighted_native,8.35376194180027,1562.0,758,0,3,3
+six_nations,2025,empirical_baseline,7.1680034151586485,2410.0,684,6,5,5
+six_nations,2025,p3_robust_native,7.242949190031363,2356.0,684,6,5,5
+six_nations,2025,p3_rolling_native,7.267914195738702,2290.0,684,6,5,5
+six_nations,2025,p3_tournament_frozen_native,7.185199475296909,2361.0,684,6,5,5
+six_nations,2025,p3_weighted_native,7.322054368707855,2236.0,684,6,5,5
+six_nations,2026,empirical_baseline,7.350583784174669,2552.0,678,12,5,5
+six_nations,2026,p3_robust_native,7.243760214629799,2496.0,678,12,5,5
+six_nations,2026,p3_rolling_native,7.311494803552518,,678,12,4,5
+six_nations,2026,p3_tournament_frozen_native,7.272018396877199,,678,12,4,5
+six_nations,2026,p3_weighted_native,7.317109634680088,2513.0,678,12,5,5

@@ -1,0 +1,32 @@
+{
+  "workflow_run": 35737817588,
+  "workflow_jobs_succeeded": 35,
+  "official_model_round_records": 65,
+  "raw_to_fantasy_files": 39,
+  "maximum_raw_to_fantasy_difference": 1.0658141036401504e-14,
+  "official_unknown_team_totals": 2,
+  "official_arithmetic_failures": 0,
+  "raw_arithmetic": {
+    "metric_rows": 36400,
+    "blocks": 22,
+    "maximum_absolute_errors": {
+      "n_error": 0.0,
+      "mae_error": 3.552713678800501e-15,
+      "loss_error": 2.1316282072803006e-14,
+      "naive_loss_error": 2.3092638912203256e-14,
+      "relative_error": 4.656612873077393e-10
+    },
+    "fixture_error_sum_maximum_difference": 1.1368683772161603e-13
+  },
+  "primary_paired_summaries": 19,
+  "maximum_primary_paired_difference": 7.105427357601002e-15,
+  "archive_replay_summary_files": 11,
+  "archive_replay_byte_mismatches": 0,
+  "local_existing_tests": {
+    "passed": 120,
+    "failed": 1,
+    "failure": "Unchanged expected official_label_rows 2144; repaired actual count 2164. Tests remain unchanged at the user\u2019s request."
+  },
+  "local_focused_existing_tests_passed": 51,
+  "new_or_modified_tests": 0
+}

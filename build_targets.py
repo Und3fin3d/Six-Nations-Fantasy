@@ -62,7 +62,7 @@ from pathlib import Path
 import numpy as np
 import pandas as pd
 
-from compare_api_official import norm_key
+from official_labels import match_official
 
 BASE = Path(__file__).parent
 DATA = BASE / "data"
@@ -141,15 +141,14 @@ def build() -> tuple[pd.DataFrame, dict]:
 
     # ---- official label join: initial-key on (season, round, team) ----
     off = pd.read_csv(DATA / "official_player_match.csv")
-    off["nk"] = off["name"].map(norm_key)
-    off["POTM"] = pd.to_numeric(off["POTM"], errors="coerce").fillna(0)
-    off_lbl = (off[["season", "round", "team", "nk", "Pts", "POTM"]]
-               .dropna(subset=["Pts"])
-               .drop_duplicates(["season", "round", "team", "nk"]))
-    six["nk"] = six["player_name"].map(norm_key)
-    six = six.merge(off_lbl.rename(columns={"Pts": "official_pts",
-                                            "POTM": "potm_winner"}),
-                    on=["season", "round", "team", "nk"], how="left")
+    labels = match_official(six, off.dropna(subset=['Pts']))
+    six['official_pts'] = labels['Pts']
+    six['potm_winner'] = labels['POTM']
+    six['official_label_source'] = labels['label_source'].fillna('missing')
+    unused = (six.season.isin(MODERN_SEASONS) & six.official_pts.isna() & ~six.started.astype(bool)
+              & six.minutes.eq(0) & six[COMPONENTS].eq(0).all(axis=1))
+    six.loc[unused, ['official_pts', 'potm_winner']] = 0.0
+    six.loc[unused, 'official_label_source'] = 'unused_bench_no_recorded_events'
     six["has_label"] = six["official_pts"].notna()
     six["is_modern"] = six["season"].isin(MODERN_SEASONS)
 
@@ -177,7 +176,7 @@ def build() -> tuple[pd.DataFrame, dict]:
              "is_modern", "minutes", "started", "min_share",
              "team_scrums_won", "team_lineout_steal"]
             + [f"y_{c}" for c in COMPONENTS]
-            + ["recon_pts", "official_pts", "potm_winner", "has_label",
+            + ["recon_pts", "official_pts", "potm_winner", "has_label", "official_label_source",
                "lat_sw", "lat_ls", "lat_potm", "lat_other",
                "latent_total", "target_pts"])
     return out[keep], fit

@@ -60,7 +60,9 @@ def ncr_candidates(gw: int, projection: pd.DataFrame | None = None) -> pd.DataFr
                     f"GW{gw} projection is empty; wait for real team sheets before freezing"
                 )
     crosswalk = pd.read_csv(DATA / "ncr" / "ncr_player_crosswalk.csv")
-    crosswalk = crosswalk[["fantasy_id", "api_player_id", "full_name"]].drop_duplicates("fantasy_id")
+    crosswalk = crosswalk[["fantasy_id", "api_player_id", "full_name"]]
+    if crosswalk.fantasy_id.duplicated().any() or crosswalk.api_player_id.dropna().duplicated().any():
+        raise ValueError('NCR crosswalk contains duplicate fantasy or rugby identities')
     crosswalk["fantasy_id"] = pd.to_numeric(crosswalk["fantasy_id"], errors="coerce")
     projection["id"] = pd.to_numeric(projection["id"], errors="raise")
     frame = projection.merge(

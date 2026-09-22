@@ -1,0 +1,4 @@
+population,reference,opponent,metric,n_pairs,mean_difference,p025,p975,negative_blocks,positive_blocks,leave_one_min,leave_one_max
+stable_events,p3_robust_native,empirical_event,relative_loss,21,-0.0757492439393827,-0.08808356446069796,-0.06364686189879497,21,0,-0.07828421173946201,-0.07313584014415939
+stable_events,p3_robust_native,p3_rolling_native,relative_loss,21,-0.005242568459011562,-0.009170893950411317,-0.0018349630744647922,17,4,-0.00596932521990467,-0.004043536950665933
+stable_events,p3_robust_native,p3_weighted_native,relative_loss,21,-0.004233533829302504,-0.005545361454547292,-0.0029291806790532177,19,2,-0.004542713170923923,-0.003928953177543504

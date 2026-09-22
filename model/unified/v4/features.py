@@ -14,6 +14,7 @@ import numpy as np
 import pandas as pd
 
 from ..schema import COUNT_EVENTS, SCORING_EVENTS
+from ..features import grouped_ewm
 
 # Count events that enter either competition's scoring — the tail that matters.
 EB_EVENTS = tuple(e for e in SCORING_EVENTS if e in COUNT_EVENTS and e != "potm")
@@ -27,12 +28,8 @@ def add_v4_base_stats(store: pd.DataFrame) -> pd.DataFrame:
     df = store.copy()
     player = df.groupby("player_id", sort=False)
     is_intl = df["competition_level"].eq("international").astype(float)
-    df["intl_prior_matches"] = (
-        is_intl.groupby(df["player_id"]).transform(lambda x: x.shift(1).cumsum())
-    ).fillna(0.0)
-    df["club_prior_matches"] = (
-        (1.0 - is_intl).groupby(df["player_id"]).transform(lambda x: x.shift(1).cumsum())
-    ).fillna(0.0)
+    df["intl_prior_matches"] = is_intl.groupby(df["player_id"]).cumsum() - is_intl
+    df["club_prior_matches"] = (1.0-is_intl).groupby(df["player_id"]).cumsum() - (1.0-is_intl)
 
     minutes = pd.to_numeric(df["minutes"], errors="coerce")
     for event in EB_EVENTS:
@@ -45,17 +42,12 @@ def add_v4_base_stats(store: pd.DataFrame) -> pd.DataFrame:
         # Level-split recent form (club vs international), same halflife as base.
         for level, mask in (("intl", is_intl.astype(bool)), ("club", ~is_intl.astype(bool))):
             level_per80 = per80.where(mask)
-            df[f"form_per80_{level}__{event}"] = level_per80.groupby(
-                df["player_id"]
-            ).transform(lambda x: x.shift(1).ewm(halflife=4, min_periods=1).mean())
+            df[f"form_per80_{level}__{event}"] = grouped_ewm(
+                level_per80, df["player_id"], shifted=True, halflife=4)
 
         # EB cumulatives: prior event count and prior observed minutes.
-        df[f"cum_count__{event}"] = count.fillna(0.0).groupby(
-            df["player_id"]
-        ).transform(lambda x: x.shift(1).cumsum()).fillna(0.0)
-        df[f"cum_min__{event}"] = mins.fillna(0.0).groupby(
-            df["player_id"]
-        ).transform(lambda x: x.shift(1).cumsum()).fillna(0.0)
+        df[f"cum_count__{event}"] = count.fillna(0).groupby(df["player_id"]).cumsum() - count.fillna(0)
+        df[f"cum_min__{event}"] = mins.fillna(0).groupby(df["player_id"]).cumsum() - mins.fillna(0)
 
         # Expanding position-by-level prior per-80 rate from strictly-prior rows.
         group = [df["position"].fillna("unknown"), df["competition_level"].fillna("unknown")]

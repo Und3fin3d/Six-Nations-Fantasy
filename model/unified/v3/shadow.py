@@ -70,11 +70,11 @@ def ncr_candidates(gw: int, projection: pd.DataFrame | None = None) -> pd.DataFr
     fixtures = fixtures[pd.to_numeric(fixtures["gameday"], errors="coerce").eq(gw)]
     by_team = {}
     for row in fixtures.itertuples(index=False):
-        by_team[row.home] = (row.away, str(row.match_id), row.game_date)
-        by_team[row.away] = (row.home, str(row.match_id), row.game_date)
+        by_team[row.home] = (row.away, str(row.match_id), row.game_date, "home")
+        by_team[row.away] = (row.home, str(row.match_id), row.game_date, "away")
     records = []
     for row in frame.itertuples(index=False):
-        opponent, fixture_id, date = by_team[str(row.team)]
+        opponent, fixture_id, date, home_away = by_team[str(row.team)]
         pos = POSITION[str(row.pos)]
         started = str(row.status).upper() == "P"
         api_id = (
@@ -87,7 +87,7 @@ def ncr_candidates(gw: int, projection: pd.DataFrame | None = None) -> pd.DataFr
             "season": 2026, "round": gw, "fixture_id": fixture_id,
             "player_id": api_id, "fantasy_id": int(row.id),
             "player_name": row.full_name if isinstance(row.full_name, str) else row.name,
-            "team": row.team, "opponent": opponent, "position": pos,
+            "team": row.team, "opponent": opponent, "position": pos, "home_away": home_away,
             "is_forward": pos in FORWARD_POSITIONS, "started": started,
             "jersey": START_JERSEY[str(row.pos)] if started else BENCH_JERSEY[str(row.pos)],
             "source": "v3_shadow_candidate", "source_priority": 999,

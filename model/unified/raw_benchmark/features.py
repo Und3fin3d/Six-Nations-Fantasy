@@ -7,7 +7,7 @@ import warnings
 import numpy as np
 import pandas as pd
 
-from ..features import build_pit_features
+from ..features import build_pit_features, team_margin_form, grouped_ewm
 from ..schema import EVENTS
 from ..v4.features import add_v4_base_stats
 
@@ -18,11 +18,20 @@ def _last_by_player(frame: pd.DataFrame, values: pd.Series) -> pd.Series:
 
 def build_frozen_feature_frames(
     train: pd.DataFrame, candidates: pd.DataFrame, *, v4: bool = False,
+    prepared_train: pd.DataFrame | None = None,
 ) -> tuple[pd.DataFrame, pd.DataFrame]:
     """Build train features and candidate features using training history only."""
     ordered = train.sort_values(["date", "fixture_id", "team", "player_id"]).copy()
     ordered["date"] = pd.to_datetime(ordered["date"], errors="coerce")
-    training_features = build_pit_features(ordered)
+    if prepared_train is None:
+        training_features = build_pit_features(ordered)
+    else:
+        keys = ["fixture_id", "player_id", "team"]
+        if not ordered[keys].reset_index(drop=True).equals(
+            prepared_train[keys].reset_index(drop=True)
+        ):
+            raise ValueError("prepared training features do not match the historical cohort")
+        training_features = prepared_train
     candidate_features = candidates.copy()
     candidate_features["date"] = pd.to_datetime(candidate_features["date"], errors="coerce")
     players = ordered["player_id"]
@@ -37,12 +46,8 @@ def build_frozen_feature_frames(
     ).fillna(0).astype(float)
 
     minutes = pd.to_numeric(ordered["minutes"], errors="coerce")
-    minutes_state = minutes.groupby(players).transform(
-        lambda values: values.ewm(span=6, min_periods=1).mean()
-    )
-    start_state = ordered["started"].astype(float).groupby(players).transform(
-        lambda values: values.ewm(span=6, min_periods=1).mean()
-    )
+    minutes_state = grouped_ewm(minutes, players, span=6)
+    start_state = grouped_ewm(ordered["started"].astype(float), players, span=6)
     candidate_features["recent_minutes"] = candidate_features["player_id"].map(
         _last_by_player(ordered, minutes_state)
     )
@@ -50,16 +55,7 @@ def build_frozen_feature_frames(
         _last_by_player(ordered, start_state)
     )
 
-    team_score = pd.to_numeric(
-        ordered.get("team_score", pd.Series(np.nan, index=ordered.index)), errors="coerce"
-    )
-    opponent_score = pd.to_numeric(
-        ordered.get("opp_score", pd.Series(np.nan, index=ordered.index)), errors="coerce"
-    )
-    team_margin = team_score - opponent_score
-    margin_state = team_margin.groupby(ordered["team"], sort=False).transform(
-        lambda values: values.ewm(span=8, min_periods=1).mean()
-    )
+    margin_state = team_margin_form(ordered, shifted=False)
     candidate_features["team_recent_margin"] = candidate_features["team"].map(
         margin_state.groupby(ordered["team"], sort=False).last()
     )
@@ -80,9 +76,7 @@ def build_frozen_feature_frames(
         values = pd.to_numeric(ordered[event], errors="coerce")
         valid = ordered[f"available__{event}"].fillna(False).astype(bool)
         per80 = values.where(valid) / minutes.where(minutes > 0) * 80.0
-        state = per80.groupby(players).transform(
-            lambda series: series.ewm(halflife=4, min_periods=1).mean()
-        )
+        state = grouped_ewm(per80, players, halflife=4)
         derived_columns[f"form_per80__{event}"] = candidate_features["player_id"].map(
             _last_by_player(ordered, state)
         )
@@ -92,9 +86,7 @@ def build_frozen_feature_frames(
         ).fillna(0).astype(float)
         if v4:
             for level, mask in (("intl", is_intl), ("club", ~is_intl)):
-                level_state = per80.where(mask).groupby(players).transform(
-                    lambda series: series.ewm(halflife=4, min_periods=1).mean()
-                )
+                level_state = grouped_ewm(per80.where(mask), players, halflife=4)
                 derived_columns[f"form_per80_{level}__{event}"] = (
                     candidate_features["player_id"].map(
                         _last_by_player(ordered, level_state)
@@ -104,7 +96,7 @@ def build_frozen_feature_frames(
         [candidate_features, pd.DataFrame(derived_columns, index=candidate_features.index)],
         axis=1,
     )
-    if v4:
+    if v4 and prepared_train is None:
         with warnings.catch_warnings():
             warnings.simplefilter("ignore", pd.errors.PerformanceWarning)
             training_features = add_v4_base_stats(training_features)

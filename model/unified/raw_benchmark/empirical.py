@@ -10,6 +10,7 @@ import numpy as np
 import pandas as pd
 
 from model.rp_rates import _norm, _season_end_year
+from model.history import past_matches, past_seasons
 
 from ..contracts import EventDistribution, RawPrediction
 from ..data import ROOT
@@ -106,9 +107,7 @@ class EmpiricalEventModel:
             return
         rp = pd.read_csv(path, low_memory=False)
         asof = pd.Timestamp(self.asof).tz_localize(None) if pd.Timestamp(self.asof).tzinfo else pd.Timestamp(self.asof)
-        end_year = rp["season"].map(_season_end_year)
-        concluded = pd.to_datetime(end_year.astype(str) + "-06-30", errors="coerce")
-        rp = rp[concluded.lt(asof)].copy()
+        rp = past_seasons(rp, asof)
         rp["_weight"] = np.power(
             0.5,
             (asof.year - rp["season"].map(_season_end_year)).clip(lower=0) / RP_HALFLIFE_YEARS,
@@ -147,7 +146,7 @@ class EmpiricalEventModel:
         }
 
     def fit(self, frame: pd.DataFrame) -> "EmpiricalEventModel":
-        train = frame.copy()
+        train = past_matches(frame, self.asof)
         train["player_id"] = train["player_id"].astype(str)
         self.player_names = train.groupby("player_id")["player_name"].last().astype(str).to_dict()
         international = self._weighted_rates(train, "international")

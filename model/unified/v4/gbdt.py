@@ -74,6 +74,8 @@ class V4GBDT(UniversalGBDT):
         if self.hurdle_events:
             cat, numeric = self.encoder.transform(self._frame(frame))
             X = np.column_stack([cat, numeric])
+            fit_kwargs = ({"categorical_feature": list(range(cat.shape[1]))}
+                          if self.native_categories else {})
             kwargs = dict(
                 n_estimators=self.n_estimators, learning_rate=.045,
                 num_leaves=self.num_leaves, min_child_samples=35, reg_lambda=4.0,
@@ -93,9 +95,9 @@ class V4GBDT(UniversalGBDT):
                 if positive.sum() < 50 or positive.all():
                     continue
                 clf = lgb.LGBMClassifier(objective="binary", **kwargs)
-                clf.fit(X[valid], positive.astype(int))
+                clf.fit(X[valid], positive.astype(int), **fit_kwargs)
                 reg = lgb.LGBMRegressor(objective="poisson", **kwargs)
-                reg.fit(X[valid][positive], y[positive])
+                reg.fit(X[valid][positive], y[positive], **fit_kwargs)
                 fitted_pos = np.clip(reg.predict(X[valid][positive]), 1e-6, None)
                 resid_var_pos = float(np.mean((y[positive] - fitted_pos) ** 2))
                 self.hurdle_models[event] = (clf, reg, resid_var_pos)

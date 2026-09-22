@@ -40,6 +40,12 @@ from .v3.shadow import ncr_candidates
 
 DATA = ROOT / 'data'
 DEFAULT_OUTPUT = DATA / 'unified' / 'rolling_eval'
+EVALUATION_INPUTS = (
+    'model_targets.csv', 'ncr/ncr_fixtures.csv', 'ncr/ncr_teams.csv',
+    'ncr/ncr_player_crosswalk.csv', 'ncr/feeds/players_gw1.json',
+    'ncr/feeds/players_gw2.json', 'ncr/feeds/players_gw3.json',
+    'ncr/ncr_gw1_projections.csv', 'ncr/ncr_gw2_projections.csv',
+)
 KEY = ['fixture_id', 'player_id', 'team']
 POS = {'Prop': 'Prop', 'Hooker': 'Hooker', 'Second-row': 'Lock',
        'Back-row': 'Loose Forward', 'Scrum-half': 'Scrum Half',
@@ -214,6 +220,7 @@ def run(output: Path, competitions: tuple[str,...], *, prepare_only: bool=False,
         'packages': {name: version(name) for name in ('numpy','pandas','scipy','scikit-learn','lightgbm','torch')},
         'source_sha256': {str(path.relative_to(ROOT)): sha256(path) for path in sorted((ROOT/'model').rglob('*.py'))},
         'store_sha256': sha256(output/'inputs'/'player_match.csv'),
+        'evaluation_inputs_sha256': {name: sha256(DATA/name) for name in EVALUATION_INPUTS},
         'weight_config_sha256': sha256(DATA/'unified'/'p3_hillclimb'/'config.json'),
         'result_availability': 'kickoff plus conservative three-hour lag; unversioned historical feeds',
         'selection': 'fixed existing event weights; robust challenger has fixed shared four-appearance prior',

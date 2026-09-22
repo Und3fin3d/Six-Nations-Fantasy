@@ -74,30 +74,30 @@ def prepare_store(output: Path) -> pd.DataFrame:
     directory.mkdir(parents=True, exist_ok=True)
     path = directory / 'player_match.csv'
     inputs = {str(p.relative_to(ROOT)): sha256(p) for p, *_ in DEFAULT_SOURCES}
-    for name in ('official_labels.py', 'compare_api_official.py', 'model/unified/raw_benchmark/positions.py'):
+    for name in ('official_labels.py', 'compare_api_official.py', 'model/unified/raw_benchmark/positions.py',
+                 'model/unified/raw_benchmark/coverage.py', 'model/unified/data.py', 'model/unified/rolling_eval.py'):
         inputs[name] = sha256(ROOT/name)
     for p in (DATA/'official_player_match.csv', DATA/'rp_compstats.csv', DATA/'wr_rankings.csv'):
         inputs[str(p.relative_to(ROOT))] = sha256(p)
     manifest = directory/'sources.json'
+    cache_hashes = {p.stem.removeprefix('match_'): sha256(p) for p in sorted((DATA/'cache').glob('match_*.json'))}
     if path.exists():
         previous = json.loads(manifest.read_text())
-        if previous['inputs'] != inputs or previous['store_sha256'] != sha256(path):
+        if (previous['inputs'] != inputs or previous['store_sha256'] != sha256(path)
+                or previous['cache_sha256'] != cache_hashes):
             raise ValueError('research inputs changed; choose a new output directory')
-        for fixture, digest in previous['cache_sha256'].items():
-            if sha256(DATA/'cache'/f'match_{fixture}.json') != digest:
-                raise ValueError('cached match changed; choose a new output directory')
         return pd.read_csv(path, low_memory=False, dtype={key: str for key in KEY}, parse_dates=['date','match_at'])
     legacy = directory/'canonical.csv'
-    build_canonical_store(asof='2026-09-19').to_csv(legacy, index=False)
-    store, _, report = build_corrected_store(legacy)
+    asof = '2026-09-22'
+    build_canonical_store(asof=asof).to_csv(legacy, index=False)
+    store, _, report = build_corrected_store(legacy, complete_asof=asof)
     store = prior_supported_positions(store, store)
-    venue, cache_hashes = {}, {}
+    venue = {}
     for fixture in store.fixture_id.astype(str).unique():
         source = DATA/'cache'/f'match_{fixture}.json'
         match = json.loads(source.read_text())['results']['match']
         venue[(fixture, str(match['home_team']))] = 'home'
         venue[(fixture, str(match['away_team']))] = 'away'
-        cache_hashes[fixture] = sha256(source)
     store['home_away'] = [venue.get((str(r.fixture_id), str(r.team)), '') for r in store.itertuples()]
     if store.home_away.eq('').any() or store.duplicated(KEY).any():
         raise ValueError('missing venue or duplicate player-match keys')

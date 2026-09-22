@@ -14,11 +14,11 @@ Three NCR crosswalk corrections use exact names from cached teamsheets dated bef
 
 ## Evaluation population
 
-The canonical store contains 175,612 distinct player-match-team rows from 3,865 fixtures. Club and earlier international matches supply training history. They do not constitute independent official fantasy outcomes. Source counts and date ranges are recorded separately in source_inventory.csv.
+The canonical store contains 179,295 distinct player-match-team rows from 3,892 fixtures. Club and earlier international matches supply training history. They do not constitute independent official fantasy outcomes. Source counts and date ranges are recorded separately in source_inventory.csv.
 
 The official-score comparison covers ten complete Six Nations teamsheets from 2025–2026 and NCR GW1–3. The Six Nations optimization remains an oracle-teamsheet exercise without archived prices. NCR retains its existing lock and budget rules. Scores from 2023 use an older rubric and are not pooled with modern official points. NCR GW4–7 occur in November 2026 and have no outcomes at the evaluation date.
 
-The raw-event comparison covers 360 distinct international fixtures in 21 tournament-season blocks from 2022–2026. Each block freezes training and player history before its first fixture. The existing three-hour result-availability rule applies. No evaluation fixture enters that block's training set. Later blocks can use earlier completed matches. No club-only evaluation block is counted as international validation.
+The raw-event comparison covers 374 distinct international fixtures in 22 tournament-season blocks from 2022–2026. Each block freezes training and player history before its first fixture. The existing three-hour result-availability rule applies. No evaluation fixture enters that block's training set. Later blocks can use earlier completed matches. No club-only evaluation block is counted as international validation.
 
 ## Fixed candidates
 
@@ -38,7 +38,7 @@ Broader raw-event agreement can strengthen the research choice. It cannot establ
 
 ## Reproduction
 
-The workflow complete-model-comparison.yml runs 13 official-slate jobs and 21 raw-block jobs. Each job records source and data hashes, package versions, cutoffs, predictions, and existing test results. Model binaries are excluded from uploaded evidence. No paid API calls are required.
+The workflow complete-model-comparison.yml runs 13 official-slate jobs and 22 raw-block jobs. Each job records source and data hashes, package versions, cutoffs, predictions, and existing test results. Model binaries are excluded from uploaded evidence. No paid API calls are required.
 
 Run an official slate with `python -m model.unified.rolling_eval --native-categories --competitions six_nations --round-job six_nations_2025_r1 --output OUTPUT`.
 
@@ -46,7 +46,7 @@ Run a raw block with `python -m research.raw_comparison --fold six_nations_2022 
 
 Before any successful fit, source inspection identified newly recorded events without earlier international training support: fifty_22, lineout_steals and potm in Six Nations 2023; scrums_won in 2025; kicks_retained in 2026. The raw comparison records each model's forecast support separately. Paired metrics use only observed rows with forecasts from every candidate. Unexpected missing forecasts for a target with prior international support stop the job. Unsupported targets are not replaced by zero.
 
-Aggregate all 34 unpacked evidence directories with `python -m research.summarise_complete_comparison --evidence DIRECTORY --output OUTPUT`. The aggregator rejects duplicate folds, overlapping evaluation fixtures, missing jobs, differing source/store hashes, or unequal stable-target coverage. Its main raw summary weights the 23 stable events equally within each block and the 21 blocks equally. Minutes and extended events remain separate diagnostics. All intervals are exploratory and are not adjusted for multiple comparisons. Tournament blocks can share teams and training history, so bootstrap intervals do not remove all historical dependence.
+Aggregate all 35 unpacked evidence directories with `python -m research.summarise_complete_comparison --evidence DIRECTORY --output OUTPUT`. The aggregator rejects duplicate folds, overlapping evaluation fixtures, missing jobs, differing source/store hashes, or unequal stable-target coverage. Its main raw summary weights the 23 stable events equally within each block and the 22 blocks equally. Minutes and extended events remain separate diagnostics. All intervals are exploratory and are not adjusted for multiple comparisons. Tournament blocks can share teams and training history, so bootstrap intervals do not remove all historical dependence.
 
 NCR's existing historical limits also remain: GW1 excludes New Zealand and France; GW3 uses corrected final lineups and retrospective prices. The empirical fantasy baseline is a recomputation under common history conventions, not saved production forecasts. This study does not repair unavailable historical publication times or prices.
 
@@ -61,3 +61,15 @@ Across the full store, 51,133 substitute appearances have prior-start support; 1
 The correction changes 143 modern Six Nations substitute roles and 38 forward/back classifications versus the previous jersey mapping. Historical differences are inference changes, not independently verified official position changes. position_changes.csv records the changed rows and their source classification.
 
 All official models share the same current-slate playing roles and selection constraints. The official tournament-frozen control freezes fitted parameters and form history, while accepting the current teamsheet and the same pre-slate role metadata as its competitors. Its prediction roles and pool roles match. It is not a forecast made before the future teamsheet was known.
+
+Result-validation adjustment: within-position naive losses can approach zero for rare events, producing unstable pooled cohort ratios. Cohort diagnostic summaries therefore normalise each event loss by the corresponding all-player naive loss for that block and event. The original per-event cohort metrics remain available. This adjustment does not change the prespecified all-player primary metric, model fits, candidate set, or weights.
+
+## Complete cache population amendment
+
+The completed restricted-source run 35732721254 omitted 1,817 cached opponent appearances in its evaluated fixtures. It also missed 15 entire Pacific Nations Cup fixtures. This was caused by using the twelve-team NCR ingest output as the research population. The final comparison rebuilds the population from every completed cached teamsheet before 22 September 2026. Both sides are included at the fixture/player/team grain. Duplicate cache entries for the same player and side are deduplicated by the existing parser. Twelve evaluated fixtures have 47 distinct cached players; no 46-player limit is imposed.
+
+The complete cache inventory contains 3,898 fixtures. Six have empty teamsheets, so they cannot provide player observations. The remaining 3,892 fixtures contribute 179,295 rows. The research store adds 3,131 cached player rows to the current canonical CSV population, including 15 entire fixtures. Updating the source date from 19 to 22 September also restores 552 club rows from 12 fixtures. These late club rows are after every evaluation cutoff and do not enter the fitted historical models.
+
+The frozen study_manifest.json lists all 22 raw blocks and their 374 fixtures, comprising 17,216 player appearances. The additional Pacific Nations Cup 2022 fixtures now meet the existing five-fixture threshold, so this block joins the evaluation. The official candidate pools retain their 1,380 Six Nations appearances and 758 NCR candidate observations. All models are refitted on the expanded prior history. No hyperparameters or weights change. The earlier restricted-source results are not the final all-cache comparison.
+
+cache_inventory.csv records every cache fixture and its inclusion status. cache_source_manifest.json records all cache and CSV hashes. cached_population_additions.csv identifies all rows added since the restricted-source run. Aggregation requires the exact frozen fixture lists and store hash, as well as common code, weights, and runtime versions.

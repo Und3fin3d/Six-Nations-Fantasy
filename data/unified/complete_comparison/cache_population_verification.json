@@ -1,0 +1,15 @@
+{
+  "method": "Direct raw JSON teamsheet enumeration, independently compared with the prepared store at fixture/player/team grain",
+  "cached_player_keys": 179295,
+  "store_player_keys": 179295,
+  "missing_keys": 0,
+  "unexpected_keys": 0,
+  "team_opponent_id_name_score_mismatches": 0,
+  "evaluated_fixtures_by_player_count": {
+    "46": 362,
+    "47": 12
+  },
+  "unknown_prepared_evaluation_positions": 588,
+  "unknown_position_policy": "Keep candidates with Unknown role when there is no prior start; report frozen-candidate roles separately",
+  "store_sha256": "2b70331c0cf215def67831cd27c987362e2ec8330b2afb41c8d204f48ef17313"
+}

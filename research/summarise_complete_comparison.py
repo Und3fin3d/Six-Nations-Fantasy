@@ -7,7 +7,7 @@ import numpy as np
 import pandas as pd
 
 from model.unified.raw_benchmark.config import STABLE_EVENTS
-from model.unified.rolling_eval import season_summary
+from model.unified.rolling_eval import ROOT, season_summary
 
 
 def paired_summary(frame, keys, metric, reference, grouping):
@@ -33,10 +33,11 @@ def paired_summary(frame, keys, metric, reference, grouping):
     return pd.DataFrame(results)
 
 
-def load_evidence(directory):
+def load_evidence(directory, study):
     manifests = glob.glob(os.path.join(directory, '**', 'run_manifest.json'), recursive=True)
-    if len(manifests) != 34:
-        raise ValueError(f'Expected 34 completed jobs, found {len(manifests)} manifests')
+    expected_jobs = len(study['raw_folds']) + len(study['official_slates'])
+    if len(manifests) != expected_jobs:
+        raise ValueError(f'Expected {expected_jobs} completed jobs, found {len(manifests)} manifests')
     official, events, support, provenance = [], [], [], []
     fixtures = set()
     folds = set()
@@ -57,6 +58,8 @@ def load_evidence(directory):
                                if k != 'research/raw_comparison.py'}, sort_keys=True))
         provenance.append(dict(job=os.path.basename(os.path.dirname(root)), manifest=manifest))
         if 'fold' in manifest:
+            if manifest['evaluation_fixtures'] != study['raw_folds'].get(manifest['fold']):
+                raise ValueError('Raw fixture population differs from the frozen study')
             raw_drivers.add(manifest['source_sha256']['research/raw_comparison.py'])
             if manifest['fold'] in folds or fixtures.intersection(manifest['evaluation_fixtures']):
                 raise ValueError('Duplicate raw fold or fixture')
@@ -68,18 +71,20 @@ def load_evidence(directory):
             label_versions.add(json.dumps(manifest['evaluation_inputs_sha256'], sort_keys=True))
             official.append(pd.read_csv(os.path.join(root, 'metrics.csv')))
     fingerprints = (stores, sources, weights, environments, label_versions, raw_drivers)
-    if any(len(values)!=1 for values in fingerprints) or len(folds)!=21 or len(fixtures)!=360 or len(official)!=13:
+    if (any(len(values)!=1 for values in fingerprints) or folds != set(study['raw_folds'])
+            or stores != {study['store_sha256']} or len(official)!=len(study['official_slates'])):
         raise ValueError('Input provenance or evaluation coverage differs from the frozen protocol')
     return pd.concat(official), pd.concat(events), pd.concat(support), provenance
 
 
-def summarise_raw(events, output):
+def summarise_raw(events, output, study):
     if events.duplicated(['engine','fold','target','cohort']).any():
         raise ValueError('Duplicate raw metrics')
     all_rows = events[events.cohort.eq('all')].copy()
     stable = all_rows[all_rows.target.isin(STABLE_EVENTS)]
     counts = stable.groupby(['fold','engine']).target.nunique()
-    if not counts.eq(len(STABLE_EVENTS)).all() or len(counts)!=84:
+    expected = {(fold,engine) for fold in study['raw_folds'] for engine in study['raw_engines']}
+    if not counts.eq(len(STABLE_EVENTS)).all() or set(counts.index)!=expected:
         raise ValueError('Stable target coverage differs between candidates or blocks')
     blocks = stable.groupby(['fold','engine'], as_index=False).relative_loss.mean()
     blocks['family'] = blocks.fold.str.replace(r'_\d{4}$', '', regex=True)
@@ -91,15 +96,19 @@ def summarise_raw(events, output):
         os.path.join(output, 'raw_families.csv'), index=False)
     paired_summary(all_rows, ['fold'], 'relative_loss', 'p3_robust_native', ['target']).to_csv(
         os.path.join(output, 'raw_target_intervals.csv'), index=False)
-    cohort_stable = events[events.target.isin(STABLE_EVENTS)]
-    cohort_blocks = cohort_stable.groupby(['fold','engine','cohort'], as_index=False).relative_loss.mean()
-    paired_summary(cohort_blocks, ['fold'], 'relative_loss', 'p3_robust_native', ['cohort']).to_csv(
+    scales = stable[['fold','engine','target','naive_loss']].rename(columns={'naive_loss':'population_naive_loss'})
+    cohort_stable = events[events.target.isin(STABLE_EVENTS)].merge(
+        scales, on=['fold','engine','target'], validate='many_to_one')
+    cohort_stable['main_normalised_loss'] = cohort_stable.loss / cohort_stable.population_naive_loss
+    cohort_blocks = cohort_stable.groupby(['fold','engine','cohort'], as_index=False).main_normalised_loss.mean()
+    paired_summary(cohort_blocks, ['fold'], 'main_normalised_loss', 'p3_robust_native', ['cohort']).to_csv(
         os.path.join(output, 'raw_cohort_intervals.csv'), index=False)
     return blocks.groupby('engine').relative_loss.mean().sort_values().to_dict()
 
 
-def summarise_official(official, output):
-    if official.duplicated(['slate','engine']).any() or len(official)!=65:
+def summarise_official(official, output, study):
+    if (official.duplicated(['slate','engine']).any() or len(official)!=5*len(study['official_slates'])
+            or set(official.slate)!=set(study['official_slates'])):
         raise ValueError('Expected five candidates on each of 13 official slates')
     if official.groupby('slate').engine.nunique().ne(5).any():
         raise ValueError('Official model coverage differs between slates')
@@ -118,12 +127,14 @@ def main():
     parser.add_argument('--evidence', required=True)
     parser.add_argument('--output', required=True)
     args = parser.parse_args()
-    official, events, support, provenance = load_evidence(args.evidence)
+    with open(ROOT/'data/unified/complete_comparison/study_manifest.json') as handle:
+        study = json.load(handle)
+    official, events, support, provenance = load_evidence(args.evidence, study)
     os.makedirs(args.output, exist_ok=True)
     events.to_csv(os.path.join(args.output, 'raw_events.csv'), index=False)
     support.to_csv(os.path.join(args.output, 'raw_target_support.csv'), index=False)
-    result = {'raw_equal_block_relative_loss': summarise_raw(events, args.output),
-              'official_seasons': summarise_official(official, args.output),
+    result = {'raw_equal_block_relative_loss': summarise_raw(events, args.output, study),
+              'official_seasons': summarise_official(official, args.output, study),
               'bootstrap_draws':10000, 'seed':20260922,
               'intervals':'Paired exploratory 95%; negative differences favour reference for losses only',
               'provenance':provenance}

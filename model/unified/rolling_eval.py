@@ -325,6 +325,8 @@ def run(output: Path, competitions: tuple[str,...], *, prepare_only: bool=False,
             controls = [slate]
         for control in controls:
             _,old_candidates = build_frozen_feature_frames(old_train,control.candidates,v4=True,prepared_train=old_features)
+            role_columns = control.candidates.columns.intersection(['position','is_forward','position_source'])
+            old_candidates[role_columns] = control.candidates[role_columns].to_numpy()
             results.append(evaluate(control,'p3_tournament_frozen_native' if native_categories else 'p3_tournament_frozen',expected_points(old_model.predict_frame(old_candidates),control.competition),output))
         manifests.append({'slate': slate.name,'cutoff': slate.cutoff.isoformat(),'training_rows': len(train),
             'training_fixtures': int(train.fixture_id.nunique()),'training_match_at_max': train.match_at.max().isoformat(),

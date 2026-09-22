@@ -38,7 +38,7 @@ jobs:
           git rev-parse HEAD > source-commit.txt
       - name: Run existing focused checks
         run: python -m pytest -q tests/test_unified_raw_benchmark.py tests/test_rolling_history.py tests/test_unified_v4.py > tests.txt
-      - name: Run frozen comparison with explicit event support
+      - name: Run comparison with corrected labels and prior-supported roles
         env:
           KIND: ${{ matrix.kind }}
           JOB_NAME: ${{ matrix.name }}

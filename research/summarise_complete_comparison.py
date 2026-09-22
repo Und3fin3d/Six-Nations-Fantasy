@@ -7,6 +7,7 @@ import numpy as np
 import pandas as pd
 
 from model.unified.raw_benchmark.config import STABLE_EVENTS
+from model.unified.rolling_eval import season_summary
 
 
 def paired_summary(frame, keys, metric, reference, grouping):
@@ -41,15 +42,22 @@ def load_evidence(directory):
     folds = set()
     stores = set()
     sources = set()
+    weights = set()
+    environments = set()
+    label_versions = set()
+    raw_drivers = set()
     for path in sorted(manifests):
         root = os.path.dirname(path)
         with open(path) as handle:
             manifest = json.load(handle)
         stores.add(manifest['store_sha256'])
+        weights.add(manifest['weight_config_sha256'])
+        environments.add(json.dumps([manifest['python'], manifest['packages']], sort_keys=True))
         sources.add(json.dumps({k:v for k,v in manifest['source_sha256'].items()
                                if k != 'research/raw_comparison.py'}, sort_keys=True))
         provenance.append(dict(job=os.path.basename(os.path.dirname(root)), manifest=manifest))
         if 'fold' in manifest:
+            raw_drivers.add(manifest['source_sha256']['research/raw_comparison.py'])
             if manifest['fold'] in folds or fixtures.intersection(manifest['evaluation_fixtures']):
                 raise ValueError('Duplicate raw fold or fixture')
             folds.add(manifest['fold'])
@@ -57,13 +65,15 @@ def load_evidence(directory):
             events.append(pd.read_csv(os.path.join(root, 'events.csv')))
             support.append(pd.read_csv(os.path.join(root, 'target_support.csv')))
         else:
+            label_versions.add(json.dumps(manifest['evaluation_inputs_sha256'], sort_keys=True))
             official.append(pd.read_csv(os.path.join(root, 'metrics.csv')))
-    if len(stores)!=1 or len(sources)!=1 or len(folds)!=21 or len(fixtures)!=360 or len(official)!=13:
+    fingerprints = (stores, sources, weights, environments, label_versions, raw_drivers)
+    if any(len(values)!=1 for values in fingerprints) or len(folds)!=21 or len(fixtures)!=360 or len(official)!=13:
         raise ValueError('Input provenance or evaluation coverage differs from the frozen protocol')
     return pd.concat(official), pd.concat(events), pd.concat(support), provenance
 
 
-def summarize_raw(events, output):
+def summarise_raw(events, output):
     if events.duplicated(['engine','fold','target','cohort']).any():
         raise ValueError('Duplicate raw metrics')
     all_rows = events[events.cohort.eq('all')].copy()
@@ -88,16 +98,13 @@ def summarize_raw(events, output):
     return blocks.groupby('engine').relative_loss.mean().sort_values().to_dict()
 
 
-def summarize_official(official, output):
+def summarise_official(official, output):
     if official.duplicated(['slate','engine']).any() or len(official)!=65:
         raise ValueError('Expected five candidates on each of 13 official slates')
     if official.groupby('slate').engine.nunique().ne(5).any():
         raise ValueError('Official model coverage differs between slates')
     official.to_csv(os.path.join(output, 'official_metrics.csv'), index=False)
-    summary = official.groupby(['competition','season','engine']).agg(
-        mae=('mae','mean'), team_points=('team_points',lambda values: values.sum(min_count=len(values))),
-        scored_teams=('team_points','count'), rounds=('round','nunique'),
-        labelled_players=('n_labelled','sum'), unlabelled_players=('n_unlabelled','sum')).reset_index()
+    summary = season_summary(official)
     summary.to_csv(os.path.join(output, 'official_seasons.csv'), index=False)
     intervals = []
     for metric in ('mae','team_points'):
@@ -115,10 +122,10 @@ def main():
     os.makedirs(args.output, exist_ok=True)
     events.to_csv(os.path.join(args.output, 'raw_events.csv'), index=False)
     support.to_csv(os.path.join(args.output, 'raw_target_support.csv'), index=False)
-    result = {'raw_equal_block_relative_loss': summarize_raw(events, args.output),
-              'official_seasons': summarize_official(official, args.output),
+    result = {'raw_equal_block_relative_loss': summarise_raw(events, args.output),
+              'official_seasons': summarise_official(official, args.output),
               'bootstrap_draws':10000, 'seed':20260922,
-              'intervals':'Paired exploratory 95%; negative differences favor reference for losses only',
+              'intervals':'Paired exploratory 95%; negative differences favour reference for losses only',
               'provenance':provenance}
     with open(os.path.join(args.output, 'summary.json'), 'w') as handle:
         json.dump(result, handle, indent=2, sort_keys=True)

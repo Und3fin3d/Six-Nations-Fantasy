@@ -233,6 +233,13 @@ def fit_comparison_models(train, features, cutoff, model_dir, config, native_cat
     return blend, models
 
 
+def season_summary(metrics):
+    return metrics.groupby(['competition','season','engine']).agg(
+        mae=('mae','mean'),team_points=('team_points',lambda values: values.sum(min_count=len(values))),
+        labelled_players=('n_labelled','sum'),unlabelled_players=('n_unlabelled','sum'),
+        scored_teams=('team_points','count'),rounds=('round','nunique')).reset_index()
+
+
 def run(output: Path, competitions: tuple[str,...], *, prepare_only: bool=False, round_job: str | None=None, native_categories: bool=False) -> pd.DataFrame:
     from model_env_preflight import check
     errors = check(ROOT/'requirements-model.txt')
@@ -320,10 +327,7 @@ def run(output: Path, competitions: tuple[str,...], *, prepare_only: bool=False,
         (output/'round_manifests.json').write_text(json.dumps(manifests,indent=2))
         print(metrics[metrics.slate.eq(slate.name)][['engine','mae','team_points']].to_string(index=False),flush=True)
         print(f'Finished in {time.monotonic()-start:.1f}s',flush=True)
-    summary = pd.DataFrame(results).groupby(['competition','season','engine']).agg(
-        mae=('mae','mean'),team_points=('team_points',lambda values: values.sum(min_count=len(values))),
-        labelled_players=('n_labelled','sum'),unlabelled_players=('n_unlabelled','sum'),
-        scored_teams=('team_points','count'),rounds=('round','nunique')).reset_index()
+    summary = season_summary(pd.DataFrame(results))
     summary.to_csv(output/'summary.csv',index=False)
     print(summary.to_string(index=False),flush=True)
     return summary

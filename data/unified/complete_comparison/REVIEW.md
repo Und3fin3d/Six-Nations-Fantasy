@@ -19,3 +19,5 @@ The initial workflow omitted pytest and used an incorrect pip cache path. Both a
 No additional supported temporal-leakage defect was found in the changed evaluation paths. The review used source inspection and a read-only scan of all 21 folds. Reviewers created or changed no tests.
 
 Initial findings: Standards one documented violation and two heuristics; Spec one run-blocking forecast-support defect. Supported defects were repaired before using comparison results.
+
+Follow-up review confirmed the support fix and paired calculations. It identified missing cross-job checks for frozen weights, official evaluation inputs and raw-driver hashes; the aggregator now validates those plus package versions. It also identified UK-English naming and duplicate season aggregation. The new module uses summarise/favour, and both runners use the same season-summary function. A scan of all 483 stable event/block combinations found no naive-loss denominator near the numerical floor. End-to-end result aggregation still requires the completed remote artifacts.

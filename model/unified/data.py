@@ -11,6 +11,8 @@ from typing import Iterable
 import numpy as np
 import pandas as pd
 
+from official_labels import match_official
+
 from .schema import EVENTS, FORWARD_POSITIONS, KEY_COLUMNS, POSITION_BY_JERSEY
 
 ROOT = Path(__file__).resolve().parents[2]
@@ -47,13 +49,11 @@ def _attach_official_labels(frame: pd.DataFrame) -> pd.DataFrame:
     if not path.exists():
         return frame
     official = pd.read_csv(path, low_memory=False)
-    official["name_key"] = official["name"].map(_name_key)
-    keep = ["season", "round", "team", "name_key", *OFFICIAL_EVENT_COLUMNS]
-    official = official[keep].drop_duplicates(["season", "round", "team", "name_key"])
-    official = official.rename(columns={k: f"official__{v}" for k, v in OFFICIAL_EVENT_COLUMNS.items()})
     out = frame.copy()
-    out["name_key"] = out["player_name"].map(_name_key)
-    out = out.merge(official, on=["season", "round", "team", "name_key"], how="left", validate="many_to_one")
+    six = out[pd.to_numeric(out.competition_id, errors='coerce').eq(1266)]
+    labels = match_official(six, official)
+    for source_col, event in OFFICIAL_EVENT_COLUMNS.items():
+        out[f'official__{event}'] = labels[source_col]
     joined = pd.Series(False, index=out.index)
     for event in OFFICIAL_EVENT_COLUMNS.values():
         label = pd.to_numeric(out.pop(f"official__{event}"), errors="coerce")
@@ -63,7 +63,7 @@ def _attach_official_labels(frame: pd.DataFrame) -> pd.DataFrame:
         joined |= has_label
     out.loc[joined, "source"] = out.loc[joined, "source"].astype(str) + "+sixn_official"
     out.loc[joined, "source_count"] = out.loc[joined, "source_count"].astype(int) + 1
-    return out.drop(columns="name_key")
+    return out
 
 
 def _stable_id(value: object, name: object, team: object) -> str:

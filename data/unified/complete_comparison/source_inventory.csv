@@ -1,0 +1,8 @@
+path,rows,columns,fixtures,date_min,date_max,duplicate_player_matches
+data/api_player_match.csv,57181,52,1241.0,2021-02-06,2026-03-14,0.0
+data/ncr/ncr_player_match.csv,20546,74,499.0,2019-07-27,2026-08-25,0.0
+data/ncr/club_player_match.csv,155618,74,3378.0,2022-02-18,2026-09-20,0.0
+data/official_player_match.csv,1895,25,,,,
+data/model_targets.csv,2760,44,60.0,2023-02-04,2026-03-14,0.0
+data/rp_compstats.csv,8159,29,,,,
+data/wr_rankings.csv,24547,7,,,,

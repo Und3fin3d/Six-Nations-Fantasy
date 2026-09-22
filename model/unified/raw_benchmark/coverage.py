@@ -12,6 +12,8 @@ from pathlib import Path
 import numpy as np
 import pandas as pd
 
+from official_labels import match_official
+
 from ingest_6n import derive_minutes, player_minutes
 
 from ..data import _stable_id
@@ -165,28 +167,13 @@ def _attach_official_extensions(store: pd.DataFrame) -> tuple[pd.DataFrame, dict
     if not OFFICIAL.exists():
         return out, report
     official = pd.read_csv(OFFICIAL, low_memory=False)
-    official["name_key"] = official["name"].map(_name_key)
-    official["competition_id"] = 1266
-    report["official_rows"] = int(len(official))
-
-    six = out[pd.to_numeric(out["competition_id"], errors="coerce").eq(1266)].copy()
-    six["name_key"] = six["player_name"].map(_name_key)
-    fixture_keys = six[["season", "round", "team", "fixture_id"]].drop_duplicates()
-    duplicate = fixture_keys.duplicated(["season", "round", "team"], keep=False)
-    if duplicate.any():
-        report["ambiguous_keys"] = int(duplicate.sum())
-        raise ValueError("official Six Nations fixture map is ambiguous")
-    official = official.merge(
-        fixture_keys, on=["season", "round", "team"], how="left", validate="many_to_one",
-    )
-    official = official.dropna(subset=["fixture_id"])
-    keep = ["fixture_id", "team", "name_key", *OFFICIAL_COLUMNS]
-    official = official[keep].drop_duplicates(["fixture_id", "team", "name_key"])
-
-    out["name_key"] = out["player_name"].map(_name_key)
-    merged = out[["fixture_id", "team", "name_key"]].merge(
-        official, on=["fixture_id", "team", "name_key"], how="left", validate="many_to_one",
-    )
+    report['official_rows'] = int(len(official))
+    six = out[pd.to_numeric(out['competition_id'], errors='coerce').eq(1266)].copy()
+    fixture_keys = six[['season', 'round', 'team', 'fixture_id']].drop_duplicates()
+    if fixture_keys.duplicated(['season', 'round', 'team']).any():
+        raise ValueError('official Six Nations fixture map is ambiguous')
+    labels = match_official(six, official)
+    merged = labels.reindex(out.index)
     matched = pd.Series(False, index=out.index)
     for source_col, event in OFFICIAL_COLUMNS.items():
         values = pd.to_numeric(merged[source_col], errors="coerce")
@@ -196,7 +183,7 @@ def _attach_official_extensions(store: pd.DataFrame) -> tuple[pd.DataFrame, dict
         out.loc[valid, f"provenance__{event}"] = "official_fixture_player"
         matched |= valid
     report["matched_rows"] = int(matched.sum())
-    return out.drop(columns="name_key"), report
+    return out, report
 
 
 def build_corrected_store(legacy_path: Path = LEGACY_STORE) -> tuple[pd.DataFrame, pd.DataFrame, dict]:

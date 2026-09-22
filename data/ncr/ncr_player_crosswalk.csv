@@ -343,7 +343,7 @@ fantasy_id,full_name,team,skill_desc,value,api_player_id,rp_slug,in_api,in_rp
 251909,Juan Penoucos,Argentina,LOOSE FORWARD,3.5,,juan-penoucos,False,True
 229852,Tevita Tatafu,France,PROP,3.5,227784.0,tevita-tatafu,True,True
 196875,Freddie Thomas,Wales,LOOSE FORWARD,3.5,226926.0,freddie-thomas,True,True
-183329,Leonel Oviedo,Argentina,HOOKER,3.5,226080.0,leonel-oviedo,True,True
+183329,Leonel Oviedo,Argentina,HOOKER,3.5,169500.0,leonel-oviedo,True,True
 166930,Peni Ravai Kovekalou,Fiji,PROP,3.5,,,False,False
 202316,Frank Lomani,Fiji,SCRUM-HALF,3.5,171126.0,frank-lomani,True,True
 237261,Alex Samuel,Scotland,LOCK,3.5,231564.0,alex-samuel,True,True
@@ -393,7 +393,7 @@ fantasy_id,full_name,team,skill_desc,value,api_player_id,rp_slug,in_api,in_rp
 172959,Darcy Rae,Scotland,PROP,3.5,122784.0,darcy-rae,True,True
 229690,Jan-Hendrik Wessels,South Africa,PROP,3.5,225984.0,jan-hendrik-wessels,True,True
 209567,Ntuthuko Mchunu,South Africa,PROP,3.5,227988.0,ntuthuko-mchunu,True,True
-252481,Jaco Williams,South Africa,BACK THREE,3.5,178674.0,jaco-williams,True,True
+252481,Jaco Williams,South Africa,BACK THREE,3.5,380118.0,jaco-williams,True,True
 240039,Theo Forner,France,BACK THREE,3.5,,theo-forner,False,True
 229398,Louis Le Brun,France,FLY-HALF,3.5,,louis-le-brun,False,True
 238037,Davide Odiase,Italy,LOOSE FORWARD,3.0,263016.0,david-odiase,True,True
@@ -408,7 +408,7 @@ fantasy_id,full_name,team,skill_desc,value,api_player_id,rp_slug,in_api,in_rp
 241806,Faustino Sanchez Valarolo,Argentina,CENTRE,3.0,337308.0,faustino-sanchez-valarolo,True,True
 255945,Itsuki Kamimura,Japan,SCRUM-HALF,3.0,372078.0,itsuki-kamimura,True,True
 246851,Toms Rapetti,Argentina,PROP,3.0,359274.0,tomas-rapetti,True,True
-243167,Kane James,Wales,LOOSE FORWARD,3.0,232158.0,kane-james,True,True
+243167,Kane James,Wales,LOOSE FORWARD,3.0,366690.0,kane-james,True,True
 241715,Liam McConnell,Scotland,LOOSE FORWARD,3.0,337710.0,liam-mcconnell,True,True
 251438,Keijiro Tamefusa,Japan,PROP,3.0,371586.0,keijiro-tamefusa,True,True
 246824,Zac Porthen,South Africa,PROP,3.0,342540.0,zachary-porthen,True,True

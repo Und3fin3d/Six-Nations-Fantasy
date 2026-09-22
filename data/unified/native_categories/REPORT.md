@@ -1,5 +1,9 @@
 # Native-category rolling evaluation — 2026-09-19
 
+## Independent audit, 2026-09-22
+
+The [independent verification](../pr20_verification/REPORT.md) reproduces the recorded metrics and uncertainty intervals. It also identifies an additional limit: Six Nations pools omit 38 teamsheet rows with unmatched official labels, including 26 players who took the field. The comparisons below are both price-free and restricted to the same labelled pools. Their +6/+2 squad gains do not establish complete-pool superiority. The historical decision text and values below are retained as the original experiment record.
+
 ## Decision
 
 Do not open a PR or promote a model. `p3_robust_native` is a stronger research candidate than the previous robust blend: it improves MAE and team points in all three tournament-seasons relative to that candidate. It now exceeds the empirical baseline in total squad points in all three, but its Six Nations 2025 MAE is worse. The two Six Nations point leads are only 6 and 2 points. This is not clear universal superiority.

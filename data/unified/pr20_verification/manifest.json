@@ -1,0 +1,47 @@
+{
+  "verified_source": "48a8d2574d40ebb9def2335c55e5241ce5242df5",
+  "pr20_head": "599a51987eaac8830c6d1b20870c8c6c3b6747b7",
+  "native_workflow_run": 35470275137,
+  "native_artifact_id": 10592363356,
+  "rolling_workflow_run": 35468499645,
+  "rolling_artifact_id": 10592111768,
+  "method": "Independent recalculation from saved real predictions, squads and official outcomes; no generated tests",
+  "files": {
+    "REPORT.md": {
+      "sha256": "3026a96e4425d5b103a5936f714757a6bdcf0e401104d4a99307cec4c405c419",
+      "bytes": 6413
+    },
+    "baseline_parity.csv": {
+      "sha256": "b477c76cae332b8835f0598f10841e0decc7b45edf80c9e327b1914acba7410e",
+      "bytes": 551
+    },
+    "intervals.csv": {
+      "sha256": "577fe4421a1de0df60ea6308a343facd46bf16c078d5dae0081e03311d62b120",
+      "bytes": 433
+    },
+    "round_metrics.csv": {
+      "sha256": "7d44e75a44c6d9ed7647c16fa428fd61afc34926c6a3d20e203c133bac6b1f0e",
+      "bytes": 16080
+    },
+    "six_nations_missing_labels.csv": {
+      "sha256": "02721929ffa526e65f00852fa58ad6d02b46f16a58fb2f0c7232189554f3de2b",
+      "bytes": 2062
+    },
+    "summary.csv": {
+      "sha256": "e194c8c68dea88089bed15e98e6cbba491794c54f3b10e21e5bd3822f2c827ff",
+      "bytes": 2042
+    },
+    "verification.json": {
+      "sha256": "1289ef2b27af607d3b1a05be7520104971cb8444e2d10b5033f284a6dfe645fc",
+      "bytes": 542
+    },
+    "evidence/native-comparison-evidence.tar.gz": {
+      "sha256": "b4a5891d9ca574f1d5d13669f9de8b66eac2579381f4f37dec06b389f7d95c8a",
+      "bytes": 6430773
+    },
+    "evidence/rolling-comparison-results.tar.gz": {
+      "sha256": "6320e42b808180e8d99048113b0a2f849f71fc415852bdab3e6bbc39a5456b2c",
+      "bytes": 6440868
+    }
+  }
+}

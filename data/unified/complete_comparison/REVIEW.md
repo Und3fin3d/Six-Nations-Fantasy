@@ -44,10 +44,10 @@ The final fits used source 3d231176050e1c5692497dfb11db13ef7f5b2dc4 in successfu
 
 ### Standards
 
-No supported documented violation or heuristic smell remains in the final result delta. Missing team totals convert to None at the JSON boundary, and allow_nan=False rejects any unhandled non-standard value. The aggregation-source and frozen-study hashes match the recorded files. The report distinguishes current results from archived merge-review figures and preserves the pending test-count approval. No code comments, pathlib imports or tests were added or changed.
+No supported documented violation or heuristic smell remains in the final result delta. Missing team totals convert to None at the JSON boundary, and allow_nan=False rejects any unhandled non-standard value. The aggregation-source and frozen-study hashes match the recorded files. The report distinguishes current results from archived merge-review figures and preserves the known fixed-count test failure. No code comments, pathlib imports or tests were added or changed.
 
 ### Spec
 
 No supported specification finding remains. The report limits the raw claim to the four evaluated candidates, gives losing blocks and small effect sizes, separates raw-event and fantasy evidence, and preserves Dobie's unknown outcomes. The positive nine-round interval is explicitly limited to mutually scorable Six Nations rounds. The report records 648 frozen Unknown-role appearances, identifies the population split as a post-fit diagnostic, and discloses historical dependence, missing prices and the need for prospective evidence. No additional fits were recommended.
 
-Final findings: Standards zero; Spec zero. The separate arithmetic audit reproduced 65 official records, 36,400 raw metric rows and 19 primary paired summaries. Replaying the three archived bundles reproduced all 11 summary files byte for byte. The existing fixed-count assertion remains unchanged pending the user's explicit approval.
+Final findings: Standards zero; Spec zero. The separate arithmetic audit reproduced 65 official records, 36,400 raw metric rows and 19 primary paired summaries. Replaying the three archived bundles reproduced all 11 summary files byte for byte. The user asked not to add tests. The fixed-count assertion remains unchanged, and its failure is recorded as a known limitation.

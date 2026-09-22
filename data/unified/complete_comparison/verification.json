@@ -25,7 +25,7 @@
   "local_existing_tests": {
     "passed": 120,
     "failed": 1,
-    "failure": "Unchanged expected official_label_rows 2144; repaired actual count 2164. Explicit test-edit approval pending."
+    "failure": "Unchanged expected official_label_rows 2144; repaired actual count 2164. Tests remain unchanged at the user\u2019s request."
   },
   "local_focused_existing_tests_passed": 51,
   "new_or_modified_tests": 0

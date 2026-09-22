@@ -7,6 +7,7 @@ import numpy as np
 import pandas as pd
 
 from model.unified.raw_benchmark.config import STABLE_EVENTS
+from model.unified.raw_benchmark.coverage import sha256
 from model.unified.rolling_eval import ROOT, season_summary
 
 
@@ -119,7 +120,7 @@ def summarise_official(official, output, study):
     for metric in ('mae','team_points'):
         intervals.append(paired_summary(official, ['slate'], metric, 'p3_robust_native', ['competition']))
     pd.concat(intervals).to_csv(os.path.join(output, 'official_paired_intervals.csv'), index=False)
-    return summary.to_dict('records')
+    return summary.astype(object).where(pd.notna(summary), None).to_dict('records')
 
 
 def main():
@@ -135,11 +136,13 @@ def main():
     support.to_csv(os.path.join(args.output, 'raw_target_support.csv'), index=False)
     result = {'raw_equal_block_relative_loss': summarise_raw(events, args.output, study),
               'official_seasons': summarise_official(official, args.output, study),
+              'aggregation_source_sha256': sha256(ROOT/'research/summarise_complete_comparison.py'),
+              'study_sha256': sha256(ROOT/'data/unified/complete_comparison/study_manifest.json'),
               'bootstrap_draws':10000, 'seed':20260922,
               'intervals':'Paired exploratory 95%; negative differences favour reference for losses only',
               'provenance':provenance}
     with open(os.path.join(args.output, 'summary.json'), 'w') as handle:
-        json.dump(result, handle, indent=2, sort_keys=True)
+        json.dump(result, handle, indent=2, sort_keys=True, allow_nan=False)
         handle.write('\n')
 
 

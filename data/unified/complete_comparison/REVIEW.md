@@ -37,3 +37,17 @@ The cache-population delta had one documented violation: importing the aggregati
 Independent direct inspection confirmed exact coverage of all 179,295 eligible cached keys, with no missing, extra or duplicate keys. All 3,131 cache-added rows match their source identity, opponent, jersey, starter flag, timestamp, direct-event values and availability. The six excluded fixtures have empty teamsheets. Historical cutoffs and prior-role rules remain strict. Unknown playing roles remain explicit and included; final diagnostics must report their frozen-candidate counts. No supported correctness finding remains in the population repair.
 
 Population-delta findings: Standards one resolved documented violation and one resolved heuristic; Spec no remaining defect. Fresh all-cache results remain required.
+
+## Final all-cache result review
+
+The final fits used source 3d231176050e1c5692497dfb11db13ef7f5b2dc4 in successful run 35737817588. The final result delta was independently reviewed on both axes after all 35 jobs and arithmetic checks completed.
+
+### Standards
+
+No supported documented violation or heuristic smell remains in the final result delta. Missing team totals convert to None at the JSON boundary, and allow_nan=False rejects any unhandled non-standard value. The aggregation-source and frozen-study hashes match the recorded files. The report distinguishes current results from archived merge-review figures and preserves the pending test-count approval. No code comments, pathlib imports or tests were added or changed.
+
+### Spec
+
+No supported specification finding remains. The report limits the raw claim to the four evaluated candidates, gives losing blocks and small effect sizes, separates raw-event and fantasy evidence, and preserves Dobie's unknown outcomes. The positive nine-round interval is explicitly limited to mutually scorable Six Nations rounds. The report records 648 frozen Unknown-role appearances, identifies the population split as a post-fit diagnostic, and discloses historical dependence, missing prices and the need for prospective evidence. No additional fits were recommended.
+
+Final findings: Standards zero; Spec zero. The separate arithmetic audit reproduced 65 official records, 36,400 raw metric rows and 19 primary paired summaries. Replaying the three archived bundles reproduced all 11 summary files byte for byte. The existing fixed-count assertion remains unchanged pending the user's explicit approval.

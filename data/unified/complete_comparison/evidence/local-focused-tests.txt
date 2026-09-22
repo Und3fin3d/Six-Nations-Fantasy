@@ -1,0 +1,24 @@
+...................................................                      [100%]
+=============================== warnings summary ===============================
+tests/test_rolling_history.py: 3 warnings
+tests/test_unified_v4.py: 36 warnings
+  /private/tmp/6n-pr-decision/checkout/model/unified/v4/features.py:50: PerformanceWarning: DataFrame is highly fragmented.  This is usually the result of calling `frame.insert` many times, which has poor performance.  Consider joining all columns at once using pd.concat(axis=1) instead. To get a de-fragmented frame, use `newframe = frame.copy()`
+    df[f"cum_min__{event}"] = mins.fillna(0).groupby(df["player_id"]).cumsum() - mins.fillna(0)
+
+tests/test_rolling_history.py: 3 warnings
+tests/test_unified_v4.py: 36 warnings
+  /private/tmp/6n-pr-decision/checkout/model/unified/v4/features.py:54: PerformanceWarning: DataFrame is highly fragmented.  This is usually the result of calling `frame.insert` many times, which has poor performance.  Consider joining all columns at once using pd.concat(axis=1) instead. To get a de-fragmented frame, use `newframe = frame.copy()`
+    df[f"prior_per80__{event}"] = per80.groupby(group).transform(
+
+tests/test_rolling_history.py: 4 warnings
+tests/test_unified_v4.py: 48 warnings
+  /private/tmp/6n-pr-decision/checkout/model/unified/v4/features.py:45: PerformanceWarning: DataFrame is highly fragmented.  This is usually the result of calling `frame.insert` many times, which has poor performance.  Consider joining all columns at once using pd.concat(axis=1) instead. To get a de-fragmented frame, use `newframe = frame.copy()`
+    df[f"form_per80_{level}__{event}"] = grouped_ewm(
+
+tests/test_rolling_history.py: 2 warnings
+tests/test_unified_v4.py: 24 warnings
+  /private/tmp/6n-pr-decision/checkout/model/unified/v4/features.py:49: PerformanceWarning: DataFrame is highly fragmented.  This is usually the result of calling `frame.insert` many times, which has poor performance.  Consider joining all columns at once using pd.concat(axis=1) instead. To get a de-fragmented frame, use `newframe = frame.copy()`
+    df[f"cum_count__{event}"] = count.fillna(0).groupby(df["player_id"]).cumsum() - count.fillna(0)
+
+-- Docs: https://docs.pytest.org/en/stable/how-to/capture-warnings.html
+51 passed, 156 warnings in 23.30s

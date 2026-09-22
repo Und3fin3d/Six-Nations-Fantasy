@@ -1,0 +1,12 @@
+{
+  "metric_rows": 36400,
+  "blocks": 22,
+  "maximum_absolute_errors": {
+    "n_error": 0.0,
+    "mae_error": 3.552713678800501e-15,
+    "loss_error": 2.1316282072803006e-14,
+    "naive_loss_error": 2.3092638912203256e-14,
+    "relative_error": 4.656612873077393e-10
+  },
+  "fixture_error_sum_maximum_difference": 1.1368683772161603e-13
+}

@@ -1,0 +1,7 @@
+season,engine,known_points,missing_expression,reference,reference_points,missing_contribution_needed_to_tie
+2026,p3_rolling_native,2450.0,1 * Jamie Dobie (8523952),empirical_baseline,2552.0,102.0
+2026,p3_rolling_native,2450.0,1 * Jamie Dobie (8523952),p3_robust_native,2496.0,46.0
+2026,p3_rolling_native,2450.0,1 * Jamie Dobie (8523952),p3_weighted_native,2513.0,63.0
+2026,p3_tournament_frozen_native,2380.0,1 * Jamie Dobie (8523952),empirical_baseline,2552.0,172.0
+2026,p3_tournament_frozen_native,2380.0,1 * Jamie Dobie (8523952),p3_robust_native,2496.0,116.0
+2026,p3_tournament_frozen_native,2380.0,1 * Jamie Dobie (8523952),p3_weighted_native,2513.0,133.0

@@ -962,11 +962,9 @@ fixture_id,player_id,team,player_name,match_at,position,position_source,is_forwa
 4707286,130398,Moana Pasifika,Tau Koloamatangi,2022-03-04 06:05:00+00:00,Unknown,unknown_no_prior_start,False,Prop,True
 4707286,140406,Moana Pasifika,Jonathan Taumateine,2022-03-04 06:05:00+00:00,Unknown,unknown_no_prior_start,False,Scrum-half,False
 4707286,141966,Moana Pasifika,Joe Apikotoa,2022-03-04 06:05:00+00:00,Unknown,unknown_no_prior_start,False,Prop,True
-4707286,177078,Moana Pasifika,Samiuela Moli,2022-03-04 06:05:00+00:00,Unknown,unknown_no_prior_start,False,Hooker,True
-4707286,203442,Moana Pasifika,Fine Inisi,2022-03-04 06:05:00+00:00,Unknown,unknown_no_prior_start,False,Back-three,False
+4707286,203442,Moana Pasifika,Fine Inisi,2022-03-04 06:05:00+00:00,Centre,prior_recorded_start,False,Back-three,False
 4707286,234552,Moana Pasifika,Alex McRobbie,2022-03-04 06:05:00+00:00,Unknown,unknown_no_prior_start,False,Second-row,True
 4707286,54150,Moana Pasifika,Christian Lealiifano,2022-03-04 06:05:00+00:00,Unknown,unknown_no_prior_start,False,Fly-half,False
-4707286,63654,Moana Pasifika,Jack Lam,2022-03-04 06:05:00+00:00,Unknown,unknown_no_prior_start,False,Back-row,True
 4707295,103392,Fijian Drua,Teti Tela,2022-03-04 08:45:00+00:00,Unknown,unknown_no_prior_start,False,Fly-half,False
 4707295,124440,Fijian Drua,Viliame Rarasea,2022-03-04 08:45:00+00:00,Unknown,unknown_no_prior_start,False,Second-row,True
 4707295,185118,Fijian Drua,Mesulame Dolokoto,2022-03-04 08:45:00+00:00,Unknown,unknown_no_prior_start,False,Hooker,True
@@ -1038,7 +1036,6 @@ fixture_id,player_id,team,player_name,match_at,position,position_source,is_forwa
 4707376,130428,Blues,James Tucker,2022-03-11 06:05:00+00:00,Unknown,unknown_no_prior_start,False,Second-row,True
 4707376,141324,Blues,Marcel Renata,2022-03-11 06:05:00+00:00,Unknown,unknown_no_prior_start,False,Prop,True
 4707376,141732,Blues,Sam Nock,2022-03-11 06:05:00+00:00,Unknown,unknown_no_prior_start,False,Scrum-half,False
-4707376,156768,Blues,Jordan Lay,2022-03-11 06:05:00+00:00,Unknown,unknown_no_prior_start,False,Prop,True
 4707376,169320,Blues,Tanielu Tele?a,2022-03-11 06:05:00+00:00,Unknown,unknown_no_prior_start,False,Fly-half,False
 4707376,197868,Blues,Jacob Ratumaitavuki-Kneepkens,2022-03-11 06:05:00+00:00,Unknown,unknown_no_prior_start,False,Back-three,False
 4707376,197928,Blues,Taufa Funaki,2022-03-11 06:05:00+00:00,Unknown,unknown_no_prior_start,False,Scrum-half,False
@@ -1135,8 +1132,7 @@ fixture_id,player_id,team,player_name,match_at,position,position_source,is_forwa
 4707196,130398,Moana Pasifika,Tau Koloamatangi,2022-03-19 06:05:00+00:00,Unknown,unknown_no_prior_start,False,Prop,True
 4707196,141966,Moana Pasifika,Joe Apikotoa,2022-03-19 06:05:00+00:00,Unknown,unknown_no_prior_start,False,Prop,True
 4707196,156750,Moana Pasifika,Josh Kaifa,2022-03-19 06:05:00+00:00,Unknown,unknown_no_prior_start,False,Back-row,True
-4707196,177078,Moana Pasifika,Samiuela Moli,2022-03-19 06:05:00+00:00,Unknown,unknown_no_prior_start,False,Hooker,True
-4707196,203442,Moana Pasifika,Fine Inisi,2022-03-19 06:05:00+00:00,Unknown,unknown_no_prior_start,False,Back-three,False
+4707196,203442,Moana Pasifika,Fine Inisi,2022-03-19 06:05:00+00:00,Centre,prior_recorded_start,False,Back-three,False
 4707196,234552,Moana Pasifika,Alex McRobbie,2022-03-19 06:05:00+00:00,Unknown,unknown_no_prior_start,False,Second-row,True
 4707484,206502,Fijian Drua,Napolioni Bolaca,2022-03-19 03:35:00+00:00,Unknown,unknown_no_prior_start,False,Fly-half,False
 4707484,206778,Fijian Drua,Chris Minimbi,2022-03-19 03:35:00+00:00,Unknown,unknown_no_prior_start,False,Second-row,True
@@ -1206,7 +1202,6 @@ fixture_id,player_id,team,player_name,match_at,position,position_source,is_forwa
 4707601,163146,Western Force,Tim Anstee,2022-03-25 11:00:00+00:00,Back-row,prior_recorded_start,True,Second-row,True
 4707601,197160,Western Force,Bo Abra,2022-03-25 11:00:00+00:00,Unknown,unknown_no_prior_start,False,Prop,True
 4707574,140064,Blues,Ricky Riccitelli,2022-03-26 03:35:00+00:00,Unknown,unknown_no_prior_start,False,Hooker,True
-4707574,156768,Blues,Jordan Lay,2022-03-26 03:35:00+00:00,Unknown,unknown_no_prior_start,False,Prop,True
 4707574,197928,Blues,Taufa Funaki,2022-03-26 03:35:00+00:00,Unknown,unknown_no_prior_start,False,Scrum-half,False
 4707574,234786,Blues,Corey Evans,2022-03-26 03:35:00+00:00,Unknown,unknown_no_prior_start,False,Fly-half,False
 4707574,136404,Highlanders,Hugh Renton,2022-03-26 03:35:00+00:00,Back-row,prior_recorded_start,True,Back-three,False
@@ -1244,13 +1239,12 @@ fixture_id,player_id,team,player_name,match_at,position,position_source,is_forwa
 4707106,120774,Moana Pasifika,Lolagi Visinia,2022-03-29 06:05:00+00:00,Unknown,unknown_no_prior_start,False,Back-three,False
 4707106,123288,Moana Pasifika,Nigel Ah Wong,2022-03-29 06:05:00+00:00,Unknown,unknown_no_prior_start,False,Fly-half,False
 4707106,126420,Moana Pasifika,Ray Niuia,2022-03-29 06:05:00+00:00,Unknown,unknown_no_prior_start,False,Hooker,True
-4707106,143970,Moana Pasifika,Dwayne Polataivao,2022-03-29 06:05:00+00:00,Unknown,unknown_no_prior_start,False,Scrum-half,False
 4707106,156750,Moana Pasifika,Josh Kaifa,2022-03-29 06:05:00+00:00,Unknown,unknown_no_prior_start,False,Back-row,True
 4707106,156930,Moana Pasifika,Chris Apoua,2022-03-29 06:05:00+00:00,Unknown,unknown_no_prior_start,False,Prop,True
 4707106,169176,Moana Pasifika,Suetena Asomua,2022-03-29 06:05:00+00:00,Unknown,unknown_no_prior_start,False,Prop,True
 4707106,174300,Moana Pasifika,Mark Royal,2022-03-29 06:05:00+00:00,Unknown,unknown_no_prior_start,False,Hooker,True
 4707106,216084,Moana Pasifika,Manu Paea,2022-03-29 06:05:00+00:00,Unknown,unknown_no_prior_start,False,Scrum-half,False
-4707106,218022,Moana Pasifika,Solomone Kata,2022-03-29 06:05:00+00:00,Unknown,unknown_no_prior_start,False,Fly-half,False
+4707106,218022,Moana Pasifika,Solomone Kata,2022-03-29 06:05:00+00:00,Back-three,prior_recorded_start,False,Fly-half,False
 4707106,234552,Moana Pasifika,Alex McRobbie,2022-03-29 06:05:00+00:00,Unknown,unknown_no_prior_start,False,Second-row,True
 4707106,234750,Moana Pasifika,Veikoso Poloniati,2022-03-29 06:05:00+00:00,Second-row,prior_recorded_start,True,Scrum-half,False
 4707106,63474,Moana Pasifika,Joe Royal,2022-03-29 06:05:00+00:00,Unknown,unknown_no_prior_start,False,Hooker,True
@@ -1276,7 +1270,6 @@ fixture_id,player_id,team,player_name,match_at,position,position_source,is_forwa
 4707664,169320,Blues,Tanielu Tele?a,2022-04-02 06:05:00+00:00,Centre,prior_recorded_start,False,Fly-half,False
 4707664,197988,Blues,Soane Vikena,2022-04-02 06:05:00+00:00,Unknown,unknown_no_prior_start,False,Hooker,True
 4707664,123288,Moana Pasifika,Nigel Ah Wong,2022-04-02 06:05:00+00:00,Unknown,unknown_no_prior_start,False,Back-three,False
-4707664,143970,Moana Pasifika,Dwayne Polataivao,2022-04-02 06:05:00+00:00,Unknown,unknown_no_prior_start,False,Scrum-half,False
 4707664,156930,Moana Pasifika,Chris Apoua,2022-04-02 06:05:00+00:00,Unknown,unknown_no_prior_start,False,Prop,True
 4707664,225534,Moana Pasifika,Mahroni Ngakuru,2022-04-02 06:05:00+00:00,Unknown,unknown_no_prior_start,False,Second-row,True
 4707664,234552,Moana Pasifika,Alex McRobbie,2022-04-02 06:05:00+00:00,Unknown,unknown_no_prior_start,False,Second-row,True
@@ -1324,7 +1317,6 @@ fixture_id,player_id,team,player_name,match_at,position,position_source,is_forwa
 4707736,196170,Hurricanes,Kianu Kereru-Symes,2022-04-09 04:35:00+00:00,Unknown,unknown_no_prior_start,False,Hooker,True
 4707736,225594,Hurricanes,Cam Roigard,2022-04-09 04:35:00+00:00,Unknown,unknown_no_prior_start,False,Scrum-half,False
 4707736,234642,Hurricanes,Pasilio Tosi,2022-04-09 04:35:00+00:00,Unknown,unknown_no_prior_start,False,Prop,True
-4707754,156768,Blues,Jordan Lay,2022-04-09 07:05:00+00:00,Unknown,unknown_no_prior_start,False,Prop,True
 4707754,169320,Blues,Tanielu Tele?a,2022-04-09 07:05:00+00:00,Centre,prior_recorded_start,False,Fly-half,False
 4707754,174318,Blues,Lisati Milo-Harris,2022-04-09 07:05:00+00:00,Unknown,unknown_no_prior_start,False,Scrum-half,False
 4707754,188928,Chiefs,Quinn Tupaea,2022-04-09 07:05:00+00:00,Centre,prior_recorded_start,False,Fly-half,False
@@ -1352,7 +1344,6 @@ fixture_id,player_id,team,player_name,match_at,position,position_source,is_forwa
 4707403,126420,Moana Pasifika,Ray Niuia,2022-04-12 07:05:00+00:00,Unknown,unknown_no_prior_start,False,Hooker,True
 4707403,130398,Moana Pasifika,Tau Koloamatangi,2022-04-12 07:05:00+00:00,Unknown,unknown_no_prior_start,False,Prop,True
 4707403,216084,Moana Pasifika,Manu Paea,2022-04-12 07:05:00+00:00,Unknown,unknown_no_prior_start,False,Scrum-half,False
-4707511,156768,Blues,Jordan Lay,2022-04-15 07:05:00+00:00,Unknown,unknown_no_prior_start,False,Prop,True
 4707511,227712,Blues,Roger Tuivasa-Sheck,2022-04-15 07:05:00+00:00,Centre,prior_recorded_start,False,Fly-half,False
 4707511,176640,Crusaders,Ricky Jackson,2022-04-15 07:05:00+00:00,Unknown,unknown_no_prior_start,False,Hooker,True
 4707511,216132,Crusaders,Dom Gardiner,2022-04-15 07:05:00+00:00,Unknown,unknown_no_prior_start,False,Second-row,True
@@ -1835,7 +1826,7 @@ fixture_id,player_id,team,player_name,match_at,position,position_source,is_forwa
 8381140,58860,Argentina,Benjamin Urdapilleta,2022-09-03 07:05:00+00:00,Unknown,unknown_no_prior_start,False,Fly-half,False
 8381140,188928,New Zealand,Quinn Tupaea,2022-09-03 07:05:00+00:00,Centre,prior_recorded_start,False,Back-three,False
 8387692,118062,CA Brive,Pietro Ceccarelli,2022-09-03 15:00:00+00:00,Prop,prior_recorded_start,True,Back-three,False
-8387692,143292,CA Brive,Vasil Lobzhanidze,2022-09-03 15:00:00+00:00,Unknown,unknown_no_prior_start,False,Back-row,True
+8387692,143292,CA Brive,Vasil Lobzhanidze,2022-09-03 15:00:00+00:00,Scrum-half,prior_recorded_start,False,Back-row,True
 8387692,148362,CA Brive,Setariki Tuicuvu,2022-09-03 15:00:00+00:00,Back-three,prior_recorded_start,False,Fly-half,False
 8387692,163920,CA Brive,Daniel Brennan,2022-09-03 15:00:00+00:00,Unknown,unknown_no_prior_start,False,Prop,True
 8387692,176490,CA Brive,Lucas da Silva,2022-09-03 15:00:00+00:00,Unknown,unknown_no_prior_start,False,Hooker,True
@@ -1865,7 +1856,7 @@ fixture_id,player_id,team,player_name,match_at,position,position_source,is_forwa
 8387701,231678,Racing 92,Maxime Baudonne,2022-09-03 13:00:00+00:00,Unknown,unknown_no_prior_start,False,Second-row,True
 8387701,235878,Racing 92,Inia Tabuavou,2022-09-03 13:00:00+00:00,Unknown,unknown_no_prior_start,False,Fly-half,False
 8387701,89670,Racing 92,Eddy Ben Arous,2022-09-03 13:00:00+00:00,Unknown,unknown_no_prior_start,False,Prop,True
-8387710,103974,Bayonne,Konstantine Mikautadze,2022-09-03 15:00:00+00:00,Unknown,unknown_no_prior_start,False,Prop,True
+8387710,103974,Bayonne,Konstantine Mikautadze,2022-09-03 15:00:00+00:00,Second-row,prior_recorded_start,True,Prop,True
 8387710,133440,Bayonne,Thomas Acquier,2022-09-03 15:00:00+00:00,Unknown,unknown_no_prior_start,False,Hooker,True
 8387710,160686,Bayonne,Jason Robertson,2022-09-03 15:00:00+00:00,Unknown,unknown_no_prior_start,False,Back-row,True
 8387710,186540,Bayonne,Pierre Huguet,2022-09-03 15:00:00+00:00,Unknown,unknown_no_prior_start,False,Second-row,True
@@ -1892,11 +1883,10 @@ fixture_id,player_id,team,player_name,match_at,position,position_source,is_forwa
 8387719,113160,USAP,Kélian Galletier,2022-09-03 15:00:00+00:00,Unknown,unknown_no_prior_start,False,Second-row,True
 8387719,124350,USAP,Jake McIntyre,2022-09-03 15:00:00+00:00,Back-three,prior_recorded_start,False,Scrum-half,False
 8387719,133842,USAP,Victor Moreaux,2022-09-03 15:00:00+00:00,Unknown,unknown_no_prior_start,False,Prop,True
-8387719,133956,USAP,Seilala Lam,2022-09-03 15:00:00+00:00,Unknown,unknown_no_prior_start,False,Hooker,True
 8387719,193758,USAP,Sadek Deghmache,2022-09-03 15:00:00+00:00,Unknown,unknown_no_prior_start,False,Back-row,True
 8387719,204534,USAP,Sacha Lotrian,2022-09-03 15:00:00+00:00,Unknown,unknown_no_prior_start,False,Prop,True
 8387719,262266,USAP,Theo Forner,2022-09-03 15:00:00+00:00,Unknown,unknown_no_prior_start,False,Fly-half,False
-8387719,69804,USAP,Ma'afu Fia,2022-09-03 15:00:00+00:00,Unknown,unknown_no_prior_start,False,Back-three,False
+8387719,69804,USAP,Ma'afu Fia,2022-09-03 15:00:00+00:00,Prop,prior_recorded_start,True,Back-three,False
 8387728,125112,ASM Clermont Auvergne,Julien Heriteau,2022-09-03 15:00:00+00:00,Unknown,unknown_no_prior_start,False,Fly-half,False
 8387728,128262,ASM Clermont Auvergne,Etienne Falgoux,2022-09-03 15:00:00+00:00,Unknown,unknown_no_prior_start,False,Prop,True
 8387728,143124,ASM Clermont Auvergne,Yohan Beheregaray,2022-09-03 15:00:00+00:00,Unknown,unknown_no_prior_start,False,Hooker,True
@@ -1915,7 +1905,7 @@ fixture_id,player_id,team,player_name,match_at,position,position_source,is_forwa
 8387728,224724,Stade Francais Paris,Leo Barre,2022-09-03 15:00:00+00:00,Unknown,unknown_no_prior_start,False,Scrum-half,False
 8387737,126906,Montpellier Herault Rugby,Titi Lamositele,2022-09-03 19:05:00+00:00,Unknown,unknown_no_prior_start,False,Back-three,False
 8387737,147534,Montpellier Herault Rugby,Florian Verhaeghe,2022-09-03 19:05:00+00:00,Unknown,unknown_no_prior_start,False,Prop,True
-8387737,150708,Montpellier Herault Rugby,Gela Aprasidze,2022-09-03 19:05:00+00:00,Unknown,unknown_no_prior_start,False,Back-row,True
+8387737,150708,Montpellier Herault Rugby,Gela Aprasidze,2022-09-03 19:05:00+00:00,Scrum-half,prior_recorded_start,False,Back-row,True
 8387737,157362,Montpellier Herault Rugby,Vincent Rattez,2022-09-03 19:05:00+00:00,Back-three,prior_recorded_start,False,Fly-half,False
 8387737,163938,Montpellier Herault Rugby,Thomas Darmon,2022-09-03 19:05:00+00:00,Unknown,unknown_no_prior_start,False,Scrum-half,False
 8387737,191358,Montpellier Herault Rugby,Clement Doumenc,2022-09-03 19:05:00+00:00,Unknown,unknown_no_prior_start,False,Second-row,True
@@ -1935,7 +1925,6 @@ fixture_id,player_id,team,player_name,match_at,position,position_source,is_forwa
 8387746,221094,Stade Toulousain,Melvyn Jaminet,2022-09-04 19:05:00+00:00,Back-three,prior_recorded_start,False,Fly-half,False
 8387746,224976,Stade Toulousain,Theo Ntamack,2022-09-04 19:05:00+00:00,Unknown,unknown_no_prior_start,False,Back-row,True
 8387746,114738,Union Bordeaux-Begles,Jandre Marais,2022-09-04 19:05:00+00:00,Unknown,unknown_no_prior_start,False,Prop,True
-8387746,133470,Union Bordeaux-Begles,Lekso Kaulashvili,2022-09-04 19:05:00+00:00,Unknown,unknown_no_prior_start,False,Prop,True
 8387746,149466,Union Bordeaux-Begles,Caleb Timu,2022-09-04 19:05:00+00:00,Unknown,unknown_no_prior_start,False,Second-row,True
 8387746,169662,Union Bordeaux-Begles,Matthieu Jalibert,2022-09-04 19:05:00+00:00,Fly-half,prior_recorded_start,False,Scrum-half,False
 8387746,176802,Union Bordeaux-Begles,Jules Gimbert,2022-09-04 19:05:00+00:00,Unknown,unknown_no_prior_start,False,Back-row,True
@@ -1955,7 +1944,7 @@ fixture_id,player_id,team,player_name,match_at,position,position_source,is_forwa
 8387755,162792,Section Paloise,Reece Hewat,2022-09-10 15:00:00+00:00,Back-row,prior_recorded_start,True,Second-row,True
 8387755,169830,Section Paloise,Guram Papidze,2022-09-10 15:00:00+00:00,Unknown,unknown_no_prior_start,False,Back-three,False
 8387755,218556,Section Paloise,Thibault Debaes,2022-09-10 15:00:00+00:00,Unknown,unknown_no_prior_start,False,Fly-half,False
-8387764,103974,Bayonne,Konstantine Mikautadze,2022-09-10 15:00:00+00:00,Unknown,unknown_no_prior_start,False,Prop,True
+8387764,103974,Bayonne,Konstantine Mikautadze,2022-09-10 15:00:00+00:00,Second-row,prior_recorded_start,True,Prop,True
 8387764,118134,Bayonne,Pascal Cotet,2022-09-10 15:00:00+00:00,Prop,prior_recorded_start,True,Back-three,False
 8387764,121818,Bayonne,Michael Ruru,2022-09-10 15:00:00+00:00,Unknown,unknown_no_prior_start,False,Back-row,True
 8387764,133440,Bayonne,Thomas Acquier,2022-09-10 15:00:00+00:00,Unknown,unknown_no_prior_start,False,Hooker,True
@@ -1967,11 +1956,9 @@ fixture_id,player_id,team,player_name,match_at,position,position_source,is_forwa
 8387764,113118,Racing 92,Ben Volavola,2022-09-10 15:00:00+00:00,Fly-half,prior_recorded_start,False,Scrum-half,False
 8387764,150990,Racing 92,Ali Oz,2022-09-10 15:00:00+00:00,Unknown,unknown_no_prior_start,False,Back-three,False
 8387764,165720,Racing 92,Antoine Gibert,2022-09-10 15:00:00+00:00,Unknown,unknown_no_prior_start,False,Back-row,True
-8387764,169782,Racing 92,Guram Gogichashvili,2022-09-10 15:00:00+00:00,Unknown,unknown_no_prior_start,False,Prop,True
 8387764,196194,Racing 92,Janick Tarrit,2022-09-10 15:00:00+00:00,Unknown,unknown_no_prior_start,False,Hooker,True
 8387764,224310,Racing 92,Logan Tabet,2022-09-10 15:00:00+00:00,Unknown,unknown_no_prior_start,False,Fly-half,False
 8387764,231678,Racing 92,Maxime Baudonne,2022-09-10 15:00:00+00:00,Unknown,unknown_no_prior_start,False,Second-row,True
-8387773,102876,Castres Olympique,Paula Ngauamo,2022-09-10 15:00:00+00:00,Unknown,unknown_no_prior_start,False,Hooker,True
 8387773,140670,Castres Olympique,Quentin Walcker,2022-09-10 15:00:00+00:00,Unknown,unknown_no_prior_start,False,Prop,True
 8387773,144330,Castres Olympique,Josaia Raisuqe,2022-09-10 15:00:00+00:00,Unknown,unknown_no_prior_start,False,Back-row,True
 8387773,188778,Castres Olympique,Antoine Zeghdar,2022-09-10 15:00:00+00:00,Unknown,unknown_no_prior_start,False,Fly-half,False
@@ -2003,7 +1990,7 @@ fixture_id,player_id,team,player_name,match_at,position,position_source,is_forwa
 8387791,118416,Montpellier Herault Rugby,Paul Willemse,2022-09-10 19:05:00+00:00,Second-row,prior_recorded_start,True,Prop,True
 8387791,130308,Montpellier Herault Rugby,Nicolaas Janse van Rensburg,2022-09-10 19:05:00+00:00,Second-row,prior_recorded_start,True,Fly-half,False
 8387791,143010,Montpellier Herault Rugby,Mohamed Haouas,2022-09-10 19:05:00+00:00,Prop,prior_recorded_start,True,Back-three,False
-8387791,150708,Montpellier Herault Rugby,Gela Aprasidze,2022-09-10 19:05:00+00:00,Unknown,unknown_no_prior_start,False,Back-row,True
+8387791,150708,Montpellier Herault Rugby,Gela Aprasidze,2022-09-10 19:05:00+00:00,Scrum-half,prior_recorded_start,False,Back-row,True
 8387791,162474,Montpellier Herault Rugby,Vincent Giudicelli,2022-09-10 19:05:00+00:00,Unknown,unknown_no_prior_start,False,Hooker,True
 8387791,163962,Montpellier Herault Rugby,Pierre Lucas,2022-09-10 19:05:00+00:00,Unknown,unknown_no_prior_start,False,Scrum-half,False
 8387791,191358,Montpellier Herault Rugby,Clement Doumenc,2022-09-10 19:05:00+00:00,Unknown,unknown_no_prior_start,False,Second-row,True
@@ -2040,7 +2027,6 @@ fixture_id,player_id,team,player_name,match_at,position,position_source,is_forwa
 8391949,116748,Bristol Bears,Samuel Lewis,2022-09-10 16:30:00+00:00,Unknown,unknown_no_prior_start,False,Back-row,True
 8391949,136980,Bristol Bears,Jake Woolmore,2022-09-10 16:30:00+00:00,Unknown,unknown_no_prior_start,False,Prop,True
 8391949,136986,Bristol Bears,Ed Holmes,2022-09-10 16:30:00+00:00,Unknown,unknown_no_prior_start,False,Second-row,True
-8391949,141066,Bristol Bears,AJ MacGinty,2022-09-10 16:30:00+00:00,Unknown,unknown_no_prior_start,False,Fly-half,False
 8391949,149910,Bristol Bears,Andy Uren,2022-09-10 16:30:00+00:00,Unknown,unknown_no_prior_start,False,Scrum-half,False
 8391949,184002,Bristol Bears,Will Capon,2022-09-10 16:30:00+00:00,Unknown,unknown_no_prior_start,False,Hooker,True
 8391949,213084,Bristol Bears,Jack Bates,2022-09-10 16:30:00+00:00,Unknown,unknown_no_prior_start,False,Back-three,False
@@ -2054,7 +2040,6 @@ fixture_id,player_id,team,player_name,match_at,position,position_source,is_forwa
 8391967,220560,Exeter Chiefs,Patrick Schickerling,2022-09-10 14:00:00+00:00,Unknown,unknown_no_prior_start,False,Prop,True
 8391967,129894,Leicester Tigers,Olly Cracknell,2022-09-10 14:00:00+00:00,Unknown,unknown_no_prior_start,False,Back-row,True
 8391967,131142,Leicester Tigers,Francois van Wyk,2022-09-10 14:00:00+00:00,Unknown,unknown_no_prior_start,False,Prop,True
-8391967,143286,Leicester Tigers,Joe Taufete'e,2022-09-10 14:00:00+00:00,Unknown,unknown_no_prior_start,False,Hooker,True
 8391967,16158,Leicester Tigers,Richard Wigglesworth,2022-09-10 14:00:00+00:00,Unknown,unknown_no_prior_start,False,Scrum-half,False
 8391967,202242,Leicester Tigers,Cameron Henderson,2022-09-10 14:00:00+00:00,Unknown,unknown_no_prior_start,False,Second-row,True
 8391967,203400,Leicester Tigers,Will Hurd,2022-09-10 14:00:00+00:00,Unknown,unknown_no_prior_start,False,Prop,True
@@ -2079,7 +2064,6 @@ fixture_id,player_id,team,player_name,match_at,position,position_source,is_forwa
 8391985,142464,Harlequins,Will Evans,2022-09-10 14:00:00+00:00,Unknown,unknown_no_prior_start,False,Back-row,True
 8391985,167136,Harlequins,Jack Stafford,2022-09-10 14:00:00+00:00,Unknown,unknown_no_prior_start,False,Scrum-half,False
 8391985,172410,Harlequins,Jack Musk,2022-09-10 14:00:00+00:00,Unknown,unknown_no_prior_start,False,Hooker,True
-8391985,111240,Newcastle Falcons,Logovi'i Mulipola,2022-09-10 14:00:00+00:00,Unknown,unknown_no_prior_start,False,Prop,True
 8391985,116682,Newcastle Falcons,George Merrick,2022-09-10 14:00:00+00:00,Unknown,unknown_no_prior_start,False,Second-row,True
 8391985,117534,Newcastle Falcons,Mark Tampin,2022-09-10 14:00:00+00:00,Unknown,unknown_no_prior_start,False,Prop,True
 8391985,126960,Newcastle Falcons,Tian Schoeman,2022-09-10 14:00:00+00:00,Unknown,unknown_no_prior_start,False,Fly-half,False
@@ -2212,14 +2196,14 @@ fixture_id,player_id,team,player_name,match_at,position,position_source,is_forwa
 8387863,226002,USAP,Akato Fakatika,2022-09-17 15:00:00+00:00,Unknown,unknown_no_prior_start,False,Prop,True
 8387863,236040,USAP,Valentin Moro,2022-09-17 15:00:00+00:00,Unknown,unknown_no_prior_start,False,Prop,True
 8387863,238206,USAP,Posolo Tuilagi,2022-09-17 15:00:00+00:00,Unknown,unknown_no_prior_start,False,Second-row,True
-8387863,69804,USAP,Ma'afu Fia,2022-09-17 15:00:00+00:00,Unknown,unknown_no_prior_start,False,Back-three,False
+8387863,69804,USAP,Ma'afu Fia,2022-09-17 15:00:00+00:00,Prop,prior_recorded_start,True,Back-three,False
 8387872,139734,Castres Olympique,Gauthier Doubrere,2022-09-17 13:00:00+00:00,Unknown,unknown_no_prior_start,False,Back-row,True
 8387872,144330,Castres Olympique,Josaia Raisuqe,2022-09-17 13:00:00+00:00,Unknown,unknown_no_prior_start,False,Second-row,True
 8387872,188778,Castres Olympique,Antoine Zeghdar,2022-09-17 13:00:00+00:00,Unknown,unknown_no_prior_start,False,Fly-half,False
 8387872,188784,Castres Olympique,Florent Vanverberghe,2022-09-17 13:00:00+00:00,Unknown,unknown_no_prior_start,False,Prop,True
 8387872,224274,Castres Olympique,Louis Le Brun,2022-09-17 13:00:00+00:00,Fly-half,prior_recorded_start,False,Scrum-half,False
 8387872,89766,Castres Olympique,Levan Chilachava,2022-09-17 13:00:00+00:00,Unknown,unknown_no_prior_start,False,Back-three,False
-8387872,112854,Union Bordeaux-Begles,Ben Tameifuna,2022-09-17 13:00:00+00:00,Unknown,unknown_no_prior_start,False,Back-three,False
+8387872,112854,Union Bordeaux-Begles,Ben Tameifuna,2022-09-17 13:00:00+00:00,Prop,prior_recorded_start,True,Back-three,False
 8387872,114738,Union Bordeaux-Begles,Jandre Marais,2022-09-17 13:00:00+00:00,Second-row,prior_recorded_start,True,Prop,True
 8387872,117312,Union Bordeaux-Begles,Zack Holmes,2022-09-17 13:00:00+00:00,Fly-half,prior_recorded_start,False,Scrum-half,False
 8387872,149466,Union Bordeaux-Begles,Caleb Timu,2022-09-17 13:00:00+00:00,Unknown,unknown_no_prior_start,False,Second-row,True
@@ -2263,7 +2247,6 @@ fixture_id,player_id,team,player_name,match_at,position,position_source,is_forwa
 8392021,59658,Saracens,Jackson Wray,2022-09-17 14:00:00+00:00,Unknown,unknown_no_prior_start,False,Back-row,True
 8392030,129894,Leicester Tigers,Olly Cracknell,2022-09-17 14:00:00+00:00,Unknown,unknown_no_prior_start,False,Second-row,True
 8392030,131142,Leicester Tigers,Francois van Wyk,2022-09-17 14:00:00+00:00,Unknown,unknown_no_prior_start,False,Prop,True
-8392030,143286,Leicester Tigers,Joe Taufete'e,2022-09-17 14:00:00+00:00,Unknown,unknown_no_prior_start,False,Hooker,True
 8392030,213276,Leicester Tigers,Phil Cokanasiga,2022-09-17 14:00:00+00:00,Unknown,unknown_no_prior_start,False,Fly-half,False
 8392030,117534,Newcastle Falcons,Mark Tampin,2022-09-17 14:00:00+00:00,Unknown,unknown_no_prior_start,False,Prop,True
 8392030,126960,Newcastle Falcons,Tian Schoeman,2022-09-17 14:00:00+00:00,Unknown,unknown_no_prior_start,False,Fly-half,False
@@ -2274,7 +2257,6 @@ fixture_id,player_id,team,player_name,match_at,position,position_source,is_forwa
 8392039,101820,Bristol Bears,Max Lahiff,2022-09-17 14:00:00+00:00,Unknown,unknown_no_prior_start,False,Prop,True
 8392039,116748,Bristol Bears,Samuel Lewis,2022-09-17 14:00:00+00:00,Unknown,unknown_no_prior_start,False,Back-row,True
 8392039,136986,Bristol Bears,Ed Holmes,2022-09-17 14:00:00+00:00,Unknown,unknown_no_prior_start,False,Second-row,True
-8392039,141066,Bristol Bears,AJ MacGinty,2022-09-17 14:00:00+00:00,Unknown,unknown_no_prior_start,False,Fly-half,False
 8392039,149910,Bristol Bears,Andy Uren,2022-09-17 14:00:00+00:00,Unknown,unknown_no_prior_start,False,Scrum-half,False
 8392039,59682,Bristol Bears,Yann Thomas,2022-09-17 14:00:00+00:00,Unknown,unknown_no_prior_start,False,Prop,True
 8392039,109362,Wasps,Ryan Mills,2022-09-17 14:00:00+00:00,Unknown,unknown_no_prior_start,False,Fly-half,False
@@ -2336,7 +2318,6 @@ fixture_id,player_id,team,player_name,match_at,position,position_source,is_forwa
 8396134,162954,Scarlets,Corey Baldwin,2022-09-17 16:15:00+00:00,Unknown,unknown_no_prior_start,False,Back-three,False
 8396134,220068,Scarlets,Harri O'Connor,2022-09-17 16:15:00+00:00,Unknown,unknown_no_prior_start,False,Prop,True
 8396143,111708,Cardiff Rugby,Matthew Screech,2022-09-17 14:05:00+00:00,Unknown,unknown_no_prior_start,False,Second-row,True
-8396143,117648,Cardiff Rugby,Lopeti Timani,2022-09-17 14:05:00+00:00,Unknown,unknown_no_prior_start,False,Back-row,True
 8396143,122328,Cardiff Rugby,Dimitri Arhip,2022-09-17 14:05:00+00:00,Unknown,unknown_no_prior_start,False,Prop,True
 8396143,125622,Cardiff Rugby,Uilisi Halaholo,2022-09-17 14:05:00+00:00,Centre,prior_recorded_start,False,Back-three,False
 8396143,136062,Cardiff Rugby,Liam Belcher,2022-09-17 14:05:00+00:00,Unknown,unknown_no_prior_start,False,Hooker,True
@@ -2416,7 +2397,6 @@ fixture_id,player_id,team,player_name,match_at,position,position_source,is_forwa
 8396170,240456,Zebre Parma,Franco Smith,2022-09-23 16:30:00+00:00,Unknown,unknown_no_prior_start,False,Fly-half,False
 8396170,266532,Zebre Parma,Juan Pitinari,2022-09-23 16:30:00+00:00,Unknown,unknown_no_prior_start,False,Prop,True
 8396179,111708,Cardiff Rugby,Matthew Screech,2022-09-23 18:35:00+00:00,Unknown,unknown_no_prior_start,False,Second-row,True
-8396179,117648,Cardiff Rugby,Lopeti Timani,2022-09-23 18:35:00+00:00,Unknown,unknown_no_prior_start,False,Back-row,True
 8396179,122862,Cardiff Rugby,Bradley Thyer,2022-09-23 18:35:00+00:00,Unknown,unknown_no_prior_start,False,Prop,True
 8396179,125622,Cardiff Rugby,Uilisi Halaholo,2022-09-23 18:35:00+00:00,Centre,prior_recorded_start,False,Back-three,False
 8396179,136062,Cardiff Rugby,Liam Belcher,2022-09-23 18:35:00+00:00,Unknown,unknown_no_prior_start,False,Hooker,True
@@ -2454,7 +2434,6 @@ fixture_id,player_id,team,player_name,match_at,position,position_source,is_forwa
 8387890,111900,Union Bordeaux-Begles,Yann Lesgourgues,2022-09-24 15:00:00+00:00,Unknown,unknown_no_prior_start,False,Scrum-half,False
 8387890,114738,Union Bordeaux-Begles,Jandre Marais,2022-09-24 15:00:00+00:00,Second-row,prior_recorded_start,True,Prop,True
 8387890,116382,Union Bordeaux-Begles,Vadim Cobilas,2022-09-24 15:00:00+00:00,Prop,prior_recorded_start,True,Back-three,False
-8387890,133470,Union Bordeaux-Begles,Lekso Kaulashvili,2022-09-24 15:00:00+00:00,Unknown,unknown_no_prior_start,False,Prop,True
 8387890,179016,Union Bordeaux-Begles,Alban Roussel,2022-09-24 15:00:00+00:00,Unknown,unknown_no_prior_start,False,Back-row,True
 8387890,97374,Union Bordeaux-Begles,Jean-Baptiste Dubie,2022-09-24 15:00:00+00:00,Unknown,unknown_no_prior_start,False,Fly-half,False
 8387899,118062,CA Brive,Pietro Ceccarelli,2022-09-24 15:00:00+00:00,Prop,prior_recorded_start,True,Back-three,False
@@ -2502,7 +2481,6 @@ fixture_id,player_id,team,player_name,match_at,position,position_source,is_forwa
 8387926,223344,Racing 92,Anthime Hemery,2022-09-24 19:05:00+00:00,Unknown,unknown_no_prior_start,False,Back-row,True
 8387926,127122,Stade Toulousain,Dorian Aldegheri,2022-09-24 19:05:00+00:00,Prop,prior_recorded_start,True,Back-three,False
 8387926,144678,Stade Toulousain,Arthur Retiere,2022-09-24 19:05:00+00:00,Back-three,prior_recorded_start,False,Scrum-half,False
-8387926,186102,Stade Toulousain,David Ainu'u,2022-09-24 19:05:00+00:00,Unknown,unknown_no_prior_start,False,Prop,True
 8387926,213072,Stade Toulousain,Thibaud Flament,2022-09-24 19:05:00+00:00,Second-row,prior_recorded_start,True,Prop,True
 8387926,224976,Stade Toulousain,Theo Ntamack,2022-09-24 19:05:00+00:00,Unknown,unknown_no_prior_start,False,Second-row,True
 8387926,63324,Stade Toulousain,Tim Nanai-Williams,2022-09-24 19:05:00+00:00,Centre,prior_recorded_start,False,Fly-half,False
@@ -2527,7 +2505,6 @@ fixture_id,player_id,team,player_name,match_at,position,position_source,is_forwa
 8392066,238794,London Irish,Joseph Vajner,2022-09-24 14:00:00+00:00,Unknown,unknown_no_prior_start,False,Hooker,True
 8392075,129894,Leicester Tigers,Olly Cracknell,2022-09-24 14:00:00+00:00,Unknown,unknown_no_prior_start,False,Back-row,True
 8392075,131142,Leicester Tigers,Francois van Wyk,2022-09-24 14:00:00+00:00,Unknown,unknown_no_prior_start,False,Prop,True
-8392075,143286,Leicester Tigers,Joe Taufete'e,2022-09-24 14:00:00+00:00,Unknown,unknown_no_prior_start,False,Hooker,True
 8392075,213276,Leicester Tigers,Phil Cokanasiga,2022-09-24 14:00:00+00:00,Unknown,unknown_no_prior_start,False,Fly-half,False
 8392075,115014,Northampton Saints,Ethan Waller,2022-09-24 14:00:00+00:00,Unknown,unknown_no_prior_start,False,Prop,True
 8392075,177240,Northampton Saints,Tom James,2022-09-24 14:00:00+00:00,Unknown,unknown_no_prior_start,False,Scrum-half,False
@@ -2540,7 +2517,6 @@ fixture_id,player_id,team,player_name,match_at,position,position_source,is_forwa
 8392084,88494,Gloucester Rugby,Billy Twelvetrees,2022-09-24 14:00:00+00:00,Unknown,unknown_no_prior_start,False,Fly-half,False
 8392084,146772,Saracens,Callum Hunter-Hill,2022-09-24 14:00:00+00:00,Unknown,unknown_no_prior_start,False,Second-row,True
 8392084,165156,Saracens,Alec Clarey,2022-09-24 14:00:00+00:00,Unknown,unknown_no_prior_start,False,Prop,True
-8392084,181230,Saracens,Ruben de Haas,2022-09-24 14:00:00+00:00,Unknown,unknown_no_prior_start,False,Scrum-half,False
 8392084,187644,Saracens,Manu Vunipola,2022-09-24 14:00:00+00:00,Unknown,unknown_no_prior_start,False,Fly-half,False
 8392084,213342,Saracens,Josh Hallett,2022-09-24 14:00:00+00:00,Unknown,unknown_no_prior_start,False,Back-three,False
 8392084,59658,Saracens,Jackson Wray,2022-09-24 14:00:00+00:00,Unknown,unknown_no_prior_start,False,Back-row,True
@@ -2641,7 +2617,6 @@ fixture_id,player_id,team,player_name,match_at,position,position_source,is_forwa
 8392111,132486,Bristol Bears,Sam Bedlow,2022-09-30 18:45:00+00:00,Centre,prior_recorded_start,False,Back-three,False
 8392111,162612,Bristol Bears,John Hawkins,2022-09-30 18:45:00+00:00,Unknown,unknown_no_prior_start,False,Second-row,True
 8392111,59682,Bristol Bears,Yann Thomas,2022-09-30 18:45:00+00:00,Unknown,unknown_no_prior_start,False,Prop,True
-8392111,111240,Newcastle Falcons,Logovi'i Mulipola,2022-09-30 18:45:00+00:00,Unknown,unknown_no_prior_start,False,Prop,True
 8392111,117480,Newcastle Falcons,Pete Lucock,2022-09-30 18:45:00+00:00,Centre,prior_recorded_start,False,Back-three,False
 8392111,121668,Newcastle Falcons,Richard Palframan,2022-09-30 18:45:00+00:00,Unknown,unknown_no_prior_start,False,Prop,True
 8392111,126960,Newcastle Falcons,Tian Schoeman,2022-09-30 18:45:00+00:00,Unknown,unknown_no_prior_start,False,Fly-half,False
@@ -2716,7 +2691,6 @@ fixture_id,player_id,team,player_name,match_at,position,position_source,is_forwa
 8387971,238272,Section Paloise,Clement Mondinat,2022-10-01 15:00:00+00:00,Unknown,unknown_no_prior_start,False,Fly-half,False
 8387980,112350,Racing 92,Teddy Iribaren,2022-10-01 19:05:00+00:00,Scrum-half,prior_recorded_start,False,Back-row,True
 8387980,149934,Racing 92,Boris Palu,2022-10-01 19:05:00+00:00,Second-row,prior_recorded_start,True,Prop,True
-8387980,169782,Racing 92,Guram Gogichashvili,2022-10-01 19:05:00+00:00,Unknown,unknown_no_prior_start,False,Prop,True
 8387980,185976,Racing 92,Gia Kharaishvili,2022-10-01 19:05:00+00:00,Prop,prior_recorded_start,True,Back-three,False
 8387980,223356,Racing 92,Max Spring,2022-10-01 19:05:00+00:00,Back-three,prior_recorded_start,False,Scrum-half,False
 8387980,226548,Racing 92,Jonathan Maiau,2022-10-01 19:05:00+00:00,Unknown,unknown_no_prior_start,False,Hooker,True
@@ -2734,7 +2708,6 @@ fixture_id,player_id,team,player_name,match_at,position,position_source,is_forwa
 8387989,337086,Stade Francais Paris,Sergo Abramishvili,2022-10-01 13:00:00+00:00,Unknown,unknown_no_prior_start,False,Prop,True
 8387989,111900,Union Bordeaux-Begles,Yann Lesgourgues,2022-10-01 13:00:00+00:00,Unknown,unknown_no_prior_start,False,Back-row,True
 8387989,116382,Union Bordeaux-Begles,Vadim Cobilas,2022-10-01 13:00:00+00:00,Prop,prior_recorded_start,True,Back-three,False
-8387989,133470,Union Bordeaux-Begles,Lekso Kaulashvili,2022-10-01 13:00:00+00:00,Unknown,unknown_no_prior_start,False,Prop,True
 8387989,149604,Union Bordeaux-Begles,Thomas Jolmes,2022-10-01 13:00:00+00:00,Second-row,prior_recorded_start,True,Prop,True
 8387989,179016,Union Bordeaux-Begles,Alban Roussel,2022-10-01 13:00:00+00:00,Unknown,unknown_no_prior_start,False,Second-row,True
 8387989,224094,Union Bordeaux-Begles,Mateo Garcia,2022-10-01 13:00:00+00:00,Unknown,unknown_no_prior_start,False,Scrum-half,False
@@ -2770,9 +2743,7 @@ fixture_id,player_id,team,player_name,match_at,position,position_source,is_forwa
 8392138,229446,Sale Sharks,James Harper,2022-10-01 14:00:00+00:00,Unknown,unknown_no_prior_start,False,Prop,True
 8392138,56832,Sale Sharks,Joe Simpson,2022-10-01 14:00:00+00:00,Unknown,unknown_no_prior_start,False,Scrum-half,False
 8392147,131142,Leicester Tigers,Francois van Wyk,2022-10-01 14:00:00+00:00,Unknown,unknown_no_prior_start,False,Prop,True
-8392147,143286,Leicester Tigers,Joe Taufete'e,2022-10-01 14:00:00+00:00,Unknown,unknown_no_prior_start,False,Hooker,True
 8392147,172434,Saracens,Andy Christie,2022-10-01 14:00:00+00:00,Back-row,prior_recorded_start,True,Second-row,True
-8392147,181230,Saracens,Ruben de Haas,2022-10-01 14:00:00+00:00,Unknown,unknown_no_prior_start,False,Scrum-half,False
 8392147,202932,Saracens,Kapeli Pifeleti,2022-10-01 14:00:00+00:00,Unknown,unknown_no_prior_start,False,Hooker,True
 8392147,56928,Saracens,Alex Goode,2022-10-01 14:00:00+00:00,Unknown,unknown_no_prior_start,False,Fly-half,False
 8392147,59658,Saracens,Jackson Wray,2022-10-01 14:00:00+00:00,Unknown,unknown_no_prior_start,False,Back-row,True
@@ -3019,13 +2990,11 @@ fixture_id,player_id,team,player_name,match_at,position,position_source,is_forwa
 8388025,169128,Lyon,Temo Mayanavanua,2022-10-09 19:05:00+00:00,Second-row,prior_recorded_start,True,Prop,True
 8388025,238320,Lyon,Yanis Charcosset,2022-10-09 19:05:00+00:00,Unknown,unknown_no_prior_start,False,Hooker,True
 8388025,114738,Union Bordeaux-Begles,Jandre Marais,2022-10-09 19:05:00+00:00,Second-row,prior_recorded_start,True,Prop,True
-8388025,133470,Union Bordeaux-Begles,Lekso Kaulashvili,2022-10-09 19:05:00+00:00,Unknown,unknown_no_prior_start,False,Prop,True
 8388025,149466,Union Bordeaux-Begles,Caleb Timu,2022-10-09 19:05:00+00:00,Back-row,prior_recorded_start,True,Second-row,True
 8388025,176802,Union Bordeaux-Begles,Jules Gimbert,2022-10-09 19:05:00+00:00,Unknown,unknown_no_prior_start,False,Back-row,True
 8388025,178248,Union Bordeaux-Begles,Sipili Falatea,2022-10-09 19:05:00+00:00,Prop,prior_recorded_start,True,Back-three,False
 8388025,198324,Union Bordeaux-Begles,Tani Vili,2022-10-09 19:05:00+00:00,Centre,prior_recorded_start,False,Fly-half,False
 8388025,224094,Union Bordeaux-Begles,Mateo Garcia,2022-10-09 19:05:00+00:00,Unknown,unknown_no_prior_start,False,Scrum-half,False
-8392201,111240,Newcastle Falcons,Logovi'i Mulipola,2022-10-09 14:00:00+00:00,Unknown,unknown_no_prior_start,False,Prop,True
 8392201,117480,Newcastle Falcons,Pete Lucock,2022-10-09 14:00:00+00:00,Centre,prior_recorded_start,False,Fly-half,False
 8392201,117534,Newcastle Falcons,Mark Tampin,2022-10-09 14:00:00+00:00,Unknown,unknown_no_prior_start,False,Prop,True
 8392201,121668,Newcastle Falcons,Richard Palframan,2022-10-09 14:00:00+00:00,Unknown,unknown_no_prior_start,False,Prop,True
@@ -3034,7 +3003,6 @@ fixture_id,player_id,team,player_name,match_at,position,position_source,is_forwa
 8392201,227010,Newcastle Falcons,Freddie Lockwood,2022-10-09 14:00:00+00:00,Unknown,unknown_no_prior_start,False,Back-row,True
 8392201,55644,Newcastle Falcons,Michael Young,2022-10-09 14:00:00+00:00,Unknown,unknown_no_prior_start,False,Scrum-half,False
 8392201,165156,Saracens,Alec Clarey,2022-10-09 14:00:00+00:00,Unknown,unknown_no_prior_start,False,Prop,True
-8392201,181230,Saracens,Ruben de Haas,2022-10-09 14:00:00+00:00,Unknown,unknown_no_prior_start,False,Scrum-half,False
 8392201,213342,Saracens,Josh Hallett,2022-10-09 14:00:00+00:00,Unknown,unknown_no_prior_start,False,Back-three,False
 8392201,218844,Saracens,Theo Dan,2022-10-09 14:00:00+00:00,Unknown,unknown_no_prior_start,False,Hooker,True
 8392201,56928,Saracens,Alex Goode,2022-10-09 14:00:00+00:00,Unknown,unknown_no_prior_start,False,Fly-half,False
@@ -3147,7 +3115,7 @@ fixture_id,player_id,team,player_name,match_at,position,position_source,is_forwa
 8388124,130566,USAP,Tristan Labouteley,2022-10-15 15:00:00+00:00,Back-row,prior_recorded_start,True,Second-row,True
 8388124,141570,USAP,Shahn Eru,2022-10-15 15:00:00+00:00,Unknown,unknown_no_prior_start,False,Prop,True
 8388124,198774,USAP,Matteo Rodor,2022-10-15 15:00:00+00:00,Scrum-half,prior_recorded_start,False,Back-row,True
-8388124,69804,USAP,Ma'afu Fia,2022-10-15 15:00:00+00:00,Unknown,unknown_no_prior_start,False,Back-three,False
+8388124,69804,USAP,Ma'afu Fia,2022-10-15 15:00:00+00:00,Prop,prior_recorded_start,True,Back-three,False
 8392237,101820,Bristol Bears,Max Lahiff,2022-10-15 14:00:00+00:00,Unknown,unknown_no_prior_start,False,Prop,True
 8392237,116748,Bristol Bears,Samuel Lewis,2022-10-15 14:00:00+00:00,Unknown,unknown_no_prior_start,False,Back-row,True
 8392237,117816,Bristol Bears,Harry Thacker,2022-10-15 14:00:00+00:00,Unknown,unknown_no_prior_start,False,Hooker,True
@@ -3155,7 +3123,6 @@ fixture_id,player_id,team,player_name,match_at,position,position_source,is_forwa
 8392237,162690,Gloucester Rugby,Ciaran Knight,2022-10-15 14:00:00+00:00,Unknown,unknown_no_prior_start,False,Prop,True
 8392237,180366,Gloucester Rugby,Cameron Jordan,2022-10-15 14:00:00+00:00,Unknown,unknown_no_prior_start,False,Second-row,True
 8392237,187302,Gloucester Rugby,Jack Reeves,2022-10-15 14:00:00+00:00,Unknown,unknown_no_prior_start,False,Fly-half,False
-8392246,111240,Newcastle Falcons,Logovi'i Mulipola,2022-10-15 14:00:00+00:00,Unknown,unknown_no_prior_start,False,Prop,True
 8392246,116682,Newcastle Falcons,George Merrick,2022-10-15 14:00:00+00:00,Unknown,unknown_no_prior_start,False,Second-row,True
 8392246,117534,Newcastle Falcons,Mark Tampin,2022-10-15 14:00:00+00:00,Unknown,unknown_no_prior_start,False,Prop,True
 8392246,132162,Newcastle Falcons,George Wacokecoke,2022-10-15 14:00:00+00:00,Centre,prior_recorded_start,False,Back-three,False
@@ -3175,7 +3142,6 @@ fixture_id,player_id,team,player_name,match_at,position,position_source,is_forwa
 8392255,232650,Bath Rugby,Tom Carr-Smith,2022-10-15 14:00:00+00:00,Unknown,unknown_no_prior_start,False,Scrum-half,False
 8392255,122202,Saracens,James Flynn,2022-10-15 14:00:00+00:00,Unknown,unknown_no_prior_start,False,Prop,True
 8392255,172434,Saracens,Andy Christie,2022-10-15 14:00:00+00:00,Back-row,prior_recorded_start,True,Second-row,True
-8392255,181230,Saracens,Ruben de Haas,2022-10-15 14:00:00+00:00,Unknown,unknown_no_prior_start,False,Scrum-half,False
 8392255,187644,Saracens,Manu Vunipola,2022-10-15 14:00:00+00:00,Unknown,unknown_no_prior_start,False,Fly-half,False
 8392255,213342,Saracens,Josh Hallett,2022-10-15 14:00:00+00:00,Unknown,unknown_no_prior_start,False,Back-three,False
 8392255,218844,Saracens,Theo Dan,2022-10-15 14:00:00+00:00,Unknown,unknown_no_prior_start,False,Hooker,True
@@ -3200,7 +3166,6 @@ fixture_id,player_id,team,player_name,match_at,position,position_source,is_forwa
 8396413,109572,Glasgow Warriors,Ryan Wilson,2022-10-15 14:05:00+00:00,Unknown,unknown_no_prior_start,False,Back-row,True
 8396413,129792,Glasgow Warriors,George Horne,2022-10-15 14:05:00+00:00,Scrum-half,prior_recorded_start,False,Fly-half,False
 8396413,136416,Glasgow Warriors,JP du Preez,2022-10-15 14:05:00+00:00,Unknown,unknown_no_prior_start,False,Second-row,True
-8396413,177582,Glasgow Warriors,Sione Vailanu,2022-10-15 14:05:00+00:00,Unknown,unknown_no_prior_start,False,Back-row,True
 8396413,179418,Glasgow Warriors,Ross Thompson,2022-10-15 14:05:00+00:00,Unknown,unknown_no_prior_start,False,Back-three,False
 8396413,179490,Glasgow Warriors,Murphy Walker,2022-10-15 14:05:00+00:00,Unknown,unknown_no_prior_start,False,Prop,True
 8396413,220296,Glasgow Warriors,Gregor Brown,2022-10-15 14:05:00+00:00,Back-row,prior_recorded_start,True,Scrum-half,False
@@ -3298,7 +3263,7 @@ fixture_id,player_id,team,player_name,match_at,position,position_source,is_forwa
 8388142,186138,USAP,Alan Brazo,2022-10-22 15:00:00+00:00,Back-row,prior_recorded_start,True,Second-row,True
 8388142,186150,USAP,Dorian Laborde,2022-10-22 15:00:00+00:00,Centre,prior_recorded_start,False,Fly-half,False
 8388142,226080,USAP,Joaquin Oviedo,2022-10-22 15:00:00+00:00,Unknown,unknown_no_prior_start,False,Back-row,True
-8388142,69804,USAP,Ma'afu Fia,2022-10-22 15:00:00+00:00,Unknown,unknown_no_prior_start,False,Back-three,False
+8388142,69804,USAP,Ma'afu Fia,2022-10-22 15:00:00+00:00,Prop,prior_recorded_start,True,Back-three,False
 8388151,126930,Lyon,Josua Tuisova,2022-10-22 15:00:00+00:00,Centre,prior_recorded_start,False,Fly-half,False
 8388151,129516,Lyon,Felix Lambey,2022-10-22 15:00:00+00:00,Back-row,prior_recorded_start,True,Second-row,True
 8388151,163566,Lyon,Paulo Tafili,2022-10-22 15:00:00+00:00,Prop,prior_recorded_start,True,Back-three,False
@@ -3322,7 +3287,6 @@ fixture_id,player_id,team,player_name,match_at,position,position_source,is_forwa
 8388160,130320,Racing 92,Warrick Gelant,2022-10-22 13:00:00+00:00,Back-three,prior_recorded_start,False,Fly-half,False
 8388160,165720,Racing 92,Antoine Gibert,2022-10-22 13:00:00+00:00,Scrum-half,prior_recorded_start,False,Back-row,True
 8388160,165864,Racing 92,Cameron Woki,2022-10-22 13:00:00+00:00,Second-row,prior_recorded_start,True,Prop,True
-8388160,169782,Racing 92,Guram Gogichashvili,2022-10-22 13:00:00+00:00,Unknown,unknown_no_prior_start,False,Prop,True
 8388160,231678,Racing 92,Maxime Baudonne,2022-10-22 13:00:00+00:00,Unknown,unknown_no_prior_start,False,Second-row,True
 8388160,64194,Racing 92,Henry Chavancy,2022-10-22 13:00:00+00:00,Centre,prior_recorded_start,False,Scrum-half,False
 8388169,135360,Castres Olympique,Aurelien Azar,2022-10-22 15:00:00+00:00,Prop,prior_recorded_start,True,Back-three,False
@@ -3363,7 +3327,7 @@ fixture_id,player_id,team,player_name,match_at,position,position_source,is_forwa
 8392300,220560,Exeter Chiefs,Patrick Schickerling,2022-10-22 14:00:00+00:00,Unknown,unknown_no_prior_start,False,Prop,True
 8392300,122202,Saracens,James Flynn,2022-10-22 14:00:00+00:00,Unknown,unknown_no_prior_start,False,Prop,True
 8392300,165156,Saracens,Alec Clarey,2022-10-22 14:00:00+00:00,Unknown,unknown_no_prior_start,False,Prop,True
-8392300,181230,Saracens,Ruben de Haas,2022-10-22 14:00:00+00:00,Unknown,unknown_no_prior_start,False,Fly-half,False
+8392300,181230,Saracens,Ruben de Haas,2022-10-22 14:00:00+00:00,Scrum-half,prior_recorded_start,False,Fly-half,False
 8392300,218844,Saracens,Theo Dan,2022-10-22 14:00:00+00:00,Unknown,unknown_no_prior_start,False,Hooker,True
 8392300,59658,Saracens,Jackson Wray,2022-10-22 14:00:00+00:00,Back-row,prior_recorded_start,True,Scrum-half,False
 8396476,116670,Edinburgh Rugby,Nick Auterac,2022-10-22 12:00:00+00:00,Unknown,unknown_no_prior_start,False,Prop,True
@@ -3533,7 +3497,7 @@ fixture_id,player_id,team,player_name,match_at,position,position_source,is_forwa
 8388250,120780,USAP,George Tilsley,2022-10-29 15:00:00+00:00,Centre,prior_recorded_start,False,Fly-half,False
 8388250,133842,USAP,Victor Moreaux,2022-10-29 15:00:00+00:00,Second-row,prior_recorded_start,True,Prop,True
 8388250,214158,USAP,Lucas Velarte,2022-10-29 15:00:00+00:00,Back-row,prior_recorded_start,True,Second-row,True
-8388250,69804,USAP,Ma'afu Fia,2022-10-29 15:00:00+00:00,Unknown,unknown_no_prior_start,False,Back-three,False
+8388250,69804,USAP,Ma'afu Fia,2022-10-29 15:00:00+00:00,Prop,prior_recorded_start,True,Back-three,False
 8392336,131508,Harlequins,Simon Kerrod,2022-10-29 14:00:00+00:00,Unknown,unknown_no_prior_start,False,Prop,True
 8392336,132288,Harlequins,Will Edwards,2022-10-29 14:00:00+00:00,Unknown,unknown_no_prior_start,False,Fly-half,False
 8392336,226920,Harlequins,Fin Baxter,2022-10-29 14:00:00+00:00,Unknown,unknown_no_prior_start,False,Prop,True
@@ -3609,7 +3573,6 @@ fixture_id,player_id,team,player_name,match_at,position,position_source,is_forwa
 8392363,56832,Sale Sharks,Joe Simpson,2022-10-30 15:00:00+00:00,Unknown,unknown_no_prior_start,False,Scrum-half,False
 8392363,122202,Saracens,James Flynn,2022-10-30 15:00:00+00:00,Unknown,unknown_no_prior_start,False,Prop,True
 8392363,122856,Saracens,Ethan Lewis,2022-10-30 15:00:00+00:00,Unknown,unknown_no_prior_start,False,Hooker,True
-8392363,181230,Saracens,Ruben de Haas,2022-10-30 15:00:00+00:00,Unknown,unknown_no_prior_start,False,Scrum-half,False
 8392363,213342,Saracens,Josh Hallett,2022-10-30 15:00:00+00:00,Unknown,unknown_no_prior_start,False,Fly-half,False
 8392363,218844,Saracens,Theo Dan,2022-10-30 15:00:00+00:00,Unknown,unknown_no_prior_start,False,Hooker,True
 8392363,238566,Saracens,Toby Knight,2022-10-30 15:00:00+00:00,Unknown,unknown_no_prior_start,False,Back-row,True
@@ -3812,7 +3775,6 @@ fixture_id,player_id,team,player_name,match_at,position,position_source,is_forwa
 8384668,136914,France,Sekou Macalou,2022-11-12 20:00:00+00:00,Back-row,prior_recorded_start,True,Scrum-half,False
 8384668,169662,France,Matthieu Jalibert,2022-11-12 20:00:00+00:00,Fly-half,prior_recorded_start,False,Back-three,False
 8384668,186162,France,Maxime Lucu,2022-11-12 20:00:00+00:00,Scrum-half,prior_recorded_start,False,Fly-half,False
-8387611,187842,Australia,Ben Donaldson,2022-11-12 13:00:00+00:00,Back-three,prior_recorded_start,False,Fly-half,False
 8387611,112584,Italy,Edoardo Padovani,2022-11-12 13:00:00+00:00,Back-three,prior_recorded_start,False,Fly-half,False
 8387611,226818,Italy,Tommaso Menoncello,2022-11-12 13:00:00+00:00,Centre,prior_recorded_start,False,Back-three,False
 8392444,162690,Gloucester Rugby,Ciaran Knight,2022-11-12 15:00:00+00:00,Unknown,unknown_no_prior_start,False,Prop,True
@@ -4029,7 +3991,6 @@ fixture_id,player_id,team,player_name,match_at,position,position_source,is_forwa
 8388340,130320,Racing 92,Warrick Gelant,2022-11-27 16:00:00+00:00,Back-three,prior_recorded_start,False,Fly-half,False
 8388340,134868,Racing 92,Baptiste Chouzenoux,2022-11-27 16:00:00+00:00,Back-row,prior_recorded_start,True,Second-row,True
 8388340,149934,Racing 92,Boris Palu,2022-11-27 16:00:00+00:00,Second-row,prior_recorded_start,True,Prop,True
-8388340,169782,Racing 92,Guram Gogichashvili,2022-11-27 16:00:00+00:00,Unknown,unknown_no_prior_start,False,Prop,True
 8388340,235878,Racing 92,Inia Tabuavou,2022-11-27 16:00:00+00:00,Centre,prior_recorded_start,False,Scrum-half,False
 8392498,131142,Leicester Tigers,Francois van Wyk,2022-11-27 15:00:00+00:00,Unknown,unknown_no_prior_start,False,Prop,True
 8392498,131238,Leicester Tigers,Guy Porter,2022-11-27 15:00:00+00:00,Centre,prior_recorded_start,False,Back-three,False
@@ -4117,7 +4078,7 @@ fixture_id,player_id,team,player_name,match_at,position,position_source,is_forwa
 8388430,104184,USAP,Piula Fa'asalele,2022-12-03 16:00:00+00:00,Second-row,prior_recorded_start,True,Prop,True
 8388430,226080,USAP,Joaquin Oviedo,2022-12-03 16:00:00+00:00,Back-row,prior_recorded_start,True,Second-row,True
 8388430,50742,USAP,Mathieu Acebes,2022-12-03 16:00:00+00:00,Back-three,prior_recorded_start,False,Fly-half,False
-8388430,69804,USAP,Ma'afu Fia,2022-12-03 16:00:00+00:00,Unknown,unknown_no_prior_start,False,Back-three,False
+8388430,69804,USAP,Ma'afu Fia,2022-12-03 16:00:00+00:00,Prop,prior_recorded_start,True,Back-three,False
 8388439,118062,CA Brive,Pietro Ceccarelli,2022-12-03 16:00:00+00:00,Prop,prior_recorded_start,True,Back-three,False
 8388439,125646,CA Brive,Sammy Arnold,2022-12-03 16:00:00+00:00,Centre,prior_recorded_start,False,Scrum-half,False
 8388439,128562,CA Brive,Hayden Thompson-Stringer,2022-12-03 16:00:00+00:00,Unknown,unknown_no_prior_start,False,Prop,True
@@ -4228,7 +4189,6 @@ fixture_id,player_id,team,player_name,match_at,position,position_source,is_forwa
 8393452,278628,Montpellier Herault Rugby,George Tuinukuafe,2022-12-09 20:00:00+00:00,Unknown,unknown_no_prior_start,False,Prop,True
 8393947,130854,Benetton Rugby,Henry Time-Stowers,2022-12-09 20:00:00+00:00,Back-row,prior_recorded_start,True,Second-row,True
 8393947,148110,Benetton Rugby,Marco Zanon,2022-12-09 20:00:00+00:00,Centre,prior_recorded_start,False,Back-three,False
-8393947,211998,Benetton Rugby,Siua Maile,2022-12-09 20:00:00+00:00,Unknown,unknown_no_prior_start,False,Hooker,True
 8393947,130830,Stade Francais Paris,Giovanni Habel-Kueffner,2022-12-09 20:00:00+00:00,Back-row,prior_recorded_start,True,Back-three,False
 8393947,150114,Stade Francais Paris,Jeremy Ward,2022-12-09 20:00:00+00:00,Centre,prior_recorded_start,False,Fly-half,False
 8393947,236886,Stade Francais Paris,Nathan Huguen,2022-12-09 20:00:00+00:00,Unknown,unknown_no_prior_start,False,Back-row,True
@@ -4315,7 +4275,6 @@ fixture_id,player_id,team,player_name,match_at,position,position_source,is_forwa
 8393983,111882,Glasgow Warriors,Sean Kennedy,2022-12-10 13:00:00+00:00,Unknown,unknown_no_prior_start,False,Scrum-half,False
 8393983,179394,Glasgow Warriors,Nathan McBeth,2022-12-10 13:00:00+00:00,Unknown,unknown_no_prior_start,False,Prop,True
 8393983,203352,Glasgow Warriors,Angus Fraser,2022-12-10 13:00:00+00:00,Unknown,unknown_no_prior_start,False,Hooker,True
-8393983,225696,Glasgow Warriors,Walter Fifita,2022-12-10 13:00:00+00:00,Unknown,unknown_no_prior_start,False,Back-three,False
 8393983,231576,Glasgow Warriors,Euan Ferrie,2022-12-10 13:00:00+00:00,Unknown,unknown_no_prior_start,False,Back-row,True
 8393992,124548,Connacht Rugby,Tom Farrell,2022-12-10 17:30:00+00:00,Centre,prior_recorded_start,False,Back-three,False
 8393992,129306,Connacht Rugby,Shane Delahunt,2022-12-10 17:30:00+00:00,Unknown,unknown_no_prior_start,False,Hooker,True
@@ -4380,7 +4339,6 @@ fixture_id,player_id,team,player_name,match_at,position,position_source,is_forwa
 8394037,126246,Lions,Andre Warner,2022-12-16 17:30:00+00:00,Scrum-half,prior_recorded_start,False,Fly-half,False
 8394037,207390,Lions,Sibusiso Sangweni,2022-12-16 17:30:00+00:00,Back-row,prior_recorded_start,True,Scrum-half,False
 8394037,229242,Lions,Rynhardt Jonker,2022-12-16 17:30:00+00:00,Unknown,unknown_no_prior_start,False,Back-three,False
-8394037,103218,Stade Francais Paris,Paul Alo-Emile,2022-12-16 17:30:00+00:00,Unknown,unknown_no_prior_start,False,Prop,True
 8394037,146946,Stade Francais Paris,Alex Arrate,2022-12-16 17:30:00+00:00,Centre,prior_recorded_start,False,Scrum-half,False
 8394037,155202,Stade Francais Paris,Moses Alo-Emile,2022-12-16 17:30:00+00:00,Prop,prior_recorded_start,True,Back-three,False
 8394037,162108,Stade Francais Paris,Arthur Coville,2022-12-16 17:30:00+00:00,Scrum-half,prior_recorded_start,False,Back-row,True
@@ -4465,7 +4423,6 @@ fixture_id,player_id,team,player_name,match_at,position,position_source,is_forwa
 8394082,178242,Bayonne,Eneriko Buliruarua,2022-12-17 17:30:00+00:00,Centre,prior_recorded_start,False,Back-three,False
 8394082,337782,Bayonne,Badri Tsikhistavi,2022-12-17 17:30:00+00:00,Unknown,unknown_no_prior_start,False,Prop,True
 8394082,148110,Benetton Rugby,Marco Zanon,2022-12-17 17:30:00+00:00,Centre,prior_recorded_start,False,Back-three,False
-8394082,211998,Benetton Rugby,Siua Maile,2022-12-17 17:30:00+00:00,Unknown,unknown_no_prior_start,False,Hooker,True
 8394100,185964,Cardiff Rugby,Will Davies-King,2022-12-17 17:30:00+00:00,Unknown,unknown_no_prior_start,False,Prop,True
 8394100,203082,Cardiff Rugby,Teddy Williams,2022-12-17 17:30:00+00:00,Unknown,unknown_no_prior_start,False,Second-row,True
 8394100,220044,Cardiff Rugby,Ellis Bevan,2022-12-17 17:30:00+00:00,Unknown,unknown_no_prior_start,False,Scrum-half,False
@@ -4610,7 +4567,7 @@ fixture_id,player_id,team,player_name,match_at,position,position_source,is_forwa
 8388466,165864,Racing 92,Cameron Woki,2022-12-24 14:00:00+00:00,Back-row,prior_recorded_start,True,Second-row,True
 8388466,226548,Racing 92,Jonathan Maiau,2022-12-24 14:00:00+00:00,Unknown,unknown_no_prior_start,False,Prop,True
 8388466,64194,Racing 92,Henry Chavancy,2022-12-24 14:00:00+00:00,Centre,prior_recorded_start,False,Fly-half,False
-8388466,103218,Stade Francais Paris,Paul Alo-Emile,2022-12-24 14:00:00+00:00,Unknown,unknown_no_prior_start,False,Back-three,False
+8388466,103218,Stade Francais Paris,Paul Alo-Emile,2022-12-24 14:00:00+00:00,Prop,prior_recorded_start,True,Back-three,False
 8388466,129498,Stade Francais Paris,Kylan Hamdaoui,2022-12-24 14:00:00+00:00,Back-three,prior_recorded_start,False,Fly-half,False
 8388466,142488,Stade Francais Paris,Paolo Odogwu,2022-12-24 14:00:00+00:00,Centre,prior_recorded_start,False,Scrum-half,False
 8388466,146706,Stade Francais Paris,James Hall,2022-12-24 14:00:00+00:00,Scrum-half,prior_recorded_start,False,Back-row,True
@@ -4629,7 +4586,6 @@ fixture_id,player_id,team,player_name,match_at,position,position_source,is_forwa
 8392615,266610,Leicester Tigers,Sean Jansen,2022-12-24 15:00:00+00:00,Unknown,unknown_no_prior_start,False,Back-row,True
 8396773,140904,Benetton Rugby,Federico Zani,2022-12-24 12:30:00+00:00,Hooker,prior_recorded_start,True,Prop,True
 8396773,148110,Benetton Rugby,Marco Zanon,2022-12-24 12:30:00+00:00,Centre,prior_recorded_start,False,Back-three,False
-8396773,211998,Benetton Rugby,Siua Maile,2022-12-24 12:30:00+00:00,Unknown,unknown_no_prior_start,False,Hooker,True
 8396773,220128,Benetton Rugby,Riccardo Favretto,2022-12-24 12:30:00+00:00,Unknown,unknown_no_prior_start,False,Second-row,True
 8396773,119202,Zebre Parma,Tommaso Boni,2022-12-24 12:30:00+00:00,Centre,prior_recorded_start,False,Back-three,False
 8396773,123936,Zebre Parma,Dennis Visser,2022-12-24 12:30:00+00:00,Unknown,unknown_no_prior_start,False,Second-row,True
@@ -4723,7 +4679,7 @@ fixture_id,player_id,team,player_name,match_at,position,position_source,is_forwa
 8388547,218556,Section Paloise,Thibault Debaes,2022-12-31 16:00:00+00:00,Fly-half,prior_recorded_start,False,Scrum-half,False
 8388547,224394,Section Paloise,Thomas Carol,2022-12-31 16:00:00+00:00,Back-three,prior_recorded_start,False,Fly-half,False
 8388547,238278,Section Paloise,Hugo Auradou,2022-12-31 16:00:00+00:00,Second-row,prior_recorded_start,True,Prop,True
-8388547,103218,Stade Francais Paris,Paul Alo-Emile,2022-12-31 16:00:00+00:00,Unknown,unknown_no_prior_start,False,Back-three,False
+8388547,103218,Stade Francais Paris,Paul Alo-Emile,2022-12-31 16:00:00+00:00,Prop,prior_recorded_start,True,Back-three,False
 8388547,129498,Stade Francais Paris,Kylan Hamdaoui,2022-12-31 16:00:00+00:00,Back-three,prior_recorded_start,False,Fly-half,False
 8388547,142488,Stade Francais Paris,Paolo Odogwu,2022-12-31 16:00:00+00:00,Centre,prior_recorded_start,False,Scrum-half,False
 8388547,146706,Stade Francais Paris,James Hall,2022-12-31 16:00:00+00:00,Scrum-half,prior_recorded_start,False,Back-row,True
@@ -4773,7 +4729,6 @@ fixture_id,player_id,team,player_name,match_at,position,position_source,is_forwa
 8396836,231474,Stormers,Andre-Hugo Venter,2022-12-31 17:00:00+00:00,Scrum-half,prior_recorded_start,False,Hooker,True
 8396836,240210,Stormers,Connor Evans,2022-12-31 17:00:00+00:00,Unknown,unknown_no_prior_start,False,Second-row,True
 8396845,140904,Benetton Rugby,Federico Zani,2022-12-31 12:30:00+00:00,Hooker,prior_recorded_start,True,Prop,True
-8396845,211998,Benetton Rugby,Siua Maile,2022-12-31 12:30:00+00:00,Unknown,unknown_no_prior_start,False,Hooker,True
 8396845,218130,Benetton Rugby,Alessandro Izekor,2022-12-31 12:30:00+00:00,Unknown,unknown_no_prior_start,False,Back-row,True
 8396845,220128,Benetton Rugby,Riccardo Favretto,2022-12-31 12:30:00+00:00,Unknown,unknown_no_prior_start,False,Second-row,True
 8396845,220146,Benetton Rugby,Manfredi Albanese,2022-12-31 12:30:00+00:00,Unknown,unknown_no_prior_start,False,Scrum-half,False
@@ -4884,7 +4839,7 @@ fixture_id,player_id,team,player_name,match_at,position,position_source,is_forwa
 8388610,227028,Castres Olympique,Baptiste Cope,2023-01-07 16:00:00+00:00,Unknown,unknown_no_prior_start,False,Back-row,True
 8388610,54108,Castres Olympique,Rory Kockott,2023-01-07 16:00:00+00:00,Unknown,unknown_no_prior_start,False,Scrum-half,False
 8388610,89766,Castres Olympique,Levan Chilachava,2023-01-07 16:00:00+00:00,Unknown,unknown_no_prior_start,False,Back-three,False
-8388610,103218,Stade Francais Paris,Paul Alo-Emile,2023-01-07 16:00:00+00:00,Unknown,unknown_no_prior_start,False,Back-three,False
+8388610,103218,Stade Francais Paris,Paul Alo-Emile,2023-01-07 16:00:00+00:00,Prop,prior_recorded_start,True,Back-three,False
 8388610,162108,Stade Francais Paris,Arthur Coville,2023-01-07 16:00:00+00:00,Scrum-half,prior_recorded_start,False,Back-row,True
 8388610,178680,Stade Francais Paris,JJ van der Mescht,2023-01-07 16:00:00+00:00,Second-row,prior_recorded_start,True,Prop,True
 8388610,181674,Stade Francais Paris,Ryan Chapuis,2023-01-07 16:00:00+00:00,Back-row,prior_recorded_start,True,Fly-half,False
@@ -4919,7 +4874,6 @@ fixture_id,player_id,team,player_name,match_at,position,position_source,is_forwa
 8392705,179502,Exeter Chiefs,James Kenny,2023-01-07 16:30:00+00:00,Unknown,unknown_no_prior_start,False,Prop,True
 8392705,130554,Northampton Saints,Rory Hutchinson,2023-01-07 16:30:00+00:00,Centre,prior_recorded_start,False,Fly-half,False
 8392705,193638,Northampton Saints,Karl Wilkins,2023-01-07 16:30:00+00:00,Unknown,unknown_no_prior_start,False,Second-row,True
-8392732,143286,Leicester Tigers,Joe Taufete'e,2023-01-07 14:00:00+00:00,Unknown,unknown_no_prior_start,False,Hooker,True
 8392732,162522,Leicester Tigers,Nephi Leatigaga,2023-01-07 14:00:00+00:00,Unknown,unknown_no_prior_start,False,Prop,True
 8392732,202242,Leicester Tigers,Cameron Henderson,2023-01-07 14:00:00+00:00,Unknown,unknown_no_prior_start,False,Second-row,True
 8392732,213786,Leicester Tigers,Jack van Poortvliet,2023-01-07 14:00:00+00:00,Scrum-half,prior_recorded_start,False,Fly-half,False
@@ -4928,7 +4882,6 @@ fixture_id,player_id,team,player_name,match_at,position,position_source,is_forwa
 8392732,43302,Leicester Tigers,Jimmy Gopperth,2023-01-07 14:00:00+00:00,Centre,prior_recorded_start,False,Back-three,False
 8392732,147330,Newcastle Falcons,Charlie Maddison,2023-01-07 14:00:00+00:00,Unknown,unknown_no_prior_start,False,Hooker,True
 8396908,148110,Benetton Rugby,Marco Zanon,2023-01-07 13:00:00+00:00,Centre,prior_recorded_start,False,Back-three,False
-8396908,211998,Benetton Rugby,Siua Maile,2023-01-07 13:00:00+00:00,Unknown,unknown_no_prior_start,False,Hooker,True
 8396908,220128,Benetton Rugby,Riccardo Favretto,2023-01-07 13:00:00+00:00,Unknown,unknown_no_prior_start,False,Second-row,True
 8396908,197364,Ulster Rugby,Stewart Moore,2023-01-07 13:00:00+00:00,Back-three,prior_recorded_start,False,Fly-half,False
 8396908,201750,Ulster Rugby,Nathan Doak,2023-01-07 13:00:00+00:00,Fly-half,prior_recorded_start,False,Scrum-half,False
@@ -4992,7 +4945,6 @@ fixture_id,player_id,team,player_name,match_at,position,position_source,is_forwa
 8393614,114780,ASM Clermont Auvergne,George Moala,2023-01-13 20:00:00+00:00,Centre,prior_recorded_start,False,Back-three,False
 8393614,224298,ASM Clermont Auvergne,Edward Annandale,2023-01-13 20:00:00+00:00,Unknown,unknown_no_prior_start,False,Second-row,True
 8393614,129894,Leicester Tigers,Olly Cracknell,2023-01-13 20:00:00+00:00,Back-row,prior_recorded_start,True,Second-row,True
-8393614,143286,Leicester Tigers,Joe Taufete'e,2023-01-13 20:00:00+00:00,Unknown,unknown_no_prior_start,False,Hooker,True
 8393614,203400,Leicester Tigers,Will Hurd,2023-01-13 20:00:00+00:00,Unknown,unknown_no_prior_start,False,Prop,True
 8393614,232014,Leicester Tigers,Emeka Ilione,2023-01-13 20:00:00+00:00,Unknown,unknown_no_prior_start,False,Back-row,True
 8393614,43302,Leicester Tigers,Jimmy Gopperth,2023-01-13 20:00:00+00:00,Centre,prior_recorded_start,False,Fly-half,False
@@ -5056,7 +5008,6 @@ fixture_id,player_id,team,player_name,match_at,position,position_source,is_forwa
 8394127,203244,Lions,JC Pretorius,2023-01-14 13:00:00+00:00,Unknown,unknown_no_prior_start,False,Scrum-half,False
 8394127,227826,Lions,Ruhan Straeuli,2023-01-14 13:00:00+00:00,Back-row,prior_recorded_start,True,Second-row,True
 8394127,236406,Lions,Rhynardt Rijnsburger,2023-01-14 13:00:00+00:00,Unknown,unknown_no_prior_start,False,Prop,True
-8394127,103218,Stade Francais Paris,Paul Alo-Emile,2023-01-14 13:00:00+00:00,Unknown,unknown_no_prior_start,False,Prop,True
 8394127,142488,Stade Francais Paris,Paolo Odogwu,2023-01-14 13:00:00+00:00,Back-three,prior_recorded_start,False,Scrum-half,False
 8394127,162108,Stade Francais Paris,Arthur Coville,2023-01-14 13:00:00+00:00,Scrum-half,prior_recorded_start,False,Fly-half,False
 8394127,20070,Stade Francais Paris,Martin Scelzo,2023-01-14 13:00:00+00:00,Unknown,unknown_no_prior_start,False,Back-row,True
@@ -5098,7 +5049,6 @@ fixture_id,player_id,team,player_name,match_at,position,position_source,is_forwa
 8393632,124296,Castres Olympique,Tom Staniforth,2023-01-15 13:00:00+00:00,Second-row,prior_recorded_start,True,Back-row,True
 8393632,128160,Castres Olympique,Adrea Cocagi,2023-01-15 13:00:00+00:00,Centre,prior_recorded_start,False,Back-three,False
 8393632,147000,Castres Olympique,Kevin Kornath,2023-01-15 13:00:00+00:00,Back-row,prior_recorded_start,True,Scrum-half,False
-8393632,150474,Castres Olympique,Matt Tierney,2023-01-15 13:00:00+00:00,Unknown,unknown_no_prior_start,False,Prop,True
 8393632,151458,Castres Olympique,Santiago Arata,2023-01-15 13:00:00+00:00,Scrum-half,prior_recorded_start,False,Fly-half,False
 8393632,116670,Edinburgh Rugby,Nick Auterac,2023-01-15 13:00:00+00:00,Unknown,unknown_no_prior_start,False,Prop,True
 8393632,131754,Edinburgh Rugby,Lee-Roy Atalifo,2023-01-15 13:00:00+00:00,Unknown,unknown_no_prior_start,False,Prop,True
@@ -5171,7 +5121,6 @@ fixture_id,player_id,team,player_name,match_at,position,position_source,is_forwa
 8393749,187446,Sale Sharks,Tom Curtis,2023-01-21 20:00:00+00:00,Unknown,unknown_no_prior_start,False,Fly-half,False
 8393758,141354,Castres Olympique,Julien Blanc,2023-01-21 17:30:00+00:00,Scrum-half,prior_recorded_start,False,Fly-half,False
 8393758,147000,Castres Olympique,Kevin Kornath,2023-01-21 17:30:00+00:00,Back-row,prior_recorded_start,True,Second-row,True
-8393758,150474,Castres Olympique,Matt Tierney,2023-01-21 17:30:00+00:00,Unknown,unknown_no_prior_start,False,Prop,True
 8393758,162096,Castres Olympique,Teariki Ben Nicholas,2023-01-21 17:30:00+00:00,Back-row,prior_recorded_start,True,Scrum-half,False
 8393758,187902,Castres Olympique,Ryno Pieterse,2023-01-21 17:30:00+00:00,Second-row,prior_recorded_start,True,Back-row,True
 8393758,210666,Castres Olympique,Brice Humbert,2023-01-21 17:30:00+00:00,Unknown,unknown_no_prior_start,False,Hooker,True
@@ -5772,7 +5721,6 @@ fixture_id,player_id,team,player_name,match_at,position,position_source,is_forwa
 8404891,130398,Moana Pasifika,Tau Koloamatangi,2023-02-25 03:35:00+00:00,Unknown,unknown_no_prior_start,False,Prop,True
 8404891,169176,Moana Pasifika,Suetena Asomua,2023-02-25 03:35:00+00:00,Unknown,unknown_no_prior_start,False,Prop,True
 8404891,203442,Moana Pasifika,Fine Inisi,2023-02-25 03:35:00+00:00,Centre,prior_recorded_start,False,Back-three,False
-8404891,216084,Moana Pasifika,Manu Paea,2023-02-25 03:35:00+00:00,Unknown,unknown_no_prior_start,False,Scrum-half,False
 8404900,335274,Blues,Josh Fusitua,2023-02-25 06:05:00+00:00,Unknown,unknown_no_prior_start,False,Prop,True
 8404900,69774,Blues,Bryce Heem,2023-02-25 06:05:00+00:00,Back-three,prior_recorded_start,False,Fly-half,False
 8404900,168966,Highlanders,Kemara Hauiti-Parapara,2023-02-25 06:05:00+00:00,Unknown,unknown_no_prior_start,False,Scrum-half,False
@@ -5841,7 +5789,6 @@ fixture_id,player_id,team,player_name,match_at,position,position_source,is_forwa
 8397115,180444,Zebre Parma,Damiano Mazza,2023-03-03 19:35:00+00:00,Centre,prior_recorded_start,False,Back-three,False
 8397115,207258,Zebre Parma,Geronimo Prisciantelli,2023-03-03 19:35:00+00:00,Back-three,prior_recorded_start,False,Fly-half,False
 8404927,168960,Crusaders,Braydon Ennor,2023-03-03 07:00:00+00:00,Centre,prior_recorded_start,False,Fly-half,False
-8404927,175506,Crusaders,Sione Havili,2023-03-03 07:00:00+00:00,Unknown,unknown_no_prior_start,False,Back-row,True
 8404927,234714,Crusaders,Noah Hotham,2023-03-03 07:00:00+00:00,Unknown,unknown_no_prior_start,False,Scrum-half,False
 8404927,234726,Crusaders,Macca Springer,2023-03-03 07:00:00+00:00,Unknown,unknown_no_prior_start,False,Back-three,False
 8404927,336636,Crusaders,Seb Calder,2023-03-03 07:00:00+00:00,Unknown,unknown_no_prior_start,False,Prop,True
@@ -5959,7 +5906,6 @@ fixture_id,player_id,team,player_name,match_at,position,position_source,is_forwa
 8404945,197838,Chiefs,Simon Parker,2023-03-04 06:05:00+00:00,Unknown,unknown_no_prior_start,False,Back-row,True
 8404945,124362,Moana Pasifika,Henry Taefu,2023-03-04 06:05:00+00:00,Centre,prior_recorded_start,False,Back-three,False
 8404945,140034,Moana Pasifika,Isileli Tu'ungafasi,2023-03-04 06:05:00+00:00,Unknown,unknown_no_prior_start,False,Prop,True
-8404945,203430,Moana Pasifika,Lotu Inisi,2023-03-04 06:05:00+00:00,Unknown,unknown_no_prior_start,False,Back-row,True
 8404945,234720,Moana Pasifika,William Havili,2023-03-04 06:05:00+00:00,Back-three,prior_recorded_start,False,Fly-half,False
 8404954,206754,Fijian Drua,Livai Natave,2023-03-04 08:35:00+00:00,Unknown,unknown_no_prior_start,False,Prop,True
 8404954,207894,Fijian Drua,Elia Canakaivata,2023-03-04 08:35:00+00:00,Unknown,unknown_no_prior_start,False,Back-row,True
@@ -6077,7 +6023,7 @@ fixture_id,player_id,team,player_name,match_at,position,position_source,is_forwa
 8405026,166788,Western Force,Angus Wagner,2023-03-11 11:00:00+00:00,Unknown,unknown_no_prior_start,False,Prop,True
 8405026,168684,Western Force,Tom Horton,2023-03-11 11:00:00+00:00,Unknown,unknown_no_prior_start,False,Hooker,True
 8405026,200016,Western Force,Siosifa Amone,2023-03-11 11:00:00+00:00,Unknown,unknown_no_prior_start,False,Prop,True
-8405026,209898,Western Force,Nikolai Foliaki,2023-03-11 11:00:00+00:00,Unknown,unknown_no_prior_start,False,Fly-half,False
+8405026,209898,Western Force,Nikolai Foliaki,2023-03-11 11:00:00+00:00,Centre,prior_recorded_start,False,Fly-half,False
 8405026,335394,Western Force,George Poolman,2023-03-11 11:00:00+00:00,Unknown,unknown_no_prior_start,False,Back-three,False
 8425294,150108,Griffons,Keanu Vers,2023-03-11 11:30:00+00:00,Unknown,unknown_no_prior_start,False,Back-three,False
 8425294,152646,Griffons,HP van Schoor,2023-03-11 11:30:00+00:00,Unknown,unknown_no_prior_start,False,Hooker,True
@@ -6398,7 +6344,7 @@ fixture_id,player_id,team,player_name,match_at,position,position_source,is_forwa
 8405116,173694,Hurricanes,Riley Hohepa,2023-03-25 06:05:00+00:00,Unknown,unknown_no_prior_start,False,Fly-half,False
 8405116,214302,Hurricanes,TK Howden,2023-03-25 06:05:00+00:00,Back-row,prior_recorded_start,True,Second-row,True
 8405116,234642,Hurricanes,Pasilio Tosi,2023-03-25 06:05:00+00:00,Unknown,unknown_no_prior_start,False,Prop,True
-8405116,151284,Moana Pasifika,D'Angelo Leuila,2023-03-25 06:05:00+00:00,Back-three,prior_recorded_start,False,Fly-half,False
+8405116,151284,Moana Pasifika,D'Angelo Leuila,2023-03-25 06:05:00+00:00,Centre,prior_recorded_start,False,Fly-half,False
 8405125,142266,Melbourne Rebels,Anaru Rangi,2023-03-25 08:35:00+00:00,Unknown,unknown_no_prior_start,False,Hooker,True
 8405125,191418,Melbourne Rebels,Glen Vaihu,2023-03-25 08:35:00+00:00,Back-three,prior_recorded_start,False,Fly-half,False
 8405125,334872,Melbourne Rebels,Daniel Maiava,2023-03-25 08:35:00+00:00,Unknown,unknown_no_prior_start,False,Back-row,True
@@ -6457,7 +6403,7 @@ fixture_id,player_id,team,player_name,match_at,position,position_source,is_forwa
 8405143,197910,Highlanders,Saula Mau,2023-03-31 06:05:00+00:00,Unknown,unknown_no_prior_start,False,Prop,True
 8405143,234684,Highlanders,Max Hicks,2023-03-31 06:05:00+00:00,Unknown,unknown_no_prior_start,False,Second-row,True
 8405143,240654,Highlanders,Cameron Millar,2023-03-31 06:05:00+00:00,Unknown,unknown_no_prior_start,False,Fly-half,False
-8405143,151284,Moana Pasifika,D'Angelo Leuila,2023-03-31 06:05:00+00:00,Back-three,prior_recorded_start,False,Fly-half,False
+8405143,151284,Moana Pasifika,D'Angelo Leuila,2023-03-31 06:05:00+00:00,Centre,prior_recorded_start,False,Fly-half,False
 8405152,216126,Crusaders,Seb Calder,2023-03-31 08:35:00+00:00,Unknown,unknown_no_prior_start,False,Prop,True
 8405152,216138,Crusaders,Corey Kellow,2023-03-31 08:35:00+00:00,Unknown,unknown_no_prior_start,False,Back-row,True
 8405152,337386,Crusaders,Jamie Hannah,2023-03-31 08:35:00+00:00,Unknown,unknown_no_prior_start,False,Second-row,True
@@ -6609,7 +6555,7 @@ fixture_id,player_id,team,player_name,match_at,position,position_source,is_forwa
 8405197,216126,Crusaders,Seb Calder,2023-04-07 07:05:00+00:00,Unknown,unknown_no_prior_start,False,Prop,True
 8405197,337386,Crusaders,Jamie Hannah,2023-04-07 07:05:00+00:00,Unknown,unknown_no_prior_start,False,Second-row,True
 8405197,140034,Moana Pasifika,Isileli Tu'ungafasi,2023-04-07 07:05:00+00:00,Unknown,unknown_no_prior_start,False,Prop,True
-8405197,151284,Moana Pasifika,D'Angelo Leuila,2023-04-07 07:05:00+00:00,Back-three,prior_recorded_start,False,Fly-half,False
+8405197,151284,Moana Pasifika,D'Angelo Leuila,2023-04-07 07:05:00+00:00,Centre,prior_recorded_start,False,Fly-half,False
 8405206,203532,Queensland Reds,Jake Upfield,2023-04-07 09:35:00+00:00,Unknown,unknown_no_prior_start,False,Back-row,True
 8405206,214638,Queensland Reds,Taj Annan,2023-04-07 09:35:00+00:00,Centre,prior_recorded_start,False,Back-three,False
 8425447,211680,Pumas,Cameron Dawson,2023-04-07 17:05:00+00:00,Unknown,unknown_no_prior_start,False,Prop,True
@@ -6681,7 +6627,6 @@ fixture_id,player_id,team,player_name,match_at,position,position_source,is_forwa
 8425438,239394,Western Province,Matthew Coenraad,2023-04-08 18:30:00+00:00,Unknown,unknown_no_prior_start,False,Prop,True
 8425438,352686,Western Province,Damian Markus,2023-04-08 18:30:00+00:00,Unknown,unknown_no_prior_start,False,Fly-half,False
 8393902,116370,Saracens,Duncan Taylor,2023-04-09 14:00:00+00:00,Centre,prior_recorded_start,False,Fly-half,False
-8393902,181230,Saracens,Ruben de Haas,2023-04-09 14:00:00+00:00,Unknown,unknown_no_prior_start,False,Scrum-half,False
 8393902,188748,Stade Rochelais,Remi Bourdeau,2023-04-09 14:00:00+00:00,Back-row,prior_recorded_start,True,Scrum-half,False
 8393902,198990,Stade Rochelais,Thomas Berjon,2023-04-09 14:00:00+00:00,Scrum-half,prior_recorded_start,False,Fly-half,False
 8425456,232332,Free State Cheetahs,Evardi Boshoff,2023-04-09 13:00:00+00:00,Centre,prior_recorded_start,False,Fly-half,False
@@ -6710,7 +6655,7 @@ fixture_id,player_id,team,player_name,match_at,position,position_source,is_forwa
 8397313,198468,Dragons RFC,Aneurin Owen,2023-04-14 18:35:00+00:00,Unknown,unknown_no_prior_start,False,Back-three,False
 8397313,244488,Dragons RFC,George Young,2023-04-14 18:35:00+00:00,Unknown,unknown_no_prior_start,False,Back-row,True
 8397313,197364,Ulster Rugby,Stewart Moore,2023-04-14 18:35:00+00:00,Centre,prior_recorded_start,False,Fly-half,False
-8405233,151284,Moana Pasifika,D'Angelo Leuila,2023-04-14 04:05:00+00:00,Back-three,prior_recorded_start,False,Fly-half,False
+8405233,151284,Moana Pasifika,D'Angelo Leuila,2023-04-14 04:05:00+00:00,Centre,prior_recorded_start,False,Fly-half,False
 8405233,197544,Queensland Reds,Phransis Sula-Siaosi,2023-04-14 04:05:00+00:00,Unknown,unknown_no_prior_start,False,Prop,True
 8405233,205134,Queensland Reds,Connor Anderson,2023-04-14 04:05:00+00:00,Unknown,unknown_no_prior_start,False,Back-row,True
 8405233,208926,Queensland Reds,Mac Grealy,2023-04-14 04:05:00+00:00,Unknown,unknown_no_prior_start,False,Back-three,False
@@ -7258,7 +7203,7 @@ fixture_id,player_id,team,player_name,match_at,position,position_source,is_forwa
 8405377,227160,Crusaders,Andrew Turner,2023-05-06 04:35:00+00:00,Unknown,unknown_no_prior_start,False,Prop,True
 8405377,196686,Western Force,Jackson Pugh,2023-05-06 04:35:00+00:00,Second-row,prior_recorded_start,True,Back-row,True
 8405377,197160,Western Force,Bo Abra,2023-05-06 04:35:00+00:00,Unknown,unknown_no_prior_start,False,Prop,True
-8405377,209898,Western Force,Nikolai Foliaki,2023-05-06 04:35:00+00:00,Unknown,unknown_no_prior_start,False,Fly-half,False
+8405377,209898,Western Force,Nikolai Foliaki,2023-05-06 04:35:00+00:00,Centre,prior_recorded_start,False,Fly-half,False
 8405377,215352,Western Force,Marley Pearce,2023-05-06 04:35:00+00:00,Unknown,unknown_no_prior_start,False,Prop,True
 8405377,335394,Western Force,George Poolman,2023-05-06 04:35:00+00:00,Unknown,unknown_no_prior_start,False,Back-three,False
 8405386,141222,Blues,Rieko Ioane,2023-05-06 07:05:00+00:00,Centre,prior_recorded_start,False,Fly-half,False
@@ -7460,7 +7405,7 @@ fixture_id,player_id,team,player_name,match_at,position,position_source,is_forwa
 8393362,223326,Leicester Tigers,Charlie Atkinson,2023-05-14 14:00:00+00:00,Back-three,prior_recorded_start,False,Fly-half,False
 8393362,123384,Sale Sharks,Sam James,2023-05-14 14:00:00+00:00,Centre,prior_recorded_start,False,Fly-half,False
 8405458,190848,ACT Brumbies,Tom Hooper,2023-05-14 04:35:00+00:00,Back-row,prior_recorded_start,True,Second-row,True
-8405458,197568,ACT Brumbies,Hudson Creighton,2023-05-14 04:35:00+00:00,Unknown,unknown_no_prior_start,False,Back-three,False
+8405458,197568,ACT Brumbies,Hudson Creighton,2023-05-14 04:35:00+00:00,Centre,prior_recorded_start,False,Back-three,False
 8405458,149682,Highlanders,Marino Mikaele-Tu'u,2023-05-14 04:35:00+00:00,Back-row,prior_recorded_start,True,Second-row,True
 8394433,119892,Glasgow Warriors,Ali Price,2023-05-19 19:00:00+00:00,Scrum-half,prior_recorded_start,False,Fly-half,False
 8394433,163866,Glasgow Warriors,Stafford McDowall,2023-05-19 19:00:00+00:00,Centre,prior_recorded_start,False,Back-three,False
@@ -7959,7 +7904,6 @@ fixture_id,player_id,team,player_name,match_at,position,position_source,is_forwa
 8430982,141654,Bay Of Plenty,Richard Judd,2023-08-06 02:05:00+00:00,Unknown,unknown_no_prior_start,False,Scrum-half,False
 8430982,206796,Bay Of Plenty,Etonia Waqa,2023-08-06 02:05:00+00:00,Unknown,unknown_no_prior_start,False,Second-row,True
 8430982,234636,Bay Of Plenty,Benet Kumeroa,2023-08-06 02:05:00+00:00,Unknown,unknown_no_prior_start,False,Prop,True
-8430982,235872,Bay Of Plenty,Semisi Paea,2023-08-06 02:05:00+00:00,Unknown,unknown_no_prior_start,False,Back-row,True
 8430982,263964,Bay Of Plenty,Alex Johnston,2023-08-06 02:05:00+00:00,Unknown,unknown_no_prior_start,False,Prop,True
 8430982,345636,Bay Of Plenty,Seamus Bardoul,2023-08-06 02:05:00+00:00,Unknown,unknown_no_prior_start,False,Back-three,False
 8430991,141630,Southland,Liam Howley,2023-08-06 04:35:00+00:00,Unknown,unknown_no_prior_start,False,Scrum-half,False
@@ -8012,7 +7956,6 @@ fixture_id,player_id,team,player_name,match_at,position,position_source,is_forwa
 8431018,206796,Bay Of Plenty,Etonia Waqa,2023-08-12 02:05:00+00:00,Unknown,unknown_no_prior_start,False,Second-row,True
 8431018,234636,Bay Of Plenty,Benet Kumeroa,2023-08-12 02:05:00+00:00,Unknown,unknown_no_prior_start,False,Prop,True
 8431018,235848,Bay Of Plenty,Josh Bartlett,2023-08-12 02:05:00+00:00,Unknown,unknown_no_prior_start,False,Prop,True
-8431018,235872,Bay Of Plenty,Semisi Paea,2023-08-12 02:05:00+00:00,Unknown,unknown_no_prior_start,False,Back-row,True
 8431018,345636,Bay Of Plenty,Seamus Bardoul,2023-08-12 02:05:00+00:00,Unknown,unknown_no_prior_start,False,Back-three,False
 8431018,355308,Bay Of Plenty,Codemeru Vai,2023-08-12 02:05:00+00:00,Unknown,unknown_no_prior_start,False,Fly-half,False
 8431018,266664,Waikato,Solomone Tukuafu,2023-08-12 02:05:00+00:00,Unknown,unknown_no_prior_start,False,Prop,True
@@ -8084,7 +8027,7 @@ fixture_id,player_id,team,player_name,match_at,position,position_source,is_forwa
 8431081,340320,Counties Manukau,Jadin Kingi,2023-08-18 07:05:00+00:00,Unknown,unknown_no_prior_start,False,Back-row,True
 8431081,360498,Counties Manukau,Cohen Brady-Leathem,2023-08-18 07:05:00+00:00,Unknown,unknown_no_prior_start,False,Scrum-half,False
 8431081,360528,Counties Manukau,Blake Makiri,2023-08-18 07:05:00+00:00,Unknown,unknown_no_prior_start,False,Back-three,False
-8431081,63300,Counties Manukau,Ahsee Tuala,2023-08-18 07:05:00+00:00,Unknown,unknown_no_prior_start,False,Fly-half,False
+8431081,63300,Counties Manukau,Ahsee Tuala,2023-08-18 07:05:00+00:00,Back-three,prior_recorded_start,False,Fly-half,False
 8445715,103884,Bayonne,Maxime Machenaud,2023-08-18 19:05:00+00:00,Scrum-half,prior_recorded_start,False,Back-row,True
 8445715,129504,Bayonne,Arthur Iturria,2023-08-18 19:05:00+00:00,Back-row,prior_recorded_start,True,Prop,True
 8445715,188748,Bayonne,Remi Bourdeau,2023-08-18 19:05:00+00:00,Back-row,prior_recorded_start,True,Second-row,True
@@ -8135,7 +8078,6 @@ fixture_id,player_id,team,player_name,match_at,position,position_source,is_forwa
 8431108,241626,Canterbury,Alex Harford,2023-08-19 04:35:00+00:00,Unknown,unknown_no_prior_start,False,Fly-half,False
 8431108,60558,Canterbury,Ryan Crotty,2023-08-19 04:35:00+00:00,Centre,prior_recorded_start,False,Back-three,False
 8431108,143844,Manawat?,John Poland,2023-08-19 04:35:00+00:00,Unknown,unknown_no_prior_start,False,Scrum-half,False
-8431108,164472,Manawat?,Cole Keith,2023-08-19 04:35:00+00:00,Unknown,unknown_no_prior_start,False,Prop,True
 8431108,173118,Manawat?,Te Rangatira Waitokia,2023-08-19 04:35:00+00:00,Centre,prior_recorded_start,False,Back-three,False
 8431108,214314,Manawat?,Julian Goerke,2023-08-19 04:35:00+00:00,Unknown,unknown_no_prior_start,False,Back-row,True
 8431108,215232,Manawat?,Isaiah Ravula,2023-08-19 04:35:00+00:00,Unknown,unknown_no_prior_start,False,Fly-half,False
@@ -8250,7 +8192,6 @@ fixture_id,player_id,team,player_name,match_at,position,position_source,is_forwa
 8412208,156420,South Africa,Marco van Staden,2023-08-25 18:30:00+00:00,Back-row,prior_recorded_start,True,Scrum-half,False
 8431153,118884,Manawat?,Jason Emery,2023-08-25 07:05:00+00:00,Centre,prior_recorded_start,False,Back-three,False
 8431153,143844,Manawat?,John Poland,2023-08-25 07:05:00+00:00,Unknown,unknown_no_prior_start,False,Scrum-half,False
-8431153,164472,Manawat?,Cole Keith,2023-08-25 07:05:00+00:00,Unknown,unknown_no_prior_start,False,Prop,True
 8431153,215232,Manawat?,Isaiah Ravula,2023-08-25 07:05:00+00:00,Unknown,unknown_no_prior_start,False,Fly-half,False
 8431153,173742,Northland,Coree Te Whata-Colley,2023-08-25 07:05:00+00:00,Unknown,unknown_no_prior_start,False,Prop,True
 8431153,340638,Northland,Trent Hape,2023-08-25 07:05:00+00:00,Unknown,unknown_no_prior_start,False,Scrum-half,False
@@ -8393,7 +8334,7 @@ fixture_id,player_id,team,player_name,match_at,position,position_source,is_forwa
 8431207,340320,Counties Manukau,Jadin Kingi,2023-08-27 04:35:00+00:00,Unknown,unknown_no_prior_start,False,Back-row,True
 8431207,360474,Counties Manukau,Keran van Staden,2023-08-27 04:35:00+00:00,Unknown,unknown_no_prior_start,False,Prop,True
 8431207,360498,Counties Manukau,Cohen Brady-Leathem,2023-08-27 04:35:00+00:00,Unknown,unknown_no_prior_start,False,Scrum-half,False
-8431207,63300,Counties Manukau,Ahsee Tuala,2023-08-27 04:35:00+00:00,Unknown,unknown_no_prior_start,False,Fly-half,False
+8431207,63300,Counties Manukau,Ahsee Tuala,2023-08-27 04:35:00+00:00,Back-three,prior_recorded_start,False,Fly-half,False
 8431207,209982,Waikato,Joe Johnston,2023-08-27 04:35:00+00:00,Unknown,unknown_no_prior_start,False,Back-row,True
 8431207,358530,Waikato,Malachi Wrampling-Alec,2023-08-27 04:35:00+00:00,Back-row,prior_recorded_start,True,Second-row,True
 8431207,361308,Waikato,Sean Ralph,2023-08-27 04:35:00+00:00,Unknown,unknown_no_prior_start,False,Hooker,True
@@ -8410,7 +8351,6 @@ fixture_id,player_id,team,player_name,match_at,position,position_source,is_forwa
 8445832,162150,Stade Toulousain,Pierre-Louis Barassi,2023-08-27 19:05:00+00:00,Centre,prior_recorded_start,False,Scrum-half,False
 8445832,224904,Stade Toulousain,Joel Merkler,2023-08-27 19:05:00+00:00,Prop,prior_recorded_start,True,Back-three,False
 8445832,224910,Stade Toulousain,Clement Verge,2023-08-27 19:05:00+00:00,Second-row,prior_recorded_start,True,Prop,True
-8431216,135672,Auckland,Pele Cowley,2023-08-30 07:05:00+00:00,Unknown,unknown_no_prior_start,False,Scrum-half,False
 8431216,226452,Auckland,Joel Cobb,2023-08-30 07:05:00+00:00,Unknown,unknown_no_prior_start,False,Back-three,False
 8431216,235494,Auckland,Sione Ahio,2023-08-30 07:05:00+00:00,Unknown,unknown_no_prior_start,False,Prop,True
 8431216,344430,Auckland,Sam Lester,2023-08-30 07:05:00+00:00,Unknown,unknown_no_prior_start,False,Prop,True
@@ -8418,7 +8358,6 @@ fixture_id,player_id,team,player_name,match_at,position,position_source,is_forwa
 8431216,361170,Auckland,Kalin Felise,2023-08-30 07:05:00+00:00,Unknown,unknown_no_prior_start,False,Second-row,True
 8431216,63474,Auckland,Joe Royal,2023-08-30 07:05:00+00:00,Unknown,unknown_no_prior_start,False,Hooker,True
 8431216,125964,Manawat?,Beaudein Waaka,2023-08-30 07:05:00+00:00,Back-three,prior_recorded_start,False,Fly-half,False
-8431216,164472,Manawat?,Cole Keith,2023-08-30 07:05:00+00:00,Unknown,unknown_no_prior_start,False,Prop,True
 8431216,214314,Manawat?,Julian Goerke,2023-08-30 07:05:00+00:00,Unknown,unknown_no_prior_start,False,Back-row,True
 8431216,360750,Manawat?,Pena Va'a,2023-08-30 07:05:00+00:00,Unknown,unknown_no_prior_start,False,Back-three,False
 8431225,196170,Hawke's Bay,Kianu Kereru-Symes,2023-09-01 07:05:00+00:00,Hooker,prior_recorded_start,True,Prop,True
@@ -8540,7 +8479,6 @@ fixture_id,player_id,team,player_name,match_at,position,position_source,is_forwa
 8431270,340608,Southland,Noah Foster,2023-09-03 02:05:00+00:00,Centre,prior_recorded_start,False,Back-three,False
 8431270,359892,Southland,Hunter Fahey,2023-09-03 02:05:00+00:00,Unknown,unknown_no_prior_start,False,Prop,True
 8431270,360288,Southland,Angus Simmers,2023-09-03 02:05:00+00:00,Unknown,unknown_no_prior_start,False,Fly-half,False
-8431279,164472,Manawat?,Cole Keith,2023-09-03 04:35:00+00:00,Unknown,unknown_no_prior_start,False,Prop,True
 8431279,226542,Manawat?,Terrell Peita,2023-09-03 04:35:00+00:00,Back-row,prior_recorded_start,True,Second-row,True
 8431279,360756,Manawat?,Kyle Brown,2023-09-03 04:35:00+00:00,Centre,prior_recorded_start,False,Back-three,False
 8431279,197808,Tasman,Matt Graham-Williams,2023-09-03 04:35:00+00:00,Unknown,unknown_no_prior_start,False,Prop,True
@@ -8603,7 +8541,6 @@ fixture_id,player_id,team,player_name,match_at,position,position_source,is_forwa
 920752,164592,Argentina,Rodrigo Bruni,2023-09-09 19:00:00+00:00,Back-row,prior_recorded_start,True,Scrum-half,False
 920752,230970,Argentina,Pedro Rubiolo,2023-09-09 19:00:00+00:00,Second-row,prior_recorded_start,True,Back-row,True
 920752,177378,England,Ollie Lawrence,2023-09-09 19:00:00+00:00,Centre,prior_recorded_start,False,Back-three,False
-8431333,164472,Manawat?,Cole Keith,2023-09-10 02:35:00+00:00,Unknown,unknown_no_prior_start,False,Prop,True
 8431333,226542,Manawat?,Terrell Peita,2023-09-10 02:35:00+00:00,Back-row,prior_recorded_start,True,Back-three,False
 8431333,360738,Manawat?,Chris Cairns,2023-09-10 02:35:00+00:00,Unknown,unknown_no_prior_start,False,Hooker,True
 8431333,226662,North Harbour,Fatongia Paea,2023-09-10 02:35:00+00:00,Unknown,unknown_no_prior_start,False,Prop,True
@@ -9163,7 +9100,6 @@ fixture_id,player_id,team,player_name,match_at,position,position_source,is_forwa
 8445985,150990,Oyonnax,Ali Oz,2023-11-04 14:00:00+00:00,Prop,prior_recorded_start,True,Back-three,False
 8445985,190152,Oyonnax,Kevin Lebreton,2023-11-04 14:00:00+00:00,Back-row,prior_recorded_start,True,Fly-half,False
 8445985,190290,Oyonnax,Antoine Abraham,2023-11-04 14:00:00+00:00,Unknown,unknown_no_prior_start,False,Prop,True
-8445985,67764,Oyonnax,Steve Mafi,2023-11-04 14:00:00+00:00,Unknown,unknown_no_prior_start,False,Second-row,True
 8445985,69606,Oyonnax,Manu Leiataua,2023-11-04 14:00:00+00:00,Unknown,unknown_no_prior_start,False,Hooker,True
 8445985,102942,Stade Rochelais,Tawera Kerr-Barlow,2023-11-04 14:00:00+00:00,Scrum-half,prior_recorded_start,False,Back-row,True
 8445985,236316,Stade Rochelais,Noe Della Schiava,2023-11-04 14:00:00+00:00,Unknown,unknown_no_prior_start,False,Second-row,True
@@ -9246,7 +9182,6 @@ fixture_id,player_id,team,player_name,match_at,position,position_source,is_forwa
 8450602,172416,Northampton Saints,Ollie Sleightholme,2023-11-04 15:00:00+00:00,Back-three,prior_recorded_start,False,Fly-half,False
 8450602,342342,Northampton Saints,Archie McParland,2023-11-04 15:00:00+00:00,Unknown,unknown_no_prior_start,False,Scrum-half,False
 8450611,172296,Leicester Tigers,Nic Dolly,2023-11-04 15:05:00+00:00,Unknown,unknown_no_prior_start,False,Hooker,True
-8450611,218022,Leicester Tigers,Solomone Kata,2023-11-04 15:05:00+00:00,Centre,prior_recorded_start,False,Back-three,False
 8450611,238020,Leicester Tigers,Dan Richardson,2023-11-04 15:05:00+00:00,Unknown,unknown_no_prior_start,False,Prop,True
 8450611,136398,Saracens,Ivan van Zyl,2023-11-04 15:05:00+00:00,Scrum-half,prior_recorded_start,False,Fly-half,False
 8450611,164394,Saracens,Tom Willis,2023-11-04 15:05:00+00:00,Back-row,prior_recorded_start,True,Scrum-half,False
@@ -9452,7 +9387,7 @@ fixture_id,player_id,team,player_name,match_at,position,position_source,is_forwa
 8446111,150990,Oyonnax,Ali Oz,2023-11-18 16:00:00+00:00,Prop,prior_recorded_start,True,Back-three,False
 8446111,189888,Oyonnax,Filimo Taofifenua,2023-11-18 16:00:00+00:00,Back-row,prior_recorded_start,True,Scrum-half,False
 8446111,190152,Oyonnax,Kevin Lebreton,2023-11-18 16:00:00+00:00,Back-row,prior_recorded_start,True,Second-row,True
-8446111,67764,Oyonnax,Steve Mafi,2023-11-18 16:00:00+00:00,Unknown,unknown_no_prior_start,False,Prop,True
+8446111,67764,Oyonnax,Steve Mafi,2023-11-18 16:00:00+00:00,Second-row,prior_recorded_start,True,Prop,True
 8446120,188322,Castres Olympique,Gauthier Maravat,2023-11-18 20:05:00+00:00,Second-row,prior_recorded_start,True,Prop,True
 8446120,188700,Castres Olympique,Wilfrid Hounkpatin,2023-11-18 20:05:00+00:00,Prop,prior_recorded_start,True,Back-three,False
 8446120,224274,Castres Olympique,Louis Le Brun,2023-11-18 20:05:00+00:00,Centre,prior_recorded_start,False,Fly-half,False
@@ -9719,7 +9654,7 @@ fixture_id,player_id,team,player_name,match_at,position,position_source,is_forwa
 8446255,178980,Stade Rochelais,Thomas Lavault,2023-12-02 16:00:00+00:00,Second-row,prior_recorded_start,True,Prop,True
 8446255,127476,USAP,So'otala Fa'aso'o,2023-12-02 16:00:00+00:00,Back-row,prior_recorded_start,True,Prop,True
 8446255,152514,USAP,Nemo Roelofse,2023-12-02 16:00:00+00:00,Prop,prior_recorded_start,True,Back-three,False
-8446255,58368,USAP,Afusipa Taumoepeau,2023-12-02 16:00:00+00:00,Centre,prior_recorded_start,False,Fly-half,False
+8446255,58368,USAP,Afusipa Taumoepeau,2023-12-02 16:00:00+00:00,Back-three,prior_recorded_start,False,Fly-half,False
 8446273,124848,RC Toulon,Brian Alainu'uese,2023-12-02 14:00:00+00:00,Second-row,prior_recorded_start,True,Prop,True
 8446273,146970,RC Toulon,Emerick Setiano,2023-12-02 14:00:00+00:00,Prop,prior_recorded_start,True,Back-three,False
 8446273,211638,RC Toulon,Jiuta Wainiqolo,2023-12-02 14:00:00+00:00,Back-three,prior_recorded_start,False,Fly-half,False
@@ -9815,7 +9750,6 @@ fixture_id,player_id,team,player_name,match_at,position,position_source,is_forwa
 8448901,111492,Lyon,Kyle Godwin,2023-12-09 20:00:00+00:00,Centre,prior_recorded_start,False,Fly-half,False
 8448901,224472,Lyon,Ugo Vignolles,2023-12-09 20:00:00+00:00,Unknown,unknown_no_prior_start,False,Back-row,True
 8448901,238308,Lyon,Liam Rimet,2023-12-09 20:00:00+00:00,Unknown,unknown_no_prior_start,False,Scrum-half,False
-8449423,150774,Black Lion,Mirian Modebadze,2023-12-09 13:00:00+00:00,Unknown,unknown_no_prior_start,False,Back-three,False
 8449423,150780,Black Lion,Demur Ephremidze,2023-12-09 13:00:00+00:00,Unknown,unknown_no_prior_start,False,Second-row,True
 8449423,207510,Black Lion,Giorgi Margalitadze,2023-12-09 13:00:00+00:00,Unknown,unknown_no_prior_start,False,Scrum-half,False
 8449423,263610,Black Lion,Tornike Kakhoidze,2023-12-09 13:00:00+00:00,Unknown,unknown_no_prior_start,False,Fly-half,False
@@ -9859,7 +9793,6 @@ fixture_id,player_id,team,player_name,match_at,position,position_source,is_forwa
 8449468,237960,Oyonnax,Antonin Corso,2023-12-09 20:00:00+00:00,Unknown,unknown_no_prior_start,False,Prop,True
 8449468,237984,Oyonnax,Julien Ratajczak,2023-12-09 20:00:00+00:00,Unknown,unknown_no_prior_start,False,Hooker,True
 8449468,263016,Oyonnax,David Odiase,2023-12-09 20:00:00+00:00,Unknown,unknown_no_prior_start,False,Scrum-half,False
-8449468,67764,Oyonnax,Steve Mafi,2023-12-09 20:00:00+00:00,Unknown,unknown_no_prior_start,False,Second-row,True
 8458603,155232,Hanazono Kintetsu Liners,Patrick Tafa,2023-12-09 04:00:00+00:00,Unknown,unknown_no_prior_start,False,Back-row,True
 8458603,159210,Hanazono Kintetsu Liners,Daisuke Noguchi,2023-12-09 04:00:00+00:00,Unknown,unknown_no_prior_start,False,Fly-half,False
 8458603,159942,Hanazono Kintetsu Liners,Kenta Tanaka,2023-12-09 04:00:00+00:00,Unknown,unknown_no_prior_start,False,Prop,True
@@ -10036,7 +9969,6 @@ fixture_id,player_id,team,player_name,match_at,position,position_source,is_forwa
 8449018,235878,Racing 92,Inia Tabuavou,2023-12-16 20:00:00+00:00,Centre,prior_recorded_start,False,Back-three,False
 8449018,89670,Racing 92,Eddy Ben Arous,2023-12-16 20:00:00+00:00,Prop,prior_recorded_start,True,Hooker,True
 8449513,343002,Oyonnax,Yvan David,2023-12-16 13:00:00+00:00,Unknown,unknown_no_prior_start,False,Scrum-half,False
-8449513,67764,Oyonnax,Steve Mafi,2023-12-16 13:00:00+00:00,Unknown,unknown_no_prior_start,False,Second-row,True
 8449513,150858,Zebre Parma,Giovanni Licata,2023-12-16 13:00:00+00:00,Back-row,prior_recorded_start,True,Back-three,False
 8449513,340992,Zebre Parma,Alessio Sanavia,2023-12-16 13:00:00+00:00,Unknown,unknown_no_prior_start,False,Prop,True
 8449513,367740,Zebre Parma,Thomas Dominguez,2023-12-16 13:00:00+00:00,Unknown,unknown_no_prior_start,False,Scrum-half,False
@@ -10367,7 +10299,6 @@ fixture_id,player_id,team,player_name,match_at,position,position_source,is_forwa
 8446354,195654,Oyonnax,Thibault Berthaud,2023-12-29 18:00:00+00:00,Prop,prior_recorded_start,True,Back-three,False
 8446354,207414,Oyonnax,Ilan El Khattabi,2023-12-29 18:00:00+00:00,Scrum-half,prior_recorded_start,False,Back-row,True
 8446354,237936,Oyonnax,Justin Bouraux,2023-12-29 18:00:00+00:00,Back-three,prior_recorded_start,False,Scrum-half,False
-8446354,67764,Oyonnax,Steve Mafi,2023-12-29 18:00:00+00:00,Unknown,unknown_no_prior_start,False,Second-row,True
 8446354,129924,Section Paloise,Thibault Daubagna,2023-12-29 18:00:00+00:00,Scrum-half,prior_recorded_start,False,Back-row,True
 8446354,143070,Section Paloise,Jale Vatubua,2023-12-29 18:00:00+00:00,Centre,prior_recorded_start,False,Fly-half,False
 8446354,162348,Section Paloise,Guillaume Ducat,2023-12-29 18:00:00+00:00,Second-row,prior_recorded_start,True,Prop,True
@@ -10730,7 +10661,6 @@ fixture_id,player_id,team,player_name,match_at,position,position_source,is_forwa
 8449612,367740,Zebre Parma,Thomas Dominguez,2024-01-13 15:15:00+00:00,Unknown,unknown_no_prior_start,False,Scrum-half,False
 8449621,140928,Black Lion,Nikoloz Khatiashvili,2024-01-13 15:15:00+00:00,Unknown,unknown_no_prior_start,False,Prop,True
 8449621,150780,Black Lion,Demur Ephremidze,2024-01-13 15:15:00+00:00,Unknown,unknown_no_prior_start,False,Second-row,True
-8449621,169872,Black Lion,Tengiz Zamtaradze,2024-01-13 15:15:00+00:00,Unknown,unknown_no_prior_start,False,Hooker,True
 8449621,263610,Black Lion,Tornike Kakhoidze,2024-01-13 15:15:00+00:00,Centre,prior_recorded_start,False,Fly-half,False
 8449621,358974,Black Lion,Aleksandre Jigauri,2024-01-13 15:15:00+00:00,Unknown,unknown_no_prior_start,False,Scrum-half,False
 8449621,369636,Black Lion,Saba Kurtanidze,2024-01-13 15:15:00+00:00,Unknown,unknown_no_prior_start,False,Back-row,True
@@ -11566,7 +11496,6 @@ fixture_id,player_id,team,player_name,match_at,position,position_source,is_forwa
 8455588,222762,Moana Pasifika,Irie Papuni,2024-03-02 06:00:00+00:00,Unknown,unknown_no_prior_start,False,Back-row,True
 8455588,223278,Moana Pasifika,Sateki Latu,2024-03-02 06:00:00+00:00,Unknown,unknown_no_prior_start,False,Prop,True
 8455588,233106,Moana Pasifika,Aisea Halo,2024-03-02 06:00:00+00:00,Unknown,unknown_no_prior_start,False,Scrum-half,False
-8455588,351018,Moana Pasifika,Kyren Taumoefolau,2024-03-02 06:00:00+00:00,Unknown,unknown_no_prior_start,False,Back-three,False
 8455597,206724,Crusaders,Dallas McLeod,2024-03-02 08:35:00+00:00,Centre,prior_recorded_start,False,Back-three,False
 8455597,214296,Crusaders,Jamie Hannah,2024-03-02 08:35:00+00:00,Unknown,unknown_no_prior_start,False,Second-row,True
 8455597,60558,Crusaders,Ryan Crotty,2024-03-02 08:35:00+00:00,Centre,prior_recorded_start,False,Fly-half,False
@@ -11644,7 +11573,6 @@ fixture_id,player_id,team,player_name,match_at,position,position_source,is_forwa
 8455624,213486,Moana Pasifika,Thomas Maka,2024-03-08 06:05:00+00:00,Unknown,unknown_no_prior_start,False,Hooker,True
 8455624,222762,Moana Pasifika,Irie Papuni,2024-03-08 06:05:00+00:00,Unknown,unknown_no_prior_start,False,Back-row,True
 8455624,223278,Moana Pasifika,Sateki Latu,2024-03-08 06:05:00+00:00,Unknown,unknown_no_prior_start,False,Prop,True
-8455624,351018,Moana Pasifika,Kyren Taumoefolau,2024-03-08 06:05:00+00:00,Unknown,unknown_no_prior_start,False,Back-three,False
 8455633,225642,Highlanders,Sean Withy,2024-03-08 08:35:00+00:00,Back-row,prior_recorded_start,True,Second-row,True
 8455633,190836,NSW Waratahs,Julian Heaven,2024-03-08 08:35:00+00:00,Unknown,unknown_no_prior_start,False,Hooker,True
 8455633,193434,NSW Waratahs,Mosese Tuipulotu,2024-03-08 08:35:00+00:00,Centre,prior_recorded_start,False,Back-three,False
@@ -11909,7 +11837,6 @@ fixture_id,player_id,team,player_name,match_at,position,position_source,is_forwa
 8455741,192504,ACT Brumbies,Luke Reimer,2024-03-22 08:35:00+00:00,Back-row,prior_recorded_start,True,Scrum-half,False
 8455741,338154,ACT Brumbies,Declan Meredith,2024-03-22 08:35:00+00:00,Unknown,unknown_no_prior_start,False,Back-three,False
 8455741,140382,Moana Pasifika,Melani Matavao,2024-03-22 08:35:00+00:00,Unknown,unknown_no_prior_start,False,Scrum-half,False
-8455741,203442,Moana Pasifika,Fine Inisi,2024-03-22 08:35:00+00:00,Centre,prior_recorded_start,False,Back-three,False
 8455741,213486,Moana Pasifika,Thomas Maka,2024-03-22 08:35:00+00:00,Unknown,unknown_no_prior_start,False,Hooker,True
 8455741,223278,Moana Pasifika,Sateki Latu,2024-03-22 08:35:00+00:00,Unknown,unknown_no_prior_start,False,Prop,True
 8455741,262374,Moana Pasifika,Miracle Faiilagi,2024-03-22 08:35:00+00:00,Back-row,prior_recorded_start,True,Second-row,True
@@ -12300,7 +12227,6 @@ fixture_id,player_id,team,player_name,match_at,position,position_source,is_forwa
 8455858,140352,Chiefs,Josh Ioane,2024-04-06 06:05:00+00:00,Back-three,prior_recorded_start,False,Fly-half,False
 8455858,206658,Chiefs,Naitoa Ah Kuoi,2024-04-06 06:05:00+00:00,Back-row,prior_recorded_start,True,Second-row,True
 8455858,151284,Moana Pasifika,D'Angelo Leuila,2024-04-06 06:05:00+00:00,Centre,prior_recorded_start,False,Back-three,False
-8455858,173490,Moana Pasifika,Otumaka Mausia,2024-04-06 06:05:00+00:00,Unknown,unknown_no_prior_start,False,Fly-half,False
 8455858,233106,Moana Pasifika,Aisea Halo,2024-04-06 06:05:00+00:00,Unknown,unknown_no_prior_start,False,Scrum-half,False
 8455867,214698,ACT Brumbies,Klayton Thorn,2024-04-06 08:35:00+00:00,Unknown,unknown_no_prior_start,False,Scrum-half,False
 8455867,338154,ACT Brumbies,Declan Meredith,2024-04-06 08:35:00+00:00,Unknown,unknown_no_prior_start,False,Back-three,False
@@ -12797,7 +12723,6 @@ fixture_id,player_id,team,player_name,match_at,position,position_source,is_forwa
 8451205,335328,Leicester Tigers,Finn Carnduff,2024-05-10 18:45:00+00:00,Back-row,prior_recorded_start,True,Second-row,True
 8451205,238668,Sale Sharks,Rekeiti Ma'asi-White,2024-05-10 18:45:00+00:00,Centre,prior_recorded_start,False,Fly-half,False
 8456056,186408,Chiefs,Rameka Poihipi,2024-05-10 07:05:00+00:00,Centre,prior_recorded_start,False,Fly-half,False
-8456056,173490,Moana Pasifika,Otumaka Mausia,2024-05-10 07:05:00+00:00,Unknown,unknown_no_prior_start,False,Fly-half,False
 8456056,213486,Moana Pasifika,Thomas Maka,2024-05-10 07:05:00+00:00,Unknown,unknown_no_prior_start,False,Hooker,True
 8456065,160668,Melbourne Rebels,Jake Strachan,2024-05-10 09:35:00+00:00,Back-three,prior_recorded_start,False,Fly-half,False
 8456065,334872,Melbourne Rebels,Daniel Maiava,2024-05-10 09:35:00+00:00,Unknown,unknown_no_prior_start,False,Second-row,True
@@ -13648,7 +13573,6 @@ fixture_id,player_id,team,player_name,match_at,position,position_source,is_forwa
 8478943,214626,Queensland Reds,Mason Gordon,2024-07-26 02:30:00+00:00,Back-three,prior_recorded_start,False,Fly-half,False
 8478943,215778,Queensland Reds,Taine Roiri,2024-07-26 02:30:00+00:00,Unknown,unknown_no_prior_start,False,Back-row,True
 8478943,385284,Queensland Reds,Will Cartwright,2024-07-26 02:30:00+00:00,Unknown,unknown_no_prior_start,False,Scrum-half,False
-8478943,102468,Tonga,Sosefo Sakalia,2024-07-26 02:30:00+00:00,Unknown,unknown_no_prior_start,False,Hooker,True
 8478943,375438,Tonga,Brad Leuila,2024-07-26 02:30:00+00:00,Unknown,unknown_no_prior_start,False,Prop,True
 8478943,382926,Tonga,Tyler Pulini,2024-07-26 02:30:00+00:00,Unknown,unknown_no_prior_start,False,Fly-half,False
 8478943,383448,Tonga,Kaufononga Tausinga,2024-07-26 02:30:00+00:00,Unknown,unknown_no_prior_start,False,Second-row,True
@@ -13721,7 +13645,7 @@ fixture_id,player_id,team,player_name,match_at,position,position_source,is_forwa
 8481814,265938,Golden Lions,Luca Ribbens,2024-08-04 13:00:00+00:00,Unknown,unknown_no_prior_start,False,Scrum-half,False
 8481814,141942,Griquas,Tertius Kruger,2024-08-04 13:00:00+00:00,Centre,prior_recorded_start,False,Back-three,False
 8481814,236448,Griquas,Bobby Alexander,2024-08-04 13:00:00+00:00,Unknown,unknown_no_prior_start,False,Scrum-half,False
-8474875,113532,Counties Manukau,Kalione Hala,2024-08-09 05:35:00+00:00,Unknown,unknown_no_prior_start,False,Back-three,False
+8474875,113532,Counties Manukau,Kalione Hala,2024-08-09 05:35:00+00:00,Fly-half,prior_recorded_start,False,Back-three,False
 8474875,140406,Counties Manukau,Jonathan Taumateine,2024-08-09 05:35:00+00:00,Scrum-half,prior_recorded_start,False,Fly-half,False
 8474875,148230,Counties Manukau,Alamanda Motuga,2024-08-09 05:35:00+00:00,Back-row,prior_recorded_start,True,Scrum-half,False
 8474875,223278,Counties Manukau,Sateki Latu,2024-08-09 05:35:00+00:00,Unknown,unknown_no_prior_start,False,Prop,True
@@ -13836,7 +13760,6 @@ fixture_id,player_id,team,player_name,match_at,position,position_source,is_forwa
 8473066,124674,Argentina,Tomas Lavanini,2024-08-17 07:05:00+00:00,Second-row,prior_recorded_start,True,Back-row,True
 8473066,128790,New Zealand,Anton Lienert-Brown,2024-08-17 07:05:00+00:00,Centre,prior_recorded_start,False,Fly-half,False
 8473075,119340,South Africa,Handre Pollard,2024-08-17 09:45:00+00:00,Fly-half,prior_recorded_start,False,Back-three,False
-8474956,234762,Manawat?,Taniela Filimone,2024-08-17 02:05:00+00:00,Centre,prior_recorded_start,False,Back-three,False
 8474956,379536,Manawat?,Sam Coles,2024-08-17 02:05:00+00:00,Back-three,prior_recorded_start,False,Fly-half,False
 8474956,385746,Manawat?,Logan Love,2024-08-17 02:05:00+00:00,Unknown,unknown_no_prior_start,False,Scrum-half,False
 8474956,382602,Northland,Nathan Salmon,2024-08-17 02:05:00+00:00,Unknown,unknown_no_prior_start,False,Back-three,False
@@ -13985,7 +13908,7 @@ fixture_id,player_id,team,player_name,match_at,position,position_source,is_forwa
 8475073,405540,Canterbury,Alex Grogan,2024-08-28 07:05:00+00:00,Unknown,unknown_no_prior_start,False,Second-row,True
 8475073,234600,Hawke's Bay,Lolani Faleiva,2024-08-28 07:05:00+00:00,Unknown,unknown_no_prior_start,False,Prop,True
 8475073,234792,Hawke's Bay,Sam Wye,2024-08-28 07:05:00+00:00,Unknown,unknown_no_prior_start,False,Scrum-half,False
-8475073,244464,Hawke's Bay,Le Roux Malan,2024-08-28 07:05:00+00:00,Unknown,unknown_no_prior_start,False,Fly-half,False
+8475073,244464,Hawke's Bay,Le Roux Malan,2024-08-28 07:05:00+00:00,Centre,prior_recorded_start,False,Fly-half,False
 8475073,358662,Hawke's Bay,Hunter Morrison,2024-08-28 07:05:00+00:00,Unknown,unknown_no_prior_start,False,Second-row,True
 8475082,385254,Northland,Bodene Davis,2024-08-30 07:05:00+00:00,Unknown,unknown_no_prior_start,False,Second-row,True
 8475082,360288,Southland,Angus Simmers,2024-08-30 07:05:00+00:00,Unknown,unknown_no_prior_start,False,Back-three,False
@@ -14125,7 +14048,6 @@ fixture_id,player_id,team,player_name,match_at,position,position_source,is_forwa
 8488573,193764,ASM Clermont Auvergne,Alexandre Fischer,2024-09-07 14:30:00+00:00,Back-row,prior_recorded_start,True,Second-row,True
 8488573,198276,ASM Clermont Auvergne,Thibaud Lanen,2024-09-07 14:30:00+00:00,Second-row,prior_recorded_start,True,Prop,True
 8488573,207432,ASM Clermont Auvergne,Regis Montagne,2024-09-07 14:30:00+00:00,Unknown,unknown_no_prior_start,False,Back-three,False
-8488573,207456,ASM Clermont Auvergne,Giorgi Akhaladze,2024-09-07 14:30:00+00:00,Unknown,unknown_no_prior_start,False,Prop,True
 8488573,129924,Section Paloise,Thibault Daubagna,2024-09-07 14:30:00+00:00,Scrum-half,prior_recorded_start,False,Back-row,True
 8488573,163590,Section Paloise,Jon Zabala,2024-09-07 14:30:00+00:00,Unknown,unknown_no_prior_start,False,Back-three,False
 8488573,173502,Section Paloise,Tumua Manu,2024-09-07 14:30:00+00:00,Centre,prior_recorded_start,False,Fly-half,False
@@ -14241,7 +14163,7 @@ fixture_id,player_id,team,player_name,match_at,position,position_source,is_forwa
 8475244,234774,North Harbour,Felix Kalapu,2024-09-14 04:35:00+00:00,Second-row,prior_recorded_start,True,Back-row,True
 8475244,406038,North Harbour,Ben Ruzich,2024-09-14 04:35:00+00:00,Unknown,unknown_no_prior_start,False,Prop,True
 8475253,234792,Hawke's Bay,Sam Wye,2024-09-14 07:05:00+00:00,Unknown,unknown_no_prior_start,False,Scrum-half,False
-8475253,244464,Hawke's Bay,Le Roux Malan,2024-09-14 07:05:00+00:00,Unknown,unknown_no_prior_start,False,Fly-half,False
+8475253,244464,Hawke's Bay,Le Roux Malan,2024-09-14 07:05:00+00:00,Centre,prior_recorded_start,False,Fly-half,False
 8475253,358662,Hawke's Bay,Hunter Morrison,2024-09-14 07:05:00+00:00,Unknown,unknown_no_prior_start,False,Second-row,True
 8475253,361848,Waikato,Austin Anderson,2024-09-14 07:05:00+00:00,Centre,prior_recorded_start,False,Fly-half,False
 8475253,362190,Waikato,Xavier Saifoloi,2024-09-14 07:05:00+00:00,Back-row,prior_recorded_start,True,Second-row,True
@@ -14272,7 +14194,6 @@ fixture_id,player_id,team,player_name,match_at,position,position_source,is_forwa
 8488645,121932,ASM Clermont Auvergne,Sebastien Bezy,2024-09-14 14:30:00+00:00,Scrum-half,prior_recorded_start,False,Back-row,True
 8488645,124464,ASM Clermont Auvergne,Peceli Yato,2024-09-14 14:30:00+00:00,Back-row,prior_recorded_start,True,Prop,True
 8488645,207432,ASM Clermont Auvergne,Regis Montagne,2024-09-14 14:30:00+00:00,Unknown,unknown_no_prior_start,False,Back-three,False
-8488645,207456,ASM Clermont Auvergne,Giorgi Akhaladze,2024-09-14 14:30:00+00:00,Unknown,unknown_no_prior_start,False,Prop,True
 8488645,224358,ASM Clermont Auvergne,Theo Giral,2024-09-14 14:30:00+00:00,Unknown,unknown_no_prior_start,False,Scrum-half,False
 8488645,148368,Racing 92,Clovis Le Bail,2024-09-14 14:30:00+00:00,Scrum-half,prior_recorded_start,False,Back-row,True
 8488645,149934,Racing 92,Boris Palu,2024-09-14 14:30:00+00:00,Second-row,prior_recorded_start,True,Prop,True
@@ -14468,7 +14389,7 @@ fixture_id,player_id,team,player_name,match_at,position,position_source,is_forwa
 8488726,172950,Lyon,Steeve Blanc-Mappaz,2024-09-21 14:30:00+00:00,Back-row,prior_recorded_start,True,Second-row,True
 8488726,223740,Lyon,Martin Page-Relo,2024-09-21 14:30:00+00:00,Scrum-half,prior_recorded_start,False,Back-row,True
 8488726,237102,Lyon,Martin Meliande,2024-09-21 14:30:00+00:00,Fly-half,prior_recorded_start,False,Scrum-half,False
-8488726,240588,Lyon,Irakli Aptsiauri,2024-09-21 14:30:00+00:00,Unknown,unknown_no_prior_start,False,Back-three,False
+8488726,240588,Lyon,Irakli Aptsiauri,2024-09-21 14:30:00+00:00,Prop,prior_recorded_start,True,Back-three,False
 8488726,176790,Vannes,Christiaan van der Merwe,2024-09-21 14:30:00+00:00,Unknown,unknown_no_prior_start,False,Prop,True
 8488726,176808,Vannes,Kitione Kamikamica,2024-09-21 14:30:00+00:00,Back-row,prior_recorded_start,True,Second-row,True
 8488726,189828,Vannes,Pagakalasio Tafili,2024-09-21 14:30:00+00:00,Prop,prior_recorded_start,True,Back-three,False
@@ -14490,7 +14411,6 @@ fixture_id,player_id,team,player_name,match_at,position,position_source,is_forwa
 8488753,165864,Racing 92,Cameron Woki,2024-09-21 19:05:00+00:00,Back-row,prior_recorded_start,True,Second-row,True
 8488753,185976,Racing 92,Gia Kharaishvili,2024-09-21 19:05:00+00:00,Prop,prior_recorded_start,True,Back-three,False
 8488753,223356,Racing 92,Max Spring,2024-09-21 19:05:00+00:00,Back-three,prior_recorded_start,False,Fly-half,False
-8488753,264186,Racing 92,Diego Escobar,2024-09-21 19:05:00+00:00,Unknown,unknown_no_prior_start,False,Hooker,True
 8488753,64194,Racing 92,Henry Chavancy,2024-09-21 19:05:00+00:00,Centre,prior_recorded_start,False,Scrum-half,False
 8488753,124002,Union Bordeaux-Begles,Rohan Janse van Rensburg,2024-09-21 19:05:00+00:00,Centre,prior_recorded_start,False,Fly-half,False
 8488753,125028,Union Bordeaux-Begles,Adam Coleman,2024-09-21 19:05:00+00:00,Second-row,prior_recorded_start,True,Prop,True
@@ -14583,7 +14503,7 @@ fixture_id,player_id,team,player_name,match_at,position,position_source,is_forwa
 8475388,408492,Auckland,Christopher Vunipola,2024-09-28 02:05:00+00:00,Unknown,unknown_no_prior_start,False,Scrum-half,False
 8475388,191982,Hawke's Bay,Andrew Tauatevalu,2024-09-28 02:05:00+00:00,Unknown,unknown_no_prior_start,False,Back-three,False
 8475388,234792,Hawke's Bay,Sam Wye,2024-09-28 02:05:00+00:00,Unknown,unknown_no_prior_start,False,Scrum-half,False
-8475388,244464,Hawke's Bay,Le Roux Malan,2024-09-28 02:05:00+00:00,Unknown,unknown_no_prior_start,False,Fly-half,False
+8475388,244464,Hawke's Bay,Le Roux Malan,2024-09-28 02:05:00+00:00,Centre,prior_recorded_start,False,Fly-half,False
 8475388,358662,Hawke's Bay,Hunter Morrison,2024-09-28 02:05:00+00:00,Unknown,unknown_no_prior_start,False,Second-row,True
 8475388,379572,Hawke's Bay,Joshua Smith,2024-09-28 02:05:00+00:00,Unknown,unknown_no_prior_start,False,Prop,True
 8475397,382416,Otago,Moana Takataka,2024-09-28 04:35:00+00:00,Unknown,unknown_no_prior_start,False,Prop,True
@@ -14643,7 +14563,6 @@ fixture_id,player_id,team,player_name,match_at,position,position_source,is_forwa
 8488780,149934,Racing 92,Boris Palu,2024-09-28 14:30:00+00:00,Second-row,prior_recorded_start,True,Prop,True
 8488780,231678,Racing 92,Maxime Baudonne,2024-09-28 14:30:00+00:00,Back-row,prior_recorded_start,True,Second-row,True
 8488780,232050,Racing 92,Dan Lancaster,2024-09-28 14:30:00+00:00,Centre,prior_recorded_start,False,Scrum-half,False
-8488780,264186,Racing 92,Diego Escobar,2024-09-28 14:30:00+00:00,Unknown,unknown_no_prior_start,False,Hooker,True
 8488780,361908,Racing 92,Mathis Boureau D Argonne Legesne,2024-09-28 14:30:00+00:00,Unknown,unknown_no_prior_start,False,Back-three,False
 8488780,112350,Stade Rochelais,Teddy Iribaren,2024-09-28 14:30:00+00:00,Scrum-half,prior_recorded_start,False,Back-row,True
 8488780,115512,Stade Rochelais,Ihaia West,2024-09-28 14:30:00+00:00,Fly-half,prior_recorded_start,False,Scrum-half,False
@@ -14694,7 +14613,6 @@ fixture_id,player_id,team,player_name,match_at,position,position_source,is_forwa
 8491957,132486,Sale Sharks,Sam Bedlow,2024-09-28 14:05:00+00:00,Centre,prior_recorded_start,False,Fly-half,False
 8491957,239040,Sale Sharks,Ethan Caine,2024-09-28 14:05:00+00:00,Unknown,unknown_no_prior_start,False,Hooker,True
 8491957,239052,Sale Sharks,Nye Thomas,2024-09-28 14:05:00+00:00,Unknown,unknown_no_prior_start,False,Scrum-half,False
-8491957,221352,Saracens,Theo McFarland,2024-09-28 14:05:00+00:00,Second-row,prior_recorded_start,True,Back-row,True
 8491957,238566,Saracens,Toby Knight,2024-09-28 14:05:00+00:00,Back-row,prior_recorded_start,True,Scrum-half,False
 8491957,335358,Saracens,Charlie Bracken,2024-09-28 14:05:00+00:00,Unknown,unknown_no_prior_start,False,Fly-half,False
 8491966,203166,Exeter Chiefs,Martin Moloney,2024-09-28 16:30:00+00:00,Unknown,unknown_no_prior_start,False,Back-row,True
@@ -14842,7 +14760,7 @@ fixture_id,player_id,team,player_name,match_at,position,position_source,is_forwa
 8488852,143010,Montpellier Herault Rugby,Mohamed Haouas,2024-10-05 14:30:00+00:00,Prop,prior_recorded_start,True,Back-three,False
 8488852,190182,Montpellier Herault Rugby,Alexandre Becognee,2024-10-05 14:30:00+00:00,Back-row,prior_recorded_start,True,Second-row,True
 8488852,223968,Montpellier Herault Rugby,Mael Moustin,2024-10-05 14:30:00+00:00,Back-three,prior_recorded_start,False,Fly-half,False
-8488852,339600,Montpellier Herault Rugby,Nicolas Martins,2024-10-05 14:30:00+00:00,Unknown,unknown_no_prior_start,False,Prop,True
+8488852,339600,Montpellier Herault Rugby,Nicolas Martins,2024-10-05 14:30:00+00:00,Back-row,prior_recorded_start,True,Prop,True
 8488852,113892,Stade Francais Paris,Francisco Gomez Kodela,2024-10-05 14:30:00+00:00,Prop,prior_recorded_start,True,Back-three,False
 8488852,136914,Stade Francais Paris,Sekou Macalou,2024-10-05 14:30:00+00:00,Back-row,prior_recorded_start,True,Second-row,True
 8488852,146958,Stade Francais Paris,Baptiste Pesenti,2024-10-05 14:30:00+00:00,Second-row,prior_recorded_start,True,Prop,True
@@ -14853,7 +14771,7 @@ fixture_id,player_id,team,player_name,match_at,position,position_source,is_forwa
 8488861,162138,Lyon,Dylan Cretin,2024-10-05 14:30:00+00:00,Back-row,prior_recorded_start,True,Second-row,True
 8488861,172098,Lyon,Semi Radradra,2024-10-05 14:30:00+00:00,Centre,prior_recorded_start,False,Fly-half,False
 8488861,179016,Lyon,Alban Roussel,2024-10-05 14:30:00+00:00,Second-row,prior_recorded_start,True,Prop,True
-8488861,240588,Lyon,Irakli Aptsiauri,2024-10-05 14:30:00+00:00,Unknown,unknown_no_prior_start,False,Back-three,False
+8488861,240588,Lyon,Irakli Aptsiauri,2024-10-05 14:30:00+00:00,Prop,prior_recorded_start,True,Back-three,False
 8488861,361902,Lyon,Esteban Gonzalez,2024-10-05 14:30:00+00:00,Unknown,unknown_no_prior_start,False,Back-row,True
 8488861,123570,Stade Rochelais,Will Skelton,2024-10-05 14:30:00+00:00,Second-row,prior_recorded_start,True,Prop,True
 8488861,133446,Stade Rochelais,Uini Atonio,2024-10-05 14:30:00+00:00,Prop,prior_recorded_start,True,Back-three,False
@@ -15059,7 +14977,7 @@ fixture_id,player_id,team,player_name,match_at,position,position_source,is_forwa
 8488897,223512,Lyon,Beka Shvangiradze,2024-10-13 19:05:00+00:00,Back-row,prior_recorded_start,True,Second-row,True
 8488897,223740,Lyon,Martin Page-Relo,2024-10-13 19:05:00+00:00,Scrum-half,prior_recorded_start,False,Back-row,True
 8488897,237102,Lyon,Martin Meliande,2024-10-13 19:05:00+00:00,Fly-half,prior_recorded_start,False,Scrum-half,False
-8488897,240588,Lyon,Irakli Aptsiauri,2024-10-13 19:05:00+00:00,Unknown,unknown_no_prior_start,False,Back-three,False
+8488897,240588,Lyon,Irakli Aptsiauri,2024-10-13 19:05:00+00:00,Prop,prior_recorded_start,True,Back-three,False
 8488897,146958,Stade Francais Paris,Baptiste Pesenti,2024-10-13 19:05:00+00:00,Second-row,prior_recorded_start,True,Prop,True
 8488897,223662,Stade Francais Paris,Joe Jonas,2024-10-13 19:05:00+00:00,Back-three,prior_recorded_start,False,Fly-half,False
 8488897,224628,Stade Francais Paris,Louis Foursans-Bourdette,2024-10-13 19:05:00+00:00,Fly-half,prior_recorded_start,False,Scrum-half,False
@@ -15277,7 +15195,7 @@ fixture_id,player_id,team,player_name,match_at,position,position_source,is_forwa
 8489014,223740,Lyon,Martin Page-Relo,2024-10-26 14:30:00+00:00,Scrum-half,prior_recorded_start,False,Back-row,True
 8489014,224490,Lyon,Alfred Parisien,2024-10-26 14:30:00+00:00,Centre,prior_recorded_start,False,Fly-half,False
 8489014,237102,Lyon,Martin Meliande,2024-10-26 14:30:00+00:00,Fly-half,prior_recorded_start,False,Scrum-half,False
-8489014,240588,Lyon,Irakli Aptsiauri,2024-10-26 14:30:00+00:00,Unknown,unknown_no_prior_start,False,Back-three,False
+8489014,240588,Lyon,Irakli Aptsiauri,2024-10-26 14:30:00+00:00,Prop,prior_recorded_start,True,Back-three,False
 8489023,123060,Montpellier Herault Rugby,Marco Tauleigne,2024-10-26 14:30:00+00:00,Back-row,prior_recorded_start,True,Prop,True
 8489023,143010,Montpellier Herault Rugby,Mohamed Haouas,2024-10-26 14:30:00+00:00,Prop,prior_recorded_start,True,Back-three,False
 8489023,181296,Montpellier Herault Rugby,Thomas Vincent,2024-10-26 14:30:00+00:00,Back-three,prior_recorded_start,False,Fly-half,False
@@ -15395,7 +15313,7 @@ fixture_id,player_id,team,player_name,match_at,position,position_source,is_forwa
 8489104,179016,Lyon,Alban Roussel,2024-11-02 15:30:00+00:00,Second-row,prior_recorded_start,True,Prop,True
 8489104,223512,Lyon,Beka Shvangiradze,2024-11-02 15:30:00+00:00,Back-row,prior_recorded_start,True,Fly-half,False
 8489104,226260,Lyon,Davit Niniashvili,2024-11-02 15:30:00+00:00,Back-three,prior_recorded_start,False,Scrum-half,False
-8489104,240588,Lyon,Irakli Aptsiauri,2024-11-02 15:30:00+00:00,Unknown,unknown_no_prior_start,False,Back-three,False
+8489104,240588,Lyon,Irakli Aptsiauri,2024-11-02 15:30:00+00:00,Prop,prior_recorded_start,True,Back-three,False
 8489104,132330,RC Toulon,Lewis Ludlam,2024-11-02 15:30:00+00:00,Back-row,prior_recorded_start,True,Fly-half,False
 8489104,146970,RC Toulon,Emerick Setiano,2024-11-02 15:30:00+00:00,Prop,prior_recorded_start,True,Back-three,False
 8489104,162930,RC Toulon,Selevasio Tolofua,2024-11-02 15:30:00+00:00,Back-row,prior_recorded_start,True,Second-row,True
@@ -15475,11 +15393,8 @@ fixture_id,player_id,team,player_name,match_at,position,position_source,is_forwa
 8476297,178674,South Africa,Grant Williams,2024-11-10 16:10:00+00:00,Scrum-half,prior_recorded_start,False,Back-three,False
 8497771,184704,All Blacks XV,Devan Flanders,2024-11-10 13:00:00+00:00,Back-row,prior_recorded_start,True,Scrum-half,False
 8497771,234714,All Blacks XV,Noah Hotham,2024-11-10 13:00:00+00:00,Scrum-half,prior_recorded_start,False,Fly-half,False
-8497771,169758,Georgia,Tedo Abzhandadze,2024-11-10 13:00:00+00:00,Unknown,unknown_no_prior_start,False,Fly-half,False
-8497771,169800,Georgia,Lasha Jaiani,2024-11-10 13:00:00+00:00,Unknown,unknown_no_prior_start,False,Second-row,True
-8497771,185598,Georgia,Demur Tapladze,2024-11-10 13:00:00+00:00,Unknown,unknown_no_prior_start,False,Back-three,False
+8497771,185598,Georgia,Demur Tapladze,2024-11-10 13:00:00+00:00,Centre,prior_recorded_start,False,Back-three,False
 8497771,207468,Georgia,Luka Nioradze,2024-11-10 13:00:00+00:00,Unknown,unknown_no_prior_start,False,Hooker,True
-8497771,240588,Georgia,Irakli Aptsiauri,2024-11-10 13:00:00+00:00,Unknown,unknown_no_prior_start,False,Prop,True
 8476306,169440,Argentina,Santiago Carreras,2024-11-15 20:10:00+00:00,Back-three,prior_recorded_start,False,Fly-half,False
 8476306,337296,Argentina,Justo Piccardo,2024-11-15 20:10:00+00:00,Unknown,unknown_no_prior_start,False,Back-three,False
 8476306,227658,Ireland,Jamie Osborne,2024-11-15 20:10:00+00:00,Centre,prior_recorded_start,False,Back-three,False
@@ -15774,7 +15689,7 @@ fixture_id,player_id,team,player_name,match_at,position,position_source,is_forwa
 8490292,122634,Castres Olympique,Mathieu Babillot,2024-12-07 15:15:00+00:00,Back-row,prior_recorded_start,True,Second-row,True
 8490292,130554,Northampton Saints,Rory Hutchinson,2024-12-07 15:15:00+00:00,Centre,prior_recorded_start,False,Back-three,False
 8490292,198696,Northampton Saints,Alex Coles,2024-12-07 15:15:00+00:00,Second-row,prior_recorded_start,True,Back-row,True
-8490292,200916,Northampton Saints,Iakopo Petelo-Mapu,2024-12-07 15:15:00+00:00,Unknown,unknown_no_prior_start,False,Scrum-half,False
+8490292,200916,Northampton Saints,Iakopo Petelo-Mapu,2024-12-07 15:15:00+00:00,Back-row,prior_recorded_start,True,Scrum-half,False
 8490292,218832,Northampton Saints,Luke Green,2024-12-07 15:15:00+00:00,Unknown,unknown_no_prior_start,False,Prop,True
 8490292,340122,Northampton Saints,Craig Wright,2024-12-07 15:15:00+00:00,Unknown,unknown_no_prior_start,False,Hooker,True
 8490292,342342,Northampton Saints,Archie McParland,2024-12-07 15:15:00+00:00,Scrum-half,prior_recorded_start,False,Fly-half,False
@@ -15809,7 +15724,7 @@ fixture_id,player_id,team,player_name,match_at,position,position_source,is_forwa
 8490859,345210,Scarlets,Sam O'Connor,2024-12-07 13:00:00+00:00,Unknown,unknown_no_prior_start,False,Prop,True
 8490859,351222,Scarlets,Isaac Young,2024-12-07 13:00:00+00:00,Unknown,unknown_no_prior_start,False,Hooker,True
 8490859,372462,Scarlets,Macs Page,2024-12-07 13:00:00+00:00,Centre,prior_recorded_start,False,Back-three,False
-8490868,185598,Black Lion,Demur Tapladze,2024-12-07 13:00:00+00:00,Unknown,unknown_no_prior_start,False,Fly-half,False
+8490868,185598,Black Lion,Demur Tapladze,2024-12-07 13:00:00+00:00,Centre,prior_recorded_start,False,Fly-half,False
 8490868,337836,Black Lion,Davit Khuroshvili,2024-12-07 13:00:00+00:00,Unknown,unknown_no_prior_start,False,Scrum-half,False
 8490868,369678,Black Lion,Bachuki Tchumbadze,2024-12-07 13:00:00+00:00,Unknown,unknown_no_prior_start,False,Prop,True
 8490868,384918,Black Lion,Amiran Shvangiradze,2024-12-07 13:00:00+00:00,Unknown,unknown_no_prior_start,False,Back-three,False
@@ -15859,7 +15774,6 @@ fixture_id,player_id,team,player_name,match_at,position,position_source,is_forwa
 8490904,419526,USAP,Joan Barcenilla D Onghia,2024-12-08 13:00:00+00:00,Unknown,unknown_no_prior_start,False,Prop,True
 8490913,147804,Lions,Marius Louw,2024-12-08 15:15:00+00:00,Centre,prior_recorded_start,False,Back-three,False
 8490913,227826,Lions,Ruhan Straeuli,2024-12-08 15:15:00+00:00,Back-row,prior_recorded_start,True,Scrum-half,False
-8490373,264186,Racing 92,Diego Escobar,2024-12-13 20:00:00+00:00,Unknown,unknown_no_prior_start,False,Hooker,True
 8490373,344088,Racing 92,Lino Julien,2024-12-13 20:00:00+00:00,Unknown,unknown_no_prior_start,False,Prop,True
 8490373,119520,Sale Sharks,Waisea Nayacalevu,2024-12-13 20:00:00+00:00,Centre,prior_recorded_start,False,Fly-half,False
 8490382,168492,Castres Olympique,Adrien Seguret,2024-12-13 20:00:00+00:00,Centre,prior_recorded_start,False,Back-three,False
@@ -16193,7 +16107,7 @@ fixture_id,player_id,team,player_name,match_at,position,position_source,is_forwa
 8492272,408318,Newcastle Falcons,Callum Hancock,2024-12-28 15:00:00+00:00,Unknown,unknown_no_prior_start,False,Prop,True
 8492272,67122,Newcastle Falcons,Philip van der Walt,2024-12-28 15:00:00+00:00,Second-row,prior_recorded_start,True,Back-row,True
 8492272,130554,Northampton Saints,Rory Hutchinson,2024-12-28 15:00:00+00:00,Centre,prior_recorded_start,False,Back-three,False
-8492272,200916,Northampton Saints,Iakopo Petelo-Mapu,2024-12-28 15:00:00+00:00,Unknown,unknown_no_prior_start,False,Scrum-half,False
+8492272,200916,Northampton Saints,Iakopo Petelo-Mapu,2024-12-28 15:00:00+00:00,Back-row,prior_recorded_start,True,Scrum-half,False
 8492272,218832,Northampton Saints,Luke Green,2024-12-28 15:00:00+00:00,Unknown,unknown_no_prior_start,False,Prop,True
 8492272,342342,Northampton Saints,Archie McParland,2024-12-28 15:00:00+00:00,Scrum-half,prior_recorded_start,False,Fly-half,False
 8492281,139716,Harlequins,Jarrod Evans,2024-12-28 18:00:00+00:00,Fly-half,prior_recorded_start,False,Back-three,False
@@ -16429,7 +16343,6 @@ fixture_id,player_id,team,player_name,match_at,position,position_source,is_forwa
 8490481,214146,Glasgow Warriors,Jamie Dobie,2025-01-10 20:00:00+00:00,Scrum-half,prior_recorded_start,False,Fly-half,False
 8490481,231576,Glasgow Warriors,Euan Ferrie,2025-01-10 20:00:00+00:00,Back-row,prior_recorded_start,True,Scrum-half,False
 8490481,67152,Glasgow Warriors,Duncan Weir,2025-01-10 20:00:00+00:00,Fly-half,prior_recorded_start,False,Back-three,False
-8490481,264186,Racing 92,Diego Escobar,2025-01-10 20:00:00+00:00,Unknown,unknown_no_prior_start,False,Hooker,True
 8490481,341322,Racing 92,Dylan Idrissi,2025-01-10 20:00:00+00:00,Unknown,unknown_no_prior_start,False,Back-three,False
 8491003,203736,Scarlets,Joe Roberts,2025-01-10 20:00:00+00:00,Centre,prior_recorded_start,False,Fly-half,False
 8491003,411270,Scarlets,Gabe Hawley,2025-01-10 20:00:00+00:00,Unknown,unknown_no_prior_start,False,Prop,True
@@ -16462,7 +16375,6 @@ fixture_id,player_id,team,player_name,match_at,position,position_source,is_forwa
 8490526,373290,Northampton Saints,George Makepeace-Cubitt,2025-01-11 17:30:00+00:00,Fly-half,prior_recorded_start,False,Back-three,False
 8490526,136914,Stade Francais Paris,Sekou Macalou,2025-01-11 17:30:00+00:00,Back-row,prior_recorded_start,True,Second-row,True
 8490526,146958,Stade Francais Paris,Baptiste Pesenti,2025-01-11 17:30:00+00:00,Second-row,prior_recorded_start,True,Back-row,True
-8490526,362406,Stade Francais Paris,Alvaro Garcia,2025-01-11 17:30:00+00:00,Unknown,unknown_no_prior_start,False,Hooker,True
 8490535,335334,Leicester Tigers,Joseph Woodward,2025-01-11 20:00:00+00:00,Centre,prior_recorded_start,False,Back-three,False
 8490535,231912,Ulster Rugby,Harry Sheridan,2025-01-11 20:00:00+00:00,Second-row,prior_recorded_start,True,Back-row,True
 8490544,152448,Bulls,Cornel Smit,2025-01-11 20:00:00+00:00,Centre,prior_recorded_start,False,Back-three,False
@@ -16608,7 +16520,6 @@ fixture_id,player_id,team,player_name,match_at,position,position_source,is_forwa
 8490643,142464,Harlequins,Will Evans,2025-01-18 20:00:00+00:00,Back-row,prior_recorded_start,True,Scrum-half,False
 8490643,45822,Harlequins,Danny Care,2025-01-18 20:00:00+00:00,Scrum-half,prior_recorded_start,False,Fly-half,False
 8490652,165864,Racing 92,Cameron Woki,2025-01-18 20:00:00+00:00,Back-row,prior_recorded_start,True,Scrum-half,False
-8490652,264186,Racing 92,Diego Escobar,2025-01-18 20:00:00+00:00,Unknown,unknown_no_prior_start,False,Hooker,True
 8490652,64194,Racing 92,Henry Chavancy,2025-01-18 20:00:00+00:00,Centre,prior_recorded_start,False,Back-three,False
 8490652,130314,Stormers,Jean-Luc du Plessis,2025-01-18 20:00:00+00:00,Centre,prior_recorded_start,False,Back-three,False
 8490652,151464,Stormers,Herschel Jantjies,2025-01-18 20:00:00+00:00,Scrum-half,prior_recorded_start,False,Fly-half,False
@@ -16760,7 +16671,6 @@ fixture_id,player_id,team,player_name,match_at,position,position_source,is_forwa
 8489455,135252,Racing 92,Fabien Sanconnie,2025-01-25 15:00:00+00:00,Second-row,prior_recorded_start,True,Prop,True
 8489455,152262,Racing 92,Lee-Marvin Mazibuko,2025-01-25 15:00:00+00:00,Prop,prior_recorded_start,True,Back-three,False
 8489455,165720,Racing 92,Antoine Gibert,2025-01-25 15:00:00+00:00,Fly-half,prior_recorded_start,False,Scrum-half,False
-8489455,264186,Racing 92,Diego Escobar,2025-01-25 15:00:00+00:00,Unknown,unknown_no_prior_start,False,Hooker,True
 8489455,64194,Racing 92,Henry Chavancy,2025-01-25 15:00:00+00:00,Centre,prior_recorded_start,False,Fly-half,False
 8489473,143952,Stade Francais Paris,Giorgi Melikidze,2025-01-25 15:00:00+00:00,Prop,prior_recorded_start,True,Back-three,False
 8489473,146958,Stade Francais Paris,Baptiste Pesenti,2025-01-25 15:00:00+00:00,Second-row,prior_recorded_start,True,Prop,True
@@ -17288,7 +17198,6 @@ fixture_id,player_id,team,player_name,match_at,position,position_source,is_forwa
 8480842,180450,Zebre Parma,Alessandro Fusco,2025-02-28 19:35:00+00:00,Back-three,prior_recorded_start,False,Scrum-half,False
 8507473,337440,Highlanders,Jake Te Hiwi,2025-02-28 06:05:00+00:00,Centre,prior_recorded_start,False,Back-three,False
 8507473,197064,Moana Pasifika,Ola Tauelangi,2025-02-28 06:05:00+00:00,Second-row,prior_recorded_start,True,Back-row,True
-8507473,222522,Moana Pasifika,Patrick Pellegrini,2025-02-28 06:05:00+00:00,Unknown,unknown_no_prior_start,False,Fly-half,False
 8507473,340356,Moana Pasifika,Tevita Ofa,2025-02-28 06:05:00+00:00,Centre,prior_recorded_start,False,Back-three,False
 8507482,193710,Fijian Drua,Kemu Valetini,2025-02-28 08:35:00+00:00,Centre,prior_recorded_start,False,Back-three,False
 8507482,206796,Fijian Drua,Etonia Waqa,2025-02-28 08:35:00+00:00,Back-row,prior_recorded_start,True,Second-row,True
@@ -17576,7 +17485,6 @@ fixture_id,player_id,team,player_name,match_at,position,position_source,is_forwa
 8492416,342324,Northampton Saints,Henry Pollock,2025-03-21 19:45:00+00:00,Back-row,prior_recorded_start,True,Scrum-half,False
 8492416,374292,Northampton Saints,Jonny Weimann,2025-03-21 19:45:00+00:00,Unknown,unknown_no_prior_start,False,Fly-half,False
 8507608,188928,Chiefs,Quinn Tupaea,2025-03-21 06:05:00+00:00,Centre,prior_recorded_start,False,Back-three,False
-8507608,218340,Moana Pasifika,Tuna Tuitama,2025-03-21 06:05:00+00:00,Unknown,unknown_no_prior_start,False,Back-three,False
 8507608,340356,Moana Pasifika,Tevita Ofa,2025-03-21 06:05:00+00:00,Centre,prior_recorded_start,False,Fly-half,False
 8480923,102708,Sharks,Francois Venter,2025-03-22 12:45:00+00:00,Centre,prior_recorded_start,False,Fly-half,False
 8480923,128820,Sharks,Andre Esterhuizen,2025-03-22 12:45:00+00:00,Centre,prior_recorded_start,False,Back-three,False
@@ -17883,7 +17791,6 @@ fixture_id,player_id,team,player_name,match_at,position,position_source,is_forwa
 8506105,359070,Urayasu D-Rocks,Yuzuki Sasaki,2025-03-29 03:05:00+00:00,Unknown,unknown_no_prior_start,False,Back-row,True
 8506105,370602,Urayasu D-Rocks,Takuya Shirae,2025-03-29 03:05:00+00:00,Unknown,unknown_no_prior_start,False,Scrum-half,False
 8506105,371796,Urayasu D-Rocks,Kaisei Umeda,2025-03-29 03:05:00+00:00,Unknown,unknown_no_prior_start,False,Prop,True
-8507671,218340,Moana Pasifika,Tuna Tuitama,2025-03-29 06:05:00+00:00,Unknown,unknown_no_prior_start,False,Back-three,False
 8507680,161100,Queensland Reds,Connor Vest,2025-03-29 08:35:00+00:00,Second-row,prior_recorded_start,True,Back-row,True
 8507680,417390,Queensland Reds,Matt Brice,2025-03-29 08:35:00+00:00,Unknown,unknown_no_prior_start,False,Back-three,False
 8507680,130410,Western Force,Atu Moli,2025-03-29 08:35:00+00:00,Unknown,unknown_no_prior_start,False,Prop,True
@@ -19337,7 +19244,6 @@ fixture_id,player_id,team,player_name,match_at,position,position_source,is_forwa
 8519641,382170,Manawat?,Jai Tamati,2025-08-01 07:10:00+00:00,Unknown,unknown_no_prior_start,False,Scrum-half,False
 8519641,406404,Manawat?,Rowan Slater,2025-08-01 07:10:00+00:00,Unknown,unknown_no_prior_start,False,Back-row,True
 8519641,124416,North Harbour,Penaia Cakobau,2025-08-01 07:10:00+00:00,Unknown,unknown_no_prior_start,False,Hooker,True
-8519641,135060,North Harbour,Murphy Taramai,2025-08-01 07:10:00+00:00,Unknown,unknown_no_prior_start,False,Back-row,True
 8519641,263556,North Harbour,Ben Brownlee,2025-08-01 07:10:00+00:00,Centre,prior_recorded_start,False,Back-three,False
 8519641,300852,North Harbour,Cam Howell,2025-08-01 07:10:00+00:00,Unknown,unknown_no_prior_start,False,Fly-half,False
 8519641,344034,North Harbour,Sam Davies,2025-08-01 07:10:00+00:00,Unknown,unknown_no_prior_start,False,Prop,True
@@ -19441,7 +19347,7 @@ fixture_id,player_id,team,player_name,match_at,position,position_source,is_forwa
 8519704,382140,Wellington,Matolu Petaia,2025-08-09 02:05:00+00:00,Unknown,unknown_no_prior_start,False,Second-row,True
 8519704,5412216,Wellington,Esi Komaisavai,2025-08-09 02:05:00+00:00,Unknown,unknown_no_prior_start,False,Scrum-half,False
 8519713,124416,North Harbour,Penaia Cakobau,2025-08-09 02:05:00+00:00,Unknown,unknown_no_prior_start,False,Hooker,True
-8519713,135060,North Harbour,Murphy Taramai,2025-08-09 02:05:00+00:00,Unknown,unknown_no_prior_start,False,Scrum-half,False
+8519713,135060,North Harbour,Murphy Taramai,2025-08-09 02:05:00+00:00,Back-row,prior_recorded_start,True,Scrum-half,False
 8519713,187872,North Harbour,Siaosi Nginingini,2025-08-09 02:05:00+00:00,Scrum-half,prior_recorded_start,False,Fly-half,False
 8519713,263556,North Harbour,Ben Brownlee,2025-08-09 02:05:00+00:00,Centre,prior_recorded_start,False,Back-three,False
 8519713,344034,North Harbour,Sam Davies,2025-08-09 02:05:00+00:00,Unknown,unknown_no_prior_start,False,Prop,True
@@ -19604,7 +19510,7 @@ fixture_id,player_id,team,player_name,match_at,position,position_source,is_forwa
 8519830,364038,Canterbury,Manumaua Letiu,2025-08-22 07:10:00+00:00,Unknown,unknown_no_prior_start,False,Hooker,True
 8519830,191982,Hawke's Bay,Andrew Tauatevalu,2025-08-22 07:10:00+00:00,Unknown,unknown_no_prior_start,False,Back-three,False
 8519830,234600,Hawke's Bay,Lolani Faleiva,2025-08-22 07:10:00+00:00,Unknown,unknown_no_prior_start,False,Prop,True
-8519830,244464,Hawke's Bay,Le Roux Malan,2025-08-22 07:10:00+00:00,Unknown,unknown_no_prior_start,False,Fly-half,False
+8519830,244464,Hawke's Bay,Le Roux Malan,2025-08-22 07:10:00+00:00,Centre,prior_recorded_start,False,Fly-half,False
 8519830,5415450,Hawke's Bay,Nik Patumaka,2025-08-22 07:10:00+00:00,Unknown,unknown_no_prior_start,False,Prop,True
 8523637,244290,Boland Kavaliers,Juan Mostert,2025-08-22 15:00:00+00:00,Back-three,prior_recorded_start,False,Fly-half,False
 8523637,314754,Boland Kavaliers,Erik Lambrecht,2025-08-22 15:00:00+00:00,Unknown,unknown_no_prior_start,False,Back-three,False
@@ -21102,9 +21008,8 @@ fixture_id,player_id,team,player_name,match_at,position,position_source,is_forwa
 8544562,220260,Ireland A,Cathal Forde,2025-11-08 16:00:00+00:00,Centre,prior_recorded_start,False,Fly-half,False
 8544562,372252,Ireland A,Alex Usanov,2025-11-08 16:00:00+00:00,Unknown,unknown_no_prior_start,False,Prop,True
 8544562,203988,Spain,Joaquin Dominguez,2025-11-08 16:00:00+00:00,Unknown,unknown_no_prior_start,False,Prop,True
-8544562,224004,Spain,Alex Saleta,2025-11-08 16:00:00+00:00,Unknown,unknown_no_prior_start,False,Fly-half,False
+8544562,224004,Spain,Alex Saleta,2025-11-08 16:00:00+00:00,Back-row,prior_recorded_start,True,Fly-half,False
 8544562,225138,Spain,Matheo Triki,2025-11-08 16:00:00+00:00,Unknown,unknown_no_prior_start,False,Back-row,True
-8544562,338370,Spain,Imanol Urraza,2025-11-08 16:00:00+00:00,Unknown,unknown_no_prior_start,False,Second-row,True
 8544562,345984,Spain,Raul Calzon,2025-11-08 16:00:00+00:00,Unknown,unknown_no_prior_start,False,Prop,True
 8544562,383028,Spain,Nicolas Infer,2025-11-08 16:00:00+00:00,Unknown,unknown_no_prior_start,False,Scrum-half,False
 8518255,346278,Argentina,Agustin Moyano,2025-11-09 15:10:00+00:00,Unknown,unknown_no_prior_start,False,Scrum-half,False
@@ -21144,7 +21049,6 @@ fixture_id,player_id,team,player_name,match_at,position,position_source,is_forwa
 8544571,354774,England A,Kepu Tuipulotu,2025-11-15 16:00:00+00:00,Unknown,unknown_no_prior_start,False,Hooker,True
 8544571,170358,Spain,Inaki Mateu,2025-11-15 16:00:00+00:00,Centre,prior_recorded_start,False,Back-three,False
 8544571,203988,Spain,Joaquin Dominguez,2025-11-15 16:00:00+00:00,Unknown,unknown_no_prior_start,False,Prop,True
-8544571,224004,Spain,Alex Saleta,2025-11-15 16:00:00+00:00,Unknown,unknown_no_prior_start,False,Back-row,True
 8544571,383028,Spain,Nicolas Infer,2025-11-15 16:00:00+00:00,Unknown,unknown_no_prior_start,False,Scrum-half,False
 8544571,384156,Spain,Bernardo Vazquez,2025-11-15 16:00:00+00:00,Unknown,unknown_no_prior_start,False,Prop,True
 8518309,169440,Argentina,Santiago Carreras,2025-11-16 15:10:00+00:00,Back-three,prior_recorded_start,False,Fly-half,False
@@ -21153,13 +21057,8 @@ fixture_id,player_id,team,player_name,match_at,position,position_source,is_forwa
 8518309,141990,Scotland,Josh Bayliss,2025-11-16 15:10:00+00:00,Back-row,prior_recorded_start,True,Second-row,True
 8544580,184704,All Blacks XV,Devan Flanders,2025-11-16 15:00:00+00:00,Back-row,prior_recorded_start,True,Second-row,True
 8544580,226464,All Blacks XV,Daniel Rona,2025-11-16 15:00:00+00:00,Centre,prior_recorded_start,False,Back-three,False
-8544580,165684,Uruguay,Manuel Diana,2025-11-16 15:00:00+00:00,Unknown,unknown_no_prior_start,False,Back-row,True
-8544580,211782,Uruguay,Reinaldo Piussi,2025-11-16 15:00:00+00:00,Unknown,unknown_no_prior_start,False,Prop,True
-8544580,226332,Uruguay,Mateo Perillo,2025-11-16 15:00:00+00:00,Unknown,unknown_no_prior_start,False,Prop,True
-8544580,263232,Uruguay,Carlos Deus,2025-11-16 15:00:00+00:00,Unknown,unknown_no_prior_start,False,Second-row,True
+8544580,263232,Uruguay,Carlos Deus,2025-11-16 15:00:00+00:00,Back-row,prior_recorded_start,True,Second-row,True
 8544580,341628,Uruguay,Arturo Ten Hoever,2025-11-16 15:00:00+00:00,Unknown,unknown_no_prior_start,False,Scrum-half,False
-8544580,346290,Uruguay,Ignacio Alvarez,2025-11-16 15:00:00+00:00,Unknown,unknown_no_prior_start,False,Back-three,False
-8544580,383940,Uruguay,Icaro Amarillo,2025-11-16 15:00:00+00:00,Unknown,unknown_no_prior_start,False,Fly-half,False
 8544580,384096,Uruguay,Sebastian Perez,2025-11-16 15:00:00+00:00,Unknown,unknown_no_prior_start,False,Hooker,True
 8531926,131340,Section Paloise,Jack Maddocks,2025-11-21 20:00:00+00:00,Back-three,prior_recorded_start,False,Fly-half,False
 8531926,162792,Section Paloise,Reece Hewat,2025-11-21 20:00:00+00:00,Back-row,prior_recorded_start,True,Second-row,True
@@ -22377,7 +22276,6 @@ fixture_id,player_id,team,player_name,match_at,position,position_source,is_forwa
 8536201,374238,Sale Sharks,Patrick Hogg,2026-01-17 17:30:00+00:00,Unknown,unknown_no_prior_start,False,Second-row,True
 8536201,123366,Stade Toulousain,Francois Cros,2026-01-17 17:30:00+00:00,Back-row,prior_recorded_start,True,Scrum-half,False
 8536201,191268,Stade Toulousain,Paul Graou,2026-01-17 17:30:00+00:00,Scrum-half,prior_recorded_start,False,Fly-half,False
-8536210,198864,Castres Olympique,Atu Manu,2026-01-17 17:30:00+00:00,Unknown,unknown_no_prior_start,False,Back-three,False
 8536210,220320,Munster Rugby,Dan Kelly,2026-01-17 17:30:00+00:00,Centre,prior_recorded_start,False,Back-three,False
 8536219,374250,Gloucester Rugby,George Knowles,2026-01-17 20:00:00+00:00,Unknown,unknown_no_prior_start,False,Hooker,True
 8536219,375024,Gloucester Rugby,Deian Gwynne,2026-01-17 20:00:00+00:00,Back-row,prior_recorded_start,True,Second-row,True
@@ -22999,7 +22897,6 @@ fixture_id,player_id,team,player_name,match_at,position,position_source,is_forwa
 8524960,372252,Leinster Rugby,Alex Usanov,2026-02-27 19:00:00+00:00,Unknown,unknown_no_prior_start,False,Prop,True
 8524960,407154,Leinster Rugby,Josh Ericson,2026-02-27 19:00:00+00:00,Unknown,unknown_no_prior_start,False,Back-row,True
 8542969,225750,Moana Pasifika,Tevita Latu,2026-02-27 06:05:00+00:00,Centre,prior_recorded_start,False,Back-three,False
-8542969,340758,Moana Pasifika,Tupou Afungia,2026-02-27 06:05:00+00:00,Unknown,unknown_no_prior_start,False,Back-row,True
 8542969,346278,Western Force,Agustin Moyano,2026-02-27 06:05:00+00:00,Unknown,unknown_no_prior_start,False,Scrum-half,False
 8542969,54198,Western Force,Kurtley Beale,2026-02-27 06:05:00+00:00,Fly-half,prior_recorded_start,False,Back-three,False
 8542978,169320,Highlanders,Tanielu Tele'a,2026-02-27 08:35:00+00:00,Centre,prior_recorded_start,False,Back-three,False
@@ -25030,7 +24927,6 @@ fixture_id,player_id,team,player_name,match_at,position,position_source,is_forwa
 8556955,5561064,Auckland,Garouw Basson,2026-08-01 07:10:00+00:00,Unknown,unknown_no_prior_start,False,Back-three,False
 8556955,225750,Canterbury,Tevita Latu,2026-08-01 07:10:00+00:00,Centre,prior_recorded_start,False,Back-three,False
 8556955,416580,Canterbury,Finn McLeod,2026-08-01 07:10:00+00:00,Unknown,unknown_no_prior_start,False,Back-row,True
-8556964,203454,Manawat?,John Tapueluelu,2026-08-02 02:05:00+00:00,Centre,prior_recorded_start,False,Back-three,False
 8556964,365940,Manawat?,Doug Philipson,2026-08-02 02:05:00+00:00,Unknown,unknown_no_prior_start,False,Scrum-half,False
 8556964,382074,Manawat?,Reuben Allen,2026-08-02 02:05:00+00:00,Unknown,unknown_no_prior_start,False,Second-row,True
 8556964,416190,Manawat?,Alani Fakava,2026-08-02 02:05:00+00:00,Unknown,unknown_no_prior_start,False,Hooker,True
@@ -25038,7 +24934,6 @@ fixture_id,player_id,team,player_name,match_at,position,position_source,is_forwa
 8556964,406578,Northland,Heath MacEwan,2026-08-02 02:05:00+00:00,Unknown,unknown_no_prior_start,False,Hooker,True
 8556964,5411268,Northland,Olly Ryan,2026-08-02 02:05:00+00:00,Unknown,unknown_no_prior_start,False,Prop,True
 8556964,5411286,Northland,Reuben Stewart,2026-08-02 02:05:00+00:00,Unknown,unknown_no_prior_start,False,Back-three,False
-8556973,231018,Hawke's Bay,Nic Benn,2026-08-02 05:05:00+00:00,Unknown,unknown_no_prior_start,False,Back-three,False
 8556973,423114,Hawke's Bay,Kade Manuel,2026-08-02 05:05:00+00:00,Unknown,unknown_no_prior_start,False,Scrum-half,False
 8556973,5408802,Hawke's Bay,Anaru Paenga-Morgan,2026-08-02 05:05:00+00:00,Centre,prior_recorded_start,False,Fly-half,False
 8556973,135060,Wellington,Murphy Taramai,2026-08-02 05:05:00+00:00,Back-row,prior_recorded_start,True,Fly-half,False
@@ -25093,7 +24988,7 @@ fixture_id,player_id,team,player_name,match_at,position,position_source,is_forwa
 8557009,406578,Northland,Heath MacEwan,2026-08-08 05:05:00+00:00,Unknown,unknown_no_prior_start,False,Hooker,True
 8557009,5411268,Northland,Olly Ryan,2026-08-08 05:05:00+00:00,Unknown,unknown_no_prior_start,False,Prop,True
 8557009,5411286,Northland,Reuben Stewart,2026-08-08 05:05:00+00:00,Unknown,unknown_no_prior_start,False,Back-three,False
-8557018,231018,Hawke's Bay,Nic Benn,2026-08-08 07:10:00+00:00,Unknown,unknown_no_prior_start,False,Fly-half,False
+8557018,231018,Hawke's Bay,Nic Benn,2026-08-08 07:10:00+00:00,Back-three,prior_recorded_start,False,Fly-half,False
 8557018,423114,Hawke's Bay,Kade Manuel,2026-08-08 07:10:00+00:00,Unknown,unknown_no_prior_start,False,Scrum-half,False
 8557018,379530,Tasman,Matt Lowe,2026-08-08 07:10:00+00:00,Unknown,unknown_no_prior_start,False,Back-row,True
 8557018,386868,Tasman,Mason Lund,2026-08-08 07:10:00+00:00,Unknown,unknown_no_prior_start,False,Scrum-half,False
@@ -25142,9 +25037,8 @@ fixture_id,player_id,team,player_name,match_at,position,position_source,is_forwa
 8562067,380724,Argentina XV,Juan Greising Revol,2026-08-14 23:30:00+00:00,Unknown,unknown_no_prior_start,False,Hooker,True
 8562067,5557476,Argentina XV,Federico Serpa,2026-08-14 23:30:00+00:00,Unknown,unknown_no_prior_start,False,Fly-half,False
 8562067,5562048,Argentina XV,Felipe Villagran,2026-08-14 23:30:00+00:00,Unknown,unknown_no_prior_start,False,Back-row,True
-8562067,162642,USA,Alex Maughan,2026-08-14 23:30:00+00:00,Unknown,unknown_no_prior_start,False,Hooker,True
+8562067,162642,USA,Alex Maughan,2026-08-14 23:30:00+00:00,Prop,prior_recorded_start,True,Hooker,True
 8562067,186300,USA,Davy Coetzer,2026-08-14 23:30:00+00:00,Unknown,unknown_no_prior_start,False,Back-three,False
-8562067,193722,USA,Tevita Naqali,2026-08-14 23:30:00+00:00,Unknown,unknown_no_prior_start,False,Second-row,True
 8562067,211806,USA,Fakaosifolau Pifeleti,2026-08-14 23:30:00+00:00,Unknown,unknown_no_prior_start,False,Prop,True
 8562067,228870,USA,Lance Williams,2026-08-14 23:30:00+00:00,Unknown,unknown_no_prior_start,False,Scrum-half,False
 8562067,230808,USA,Ma'ake Muti,2026-08-14 23:30:00+00:00,Unknown,unknown_no_prior_start,False,Prop,True
@@ -25164,7 +25058,7 @@ fixture_id,player_id,team,player_name,match_at,position,position_source,is_forwa
 8557063,5562486,Canterbury,Phoenix Abbott,2026-08-15 02:05:00+00:00,Unknown,unknown_no_prior_start,False,Back-row,True
 8557072,379506,Auckland,King Maxwell,2026-08-15 05:05:00+00:00,Unknown,unknown_no_prior_start,False,Fly-half,False
 8557072,416514,Auckland,Siale Pahulu,2026-08-15 05:05:00+00:00,Unknown,unknown_no_prior_start,False,Back-three,False
-8557072,231018,Hawke's Bay,Nic Benn,2026-08-15 05:05:00+00:00,Unknown,unknown_no_prior_start,False,Fly-half,False
+8557072,231018,Hawke's Bay,Nic Benn,2026-08-15 05:05:00+00:00,Back-three,prior_recorded_start,False,Fly-half,False
 8557081,144756,Manawat?,Ngani Laumape,2026-08-15 07:10:00+00:00,Centre,prior_recorded_start,False,Back-three,False
 8557081,210504,Manawat?,Drew Wild,2026-08-15 07:10:00+00:00,Back-three,prior_recorded_start,False,Fly-half,False
 8557081,215778,Manawat?,Taine Roiri,2026-08-15 07:10:00+00:00,Second-row,prior_recorded_start,True,Back-row,True
@@ -25260,7 +25154,7 @@ fixture_id,player_id,team,player_name,match_at,position,position_source,is_forwa
 8557171,5410014,Southland,Aukusitino Salanoa,2026-08-27 07:10:00+00:00,Unknown,unknown_no_prior_start,False,Hooker,True
 8557171,5420250,Southland,Jackson Hughan,2026-08-27 07:10:00+00:00,Unknown,unknown_no_prior_start,False,Scrum-half,False
 8557171,5562864,Southland,Darius Fidow,2026-08-27 07:10:00+00:00,Unknown,unknown_no_prior_start,False,Prop,True
-8557180,209898,Auckland,Nikolai Foliaki,2026-08-28 07:10:00+00:00,Centre,prior_recorded_start,False,Fly-half,False
+8557180,209898,Auckland,Nikolai Foliaki,2026-08-28 07:10:00+00:00,Back-three,prior_recorded_start,False,Fly-half,False
 8557180,364092,Auckland,Robson Faleafa,2026-08-28 07:10:00+00:00,Unknown,unknown_no_prior_start,False,Prop,True
 8557180,422934,Auckland,Caleb Woodley,2026-08-28 07:10:00+00:00,Unknown,unknown_no_prior_start,False,Back-row,True
 8557180,196932,Bay Of Plenty,Viliami Lea,2026-08-28 07:10:00+00:00,Unknown,unknown_no_prior_start,False,Back-three,False
@@ -25423,7 +25317,7 @@ fixture_id,player_id,team,player_name,match_at,position,position_source,is_forwa
 8557306,382428,Otago,Oliver Thode,2026-09-11 07:10:00+00:00,Unknown,unknown_no_prior_start,False,Scrum-half,False
 8557306,5566236,Otago,Cam Allen-McNeill,2026-09-11 07:10:00+00:00,Unknown,unknown_no_prior_start,False,Prop,True
 8557306,382434,Tasman,Jake Pacey,2026-09-11 07:10:00+00:00,Unknown,unknown_no_prior_start,False,Fly-half,False
-8557315,209898,Auckland,Nikolai Foliaki,2026-09-12 02:05:00+00:00,Centre,prior_recorded_start,False,Fly-half,False
+8557315,209898,Auckland,Nikolai Foliaki,2026-09-12 02:05:00+00:00,Back-three,prior_recorded_start,False,Fly-half,False
 8557315,364092,Auckland,Robson Faleafa,2026-09-12 02:05:00+00:00,Unknown,unknown_no_prior_start,False,Prop,True
 8557315,340356,Counties Manukau,Tevita Ofa,2026-09-12 02:05:00+00:00,Centre,prior_recorded_start,False,Back-three,False
 8557315,379518,Counties Manukau,Kurene Luamanuvae,2026-09-12 02:05:00+00:00,Unknown,unknown_no_prior_start,False,Prop,True

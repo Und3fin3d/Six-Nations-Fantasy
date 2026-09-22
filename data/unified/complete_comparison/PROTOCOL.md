@@ -14,7 +14,7 @@ Three NCR crosswalk corrections use exact names from cached teamsheets dated bef
 
 ## Evaluation population
 
-The canonical store contains 179,295 distinct player-match-team rows from 3,892 fixtures. Club and earlier international matches supply training history. They do not constitute independent official fantasy outcomes. Source counts and date ranges are recorded separately in source_inventory.csv.
+The complete research store contains 179,295 distinct player-match-team rows from 3,892 fixtures. Club and earlier international matches supply training history. They do not constitute independent official fantasy outcomes. Source counts and date ranges are recorded separately in source_inventory.csv.
 
 The official-score comparison covers ten complete Six Nations teamsheets from 2025–2026 and NCR GW1–3. The Six Nations optimization remains an oracle-teamsheet exercise without archived prices. NCR retains its existing lock and budget rules. Scores from 2023 use an older rubric and are not pooled with modern official points. NCR GW4–7 occur in November 2026 and have no outcomes at the evaluation date.
 
@@ -22,7 +22,7 @@ The raw-event comparison covers 374 distinct international fixtures in 22 tourna
 
 ## Fixed candidates
 
-The candidates are the existing empirical model, the native-category P3 50/50 blend, the existing event-weighted native blend, and p3_robust_native. The official comparison also retains the existing saved research references. No weights or hyperparameters are selected from these new results. The raw empirical event comparator differs from the official fantasy empirical baseline.
+The candidates are the existing empirical model, the native-category P3 50/50 blend, the existing event-weighted native blend, and p3_robust_native. The official comparison also includes a tournament-frozen native 50/50 control fitted at the first slate lock. No weights or hyperparameters are selected from these new results. The raw empirical event comparator differs from the official fantasy empirical baseline.
 
 Existing weights were developed with historical research. Therefore this is a retrospective comparison with broader coverage, not an untouched prospective holdout. Repeated inspection of these seasons limits promotion claims. Production routing remains unchanged.
 
@@ -56,9 +56,9 @@ The first incomplete run exposed substitute jersey numbers being treated as play
 
 The corrected store uses the current jersey for starting players. For substitutes, it uses the latest recorded starting role that was available more than three hours before the match. Raw-block candidates use only that block's training history. This removes future-derived global modal positions and does not assume a fixed five-forward/three-back bench. All 480 modern Six Nations substitute appearances have prior-start support, including at their tournament-start cutoff. Their inferred playing roles are not claimed to reproduce an unavailable historical fantasy catalogue.
 
-Across the full store, 51,133 substitute appearances have prior-start support; 10,073 have none and receive the explicit Unknown position. No unknown-role Six Nations slate is accepted. The existing binary is_forward feature is false for Unknown; raw-event cohorts expose Unknown separately, and no official fantasy result uses an unknown role. NCR candidates retain their fantasy-catalogue positions. Every model is refitted because the corrected training roles affect NCR as well as Six Nations.
+Across the full store, 52,019 substitute appearances have prior-start support; 10,469 have none and receive the explicit Unknown position. No unknown-role Six Nations slate is accepted. The existing binary is_forward feature is false for Unknown; raw-event cohorts expose Unknown separately, and no official fantasy result uses an unknown role. NCR candidates retain their fantasy-catalogue positions. Every model is refitted because the corrected training roles affect NCR as well as Six Nations.
 
-The correction changes 143 modern Six Nations substitute roles and 38 forward/back classifications versus the previous jersey mapping. Historical differences are inference changes, not independently verified official position changes. position_changes.csv records the changed rows and their source classification.
+The correction changes 143 modern Six Nations substitute roles and 38 forward/back classifications versus the previous jersey mapping. Historical differences are inference changes, not independently verified official position changes. position_changes.csv records changed rows present in the original comparison store and their source classification. New cache-only rows have no old position to compare and appear in cached_population_additions.csv.
 
 All official models share the same current-slate playing roles and selection constraints. The official tournament-frozen control freezes fitted parameters and form history, while accepting the current teamsheet and the same pre-slate role metadata as its competitors. Its prediction roles and pool roles match. It is not a forecast made before the future teamsheet was known.
 

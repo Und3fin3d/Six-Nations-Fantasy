@@ -1,0 +1,24 @@
+{
+  "checked": [
+    "/private/tmp/6n-pr-decision/checkout/model/unified/raw_benchmark/coverage.py",
+    "/private/tmp/6n-pr-decision/checkout/model/unified/rolling_eval.py",
+    "/private/tmp/6n-pr-decision/checkout/research/summarise_complete_comparison.py"
+  ],
+  "unsupported": [],
+  "findings": [
+    {
+      "path": "/private/tmp/6n-pr-decision/checkout/model/unified/raw_benchmark/coverage.py",
+      "line": 50,
+      "function": "parse_cache_fixture",
+      "complexity": 25,
+      "limit": 15
+    },
+    {
+      "path": "/private/tmp/6n-pr-decision/checkout/model/unified/rolling_eval.py",
+      "line": 251,
+      "function": "run",
+      "complexity": 28,
+      "limit": 15
+    }
+  ]
+}

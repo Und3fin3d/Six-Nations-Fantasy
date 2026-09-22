@@ -43,3 +43,5 @@ The workflow complete-model-comparison.yml runs 13 official-slate jobs and 21 ra
 Run an official slate with `python -m model.unified.rolling_eval --native-categories --competitions six_nations --round-job six_nations_2025_r1 --output OUTPUT`.
 
 Run a raw block with `python -m research.raw_comparison --fold six_nations_2022 --output OUTPUT`.
+
+Before any successful fit, source inspection identified newly recorded events without earlier international training support: fifty_22, lineout_steals and potm in Six Nations 2023; scrums_won in 2025; kicks_retained in 2026. The raw comparison records each model's forecast support separately. Paired metrics use only observed rows with forecasts from every candidate. Unexpected missing forecasts for a target with prior international support stop the job. Unsupported targets are not replaced by zero.

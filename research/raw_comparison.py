@@ -55,6 +55,29 @@ def fixture_errors(evaluation, predictions, engine):
     return pd.concat(tables, ignore_index=True)
 
 
+def common_supported_rows(train, evaluation, forecasts):
+    scored = evaluation.copy()
+    support = []
+    international = train[train.competition_level.eq('international')]
+    for target in ('minutes', *STABLE_EVENTS, *EXTENDED_EVENTS):
+        observed = evaluation[f'available__{target}'].fillna(False).to_numpy(bool)
+        observed &= np.isfinite(pd.to_numeric(evaluation[target], errors='coerce').to_numpy(float))
+        common = observed.copy()
+        training_support = international[f'available__{target}'].fillna(False).any()
+        for engine, predictions in forecasts.items():
+            finite = np.isfinite(prediction_means(predictions, target))
+            if training_support and not finite[observed].all():
+                raise ValueError(f'{engine}: missing predictions for supported {target}')
+            support.append(dict(engine=engine, target=target, observed=int(observed.sum()),
+                                predicted_observed=int((observed & finite).sum()),
+                                training_supported=bool(training_support)))
+            common &= finite
+        scored[f'available__{target}'] = common
+        for row in support[-len(forecasts):]:
+            row['common_observed'] = int(common.sum())
+    return scored, pd.DataFrame(support)
+
+
 def run(output, fold_name):
     from model_env_preflight import check
     errors = check(ROOT/'requirements-model.txt')
@@ -81,7 +104,7 @@ def run(output, fold_name):
     naive = NaiveComparator.fit(train, ('minutes', *STABLE_EVENTS, *EXTENDED_EVENTS))
     history = train.groupby('player_id').fixture_id.nunique()
     evaluation['career_matches'] = evaluation.player_id.map(history).fillna(0)
-    events, errors = [], []
+    forecasts = {}
     for engine, model in models.items():
         predictions = model.predict_frame(candidates)
         actual_keys = list(zip(evaluation.fixture_id.astype(str), evaluation.player_id.astype(str), evaluation.team))
@@ -89,8 +112,13 @@ def run(output, fold_name):
         if actual_keys != predicted_keys:
             raise ValueError(f'{engine}: prediction keys do not match the evaluation')
         (output/f'{engine}.jsonl').write_text(''.join(json.dumps(p.to_dict())+'\n' for p in predictions))
-        events.append(event_metrics(evaluation, predictions, naive, engine=engine, fold=fold_name))
-        errors.append(fixture_errors(evaluation, predictions, engine).assign(fold=fold_name))
+        forecasts[engine] = predictions
+    scored, support = common_supported_rows(train, evaluation, forecasts)
+    support.assign(fold=fold_name).to_csv(output/'target_support.csv', index=False)
+    events, errors = [], []
+    for engine, predictions in forecasts.items():
+        events.append(event_metrics(scored, predictions, naive, engine=engine, fold=fold_name))
+        errors.append(fixture_errors(scored, predictions, engine).assign(fold=fold_name))
     pd.concat(events, ignore_index=True).to_csv(output/'events.csv', index=False)
     pd.concat(errors, ignore_index=True).to_csv(output/'fixture_errors.csv', index=False)
     print(f'Completed {fold_name}: {len(evaluation):,} rows, {len(fold.fixture_ids)} fixtures', flush=True)

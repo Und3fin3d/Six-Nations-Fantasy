@@ -1,8 +1,8 @@
 # Model selection and evaluation decision, 22 September 2026
 
-PR #20 is the preferred incremental merge. Its `p3_robust_native` model is the strongest retained shared candidate available in an open pull request. No evaluated model has established universal deployment superiority.
+PR #20 was merged as an incremental correctness and research change. Its `p3_robust_native` model remains the retained shared research reference. No evaluated model has established universal deployment superiority.
 
-Issue #21 records a later retained candidate: corrected identities, the historical goal-kicking-role gate and an independent robust minutes head. That package is absent from both open pull requests. The remote `codex/unified-refinements-pr-20260920` branch currently points to the unchanged PR #20 head. Closing the documentation issue does not complete its outstanding research actions or publish that package.
+Issue #21 records a later retained candidate: corrected identities, the historical goal-kicking-role gate and an independent robust minutes head. That package is absent from PR #7 and PR #20. At the merge review, the remote `codex/unified-refinements-pr-20260920` branch pointed to the unchanged PR #20 head. Closing the documentation issue does not complete its outstanding research actions or publish that package.
 
 ## Comparable recorded results
 
@@ -19,11 +19,13 @@ These are recorded historical results, not fresh model fits performed for this r
 
 PR #20 uses the original player crosswalk. Its identity-corrected NCR reference is 8.374655 / 1740. Therefore, the two candidate columns are different evaluation revisions. Their NCR MAEs cannot isolate the effects of the role and minutes refinements. Friendly-15 values come from issue #21's later evaluation; PR #20 itself contains only the three tournament evaluations.
 
-Both Six Nations team totals are price-free diagnostics. NCR has budget checks, but GW3 uses corrected final lineups and retrospective prices. The candidate loses Six Nations 2025 MAE. PR #20's NCR gain comes entirely from GW2; it loses GW1 and GW3. All three recorded round-bootstrap intervals for team-point gains include zero.
+Both Six Nations team totals are price-free diagnostics on restricted labelled pools. The [independent audit](../data/unified/pr20_verification/REPORT.md) found 38 omitted teamsheet rows, including 26 players who took the field. Complete-pool superiority remains unverified. NCR has budget checks, but GW3 uses corrected final lineups and retrospective prices. The candidate loses Six Nations 2025 MAE. PR #20's NCR gain comes entirely from GW2; it loses GW1 and GW3. All three recorded round-bootstrap intervals for team-point gains include zero.
 
 ## Why PR #7 was not selected
 
 E4 has a strong historical raw score of 0.869656. However, its pooled reconstructed fantasy scores do not compare complete deployed pipelines. Its own board reports NCR-rubric MAE of 6.3091 for the Nations Championship family, against empirical 6.2925. It also lacks a prediction-time entry point. It has no comparable complete four-part scoreboard. These findings do not support its title's claim of winning every competition.
+
+The [PR #7 archive](../data/unified/research_synthesis/pr7/REPORT.md) preserves every phase-2 trial and its useful findings. The closure review also confirmed that its temporal comparison applies C5 weight indices to the wrong component table. The reported E4 temporal gain is invalid. The original raw means remain recorded evidence, without a verified chronological promotion result.
 
 ## Comprehensive measurement protocol
 
@@ -42,7 +44,7 @@ The rolling-origin design follows [Forecasting: Principles and Practice](https:/
 
 The reviewed PR #20 head was `73fb3ce9a010480ed2443a6bca1eefc395d55072`, against main `64485d2e374178b51108a298683b9ba43ab9628b`. Its model and test files exactly match the source from the recorded successful 121-test Actions run.
 
-After the cache correction, all 121 existing tests passed locally in 314.02 seconds. The run used Python 3.11.15 and the pinned `requirements-model.txt` and `requirements-unified.txt` packages, with external pytest plugins disabled and `OMP_THREAD_LIMIT=2`. It included the genuine frozen LFS model and the neural path. There were 156 pandas fragmentation warnings. The environment preflight, CLI help, all nine input hashes and `git diff --check` also passed. An earlier attempt in the existing Python 3.12 environment stopped during collection because BeautifulSoup was missing; the complete pinned-environment run supersedes it. No full historical comparison was refitted for this review.
+After the cache correction, all 121 existing tests passed locally in 314.02 seconds. The run used Python 3.11.15 and the pinned `requirements-model.txt` and `requirements-unified.txt` packages, with external pytest plugins disabled and `OMP_THREAD_LIMIT=2`. It included the genuine frozen LFS model and the neural path. There were 156 pandas fragmentation warnings. The environment preflight, CLI help, all nine input hashes and `git diff --check` also passed. An earlier attempt in the existing Python 3.12 environment stopped during collection because BeautifulSoup was missing; the complete pinned-environment run supersedes it. No full historical comparison was refitted for this merge review. The subsequent [independent audit](../data/unified/pr20_verification/REPORT.md) recalculated all 13 rounds and freshly fitted NCR GW2. That fit reproduced all four MAEs, squads and team totals, with expected-point differences at most 1.07e-14.
 
 The independent specification review found one cache-provenance defect. The run manifest now hashes all nine previously omitted evaluation files before accepting cached models. These include fixtures, teams, crosswalk, official feeds, saved projections and Six Nations targets. The reviewer checked the full exercised data-loading call graph and accepted the correction. No model parameters, fitted artifacts, tests or production routing were changed during this review.
 

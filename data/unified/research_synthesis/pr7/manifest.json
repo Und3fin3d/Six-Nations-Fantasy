@@ -1,0 +1,18 @@
+{
+  "original_commit": "d936d0f13703fda7b88071ce02b72955bd9097be",
+  "original_tree": "data/unified/raw_benchmark/allrugby_p3/phase2",
+  "original_files_sha256": {
+    "board_by_fold.csv": "cd59bc103a8b37e6f7205111819ac67373138a3f75214a4ede05c1291f656b55",
+    "results.json": "c0164cd0ff5e4129d3322e9d347e4c692f8859621dd660ab3e2ab4fbd059676a",
+    "board_by_tournament.csv": "81bb9a9cbb13d1e75a3370544d313562bfb30463dfef539119e9d494a513bdac",
+    "BOARD.md": "b73d5f4f56b3cbaa07ce1c176fbda657a5de35061ccdb325bb1ed2a12dbdb50c",
+    "LEDGER.md": "9cdd167c9332140977ea468e0e811accae3591413229eb02a002c4d72110d997",
+    "board_winners_mae.csv": "84995099c28def33716c398a5a1b398a39bb125f3047b27febb5c84bd439fdc1",
+    "control.json": "326faf3364a09a16b122d610535630cbf279d113bbc23e92c8af95b0c6731c1d",
+    "board_rankings.csv": "45476eae6b7bfd86ec58cf9d1363467b8fa2fdfab5e784f175a08fe63853ff64",
+    "board_overall.csv": "c135640a1176671bf8acca3205dbeb9c1f8ebcc2ae3dd8950dd75f273c691816"
+  },
+  "decision": "close_without_merging_runner",
+  "temporal_comparison": "invalid; see REPORT.md",
+  "main_crossfitted_means": "recomputed from saved fold arrays; not freshly fitted"
+}

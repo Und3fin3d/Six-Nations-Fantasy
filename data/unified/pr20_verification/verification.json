@@ -1,0 +1,24 @@
+{
+  "round_model_rows": 130,
+  "native_rows": 65,
+  "rolling_rows": 65,
+  "raw_prediction_files": 78,
+  "max_raw_error": 1.4210854715202004e-14,
+  "failures": [],
+  "summary_comparisons": [
+    {
+      "family": "native",
+      "rows": 15,
+      "max_mae_difference": 8.881784197001252e-16,
+      "max_points_difference": 0.0
+    },
+    {
+      "family": "rolling",
+      "rows": 15,
+      "max_mae_difference": 1.7763568394002505e-15,
+      "max_points_difference": 0.0
+    }
+  ],
+  "missing_six_nations_labels": 38,
+  "missing_played": 26
+}

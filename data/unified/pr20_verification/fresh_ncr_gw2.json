@@ -1,0 +1,20 @@
+{
+  "source_commit": "599a51987eaac8830c6d1b20870c8c6c3b6747b7",
+  "command": "OMP_THREAD_LIMIT=2 OPENBLAS_NUM_THREADS=1 python -u -m model.unified.rolling_eval --native-categories --round-job ncr_2026_r2 --output FRESH_DIRECTORY",
+  "freshly_fitted": true,
+  "rounds_freshly_fitted": 1,
+  "rounds_recalculated_from_original_artifacts": 13,
+  "fit_score_elapsed_seconds": 730.9,
+  "store_sha256_equal": true,
+  "weight_config_sha256_equal": true,
+  "source_changes": [
+    "model/unified/rolling_eval.py"
+  ],
+  "round_manifest_equal": true,
+  "max_prediction_difference": 1.0658141036401503e-14,
+  "max_mae_difference": 0.0,
+  "all_squads_and_roles_equal": true,
+  "all_team_points_equal": true,
+  "all_candidates_and_actuals_equal": true,
+  "retained_model_binaries": false
+}

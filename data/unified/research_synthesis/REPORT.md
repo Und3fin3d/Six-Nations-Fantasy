@@ -4,6 +4,8 @@ This report preserves verified findings from PRs #3, #4, and #5.
 PR #6 supplies the canonical implementation and audit trail.
 The superseded PR runners and large artifact trees are not merged.
 
+The [PR #7 archive](pr7/REPORT.md) preserves all phase-2 component and calibration findings, including rejected candidates. It records the later temporal-comparison defect and the decision to close PR #7 without merging its runner.
+
 ## Decision
 
 Merge the PR #6 event-weight search and retrospective checkpoint infrastructure.

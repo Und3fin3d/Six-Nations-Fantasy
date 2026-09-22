@@ -1,5 +1,9 @@
 # Matched rolling-history evaluation — 2026-09-19
 
+## Independent audit, 2026-09-22
+
+The [independent verification](../pr20_verification/REPORT.md) reproduces all 65 model/round scores in this comparison. The Six Nations pools omit 38 teamsheet rows with missing official labels. Some labels exist under unmatched names. Results below apply to the same restricted labelled pools and remain price-free diagnostics. They do not establish complete-pool team superiority.
+
 ## Decision
 
 **Do not open a PR or promote a model.** The history corrections are implemented and tested on the working branch. No tested candidate improves both MAE and team points in every evaluated tournament-season. Main, deployed incumbents, and the frozen P3 prospective shadow are unchanged.

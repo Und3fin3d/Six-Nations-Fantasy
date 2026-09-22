@@ -1,0 +1,5 @@
+engine,n,original_mae,fresh_mae,mae_difference,max_prediction_difference,original_team_points,fresh_team_points,same_candidate_ids,same_actuals,same_squad_and_roles
+empirical_baseline,262,8.39324427480916,8.39324427480916,0.0,0.0,493.0,493.0,True,True,True
+p3_rolling_native,262,8.30795337459331,8.30795337459331,0.0,7.105427357601002e-15,737.0,737.0,True,True,True
+p3_weighted_native,262,8.256123911885705,8.256123911885705,0.0,7.105427357601002e-15,681.0,681.0,True,True,True
+p3_robust_native,262,8.308258510134976,8.308258510134976,0.0,1.0658141036401503e-14,694.0,694.0,True,True,True

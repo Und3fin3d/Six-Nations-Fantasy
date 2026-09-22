@@ -1,0 +1,39 @@
+season,round,fixture_id,player_id,team,player_name,minutes,started
+2025,1,8476108,165192,France,Georges-Henri Colombe,31,False
+2025,1,8476108,231696,France,Emilien Gailleton,14,False
+2025,1,8476108,111690,Wales,Liam Williams,80,True
+2025,1,8476108,136476,Wales,Owen Watkin,26,True
+2025,1,8476117,118614,Italy,Juan Ignacio Brex,80,True
+2025,1,8476117,231762,Italy,Luca Rizzoli,13,False
+2025,1,8476126,172428,England,Cadan Murley,80,True
+2025,2,8476135,118614,Italy,Juan Ignacio Brex,80,True
+2025,2,8476144,264444,England,Chandler Cunningham-South,0,False
+2025,2,8476144,148404,England,Harry Randall,0,False
+2025,2,8476144,231696,France,Emilien Gailleton,0,False
+2025,3,8476162,116400,Wales,Rhodri Williams,0,False
+2025,3,8476180,118614,Italy,Juan Ignacio Brex,80,True
+2025,4,8476207,118614,Italy,Juan Ignacio Brex,80,True
+2025,5,8476216,118614,Italy,Juan Ignacio Brex,80,True
+2025,5,8476234,203400,Scotland,Will Hurd,0,False
+2026,1,8523943,207432,France,Regis Montagne,31,False
+2026,1,8523943,238278,France,Hugo Auradou,31,False
+2026,1,8523952,118614,Italy,Juan Ignacio Brex,80,True
+2026,1,8523952,202974,Italy,Giacomo Da Re,0,False
+2026,1,8523952,214146,Scotland,Jamie Dobie,49,True
+2026,1,8523952,142002,Scotland,Adam Hastings,0,False
+2026,1,8523961,206706,Wales,Taine Plumtree,30,False
+2026,2,8523979,214146,Scotland,Jamie Dobie,74,True
+2026,2,8523979,117864,Scotland,George Turner,50,True
+2026,2,8523979,130536,Scotland,Jamie Ritchie,40,True
+2026,2,8523979,111864,Scotland,Dave Cherry,30,False
+2026,2,8523988,206706,Wales,Taine Plumtree,30,False
+2026,2,8523988,207432,France,Regis Montagne,30,False
+2026,2,8523988,341154,France,Noah Nene,13,False
+2026,3,8524006,206706,Wales,Taine Plumtree,9,True
+2026,3,8524006,135900,Wales,Kieran Hardy,0,False
+2026,4,8524024,135900,Wales,Kieran Hardy,0,False
+2026,4,8524024,139716,Wales,Jarrod Evans,0,False
+2026,4,8524042,118614,Italy,Juan Ignacio Brex,50,True
+2026,5,8524060,118614,Italy,Juan Ignacio Brex,69,True
+2026,5,8524069,121830,France,Baptiste Serin,0,False
+2026,5,8524069,231696,France,Emilien Gailleton,0,False

@@ -80,9 +80,9 @@ def common_supported_rows(train, evaluation, forecasts):
 
 def run(output, fold_name):
     from model_env_preflight import check
-    errors = check(ROOT/'requirements-model.txt')
-    if errors:
-        raise RuntimeError('; '.join(errors))
+    environment_errors = check(ROOT/'requirements-model.txt')
+    if environment_errors:
+        raise RuntimeError('; '.join(environment_errors))
     warnings.filterwarnings('ignore', category=pd.errors.PerformanceWarning)
     store = prepare_store(output)
     folds = {f.label: f for f in build_folds(store)}
@@ -115,12 +115,12 @@ def run(output, fold_name):
         forecasts[engine] = predictions
     scored, support = common_supported_rows(train, evaluation, forecasts)
     support.assign(fold=fold_name).to_csv(output/'target_support.csv', index=False)
-    events, errors = [], []
+    event_tables, fixture_error_tables = [], []
     for engine, predictions in forecasts.items():
-        events.append(event_metrics(scored, predictions, naive, engine=engine, fold=fold_name))
-        errors.append(fixture_errors(scored, predictions, engine).assign(fold=fold_name))
-    pd.concat(events, ignore_index=True).to_csv(output/'events.csv', index=False)
-    pd.concat(errors, ignore_index=True).to_csv(output/'fixture_errors.csv', index=False)
+        event_tables.append(event_metrics(scored, predictions, naive, engine=engine, fold=fold_name))
+        fixture_error_tables.append(fixture_errors(scored, predictions, engine).assign(fold=fold_name))
+    pd.concat(event_tables, ignore_index=True).to_csv(output/'events.csv', index=False)
+    pd.concat(fixture_error_tables, ignore_index=True).to_csv(output/'fixture_errors.csv', index=False)
     print(f'Completed {fold_name}: {len(evaluation):,} rows, {len(fold.fixture_ids)} fixtures', flush=True)
 
 

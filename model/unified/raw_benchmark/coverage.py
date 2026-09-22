@@ -5,8 +5,6 @@ from __future__ import annotations
 import collections
 import hashlib
 import json
-import re
-import unicodedata
 from pathlib import Path
 
 import numpy as np
@@ -38,16 +36,6 @@ def _number(value: object) -> float:
         return float(value)
     except (TypeError, ValueError):
         return float("nan")
-
-
-def _name_key(name: object) -> str:
-    if not isinstance(name, str) or not name.strip():
-        return ""
-    plain = unicodedata.normalize("NFKD", name).encode("ascii", "ignore").decode()
-    parts = plain.strip().split()
-    initial = parts[0][0].lower()
-    surname = "".join(parts[1:] if len(parts) > 1 else parts)
-    return initial + "|" + re.sub(r"[^a-z]", "", surname.lower())
 
 
 def _hemisphere(team: object) -> str:

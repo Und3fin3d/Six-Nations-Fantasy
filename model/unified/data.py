@@ -3,8 +3,6 @@
 from __future__ import annotations
 
 import hashlib
-import re
-import unicodedata
 from pathlib import Path
 from typing import Iterable
 
@@ -31,17 +29,6 @@ OFFICIAL_EVENT_COLUMNS = {
     "50-22": "fifty_22", "LS": "lineout_steals", "SW": "scrums_won",
     "KR": "kicks_retained", "POTM": "potm",
 }
-
-
-def _name_key(name: object) -> str:
-    """Match ``Louis Bielle-Biarrey`` to official ``L. Bielle-Biarrey``."""
-    if not isinstance(name, str) or not name.strip():
-        return ""
-    plain = unicodedata.normalize("NFKD", name).encode("ascii", "ignore").decode().strip()
-    parts = plain.split()
-    initial = parts[0][0].lower()
-    surname = "".join(parts[1:] if len(parts) > 1 else parts)
-    return initial + "|" + re.sub(r"[^a-z]", "", surname.lower())
 
 
 def _attach_official_labels(frame: pd.DataFrame) -> pd.DataFrame:

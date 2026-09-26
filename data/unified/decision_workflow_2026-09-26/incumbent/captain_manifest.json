@@ -1,0 +1,29 @@
+{
+  "input_forecasts_sha256": "41ac2105b3f47e7944b5384617655f640a53c9871a5b9461f8473e721119a066",
+  "input_sha256": {
+    "data/6n_players.csv": "0271ebd3b2bde0a85e536a85ae17afb5873e25055a7df9ccca43aa2ee351a8f3",
+    "data/api_player_match.csv": "63e97b3deacf4f3601458fc57fd699e0a0e4f3b71a521984f421e934c3b4e56d",
+    "data/api_team_match.csv": "247907335355de6848c177ce15bf2da4d3e80e3e19e2c4a5410593c7e04fc1ce",
+    "data/fixture_difficulty.csv": "683e8806c6edeb1a850a6982e517b5c60200818fa62277fb5508b3c0b5b9c635",
+    "data/model_player_match.csv": "184754def0144f5fdfa7d15ae3ce2344c6e777ede6131474821a99d4d72358d2",
+    "data/model_targets.csv": "0250912ed4bcbf640a9733c74aa0fa39dc45c97d0d6281e8716c55f314b01459",
+    "data/official_player_match.csv": "e61b9680e2861ff70cf4e536b3d9009b7e2022217c0a7847fe27a5aaa0dcf144",
+    "data/player_crosswalk.csv": "93a87363d5b48dea5491240cc7138813c232c8a3c12670ad3cf4e1945f3daa15",
+    "data/rp_bio.csv": "07eb3afb8e9bf0c44985678999db92b9f320f1e022de6ec86fb9a9b349d32690",
+    "data/rp_compstats.csv": "bf013e2b74434c3a3ce73bcad69a17bcdec53e24801ddde9252c9b615ad02464",
+    "data/team_play_predictions.csv": "4000ba4da6fdd5495f41b5d8f50eba0f365deed348a5410b9c729393bee59b78",
+    "data/wr_rankings.csv": "561fb3ddcbda5347ad5a429037e1dc93aa81cd31cb440374f37f8cba6a3bba92",
+    "research/promoted_config.json": "049b4e7c94c6a61cac1746ff7a9f4bcf77041711a6c49d422d076fe845cc95f6"
+  },
+  "original_manifest_sha256": "2d0c30a06fb7792d7dfd566c52ac723a7dec59f4a098a75d67263d9e2f2ab53b",
+  "outcome_status": "Already consulted historical outcomes; no independent holdout.",
+  "repair": "Known modern official outcomes, otherwise deterministic reconstruction, for prior player variance and positional ceiling.",
+  "scope": "Captain and upside scores only; point, selector, supersub and raw component forecasts must be identical.",
+  "source_sha256": {
+    "model/data.py": "76d346c5a1bfa1043342126f988dc9f05db0d1c1a881eee50024a299ca06b951",
+    "model/evaluate.py": "1229718e77e5d75bc1427de03b2a4e8e710c121a724ff8bd1229d60912f4b91b",
+    "model/research.py": "5750e8af09d44446202a806e4e99e7fe989560e14fdf3146679394eb687e4bb4",
+    "research/incumbent_captain_replay.py": "4f37019c88ac078db9ba53664370907e5f14530f9e47799e113ce46e56f11d22",
+    "research/incumbent_replay.py": "dba98adf3efbd122112c1ca7014efddfdf90acf4ccc3e76eff6aa6908a50227a"
+  }
+}

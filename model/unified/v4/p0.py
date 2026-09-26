@@ -56,13 +56,13 @@ def _expected_points_terms(model: UniversalGBDT, rows: pd.DataFrame,
     splits each event's error into a minutes term and a per-80-rate term.
     Rows the player did not play collapse into a single appearance term.
     """
-    scorer = scorer_for(competition)
-    weights = dict(scorer.weights)
-    if competition == "ncr":
-        weights["scrums_won"] = 2  # front-row allocation, linear like the rest
     predictions = model.predict_frame(rows)
     records = []
     for (_, row), prediction in zip(rows.iterrows(), predictions):
+        scorer = scorer_for(competition, season=row.get("season"))
+        weights = dict(scorer.weights)
+        if competition == "ncr":
+            weights["scrums_won"] = scorer.scrum_weight(prediction.position)
         pred_min = float(prediction.minutes.mean)
         act_min = float(pd.to_numeric(row.get("minutes"), errors="coerce") or 0.0)
         expected = minutes_term = rate_term = observable = 0.0

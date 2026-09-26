@@ -1,0 +1,62 @@
+{
+  "source_commit": "93f9670f38ed1699c0029192ac38227392b329fb",
+  "outer_archives_verified": 3,
+  "inner_archives_verified": 35,
+  "summaries": [
+    {
+      "file": "official_metrics.csv",
+      "matches": true,
+      "sha256": "bf6ae06dac5c0c92c715060c53db55f4805bdbdcf155b06940bb5f64f117842d"
+    },
+    {
+      "file": "official_paired_intervals.csv",
+      "matches": true,
+      "sha256": "8b17cf921f09ab7d905f84daa399a14f9de43c279678ac58e7e3c2e45e510b6f"
+    },
+    {
+      "file": "official_seasons.csv",
+      "matches": true,
+      "sha256": "6fafd5c5bc082753969afe2eae8cad641dc0c8282a34a647dcb3b086b3978dfd"
+    },
+    {
+      "file": "raw_blocks.csv",
+      "matches": true,
+      "sha256": "21d2de01fbf6b2b3078842abe65947c13e8e26bce2401998c91069b296b51293"
+    },
+    {
+      "file": "raw_cohort_intervals.csv",
+      "matches": true,
+      "sha256": "f5d6f49ec9310749f38454e7a9ae4dbaf3aaa7d255d0c114f72f262560be6748"
+    },
+    {
+      "file": "raw_events.csv",
+      "matches": true,
+      "sha256": "588d97b6eb719773030087f14006f7bbdd3118f29bb1acd1f5f24ad03233d6d5"
+    },
+    {
+      "file": "raw_families.csv",
+      "matches": true,
+      "sha256": "47023fb7b4d951ee858003a9df4a55c50f09ddb33197132e3d73ed85bff0cfe2"
+    },
+    {
+      "file": "raw_paired_intervals.csv",
+      "matches": true,
+      "sha256": "eddbde9b19d97ebd51d2c33caea3804f91efec633606b76a79a9597d4daed021"
+    },
+    {
+      "file": "raw_target_intervals.csv",
+      "matches": true,
+      "sha256": "96e563cf04c20f975fd3283d0e77770ef3a203f37e6174c280a7ddcfdea8d501"
+    },
+    {
+      "file": "raw_target_support.csv",
+      "matches": true,
+      "sha256": "1503c220dc1bef8fbbcd155f7ca4b9d51e59b134de4118c389ded9b26affd348"
+    },
+    {
+      "file": "summary.json",
+      "matches": true,
+      "sha256": "40d62481660b82aa4743a8c7f4c47b760d97a61343e9eb3193eb04441cc27338"
+    }
+  ]
+}

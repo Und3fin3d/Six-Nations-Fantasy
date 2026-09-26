@@ -12,7 +12,8 @@ from .audit import run_audit
 from .benchmark import run_benchmark
 from .harness import OUT
 from .search import assess_blend, tune_baseline, tune_gbdt, tune_neural
-from .shadow import evaluate_prospective_shadows, freeze_shadow
+from .shadow import evaluate_prospective_shadows, freeze_shadow, rehearse_shadow
+from .capture import archive_outcomes, validate_capture
 from .train import fit_frozen
 
 
@@ -61,8 +62,21 @@ def benchmark_command(args):
 
 
 def shadow_command(args):
-    path = freeze_shadow(args.gw, args.engine, args.model, output_dir=args.output)
-    print(f"froze immutable shadow at {path}")
+    if args.verify_existing:
+        payload = validate_capture(args.gw, args.engine, output_dir=args.output, model_path=args.model)
+        print(f"verified immutable GW{args.gw} {payload['engine']} capture")
+    else:
+        path = freeze_shadow(args.gw, args.engine, args.model, output_dir=args.output)
+        print(f"froze immutable shadow at {path}")
+
+
+def shadow_rehearse_command(args):
+    path = rehearse_shadow(args.gw, args.engine, args.model, output_dir=args.output)
+    print(f"retrospective rehearsal only: {path}")
+
+
+def shadow_outcomes_command(args):
+    print(json.dumps(archive_outcomes(args.gw, args.engine, shadow_dir=args.shadow_dir), indent=2))
 
 
 def shadow_evaluate_command(args):
@@ -114,7 +128,19 @@ def parser() -> argparse.ArgumentParser:
     )
     p.add_argument("--model", type=Path, required=True)
     p.add_argument("--output", type=Path, default=OUT / "shadow")
+    p.add_argument("--verify-existing", action="store_true")
     p.set_defaults(func=shadow_command)
+    p = sub.add_parser("shadow-rehearse", help="retrospective capture verification; never prospective evidence")
+    p.add_argument("--gw", type=int, required=True)
+    p.add_argument("--engine", choices=("p3_event_50",), required=True)
+    p.add_argument("--model", type=Path, required=True)
+    p.add_argument("--output", type=Path, required=True)
+    p.set_defaults(func=shadow_rehearse_command)
+    p = sub.add_parser("shadow-outcomes", help="archive completed outcomes without comparative results")
+    p.add_argument("--gw", type=int, required=True)
+    p.add_argument("--engine", required=True)
+    p.add_argument("--shadow-dir", type=Path, default=OUT / "shadow")
+    p.set_defaults(func=shadow_outcomes_command)
     p = sub.add_parser(
         "shadow-evaluate", help="apply the combined NCR GW4-GW7 promotion gates",
     )

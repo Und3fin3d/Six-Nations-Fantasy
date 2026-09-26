@@ -1,0 +1,24 @@
+{
+  "component_cells": 67450,
+  "max_absolute_mean_recovery_error": 2.90878432451791e-14,
+  "max_absolute_second_moment_recovery_error": 5.2295945351943366e-12,
+  "comparators_checked": [
+    "p3_robust_native",
+    "incumbent",
+    "equal_incumbent"
+  ],
+  "comparator_slate_count": 39,
+  "comparator_squad_rows": 624,
+  "comparator_exact_squad_identity_status_role_actual_match": true,
+  "comparator_exact_cutoff_denominator_unknown_captain_sub_match": true,
+  "candidate_squads_identical_to_robust_all13": true,
+  "candidate_squad_rows": 208,
+  "candidate_points_delta_to_robust_every_round_zero": true,
+  "candidate_unknown_selected": 0,
+  "forecast_rows": 2138,
+  "changed_forecasts_above1e_12": 736,
+  "max_absolute_forecast_change": 0.8873183674548422,
+  "starter_max_absolute_forecast_change": 7.105427357601002e-15,
+  "bench_max_absolute_forecast_change": 0.8873183674548422,
+  "timing_source_sha256": "57493b4f486d151b36510e59eeabe4a55cd350ffce20bb0b6a787e1fc1472559"
+}

@@ -1,0 +1,178 @@
+{
+  "checked": [
+    "/Users/williamgreenfield/.codex/worktrees/d151/6n/data/unified/decision_workflow_2026-09-26/minutes/build_timing_overlay.py",
+    "/Users/williamgreenfield/.codex/worktrees/d151/6n/data/unified/methodology_review_2026-09-26/analyse.py",
+    "/Users/williamgreenfield/.codex/worktrees/d151/6n/data/unified/methodology_review_2026-09-26/front_row.py",
+    "/Users/williamgreenfield/.codex/worktrees/d151/6n/data/unified/methodology_review_2026-09-26/interpolate.py",
+    "/Users/williamgreenfield/.codex/worktrees/d151/6n/data/unified/methodology_review_2026-09-26/raw_diagnostics.py",
+    "/Users/williamgreenfield/.codex/worktrees/d151/6n/model/empirical_unified.py",
+    "/Users/williamgreenfield/.codex/worktrees/d151/6n/model/ncr_on_6n.py",
+    "/Users/williamgreenfield/.codex/worktrees/d151/6n/model/research.py",
+    "/Users/williamgreenfield/.codex/worktrees/d151/6n/model/unified/benchmark.py",
+    "/Users/williamgreenfield/.codex/worktrees/d151/6n/model/unified/cli.py",
+    "/Users/williamgreenfield/.codex/worktrees/d151/6n/model/unified/evaluation.py",
+    "/Users/williamgreenfield/.codex/worktrees/d151/6n/model/unified/ncr_gw_eval.py",
+    "/Users/williamgreenfield/.codex/worktrees/d151/6n/model/unified/rank_stack.py",
+    "/Users/williamgreenfield/.codex/worktrees/d151/6n/model/unified/raw_benchmark/coverage.py",
+    "/Users/williamgreenfield/.codex/worktrees/d151/6n/model/unified/raw_benchmark/metrics.py",
+    "/Users/williamgreenfield/.codex/worktrees/d151/6n/model/unified/raw_benchmark/p3_checkpoint.py",
+    "/Users/williamgreenfield/.codex/worktrees/d151/6n/model/unified/rolling_eval.py",
+    "/Users/williamgreenfield/.codex/worktrees/d151/6n/model/unified/rubric.py",
+    "/Users/williamgreenfield/.codex/worktrees/d151/6n/model/unified/scoring.py",
+    "/Users/williamgreenfield/.codex/worktrees/d151/6n/model/unified/v3/audit.py",
+    "/Users/williamgreenfield/.codex/worktrees/d151/6n/model/unified/v3/benchmark.py",
+    "/Users/williamgreenfield/.codex/worktrees/d151/6n/model/unified/v3/capture.py",
+    "/Users/williamgreenfield/.codex/worktrees/d151/6n/model/unified/v3/cli.py",
+    "/Users/williamgreenfield/.codex/worktrees/d151/6n/model/unified/v3/metrics.py",
+    "/Users/williamgreenfield/.codex/worktrees/d151/6n/model/unified/v3/search.py",
+    "/Users/williamgreenfield/.codex/worktrees/d151/6n/model/unified/v3/shadow.py",
+    "/Users/williamgreenfield/.codex/worktrees/d151/6n/model/unified/v4/p0.py",
+    "/Users/williamgreenfield/.codex/worktrees/d151/6n/model/unified/v5/benchmark.py",
+    "/Users/williamgreenfield/.codex/worktrees/d151/6n/model/unified/v5/metrics.py",
+    "/Users/williamgreenfield/.codex/worktrees/d151/6n/ncr_snapshot.py",
+    "/Users/williamgreenfield/.codex/worktrees/d151/6n/report_2026_prediction_xv.py",
+    "/Users/williamgreenfield/.codex/worktrees/d151/6n/research/decision_adjustments.py",
+    "/Users/williamgreenfield/.codex/worktrees/d151/6n/research/decision_replay.py",
+    "/Users/williamgreenfield/.codex/worktrees/d151/6n/research/decision_summary.py",
+    "/Users/williamgreenfield/.codex/worktrees/d151/6n/research/incumbent_captain_replay.py",
+    "/Users/williamgreenfield/.codex/worktrees/d151/6n/research/incumbent_features.py",
+    "/Users/williamgreenfield/.codex/worktrees/d151/6n/research/incumbent_replay.py",
+    "/Users/williamgreenfield/.codex/worktrees/d151/6n/research/timing_ablation.py"
+  ],
+  "unsupported": [],
+  "findings": [
+    {
+      "path": "/Users/williamgreenfield/.codex/worktrees/d151/6n/model/empirical_unified.py",
+      "line": 154,
+      "function": "project_candidates",
+      "complexity": 19,
+      "limit": 15
+    },
+    {
+      "path": "/Users/williamgreenfield/.codex/worktrees/d151/6n/model/ncr_on_6n.py",
+      "line": 158,
+      "function": "main",
+      "complexity": 27,
+      "limit": 15
+    },
+    {
+      "path": "/Users/williamgreenfield/.codex/worktrees/d151/6n/model/research.py",
+      "line": 672,
+      "function": "_add_selector_score",
+      "complexity": 36,
+      "limit": 15
+    },
+    {
+      "path": "/Users/williamgreenfield/.codex/worktrees/d151/6n/model/research.py",
+      "line": 1403,
+      "function": "_apply_specialist_points",
+      "complexity": 24,
+      "limit": 15
+    },
+    {
+      "path": "/Users/williamgreenfield/.codex/worktrees/d151/6n/model/research.py",
+      "line": 1752,
+      "function": "_refresh_post_target_role_scores",
+      "complexity": 23,
+      "limit": 15
+    },
+    {
+      "path": "/Users/williamgreenfield/.codex/worktrees/d151/6n/model/research.py",
+      "line": 1912,
+      "function": "_bench_design",
+      "complexity": 20,
+      "limit": 15
+    },
+    {
+      "path": "/Users/williamgreenfield/.codex/worktrees/d151/6n/model/research.py",
+      "line": 2311,
+      "function": "_predict_config",
+      "complexity": 25,
+      "limit": 15
+    },
+    {
+      "path": "/Users/williamgreenfield/.codex/worktrees/d151/6n/model/research.py",
+      "line": 2603,
+      "function": "accept",
+      "complexity": 28,
+      "limit": 15
+    },
+    {
+      "path": "/Users/williamgreenfield/.codex/worktrees/d151/6n/model/research.py",
+      "line": 3836,
+      "function": "run_loop",
+      "complexity": 19,
+      "limit": 15
+    },
+    {
+      "path": "/Users/williamgreenfield/.codex/worktrees/d151/6n/model/unified/benchmark.py",
+      "line": 157,
+      "function": "render",
+      "complexity": 16,
+      "limit": 15
+    },
+    {
+      "path": "/Users/williamgreenfield/.codex/worktrees/d151/6n/model/unified/rank_stack.py",
+      "line": 54,
+      "function": "_position_code",
+      "complexity": 16,
+      "limit": 15
+    },
+    {
+      "path": "/Users/williamgreenfield/.codex/worktrees/d151/6n/model/unified/raw_benchmark/p3_checkpoint.py",
+      "line": 409,
+      "function": "build",
+      "complexity": 18,
+      "limit": 15
+    },
+    {
+      "path": "/Users/williamgreenfield/.codex/worktrees/d151/6n/model/unified/raw_benchmark/p3_checkpoint.py",
+      "line": 675,
+      "function": "_run_search",
+      "complexity": 16,
+      "limit": 15
+    },
+    {
+      "path": "/Users/williamgreenfield/.codex/worktrees/d151/6n/model/unified/raw_benchmark/p3_checkpoint.py",
+      "line": 836,
+      "function": "run_checkpoint",
+      "complexity": 16,
+      "limit": 15
+    },
+    {
+      "path": "/Users/williamgreenfield/.codex/worktrees/d151/6n/model/unified/rolling_eval.py",
+      "line": 254,
+      "function": "run",
+      "complexity": 28,
+      "limit": 15
+    },
+    {
+      "path": "/Users/williamgreenfield/.codex/worktrees/d151/6n/model/unified/v3/benchmark.py",
+      "line": 197,
+      "function": "run_benchmark",
+      "complexity": 22,
+      "limit": 15
+    },
+    {
+      "path": "/Users/williamgreenfield/.codex/worktrees/d151/6n/model/unified/v3/benchmark.py",
+      "line": 307,
+      "function": "render_report",
+      "complexity": 36,
+      "limit": 15
+    },
+    {
+      "path": "/Users/williamgreenfield/.codex/worktrees/d151/6n/model/unified/v3/search.py",
+      "line": 300,
+      "function": "tune_neural",
+      "complexity": 20,
+      "limit": 15
+    },
+    {
+      "path": "/Users/williamgreenfield/.codex/worktrees/d151/6n/model/unified/v3/search.py",
+      "line": 390,
+      "function": "assess_blend",
+      "complexity": 19,
+      "limit": 15
+    }
+  ]
+}

@@ -1,0 +1,34 @@
+name: Recover pinned decision research inputs
+on:
+  push:
+    branches: [codex/fantasy-decision-workflow]
+    paths: [.github/workflows/decision-research-inputs.yml]
+permissions:
+  contents: read
+jobs:
+  recover:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v5
+        with:
+          lfs: false
+          persist-credentials: false
+      - name: Recover only declared historical LFS inputs
+        run: |
+          git lfs pull --include='data/ncr/club_player_match.csv,data/unified/complete_comparison/evidence/*,data/unified/decision_workflow_2026-09-26/*.tar.gz' --exclude=''
+      - name: Package immutable tracked source and evidence
+        shell: bash
+        run: |
+          set -euo pipefail
+          git rev-parse HEAD > "$RUNNER_TEMP/source-commit.txt"
+          git ls-files -z | tar --null --files-from=- -czf "$RUNNER_TEMP/decision-research-source.tar.gz"
+          sha256sum "$RUNNER_TEMP/decision-research-source.tar.gz" > "$RUNNER_TEMP/source-sha256.txt"
+      - uses: actions/upload-artifact@v4
+        with:
+          name: decision-research-inputs-${{ github.sha }}
+          path: |
+            ${{ runner.temp }}/decision-research-source.tar.gz
+            ${{ runner.temp }}/source-commit.txt
+            ${{ runner.temp }}/source-sha256.txt
+          retention-days: 30
+          if-no-files-found: error

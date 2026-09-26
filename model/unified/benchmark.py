@@ -33,8 +33,8 @@ def _load_models(wanted: str):
     raise ValueError(wanted)
 
 
-def _expected(predictions, competition: str) -> np.ndarray:
-    scorer = scorer_for(competition)
+def _expected(predictions, competition: str, *, season: int | None = None) -> np.ndarray:
+    scorer = scorer_for(competition, season=season)
     return np.array([
         scorer.score_prediction(pred, n=1200, seed=1009 + i).mean
         for i, pred in enumerate(predictions)
@@ -146,7 +146,7 @@ def benchmark_six_nations(features: pd.DataFrame, models) -> pd.DataFrame:
     for name, model in models.items():
         predictions = model.predict_frame(test)
         by_key = {(str(p.fixture_id), str(p.player_id)): s
-                  for p, s in zip(predictions, _expected(predictions, "six_nations"))}
+                  for p, s in zip(predictions, _expected(predictions, "six_nations", season=2026))}
         scores[name] = [by_key[(f, p)] for f, p in zip(scores.fixture_id, scores.player_id)]
     rows = []
     for name in [*models, "6N champion"]:

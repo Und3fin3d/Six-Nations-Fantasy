@@ -1,0 +1,66 @@
+{
+  "existing_suite": {
+    "passed": 119,
+    "failed": 2,
+    "tests_changed": false,
+    "failures": [
+      {
+        "test": "tests/test_unified_model.py::test_ncr_converter_includes_api_blind_scoring_categories",
+        "reason": "Nonzero NCR scrum event supplied without the position required by corrected scoring.",
+        "classification": "existing test incompatible with corrected API"
+      },
+      {
+        "test": "tests/test_unified_v3.py::test_real_data_audit_covers_all_labelled_rounds",
+        "reason": "Expected 2144 labels; actual data has 2164.",
+        "classification": "pre-existing data-count assertion"
+      }
+    ],
+    "original_log_sha256": "503965f11611c82abf32fcf1b080f528febcffcac8b63ce6ddbbe96306eb4916",
+    "retained_log_normalisation": "Trailing whitespace removed; outcome and traceback text preserved."
+  },
+  "complexity": {
+    "checked_python_files": 38,
+    "base_findings": 22,
+    "current_findings": 19,
+    "new_or_increased": 0,
+    "command_exit_code": 1,
+    "reason": "Existing complexity findings remain; none introduced or increased."
+  },
+  "final_remedy_replay": {
+    "slates": 13,
+    "byte_identical_csv_tables": 14
+  },
+  "protected_rehearsal": {
+    "gameweek": 2,
+    "forecasts": 262,
+    "verified_files": 116,
+    "prospective": false,
+    "repeat_forecasts_byte_identical": true
+  },
+  "scoring": {
+    "ncr_forecasts_checked": 2274,
+    "six_nations_forecasts_checked": 1380,
+    "raw_archived_forecast_files_replayed": 39
+  },
+  "canonical_rebuild": {
+    "rows": 179295,
+    "fixtures": 3892,
+    "sha256": "2b70331c0cf215def67831cd27c987362e2ec8330b2afb41c8d204f48ef17313",
+    "byte_identical": true
+  },
+  "shell_syntax_passed": true,
+  "diff_check_passed": true,
+  "permanent_cache_changed": false,
+  "prospective_november_results": "Not available; real pre-lock inputs and later completed outcomes do not yet exist.",
+  "timing_ablation": {
+    "slates": 13,
+    "empirical_fits": 39,
+    "tree_fits": 0,
+    "component_cells_checked": 67450,
+    "exact_comparator_squad_rows": 624,
+    "exact_comparator_metric_rows": 39,
+    "candidate_squads_identical_to_robust": true,
+    "admitted": false,
+    "evidence_sha256": "839885cdfdb50ef97a4857aca6f25f218d1f088fa5523a34e88a55765ae8650e"
+  }
+}

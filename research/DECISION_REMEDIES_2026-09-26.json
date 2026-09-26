@@ -1,0 +1,39 @@
+{
+  "registered_before_execution": true,
+  "registered_at": "2026-09-26",
+  "protocol": "FANTASY_DECISION_PROTOCOL_2026-09-26.md",
+  "history_store_sha256": "2b70331c0cf215def67831cd27c987362e2ec8330b2afb41c8d204f48ef17313",
+  "scoring": {"ncr": "front-row-only scrum allocation", "six_nations_2025": "legacy drop goal 4", "six_nations_2026": "confirmed drop goal 5"},
+  "controls": ["empirical_baseline", "p3_rolling_native", "p3_weighted_native", "p3_robust_native", "actual incumbent with features frozen at round lock"],
+  "candidates": {
+    "equal_blend": {
+      "formula": "0.5 * corrected robust points + 0.5 * comparator points",
+      "comparators": ["empirical_baseline", "actual incumbent with features frozen at round lock"],
+      "selection": "unchanged common optimiser"
+    },
+    "role_calibration": {
+      "base": "corrected robust points",
+      "formula": "prediction + clip(sum(prior actual-minus-prediction residuals in position/status group)/(n+20), -5, 5)",
+      "window": "all available earlier official slates in the same competition; no current slate; Six Nations 2026 can use 2025",
+      "fallback": "zero correction when no prior observations"
+    },
+    "kicking_role_gate": {
+      "base": "corrected robust event distributions",
+      "formula": "Scale means of conversions, missed conversions, penalties and missed penalties by 220/(220+exposure) only when complete observed goal-stat history has no attempts. Any observed attempt or no complete history leaves means unchanged.",
+      "exposure": "strict prior match history; positive available minutes; all four goal statistics available and finite; 420-day decay; club confidence 0.55; international confidence 1.0",
+      "distribution": "Preserve negative-binomial shape; no redistribution and no change to minutes or other events.",
+      "recovery": "Issue21 supplied formula; named package and patch were absent from repository and indexed local files. This is a newly implemented formula, not a replay of the unavailable source package."
+    },
+    "regularised_combination": {
+      "formula": "Let d=robust-comparator and r=actual-comparator on prior known rows. w=clip((sum(d*r)+0.5*60*mean(d*d))/(sum(d*d)+60*mean(d*d)),0,1). Predict comparator+w*d. Use w=0.5 if denominator is zero or no earlier data exist.",
+      "window": "same prior-only competition window as role calibration",
+      "comparators": ["empirical_baseline", "actual incumbent with features frozen at round lock"],
+      "selection": "unchanged common optimiser; no weight tuning on later audit"
+    }
+  },
+  "bench_entry_branch": {
+    "first_step": "Audit zero-minute availability and historical bench entry support. The existing robust minutes head already includes observed zero-minute appearances. Do not apply a second entry multiplier without evidence that the underlying event forecast is conditional on entry.",
+    "reason": "A separate improved minutes marginal leaves event means and expected points unchanged. Blind rescaling was rejected in Issue21."
+  },
+  "admission": "Use the protocol advancement criteria. Retain every result. Historical research priority only; no prospective superiority claim."
+}

@@ -1,0 +1,80 @@
+{
+  "blockers": [],
+  "checks": {
+    "candidate_decisions_and_admission": {
+      "candidate_squad_rows": 208,
+      "candidate_squads_exactly_match_robust_all_13_slates": true,
+      "conclusion": "Independent recalculation matches all registered development, audit, leave-one-round-out and NCR gates. No candidate passes all required criteria.",
+      "season_competition_totals": {
+        "ncr_2026_gw1_3": 1654,
+        "six_nations_2025": 2356,
+        "six_nations_2026": 2496
+      },
+      "shared_research_priority_by_comparator": {
+        "equal_incumbent": false,
+        "incumbent": false,
+        "p3_robust_native": false
+      }
+    },
+    "chronology_and_positions": {
+      "all_saved_candidate_positions_match_archived_predictions": true,
+      "conclusion": "Both empirical histories use past_matches at the common slate lock. Position reconstruction receives only that filtered history. Recovery checks require matching triple keys, position, forward flag and event support.",
+      "minimum_latest_training_kickoff_gap_hours": 5.583333333333333,
+      "slates": 13
+    },
+    "cohorts_and_unknowns": {
+      "conclusion": "All four engines preserve the full cohort and the same unknown outcomes. Existing selection evaluator propagates unknown selected totals; this candidate selects no unknown outcomes.",
+      "duplicate_engine_slate_triple_keys": 0,
+      "engines": 4,
+      "forecast_rows_per_engine": 2138,
+      "unknown_outcomes_per_engine": 18
+    },
+    "corrected_scoring": {
+      "candidate_scores_independently_recalculated_from_saved_audit": 2138,
+      "conclusion": "Season-aware scoring uses front-row-only NCR scrum allocation, legacy 2025 Six Nations drop-goal weight and corrected 2026 weight. Metres retain the declared lognormal moment approximation.",
+      "maximum_point_difference": 1.4210854715202004e-14
+    },
+    "exact_comparator_verification": {
+      "comparator_slates": 39,
+      "comparators": [
+        "p3_robust_native",
+        "incumbent",
+        "equal_incumbent"
+      ],
+      "conclusion": "Predictions reproduce within the registered 1e-9 tolerance; two copied comparator columns have floating-point CSV roundtrip differences, not bitwise equality.",
+      "cutoff_denominators_unknown_counts_roles_and_component_totals_exactly_match": true,
+      "forecast_metadata_and_outcomes_exactly_match": true,
+      "identity_team_status_captain_supersub_actual_exactly_match": true,
+      "maximum_csv_roundtrip_forecast_difference": 3.552713678800501e-15,
+      "squad_rows": 624
+    },
+    "mixture_recovery": {
+      "all_continuous_variances_finite_positive": true,
+      "component_cells": 67450,
+      "conclusion": "Mean replacement and lognormal second-moment replacement preserve the fixed tree contribution algebraically. EventDistribution construction enforces finite nonnegative means and finite positive variances. Count-tail parameters remain unchanged as explicitly declared.",
+      "continuous_cells": 4276,
+      "independently_recalculated_mean_formula_maximum_error": 1.0658141036401503e-14,
+      "maximum_recorded_mean_recovery_error": 2.90878432451791e-14,
+      "maximum_recorded_second_moment_recovery_error": 5.2295945351943366e-12,
+      "minimum_continuous_variance": 417.3055919883591
+    },
+    "source_and_evidence_integrity": {
+      "archive_hashes": 117,
+      "input_hashes": 163,
+      "mismatches": 0,
+      "output_hashes": 23
+    }
+  },
+  "completed_at": "2026-09-26T15:35:28.497128+00:00",
+  "evidence_boundary": "Historical empirical-component-only ablation with fixed archived tree predictions. No full tree-refit, calibrated count-tail, joint-distribution, prospective-superiority or deployment claim.",
+  "manifest_sha256": "fb5e56629cfa9430ca30de1d41d17bba07ba823eea1c6f0c5fbf5b34cd8d3f19",
+  "protocol_sha256": "3021e3876b0c11d6113a6c0ea9d6b1fb6a67bbf124a8600ed280135972f2e49e",
+  "reasoning_effort": "ultra",
+  "review_actions": "Source reading, saved-data calculations, hashes and this JSON artifact only. No model fits, new or modified tests, network access, memory writes, or source edits.",
+  "reviewer_model": "gpt-6-astra",
+  "schema_version": 1,
+  "scope": "Independent bounded review of timing ablation source, registered protocol, completed manifest/verification and retained numerical evidence. Earlier review retained separately.",
+  "source_sha256": "57493b4f486d151b36510e59eeabe4a55cd350ffce20bb0b6a787e1fc1472559",
+  "status": "no_findings",
+  "verification_sha256": "eac926d0b1820a869ff8ebf44ed5698b229d54049e6226b6ef9e6695d2be27e6"
+}

@@ -1,0 +1,7 @@
+{
+  "status": "incomplete",
+  "reason": "The remedy runner caught up with the concurrent incumbent replay and stopped before Six Nations2026 round3 because its required forecast file was not yet available.",
+  "use_for_decisions": false,
+  "formula_changes": "none",
+  "repair": "Require all ten incumbent forecast files before computation. Repeat unchanged registered formulas in a new output directory after inputs are complete."
+}

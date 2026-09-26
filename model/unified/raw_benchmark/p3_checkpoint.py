@@ -460,8 +460,8 @@ class OfficialEvaluator:
         if len(baseline) != len(candidates) or len(empirical) != len(candidates):
             raise ValueError("official component prediction lengths differ")
 
-        scoring = dict(NationsChampionshipScorer.weights)
-        scoring["scrums_won"] = 2.0
+        scorer = NationsChampionshipScorer()
+        scoring = dict(scorer.weights)
         coordinate_index = {
             target: index for index, target in enumerate(OFFICIAL_COORDINATES)
         }
@@ -476,6 +476,7 @@ class OfficialEvaluator:
                 raise ValueError("official baseline prediction order changed")
             if (empirical_prediction.player_id, empirical_prediction.team) != expected_key:
                 raise ValueError("official empirical prediction order changed")
+            scoring["scrums_won"] = scorer.scrum_weight(base.position)
             expected_minutes[row_index] = base.minutes.mean
             for target, coefficient in scoring.items():
                 base_distribution = base.events.get(target)

@@ -1,0 +1,87 @@
+RugbyPass prior: 980 players, calibration {'att': 0.8576952242704856, 'dfn': 0.9004915702718145}
+RugbyPass prior: 980 players, calibration {'att': 0.859452818605716, 'dfn': 0.9027363138607247}
+RugbyPass prior: 980 players, calibration {'att': 0.8624886288233952, 'dfn': 0.904492276178199}
+six_nations_2025_r1
+six_nations_2025_r2
+six_nations_2025_r3
+six_nations_2025_r4
+six_nations_2025_r5
+six_nations_2026_r1
+six_nations_2026_r2
+six_nations_2026_r3
+six_nations_2026_r4
+six_nations_2026_r5
+ncr_2026_r1
+ncr_2026_r2
+ncr_2026_r3
+competition  season             engine status                    minute_band  rows  known_points  actual_points  predicted_points  point_bias  point_mae  minutes_bias  minutes_mae
+        ncr    2026   p3_robust_native      B                        unknown   256           256       8.621094          6.025926   -2.595168   5.731849           NaN          NaN
+        ncr    2026   p3_robust_native      P                        unknown   502           502      20.153386         15.784907   -4.368480   9.540288           NaN          NaN
+        ncr    2026  p3_rolling_native      B                        unknown   256           256       8.621094          6.456909   -2.164185   5.662898           NaN          NaN
+        ncr    2026  p3_rolling_native      P                        unknown   502           502      20.153386         15.938699   -4.214688   9.594892           NaN          NaN
+        ncr    2026 p3_weighted_native      B                        unknown   256           256       8.621094          6.334074   -2.287019   5.670414           NaN          NaN
+        ncr    2026 p3_weighted_native      P                        unknown   502           502      20.153386         16.003004   -4.150383   9.493568           NaN          NaN
+six_nations    2025   p3_robust_native      B                 10_to_under_30   127           125       5.920000          6.123387    0.219369   4.083319      2.900192     5.110960
+six_nations    2025   p3_robust_native      B                 30_to_under_60    78            77      12.298701          7.034682   -5.255247   6.442200    -11.107811    11.107811
+six_nations    2025   p3_robust_native      B                        60_plus     5             5      28.600000          7.318630  -21.281370  21.281370    -43.267954    43.267954
+six_nations    2025   p3_robust_native      B              positive_under_10    25            25       5.280000          6.065045    0.785045   5.150791     15.489784    15.489784
+six_nations    2025   p3_robust_native      B zero_without_observed_activity     5             5       0.000000          5.327661    5.327661   5.327661     20.287290    20.287290
+six_nations    2025   p3_robust_native      P                 10_to_under_30    12            11       7.818182         20.923887   13.774377  13.774377     46.555961    46.555961
+six_nations    2025   p3_robust_native      P                 30_to_under_60   137           137      14.686131         17.397907    2.711776   6.463770     12.283426    12.823073
+six_nations    2025   p3_robust_native      P                        60_plus   296           294      23.850340         20.364909   -3.458291   8.818125     -5.390964     7.091778
+six_nations    2025   p3_robust_native      P              positive_under_10     5             5      10.200000         19.795034    9.595034  11.685835     66.310588    66.310588
+six_nations    2025  p3_rolling_native      B                 10_to_under_30   127           125       5.920000          6.553016    0.642584   4.213176      3.693434     5.448981
+six_nations    2025  p3_rolling_native      B                 30_to_under_60    78            77      12.298701          7.651259   -4.628055   6.234298     -9.721022     9.721022
+six_nations    2025  p3_rolling_native      B                        60_plus     5             5      28.600000          7.712912  -20.887088  20.887088    -43.020530    43.020530
+six_nations    2025  p3_rolling_native      B              positive_under_10    25            25       5.280000          6.320631    1.040631   5.077485     16.190943    16.190943
+six_nations    2025  p3_rolling_native      B zero_without_observed_activity     5             5       0.000000          5.825021    5.825021   5.825021     21.236566    21.236566
+six_nations    2025  p3_rolling_native      P                 10_to_under_30    12            11       7.818182         21.055109   13.666502  13.666502     46.996426    46.996426
+six_nations    2025  p3_rolling_native      P                 30_to_under_60   137           137      14.686131         17.375031    2.688900   6.575989     12.315687    12.877029
+six_nations    2025  p3_rolling_native      P                        60_plus   296           294      23.850340         20.578830   -3.241898   8.830791     -4.836739     6.782549
+six_nations    2025  p3_rolling_native      P              positive_under_10     5             5      10.200000         20.010669    9.810669  11.840165     67.077660    67.077660
+six_nations    2025 p3_weighted_native      B                 10_to_under_30   127           125       5.920000          6.496728    0.584591   4.204744      3.693434     5.448981
+six_nations    2025 p3_weighted_native      B                 30_to_under_60    78            77      12.298701          7.640614   -4.641413   6.224235     -9.721022     9.721022
+six_nations    2025 p3_weighted_native      B                        60_plus     5             5      28.600000          7.558292  -21.041708  21.041708    -43.020530    43.020530
+six_nations    2025 p3_weighted_native      B              positive_under_10    25            25       5.280000          6.311302    1.031302   5.070293     16.190943    16.190943
+six_nations    2025 p3_weighted_native      B zero_without_observed_activity     5             5       0.000000          5.633108    5.633108   5.633108     21.236566    21.236566
+six_nations    2025 p3_weighted_native      P                 10_to_under_30    12            11       7.818182         21.402785   14.140470  14.140470     46.996426    46.996426
+six_nations    2025 p3_weighted_native      P                 30_to_under_60   137           137      14.686131         17.811171    3.125039   6.680340     12.315687    12.877029
+six_nations    2025 p3_weighted_native      P                        60_plus   296           294      23.850340         20.778060   -3.038354   8.898254     -4.836739     6.782549
+six_nations    2025 p3_weighted_native      P              positive_under_10     5             5      10.200000         20.259730   10.059730  11.826584     67.077660    67.077660
+six_nations    2026   p3_robust_native      B                 10_to_under_30   131           130       7.069231          7.089610    0.024103   3.631023      3.105094     5.592002
+six_nations    2026   p3_robust_native      B                 30_to_under_60    66            60       9.483333          7.356752   -2.088463   4.570122    -10.076798    10.076798
+six_nations    2026   p3_robust_native      B                        60_plus     3             3      21.000000          7.842971  -13.157029  13.157029    -42.316468    42.316468
+six_nations    2026   p3_robust_native      B              positive_under_10    29            29       2.206897          6.489099    4.282202   4.439601     15.172896    15.172896
+six_nations    2026   p3_robust_native      B                        unknown     4             4       7.000000          7.987135    0.987135   3.377473           NaN          NaN
+six_nations    2026   p3_robust_native      B zero_without_observed_activity     7             7       0.000000          5.270106    5.270106   5.270106     17.996555    17.996555
+six_nations    2026   p3_robust_native      P                 10_to_under_30     8             8       9.750000         18.993333    9.243333   9.660974     44.029138    44.029138
+six_nations    2026   p3_robust_native      P                 30_to_under_60   134           131      14.748092         17.420478    2.631728   7.207361     11.326930    12.029979
+six_nations    2026   p3_robust_native      P                        60_plus   306           305      25.003279         21.303614   -3.691571   9.534524     -5.813062     7.219911
+six_nations    2026   p3_robust_native      P              positive_under_10     2             1       4.000000         18.817034   12.627568  12.627568     65.394665    65.394665
+six_nations    2026  p3_rolling_native      B                 10_to_under_30   131           130       7.069231          7.543459    0.484154   3.767743      4.191235     6.120542
+six_nations    2026  p3_rolling_native      B                 30_to_under_60    66            60       9.483333          7.952941   -1.493783   4.474577     -8.437053     8.581679
+six_nations    2026  p3_rolling_native      B                        60_plus     3             3      21.000000          8.185312  -12.814688  12.814688    -42.508931    42.508931
+six_nations    2026  p3_rolling_native      B              positive_under_10    29            29       2.206897          7.213435    5.006538   5.076824     16.510656    16.510656
+six_nations    2026  p3_rolling_native      B                        unknown     4             4       7.000000          7.981095    0.981095   3.604175           NaN          NaN
+six_nations    2026  p3_rolling_native      B zero_without_observed_activity     7             7       0.000000          5.868523    5.868523   5.868523     19.368458    19.368458
+six_nations    2026  p3_rolling_native      P                 10_to_under_30     8             8       9.750000         19.095493    9.345493   9.979742     44.825457    44.825457
+six_nations    2026  p3_rolling_native      P                 30_to_under_60   134           131      14.748092         17.496837    2.673178   7.264107     11.969400    12.615945
+six_nations    2026  p3_rolling_native      P                        60_plus   306           305      25.003279         21.383458   -3.617992   9.538677     -5.220672     6.810624
+six_nations    2026  p3_rolling_native      P              positive_under_10     2             1       4.000000         19.116029   12.821900  12.821900     66.793622    66.793622
+six_nations    2026 p3_weighted_native      B                 10_to_under_30   131           130       7.069231          7.505884    0.446544   3.775484      4.191235     6.120542
+six_nations    2026 p3_weighted_native      B                 30_to_under_60    66            60       9.483333          7.980226   -1.448286   4.540861     -8.437053     8.581679
+six_nations    2026 p3_weighted_native      B                        60_plus     3             3      21.000000          7.953889  -13.046111  13.046111    -42.508931    42.508931
+six_nations    2026 p3_weighted_native      B              positive_under_10    29            29       2.206897          6.936505    4.729609   4.844897     16.510656    16.510656
+six_nations    2026 p3_weighted_native      B                        unknown     4             4       7.000000          8.427490    1.427490   3.527065           NaN          NaN
+six_nations    2026 p3_weighted_native      B zero_without_observed_activity     7             7       0.000000          5.774904    5.774904   5.774904     19.368458    19.368458
+six_nations    2026 p3_weighted_native      P                 10_to_under_30     8             8       9.750000         19.415272    9.665272  10.135635     44.825457    44.825457
+six_nations    2026 p3_weighted_native      P                 30_to_under_60   134           131      14.748092         17.727045    2.931446   7.358375     11.969400    12.615945
+six_nations    2026 p3_weighted_native      P                        60_plus   306           305      25.003279         21.585670   -3.410336   9.512020     -5.220672     6.810624
+six_nations    2026 p3_weighted_native      P              positive_under_10     2             1       4.000000         19.284835   13.086681  13.086681     66.793622    66.793622
+            engine                       feature  team_rounds  descriptive_spearman
+  p3_robust_native              prior_team_tries           94             -0.174092
+  p3_robust_native prior_opponent_tries_conceded           94             -0.147824
+ p3_rolling_native              prior_team_tries           94             -0.203612
+ p3_rolling_native prior_opponent_tries_conceded           94             -0.174800
+p3_weighted_native              prior_team_tries           94             -0.167359
+p3_weighted_native prior_opponent_tries_conceded           94             -0.156305

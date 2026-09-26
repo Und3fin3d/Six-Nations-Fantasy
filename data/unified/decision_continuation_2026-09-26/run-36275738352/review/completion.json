@@ -1,0 +1,20 @@
+{
+  "admission_computed": false,
+  "fitted_run": 36273533404,
+  "full_comparison": false,
+  "objective": "active_unfinished",
+  "objective_completed": false,
+  "paired_locks_complete": 9,
+  "prepared_manifest_sha256": "a137f0afb8ba76fec851edff59d23f4181bf2c7926fa8f5c816e0df5bf6064f5",
+  "required_locks": 27,
+  "source_hashes": {
+    "/home/runner/work/Six-Nations-Fantasy/Six-Nations-Fantasy/research/conditional_duration_review.py": "39604a76a0fa03ba239cadde32157895359417ef0cfd306f87083af4aaaee14c",
+    "data/unified/p3_hillclimb/config.json": "c9a4a68bb1b54ba25bc22325afa53b6227d5ebced5fafc5cde8d07420ca80cf7",
+    "research/conditional_duration_metrics.py": "aad9301a0a56301e360a9a05f8a36075df939561e29b2880b2e037f2146bfa80",
+    "research/duration_decision_summary.py": "d90911b1b0d4a10e07b8cba102a5dd428c7a4d29d1f824568d16027d3d65f40d",
+    "research/duration_evidence_validation.py": "c44600b60f5db765a5986745e91bbcf1968b69766ac3e4a80b5ea52d8c62aea3",
+    "research/ncr_rubric_completion.py": "a1c8e38e83318d45c80fd5f1d4df8a79b31ae64a48525c75bbfc459acab4596b"
+  },
+  "uncertainty": "Reused historical evidence, correlated small samples and multiple candidate history; not confirmatory future superiority",
+  "unknown_outcomes": "Retained; all selected-role outcomes attached after selection"
+}

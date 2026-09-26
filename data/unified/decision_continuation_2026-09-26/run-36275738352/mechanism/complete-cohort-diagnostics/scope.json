@@ -1,0 +1,18 @@
+{
+  "available": {
+    "friendly15": 4,
+    "ncr_2026": 0,
+    "six_nations_2025": 5,
+    "six_nations_2026": 0
+  },
+  "complete_cohorts": [
+    "six_nations_2025"
+  ],
+  "interpretation": "Diagnostic summaries only for complete predeclared cohorts. No partial aggregate admission, new holdout or oracle candidate.",
+  "required": {
+    "friendly15": 15,
+    "ncr_2026": 3,
+    "six_nations_2025": 5,
+    "six_nations_2026": 5
+  }
+}

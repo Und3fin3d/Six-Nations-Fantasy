@@ -1,0 +1,6 @@
+comparison=success
+coverage=success
+mechanism=success
+supervision=success
+objective=active_unfinished
+partial_admission=prohibited

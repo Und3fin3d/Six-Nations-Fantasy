@@ -1,0 +1,15 @@
+candidate,comparator,development_delta,audit_delta,pooled_min_leave_one_out,ncr_delta,improves_development,preserves_audit,gain_survives_round_removal,six_nations_research_priority,shared_research_priority
+incumbent_legal_joint_roles,empirical_baseline,179.0,7.0,10.11111111111111,0.0,True,True,True,True,True
+incumbent_legal_joint_roles,equal_incumbent,278.0,-10.0,17.333333333333332,2.0,True,False,True,False,False
+incumbent_legal_joint_roles,incumbent,329.0,20.0,19.333333333333332,0.0,True,True,True,True,True
+incumbent_legal_joint_roles,incumbent_legal_sequential,154.0,-40.0,-4.444444444444445,0.0,True,False,False,False,False
+incumbent_legal_joint_roles,p3_robust_native,233.0,63.0,22.11111111111111,-76.0,True,True,True,True,False
+incumbent_legal_sequential,empirical_baseline,25.0,47.0,-2.5555555555555554,0.0,True,True,False,False,False
+incumbent_legal_sequential,equal_incumbent,124.0,30.0,4.666666666666667,2.0,True,True,True,True,True
+incumbent_legal_sequential,incumbent,175.0,60.0,12.0,0.0,True,True,True,True,True
+incumbent_legal_sequential,p3_robust_native,79.0,103.0,7.444444444444445,-76.0,True,True,True,True,False
+p3_legal_joint_role_transfer,empirical_baseline,36.0,67.0,-0.4444444444444444,0.0,True,True,False,False,False
+p3_legal_joint_role_transfer,equal_incumbent,135.0,50.0,9.0,2.0,True,True,True,True,True
+p3_legal_joint_role_transfer,incumbent,186.0,80.0,11.555555555555555,0.0,True,True,True,True,True
+p3_legal_joint_role_transfer,incumbent_legal_sequential,11.0,20.0,-12.222222222222221,0.0,True,True,False,False,False
+p3_legal_joint_role_transfer,p3_robust_native,90.0,123.0,14.333333333333334,-76.0,True,True,True,True,False

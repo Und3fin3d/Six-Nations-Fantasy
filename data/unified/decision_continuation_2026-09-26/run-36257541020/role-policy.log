@@ -1,0 +1,66 @@
+RugbyPass prior: 980 players, calibration {'att': 0.8576952242704856, 'dfn': 0.9004915702718145}
+RugbyPass prior: 980 players, calibration {'att': 0.859452818605716, 'dfn': 0.9027363138607247}
+RugbyPass prior: 980 players, calibration {'att': 0.8624886288233952, 'dfn': 0.904492276178199}
+six_nations_2025_r1: verify frozen controls
+six_nations_2025_r2: verify frozen controls
+six_nations_2025_r3: verify frozen controls
+six_nations_2025_r4: verify frozen controls
+six_nations_2025_r5: verify frozen controls
+six_nations_2026_r1: verify frozen controls
+six_nations_2026_r2: verify frozen controls
+six_nations_2026_r3: verify frozen controls
+six_nations_2026_r4: verify frozen controls
+six_nations_2026_r5: verify frozen controls
+ncr_2026_r1: verify frozen controls
+ncr_2026_r2: verify frozen controls
+ncr_2026_r3: verify frozen controls
+six_nations_2025_r1: registered policies
+six_nations_2025_r2: registered policies
+six_nations_2025_r3: registered policies
+six_nations_2025_r4: registered policies
+six_nations_2025_r5: registered policies
+six_nations_2026_r1: registered policies
+six_nations_2026_r2: registered policies
+six_nations_2026_r3: registered policies
+six_nations_2026_r4: registered policies
+six_nations_2026_r5: registered policies
+ncr_2026_r1: registered policies
+ncr_2026_r2: registered policies
+ncr_2026_r3: registered policies
+competition  season                       engine  total  rounds     xv  captain_extra  super_sub  unknown_selected      mae      bias      rmse
+        ncr    2026           empirical_baseline 1578.0       3 1354.0          116.0      108.0                 0 8.401067 -4.055693 12.257666
+        ncr    2026              equal_incumbent 1576.0       3 1364.0          116.0       96.0                 0 8.288021 -3.902819 12.157231
+        ncr    2026                    incumbent 1578.0       3 1354.0          116.0      108.0                 0 8.401067 -4.055693 12.257666
+        ncr    2026  incumbent_legal_joint_roles 1578.0       3 1354.0          116.0      108.0                 0 8.401067 -4.055693 12.257666
+        ncr    2026   incumbent_legal_sequential 1578.0       3 1354.0          116.0      108.0                 0 8.401067 -4.055693 12.257666
+        ncr    2026 p3_legal_joint_role_transfer 1578.0       3 1354.0          116.0      108.0                 0 8.401067 -4.055693 12.257666
+        ncr    2026             p3_robust_native 1654.0       3 1368.0          178.0      108.0                 0 8.251674 -3.749944 12.137207
+six_nations    2025           empirical_baseline 2410.0       5 1987.0          171.0      252.0                 0 7.168003 -1.231088 10.424062
+six_nations    2025              equal_incumbent 2311.0       5 1946.0          179.0      186.0                 0 7.239365 -1.699606 10.584430
+six_nations    2025                    incumbent 2260.0       5 2012.0          179.0       69.0                 0 7.441466 -2.091821 10.882285
+six_nations    2025  incumbent_legal_joint_roles 2589.0       5 2062.0          188.0      339.0                 0 7.441466 -2.091821 10.882285
+six_nations    2025   incumbent_legal_sequential 2435.0       5 2070.0          188.0      177.0                 0 7.441466 -2.091821 10.882285
+six_nations    2025 p3_legal_joint_role_transfer 2446.0       5 1954.0          153.0      339.0                 0 7.242949 -1.307391 10.516269
+six_nations    2025             p3_robust_native 2356.0       5 1969.0          165.0      222.0                 0 7.242949 -1.307391 10.516269
+six_nations    2026           empirical_baseline 2552.0       5 2174.0          225.0      153.0                 0 7.349180 -1.652603 10.359312
+six_nations    2026              equal_incumbent 2569.0       5 2191.0          225.0      153.0                 0 7.201558 -1.124969 10.118967
+six_nations    2026                    incumbent 2539.0       5 2104.0          225.0      210.0                 0 7.304946 -1.228012 10.366404
+six_nations    2026  incumbent_legal_joint_roles 2559.0       5 2149.0          218.0      192.0                 0 7.304946 -1.228012 10.366404
+six_nations    2026   incumbent_legal_sequential 2599.0       5 2192.0          218.0      189.0                 0 7.304946 -1.228012 10.366404
+six_nations    2026 p3_legal_joint_role_transfer 2619.0       5 2186.0          241.0      192.0                 0 7.243352 -1.021925 10.076801
+six_nations    2026             p3_robust_native 2496.0       5 2190.0          177.0      129.0                 0 7.243352 -1.021925 10.076801
+                   candidate                 comparator  development_delta  audit_delta  pooled_min_leave_one_out  ncr_delta  improves_development  preserves_audit  gain_survives_round_removal  six_nations_research_priority  shared_research_priority
+ incumbent_legal_joint_roles         empirical_baseline              179.0          7.0                 10.111111        0.0                  True             True                         True                           True                      True
+ incumbent_legal_joint_roles            equal_incumbent              278.0        -10.0                 17.333333        2.0                  True            False                         True                          False                     False
+ incumbent_legal_joint_roles                  incumbent              329.0         20.0                 19.333333        0.0                  True             True                         True                           True                      True
+ incumbent_legal_joint_roles incumbent_legal_sequential              154.0        -40.0                 -4.444444        0.0                  True            False                        False                          False                     False
+ incumbent_legal_joint_roles           p3_robust_native              233.0         63.0                 22.111111      -76.0                  True             True                         True                           True                     False
+  incumbent_legal_sequential         empirical_baseline               25.0         47.0                 -2.555556        0.0                  True             True                        False                          False                     False
+  incumbent_legal_sequential            equal_incumbent              124.0         30.0                  4.666667        2.0                  True             True                         True                           True                      True
+  incumbent_legal_sequential                  incumbent              175.0         60.0                 12.000000        0.0                  True             True                         True                           True                      True
+  incumbent_legal_sequential           p3_robust_native               79.0        103.0                  7.444444      -76.0                  True             True                         True                           True                     False
+p3_legal_joint_role_transfer         empirical_baseline               36.0         67.0                 -0.444444        0.0                  True             True                        False                          False                     False
+p3_legal_joint_role_transfer            equal_incumbent              135.0         50.0                  9.000000        2.0                  True             True                         True                           True                      True
+p3_legal_joint_role_transfer                  incumbent              186.0         80.0                 11.555556        0.0                  True             True                         True                           True                      True
+p3_legal_joint_role_transfer incumbent_legal_sequential               11.0         20.0                -12.222222        0.0                  True             True                        False                          False                     False
+p3_legal_joint_role_transfer           p3_robust_native               90.0        123.0                 14.333333      -76.0                  True             True                         True                           True                     False

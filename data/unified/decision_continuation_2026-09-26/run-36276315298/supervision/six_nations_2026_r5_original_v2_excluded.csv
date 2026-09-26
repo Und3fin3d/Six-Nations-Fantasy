@@ -1,0 +1,775 @@
+fixture_id,player_id,team,date,competition_level,position,started,missing_core_events,ambiguous_position_weight
+79639,102468,Tonga,2019-07-27,international,Unknown,False,,True
+79630,181230,USA,2019-07-28,international,Unknown,False,,True
+79630,200700,USA,2019-07-28,international,Unknown,False,,True
+79630,202932,USA,2019-07-28,international,Unknown,False,,True
+79666,185118,Fiji,2019-08-03,international,Unknown,False,,True
+79675,63666,Tonga,2019-08-09,international,Unknown,False,,True
+80890,115080,New Zealand,2020-10-11,international,Unknown,False,conversion_goals;defenders_beaten;drop_goals_converted;metres;offload;penalties_conceded;penalty_goals;tackles;tries;try_assists,True
+80917,101598,Scotland,2020-10-23,international,Unknown,False,,True
+80908,121974,Wales,2020-10-24,international,Unknown,False,,True
+26512,190938,Australia,2020-11-07,international,Unknown,False,conversion_goals;defenders_beaten;drop_goals_converted;metres;offload;penalties_conceded;penalty_goals;tackles;tries;try_assists,True
+26512,124602,New Zealand,2020-11-07,international,Second-row,False,conversion_goals;defenders_beaten;drop_goals_converted;metres;offload;penalties_conceded;penalty_goals;tackles;tries;try_assists,False
+3285115,117864,Scotland,2020-11-14,international,Unknown,False,,True
+3285124,111306,England,2020-11-14,international,Unknown,False,,True
+3285205,124530,Ireland,2020-11-21,international,Unknown,False,conversion_goals;defenders_beaten;drop_goals_converted;metres;offload;penalties_conceded;penalty_goals;tackles;tries;try_assists,True
+3285205,136848,Ireland,2020-11-21,international,Unknown,False,,True
+26539,168972,New Zealand,2020-11-28,international,Unknown,False,,True
+3285376,143952,Georgia,2020-12-05,international,Unknown,False,,True
+3285385,101598,Scotland,2020-12-05,international,Hooker,False,conversion_goals;defenders_beaten;drop_goals_converted;metres;offload;penalties_conceded;penalty_goals;tackles;tries;try_assists,False
+3285394,132228,Wales,2020-12-05,international,Centre,True,conversion_goals;defenders_beaten;drop_goals_converted;metres;offload;penalties_conceded;penalty_goals;tackles;tries;try_assists,False
+3285403,115452,England,2020-12-06,international,Unknown,False,,True
+8289106,123420,Italy,2021-02-06,international,Prop,True,conversion_goals;defenders_beaten;drop_goals_converted;metres;offload;penalties_conceded;penalty_goals;tackles;tries;try_assists,False
+8289196,117834,Italy,2021-02-13,international,Unknown,False,,True
+8289286,213144,Italy,2021-02-27,international,Scrum-half,True,conversion_goals;defenders_beaten;drop_goals_converted;metres;offload;penalties_conceded;penalty_goals;tackles;tries;try_assists,False
+8289394,136776,Scotland,2021-03-14,international,Unknown,False,,True
+8289961,144474,Georgia,2021-07-02,international,Back-row,True,conversion_goals;defenders_beaten;drop_goals_converted;metres;offload;penalties_conceded;penalty_goals;tackles;tries;try_assists,False
+8289961,128814,South Africa,2021-07-02,international,Unknown,False,,True
+8289961,151464,South Africa,2021-07-02,international,Unknown,False,,True
+8289970,173784,Japan,2021-07-03,international,Back-row,True,conversion_goals;defenders_beaten;drop_goals_converted;metres;offload;penalties_conceded;penalty_goals;tackles;tries;try_assists,False
+8289979,178746,Wales,2021-07-03,international,Unknown,False,,True
+8290123,130398,Tonga,2021-07-03,international,Unknown,False,conversion_goals;defenders_beaten;drop_goals_converted;metres;offload;penalties_conceded;penalty_goals;tackles;tries;try_assists,True
+8290213,124740,Argentina,2021-07-03,international,Back-three,True,conversion_goals;defenders_beaten;drop_goals_converted;metres;offload;penalties_conceded;penalty_goals;tackles;tries;try_assists,False
+8290213,207216,Argentina,2021-07-03,international,Unknown,False,,True
+8290213,170556,Romania,2021-07-03,international,Hooker,True,conversion_goals;defenders_beaten;drop_goals_converted;metres;offload;penalties_conceded;penalty_goals;tackles;tries;try_assists,False
+8289988,163776,England,2021-07-04,international,Unknown,False,,True
+8289988,233154,USA,2021-07-04,international,Unknown,False,,True
+8289916,190938,Australia,2021-07-07,international,Unknown,False,conversion_goals;defenders_beaten;drop_goals_converted;metres;offload;penalties_conceded;penalty_goals;tackles;tries;try_assists,True
+8290042,228714,USA,2021-07-10,international,Unknown,False,,True
+8289925,190938,Australia,2021-07-13,international,Unknown,False,conversion_goals;defenders_beaten;drop_goals_converted;metres;offload;penalties_conceded;penalty_goals;tackles;tries;try_assists,True
+8290078,165852,New Zealand,2021-07-17,international,Unknown,False,,True
+8290078,60150,New Zealand,2021-07-17,international,Hooker,False,conversion_goals;defenders_beaten;drop_goals_converted;metres;offload;penalties_conceded;penalty_goals;tackles;tries;try_assists,False
+8290132,144210,Australia,2021-08-07,international,Unknown,False,,True
+8290132,124590,New Zealand,2021-08-07,international,Second-row,False,conversion_goals;defenders_beaten;drop_goals_converted;metres;offload;penalties_conceded;penalty_goals;tackles;tries;try_assists,False
+8290132,60150,New Zealand,2021-08-07,international,Hooker,False,conversion_goals;defenders_beaten;drop_goals_converted;metres;offload;penalties_conceded;penalty_goals;tackles;tries;try_assists,False
+26611,207330,South Africa,2021-08-14,international,Unknown,False,,True
+26629,169440,Argentina,2021-09-12,international,Back-three,True,conversion_goals;defenders_beaten;drop_goals_converted;metres;offload;penalties_conceded;penalty_goals;tackles;tries;try_assists,False
+26647,149676,New Zealand,2021-09-25,international,Back-row,True,conversion_goals;defenders_beaten;drop_goals_converted;metres;offload;penalties_conceded;penalty_goals;tackles;tries;try_assists,False
+26602,207204,Argentina,2021-10-02,international,Unknown,False,,True
+8290807,134976,Australia,2021-10-23,international,Unknown,False,,True
+8290807,67848,Japan,2021-10-23,international,Back-row,False,conversion_goals;defenders_beaten;drop_goals_converted;metres;offload;penalties_conceded;penalty_goals;tackles;tries;try_assists,False
+8290231,142356,England,2021-11-06,international,Unknown,False,,True
+8290258,187422,Scotland,2021-11-07,international,Unknown,False,,True
+8290294,134262,Argentina,2021-11-13,international,Unknown,False,,True
+8289772,129096,Wales,2021-11-14,international,Centre,True,conversion_goals;defenders_beaten;drop_goals_converted;metres;offload;penalties_conceded;penalty_goals;tackles;tries;try_assists,False
+8290303,213198,England,2021-11-20,international,Unknown,False,,True
+8290312,140574,Japan,2021-11-20,international,Unknown,False,,True
+8290321,124578,Italy,2021-11-20,international,Unknown,False,,True
+8290330,112074,Ireland,2021-11-21,international,Second-row,True,conversion_goals;defenders_beaten;drop_goals_converted;metres;offload;penalties_conceded;penalty_goals;tackles;tries;try_assists,False
+8290330,186096,Ireland,2021-11-21,international,Unknown,False,,True
+8289790,142476,Scotland,2022-02-05,international,Unknown,False,,True
+4707124,125058,Highlanders,2022-02-19,club,Unknown,False,,True
+4707124,157056,Highlanders,2022-02-19,club,Unknown,False,conversion_goals;defenders_beaten;drop_goals_converted;metres;offload;penalties_conceded;penalty_goals;tackles;tries;try_assists,True
+4707133,206694,Crusaders,2022-02-19,club,Unknown,False,,True
+4707133,127404,Hurricanes,2022-02-19,club,Unknown,False,,True
+4707133,173868,Hurricanes,2022-02-19,club,Unknown,False,,True
+4707142,182118,Melbourne Rebels,2022-02-19,club,Back-three,True,conversion_goals;defenders_beaten;drop_goals_converted;metres;offload;penalties_conceded;penalty_goals;tackles;tries;try_assists,False
+4707142,166500,Queensland Reds,2022-02-19,club,Centre,False,conversion_goals;defenders_beaten;drop_goals_converted;metres;offload;penalties_conceded;penalty_goals;tackles;tries;try_assists,False
+4707151,166698,ACT Brumbies,2022-02-20,club,Unknown,False,,True
+4707151,124350,Western Force,2022-02-20,club,Unknown,False,,True
+4707205,131862,Queensland Reds,2022-02-25,club,Prop,True,conversion_goals;defenders_beaten;drop_goals_converted;metres;offload;penalties_conceded;penalty_goals;tackles;tries;try_assists,False
+4707205,204804,Queensland Reds,2022-02-25,club,Unknown,False,,True
+4707223,197904,Crusaders,2022-02-25,club,Unknown,False,,True
+4707214,117294,ACT Brumbies,2022-02-26,club,Unknown,False,,True
+4707232,164970,Melbourne Rebels,2022-02-26,club,Back-three,True,conversion_goals;defenders_beaten;drop_goals_converted;metres;offload;penalties_conceded;penalty_goals;tackles;tries;try_assists,False
+4707232,153126,Western Force,2022-02-26,club,Unknown,False,,True
+4707241,197832,Blues,2022-02-26,club,Unknown,False,,True
+4707241,209964,Blues,2022-02-26,club,Unknown,False,conversion_goals;defenders_beaten;drop_goals_converted;metres;offload;penalties_conceded;penalty_goals;tackles;tries;try_assists,True
+8289853,129558,Ireland,2022-02-27,international,Unknown,False,,True
+4707286,235248,Crusaders,2022-03-04,club,Unknown,False,,True
+4707295,69582,Fijian Drua,2022-03-04,club,Back-three,True,conversion_goals;defenders_beaten;drop_goals_converted;metres;offload;penalties_conceded;penalty_goals;tackles;tries;try_assists,False
+4707304,134436,Western Force,2022-03-04,club,Back-row,False,conversion_goals;defenders_beaten;drop_goals_converted;metres;offload;penalties_conceded;penalty_goals;tackles;tries;try_assists,False
+4707322,132948,Highlanders,2022-03-05,club,Back-row,True,conversion_goals;defenders_beaten;drop_goals_converted;metres;offload;penalties_conceded;penalty_goals;tackles;tries;try_assists,False
+4707322,132966,Hurricanes,2022-03-05,club,Scrum-half,True,conversion_goals;defenders_beaten;drop_goals_converted;metres;offload;penalties_conceded;penalty_goals;tackles;tries;try_assists,False
+4707322,149706,Hurricanes,2022-03-05,club,Hooker,True,conversion_goals;defenders_beaten;drop_goals_converted;metres;offload;penalties_conceded;penalty_goals;tackles;tries;try_assists,False
+4707322,234756,Hurricanes,2022-03-05,club,Unknown,False,,True
+4707331,192618,NSW Waratahs,2022-03-05,club,Second-row,True,conversion_goals;defenders_beaten;drop_goals_converted;metres;offload;penalties_conceded;penalty_goals;tackles;tries;try_assists,False
+4707331,206022,NSW Waratahs,2022-03-05,club,Back-three,True,conversion_goals;defenders_beaten;drop_goals_converted;metres;offload;penalties_conceded;penalty_goals;tackles;tries;try_assists,False
+4707376,115080,Blues,2022-03-11,club,Prop,True,conversion_goals;defenders_beaten;drop_goals_converted;metres;offload;penalties_conceded;penalty_goals;tackles;tries;try_assists,False
+4707376,141732,Blues,2022-03-11,club,Unknown,False,conversion_goals;defenders_beaten;drop_goals_converted;metres;offload;penalties_conceded;penalty_goals;tackles;tries;try_assists,True
+4707376,69684,Blues,2022-03-11,club,Fly-half,True,conversion_goals;defenders_beaten;drop_goals_converted;metres;offload;penalties_conceded;penalty_goals;tackles;tries;try_assists,False
+4707376,118740,Highlanders,2022-03-11,club,Unknown,False,conversion_goals;defenders_beaten;drop_goals_converted;metres;offload;penalties_conceded;penalty_goals;tackles;tries;try_assists,True
+4707385,166722,ACT Brumbies,2022-03-11,club,Unknown,False,conversion_goals;defenders_beaten;drop_goals_converted;metres;offload;penalties_conceded;penalty_goals;tackles;tries;try_assists,True
+4707385,134460,Melbourne Rebels,2022-03-11,club,Unknown,False,,True
+4707412,175518,Chiefs,2022-03-12,club,Second-row,False,conversion_goals;defenders_beaten;drop_goals_converted;metres;offload;penalties_conceded;penalty_goals;tackles;tries;try_assists,False
+4707412,179256,Chiefs,2022-03-12,club,Back-three,True,conversion_goals;defenders_beaten;drop_goals_converted;metres;offload;penalties_conceded;penalty_goals;tackles;tries;try_assists,False
+4707412,186408,Chiefs,2022-03-12,club,Unknown,False,,True
+4707412,124590,Crusaders,2022-03-12,club,Second-row,True,conversion_goals;defenders_beaten;drop_goals_converted;metres;offload;penalties_conceded;penalty_goals;tackles;tries;try_assists,False
+4707412,140058,Crusaders,2022-03-12,club,Second-row,False,conversion_goals;defenders_beaten;drop_goals_converted;metres;offload;penalties_conceded;penalty_goals;tackles;tries;try_assists,False
+4707412,186534,Crusaders,2022-03-12,club,Hooker,False,conversion_goals;defenders_beaten;drop_goals_converted;metres;offload;penalties_conceded;penalty_goals;tackles;tries;try_assists,False
+4707412,197904,Crusaders,2022-03-12,club,Unknown,False,conversion_goals;defenders_beaten;drop_goals_converted;metres;offload;penalties_conceded;penalty_goals;tackles;tries;try_assists,True
+4707421,210894,Fijian Drua,2022-03-12,club,Unknown,False,,True
+8289880,207774,Italy,2022-03-12,international,Unknown,False,,True
+4707394,119856,NSW Waratahs,2022-03-13,club,Unknown,False,conversion_goals;defenders_beaten;drop_goals_converted;metres;offload;penalties_conceded;penalty_goals;tackles;tries;try_assists,True
+4707394,133662,NSW Waratahs,2022-03-13,club,Scrum-half,True,conversion_goals;defenders_beaten;drop_goals_converted;metres;offload;penalties_conceded;penalty_goals;tackles;tries;try_assists,False
+4707394,134076,NSW Waratahs,2022-03-13,club,Hooker,True,conversion_goals;defenders_beaten;drop_goals_converted;metres;offload;penalties_conceded;penalty_goals;tackles;tries;try_assists,False
+4707394,197328,NSW Waratahs,2022-03-13,club,Second-row,True,conversion_goals;defenders_beaten;drop_goals_converted;metres;offload;penalties_conceded;penalty_goals;tackles;tries;try_assists,False
+4707394,161598,Western Force,2022-03-13,club,Unknown,False,,True
+4707475,117606,ACT Brumbies,2022-03-18,club,Unknown,False,conversion_goals;defenders_beaten;drop_goals_converted;metres;offload;penalties_conceded;penalty_goals;tackles;tries;try_assists,True
+4707196,125970,Chiefs,2022-03-19,club,Unknown,False,conversion_goals;defenders_beaten;drop_goals_converted;metres;offload;penalties_conceded;penalty_goals;tackles;tries;try_assists,True
+4707196,186408,Chiefs,2022-03-19,club,Centre,True,conversion_goals;defenders_beaten;drop_goals_converted;metres;offload;penalties_conceded;penalty_goals;tackles;tries;try_assists,False
+4707196,197814,Chiefs,2022-03-19,club,Unknown,False,,True
+4707196,139998,Moana Pasifika,2022-03-19,club,Back-row,True,conversion_goals;defenders_beaten;drop_goals_converted;metres;offload;penalties_conceded;penalty_goals;tackles;tries;try_assists,False
+4707196,141966,Moana Pasifika,2022-03-19,club,Unknown,False,,True
+4707556,120396,Hurricanes,2022-03-25,club,Back-row,False,conversion_goals;defenders_beaten;drop_goals_converted;metres;offload;penalties_conceded;penalty_goals;tackles;tries;try_assists,False
+4707556,149718,Hurricanes,2022-03-25,club,Unknown,False,,True
+4707556,139998,Moana Pasifika,2022-03-25,club,Back-row,True,conversion_goals;defenders_beaten;drop_goals_converted;metres;offload;penalties_conceded;penalty_goals;tackles;tries;try_assists,False
+4707556,149730,Moana Pasifika,2022-03-25,club,Scrum-half,False,conversion_goals;defenders_beaten;drop_goals_converted;metres;offload;penalties_conceded;penalty_goals;tackles;tries;try_assists,False
+4707565,185118,Fijian Drua,2022-03-25,club,Hooker,True,conversion_goals;defenders_beaten;drop_goals_converted;metres;offload;penalties_conceded;penalty_goals;tackles;tries;try_assists,False
+4707574,149682,Highlanders,2022-03-26,club,Back-row,True,conversion_goals;defenders_beaten;drop_goals_converted;metres;offload;penalties_conceded;penalty_goals;tackles;tries;try_assists,False
+4707583,225720,Chiefs,2022-03-26,club,Unknown,False,,True
+4707583,186534,Crusaders,2022-03-26,club,Hooker,True,conversion_goals;defenders_beaten;drop_goals_converted;metres;offload;penalties_conceded;penalty_goals;tackles;tries;try_assists,False
+4707592,168684,NSW Waratahs,2022-03-26,club,Unknown,False,,True
+4707592,192666,NSW Waratahs,2022-03-26,club,Prop,False,conversion_goals;defenders_beaten;drop_goals_converted;metres;offload;penalties_conceded;penalty_goals;tackles;tries;try_assists,False
+4707106,124362,Moana Pasifika,2022-03-29,club,Centre,True,conversion_goals;defenders_beaten;drop_goals_converted;metres;offload;penalties_conceded;penalty_goals;tackles;tries;try_assists,False
+4707106,126420,Moana Pasifika,2022-03-29,club,Unknown,False,conversion_goals;defenders_beaten;drop_goals_converted;metres;offload;penalties_conceded;penalty_goals;tackles;tries;try_assists,True
+4707106,174300,Moana Pasifika,2022-03-29,club,Unknown,False,conversion_goals;defenders_beaten;drop_goals_converted;metres;offload;penalties_conceded;penalty_goals;tackles;tries;try_assists,True
+4707106,216084,Moana Pasifika,2022-03-29,club,Unknown,False,conversion_goals;defenders_beaten;drop_goals_converted;metres;offload;penalties_conceded;penalty_goals;tackles;tries;try_assists,True
+4707106,234750,Moana Pasifika,2022-03-29,club,Second-row,False,conversion_goals;defenders_beaten;drop_goals_converted;metres;offload;penalties_conceded;penalty_goals;tackles;tries;try_assists,False
+4707646,132948,Highlanders,2022-04-01,club,Back-row,True,conversion_goals;defenders_beaten;drop_goals_converted;metres;offload;penalties_conceded;penalty_goals;tackles;tries;try_assists,False
+4707646,142338,Highlanders,2022-04-01,club,Prop,False,conversion_goals;defenders_beaten;drop_goals_converted;metres;offload;penalties_conceded;penalty_goals;tackles;tries;try_assists,False
+4707655,211662,Fijian Drua,2022-04-01,club,Unknown,False,,True
+4707664,156996,Blues,2022-04-02,club,Second-row,True,conversion_goals;defenders_beaten;drop_goals_converted;metres;offload;penalties_conceded;penalty_goals;tackles;tries;try_assists,False
+4707664,139998,Moana Pasifika,2022-04-02,club,Back-row,True,conversion_goals;defenders_beaten;drop_goals_converted;metres;offload;penalties_conceded;penalty_goals;tackles;tries;try_assists,False
+4707664,189198,Moana Pasifika,2022-04-02,club,Second-row,True,conversion_goals;defenders_beaten;drop_goals_converted;metres;offload;penalties_conceded;penalty_goals;tackles;tries;try_assists,False
+4707664,225510,Moana Pasifika,2022-04-02,club,Back-three,True,conversion_goals;defenders_beaten;drop_goals_converted;metres;offload;penalties_conceded;penalty_goals;tackles;tries;try_assists,False
+4707673,128346,ACT Brumbies,2022-04-02,club,Unknown,False,,True
+4707673,140016,Queensland Reds,2022-04-02,club,Second-row,False,conversion_goals;defenders_beaten;drop_goals_converted;metres;offload;penalties_conceded;penalty_goals;tackles;tries;try_assists,False
+4707673,149814,Queensland Reds,2022-04-02,club,Back-row,True,conversion_goals;defenders_beaten;drop_goals_converted;metres;offload;penalties_conceded;penalty_goals;tackles;tries;try_assists,False
+4707493,124566,Chiefs,2022-04-03,club,Prop,False,conversion_goals;defenders_beaten;drop_goals_converted;metres;offload;penalties_conceded;penalty_goals;tackles;tries;try_assists,False
+4707493,188874,Chiefs,2022-04-03,club,Second-row,True,conversion_goals;defenders_beaten;drop_goals_converted;metres;offload;penalties_conceded;penalty_goals;tackles;tries;try_assists,False
+4707466,118740,Highlanders,2022-04-08,club,Unknown,False,,True
+4707466,139998,Moana Pasifika,2022-04-08,club,Back-row,False,conversion_goals;defenders_beaten;drop_goals_converted;metres;offload;penalties_conceded;penalty_goals;tackles;tries;try_assists,False
+4707736,118578,Crusaders,2022-04-09,club,Back-row,True,conversion_goals;defenders_beaten;drop_goals_converted;metres;offload;penalties_conceded;penalty_goals;tackles;tries;try_assists,False
+4707736,111024,Hurricanes,2022-04-09,club,Scrum-half,True,conversion_goals;defenders_beaten;drop_goals_converted;metres;offload;penalties_conceded;penalty_goals;tackles;tries;try_assists,False
+4707736,149706,Hurricanes,2022-04-09,club,Hooker,True,conversion_goals;defenders_beaten;drop_goals_converted;metres;offload;penalties_conceded;penalty_goals;tackles;tries;try_assists,False
+4707736,149718,Hurricanes,2022-04-09,club,Unknown,False,conversion_goals;defenders_beaten;drop_goals_converted;metres;offload;penalties_conceded;penalty_goals;tackles;tries;try_assists,True
+4707754,157326,Blues,2022-04-09,club,Scrum-half,True,conversion_goals;defenders_beaten;drop_goals_converted;metres;offload;penalties_conceded;penalty_goals;tackles;tries;try_assists,False
+4707754,184716,Chiefs,2022-04-09,club,Back-three,True,conversion_goals;defenders_beaten;drop_goals_converted;metres;offload;penalties_conceded;penalty_goals;tackles;tries;try_assists,False
+4707754,198198,Chiefs,2022-04-09,club,Back-three,True,conversion_goals;defenders_beaten;drop_goals_converted;metres;offload;penalties_conceded;penalty_goals;tackles;tries;try_assists,False
+4707763,206502,Fijian Drua,2022-04-09,club,Unknown,False,conversion_goals;defenders_beaten;drop_goals_converted;metres;offload;penalties_conceded;penalty_goals;tackles;tries;try_assists,True
+4707763,206778,Fijian Drua,2022-04-09,club,Second-row,True,conversion_goals;defenders_beaten;drop_goals_converted;metres;offload;penalties_conceded;penalty_goals;tackles;tries;try_assists,False
+4707763,264132,Fijian Drua,2022-04-09,club,Back-three,True,conversion_goals;defenders_beaten;drop_goals_converted;metres;offload;penalties_conceded;penalty_goals;tackles;tries;try_assists,False
+4707403,126990,Hurricanes,2022-04-12,club,Hooker,True,conversion_goals;defenders_beaten;drop_goals_converted;metres;offload;penalties_conceded;penalty_goals;tackles;tries;try_assists,False
+4707403,196170,Hurricanes,2022-04-12,club,Unknown,False,,True
+4707403,234642,Hurricanes,2022-04-12,club,Unknown,False,,True
+4707835,184014,Queensland Reds,2022-04-15,club,Unknown,False,,True
+4707826,197934,Chiefs,2022-04-16,club,Unknown,False,,True
+4707826,139998,Moana Pasifika,2022-04-16,club,Back-row,True,conversion_goals;defenders_beaten;drop_goals_converted;metres;offload;penalties_conceded;penalty_goals;tackles;tries;try_assists,False
+4707826,141936,Moana Pasifika,2022-04-16,club,Back-three,False,conversion_goals;defenders_beaten;drop_goals_converted;metres;offload;penalties_conceded;penalty_goals;tackles;tries;try_assists,False
+4707844,149682,Highlanders,2022-04-16,club,Back-row,True,conversion_goals;defenders_beaten;drop_goals_converted;metres;offload;penalties_conceded;penalty_goals;tackles;tries;try_assists,False
+4707844,234684,Highlanders,2022-04-16,club,Unknown,False,,True
+4707916,186396,Chiefs,2022-04-22,club,Prop,False,conversion_goals;defenders_beaten;drop_goals_converted;metres;offload;penalties_conceded;penalty_goals;tackles;tries;try_assists,False
+4707934,266268,Fijian Drua,2022-04-23,club,Back-three,False,conversion_goals;defenders_beaten;drop_goals_converted;metres;offload;penalties_conceded;penalty_goals;tackles;tries;try_assists,False
+4707943,134886,Hurricanes,2022-04-23,club,Back-row,True,conversion_goals;defenders_beaten;drop_goals_converted;metres;offload;penalties_conceded;penalty_goals;tackles;tries;try_assists,False
+4707961,197904,Crusaders,2022-04-24,club,Unknown,False,,True
+4708006,227454,Queensland Reds,2022-04-29,club,Back-three,True,conversion_goals;defenders_beaten;drop_goals_converted;metres;offload;penalties_conceded;penalty_goals;tackles;tries;try_assists,False
+4708015,156912,Blues,2022-04-29,club,Back-three,False,conversion_goals;defenders_beaten;drop_goals_converted;metres;offload;penalties_conceded;penalty_goals;tackles;tries;try_assists,False
+4708015,197160,Western Force,2022-04-29,club,Unknown,False,,True
+4708024,206736,Fijian Drua,2022-04-30,club,Prop,False,conversion_goals;defenders_beaten;drop_goals_converted;metres;offload;penalties_conceded;penalty_goals;tackles;tries;try_assists,False
+4708024,206784,Fijian Drua,2022-04-30,club,Back-row,True,conversion_goals;defenders_beaten;drop_goals_converted;metres;offload;penalties_conceded;penalty_goals;tackles;tries;try_assists,False
+4708024,118740,Highlanders,2022-04-30,club,Unknown,False,,True
+4708024,132948,Highlanders,2022-04-30,club,Back-row,False,conversion_goals;defenders_beaten;drop_goals_converted;metres;offload;penalties_conceded;penalty_goals;tackles;tries;try_assists,False
+4708033,175506,Crusaders,2022-04-30,club,Unknown,False,,True
+4708042,139998,Moana Pasifika,2022-04-30,club,Back-row,False,conversion_goals;defenders_beaten;drop_goals_converted;metres;offload;penalties_conceded;penalty_goals;tackles;tries;try_assists,False
+4708051,197568,ACT Brumbies,2022-05-01,club,Unknown,False,,True
+4708051,149658,Hurricanes,2022-05-01,club,Prop,True,conversion_goals;defenders_beaten;drop_goals_converted;metres;offload;penalties_conceded;penalty_goals;tackles;tries;try_assists,False
+4708051,196170,Hurricanes,2022-05-01,club,Hooker,False,conversion_goals;defenders_beaten;drop_goals_converted;metres;offload;penalties_conceded;penalty_goals;tackles;tries;try_assists,False
+4708105,188916,Highlanders,2022-05-06,club,Back-three,False,conversion_goals;defenders_beaten;drop_goals_converted;metres;offload;penalties_conceded;penalty_goals;tackles;tries;try_assists,False
+4708105,165876,Queensland Reds,2022-05-06,club,Prop,True,conversion_goals;defenders_beaten;drop_goals_converted;metres;offload;penalties_conceded;penalty_goals;tackles;tries;try_assists,False
+4708114,188676,Moana Pasifika,2022-05-07,club,Back-three,True,conversion_goals;defenders_beaten;drop_goals_converted;metres;offload;penalties_conceded;penalty_goals;tackles;tries;try_assists,False
+4708114,218022,Moana Pasifika,2022-05-07,club,Centre,False,conversion_goals;defenders_beaten;drop_goals_converted;metres;offload;penalties_conceded;penalty_goals;tackles;tries;try_assists,False
+4708132,126342,Crusaders,2022-05-07,club,Scrum-half,True,conversion_goals;defenders_beaten;drop_goals_converted;metres;offload;penalties_conceded;penalty_goals;tackles;tries;try_assists,False
+4708132,147540,Crusaders,2022-05-07,club,Prop,True,conversion_goals;defenders_beaten;drop_goals_converted;metres;offload;penalties_conceded;penalty_goals;tackles;tries;try_assists,False
+4708132,216066,Crusaders,2022-05-07,club,Second-row,True,conversion_goals;defenders_beaten;drop_goals_converted;metres;offload;penalties_conceded;penalty_goals;tackles;tries;try_assists,False
+4708132,216132,Crusaders,2022-05-07,club,Second-row,False,conversion_goals;defenders_beaten;drop_goals_converted;metres;offload;penalties_conceded;penalty_goals;tackles;tries;try_assists,False
+4708132,225498,Crusaders,2022-05-07,club,Prop,False,conversion_goals;defenders_beaten;drop_goals_converted;metres;offload;penalties_conceded;penalty_goals;tackles;tries;try_assists,False
+4708132,336558,Crusaders,2022-05-07,club,Unknown,False,,True
+4708132,157044,Western Force,2022-05-07,club,Back-three,True,conversion_goals;defenders_beaten;drop_goals_converted;metres;offload;penalties_conceded;penalty_goals;tackles;tries;try_assists,False
+4708132,44196,Western Force,2022-05-07,club,Centre,False,conversion_goals;defenders_beaten;drop_goals_converted;metres;offload;penalties_conceded;penalty_goals;tackles;tries;try_assists,False
+4708141,169080,Fijian Drua,2022-05-08,club,Unknown,False,conversion_goals;defenders_beaten;drop_goals_converted;metres;offload;penalties_conceded;penalty_goals;tackles;tries;try_assists,True
+4708186,118740,Highlanders,2022-05-13,club,Unknown,False,,True
+4708186,166788,Western Force,2022-05-13,club,Unknown,False,conversion_goals;defenders_beaten;drop_goals_converted;metres;offload;penalties_conceded;penalty_goals;tackles;tries;try_assists,True
+4708204,139998,Moana Pasifika,2022-05-14,club,Back-row,True,conversion_goals;defenders_beaten;drop_goals_converted;metres;offload;penalties_conceded;penalty_goals;tackles;tries;try_assists,False
+4708213,197988,Blues,2022-05-14,club,Unknown,False,,True
+4708222,139980,NSW Waratahs,2022-05-14,club,Back-row,False,conversion_goals;defenders_beaten;drop_goals_converted;metres;offload;penalties_conceded;penalty_goals;tackles;tries;try_assists,False
+4708231,179256,Chiefs,2022-05-15,club,Back-three,True,conversion_goals;defenders_beaten;drop_goals_converted;metres;offload;penalties_conceded;penalty_goals;tackles;tries;try_assists,False
+4708276,144894,Fijian Drua,2022-05-20,club,Back-three,True,conversion_goals;defenders_beaten;drop_goals_converted;metres;offload;penalties_conceded;penalty_goals;tackles;tries;try_assists,False
+4708276,233220,Fijian Drua,2022-05-20,club,Back-three,True,conversion_goals;defenders_beaten;drop_goals_converted;metres;offload;penalties_conceded;penalty_goals;tackles;tries;try_assists,False
+4708285,177078,Moana Pasifika,2022-05-20,club,Hooker,False,conversion_goals;defenders_beaten;drop_goals_converted;metres;offload;penalties_conceded;penalty_goals;tackles;tries;try_assists,False
+4708294,197916,Chiefs,2022-05-21,club,Second-row,True,conversion_goals;defenders_beaten;drop_goals_converted;metres;offload;penalties_conceded;penalty_goals;tackles;tries;try_assists,False
+4708294,206664,Chiefs,2022-05-21,club,Back-row,False,conversion_goals;defenders_beaten;drop_goals_converted;metres;offload;penalties_conceded;penalty_goals;tackles;tries;try_assists,False
+4708294,166152,Western Force,2022-05-21,club,Unknown,False,,True
+4708303,132846,Hurricanes,2022-05-21,club,Back-three,False,conversion_goals;defenders_beaten;drop_goals_converted;metres;offload;penalties_conceded;penalty_goals;tackles;tries;try_assists,False
+4708303,132966,Hurricanes,2022-05-21,club,Scrum-half,False,conversion_goals;defenders_beaten;drop_goals_converted;metres;offload;penalties_conceded;penalty_goals;tackles;tries;try_assists,False
+4708303,149706,Hurricanes,2022-05-21,club,Hooker,False,conversion_goals;defenders_beaten;drop_goals_converted;metres;offload;penalties_conceded;penalty_goals;tackles;tries;try_assists,False
+4708303,162444,Hurricanes,2022-05-21,club,Back-three,True,conversion_goals;defenders_beaten;drop_goals_converted;metres;offload;penalties_conceded;penalty_goals;tackles;tries;try_assists,False
+4708303,211998,Hurricanes,2022-05-21,club,Unknown,False,,True
+4708303,60150,Hurricanes,2022-05-21,club,Hooker,True,conversion_goals;defenders_beaten;drop_goals_converted;metres;offload;penalties_conceded;penalty_goals;tackles;tries;try_assists,False
+4708321,142338,Highlanders,2022-05-22,club,Prop,True,conversion_goals;defenders_beaten;drop_goals_converted;metres;offload;penalties_conceded;penalty_goals;tackles;tries;try_assists,False
+4708321,162540,Highlanders,2022-05-22,club,Back-three,False,conversion_goals;defenders_beaten;drop_goals_converted;metres;offload;penalties_conceded;penalty_goals;tackles;tries;try_assists,False
+4708321,169002,Highlanders,2022-05-22,club,Centre,True,conversion_goals;defenders_beaten;drop_goals_converted;metres;offload;penalties_conceded;penalty_goals;tackles;tries;try_assists,False
+4708321,160248,NSW Waratahs,2022-05-22,club,Back-row,False,conversion_goals;defenders_beaten;drop_goals_converted;metres;offload;penalties_conceded;penalty_goals;tackles;tries;try_assists,False
+4708321,190956,NSW Waratahs,2022-05-22,club,Prop,True,conversion_goals;defenders_beaten;drop_goals_converted;metres;offload;penalties_conceded;penalty_goals;tackles;tries;try_assists,False
+4707925,130398,Moana Pasifika,2022-05-24,club,Unknown,False,,True
+4707925,141936,Moana Pasifika,2022-05-24,club,Back-three,True,conversion_goals;defenders_beaten;drop_goals_converted;metres;offload;penalties_conceded;penalty_goals;tackles;tries;try_assists,False
+4707925,225510,Moana Pasifika,2022-05-24,club,Back-three,False,conversion_goals;defenders_beaten;drop_goals_converted;metres;offload;penalties_conceded;penalty_goals;tackles;tries;try_assists,False
+4708366,118824,Crusaders,2022-05-27,club,Scrum-half,True,conversion_goals;defenders_beaten;drop_goals_converted;metres;offload;penalties_conceded;penalty_goals;tackles;tries;try_assists,False
+4708375,186306,Fijian Drua,2022-05-28,club,Unknown,False,,True
+4708384,190848,ACT Brumbies,2022-05-28,club,Back-row,True,conversion_goals;defenders_beaten;drop_goals_converted;metres;offload;penalties_conceded;penalty_goals;tackles;tries;try_assists,False
+4708384,203430,Moana Pasifika,2022-05-28,club,Unknown,False,,True
+4708393,113970,NSW Waratahs,2022-05-28,club,Prop,False,conversion_goals;defenders_beaten;drop_goals_converted;metres;offload;penalties_conceded;penalty_goals;tackles;tries;try_assists,False
+4708402,120534,Western Force,2022-05-28,club,Back-three,True,conversion_goals;defenders_beaten;drop_goals_converted;metres;offload;penalties_conceded;penalty_goals;tackles;tries;try_assists,False
+4708402,149808,Western Force,2022-05-28,club,Second-row,False,conversion_goals;defenders_beaten;drop_goals_converted;metres;offload;penalties_conceded;penalty_goals;tackles;tries;try_assists,False
+4708402,197160,Western Force,2022-05-28,club,Unknown,False,conversion_goals;defenders_beaten;drop_goals_converted;metres;offload;penalties_conceded;penalty_goals;tackles;tries;try_assists,True
+4708411,124380,Melbourne Rebels,2022-05-29,club,Back-three,True,conversion_goals;defenders_beaten;drop_goals_converted;metres;offload;penalties_conceded;penalty_goals;tackles;tries;try_assists,False
+4708411,142302,Melbourne Rebels,2022-05-29,club,Unknown,False,,True
+4708411,142446,Melbourne Rebels,2022-05-29,club,Back-three,False,conversion_goals;defenders_beaten;drop_goals_converted;metres;offload;penalties_conceded;penalty_goals;tackles;tries;try_assists,False
+4708465,225498,Crusaders,2022-06-03,club,Prop,False,conversion_goals;defenders_beaten;drop_goals_converted;metres;offload;penalties_conceded;penalty_goals;tackles;tries;try_assists,False
+4708456,149724,Blues,2022-06-04,club,Back-row,True,conversion_goals;defenders_beaten;drop_goals_converted;metres;offload;penalties_conceded;penalty_goals;tackles;tries;try_assists,False
+4708456,69492,Highlanders,2022-06-04,club,Scrum-half,True,conversion_goals;defenders_beaten;drop_goals_converted;metres;offload;penalties_conceded;penalty_goals;tackles;tries;try_assists,False
+4708474,134076,NSW Waratahs,2022-06-04,club,Hooker,True,conversion_goals;defenders_beaten;drop_goals_converted;metres;offload;penalties_conceded;penalty_goals;tackles;tries;try_assists,False
+4708555,62526,Crusaders,2022-06-10,club,Second-row,True,conversion_goals;defenders_beaten;drop_goals_converted;metres;offload;penalties_conceded;penalty_goals;tackles;tries;try_assists,False
+8377540,157872,Japan,2022-06-18,international,Unknown,False,,True
+8377540,67320,Uruguay,2022-06-18,international,Unknown,False,,True
+8377549,158850,Japan,2022-06-25,international,Unknown,False,conversion_goals;defenders_beaten;drop_goals_converted;metres;offload;penalties_conceded;penalty_goals;tackles;tries;try_assists,True
+8375785,119682,Argentina,2022-07-02,international,Scrum-half,True,conversion_goals;defenders_beaten;drop_goals_converted;metres;offload;penalties_conceded;penalty_goals;tackles;tries;try_assists,False
+8379709,54180,Australia,2022-07-02,international,Fly-half,True,conversion_goals;defenders_beaten;drop_goals_converted;metres;offload;penalties_conceded;penalty_goals;tackles;tries;try_assists,False
+8379709,213786,England,2022-07-02,international,Unknown,False,,True
+8379709,238830,England,2022-07-02,international,Unknown,False,,True
+8380996,112068,Ireland,2022-07-02,international,Prop,False,conversion_goals;defenders_beaten;drop_goals_converted;metres;offload;penalties_conceded;penalty_goals;tackles;tries;try_assists,False
+8379718,147546,England,2022-07-09,international,Back-row,False,conversion_goals;defenders_beaten;drop_goals_converted;metres;offload;penalties_conceded;penalty_goals;tackles;tries;try_assists,False
+8375407,66186,Wales,2022-07-16,international,Back-row,True,conversion_goals;defenders_beaten;drop_goals_converted;metres;offload;penalties_conceded;penalty_goals;tackles;tries;try_assists,False
+8384002,233094,Tonga,2022-07-16,international,Unknown,False,,True
+8381104,169434,Argentina,2022-08-13,international,Unknown,False,,True
+8387710,162774,RC Toulon,2022-09-03,club,Unknown,False,,True
+8387719,185958,Section Paloise,2022-09-03,club,Unknown,False,,True
+8387728,143124,ASM Clermont Auvergne,2022-09-03,club,Unknown,False,,True
+8387737,191358,Montpellier Herault Rugby,2022-09-03,club,Unknown,False,,True
+8387746,224976,Stade Toulousain,2022-09-04,club,Unknown,False,conversion_goals;defenders_beaten;drop_goals_converted;metres;offload;penalties_conceded;penalty_goals;tackles;tries;try_assists,True
+8387764,165720,Racing 92,2022-09-10,club,Unknown,False,,True
+8387809,143118,CA Brive,2022-09-10,club,Unknown,False,,True
+8387809,224124,CA Brive,2022-09-10,club,Unknown,False,,True
+8391949,184002,Bristol Bears,2022-09-10,club,Unknown,False,,True
+8391967,220560,Exeter Chiefs,2022-09-10,club,Unknown,False,,True
+8391976,238830,London Irish,2022-09-10,club,Unknown,False,,True
+8391985,129720,Harlequins,2022-09-10,club,Unknown,False,conversion_goals;defenders_beaten;drop_goals_converted;metres;offload;penalties_conceded;penalty_goals;tackles;tries;try_assists,True
+8387800,65520,RC Toulon,2022-09-11,club,Unknown,False,conversion_goals;defenders_beaten;drop_goals_converted;metres;offload;penalties_conceded;penalty_goals;tackles;tries;try_assists,True
+8396116,129156,Benetton Rugby,2022-09-16,club,Back-three,False,conversion_goals;defenders_beaten;drop_goals_converted;metres;offload;penalties_conceded;penalty_goals;tackles;tries;try_assists,False
+8396116,60816,Glasgow Warriors,2022-09-16,club,Hooker,True,conversion_goals;defenders_beaten;drop_goals_converted;metres;offload;penalties_conceded;penalty_goals;tackles;tries;try_assists,False
+8387827,147030,Racing 92,2022-09-17,club,Centre,True,conversion_goals;defenders_beaten;drop_goals_converted;metres;offload;penalties_conceded;penalty_goals;tackles;tries;try_assists,False
+8392003,58554,Northampton Saints,2022-09-17,club,Fly-half,True,conversion_goals;defenders_beaten;drop_goals_converted;metres;offload;penalties_conceded;penalty_goals;tackles;tries;try_assists,False
+8392012,115950,Sale Sharks,2022-09-17,club,Unknown,False,,True
+8392030,129894,Leicester Tigers,2022-09-17,club,Unknown,False,,True
+8396107,131100,Connacht Rugby,2022-09-17,club,Unknown,False,,True
+8396107,201906,Connacht Rugby,2022-09-17,club,Unknown,False,conversion_goals;defenders_beaten;drop_goals_converted;metres;offload;penalties_conceded;penalty_goals;tackles;tries;try_assists,True
+8396107,148638,Ulster Rugby,2022-09-17,club,Unknown,False,,True
+8396125,240456,Zebre Parma,2022-09-17,club,Unknown,False,,True
+8396134,119118,Ospreys,2022-09-17,club,Prop,False,conversion_goals;defenders_beaten;drop_goals_converted;metres;offload;penalties_conceded;penalty_goals;tackles;tries;try_assists,False
+8396134,178878,Ospreys,2022-09-17,club,Unknown,False,,True
+8396143,141780,Cardiff Rugby,2022-09-17,club,Back-three,True,conversion_goals;defenders_beaten;drop_goals_converted;metres;offload;penalties_conceded;penalty_goals;tackles;tries;try_assists,False
+8396143,123012,Munster Rugby,2022-09-17,club,Unknown,False,conversion_goals;defenders_beaten;drop_goals_converted;metres;offload;penalties_conceded;penalty_goals;tackles;tries;try_assists,True
+8396161,225984,Bulls,2022-09-17,club,Unknown,False,,True
+8387836,118572,RC Toulon,2022-09-18,club,Back-row,False,conversion_goals;defenders_beaten;drop_goals_converted;metres;offload;penalties_conceded;penalty_goals;tackles;tries;try_assists,False
+8392048,142068,Exeter Chiefs,2022-09-18,club,Unknown,False,,True
+8396170,169614,Sharks,2022-09-23,club,Unknown,False,,True
+8396170,147384,Zebre Parma,2022-09-23,club,Unknown,False,,True
+8396179,136062,Cardiff Rugby,2022-09-23,club,Unknown,False,,True
+8396179,163806,Glasgow Warriors,2022-09-23,club,Unknown,False,,True
+8396188,220146,Benetton Rugby,2022-09-23,club,Unknown,False,,True
+8396188,143604,Leinster Rugby,2022-09-23,club,Second-row,True,conversion_goals;defenders_beaten;drop_goals_converted;metres;offload;penalties_conceded;penalty_goals;tackles;tries;try_assists,False
+8381167,337302,Argentina,2022-09-24,international,Unknown,False,conversion_goals;defenders_beaten;drop_goals_converted;metres;offload;penalties_conceded;penalty_goals;tackles;tries;try_assists,True
+8381176,144780,Australia,2022-09-24,international,Back-row,True,conversion_goals;defenders_beaten;drop_goals_converted;metres;offload;penalties_conceded;penalty_goals;tackles;tries;try_assists,False
+8387908,197940,Lyon,2022-09-24,club,Centre,True,conversion_goals;defenders_beaten;drop_goals_converted;metres;offload;penalties_conceded;penalty_goals;tackles;tries;try_assists,False
+8387908,179004,Stade Francais Paris,2022-09-24,club,Unknown,False,,True
+8392066,101820,Bristol Bears,2022-09-24,club,Unknown,False,,True
+8392084,139692,Gloucester Rugby,2022-09-24,club,Unknown,False,,True
+8392084,213342,Saracens,2022-09-24,club,Unknown,False,,True
+8396197,120012,Connacht Rugby,2022-09-24,club,Unknown,False,conversion_goals;defenders_beaten;drop_goals_converted;metres;offload;penalties_conceded;penalty_goals;tackles;tries;try_assists,True
+8396197,226110,Stormers,2022-09-24,club,Unknown,False,,True
+8396206,129714,Edinburgh Rugby,2022-09-24,club,Centre,False,conversion_goals;defenders_beaten;drop_goals_converted;metres;offload;penalties_conceded;penalty_goals;tackles;tries;try_assists,False
+8396206,139902,Edinburgh Rugby,2022-09-24,club,Fly-half,True,conversion_goals;defenders_beaten;drop_goals_converted;metres;offload;penalties_conceded;penalty_goals;tackles;tries;try_assists,False
+8396215,146838,Scarlets,2022-09-24,club,Unknown,False,,True
+8396224,235404,Lions,2022-09-24,club,Second-row,False,conversion_goals;defenders_beaten;drop_goals_converted;metres;offload;penalties_conceded;penalty_goals;tackles;tries;try_assists,False
+8387881,102942,Stade Rochelais,2022-09-25,club,Scrum-half,True,conversion_goals;defenders_beaten;drop_goals_converted;metres;offload;penalties_conceded;penalty_goals;tackles;tries;try_assists,False
+8392102,220560,Exeter Chiefs,2022-09-25,club,Unknown,False,,True
+8392102,97614,Harlequins,2022-09-25,club,Prop,True,conversion_goals;defenders_beaten;drop_goals_converted;metres;offload;penalties_conceded;penalty_goals;tackles;tries;try_assists,False
+8392111,146652,Newcastle Falcons,2022-09-30,club,Fly-half,True,conversion_goals;defenders_beaten;drop_goals_converted;metres;offload;penalties_conceded;penalty_goals;tackles;tries;try_assists,False
+8396251,148644,Leinster Rugby,2022-09-30,club,Hooker,False,conversion_goals;defenders_beaten;drop_goals_converted;metres;offload;penalties_conceded;penalty_goals;tackles;tries;try_assists,False
+8396251,122958,Ulster Rugby,2022-09-30,club,Unknown,False,,True
+8387944,172962,ASM Clermont Auvergne,2022-10-01,club,Unknown,False,,True
+8387953,103698,Bayonne,2022-10-01,club,Unknown,False,,True
+8387989,118662,Union Bordeaux-Begles,2022-10-01,club,Back-three,True,conversion_goals;defenders_beaten;drop_goals_converted;metres;offload;penalties_conceded;penalty_goals;tackles;tries;try_assists,False
+8387989,144420,Union Bordeaux-Begles,2022-10-01,club,Back-row,True,conversion_goals;defenders_beaten;drop_goals_converted;metres;offload;penalties_conceded;penalty_goals;tackles;tries;try_assists,False
+8387989,97374,Union Bordeaux-Begles,2022-10-01,club,Unknown,False,conversion_goals;defenders_beaten;drop_goals_converted;metres;offload;penalties_conceded;penalty_goals;tackles;tries;try_assists,True
+8392129,103020,Bath Rugby,2022-10-01,club,Unknown,False,,True
+8392129,129864,London Irish,2022-10-01,club,Hooker,False,conversion_goals;defenders_beaten;drop_goals_converted;metres;offload;penalties_conceded;penalty_goals;tackles;tries;try_assists,False
+8392138,187404,Exeter Chiefs,2022-10-01,club,Unknown,False,,True
+8396260,147378,Benetton Rugby,2022-10-01,club,Back-row,True,conversion_goals;defenders_beaten;drop_goals_converted;metres;offload;penalties_conceded;penalty_goals;tackles;tries;try_assists,False
+8396287,141750,Ospreys,2022-10-01,club,Unknown,False,,True
+8396296,231744,Zebre Parma,2022-10-01,club,Unknown,False,,True
+8392156,177240,Northampton Saints,2022-10-02,club,Unknown,False,,True
+8396314,230874,Edinburgh Rugby,2022-10-07,club,Unknown,False,,True
+8388016,123060,Montpellier Herault Rugby,2022-10-08,club,Back-row,True,conversion_goals;defenders_beaten;drop_goals_converted;metres;offload;penalties_conceded;penalty_goals;tackles;tries;try_assists,False
+8392174,103020,Bath Rugby,2022-10-08,club,Unknown,False,,True
+8392183,213198,Sale Sharks,2022-10-08,club,Unknown,False,,True
+8396332,208182,Bulls,2022-10-08,club,Unknown,False,,True
+8396332,42324,Bulls,2022-10-08,club,Unknown,False,,True
+8396332,119262,Glasgow Warriors,2022-10-08,club,Prop,False,conversion_goals;defenders_beaten;drop_goals_converted;metres;offload;penalties_conceded;penalty_goals;tackles;tries;try_assists,False
+8396368,117936,Leinster Rugby,2022-10-08,club,Back-row,True,conversion_goals;defenders_beaten;drop_goals_converted;metres;offload;penalties_conceded;penalty_goals;tackles;tries;try_assists,False
+8396368,201954,Leinster Rugby,2022-10-08,club,Unknown,False,,True
+8396377,51750,Ospreys,2022-10-08,club,Fly-half,True,conversion_goals;defenders_beaten;drop_goals_converted;metres;offload;penalties_conceded;penalty_goals;tackles;tries;try_assists,False
+8396377,54948,Ospreys,2022-10-08,club,Back-row,True,conversion_goals;defenders_beaten;drop_goals_converted;metres;offload;penalties_conceded;penalty_goals;tackles;tries;try_assists,False
+8392201,175890,Newcastle Falcons,2022-10-09,club,Prop,True,conversion_goals;defenders_beaten;drop_goals_converted;metres;offload;penalties_conceded;penalty_goals;tackles;tries;try_assists,False
+8392210,132606,Wasps,2022-10-09,club,Prop,True,conversion_goals;defenders_beaten;drop_goals_converted;metres;offload;penalties_conceded;penalty_goals;tackles;tries;try_assists,False
+8392210,164394,Wasps,2022-10-09,club,Back-row,True,conversion_goals;defenders_beaten;drop_goals_converted;metres;offload;penalties_conceded;penalty_goals;tackles;tries;try_assists,False
+8396350,122838,Dragons RFC,2022-10-09,club,Unknown,False,,True
+8388079,126606,Castres Olympique,2022-10-15,club,Prop,True,conversion_goals;defenders_beaten;drop_goals_converted;metres;offload;penalties_conceded;penalty_goals;tackles;tries;try_assists,False
+8388088,113892,Lyon,2022-10-15,club,Prop,False,conversion_goals;defenders_beaten;drop_goals_converted;metres;offload;penalties_conceded;penalty_goals;tackles;tries;try_assists,False
+8388124,178758,ASM Clermont Auvergne,2022-10-15,club,Centre,True,conversion_goals;defenders_beaten;drop_goals_converted;metres;offload;penalties_conceded;penalty_goals;tackles;tries;try_assists,False
+8388124,89682,ASM Clermont Auvergne,2022-10-15,club,Fly-half,False,conversion_goals;defenders_beaten;drop_goals_converted;metres;offload;penalties_conceded;penalty_goals;tackles;tries;try_assists,False
+8392255,120162,Saracens,2022-10-15,club,Centre,True,conversion_goals;defenders_beaten;drop_goals_converted;metres;offload;penalties_conceded;penalty_goals;tackles;tries;try_assists,False
+8396386,116280,Benetton Rugby,2022-10-15,club,Scrum-half,True,conversion_goals;defenders_beaten;drop_goals_converted;metres;offload;penalties_conceded;penalty_goals;tackles;tries;try_assists,False
+8396413,145026,Glasgow Warriors,2022-10-15,club,Back-three,True,conversion_goals;defenders_beaten;drop_goals_converted;metres;offload;penalties_conceded;penalty_goals;tackles;tries;try_assists,False
+8396413,161856,Glasgow Warriors,2022-10-15,club,Back-row,True,conversion_goals;defenders_beaten;drop_goals_converted;metres;offload;penalties_conceded;penalty_goals;tackles;tries;try_assists,False
+8396422,243534,Munster Rugby,2022-10-15,club,Back-three,True,conversion_goals;defenders_beaten;drop_goals_converted;metres;offload;penalties_conceded;penalty_goals;tackles;tries;try_assists,False
+8396431,229086,Zebre Parma,2022-10-15,club,Back-three,True,conversion_goals;defenders_beaten;drop_goals_converted;metres;offload;penalties_conceded;penalty_goals;tackles;tries;try_assists,False
+8392264,198600,Harlequins,2022-10-16,club,Hooker,False,conversion_goals;defenders_beaten;drop_goals_converted;metres;offload;penalties_conceded;penalty_goals;tackles;tries;try_assists,False
+8396458,97650,Scarlets,2022-10-21,club,Back-three,True,conversion_goals;defenders_beaten;drop_goals_converted;metres;offload;penalties_conceded;penalty_goals;tackles;tries;try_assists,False
+8388133,149136,ASM Clermont Auvergne,2022-10-22,club,Back-row,True,conversion_goals;defenders_beaten;drop_goals_converted;metres;offload;penalties_conceded;penalty_goals;tackles;tries;try_assists,False
+8396476,128046,Zebre Parma,2022-10-22,club,Hooker,False,conversion_goals;defenders_beaten;drop_goals_converted;metres;offload;penalties_conceded;penalty_goals;tackles;tries;try_assists,False
+8396512,111708,Cardiff Rugby,2022-10-22,club,Unknown,False,conversion_goals;defenders_beaten;drop_goals_converted;metres;offload;penalties_conceded;penalty_goals;tackles;tries;try_assists,True
+8396512,146862,Cardiff Rugby,2022-10-22,club,Back-row,True,conversion_goals;defenders_beaten;drop_goals_converted;metres;offload;penalties_conceded;penalty_goals;tackles;tries;try_assists,False
+8396503,111600,Dragons RFC,2022-10-23,club,Back-three,True,conversion_goals;defenders_beaten;drop_goals_converted;metres;offload;penalties_conceded;penalty_goals;tackles;tries;try_assists,False
+8381266,132768,Australia,2022-10-29,international,Back-row,False,conversion_goals;defenders_beaten;drop_goals_converted;metres;offload;penalties_conceded;penalty_goals;tackles;tries;try_assists,False
+8388205,117414,CA Brive,2022-10-29,club,Back-three,True,conversion_goals;defenders_beaten;drop_goals_converted;metres;offload;penalties_conceded;penalty_goals;tackles;tries;try_assists,False
+8388205,244548,CA Brive,2022-10-29,club,Unknown,False,,True
+8388205,231678,Racing 92,2022-10-29,club,Unknown,False,,True
+8388250,129522,Lyon,2022-10-29,club,Back-three,True,conversion_goals;defenders_beaten;drop_goals_converted;metres;offload;penalties_conceded;penalty_goals;tackles;tries;try_assists,False
+8396566,177504,Ulster Rugby,2022-10-29,club,Back-row,True,conversion_goals;defenders_beaten;drop_goals_converted;metres;offload;penalties_conceded;penalty_goals;tackles;tries;try_assists,False
+8396575,177552,Ospreys,2022-10-29,club,Unknown,False,conversion_goals;defenders_beaten;drop_goals_converted;metres;offload;penalties_conceded;penalty_goals;tackles;tries;try_assists,True
+8400715,60150,New Zealand,2022-10-29,international,Hooker,True,conversion_goals;defenders_beaten;drop_goals_converted;metres;offload;penalties_conceded;penalty_goals;tackles;tries;try_assists,False
+8388241,224016,Union Bordeaux-Begles,2022-10-30,club,Unknown,False,conversion_goals;defenders_beaten;drop_goals_converted;metres;offload;penalties_conceded;penalty_goals;tackles;tries;try_assists,True
+8392363,130230,Sale Sharks,2022-10-30,club,Back-row,True,conversion_goals;defenders_beaten;drop_goals_converted;metres;offload;penalties_conceded;penalty_goals;tackles;tries;try_assists,False
+8392363,202932,Saracens,2022-10-30,club,Hooker,True,conversion_goals;defenders_beaten;drop_goals_converted;metres;offload;penalties_conceded;penalty_goals;tackles;tries;try_assists,False
+8396548,161916,Edinburgh Rugby,2022-10-30,club,Back-three,True,conversion_goals;defenders_beaten;drop_goals_converted;metres;offload;penalties_conceded;penalty_goals;tackles;tries;try_assists,False
+8396548,217908,Edinburgh Rugby,2022-10-30,club,Unknown,False,conversion_goals;defenders_beaten;drop_goals_converted;metres;offload;penalties_conceded;penalty_goals;tackles;tries;try_assists,True
+8396548,229662,Edinburgh Rugby,2022-10-30,club,Unknown,False,,True
+8384659,165846,France,2022-11-05,international,Second-row,False,conversion_goals;defenders_beaten;drop_goals_converted;metres;offload;penalties_conceded;penalty_goals;tackles;tries;try_assists,False
+8388286,231678,Racing 92,2022-11-05,club,Unknown,False,,True
+8388313,344388,Stade Toulousain,2022-11-05,club,Unknown,False,,True
+8392390,139692,Gloucester Rugby,2022-11-05,club,Prop,False,conversion_goals;defenders_beaten;drop_goals_converted;metres;offload;penalties_conceded;penalty_goals;tackles;tries;try_assists,False
+8392390,130764,Sale Sharks,2022-11-05,club,Hooker,False,conversion_goals;defenders_beaten;drop_goals_converted;metres;offload;penalties_conceded;penalty_goals;tackles;tries;try_assists,False
+8392426,169998,Bristol Bears,2022-11-05,club,Centre,True,conversion_goals;defenders_beaten;drop_goals_converted;metres;offload;penalties_conceded;penalty_goals;tackles;tries;try_assists,False
+8392426,242460,Bristol Bears,2022-11-05,club,Unknown,False,,True
+8392471,213342,Saracens,2022-11-13,club,Unknown,False,,True
+8381293,208518,Argentina,2022-11-19,international,Unknown,False,,True
+8382346,90342,Ireland,2022-11-19,international,Fly-half,True,conversion_goals;defenders_beaten;drop_goals_converted;metres;offload;penalties_conceded;penalty_goals;tackles;tries;try_assists,False
+8392507,117534,Newcastle Falcons,2022-11-25,club,Unknown,False,conversion_goals;defenders_beaten;drop_goals_converted;metres;offload;penalties_conceded;penalty_goals;tackles;tries;try_assists,True
+8396647,226104,Stormers,2022-11-25,club,Unknown,False,conversion_goals;defenders_beaten;drop_goals_converted;metres;offload;penalties_conceded;penalty_goals;tackles;tries;try_assists,True
+8379853,97650,Wales,2022-11-26,international,Back-three,True,conversion_goals;defenders_beaten;drop_goals_converted;metres;offload;penalties_conceded;penalty_goals;tackles;tries;try_assists,False
+8388367,224262,Castres Olympique,2022-11-26,club,Unknown,False,,True
+8392525,169998,Bristol Bears,2022-11-26,club,Centre,False,conversion_goals;defenders_beaten;drop_goals_converted;metres;offload;penalties_conceded;penalty_goals;tackles;tries;try_assists,False
+8396656,148770,Leinster Rugby,2022-11-26,club,Unknown,False,,True
+8388340,118152,ASM Clermont Auvergne,2022-11-27,club,Second-row,False,conversion_goals;defenders_beaten;drop_goals_converted;metres;offload;penalties_conceded;penalty_goals;tackles;tries;try_assists,False
+8396611,337566,Dragons RFC,2022-11-27,club,Unknown,False,,True
+8396692,120432,Ospreys,2022-12-02,club,Centre,True,conversion_goals;defenders_beaten;drop_goals_converted;metres;offload;penalties_conceded;penalty_goals;tackles;tries;try_assists,False
+8392552,169998,Bristol Bears,2022-12-03,club,Centre,False,conversion_goals;defenders_beaten;drop_goals_converted;metres;offload;penalties_conceded;penalty_goals;tackles;tries;try_assists,False
+8392561,183996,Northampton Saints,2022-12-03,club,Back-row,False,conversion_goals;defenders_beaten;drop_goals_converted;metres;offload;penalties_conceded;penalty_goals;tackles;tries;try_assists,False
+8392570,151512,London Irish,2022-12-03,club,Centre,True,conversion_goals;defenders_beaten;drop_goals_converted;metres;offload;penalties_conceded;penalty_goals;tackles;tries;try_assists,False
+8396683,130188,Glasgow Warriors,2022-12-03,club,Unknown,False,,True
+8396683,231810,Zebre Parma,2022-12-03,club,Back-three,True,conversion_goals;defenders_beaten;drop_goals_converted;metres;offload;penalties_conceded;penalty_goals;tackles;tries;try_assists,False
+8396701,177918,Dragons RFC,2022-12-03,club,Unknown,False,,True
+8396701,152280,Stormers,2022-12-03,club,Back-row,True,conversion_goals;defenders_beaten;drop_goals_converted;metres;offload;penalties_conceded;penalty_goals;tackles;tries;try_assists,False
+8396728,220128,Benetton Rugby,2022-12-03,club,Unknown,False,conversion_goals;defenders_beaten;drop_goals_converted;metres;offload;penalties_conceded;penalty_goals;tackles;tries;try_assists,True
+8396737,220194,Leinster Rugby,2022-12-03,club,Second-row,False,conversion_goals;defenders_beaten;drop_goals_converted;metres;offload;penalties_conceded;penalty_goals;tackles;tries;try_assists,False
+8396710,235230,Lions,2022-12-04,club,Centre,True,conversion_goals;defenders_beaten;drop_goals_converted;metres;offload;penalties_conceded;penalty_goals;tackles;tries;try_assists,False
+8396710,178866,Scarlets,2022-12-04,club,Prop,True,conversion_goals;defenders_beaten;drop_goals_converted;metres;offload;penalties_conceded;penalty_goals;tackles;tries;try_assists,False
+8393452,278628,Montpellier Herault Rugby,2022-12-09,club,Unknown,False,conversion_goals;defenders_beaten;drop_goals_converted;metres;offload;penalties_conceded;penalty_goals;tackles;tries;try_assists,True
+8393974,169998,Bristol Bears,2022-12-09,club,Centre,True,conversion_goals;defenders_beaten;drop_goals_converted;metres;offload;penalties_conceded;penalty_goals;tackles;tries;try_assists,False
+8393398,189486,Bulls,2022-12-10,club,Fly-half,False,conversion_goals;defenders_beaten;drop_goals_converted;metres;offload;penalties_conceded;penalty_goals;tackles;tries;try_assists,False
+8393965,162402,Cheetahs,2022-12-10,club,Unknown,False,,True
+8394019,185640,Lions,2022-12-10,club,Unknown,False,,True
+8394028,203082,Cardiff Rugby,2022-12-10,club,Unknown,False,,True
+8393443,173814,Leicester Tigers,2022-12-11,club,Back-three,True,conversion_goals;defenders_beaten;drop_goals_converted;metres;offload;penalties_conceded;penalty_goals;tackles;tries;try_assists,False
+8393470,187446,Sale Sharks,2022-12-11,club,Unknown,False,,True
+8394037,119856,Lions,2022-12-16,club,Unknown,False,,True
+8393497,278628,Montpellier Herault Rugby,2022-12-17,club,Unknown,False,conversion_goals;defenders_beaten;drop_goals_converted;metres;offload;penalties_conceded;penalty_goals;tackles;tries;try_assists,True
+8393587,131400,Edinburgh Rugby,2022-12-17,club,Back-three,True,conversion_goals;defenders_beaten;drop_goals_converted;metres;offload;penalties_conceded;penalty_goals;tackles;tries;try_assists,False
+8394064,187464,Bath Rugby,2022-12-17,club,Unknown,False,,True
+8393533,129480,Racing 92,2022-12-18,club,Hooker,False,conversion_goals;defenders_beaten;drop_goals_converted;metres;offload;penalties_conceded;penalty_goals;tackles;tries;try_assists,False
+8393533,169782,Racing 92,2022-12-18,club,Prop,True,conversion_goals;defenders_beaten;drop_goals_converted;metres;offload;penalties_conceded;penalty_goals;tackles;tries;try_assists,False
+8388475,224490,Lyon,2022-12-22,club,Centre,False,conversion_goals;defenders_beaten;drop_goals_converted;metres;offload;penalties_conceded;penalty_goals;tackles;tries;try_assists,False
+8388448,202182,CA Brive,2022-12-23,club,Hooker,False,conversion_goals;defenders_beaten;drop_goals_converted;metres;offload;penalties_conceded;penalty_goals;tackles;tries;try_assists,False
+8388493,97374,Union Bordeaux-Begles,2022-12-23,club,Centre,True,conversion_goals;defenders_beaten;drop_goals_converted;metres;offload;penalties_conceded;penalty_goals;tackles;tries;try_assists,False
+8388502,119766,Castres Olympique,2022-12-23,club,Back-row,True,conversion_goals;defenders_beaten;drop_goals_converted;metres;offload;penalties_conceded;penalty_goals;tackles;tries;try_assists,False
+8392624,116370,Saracens,2022-12-23,club,Centre,False,conversion_goals;defenders_beaten;drop_goals_converted;metres;offload;penalties_conceded;penalty_goals;tackles;tries;try_assists,False
+8392633,130764,Sale Sharks,2022-12-23,club,Hooker,False,conversion_goals;defenders_beaten;drop_goals_converted;metres;offload;penalties_conceded;penalty_goals;tackles;tries;try_assists,False
+8392633,198810,Sale Sharks,2022-12-23,club,Prop,True,conversion_goals;defenders_beaten;drop_goals_converted;metres;offload;penalties_conceded;penalty_goals;tackles;tries;try_assists,False
+8396746,132846,Edinburgh Rugby,2022-12-23,club,Back-three,True,conversion_goals;defenders_beaten;drop_goals_converted;metres;offload;penalties_conceded;penalty_goals;tackles;tries;try_assists,False
+8396746,179394,Glasgow Warriors,2022-12-23,club,Unknown,False,conversion_goals;defenders_beaten;drop_goals_converted;metres;offload;penalties_conceded;penalty_goals;tackles;tries;try_assists,True
+8396755,193200,Sharks,2022-12-23,club,Second-row,True,conversion_goals;defenders_beaten;drop_goals_converted;metres;offload;penalties_conceded;penalty_goals;tackles;tries;try_assists,False
+8396755,207348,Sharks,2022-12-23,club,Unknown,False,conversion_goals;defenders_beaten;drop_goals_converted;metres;offload;penalties_conceded;penalty_goals;tackles;tries;try_assists,True
+8396764,209796,Bulls,2022-12-23,club,Centre,False,conversion_goals;defenders_beaten;drop_goals_converted;metres;offload;penalties_conceded;penalty_goals;tackles;tries;try_assists,False
+8392597,156432,Exeter Chiefs,2022-12-24,club,Second-row,False,conversion_goals;defenders_beaten;drop_goals_converted;metres;offload;penalties_conceded;penalty_goals;tackles;tries;try_assists,False
+8396773,116280,Benetton Rugby,2022-12-24,club,Scrum-half,False,conversion_goals;defenders_beaten;drop_goals_converted;metres;offload;penalties_conceded;penalty_goals;tackles;tries;try_assists,False
+8396773,220128,Benetton Rugby,2022-12-24,club,Unknown,False,,True
+8396773,266532,Zebre Parma,2022-12-24,club,Prop,True,conversion_goals;defenders_beaten;drop_goals_converted;metres;offload;penalties_conceded;penalty_goals;tackles;tries;try_assists,False
+8396782,109866,Cardiff Rugby,2022-12-26,club,Hooker,False,conversion_goals;defenders_beaten;drop_goals_converted;metres;offload;penalties_conceded;penalty_goals;tackles;tries;try_assists,False
+8396782,144486,Cardiff Rugby,2022-12-26,club,Unknown,False,,True
+8396809,78726,Ospreys,2022-12-26,club,Back-row,True,conversion_goals;defenders_beaten;drop_goals_converted;metres;offload;penalties_conceded;penalty_goals;tackles;tries;try_assists,False
+8396809,136368,Scarlets,2022-12-26,club,Second-row,True,conversion_goals;defenders_beaten;drop_goals_converted;metres;offload;penalties_conceded;penalty_goals;tackles;tries;try_assists,False
+8392606,136470,Bristol Bears,2022-12-27,club,Fly-half,False,conversion_goals;defenders_beaten;drop_goals_converted;metres;offload;penalties_conceded;penalty_goals;tackles;tries;try_assists,False
+8392606,136680,Bristol Bears,2022-12-27,club,Prop,True,conversion_goals;defenders_beaten;drop_goals_converted;metres;offload;penalties_conceded;penalty_goals;tackles;tries;try_assists,False
+8388556,61686,Union Bordeaux-Begles,2022-12-30,club,Centre,True,conversion_goals;defenders_beaten;drop_goals_converted;metres;offload;penalties_conceded;penalty_goals;tackles;tries;try_assists,False
+8396818,132846,Edinburgh Rugby,2022-12-30,club,Back-three,True,conversion_goals;defenders_beaten;drop_goals_converted;metres;offload;penalties_conceded;penalty_goals;tackles;tries;try_assists,False
+8388520,115512,RC Toulon,2022-12-31,club,Fly-half,False,conversion_goals;defenders_beaten;drop_goals_converted;metres;offload;penalties_conceded;penalty_goals;tackles;tries;try_assists,False
+8392696,172368,London Irish,2022-12-31,club,Back-three,True,conversion_goals;defenders_beaten;drop_goals_converted;metres;offload;penalties_conceded;penalty_goals;tackles;tries;try_assists,False
+8388511,343644,ASM Clermont Auvergne,2023-01-01,club,Unknown,False,conversion_goals;defenders_beaten;drop_goals_converted;metres;offload;penalties_conceded;penalty_goals;tackles;tries;try_assists,True
+8392669,152820,Harlequins,2023-01-01,club,Unknown,False,,True
+8392669,198600,Harlequins,2023-01-01,club,Hooker,False,conversion_goals;defenders_beaten;drop_goals_converted;metres;offload;penalties_conceded;penalty_goals;tackles;tries;try_assists,False
+8392669,97614,Harlequins,2023-01-01,club,Prop,False,conversion_goals;defenders_beaten;drop_goals_converted;metres;offload;penalties_conceded;penalty_goals;tackles;tries;try_assists,False
+8396854,116802,Dragons RFC,2023-01-01,club,Centre,True,conversion_goals;defenders_beaten;drop_goals_converted;metres;offload;penalties_conceded;penalty_goals;tackles;tries;try_assists,False
+8396863,220170,Leinster Rugby,2023-01-01,club,Unknown,False,conversion_goals;defenders_beaten;drop_goals_converted;metres;offload;penalties_conceded;penalty_goals;tackles;tries;try_assists,True
+8396890,189486,Bulls,2023-01-06,club,Fly-half,True,conversion_goals;defenders_beaten;drop_goals_converted;metres;offload;penalties_conceded;penalty_goals;tackles;tries;try_assists,False
+8396935,201624,Munster Rugby,2023-01-06,club,Unknown,False,,True
+8388610,140670,Castres Olympique,2023-01-07,club,Prop,True,conversion_goals;defenders_beaten;drop_goals_converted;metres;offload;penalties_conceded;penalty_goals;tackles;tries;try_assists,False
+8388628,178248,Union Bordeaux-Begles,2023-01-07,club,Prop,False,conversion_goals;defenders_beaten;drop_goals_converted;metres;offload;penalties_conceded;penalty_goals;tackles;tries;try_assists,False
+8392732,266610,Leicester Tigers,2023-01-07,club,Unknown,False,,True
+8396944,111624,Ospreys,2023-01-07,club,Fly-half,True,conversion_goals;defenders_beaten;drop_goals_converted;metres;offload;penalties_conceded;penalty_goals;tackles;tries;try_assists,False
+8392741,111420,London Irish,2023-01-08,club,Fly-half,True,conversion_goals;defenders_beaten;drop_goals_converted;metres;offload;penalties_conceded;penalty_goals;tackles;tries;try_assists,False
+8393641,189984,Stade Rochelais,2023-01-14,club,Prop,False,conversion_goals;defenders_beaten;drop_goals_converted;metres;offload;penalties_conceded;penalty_goals;tackles;tries;try_assists,False
+8393641,118098,Ulster Rugby,2023-01-14,club,Fly-half,False,conversion_goals;defenders_beaten;drop_goals_converted;metres;offload;penalties_conceded;penalty_goals;tackles;tries;try_assists,False
+8394154,238206,USAP,2023-01-14,club,Unknown,False,,True
+8393632,123888,Edinburgh Rugby,2023-01-15,club,Prop,True,conversion_goals;defenders_beaten;drop_goals_converted;metres;offload;penalties_conceded;penalty_goals;tackles;tries;try_assists,False
+8393632,124740,Edinburgh Rugby,2023-01-15,club,Back-three,True,conversion_goals;defenders_beaten;drop_goals_converted;metres;offload;penalties_conceded;penalty_goals;tackles;tries;try_assists,False
+8393632,207024,Edinburgh Rugby,2023-01-15,club,Prop,False,conversion_goals;defenders_beaten;drop_goals_converted;metres;offload;penalties_conceded;penalty_goals;tackles;tries;try_assists,False
+8393632,229662,Edinburgh Rugby,2023-01-15,club,Hooker,False,conversion_goals;defenders_beaten;drop_goals_converted;metres;offload;penalties_conceded;penalty_goals;tackles;tries;try_assists,False
+8394199,146904,Cardiff Rugby,2023-01-15,club,Unknown,False,,True
+8394199,111966,Newcastle Falcons,2023-01-15,club,Unknown,False,,True
+8394208,141990,Bath Rugby,2023-01-15,club,Back-row,True,conversion_goals;defenders_beaten;drop_goals_converted;metres;offload;penalties_conceded;penalty_goals;tackles;tries;try_assists,False
+8394208,20094,RC Toulon,2023-01-15,club,Back-row,False,conversion_goals;defenders_beaten;drop_goals_converted;metres;offload;penalties_conceded;penalty_goals;tackles;tries;try_assists,False
+8394226,124848,RC Toulon,2023-01-20,club,Second-row,True,conversion_goals;defenders_beaten;drop_goals_converted;metres;offload;penalties_conceded;penalty_goals;tackles;tries;try_assists,False
+8394244,273792,Stade Francais Paris,2023-01-21,club,Unknown,False,,True
+8393767,102996,Saracens,2023-01-22,club,Prop,True,conversion_goals;defenders_beaten;drop_goals_converted;metres;offload;penalties_conceded;penalty_goals;tackles;tries;try_assists,False
+8392777,221148,Sale Sharks,2023-01-27,club,Unknown,False,conversion_goals;defenders_beaten;drop_goals_converted;metres;offload;penalties_conceded;penalty_goals;tackles;tries;try_assists,True
+8396962,146712,Stormers,2023-01-27,club,Back-row,True,conversion_goals;defenders_beaten;drop_goals_converted;metres;offload;penalties_conceded;penalty_goals;tackles;tries;try_assists,False
+8396962,62406,Stormers,2023-01-27,club,Back-three,True,conversion_goals;defenders_beaten;drop_goals_converted;metres;offload;penalties_conceded;penalty_goals;tackles;tries;try_assists,False
+8388637,103830,CA Brive,2023-01-28,club,Fly-half,True,conversion_goals;defenders_beaten;drop_goals_converted;metres;offload;penalties_conceded;penalty_goals;tackles;tries;try_assists,False
+8392768,136410,Gloucester Rugby,2023-01-28,club,Back-row,True,conversion_goals;defenders_beaten;drop_goals_converted;metres;offload;penalties_conceded;penalty_goals;tackles;tries;try_assists,False
+8396998,207396,Lions,2023-01-28,club,Back-row,True,conversion_goals;defenders_beaten;drop_goals_converted;metres;offload;penalties_conceded;penalty_goals;tackles;tries;try_assists,False
+8392795,125664,Harlequins,2023-01-29,club,Back-three,True,conversion_goals;defenders_beaten;drop_goals_converted;metres;offload;penalties_conceded;penalty_goals;tackles;tries;try_assists,False
+8392822,213396,Harlequins,2023-02-17,club,Unknown,False,,True
+8392822,223266,Harlequins,2023-02-17,club,Unknown,False,,True
+8397052,231882,Connacht Rugby,2023-02-18,club,Unknown,False,,True
+8397061,232158,Scarlets,2023-02-18,club,Unknown,False,,True
+8397070,263544,Leinster Rugby,2023-02-18,club,Unknown,False,,True
+8392894,139758,Gloucester Rugby,2023-02-25,club,Unknown,False,,True
+8404891,353514,Fijian Drua,2023-02-25,club,Unknown,False,,True
+8404918,93942,Western Force,2023-02-25,club,Unknown,False,,True
+8392921,207714,Bristol Bears,2023-03-03,club,Unknown,False,,True
+8392930,213396,Harlequins,2023-03-04,club,Unknown,False,,True
+8388916,231708,Racing 92,2023-03-05,club,Unknown,False,,True
+8393011,187464,Bath Rugby,2023-03-10,club,Unknown,False,,True
+8425321,244260,Griquas,2023-03-10,club,Unknown,False,,True
+8404999,225588,Crusaders,2023-03-11,club,Unknown,False,,True
+8405026,335394,Western Force,2023-03-11,club,Unknown,False,,True
+8425294,152796,Sharks XV,2023-03-11,club,Unknown,False,,True
+8425294,354348,Sharks XV,2023-03-11,club,Unknown,False,,True
+8425303,227964,Golden Lions,2023-03-11,club,Unknown,False,,True
+8425303,235278,Golden Lions,2023-03-11,club,Unknown,False,,True
+8393002,232008,London Irish,2023-03-12,club,Unknown,False,,True
+8405044,204888,Melbourne Rebels,2023-03-18,club,Unknown,False,,True
+8405062,177180,ACT Brumbies,2023-03-18,club,Unknown,False,,True
+8405071,200016,Western Force,2023-03-19,club,Unknown,False,,True
+8425339,209274,Griquas,2023-03-19,club,Unknown,False,,True
+8425357,232326,Free State Cheetahs,2023-03-19,club,Unknown,False,,True
+8405107,240654,Highlanders,2023-03-25,club,Unknown,False,,True
+8405125,351972,Melbourne Rebels,2023-03-25,club,Unknown,False,,True
+8425420,209292,Pumas,2023-03-31,club,Unknown,False,,True
+8425420,300060,Pumas,2023-03-31,club,Unknown,False,,True
+8405188,200016,Western Force,2023-04-02,club,Unknown,False,,True
+8393893,226482,Exeter Chiefs,2023-04-08,club,Unknown,False,,True
+8394397,229128,Lions,2023-04-08,club,Unknown,False,,True
+8425438,175044,Griffons,2023-04-08,club,Unknown,False,,True
+8393110,203622,Exeter Chiefs,2023-04-16,club,Unknown,False,,True
+8425492,203244,Golden Lions,2023-04-16,club,Unknown,False,,True
+8425492,224688,Golden Lions,2023-04-16,club,Unknown,False,,True
+8425501,302268,Pumas,2023-04-16,club,Unknown,False,,True
+8425501,302760,Pumas,2023-04-16,club,Unknown,False,,True
+8425519,235014,Sharks XV,2023-04-21,club,Unknown,False,,True
+8425537,236394,Western Province,2023-04-21,club,Unknown,False,,True
+8393137,207714,Bristol Bears,2023-04-22,club,Unknown,False,,True
+8405287,215100,NSW Waratahs,2023-04-22,club,Unknown,False,,True
+8405350,213828,Queensland Reds,2023-04-29,club,Unknown,False,,True
+8425546,352686,Western Province,2023-04-29,club,Unknown,False,,True
+8425600,229128,Golden Lions,2023-05-05,club,Unknown,False,,True
+8393209,128478,Exeter Chiefs,2023-05-06,club,Unknown,False,,True
+8425582,271944,Blue Bulls,2023-05-06,club,Unknown,False,,True
+8425582,207402,Sharks XV,2023-05-06,club,Unknown,False,,True
+8389222,224400,Stade Rochelais,2023-05-13,club,Unknown,False,,True
+8389222,341334,Stade Rochelais,2023-05-13,club,Unknown,False,,True
+8425663,207402,Sharks XV,2023-05-19,club,Unknown,False,,True
+8405512,215352,Western Force,2023-05-20,club,Unknown,False,,True
+8405548,162522,NSW Waratahs,2023-05-27,club,Unknown,False,,True
+8439442,351018,Tonga,2023-07-22,international,Unknown,False,,True
+8430946,211524,Taranaki,2023-08-04,club,Unknown,False,,True
+8430955,115074,Canterbury,2023-08-05,club,Unknown,False,,True
+8430955,197892,Canterbury,2023-08-05,club,Unknown,False,,True
+8431027,345090,Otago,2023-08-12,club,Unknown,False,,True
+8431063,234858,Manawat?,2023-08-13,club,Unknown,False,,True
+8431072,168930,Hawke's Bay,2023-08-16,club,Unknown,False,,True
+8431090,337404,North Harbour,2023-08-19,club,Unknown,False,,True
+8431099,360294,Southland,2023-08-19,club,Unknown,False,,True
+8431126,342096,Otago,2023-08-20,club,Unknown,False,,True
+8431135,337428,Taranaki,2023-08-20,club,Unknown,False,,True
+8445760,240432,Stade Rochelais,2023-08-20,club,Unknown,False,,True
+8431162,261480,Hawke's Bay,2023-08-26,club,Unknown,False,,True
+8445823,176910,Bayonne,2023-08-26,club,Unknown,False,,True
+8431216,214314,Manawat?,2023-08-30,club,Unknown,False,,True
+8431252,361308,Waikato,2023-09-02,club,Unknown,False,,True
+8445841,236328,RC Toulon,2023-09-03,club,Unknown,False,,True
+8431306,234642,Bay Of Plenty,2023-09-09,club,Unknown,False,,True
+8431324,63474,Auckland,2023-09-09,club,Unknown,False,,True
+8431333,226662,North Harbour,2023-09-10,club,Unknown,False,,True
+8431360,360528,Counties Manukau,2023-09-13,club,Unknown,False,,True
+8431369,234792,Hawke's Bay,2023-09-15,club,Unknown,False,,True
+8431405,363732,Bay Of Plenty,2023-09-17,club,Unknown,False,,True
+8431405,361146,Wellington,2023-09-17,club,Unknown,False,,True
+8431432,235848,Bay Of Plenty,2023-09-22,club,Unknown,False,,True
+920878,165984,Samoa,2023-09-22,international,Unknown,False,,True
+8431513,361146,Wellington,2023-09-30,club,Unknown,False,,True
+920959,208518,Argentina,2023-09-30,international,Unknown,False,,True
+920959,164742,Chile,2023-09-30,international,Unknown,False,,True
+8431549,360648,Bay Of Plenty,2023-10-01,club,Unknown,False,,True
+920995,222522,Tonga,2023-10-01,international,Unknown,False,,True
+8450458,231840,Exeter Chiefs,2023-10-14,club,Unknown,False,,True
+8450458,363852,Exeter Chiefs,2023-10-14,club,Unknown,False,,True
+8450485,239040,Sale Sharks,2023-10-15,club,Unknown,False,,True
+8450566,363852,Exeter Chiefs,2023-10-28,club,Unknown,False,,True
+8447641,350448,Munster Rugby,2023-11-04,club,Unknown,False,,True
+8450719,239142,Harlequins,2023-11-24,club,Unknown,False,,True
+8447875,263442,Ospreys,2023-11-26,club,Unknown,False,,True
+8448856,198528,Exeter Chiefs,2023-12-09,club,Unknown,False,,True
+8458603,159210,Hanazono Kintetsu Liners,2023-12-09,club,Unknown,False,,True
+8458621,158388,Kobelco Kobe Steelers,2023-12-09,club,Unknown,False,,True
+8458621,228858,Mie Honda Heat,2023-12-09,club,Unknown,False,,True
+8458630,193230,Saitama Wild Knights,2023-12-10,club,Unknown,False,,True
+8458648,185700,Kubota Spears,2023-12-10,club,Unknown,False,,True
+8458648,369372,Tokyo Sungoliath,2023-12-10,club,Unknown,False,,True
+8448982,242466,Bristol Bears,2023-12-16,club,Unknown,False,,True
+8448982,188736,Union Bordeaux-Begles,2023-12-16,club,Unknown,False,,True
+8449000,187446,Sale Sharks,2023-12-16,club,Unknown,False,,True
+8449549,244488,Dragons RFC,2023-12-16,club,Unknown,False,,True
+8458657,185700,Kubota Spears,2023-12-16,club,Unknown,False,,True
+8458657,226728,Kubota Spears,2023-12-16,club,Unknown,False,,True
+8458675,221214,BlackRams Tokyo,2023-12-16,club,Unknown,False,,True
+8458675,368694,Mitsubishi Sagamihara Dynaboars,2023-12-16,club,Unknown,False,,True
+8458693,119442,Kobelco Kobe Steelers,2023-12-17,club,Unknown,False,,True
+8458702,126852,Saitama Wild Knights,2023-12-17,club,Unknown,False,,True
+8458711,123636,Saitama Wild Knights,2023-12-23,club,Unknown,False,,True
+8458720,349176,Hanazono Kintetsu Liners,2023-12-23,club,Unknown,False,,True
+8458738,349254,Mie Honda Heat,2023-12-24,club,Unknown,False,,True
+8458738,219054,Tokyo Sungoliath,2023-12-24,club,Unknown,False,,True
+8458756,114588,Kobelco Kobe Steelers,2023-12-24,club,Unknown,False,,True
+8450890,339492,Bath Rugby,2023-12-31,club,Unknown,False,,True
+8458765,193230,Saitama Wild Knights,2024-01-06,club,Unknown,False,,True
+8458774,157836,Kobelco Kobe Steelers,2024-01-06,club,Unknown,False,,True
+8458783,226746,Hanazono Kintetsu Liners,2024-01-06,club,Unknown,False,,True
+8458810,262308,Mie Honda Heat,2024-01-07,club,Unknown,False,,True
+8458810,135648,Shizuoka BlueRevs,2024-01-07,club,Unknown,False,,True
+8458810,348444,Shizuoka BlueRevs,2024-01-07,club,Unknown,False,,True
+8449072,344304,Exeter Chiefs,2024-01-13,club,Unknown,False,,True
+8458837,135648,Shizuoka BlueRevs,2024-01-13,club,Unknown,False,,True
+8458855,354768,Mitsubishi Sagamihara Dynaboars,2024-01-13,club,Unknown,False,,True
+8458855,126000,Saitama Wild Knights,2024-01-13,club,Unknown,False,,True
+8458819,157428,Mie Honda Heat,2024-01-14,club,Unknown,False,,True
+8458864,218862,Toyota Verblitz,2024-01-14,club,Unknown,False,,True
+8449693,263016,Oyonnax,2024-01-20,club,Unknown,False,,True
+8449720,345162,Ospreys,2024-01-21,club,Unknown,False,,True
+8458891,185868,Toshiba Brave Lupus Tokyo,2024-01-27,club,Unknown,False,,True
+8458918,114588,Kobelco Kobe Steelers,2024-01-27,club,Unknown,False,,True
+8446669,162354,Union Bordeaux-Begles,2024-02-24,club,Unknown,False,,True
+8458954,373896,Shizuoka BlueRevs,2024-02-24,club,Unknown,False,,True
+8458963,185748,Kubota Spears,2024-02-24,club,Unknown,False,,True
+8448181,367740,Zebre Parma,2024-03-01,club,Unknown,False,,True
+8458981,173664,Mie Honda Heat,2024-03-01,club,Unknown,False,,True
+8455588,350364,Fijian Drua,2024-03-02,club,Unknown,False,,True
+8455597,182808,NSW Waratahs,2024-03-02,club,Unknown,False,,True
+8458990,219054,Tokyo Sungoliath,2024-03-02,club,Unknown,False,,True
+8458999,336102,Shizuoka BlueRevs,2024-03-02,club,Unknown,False,,True
+8459044,134490,Tokyo Sungoliath,2024-03-09,club,Unknown,False,,True
+8459053,371742,Kubota Spears,2024-03-09,club,Unknown,False,,True
+8459062,159186,Shizuoka BlueRevs,2024-03-09,club,Unknown,False,,True
+8459080,368778,Mie Honda Heat,2024-03-10,club,Unknown,False,,True
+8455687,193470,Melbourne Rebels,2024-03-15,club,Unknown,False,,True
+8459089,371742,Kubota Spears,2024-03-15,club,Unknown,False,,True
+8455714,193710,Fijian Drua,2024-03-16,club,Unknown,False,,True
+8455723,233094,NSW Waratahs,2024-03-16,club,Unknown,False,,True
+8459107,218910,Toyota Verblitz,2024-03-16,club,Unknown,False,,True
+8459125,369024,Toshiba Brave Lupus Tokyo,2024-03-17,club,Unknown,False,,True
+8450998,340086,Bristol Bears,2024-03-22,club,Unknown,False,,True
+8450998,238926,Northampton Saints,2024-03-22,club,Unknown,False,,True
+8455732,214626,Melbourne Rebels,2024-03-22,club,Unknown,False,,True
+8459143,185730,Kubota Spears,2024-03-22,club,Unknown,False,,True
+8459143,371742,Kubota Spears,2024-03-22,club,Unknown,False,,True
+8459179,368772,Mie Honda Heat,2024-03-24,club,Unknown,False,,True
+8448352,352008,Ospreys,2024-03-30,club,Unknown,False,,True
+8459206,218874,Toyota Verblitz,2024-04-06,club,Unknown,False,,True
+8459224,221214,BlackRams Tokyo,2024-04-06,club,Unknown,False,,True
+8448415,337566,Dragons RFC,2024-04-20,club,Unknown,False,,True
+8456002,359628,NSW Waratahs,2024-05-03,club,Unknown,False,,True
+8448739,148740,Munster Rugby,2024-06-01,club,Unknown,False,,True
+8447344,361950,USAP,2024-06-08,club,Unknown,False,,True
+8478628,383286,Samoa,2024-07-05,international,Unknown,False,,True
+8481643,236448,Griquas,2024-07-05,club,Unknown,False,,True
+8450413,370344,Japan XV,2024-07-06,international,Unknown,False,,True
+8481661,235206,Free State Cheetahs,2024-07-06,club,Unknown,False,,True
+8481661,346212,Free State Cheetahs,2024-07-06,club,Unknown,False,,True
+8481679,226122,Pumas,2024-07-12,club,Unknown,False,,True
+8481706,234972,Free State Cheetahs,2024-07-13,club,Unknown,False,,True
+8481715,327498,Griquas,2024-07-19,club,Unknown,False,,True
+8468224,227628,Portugal,2024-07-20,international,Unknown,False,,True
+8477431,384774,Uruguay,2024-07-20,international,Unknown,False,,True
+8481751,265044,Golden Lions,2024-07-27,club,Unknown,False,,True
+8481769,265272,Blue Bulls,2024-07-27,club,Unknown,False,,True
+8481778,384666,Griquas,2024-07-28,club,Unknown,False,,True
+8481787,234972,Free State Cheetahs,2024-08-02,club,Unknown,False,,True
+8474875,345204,Taranaki,2024-08-09,club,Unknown,False,,True
+8474956,382602,Northland,2024-08-17,club,Unknown,False,,True
+8474974,234792,Hawke's Bay,2024-08-17,club,Unknown,False,,True
+8481877,234972,Free State Cheetahs,2024-08-17,club,Unknown,False,,True
+8481922,234972,Free State Cheetahs,2024-08-24,club,Unknown,False,,True
+8473894,384294,Canada,2024-08-25,international,Unknown,False,,True
+8475046,382134,Manawat?,2024-08-25,club,Unknown,False,,True
+8475073,234792,Hawke's Bay,2024-08-28,club,Unknown,False,,True
+8475208,340320,Counties Manukau,2024-09-08,club,Unknown,False,,True
+8488609,176790,Vannes,2024-09-08,club,Unknown,False,,True
+8475226,141630,Southland,2024-09-13,club,Unknown,False,,True
+8482003,234972,Free State Cheetahs,2024-09-14,club,Unknown,False,,True
+8475271,405978,Tasman,2024-09-15,club,Unknown,False,,True
+8475298,234600,Hawke's Bay,2024-09-20,club,Unknown,False,,True
+8473975,353286,Fiji,2024-09-21,international,Unknown,False,,True
+8480122,263550,Leinster Rugby,2024-09-27,club,Unknown,False,,True
+8475388,234792,Hawke's Bay,2024-09-28,club,Unknown,False,,True
+8475397,382476,Tasman,2024-09-28,club,Unknown,False,,True
+8480131,119796,Lions,2024-09-28,club,Unknown,False,,True
+8480149,406230,Munster Rugby,2024-09-28,club,Unknown,False,,True
+8488861,344148,Stade Rochelais,2024-10-05,club,Unknown,False,,True
+8492011,363552,Leicester Tigers,2024-10-05,club,Unknown,False,,True
+8475550,337410,Waikato,2024-10-19,club,Unknown,False,,True
+8480365,148740,Munster Rugby,2024-10-19,club,Unknown,False,,True
+8488960,227790,Bayonne,2024-10-19,club,Unknown,False,,True
+8492137,232650,Bath Rugby,2024-10-26,club,Unknown,False,,True
+8476351,387204,Fiji,2024-11-23,international,Unknown,False,,True
+8480500,263430,Dragons RFC,2024-11-30,club,Unknown,False,,True
+8490877,361902,Lyon,2024-12-07,club,Unknown,False,,True
+8490949,236304,Section Paloise,2024-12-14,club,Unknown,False,,True
+8490958,391314,Gloucester Rugby,2024-12-14,club,Unknown,False,,True
+8492236,214254,Exeter Chiefs,2024-12-21,club,Unknown,False,,True
+8505448,210018,Shizuoka BlueRevs,2024-12-21,club,Unknown,False,,True
+8505448,373896,Shizuoka BlueRevs,2024-12-21,club,Unknown,False,,True
+8489374,341526,RC Toulon,2024-12-28,club,Unknown,False,,True
+8505511,262104,Mie Honda Heat,2024-12-28,club,Unknown,False,,True
+8505538,348444,Shizuoka BlueRevs,2024-12-28,club,Unknown,False,,True
+8505538,144000,Urayasu D-Rocks,2024-12-28,club,Unknown,False,,True
+8489446,354918,Stade Toulousain,2025-01-04,club,Unknown,False,,True
+8505637,219054,Tokyo Sungoliath,2025-01-12,club,Unknown,False,,True
+8491111,234654,Dragons RFC,2025-01-18,club,Unknown,False,,True
+8490661,353274,Union Bordeaux-Begles,2025-01-19,club,Unknown,False,,True
+8480716,231486,Edinburgh Rugby,2025-01-25,club,Unknown,False,,True
+8492380,232650,Bath Rugby,2025-01-26,club,Unknown,False,,True
+8505709,219474,Urayasu D-Rocks,2025-02-01,club,Unknown,False,,True
+8505826,243570,Tokyo Sungoliath,2025-02-15,club,Unknown,False,,True
+8505835,371592,Shizuoka BlueRevs,2025-02-15,club,Unknown,False,,True
+8489599,238134,Montpellier Herault Rugby,2025-02-22,club,Unknown,False,,True
+8505880,369246,Kubota Spears,2025-02-22,club,Unknown,False,,True
+8507464,355440,ACT Brumbies,2025-02-22,club,Unknown,False,,True
+8506033,159750,Saitama Wild Knights,2025-03-22,club,Unknown,False,,True
+8506078,371826,Toyota Verblitz,2025-03-22,club,Unknown,False,,True
+8506168,348564,Kubota Spears,2025-04-06,club,Unknown,False,,True
+8506168,369258,Kubota Spears,2025-04-06,club,Unknown,False,,True
+8491255,232650,Bath Rugby,2025-04-13,club,Unknown,False,,True
+8506222,227388,Tokyo Sungoliath,2025-04-13,club,Unknown,False,,True
+8507878,214578,Queensland Reds,2025-05-03,club,Unknown,False,,True
+8506348,371400,Kobelco Kobe Steelers,2025-05-04,club,Unknown,False,,True
+8492587,420822,Gloucester Rugby,2025-05-10,club,Unknown,False,,True
+8492605,335358,Saracens,2025-05-10,club,Unknown,False,,True
+8507941,215400,ACT Brumbies,2025-05-10,club,Unknown,False,,True
+8481292,263346,Dragons RFC,2025-05-17,club,Unknown,False,,True
+8490031,124278,Vannes,2025-05-17,club,Unknown,False,,True
+8523115,416208,New Zealand Universities,2025-05-20,international,Unknown,False,,True
+8523115,423210,New Zealand Universities,2025-05-20,international,Unknown,False,,True
+8523115,5408808,New Zealand Universities,2025-05-20,international,Unknown,False,,True
+8490121,124278,Vannes,2025-05-31,club,Unknown,False,,True
+8492695,354774,Bath Rugby,2025-05-31,club,Unknown,False,,True
+8492695,376074,Bath Rugby,2025-05-31,club,Unknown,False,,True
+8490202,341280,Stade Toulousain,2025-06-07,club,Unknown,False,,True
+104470,215400,ACT Brumbies,2025-07-09,international,Unknown,False,,True
+8516293,346278,Argentina,2025-07-19,international,Unknown,False,,True
+8523493,232494,Pumas,2025-07-25,club,Unknown,False,,True
+8523502,265044,Golden Lions,2025-07-26,club,Unknown,False,,True
+8523520,234972,Free State Cheetahs,2025-07-27,club,Unknown,False,,True
+8519632,382014,Waikato,2025-07-31,club,Unknown,False,,True
+8519641,382170,Manawat?,2025-08-01,club,Unknown,False,,True
+8519650,209814,Canterbury,2025-08-02,club,Unknown,False,,True
+8523547,361488,Blue Bulls,2025-08-02,club,Unknown,False,,True
+8519686,191982,Hawke's Bay,2025-08-03,club,Unknown,False,,True
+8523565,380868,Western Province,2025-08-08,club,Unknown,False,,True
+8523565,5408454,Western Province,2025-08-08,club,Unknown,False,,True
+8519722,142656,Tasman,2025-08-09,club,Unknown,False,,True
+8523574,265152,Pumas,2025-08-09,club,Unknown,False,,True
+8519740,363984,Bay Of Plenty,2025-08-10,club,Unknown,False,,True
+8519758,5410020,Southland,2025-08-15,club,Unknown,False,,True
+8519758,5410026,Southland,2025-08-15,club,Unknown,False,,True
+8519785,5410008,Taranaki,2025-08-16,club,Unknown,False,,True
+8523610,150030,Pumas,2025-08-16,club,Unknown,False,,True
+8523610,240978,Pumas,2025-08-16,club,Unknown,False,,True
+8519812,5411238,Counties Manukau,2025-08-17,club,Unknown,False,,True
+8523646,331218,Western Province,2025-08-22,club,Unknown,False,,True
+8519848,124416,North Harbour,2025-08-23,club,Unknown,False,,True
+8523358,373398,Canada,2025-08-30,international,Unknown,False,,True
+8523691,361452,Golden Lions,2025-08-30,club,Unknown,False,,True
+8519929,226716,Wellington,2025-08-31,club,Unknown,False,,True
+8519974,191982,Hawke's Bay,2025-09-06,club,Unknown,False,,True
+8531332,387102,Castres Olympique,2025-09-06,club,Unknown,False,,True
+8523376,322416,USA,2025-09-07,international,Unknown,False,,True
+8523403,373686,Canada,2025-09-15,international,Unknown,False,,True
+8523403,375264,Fiji,2025-09-15,international,Unknown,False,,True
+8520073,191982,Hawke's Bay,2025-09-19,club,Unknown,False,,True
+8531494,126978,US Montauban,2025-09-20,club,Unknown,False,,True
+8531494,361866,Union Bordeaux-Begles,2025-09-20,club,Unknown,False,,True
+8531494,5415306,Union Bordeaux-Begles,2025-09-20,club,Unknown,False,,True
+8536417,387930,Saracens,2025-09-26,club,Unknown,False,,True
+8520181,5419512,Bay Of Plenty,2025-09-28,club,Unknown,False,,True
+8536435,421776,Bristol Bears,2025-09-28,club,Unknown,False,,True
+8520217,379566,Otago,2025-10-04,club,Unknown,False,,True
+8520244,5414670,Tasman,2025-10-05,club,Unknown,False,,True
+8536534,417318,Gloucester Rugby,2025-10-17,club,Unknown,False,,True
+8544571,354774,England A,2025-11-15,international,Unknown,False,,True
+8544553,364308,Fiji,2025-11-22,international,Unknown,False,,True
+8531908,344016,RC Toulon,2025-11-23,club,Unknown,False,,True
+8531989,242394,US Montauban,2025-11-29,club,Unknown,False,,True
+8536651,355752,Bristol Bears,2025-11-29,club,Unknown,False,,True
+8535832,354834,Sale Sharks,2025-12-05,club,Unknown,False,,True
+8535418,422808,US Montauban,2025-12-06,club,Unknown,False,,True
+8535427,372408,Dragons RFC,2025-12-07,club,Unknown,False,,True
+8535967,239664,ASM Clermont Auvergne,2025-12-13,club,Unknown,False,,True
+8535517,386982,Racing 92,2025-12-14,club,Unknown,False,,True
+8535526,373056,Lyon,2025-12-14,club,Unknown,False,,True
+8524618,350538,Benetton Rugby,2025-12-20,club,Unknown,False,,True
+8538784,173634,BlackRams Tokyo,2025-12-20,club,Unknown,False,,True
+8538793,371598,Tokyo Sungoliath,2025-12-20,club,Unknown,False,,True
+8538829,63900,Kobelco Kobe Steelers,2025-12-21,club,Unknown,False,,True
+8538838,348564,Kubota Spears,2025-12-27,club,Unknown,False,,True
+8538847,219228,Toshiba Brave Lupus Tokyo,2025-12-28,club,Unknown,False,,True
+8524762,361452,Lions,2026-01-03,club,Unknown,False,,True
+8535544,351942,US Montauban,2026-01-10,club,Unknown,False,,True
+8536111,5551788,Bayonne,2026-01-10,club,Unknown,False,,True
+8538964,371082,Toshiba Brave Lupus Tokyo,2026-01-17,club,Unknown,False,,True
+8524915,231924,Connacht Rugby,2026-01-31,club,Unknown,False,,True
+8532340,345522,Lyon,2026-02-14,club,Unknown,False,,True
+8539126,371466,BlackRams Tokyo,2026-02-14,club,Unknown,False,,True
+8539153,371274,Tokyo Sungoliath,2026-02-14,club,Unknown,False,,True
+8542960,215400,ACT Brumbies,2026-02-22,club,Unknown,False,,True
+8524240,350472,Connacht Rugby,2026-03-13,club,Unknown,False,,True

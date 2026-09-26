@@ -1,6 +1,5 @@
 import argparse
 import glob
-import hashlib
 import json
 import os
 import pickle
@@ -11,6 +10,7 @@ import pandas as pd
 from model.unified.raw_benchmark.config import DIRECT_EVENTS
 from model.unified.scoring import scorer_for
 from research.conditional_duration_inputs import digest, write_json
+from research.decision_opportunity_diagnostics import minute_band
 
 
 def numeric(value):
@@ -144,11 +144,11 @@ def repair_ncr_diagnostics(units, args):
         labels['pos'] = slate.pool.pos.to_numpy()
         label_index = labels.set_index('id')
         events = old_events[old_events.slate.eq(slate.name)].copy()
+        scorer = scorer_for('ncr', version='ncr_front_row_v2')
         for index, event in events.iterrows():
             label = label_index.loc[event.id]
             known = observed(label, event.event)
             actual = float(label[event.event]) if known else np.nan
-            scorer = scorer_for('ncr', version='ncr_front_row_v2')
             weight = 12.0 if event.event == 'tries' else scorer.scrum_weight(label.pos) if event.event == 'scrums_won' else scorer.weights.get(event.event, 0.0)
             events.loc[index, ['observed', 'actual', 'actual_component', 'component_error']] = [known, actual, weight*actual, event.predicted_component-weight*actual]
         players = old_players[old_players.slate.eq(slate.name)].copy()
@@ -164,6 +164,7 @@ def repair_ncr_diagnostics(units, args):
                                 'known_component_prediction', 'observed_component_error', 'unresolved_reconciliation_error']] = [
                 minutes, player.predicted_minutes-minutes, activity, known_actual, known_pred,
                 known_pred-known_actual, player.point_error-(known_pred-known_actual)]
+            players.loc[index, 'minute_band'] = minute_band(minutes, activity)
             players.loc[index, 'minutes_provenance'] = label.get('provenance__minutes', 'unknown')
             players.loc[index, 'unobserved_scoring_events'] = ';'.join(group.loc[~known, 'event'])
             players.loc[index, 'source_key_matched'] = bool(label.source_key_matched)
@@ -177,7 +178,7 @@ def repair_ncr_diagnostics(units, args):
         rows=('id', 'size'), observed=('actual', 'count'), predicted=('predicted', 'mean'), actual=('actual', 'mean'),
         weighted_bias=('component_error', 'mean'), weighted_mae=('component_error', lambda values: values.abs().mean())
     ).to_csv(f'{args.output}/ncr_event_summary_corrected_join.csv', index=False)
-    players.groupby(['engine', 'status'], as_index=False).agg(
+    players.groupby(['engine', 'status', 'minute_band'], as_index=False).agg(
         rows=('id', 'size'), known_duration=('actual_minutes', 'count'),
         point_mae=('point_error', lambda values: values.abs().mean()), point_bias=('point_error', 'mean'),
         minutes_mae=('minute_error', lambda values: values.abs().mean()), minutes_bias=('minute_error', 'mean'),
@@ -213,10 +214,11 @@ def run(args):
     if len(pool) != 2138 or pool.duplicated(['slate', 'id']).any():
         raise ValueError('Complete original candidate population changed')
     pool = pool.merge(role_outcomes(pool), on=['slate', 'id'], validate='one_to_one')
+    pool['known_sub_score_changed'] = pool.actual_role_supersub_points.notna() & pool.actual_role_supersub_points.ne(pool.original_assigned_bench_points)
     pool.to_csv(f'{args.output}/full_pool_outcomes.csv', index=False)
     pd.concat(labels, ignore_index=True).to_csv(f'{args.output}/bridged_raw_labels.csv', index=False)
     squads_path, metrics_path = f'{args.roles}/squads.csv', f'{args.roles}/metrics.csv'
-    input_hashes.update({path: digest(path) for path in (squads_path, metrics_path, __file__)})
+    input_hashes.update({path: digest(path) for path in (squads_path, metrics_path, __file__, 'research/decision_opportunity_diagnostics.py')})
     replay_saved_policies(pool, pd.read_csv(squads_path), pd.read_csv(metrics_path), args.output)
     snapshot_rows = []
     first = read_feed('data/ncr/feeds/players_gw1.json')
@@ -235,7 +237,7 @@ def run(args):
         candidates=('id', 'size'), unknown_official_points=('official_points', lambda values: values.isna().sum()),
         matched_raw_keys=('source_key_matched', 'sum'), known_duration=('source_minutes', 'count'),
         source_conflicts=('source_conflict', 'sum'), unknown_supersub_outcomes=('role_outcome_known', lambda values: (~values).sum()),
-        differing_known_sub_points=('actual_role_supersub_points', 'count')
+        known_sub_outcomes=('actual_role_supersub_points', 'count'), known_sub_score_changes=('known_sub_score_changed', 'sum')
     ).to_csv(f'{args.output}/pool_summary.csv', index=False)
     for path in ('players.csv', 'event_components.csv'):
         input_hashes[f'{args.diagnostics}/{path}'] = digest(f'{args.diagnostics}/{path}')

@@ -23,13 +23,20 @@ from model.unified.raw_benchmark.robust_empirical import RobustEmpiricalEventMod
 from model.unified.rolling_eval import KEY, expected_points, official_slates
 from model.unified.v4.gbdt import V4GBDT
 from research.conditional_duration_inputs import REGISTRATION, check_mask, digest, read_store, write_json
-from research.conditional_duration_metrics import duration_measurements, floor_sensitivity, raw_measurements, select_points, write_forecasts
+from research.conditional_duration_metrics import OUTCOME_AUDIT, duration_measurements, floor_sensitivity, load_outcome_audit, raw_measurements, select_points, write_forecasts
 from research.decision_replay import corrected_empirical
+from research.duration_domain_model import DOMAINS, DurationDomainGBDT, duration_mask
 
 
 ADDENDUM = 'research/DECISION_CONDITIONAL_DURATION_SUPPORT_ADDENDUM_2026-09-26.json'
+DOMAIN_ADDENDUM = 'research/DECISION_DURATION_DOMAIN_ADDENDUM_2026-09-26.json'
 CONFIG = 'data/unified/p3_hillclimb/config.json'
 EVENTS = (*STABLE_EVENTS, *EXTENDED_EVENTS)
+
+
+def conditional_names(args):
+    name = f'conditional_duration_{args.duration_domain}_v2' if args.duration_domain else 'conditional_duration_v1'
+    return name, f'p3_{name}'
 
 
 def model_context(args, train, cutoff):
@@ -38,6 +45,14 @@ def model_context(args, train, cutoff):
                 cutoff=cutoff.isoformat(), training_rows=len(train),
                 training_keys_sha256=hashlib.sha256(train[KEY].to_csv(index=False).encode()).hexdigest(),
                 source_hashes={path: digest(path) for path in paths})
+
+
+def domain_context(context, args, frame):
+    valid = duration_mask(frame, args.duration_domain)
+    paths = [DOMAIN_ADDENDUM, 'research/duration_domain_model.py', 'research/conditional_duration_run.py']
+    return dict(context, duration_domain=args.duration_domain,
+                duration_support_sha256=hashlib.sha256(frame.loc[valid, KEY].to_csv(index=False).encode()).hexdigest(),
+                domain_sources={path: digest(path) for path in paths})
 
 
 def fit_or_restore(name, model, frame, context, args):
@@ -79,15 +94,31 @@ def fit_models(train, training_features, context, args):
     supported = fit_or_restore('v4_joint_support_control', V4GBDT(**parameters), joint, context, args)
     del joint
     gc.collect()
-    conditional = fit_or_restore('conditional_duration_v1', ConditionalDurationGBDT(**parameters), training_features, context, args)
+    models = dict(empirical_event=empirical, robust_empirical_event=robust,
+                  v4_corrected_full_refit=direct, v4_joint_support_control=supported)
+    conditional_name, blend_name = conditional_names(args)
+    if args.duration_domain:
+        extended = domain_context(context, args, training_features)
+        if args.duration_domain == 'bounded':
+            joint = training_features.copy()
+            valid = duration_mask(joint, args.duration_domain)
+            joint['available__minutes'] = valid
+            for event in EVENTS:
+                joint[f'available__{event}'] = joint[f'available__{event}'].fillna(False) & valid
+            models['v4_bounded_support_control'] = fit_or_restore(
+                'v4_bounded_support_control', V4GBDT(**parameters), joint, extended, args)
+            del joint
+            gc.collect()
+        conditional = fit_or_restore(conditional_name, DurationDomainGBDT(duration_domain=args.duration_domain, **parameters),
+                                     training_features, extended, args)
+    else:
+        conditional = fit_or_restore(conditional_name, ConditionalDurationGBDT(**parameters), training_features, context, args)
     configuration = json.load(open(CONFIG))
     weights = dict(weight_v4=configuration['default_weight_v4'], event_weights_v4=configuration['event_weights_v4'])
-    p3 = EventWeightedBlend(robust, direct, **weights)
-    conditional_p3 = EventWeightedBlend(robust, conditional, **weights)
-    return dict(empirical_event=empirical, robust_empirical_event=robust,
-                v4_corrected_full_refit=direct, v4_joint_support_control=supported,
-                p3_corrected_full_refit=p3, conditional_duration_v1=conditional,
-                p3_conditional_duration_v1=conditional_p3), configuration
+    models['p3_corrected_full_refit'] = EventWeightedBlend(robust, direct, **weights)
+    models[conditional_name] = conditional
+    models[blend_name] = EventWeightedBlend(robust, conditional, **weights)
+    return models, configuration
 
 
 def verified_prepared(args):
@@ -126,12 +157,13 @@ def corrected_fantasy_points(unit, corrected_store, wr):
     return fresh.baseline
 
 
-def record_unit(unit, models, configuration, candidates, store, wr, args):
+def record_unit(unit, models, configuration, candidates, store, wr, args, outcome_audit=None):
     directory = f'{args.output}/units/{unit["name"]}'
     os.makedirs(directory, exist_ok=False)
     unit['raw_labels'].to_csv(f'{directory}/raw_labels.csv', index=False)
     unit['candidates'][KEY + ['position', 'started']].to_csv(f'{directory}/candidate_keys.csv', index=False)
     predictions, raw_metrics, fantasy_metrics = {}, [], []
+    conditional_name, blend_name = conditional_names(args)
     for name, model in models.items():
         print(f'{unit["name"]}/{name}: predict complete pool', flush=True)
         prediction = model.predict_frame(candidates)
@@ -140,18 +172,19 @@ def record_unit(unit, models, configuration, candidates, store, wr, args):
         raw_metrics.extend(raw_measurements(unit, name, prediction))
         if unit['kind'] == 'fantasy':
             points = expected_points(prediction, unit['slate'].competition, season=unit['slate'].season)
-            fantasy_metrics.append(select_points(unit, name, points, directory))
+            fantasy_metrics.append(select_points(unit, name, points, directory, outcome_audit=outcome_audit))
         pd.DataFrame(raw_metrics).to_csv(f'{directory}/raw_metrics.csv', index=False)
         if fantasy_metrics:
             pd.DataFrame(fantasy_metrics).to_csv(f'{directory}/fantasy_metrics.csv', index=False)
-    pd.DataFrame(duration_measurements(unit, predictions['conditional_duration_v1'])).to_csv(f'{directory}/duration_calibration.csv', index=False)
+    pd.DataFrame(duration_measurements(unit, predictions[conditional_name], open_tail=bool(args.duration_domain))).to_csv(
+        f'{directory}/duration_calibration.csv', index=False)
     if unit['kind'] == 'fantasy':
         empirical = corrected_fantasy_points(unit, store, wr)
-        fantasy_metrics.append(select_points(unit, 'empirical_fantasy_corrected', empirical, directory))
+        fantasy_metrics.append(select_points(unit, 'empirical_fantasy_corrected', empirical, directory, outcome_audit=outcome_audit))
         weight = configuration['event_weights_v4'].get('metres', configuration['default_weight_v4'])
-        alternatives, sensitivity = floor_sensitivity(unit, predictions, weight)
+        alternatives, sensitivity = floor_sensitivity(unit, predictions, weight, conditional_name, blend_name)
         for engine, points in alternatives.items():
-            fantasy_metrics.append(select_points(unit, engine, points, directory))
+            fantasy_metrics.append(select_points(unit, engine, points, directory, outcome_audit=outcome_audit))
         pd.DataFrame(sensitivity).to_csv(f'{directory}/floor_sensitivity.csv', index=False)
         pd.DataFrame(fantasy_metrics).to_csv(f'{directory}/fantasy_metrics.csv', index=False)
     write_json(f'{directory}/completion.json', dict(unit=unit['name'], raw_engines=list(models),
@@ -181,10 +214,14 @@ def run(args):
                          'research/decision_role_policy.py', 'research/decision_replay.py',
                          'data/wr_rankings.csv', 'data/rp_compstats.csv', *glob.glob('data/ncr/*.csv'),
                          *glob.glob('data/ncr/feeds/*.json')]
+    if args.duration_domain:
+        executing_sources.extend([DOMAIN_ADDENDUM, 'research/duration_domain_model.py', OUTCOME_AUDIT])
     sources = {path: digest(path) for path in sorted(set(executing_sources))}
     write_json(f'{args.output}/manifest.json', dict(job=args.job, context=context, executing_sources=sources,
+               duration_domain=args.duration_domain or 'registered_v1',
                prepared_manifest_sha256=digest(f'{args.prepared}/manifest.json'), units=[unit['name'] for unit in units],
                scoring=dict(six_nations_2025='six_nations_legacy_v1', six_nations_2026='six_nations_2026_v2', ncr='ncr_front_row_v2'),
+               outcome_contract='actual_role_entry_v1' if args.duration_domain else 'assigned_bench_v1',
                native_comparator_feature_audit='Required in prepared/native_feature_changes.csv before any improvement claim',
                objective='active_unfinished', reused_historical_outcomes=True))
     prepared = pd.read_pickle(f'{args.prepared}/training_features.pkl')
@@ -194,15 +231,20 @@ def run(args):
     del prepared
     gc.collect()
     models, configuration = fit_models(train, training_features, context, args)
-    pd.DataFrame(models['conditional_duration_v1'].training_support).to_csv(f'{args.output}/conditional_training_support.csv', index=False)
-    conditional = models['conditional_duration_v1']
+    conditional = models[conditional_names(args)[0]]
+    pd.DataFrame(conditional.training_support).to_csv(f'{args.output}/conditional_training_support.csv', index=False)
     write_json(f'{args.output}/duration_training_classes.json', dict(counts=conditional.duration_counts.tolist(),
                centres=conditional.duration_centres.tolist(), variances=conditional.duration_variances.tolist()))
+    if args.duration_domain:
+        pd.DataFrame(conditional.duration_exclusions,
+                     columns=['fixture_id', 'player_id', 'team', 'date', 'minutes', 'competition_level', 'started']).to_csv(
+            f'{args.output}/excluded_duration_sources.csv', index=False)
     wr = pd.read_csv('data/wr_rankings.csv', parse_dates=['snapshot_date'])
+    outcome_audit = load_outcome_audit() if args.duration_domain else None
     raw_metrics, fantasy_metrics = [], []
     for unit in units:
         _, features = build_frozen_feature_frames(train, unit['candidates'], v4=True, prepared_train=training_features)
-        rows, fantasy = record_unit(unit, models, configuration, features, store, wr, args)
+        rows, fantasy = record_unit(unit, models, configuration, features, store, wr, args, outcome_audit)
         raw_metrics.extend(rows)
         fantasy_metrics.extend(fantasy)
         pd.DataFrame(raw_metrics).to_csv(f'{args.output}/raw_metrics.csv', index=False)
@@ -213,7 +255,7 @@ def run(args):
     write_json(f'{args.output}/completion.json', dict(job=args.job, units=[unit['name'] for unit in units],
                model_artifact_hashes={os.path.basename(path): digest(path) for path in glob.glob(f'{args.output}/models/*')},
                raw_rows=len(raw_metrics), fantasy_rows=len(fantasy_metrics), objective_completed=False,
-               training_rows=len(train), analysis_completed=True))
+               training_rows=len(train), analysis_completed=True, duration_domain=args.duration_domain or 'registered_v1'))
     if fantasy_metrics:
         print(pd.DataFrame(fantasy_metrics).to_string(index=False), flush=True)
 
@@ -226,4 +268,5 @@ if __name__ == '__main__':
     parser.add_argument('--job', required=True)
     parser.add_argument('--output', required=True)
     parser.add_argument('--reuse-models')
+    parser.add_argument('--duration-domain', choices=DOMAINS)
     run(parser.parse_args())

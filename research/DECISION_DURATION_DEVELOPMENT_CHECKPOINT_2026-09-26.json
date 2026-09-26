@@ -1,0 +1,57 @@
+{
+  "objective": "active_unfinished",
+  "scope": "Complete registered Six Nations 2025 development season only; remaining registered comparisons are still executing, not omitted or declared finished",
+  "fitted_run": 36273533404,
+  "verified_review_run": 36275152499,
+  "reviewed_paired_locks": 7,
+  "required_paired_locks": 27,
+  "evidence_root": "data/unified/decision_continuation_2026-09-26/run-36275152499/review/units/bounded",
+  "original_full_head_reference": "data/unified/decision_continuation_2026-09-26/run-36257541020/role_policy/summary.csv",
+  "candidate_outcomes": {
+    "conditional_duration_bounded_v2": {
+      "rounds_in_order": [550, 389, 444, 432, 469],
+      "total": 2284,
+      "xv": 1999,
+      "captain_extra": 132,
+      "super_sub": 153,
+      "unknown_selected": 0,
+      "delta_vs_common_point_incumbent": 24,
+      "delta_vs_full_head_sequential_incumbent": -151,
+      "development_gate_against_both_incumbents": false
+    },
+    "p3_conditional_duration_bounded_v2": {
+      "rounds_in_order": [552, 350, 432, 518, 505],
+      "total": 2357,
+      "xv": 1964,
+      "captain_extra": 171,
+      "super_sub": 222,
+      "unknown_selected": 0,
+      "delta_vs_common_point_incumbent": 97,
+      "delta_vs_full_head_sequential_incumbent": -78,
+      "development_gate_against_both_incumbents": false
+    }
+  },
+  "incumbents": {
+    "common_point": {"total": 2260, "xv": 2012, "captain_extra": 179, "super_sub": 69},
+    "full_head_sequential": {"total": 2435, "xv": 2070, "captain_extra": 188, "super_sub": 177}
+  },
+  "conclusions": [
+    "The primary standalone and P3 duration candidates each fail an unchanged necessary development condition. A later good result cannot waive that condition.",
+    "The P3 duration variant gains on super-sub points against the full-head incumbent but loses more in its XV and captain choices. The standalone duration model loses in all three components. Timing accuracy alone cannot explain or solve the full decision gap.",
+    "Neither source-tail nor floor-sensitivity results may replace a failed primary after inspection. All 27 locks / 28 units, including later audit, NCR and exact Friendly-15, remain required and continue to be retained.",
+    "The per-round figures above are the direct sum of the five individually verified unit results; no unknown total, round or candidate is dropped. Historical outcomes remain reused evidence."
+  ],
+  "verification_repair": {
+    "failed_review": 36274871423,
+    "failure": "Independent dot-product moment arithmetic changed a near-Poisson reciprocal dispersion beyond a parameter-space tolerance despite equivalent means and effective variances. This was a verification implementation issue, not a model fit failure or a performance result.",
+    "evidence": "data/unified/decision_continuation_2026-09-26/run-36275152499/review/verification.csv",
+    "example": {"fixture_id": "8476135", "player_id": "122628", "event": "scrums_won", "stored_parameter": 887807.8115568697, "same_source_arithmetic_parameter": 887807.8115568697, "independent_parameter": 887807.8118018456, "effective_variance_difference": 3.552713678800501e-15},
+    "repair": "Retain the original parameter-space tolerance against the fitted source arithmetic, and independently verify mixture means and effective variances at the original numeric tolerance. Record every reciprocal-roundoff case. No forecast, fit, selection, score, admission threshold or raw label was changed."
+  },
+  "active_next_work": [
+    "Finish the full registered duration and rubric comparison, including both domain variants, Friendly-15 and all influence/sensitivity tables.",
+    "Execute the registered exposure-mechanism diagnostic: compare pre-match long-appearance discrimination and inspect conditional event adequacy with hindsight duration bins. Oracle-duration calculations never enter candidate admission or squad optimisation.",
+    "Choose the next materially different expected-utility or contextual mechanism using the completed development failures and per-player consequential errors; do not tune the failed duration bins or substitute a favourable role or round slice."
+  ],
+  "not_completion": "No candidate promotion, merge, production routing change or objective completion is justified by this checkpoint. No new or changed tests, permanent-cache changes, rugby API calls or November-registration changes."
+}

@@ -1,0 +1,67 @@
+name: NCR scoring coverage reconciliation
+on:
+  push:
+    branches: [codex/fantasy-decision-workflow]
+    paths: [.github/workflows/ncr-scoring-coverage.yml]
+permissions:
+  contents: read
+jobs:
+  reconcile:
+    runs-on: ubuntu-latest
+    env:
+      OMP_NUM_THREADS: '2'
+      OPENBLAS_NUM_THREADS: '1'
+    steps:
+      - uses: actions/checkout@v5
+        with:
+          lfs: false
+          persist-credentials: false
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+      - name: Install pinned research dependencies
+        run: |
+          python -m pip install torch==2.7.1 --index-url https://download.pytorch.org/whl/cpu
+          python -m pip install -r requirements-model.txt requests beautifulsoup4
+          python model_env_preflight.py
+      - name: Reconcile complete official pools without candidate selection
+        id: audit
+        run: |
+          set -euo pipefail
+          mkdir -p "$RUNNER_TEMP/coverage-evidence"
+          python -u -m research.ncr_scoring_coverage_audit --output "$RUNNER_TEMP/coverage-evidence/audit" 2>&1 | tee "$RUNNER_TEMP/coverage-evidence/audit.log"
+          git diff --exit-code -- tests
+      - uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: ncr-scoring-coverage-${{ github.run_id }}
+          path: ${{ runner.temp }}/coverage-evidence
+          retention-days: 30
+          if-no-files-found: warn
+  checkpoint:
+    needs: reconcile
+    if: always()
+    runs-on: ubuntu-latest
+    permissions:
+      contents: write
+    steps:
+      - uses: actions/checkout@v5
+        with:
+          ref: codex/fantasy-decision-workflow
+          lfs: false
+      - uses: actions/download-artifact@v4
+        with:
+          name: ncr-scoring-coverage-${{ github.run_id }}
+          path: data/unified/decision_continuation_2026-09-26/run-${{ github.run_id }}
+      - name: Retain audit and active objective
+        env:
+          DEST: data/unified/decision_continuation_2026-09-26/run-${{ github.run_id }}
+        run: |
+          set -euo pipefail
+          printf 'objective=active_unfinished\nrole=independent_scoring_audit_not_candidate_result\n' > "$DEST/checkpoint-status.txt"
+          git config user.name 'github-actions[bot]'
+          git config user.email '41898282+github-actions[bot]@users.noreply.github.com'
+          git add -- "$DEST"
+          git commit -m "Retain NCR scoring coverage audit $GITHUB_RUN_ID [skip ci]"
+          git pull --rebase origin codex/fantasy-decision-workflow
+          git push origin HEAD:codex/fantasy-decision-workflow

@@ -1,0 +1,59 @@
+name: Transfer verified decision research runtime
+on:
+  push:
+    branches: [codex/fantasy-decision-workflow]
+    paths: [.github/workflows/decision-research-transfer.yml]
+permissions:
+  contents: read
+  actions: read
+jobs:
+  split:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/download-artifact@v4
+        with:
+          github-token: ${{ github.token }}
+          repository: Und3fin3d/Six-Nations-Fantasy
+          run-id: 36256779492
+          name: decision-research-runtime-5df3b6f42a7afa0a355d1ad463e95e82838c53ea
+          path: inputs
+      - name: Verify originals and split transport only
+        run: |
+          set -euo pipefail
+          cd inputs
+          sha256sum -c sha256.txt
+          split -b 400M python311-runtime.tar.gz python311-runtime.part-
+          sha256sum python311-runtime.part-* > parts-sha256.txt
+      - uses: actions/upload-artifact@v4
+        with:
+          name: research-runtime-part-aa
+          path: inputs/python311-runtime.part-aa
+          compression-level: 0
+          if-no-files-found: error
+          retention-days: 30
+      - uses: actions/upload-artifact@v4
+        with:
+          name: research-runtime-part-ab
+          path: inputs/python311-runtime.part-ab
+          compression-level: 0
+          if-no-files-found: error
+          retention-days: 30
+      - uses: actions/upload-artifact@v4
+        with:
+          name: research-runtime-part-ac
+          path: inputs/python311-runtime.part-ac
+          compression-level: 0
+          if-no-files-found: error
+          retention-days: 30
+      - uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: research-verified-stores-and-registrations
+          path: |
+            inputs/stores.tar.gz
+            inputs/continuation-registrations.tar.gz
+            inputs/sha256.txt
+            inputs/parts-sha256.txt
+          compression-level: 0
+          if-no-files-found: error
+          retention-days: 30

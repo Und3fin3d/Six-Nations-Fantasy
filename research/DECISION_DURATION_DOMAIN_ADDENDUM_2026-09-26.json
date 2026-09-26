@@ -1,0 +1,57 @@
+{
+  "id": "conditional_duration_domain_v2",
+  "status": "registered_before_candidate_fitting_or_scoring",
+  "objective": "active_unfinished",
+  "parent": "research/DECISION_CONDITIONAL_DURATION_REGISTRATION_2026-09-26.json",
+  "support_parent": "research/DECISION_CONDITIONAL_DURATION_SUPPORT_ADDENDUM_2026-09-26.json",
+  "original_decision_preserved": "Run 36259223104 failed at the original [0,80] duration validation in every lock group, after saving the four control fits. No conditional candidate was scored. This is an implementation/domain failure, not a rejection of the duration-mixture hypothesis. The original registration, source implementation, failed logs, fitted controls and data remain available without rewriting them.",
+  "independent_source_review": {
+    "run": 36272929019,
+    "evidence": "data/unified/decision_continuation_2026-09-26/run-36272929019/duration",
+    "corrected_store_sha256": "e4b20637e2b514d622bb35cc7c43762e0eddb4f3b4e50f1ca2e39155ae96e6be",
+    "rows": 179295,
+    "available_duration_rows": 178071,
+    "outside_registered_domain": 52,
+    "fixtures": 37,
+    "range": [81, 99],
+    "club_rows": 43,
+    "international_rows": 9,
+    "finding": "All 52 values reproduce the unchanged cached teamsheets and first-substitution parser. That parser assumes 80 for players without a recorded exit, takes the first on/off events and caps an individual recorded timestamp at 99. The stored value is therefore a duration proxy, not an independently verified complete on-field interval. Real extra-time exists: World Rugby Law 5 permits it and EPCR records Andrew Porter's exit at minute 88 in the 25 May 2024 final. The open upper bin is coherent but the universal source-range assertion was not. The evidence does not establish which of the remaining late timestamps are elapsed match time, stoppage conventions or errors.",
+    "primary_sources": [
+      "https://passport.world.rugby/laws-of-the-game/laws-by-number/5-time/",
+      "https://www.epcrugby.com/champions-cup/matches/276410/lineups",
+      "https://www.epcrugby.com/champions-cup/matches/276410/commentary"
+    ],
+    "outcome_audit": "The same run reconciled actual role/entry evidence for all 2138 fantasy candidates and replayed all 91 retained policy squads. No selected squad total changed. Eighteen full-pool Six Nations official outcomes remain unknown. The diagnostic NCR raw join now matches 697 of 758 rows; unmatched rows remain unknown. This is correctness evidence, not improved decisions."
+  },
+  "primary_policy": {
+    "name": "bounded",
+    "candidate_ids": ["conditional_duration_bounded_v2", "p3_conditional_duration_bounded_v2"],
+    "rule": "Preserve the original model's [0,80] training domain. In a training-only copy, mark duration outside this range unusable by the conditional model; do not clip, invent minutes, delete player rows, alter raw-event values or mutate the canonical availability ledger. Retain the existing ten bins and every original hyperparameter. Record every excluded training key at each cutoff. Conditional event heads use the same bounded observed-duration support. Preserve all prior-only precomputed features, including original historical proxy values, in every control and candidate so this is not an unregistered feature-rebuild intervention.",
+    "matched_support_control": "Fit v4_bounded_support_control with the same usable-duration mask on minutes and on each observed event. Keep every training feature row and the identical encoder recipe. Also retain and restore the original all-observed-duration v4_joint_support_control and full-support V4, robust empirical and empirical controls. Do not choose a weaker comparator based on results."
+  },
+  "mandatory_sensitivity": {
+    "name": "source_tail",
+    "candidate_ids": ["conditional_duration_source_tail_v2", "p3_conditional_duration_source_tail_v2"],
+    "rule": "Retain every finite nonnegative observed source duration, unchanged, and use the originally declared [80,infinity) upper class. The upper class representative and variance remain training-only. Do not claim source timestamps are corrected truth. This is the paired sensitivity to excluding the 52 exceptional proxy records, not an independently tuned candidate from which to select a favourable winner.",
+    "admission": "A bounded-policy improvement is not called insensitive to the duration-domain repair unless its direction against both required incumbent policies is also retained by its corresponding source_tail variant. Report both, including every failure. The source_tail variant cannot replace a failed primary policy post hoc."
+  },
+  "diagnostic_correction": "Duration calibration bins use their declared open upper class for nonnegative observed evaluation durations. Report counts and raw-minute MAE for all original observed outcomes, including values over 80; do not omit those outcomes from raw evaluation. Unknown and invalid labels remain explicitly unscored with their denominators. This corrects the diagnostic labelling contract independently of candidate points.",
+  "checkpoint_reuse": "The original model files, parent registrations, P3 weights, stores, chronological cutoffs, prepared features and training key hashes remain unchanged. Restore the four original control binaries only after exact original context and artifact SHA-256 verification. Give the new bounded-support control and conditional models extended contexts that additionally hash the new domain implementation, addendum and policy. Do not bypass mismatches or restamp old binaries as newly fitted models.",
+  "comparison": "Every original 27 lock group and all 28 units remain required: all 13 fantasy slates and the exact fixed Friendly-15 cohort. Retain complete pools, original eligibility, strict chronological exclusion, scoring versions, source role outcome audit, all empirical/P3 and common-point/full-head incumbent controls. Historical results are reused, not fresh validation. Principal outcome remains realised squad points; raw MAE, Friendly-15, calibration and timing accuracy are reported secondary outcomes only.",
+  "unchanged_admission": "Development Six Nations 2025 gain >0; later Six Nations 2026 gain >=0; every single-round removal pooled gain >0 against both required incumbent policies; NCR >=0 for a shared route. Report every leave-two-out result, equal-season aggregation and original seed20260926/20000 paired-bootstrap uncertainty. Require direction to survive the registered alternative metre-floor expectation. No relaxed threshold, changed holdout claim, omitted unknown total, price-legality claim without provenance, candidate-selected metric or production promotion.",
+  "unresolved_hypotheses": [
+    "Does a prematch duration distribution separate the long and short appearances responsible for consequential captain/sub ranking errors?",
+    "Do conditional event rates add useful opportunity dependence beyond a marginal direct-total tree, after controlling for training support?",
+    "Are remaining errors primarily event means, omitted scoring events, opponent opportunity or constrained squad opportunity costs?",
+    "Does the restricted P-captain/B-supersub action space omit useful legal decisions? Any action-space experiment must retain the registered restricted comparison and use actual-role scoring, not redefine success after results.",
+    "Which remaining duration proxy ambiguities change decisions, rather than merely raw timing accuracy?",
+    "Can historical Six Nations prices and source-publication timing be established sufficiently for stronger legality/chronology claims?"
+  ],
+  "next_executable_experiments": [
+    "Execute bounded and source_tail full conditional refits with verified saved controls for every declared lock and save failure/completion checkpoints.",
+    "Verify complete raw forecasts, mixture integration, constraints and actual role outcomes; evaluate every declared comparator and sensitivity before any admission decision.",
+    "Use the resulting per-round event, exposure and feasible-substitution errors to register the next materially different mechanism if the primary candidate fails; do not tune bins or weights against the later audit."
+  ],
+  "preservation": "No new or changed tests, including temporary tests; no new code comments or pathlib imports. Existing checks and direct research calculations only. No permanent-cache mutation, rugby API calls, credential changes, dirty-work reset, November-registration change, merge or production switch. The objective remains active until the user's substantive completion criteria are met."
+}

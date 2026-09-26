@@ -1,0 +1,4 @@
+job=lock_07
+study=failure
+checks=skipped
+objective=active_unfinished

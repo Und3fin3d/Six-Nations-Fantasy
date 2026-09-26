@@ -1,6 +1,5 @@
 import argparse
 import hashlib
-import json
 import os
 
 import numpy as np
@@ -9,13 +8,13 @@ import pandas as pd
 from model.history import past_matches
 from model.unified.raw_benchmark.config import STABLE_EVENTS
 from model.unified.rolling_eval import KEY
+from model.unified.schema import FORWARD_POSITIONS, POSITION_BY_JERSEY
 from model.unified.scoring import NationsChampionshipScorer, SixNationsScorer
 from research.conditional_duration_inputs import digest, write_json
 from research.duration_evidence_validation import prepared_jobs, read_units
 
 
-FORWARDS = {'Prop', 'Hooker', 'Lock', 'Loose Forward'}
-POSITIONS = FORWARDS | {'Scrum Half', 'Fly Half', 'Centre', 'Back Three'}
+POSITIONS = set(POSITION_BY_JERSEY.values())
 
 
 def core_spec(competition, season, rubric):
@@ -35,19 +34,28 @@ def core_spec(competition, season, rubric):
     return scorer, tuple(sorted(events))
 
 
+def observed_events(frame, events):
+    return pd.DataFrame({event: frame[f'available__{event}'].fillna(False).to_numpy(bool)
+                        & np.isfinite(pd.to_numeric(frame[event], errors='coerce').to_numpy(float))
+                        & pd.to_numeric(frame[event], errors='coerce').ge(0).to_numpy()
+                        for event in events}, index=frame.index)
+
+
 def core_targets(frame, competition, season, rubric):
     scorer, events = core_spec(competition, season, rubric)
-    valid = frame.position.isin(POSITIONS).to_numpy(bool)
-    for event in events:
-        values = pd.to_numeric(frame[event], errors='coerce').to_numpy(float)
-        valid &= frame[f'available__{event}'].fillna(False).to_numpy(bool) & np.isfinite(values) & (values >= 0)
+    known_positions = frame.position.isin(POSITIONS).to_numpy(bool)
+    if not known_positions.all():
+        raise ValueError(f'Unresolved canonical positions: {frame.loc[~known_positions, "position"].value_counts(dropna=False).to_dict()}')
+    if not np.array_equal(frame.is_forward.to_numpy(bool), frame.position.isin(FORWARD_POSITIONS).to_numpy(bool)):
+        raise ValueError('Canonical position and forward status disagree')
+    valid = observed_events(frame, events).all(axis=1).to_numpy(bool)
     target = pd.Series(np.nan, index=frame.index, dtype=float)
-    for position in POSITIONS:
+    for position in sorted(POSITIONS):
         indices = frame.index[valid & frame.position.eq(position).to_numpy()]
         if not len(indices):
             continue
         recorded = {event: frame.loc[indices, event].to_numpy(float) for event in events}
-        values = scorer.score_samples(recorded, is_forward=position in FORWARDS, position=position)
+        values = scorer.score_samples(recorded, is_forward=position in FORWARD_POSITIONS, position=position)
         if competition == 'ncr' and rubric == 'missing_attack_v3':
             values = values + np.floor(recorded['metres']/10)
         target.loc[indices] = values
@@ -81,8 +89,9 @@ def run(args):
             for rubric in rubrics:
                 target, valid, events = core_targets(train, slate.competition, slate.season, rubric)
                 observed = target.loc[valid]
+                availability = observed_events(train, events)
                 for event in events:
-                    own = train[f'available__{event}'].fillna(False).to_numpy(bool) & train[event].notna().to_numpy()
+                    own = availability[event].to_numpy(bool)
                     support.append(dict(unit=unit['name'], rubric=rubric, event=event,
                         original_event_rows=int(own.sum()), complete_core_rows=int(valid.sum()),
                         support_identical=bool(np.array_equal(own, valid)), excluded_for_joint_support=int((own & ~valid).sum()),
@@ -102,17 +111,17 @@ def run(args):
                     ['size', 'mean', 'std', 'min', 'max']).reset_index().to_csv(
                         f'{args.output}/{unit["name"]}_{rubric}_supervision.csv', index=False)
                 excluded = train.loc[~valid, KEY + ['date', 'competition_level', 'position', 'started']].copy()
-                excluded['missing_core_events'] = [
-                    ';'.join(event for event in events if not bool(train.at[index, f'available__{event}'])
-                             or not np.isfinite(float(train.at[index, event])) or float(train.at[index, event]) < 0)
-                    for index in excluded.index]
+                excluded['missing_core_events'] = availability.loc[~valid].apply(
+                    lambda row: ';'.join(row.index[~row]), axis=1)
                 excluded.to_csv(f'{args.output}/{unit["name"]}_{rubric}_excluded.csv', index=False)
     pd.DataFrame(outputs).to_csv(f'{args.output}/supervision.csv', index=False)
     pd.DataFrame(support).to_csv(f'{args.output}/matched_support_requirements.csv', index=False)
     if digest(path) != manifest['outputs']['training_features.pkl']:
         raise ValueError('Read-only feature cache changed during supervision audit')
     write_json(f'{args.output}/manifest.json', dict(source_sha256=digest(__file__),
+        taxonomy_sha256=digest('model/unified/schema.py'),
         training_features_sha256=manifest['outputs']['training_features.pkl'], fitted_candidates=0,
+        original_audit='run-36275738352/utility-supervision retained: fantasy aliases incorrectly excluded five canonical positions. No fitted candidate used that audit. Corrected support must cover all eight canonical positions.',
         source_cutoffs='Existing past_matches availability delay and per-unit exclusion of evaluation fixture identities',
         targets='Signed observed stable-event point sum only; not complete official points. Extended-event forecasts would remain explicit separate contributions.',
         reason='Both duration primaries failed the complete 2025 development comparison; XV/captain errors remain. Audit whether direct conditional-mean utility supervision can be fitted without zero-filling missing events.',

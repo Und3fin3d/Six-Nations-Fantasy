@@ -1,0 +1,65 @@
+{
+  "id": "utility_core_mean_v1",
+  "status": "registered_before_any_utility_candidate_fit_or_score",
+  "objective": "active_unfinished",
+  "parent_protocols": [
+    "research/FANTASY_DECISION_PROTOCOL_2026-09-26.md",
+    "research/DECISION_DURATION_DOMAIN_ADDENDUM_2026-09-26.json",
+    "research/DECISION_NCR_RUBRIC_COMPLETENESS_ADDENDUM_2026-09-26.json"
+  ],
+  "evidence_selection": {
+    "development_checkpoint": "research/DECISION_DURATION_DEVELOPMENT_CHECKPOINT_2026-09-26.json",
+    "finding": "Both full duration primaries fail the complete 2025 development gate against the stronger native policy: standalone -151, P3 duration -78. The latter gains 45 super-sub points but loses 106 XV and 17 captain points. No later outcome can waive the failed gate. The remaining full duration comparison continues independently.",
+    "mechanism_run": 36275738352,
+    "mechanism_scope": "Complete five-round Six Nations 2025 only; other cohorts in that partial review are not treated as complete or fresh validation",
+    "duration_probability": "The standalone duration classifier improves bench long-appearance Brier score from V4 0.22815 to 0.21360, but AUC is approximately 0.667 for both, below robust empirical 0.697. Its mean long-appearance probability 0.271 remains below the observed 0.346. Better duration-distribution calibration did not yield the required team decisions.",
+    "hindsight_diagnostic": "For 447 observed starting-player point/duration pairs, standalone point MAE falls only from 8.22595 to 7.69644 with the actual duration bin supplied. For the P3 duration blend it falls from 8.25712 to 7.91893. Bench MAE falls from 5.41924 to 4.63093 for standalone and 5.34239 to 4.98049 for P3 over 237 pairs. Three unknown point labels in each role remain unscored and visible. This is a hindsight conditional-model diagnostic, not a causal upper bound or deployable candidate.",
+    "hypothesis": "Remaining decision-relevant errors warrant a model of the conditional mean of scoring-event points rather than another duration or role offset. A joint signed point target allocates finite tree capacity to scoring weights and within-match event combinations, while independent event losses and a raw macro-MAE headline need not rank consequential players well. This hypothesis is empirical, not a guarantee that a direct head beats a sum of well-estimated event means."
+  },
+  "supervision": {
+    "audit_run": 36276315298,
+    "audit_root": "data/unified/decision_continuation_2026-09-26/run-36276315298/supervision",
+    "support_table_git_blob": "0ebe0696f99de81c2c624a40835d75887b5df1f9",
+    "target_implementation_commit": "336be78f14aefb0b8fa5eb062ee94ad7633911c4",
+    "definition": "Signed deterministic point contribution of all STABLE_EVENTS that score under the explicit competition/season rubric, plus Six Nations tries and metres. Use observed floor(metres/10), not floor of a predicted mean. NCR v3 additionally includes metres; 50:22 and other non-core events remain separate forecast components. The label is a partial scoring-event total, never represented as complete official points.",
+    "availability": "Every required core event must be observed, finite and nonnegative. Keep negative signed point totals. Keep Unknown positions in features and data: for SN an Unknown position with positive tries makes the weighted core label ambiguous, while zero tries has the same core score for either forward/back status. NCR core weights are position-invariant because front-row scrums are outside this core. Verify equality of possible scores before using an Unknown-position label. Do not fill missing events or ambiguous labels with zero.",
+    "first_development_lock": {"prior_rows": 111859, "usable_core_labels": 111179, "unusable_core_labels": 680, "unknown_position_rows": 7999, "ambiguous_position_weights": 427, "negative_core_labels": 1476},
+    "audit_failures_preserved": "run36275738352 used fantasy aliases against the canonical taxonomy and wrongly excluded five positions; run36276108248 then exposed legitimate Unknown positions. No fitted utility candidate used either faulty audit. Both outputs remain, and the corrected source-driven supervision contract is independently verified before fitting.",
+    "chronology": "Use the exact registered corrected store, original prepared prior-only feature cache, original past_matches cutoff delay and evaluation-fixture exclusions. Every training feature row remains, even when its utility label is unusable. Neither official evaluation points nor realised evaluation minutes enter fitting or prediction."
+  },
+  "candidate": {
+    "name": "utility_core_mean_v1",
+    "architecture": "One direct L2 conditional-mean regressor for the signed core point target at each required fantasy lock/rubric. Add the unchanged non-core expected contribution from the existing corrected-refit P3 raw model. Keep the raw-statistics forecast itself exactly P3; expose the utility forecast as a separate, explicitly named decision head rather than pretending it is the algebraic score of those raw means.",
+    "features": "Use an exact copy of the verified V4 encoder fitted on all chronological training feature rows, including native categorical codes and pooled player identity. Preserve all existing prior player, role, competition and opponent/context features. No evaluation labels, actual evaluation minutes, new identity mapping, fitted-on-evaluation calibration or added actual-duration feature.",
+    "loss": "regression_l2 with signed labels and no output clipping",
+    "hyperparameters": {"n_estimators": 180, "learning_rate": 0.045, "num_leaves": 23, "min_child_samples": 35, "reg_lambda": 4.0, "subsample": 0.85, "subsample_freq": 1, "colsample_bytree": 0.8, "random_state": 17, "deterministic": true, "force_col_wise": true, "weighting": "natural"},
+    "tuning": "No hyperparameter search, role-specific offsets, candidate-selected blend, time decay or post-hoc player-effect correction. This candidate has no multiplicative player effects, which are unsuitable for signed point totals. The matched raw control is shown both without and with its existing empirical-Bayes player effects.",
+    "scoring_versions": "SN2025 six_nations_legacy_v1; SN2026 six_nations_2026_v2. Fit and report NCR old ncr_front_row_v2 and independently corrected ncr_missing_attack_terms_v3; neither can replace a failed other rubric. The official outcome labels and actual-role outcome ledger are unchanged."
+  },
+  "matched_controls": {
+    "names": ["utility_matched_raw_no_effects", "utility_matched_raw_with_effects"],
+    "definition": "For every core event use exactly the same usable core-label rows and exact same encoded feature matrix as the direct utility head. Keep original raw-event objectives and tree hyperparameters. Reuse an original fitted event head only after proving its training mask and recipe are identical; refit every changed-support head. Verify the refitted encoder against the original encoder. Recompute the existing training-only player effects for the effects control; disable them for the clean loss comparison. Add exactly the same unchanged P3 non-core complement to each control.",
+    "additional_references": "Retain original full-support V4, corrected-refit P3, empirical_event, robust_empirical_event, corrected native empirical points, all original role-policy results and both required native policies. Matched-support controls do not replace stronger incumbent references or erase support-related effects."
+  },
+  "mandatory_sensitivities": {
+    "duration_source": "Fit one paired utility_core_mean_bounded_source_v1 sensitivity with identical features and parameters, excluding only otherwise usable utility training rows whose observed duration is outside [0,80] or nonfinite. Do not require duration availability for a fully observed point target. Retain all raw forecasts and evaluation outcomes. This tests influence of the known exceptional source proxies without redefining the candidate or rewriting its primary all-source result. The sensitivity cannot replace a failed primary, and its development/audit directions must survive against both incumbents; NCR direction must also survive for a shared route.",
+    "floor_expectation": "The direct point head learns the observed floor contribution and does not approximate it by a marginal metre distribution. Verify that changing the raw metre-floor expectation cannot change its non-core complement: the metre component is removed exactly before the learned core is added. Preserve and report the old raw/control floor conventions and the independently registered duration experiment's full floor sensitivity. Do not apply a post-hoc scoring offset to the direct head.",
+    "support": "Quantify every excluded training key and compare both matched-support raw controls. Report whether any gain is actually support selection or removal of player effects rather than the direct utility loss.",
+    "influence": "Retain the unchanged every-single-round-removal criterion, all leave-two-out values, equal-season/tournament aggregation and the original seed20260926/20000 descriptive paired-round bootstrap. No positive round or low-error position may stand in for the complete cohort."
+  },
+  "comparison": {
+    "coverage": "All 27 chronological locks and 28 original units: all 13 fantasy slates and exact fixed Friendly-15. The utility candidate and its source sensitivity use identical fixed P3 raw forecasts for the Friendly-15; report their unchanged raw metrics with hashes, not a new raw-model improvement. Preserve all stable/extended raw-event metrics for the three tournaments as well as Friendly-15.",
+    "principal": "Realised official squad points under the original declared legal selection subset and actual-role/entry outcome contract, not player MAE or hindsight-duration diagnostics. Complete original candidate pools; SN original price-free position/country restrictions and NCR archived budget/country/hemisphere restrictions. No new chip, action-space change or incomplete historical price-legality claim.",
+    "incumbents": "Both incumbent common-point joint optimisation and incumbent_legal_sequential full-head policy. NCR v3 uses the previously registered fixed empirical_event completion of missing attack terms for the native comparator. Verify unchanged SN references and original NCR policy signatures before comparing.",
+    "unchanged_admission": "Development SN2025 gain >0 and later SN2026 gain >=0 against BOTH required incumbents; pooled SN gain remains >0 after removing EACH single round. A shared route also requires NCR aggregate >=0 against old native under v2 and completed native under v3. Require the paired source-duration sensitivity to retain development/audit and applicable NCR directions. These are necessary research-admission conditions, not automatic objective completion or confirmed future superiority.",
+    "unknowns": "Every unknown official point or actual-role outcome remains unknown; a selected unknown blocks an unqualified squad total. Preserve every unsuccessful method, source/implementation failure and old scoring decision."
+  },
+  "uncertainty": "All historical outcomes have been reused, including complete SN2025 in choosing this mechanism. SN2026 is a later chronological audit, not untouched validation. Multiple prior candidates and correlated rounds limit inference. The exact criterion results, effect sizes, influence, descriptive intervals and remaining source limitations must accompany any historical improvement claim. No fresh independence is manufactured by changing model names, targets, scoring versions or splits.",
+  "next_executable_experiments": [
+    "Fit the registered signed utility head and paired source sensitivity; produce matched-support no-effect/effect raw controls and every unchanged full-support comparator.",
+    "Verify target identities, training support, raw/component preservation, complete prediction pools, constraints and actual-role outcomes before running the unchanged full-cohort admission calculations.",
+    "Complete the still-active full duration experiment and preserve its already established development failures, all remaining audits and diagnostics.",
+    "Use complete utility-loss versus support/control differences and consequential player errors to choose the next mechanism if necessary; do not tune this head against the later audit."
+  ],
+  "protection": "No new or changed tests including temporary tests; existing checks and direct research calculations only. No new code comments or pathlib imports. No model default switch, production routing change, merge, permanent-cache mutation, rugby API use, credential changes, dirty-work reset, or modification to the original November registration/capture/veto protocol. A batch or a failed candidate is not an objective-completion condition."
+}

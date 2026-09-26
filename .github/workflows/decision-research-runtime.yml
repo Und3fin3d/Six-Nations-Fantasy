@@ -34,6 +34,7 @@ jobs:
           cd current
           python model_env_preflight.py
       - name: Rebuild original and corrected inputs without API access
+        id: rebuild
         shell: bash
         run: |
           set -euo pipefail
@@ -43,22 +44,29 @@ jobs:
           python -m model.unified.rolling_eval --prepare-only --output "$RUNNER_TEMP/research-inputs/original"
           echo '2b70331c0cf215def67831cd27c987362e2ec8330b2afb41c8d204f48ef17313  '"$RUNNER_TEMP/research-inputs/original/inputs/player_match.csv" | sha256sum -c -
           cd ../current
+          export PYTHONPATH="$PWD"
           python data/unified/decision_workflow_2026-09-26/minutes/build_timing_overlay.py --input "$RUNNER_TEMP/research-inputs/original/inputs/player_match.csv" --output "$RUNNER_TEMP/research-inputs/corrected"
           echo 'e4b20637e2b514d622bb35cc7c43762e0eddb4f3b4e50f1ca2e39155ae96e6be  '"$RUNNER_TEMP/research-inputs/corrected/player_match.csv" | sha256sum -c -
           python -m pip freeze > "$RUNNER_TEMP/research-inputs/environment.txt"
           python --version > "$RUNNER_TEMP/research-inputs/python-version.txt"
           git rev-parse HEAD > "$RUNNER_TEMP/research-inputs/source-commit.txt"
-      - name: Package the isolated numerical runtime and verified inputs
+      - name: Package runtime and input verification evidence
+        if: always()
         shell: bash
+        env:
+          REBUILD_OUTCOME: ${{ steps.rebuild.outcome }}
         run: |
           set -euo pipefail
           PREFIX=$(python -c 'import sys; print(sys.prefix)')
-          mkdir -p "$RUNNER_TEMP/research-package"
+          mkdir -p "$RUNNER_TEMP/research-package" "$RUNNER_TEMP/research-inputs"
+          printf '%s\n' "$REBUILD_OUTCOME" > "$RUNNER_TEMP/research-inputs/rebuild-outcome.txt"
           tar -C "$PREFIX" -czf "$RUNNER_TEMP/research-package/python311-runtime.tar.gz" .
           tar -C "$RUNNER_TEMP/research-inputs" -czf "$RUNNER_TEMP/research-package/stores.tar.gz" .
+          tar -C current -czf "$RUNNER_TEMP/research-package/continuation-registrations.tar.gz" research/DECISION_CONTINUATION_2026-09-26.md research/DECISION_ROLE_POLICY_REGISTRATION_2026-09-26.json .github/workflows/decision-research-runtime.yml
           cd "$RUNNER_TEMP/research-package"
           sha256sum *.tar.gz > sha256.txt
       - uses: actions/upload-artifact@v4
+        if: always()
         with:
           name: decision-research-runtime-${{ github.sha }}
           path: ${{ runner.temp }}/research-package/*

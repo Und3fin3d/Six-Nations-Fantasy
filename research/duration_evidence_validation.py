@@ -1,4 +1,3 @@
-import hashlib
 import json
 import os
 import pickle
@@ -105,8 +104,17 @@ def distribution_variance(distribution):
     return distribution.dispersion
 
 
+def distribution_parameter(family, mean, variance):
+    if family == 'bernoulli':
+        return 1.0
+    if family == 'negative_binomial':
+        return max(mean*mean/max(variance-mean, 1e-6), 0.05)
+    return max(variance, 1e-8)
+
+
 def verify_conditional(forecasts):
-    max_mean_error, max_parameter_error = 0.0, 0.0
+    max_mean_error, max_parameter_error, max_variance_error = 0.0, 0.0, 0.0
+    reciprocal_roundoff = []
     for prediction in forecasts:
         metadata = prediction.metadata
         probability = np.asarray(metadata['duration_probabilities'], dtype=float)
@@ -128,11 +136,29 @@ def verify_conditional(forecasts):
                 raise ValueError('Incomplete conditional event distribution')
             mean = float(probability @ means)
             variance = max(float(probability @ (within + means**2) - mean**2), 1e-8)
-            parameter = 1.0 if distribution.family == 'bernoulli' else (
-                max(mean**2 / max(variance-mean, 1e-6), 0.05) if distribution.family == 'negative_binomial' else variance)
-            max_mean_error = max(max_mean_error, close(distribution.mean, mean, f'{event}/integrated mean'))
-            max_parameter_error = max(max_parameter_error, close(distribution.dispersion, parameter, f'{event}/dispersion'))
-    return dict(rows=len(forecasts), maximum_mean_error=max_mean_error, maximum_parameter_error=max_parameter_error)
+            source_mean = float((probability*means).sum())
+            source_variance = max(float((probability*(within+means*means)).sum()-source_mean*source_mean), 1e-8)
+            source_parameter = distribution_parameter(distribution.family, source_mean, source_variance)
+            parameter = distribution_parameter(distribution.family, mean, variance)
+            max_mean_error = max(max_mean_error, close(distribution.mean, mean, f'{event}/independent integrated mean'))
+            max_parameter_error = max(max_parameter_error, close(distribution.dispersion, source_parameter, f'{event}/original arithmetic parameter'))
+            if distribution.family == 'negative_binomial':
+                expected_variance = mean + min(mean*mean/0.05, max(variance-mean, 1e-6))
+            elif distribution.family == 'bernoulli':
+                expected_variance = mean*(1-mean)
+            else:
+                expected_variance = variance
+            error = close(distribution_variance(distribution), expected_variance, f'{event}/independent effective variance')
+            max_variance_error = max(max_variance_error, error)
+            if not np.isclose(distribution.dispersion, parameter, rtol=1e-10, atol=1e-8):
+                reciprocal_roundoff.append(dict(fixture_id=prediction.fixture_id, player_id=prediction.player_id,
+                    team=prediction.team, event=event, family=distribution.family, stored_parameter=distribution.dispersion,
+                    independent_parameter=parameter, original_arithmetic_parameter=source_parameter,
+                    source_mean=source_mean, independent_mean=mean, source_variance=source_variance,
+                    independent_variance=variance, effective_variance_error=error))
+    return dict(rows=len(forecasts), maximum_mean_error=max_mean_error, maximum_parameter_error=max_parameter_error,
+                maximum_effective_variance_error=max_variance_error, reciprocal_roundoff_cases=len(reciprocal_roundoff),
+                reciprocal_roundoff_evidence=json.dumps(reciprocal_roundoff, sort_keys=True, allow_nan=False))
 
 
 def verify_blend(empirical, tree, blended, configuration):

@@ -41,21 +41,31 @@ def observed_events(frame, events):
                         for event in events}, index=frame.index)
 
 
+def position_weight_known(frame, competition):
+    known = frame.position.isin(POSITIONS).to_numpy(bool)
+    unresolved = ~known & ~frame.position.eq('Unknown').to_numpy(bool)
+    if unresolved.any():
+        raise ValueError(f'Unrecognised position taxonomy: {frame.loc[unresolved, "position"].value_counts(dropna=False).to_dict()}')
+    expected = frame.position.isin(FORWARD_POSITIONS).to_numpy(bool)
+    if not np.array_equal(frame.loc[known, 'is_forward'].to_numpy(bool), expected[known]):
+        raise ValueError('Known canonical position and forward status disagree')
+    return known | frame.tries.eq(0).to_numpy(bool) if competition == 'six_nations' else np.ones(len(frame), dtype=bool)
+
+
 def core_targets(frame, competition, season, rubric):
     scorer, events = core_spec(competition, season, rubric)
-    known_positions = frame.position.isin(POSITIONS).to_numpy(bool)
-    if not known_positions.all():
-        raise ValueError(f'Unresolved canonical positions: {frame.loc[~known_positions, "position"].value_counts(dropna=False).to_dict()}')
-    if not np.array_equal(frame.is_forward.to_numpy(bool), frame.position.isin(FORWARD_POSITIONS).to_numpy(bool)):
-        raise ValueError('Canonical position and forward status disagree')
-    valid = observed_events(frame, events).all(axis=1).to_numpy(bool)
+    valid = observed_events(frame, events).all(axis=1).to_numpy(bool) & position_weight_known(frame, competition)
     target = pd.Series(np.nan, index=frame.index, dtype=float)
-    for position in sorted(POSITIONS):
+    for position in sorted(POSITIONS | {'Unknown'}):
         indices = frame.index[valid & frame.position.eq(position).to_numpy()]
         if not len(indices):
             continue
         recorded = {event: frame.loc[indices, event].to_numpy(float) for event in events}
         values = scorer.score_samples(recorded, is_forward=position in FORWARD_POSITIONS, position=position)
+        if position == 'Unknown':
+            alternative = scorer.score_samples(recorded, is_forward=True, position=position)
+            if not np.array_equal(values, alternative):
+                raise ValueError('Unknown positions cannot receive an assumed forward/back scoring weight')
         if competition == 'ncr' and rubric == 'missing_attack_v3':
             values = values + np.floor(recorded['metres']/10)
         target.loc[indices] = values
@@ -90,6 +100,7 @@ def run(args):
                 target, valid, events = core_targets(train, slate.competition, slate.season, rubric)
                 observed = target.loc[valid]
                 availability = observed_events(train, events)
+                weight_known = position_weight_known(train, slate.competition)
                 for event in events:
                     own = availability[event].to_numpy(bool)
                     support.append(dict(unit=unit['name'], rubric=rubric, event=event,
@@ -98,7 +109,8 @@ def run(args):
                         joint_support_keys_sha256=key_hash(train.loc[valid])))
                 record = dict(unit=unit['name'], job=job['job'], competition=slate.competition, season=slate.season,
                     rubric=rubric, cutoff=unit['cutoff'].isoformat(), rows=len(train), supervised_rows=int(valid.sum()),
-                    unknown_core_rows=int((~valid).sum()), core_events=';'.join(events),
+                    unknown_core_rows=int((~valid).sum()), unknown_position_rows=int(train.position.eq('Unknown').sum()),
+                    ambiguous_position_weights=int((~weight_known).sum()), core_events=';'.join(events),
                     negative_targets=int(observed.lt(0).sum()), zero_targets=int(observed.eq(0).sum()),
                     mean=float(observed.mean()), variance=float(observed.var(ddof=0)),
                     minimum=float(observed.min()), median=float(observed.median()),
@@ -113,6 +125,7 @@ def run(args):
                 excluded = train.loc[~valid, KEY + ['date', 'competition_level', 'position', 'started']].copy()
                 excluded['missing_core_events'] = availability.loc[~valid].apply(
                     lambda row: ';'.join(row.index[~row]), axis=1)
+                excluded['ambiguous_position_weight'] = ~weight_known[~valid]
                 excluded.to_csv(f'{args.output}/{unit["name"]}_{rubric}_excluded.csv', index=False)
     pd.DataFrame(outputs).to_csv(f'{args.output}/supervision.csv', index=False)
     pd.DataFrame(support).to_csv(f'{args.output}/matched_support_requirements.csv', index=False)
@@ -121,12 +134,14 @@ def run(args):
     write_json(f'{args.output}/manifest.json', dict(source_sha256=digest(__file__),
         taxonomy_sha256=digest('model/unified/schema.py'),
         training_features_sha256=manifest['outputs']['training_features.pkl'], fitted_candidates=0,
-        original_audit='run-36275738352/utility-supervision retained: fantasy aliases incorrectly excluded five canonical positions. No fitted candidate used that audit. Corrected support must cover all eight canonical positions.',
+        original_audits=['run-36275738352/utility-supervision: fantasy aliases incorrectly excluded five canonical positions; no fitted candidate used the audit',
+                         'run-36276108248/supervision.log: corrected taxonomy assertion exposed legitimate Unknown positions before fitting'],
+        unknown_positions='Retain Unknown in features and source data. The SN core label is ambiguous only when a try occurs and forward/back status is unknown. NCR core weights are position-invariant because scrums are outside the stable core. Verify equal possible scores before using any Unknown-position label.',
         source_cutoffs='Existing past_matches availability delay and per-unit exclusion of evaluation fixture identities',
-        targets='Signed observed stable-event point sum only; not complete official points. Extended-event forecasts would remain explicit separate contributions.',
-        reason='Both duration primaries failed the complete 2025 development comparison; XV/captain errors remain. Audit whether direct conditional-mean utility supervision can be fitted without zero-filling missing events.',
+        targets='Signed observed stable-event point sum only; not complete official points. Extended-event forecasts remain separate contributions.',
+        reason='Both duration primaries failed the complete 2025 development comparison; XV/captain errors remain. Audit direct conditional-mean utility supervision without zero-filling missing events.',
         support_control='Every non-identical support mask requires an identically supported raw-event control before attributing gain to the utility loss.',
-        raw_friendly15='A future decision-only utility head would retain and report the exact fixed raw forecast cohort, not relabel its raw accuracy as newly improved.',
+        raw_friendly15='A future decision-only utility head retains and reports the exact fixed raw forecast cohort, not a claim of newly improved raw accuracy.',
         registrations_changed=False, candidate_selected=False, objective='active_unfinished'))
     print(pd.DataFrame(outputs).to_string(index=False), flush=True)
 

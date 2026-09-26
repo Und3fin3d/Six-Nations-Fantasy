@@ -140,6 +140,21 @@ def verify_ncr_additions(forecasts):
     return rows
 
 
+def player_decisions(unit, predictions, points, selected, domain, rubric, engine):
+    slate = unit['slate']
+    chosen = set(selected.id)
+    captain = set(selected.loc[selected.is_capt, 'id'])
+    supersub = set(selected.loc[selected.is_sub, 'id'])
+    observed = unit['raw_labels'].available__minutes.fillna(False).to_numpy(bool)
+    return [dict(slate=slate.name, domain=domain, rubric=rubric, engine=engine,
+                 id=player.id, name=player.name, team=player.team, pos=player.pos, status=player.status,
+                 predicted=float(points[index]), actual=float(slate.actual[index]),
+                 predicted_minutes=float(predictions[index].minutes.mean),
+                 actual_minutes=unit['raw_labels'].minutes.iloc[index], minutes_observed=bool(observed[index]),
+                 selected=player.id in chosen, captain=player.id in captain, supersub=player.id in supersub)
+            for index, player in enumerate(slate.pool.itertuples(index=False))]
+
+
 def review_fantasy(unit, forecasts, directory, output, domain, configuration, audit, references):
     slate = unit['slate']
     os.makedirs(output, exist_ok=False)
@@ -155,21 +170,13 @@ def review_fantasy(unit, forecasts, directory, output, domain, configuration, au
         points_by_engine['empirical_fantasy_corrected'] = native
         for engine, points in points_by_engine.items():
             saved = directory if rubric == 'original_v2' and not (slate.competition == 'ncr' and engine.endswith('_mixture_floor')) else None
-            metrics, selected, diagnostic = evaluate_vector(slate, engine, points, audit, saved=saved)
-            records.append(dict(metrics, rubric=rubric, domain=domain))
+            result, selected, diagnostic = evaluate_vector(slate, engine, points, audit, saved=saved)
+            records.append(dict(result, rubric=rubric, domain=domain))
             diagnostics.append(dict(slate=slate.name, engine=engine, rubric=rubric, domain=domain, **diagnostic))
             if rubric == 'missing_attack_v3' and slate.competition == 'ncr':
                 selected.to_csv(f'{output}/{engine}_completed_squad.csv', index=False)
             if engine in forecasts:
-                for index, player in enumerate(slate.pool.itertuples(index=False))):
-                    prediction_rows.append(dict(slate=slate.name, domain=domain, rubric=rubric, engine=engine,
-                        id=player.id, name=player.name, team=player.team, pos=player.pos, status=player.status,
-                        predicted=float(points[index]), actual=float(slate.actual[index]),
-                        predicted_minutes=float(forecasts[engine][index].minutes.mean),
-                        actual_minutes=unit['raw_labels'].minutes.iloc[index],
-                        minutes_observed=bool(unit['raw_labels'].available__minutes.fillna(False).iloc[index]),
-                        selected=bool(player.id in set(selected.id)), captain=bool(player.id in set(selected.loc[selected.is_capt, 'id'])),
-                        supersub=bool(player.id in set(selected.loc[selected.is_sub, 'id']))))
+                prediction_rows.extend(player_decisions(unit, forecasts[engine], points, selected, domain, rubric, engine))
     records.extend(dict(row, domain=domain) for row in reference_rows(slate, forecasts['empirical_event'], references, audit, output))
     pd.DataFrame(records).to_csv(f'{output}/metrics.csv', index=False)
     pd.DataFrame(prediction_rows).to_csv(f'{output}/player_decisions.csv', index=False)

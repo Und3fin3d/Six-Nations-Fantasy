@@ -67,6 +67,7 @@ def run(args):
                                    rule_known_component=correct,
                                    component_convention='floor_per_10' if event == 'metres' else 'per_recorded_event'))
     components = pd.DataFrame(components)
+    components['known_omitted_component'] = components.rule_known_component - components.current_known_component
     components.to_csv(f'{args.output}/observed_components.csv', index=False)
     rows = []
     for (slate, player_id), group in components.groupby(['slate', 'id'], sort=False):
@@ -104,7 +105,8 @@ def run(args):
     summary = components.groupby(['event', 'pos'], as_index=False).agg(
         rows=('id', 'size'), observed=('observed', 'sum'), positive=('value', lambda values: values.gt(0).sum()),
         mean_observed=('value', 'mean'), current_weight=('current_weight', 'first'),
-        official_weight=('official_weight', 'first'), known_omitted_points=('rule_known_component', 'sum'))
+        official_weight=('official_weight', 'first'), known_rule_points=('rule_known_component', lambda values: values.sum(min_count=1)),
+        known_omitted_points=('known_omitted_component', lambda values: values.sum(min_count=1)))
     summary.to_csv(f'{args.output}/component_coverage.csv', index=False)
     players.groupby(['status', 'pos'], as_index=False).agg(
         rows=('id', 'size'), raw_matches=('matched_raw_key', 'sum'), metres_observed=('known_metres_addition', 'count'),

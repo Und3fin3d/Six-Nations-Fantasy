@@ -1,0 +1,48 @@
+slate,candidate_fixture_id,source_fixture_id,teams,match_count,rule
+six_nations_2025_r1,8476108,8476108,,1,exact canonical fixture identity
+six_nations_2025_r1,8476117,8476117,,1,exact canonical fixture identity
+six_nations_2025_r1,8476126,8476126,,1,exact canonical fixture identity
+six_nations_2025_r2,8476135,8476135,,1,exact canonical fixture identity
+six_nations_2025_r2,8476144,8476144,,1,exact canonical fixture identity
+six_nations_2025_r2,8476153,8476153,,1,exact canonical fixture identity
+six_nations_2025_r3,8476162,8476162,,1,exact canonical fixture identity
+six_nations_2025_r3,8476171,8476171,,1,exact canonical fixture identity
+six_nations_2025_r3,8476180,8476180,,1,exact canonical fixture identity
+six_nations_2025_r4,8476189,8476189,,1,exact canonical fixture identity
+six_nations_2025_r4,8476198,8476198,,1,exact canonical fixture identity
+six_nations_2025_r4,8476207,8476207,,1,exact canonical fixture identity
+six_nations_2025_r5,8476216,8476216,,1,exact canonical fixture identity
+six_nations_2025_r5,8476225,8476225,,1,exact canonical fixture identity
+six_nations_2025_r5,8476234,8476234,,1,exact canonical fixture identity
+six_nations_2026_r1,8523943,8523943,,1,exact canonical fixture identity
+six_nations_2026_r1,8523952,8523952,,1,exact canonical fixture identity
+six_nations_2026_r1,8523961,8523961,,1,exact canonical fixture identity
+six_nations_2026_r2,8523970,8523970,,1,exact canonical fixture identity
+six_nations_2026_r2,8523979,8523979,,1,exact canonical fixture identity
+six_nations_2026_r2,8523988,8523988,,1,exact canonical fixture identity
+six_nations_2026_r3,8523997,8523997,,1,exact canonical fixture identity
+six_nations_2026_r3,8524006,8524006,,1,exact canonical fixture identity
+six_nations_2026_r3,8524015,8524015,,1,exact canonical fixture identity
+six_nations_2026_r4,8524024,8524024,,1,exact canonical fixture identity
+six_nations_2026_r4,8524033,8524033,,1,exact canonical fixture identity
+six_nations_2026_r4,8524042,8524042,,1,exact canonical fixture identity
+six_nations_2026_r5,8524051,8524051,,1,exact canonical fixture identity
+six_nations_2026_r5,8524060,8524060,,1,exact canonical fixture identity
+six_nations_2026_r5,8524069,8524069,,1,exact canonical fixture identity
+ncr_2026_r1,291582,8546092,Italy / Japan,1,unique same teams within three calendar days; no scores consulted
+ncr_2026_r1,291578,8546119,Fiji / Wales,1,unique same teams within three calendar days; no scores consulted
+ncr_2026_r1,291579,8546101,England / South Africa,1,unique same teams within three calendar days; no scores consulted
+ncr_2026_r1,291580,8546110,Australia / Ireland,1,unique same teams within three calendar days; no scores consulted
+ncr_2026_r1,291577,8546128,Argentina / Scotland,1,unique same teams within three calendar days; no scores consulted
+ncr_2026_r2,291586,8546164,Australia / France,1,unique same teams within three calendar days; no scores consulted
+ncr_2026_r2,291585,8546155,Scotland / South Africa,1,unique same teams within three calendar days; no scores consulted
+ncr_2026_r2,291587,8546137,Italy / New Zealand,1,unique same teams within three calendar days; no scores consulted
+ncr_2026_r2,291588,8546146,Ireland / Japan,1,unique same teams within three calendar days; no scores consulted
+ncr_2026_r2,291584,8546173,England / Fiji,1,unique same teams within three calendar days; no scores consulted
+ncr_2026_r2,291583,8546182,Argentina / Wales,1,unique same teams within three calendar days; no scores consulted
+ncr_2026_r3,291593,8546191,France / Japan,1,unique same teams within three calendar days; no scores consulted
+ncr_2026_r3,291594,8546227,Fiji / Scotland,1,unique same teams within three calendar days; no scores consulted
+ncr_2026_r3,291592,8546218,Ireland / New Zealand,1,unique same teams within three calendar days; no scores consulted
+ncr_2026_r3,291591,8546200,Australia / Italy,1,unique same teams within three calendar days; no scores consulted
+ncr_2026_r3,291590,8546209,South Africa / Wales,1,unique same teams within three calendar days; no scores consulted
+ncr_2026_r3,291589,8546236,Argentina / England,1,unique same teams within three calendar days; no scores consulted

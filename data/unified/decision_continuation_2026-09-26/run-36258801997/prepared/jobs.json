@@ -1,0 +1,192 @@
+[
+  {
+    "cutoff": "2025-01-31T20:15:00+00:00",
+    "job": "lock_00",
+    "units": [
+      "six_nations_2025_r1"
+    ]
+  },
+  {
+    "cutoff": "2025-02-08T14:15:00+00:00",
+    "job": "lock_01",
+    "units": [
+      "six_nations_2025_r2"
+    ]
+  },
+  {
+    "cutoff": "2025-02-22T14:15:00+00:00",
+    "job": "lock_02",
+    "units": [
+      "six_nations_2025_r3"
+    ]
+  },
+  {
+    "cutoff": "2025-03-08T14:15:00+00:00",
+    "job": "lock_03",
+    "units": [
+      "six_nations_2025_r4"
+    ]
+  },
+  {
+    "cutoff": "2025-03-15T14:15:00+00:00",
+    "job": "lock_04",
+    "units": [
+      "six_nations_2025_r5"
+    ]
+  },
+  {
+    "cutoff": "2025-11-15T20:10:00+00:00",
+    "job": "lock_05",
+    "units": [
+      "friendly_8518300"
+    ]
+  },
+  {
+    "cutoff": "2025-11-16T15:10:00+00:00",
+    "job": "lock_06",
+    "units": [
+      "friendly_8518309"
+    ]
+  },
+  {
+    "cutoff": "2025-11-22T12:00:00+00:00",
+    "job": "lock_07",
+    "units": [
+      "friendly_8518390"
+    ]
+  },
+  {
+    "cutoff": "2025-11-22T15:10:00+00:00",
+    "job": "lock_08",
+    "units": [
+      "friendly_8518318"
+    ]
+  },
+  {
+    "cutoff": "2025-11-22T16:00:00+00:00",
+    "job": "lock_09",
+    "units": [
+      "friendly_8544553"
+    ]
+  },
+  {
+    "cutoff": "2025-11-22T17:40:00+00:00",
+    "job": "lock_10",
+    "units": [
+      "friendly_8518327"
+    ]
+  },
+  {
+    "cutoff": "2025-11-22T20:10:00+00:00",
+    "job": "lock_11",
+    "units": [
+      "friendly_8518336",
+      "friendly_8518345"
+    ]
+  },
+  {
+    "cutoff": "2025-11-23T13:40:00+00:00",
+    "job": "lock_12",
+    "units": [
+      "friendly_8518354"
+    ]
+  },
+  {
+    "cutoff": "2025-11-23T16:10:00+00:00",
+    "job": "lock_13",
+    "units": [
+      "friendly_8518363"
+    ]
+  },
+  {
+    "cutoff": "2025-11-29T15:10:00+00:00",
+    "job": "lock_14",
+    "units": [
+      "friendly_8518372"
+    ]
+  },
+  {
+    "cutoff": "2026-02-05T20:10:00+00:00",
+    "job": "lock_15",
+    "units": [
+      "six_nations_2026_r1"
+    ]
+  },
+  {
+    "cutoff": "2026-02-14T14:10:00+00:00",
+    "job": "lock_16",
+    "units": [
+      "six_nations_2026_r2"
+    ]
+  },
+  {
+    "cutoff": "2026-02-21T14:10:00+00:00",
+    "job": "lock_17",
+    "units": [
+      "six_nations_2026_r3"
+    ]
+  },
+  {
+    "cutoff": "2026-03-06T20:10:00+00:00",
+    "job": "lock_18",
+    "units": [
+      "six_nations_2026_r4"
+    ]
+  },
+  {
+    "cutoff": "2026-03-14T14:10:00+00:00",
+    "job": "lock_19",
+    "units": [
+      "six_nations_2026_r5"
+    ]
+  },
+  {
+    "cutoff": "2026-07-04T06:40:00+00:00",
+    "job": "lock_20",
+    "units": [
+      "ncr_2026_r1"
+    ]
+  },
+  {
+    "cutoff": "2026-07-11T04:40:00+00:00",
+    "job": "lock_21",
+    "units": [
+      "ncr_2026_r2"
+    ]
+  },
+  {
+    "cutoff": "2026-07-18T06:40:00+00:00",
+    "job": "lock_22",
+    "units": [
+      "ncr_2026_r3"
+    ]
+  },
+  {
+    "cutoff": "2026-08-08T10:05:00+00:00",
+    "job": "lock_23",
+    "units": [
+      "friendly_8546596"
+    ]
+  },
+  {
+    "cutoff": "2026-08-08T19:00:00+00:00",
+    "job": "lock_24",
+    "units": [
+      "friendly_8553454"
+    ]
+  },
+  {
+    "cutoff": "2026-08-15T05:15:00+00:00",
+    "job": "lock_25",
+    "units": [
+      "friendly_8546605"
+    ]
+  },
+  {
+    "cutoff": "2026-08-22T15:10:00+00:00",
+    "job": "lock_26",
+    "units": [
+      "friendly_8545138"
+    ]
+  }
+]

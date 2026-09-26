@@ -1,0 +1,85 @@
+{
+  "include": [
+    {
+      "job": "lock_00"
+    },
+    {
+      "job": "lock_01"
+    },
+    {
+      "job": "lock_02"
+    },
+    {
+      "job": "lock_03"
+    },
+    {
+      "job": "lock_04"
+    },
+    {
+      "job": "lock_05"
+    },
+    {
+      "job": "lock_06"
+    },
+    {
+      "job": "lock_07"
+    },
+    {
+      "job": "lock_08"
+    },
+    {
+      "job": "lock_09"
+    },
+    {
+      "job": "lock_10"
+    },
+    {
+      "job": "lock_11"
+    },
+    {
+      "job": "lock_12"
+    },
+    {
+      "job": "lock_13"
+    },
+    {
+      "job": "lock_14"
+    },
+    {
+      "job": "lock_15"
+    },
+    {
+      "job": "lock_16"
+    },
+    {
+      "job": "lock_17"
+    },
+    {
+      "job": "lock_18"
+    },
+    {
+      "job": "lock_19"
+    },
+    {
+      "job": "lock_20"
+    },
+    {
+      "job": "lock_21"
+    },
+    {
+      "job": "lock_22"
+    },
+    {
+      "job": "lock_23"
+    },
+    {
+      "job": "lock_24"
+    },
+    {
+      "job": "lock_25"
+    },
+    {
+      "job": "lock_26"
+    }
+  ]
+}

@@ -1,0 +1,218 @@
+                  event           pos  rows  observed  positive  mean_observed  current_weight  official_weight  known_rule_points  known_omitted_points
+           clean_breaks    Back Three   112        96        49       0.802083             3.0              3.0              231.0                   0.0
+           clean_breaks        Centre    87        83        26       0.397590             3.0              3.0               99.0                   0.0
+           clean_breaks      Fly Half    52        50        13       0.360000             3.0              3.0               54.0                   0.0
+           clean_breaks        Hooker    65        62         7       0.112903             3.0              3.0               21.0                   0.0
+           clean_breaks          Lock   106        94        10       0.127660             3.0              3.0               36.0                   0.0
+           clean_breaks Loose Forward   137       130        20       0.184615             3.0              3.0               72.0                   0.0
+           clean_breaks          Prop   131       116         8       0.068966             3.0              3.0               24.0                   0.0
+           clean_breaks    Scrum Half    68        66         9       0.166667             3.0              3.0               33.0                   0.0
+       conversion_goals    Back Three   112        96         5       0.125000             2.0              2.0               24.0                   0.0
+       conversion_goals        Centre    87        83         1       0.036145             2.0              2.0                6.0                   0.0
+       conversion_goals      Fly Half    52        50        26       1.580000             2.0              2.0              158.0                   0.0
+       conversion_goals        Hooker    65        62         0       0.000000             2.0              2.0                0.0                   0.0
+       conversion_goals          Lock   106        94         0       0.000000             2.0              2.0                0.0                   0.0
+       conversion_goals Loose Forward   137       130         0       0.000000             2.0              2.0                0.0                   0.0
+       conversion_goals          Prop   131       116         0       0.000000             2.0              2.0                0.0                   0.0
+       conversion_goals    Scrum Half    68        66         5       0.257576             2.0              2.0               34.0                   0.0
+       defenders_beaten    Back Three   112        96        71       2.239583             2.0              2.0              430.0                   0.0
+       defenders_beaten        Centre    87        83        57       1.698795             2.0              2.0              282.0                   0.0
+       defenders_beaten      Fly Half    52        50        35       1.740000             2.0              2.0              174.0                   0.0
+       defenders_beaten        Hooker    65        62        23       0.661290             2.0              2.0               82.0                   0.0
+       defenders_beaten          Lock   106        94        33       0.510638             2.0              2.0               96.0                   0.0
+       defenders_beaten Loose Forward   137       130        61       1.161538             2.0              2.0              302.0                   0.0
+       defenders_beaten          Prop   131       116        35       0.500000             2.0              2.0              116.0                   0.0
+       defenders_beaten    Scrum Half    68        66        20       0.469697             2.0              2.0               62.0                   0.0
+   drop_goals_converted    Back Three   112        96         0       0.000000             5.0              5.0                0.0                   0.0
+   drop_goals_converted        Centre    87        83         0       0.000000             5.0              5.0                0.0                   0.0
+   drop_goals_converted      Fly Half    52        50         0       0.000000             5.0              5.0                0.0                   0.0
+   drop_goals_converted        Hooker    65        62         0       0.000000             5.0              5.0                0.0                   0.0
+   drop_goals_converted          Lock   106        94         0       0.000000             5.0              5.0                0.0                   0.0
+   drop_goals_converted Loose Forward   137       130         0       0.000000             5.0              5.0                0.0                   0.0
+   drop_goals_converted          Prop   131       116         0       0.000000             5.0              5.0                0.0                   0.0
+   drop_goals_converted    Scrum Half    68        66         0       0.000000             5.0              5.0                0.0                   0.0
+               fifty_22    Back Three   112         0         0            NaN             0.0              2.0                NaN                   NaN
+               fifty_22        Centre    87         0         0            NaN             0.0              2.0                NaN                   NaN
+               fifty_22      Fly Half    52         0         0            NaN             0.0              2.0                NaN                   NaN
+               fifty_22        Hooker    65         0         0            NaN             0.0              2.0                NaN                   NaN
+               fifty_22          Lock   106         0         0            NaN             0.0              2.0                NaN                   NaN
+               fifty_22 Loose Forward   137         0         0            NaN             0.0              2.0                NaN                   NaN
+               fifty_22          Prop   131         0         0            NaN             0.0              2.0                NaN                   NaN
+               fifty_22    Scrum Half    68         0         0            NaN             0.0              2.0                NaN                   NaN
+        handling_errors    Back Three   112         0         0            NaN             0.0             -1.0                NaN                   NaN
+        handling_errors        Centre    87         0         0            NaN             0.0             -1.0                NaN                   NaN
+        handling_errors      Fly Half    52         0         0            NaN             0.0             -1.0                NaN                   NaN
+        handling_errors        Hooker    65         0         0            NaN             0.0             -1.0                NaN                   NaN
+        handling_errors          Lock   106         0         0            NaN             0.0             -1.0                NaN                   NaN
+        handling_errors Loose Forward   137         0         0            NaN             0.0             -1.0                NaN                   NaN
+        handling_errors          Prop   131         0         0            NaN             0.0             -1.0                NaN                   NaN
+        handling_errors    Scrum Half    68         0         0            NaN             0.0             -1.0                NaN                   NaN
+          interceptions    Back Three   112         0         0            NaN             5.0              5.0                NaN                   NaN
+          interceptions        Centre    87         0         0            NaN             5.0              5.0                NaN                   NaN
+          interceptions      Fly Half    52         0         0            NaN             5.0              5.0                NaN                   NaN
+          interceptions        Hooker    65         0         0            NaN             5.0              5.0                NaN                   NaN
+          interceptions          Lock   106         0         0            NaN             5.0              5.0                NaN                   NaN
+          interceptions Loose Forward   137         0         0            NaN             5.0              5.0                NaN                   NaN
+          interceptions          Prop   131         0         0            NaN             5.0              5.0                NaN                   NaN
+          interceptions    Scrum Half    68         0         0            NaN             5.0              5.0                NaN                   NaN
+         lineout_errors    Back Three   112         0         0            NaN             0.0             -2.0                NaN                   NaN
+         lineout_errors        Centre    87         0         0            NaN             0.0             -2.0                NaN                   NaN
+         lineout_errors      Fly Half    52         0         0            NaN             0.0             -2.0                NaN                   NaN
+         lineout_errors        Hooker    65         0         0            NaN             0.0             -2.0                NaN                   NaN
+         lineout_errors          Lock   106         0         0            NaN             0.0             -2.0                NaN                   NaN
+         lineout_errors Loose Forward   137         0         0            NaN             0.0             -2.0                NaN                   NaN
+         lineout_errors          Prop   131         0         0            NaN             0.0             -2.0                NaN                   NaN
+         lineout_errors    Scrum Half    68         0         0            NaN             0.0             -2.0                NaN                   NaN
+         lineout_steals    Back Three   112         0         0            NaN             5.0              5.0                NaN                   NaN
+         lineout_steals        Centre    87         0         0            NaN             5.0              5.0                NaN                   NaN
+         lineout_steals      Fly Half    52         0         0            NaN             5.0              5.0                NaN                   NaN
+         lineout_steals        Hooker    65         0         0            NaN             5.0              5.0                NaN                   NaN
+         lineout_steals          Lock   106         0         0            NaN             5.0              5.0                NaN                   NaN
+         lineout_steals Loose Forward   137         0         0            NaN             5.0              5.0                NaN                   NaN
+         lineout_steals          Prop   131         0         0            NaN             5.0              5.0                NaN                   NaN
+         lineout_steals    Scrum Half    68         0         0            NaN             5.0              5.0                NaN                   NaN
+           lineouts_won    Back Three   112        96         3       0.031250             1.0              1.0                3.0                   0.0
+           lineouts_won        Centre    87        83         1       0.012048             1.0              1.0                1.0                   0.0
+           lineouts_won      Fly Half    52        50         2       0.040000             1.0              1.0                2.0                   0.0
+           lineouts_won        Hooker    65        62        59       6.016129             1.0              1.0              373.0                   0.0
+           lineouts_won          Lock   106        94         0       0.000000             1.0              1.0                0.0                   0.0
+           lineouts_won Loose Forward   137       130         0       0.000000             1.0              1.0                0.0                   0.0
+           lineouts_won          Prop   131       116         2       0.034483             1.0              1.0                4.0                   0.0
+           lineouts_won    Scrum Half    68        66         4       0.060606             1.0              1.0                4.0                   0.0
+                 metres    Back Three   112        96        92      39.979167             0.0              0.1              341.0                 341.0
+                 metres        Centre    87        83        79      26.927711             0.0              0.1              191.0                 191.0
+                 metres      Fly Half    52        50        47      26.440000             0.0              0.1              111.0                 111.0
+                 metres        Hooker    65        62        55      11.225806             0.0              0.1               45.0                  45.0
+                 metres          Lock   106        94        79      10.074468             0.0              0.1               63.0                  63.0
+                 metres Loose Forward   137       130       122      19.492308             0.0              0.1              205.0                 205.0
+                 metres          Prop   131       116        91       5.887931             0.0              0.1               34.0                  34.0
+                 metres    Scrum Half    68        66        49      12.909091             0.0              0.1               65.0                  65.0
+missed_conversion_goals    Back Three   112        96         3       0.041667            -1.0             -1.0               -4.0                   0.0
+missed_conversion_goals        Centre    87        83         1       0.012048            -1.0             -1.0               -1.0                   0.0
+missed_conversion_goals      Fly Half    52        50        12       0.380000            -1.0             -1.0              -19.0                   0.0
+missed_conversion_goals        Hooker    65        62         0       0.000000            -1.0             -1.0                0.0                   0.0
+missed_conversion_goals          Lock   106        94         0       0.000000            -1.0             -1.0                0.0                   0.0
+missed_conversion_goals Loose Forward   137       130         0       0.000000            -1.0             -1.0                0.0                   0.0
+missed_conversion_goals          Prop   131       116         0       0.000000            -1.0             -1.0                0.0                   0.0
+missed_conversion_goals    Scrum Half    68        66         2       0.060606            -1.0             -1.0               -4.0                   0.0
+   missed_penalty_goals    Back Three   112        96         0       0.000000            -1.0             -1.0                0.0                   0.0
+   missed_penalty_goals        Centre    87        83         0       0.000000            -1.0             -1.0                0.0                   0.0
+   missed_penalty_goals      Fly Half    52        50         1       0.040000            -1.0             -1.0               -2.0                   0.0
+   missed_penalty_goals        Hooker    65        62         0       0.000000            -1.0             -1.0                0.0                   0.0
+   missed_penalty_goals          Lock   106        94         0       0.000000            -1.0             -1.0                0.0                   0.0
+   missed_penalty_goals Loose Forward   137       130         0       0.000000            -1.0             -1.0                0.0                   0.0
+   missed_penalty_goals          Prop   131       116         0       0.000000            -1.0             -1.0                0.0                   0.0
+   missed_penalty_goals    Scrum Half    68        66         0       0.000000            -1.0             -1.0                0.0                   0.0
+         missed_tackles    Back Three   112        96        67       1.385417            -1.0             -1.0             -133.0                   0.0
+         missed_tackles        Centre    87        83        56       1.409639            -1.0             -1.0             -117.0                   0.0
+         missed_tackles      Fly Half    52        50        31       1.360000            -1.0             -1.0              -68.0                   0.0
+         missed_tackles        Hooker    65        62        27       0.758065            -1.0             -1.0              -47.0                   0.0
+         missed_tackles          Lock   106        94        53       1.127660            -1.0             -1.0             -106.0                   0.0
+         missed_tackles Loose Forward   137       130        80       1.076923            -1.0             -1.0             -140.0                   0.0
+         missed_tackles          Prop   131       116        55       0.732759            -1.0             -1.0              -85.0                   0.0
+         missed_tackles    Scrum Half    68        66        40       1.303030            -1.0             -1.0              -86.0                   0.0
+                offload    Back Three   112        96        33       0.562500             2.0              2.0              108.0                   0.0
+                offload        Centre    87        83        44       0.759036             2.0              2.0              126.0                   0.0
+                offload      Fly Half    52        50        15       0.420000             2.0              2.0               42.0                   0.0
+                offload        Hooker    65        62         8       0.129032             2.0              2.0               16.0                   0.0
+                offload          Lock   106        94        17       0.212766             2.0              2.0               40.0                   0.0
+                offload Loose Forward   137       130        33       0.338462             2.0              2.0               88.0                   0.0
+                offload          Prop   131       116         7       0.060345             2.0              2.0               14.0                   0.0
+                offload    Scrum Half    68        66        22       0.378788             2.0              2.0               50.0                   0.0
+     penalties_conceded    Back Three   112        96        18       0.239583            -1.0             -1.0              -23.0                   0.0
+     penalties_conceded        Centre    87        83        28       0.373494            -1.0             -1.0              -31.0                   0.0
+     penalties_conceded      Fly Half    52        50         9       0.200000            -1.0             -1.0              -10.0                   0.0
+     penalties_conceded        Hooker    65        62        24       0.467742            -1.0             -1.0              -29.0                   0.0
+     penalties_conceded          Lock   106        94        42       0.531915            -1.0             -1.0              -50.0                   0.0
+     penalties_conceded Loose Forward   137       130        46       0.438462            -1.0             -1.0              -57.0                   0.0
+     penalties_conceded          Prop   131       116        40       0.491379            -1.0             -1.0              -57.0                   0.0
+     penalties_conceded    Scrum Half    68        66        12       0.212121            -1.0             -1.0              -14.0                   0.0
+          penalty_goals    Back Three   112        96         3       0.052083             3.0              3.0               15.0                   0.0
+          penalty_goals        Centre    87        83         0       0.000000             3.0              3.0                0.0                   0.0
+          penalty_goals      Fly Half    52        50         8       0.160000             3.0              3.0               24.0                   0.0
+          penalty_goals        Hooker    65        62         0       0.000000             3.0              3.0                0.0                   0.0
+          penalty_goals          Lock   106        94         0       0.000000             3.0              3.0                0.0                   0.0
+          penalty_goals Loose Forward   137       130         0       0.000000             3.0              3.0                0.0                   0.0
+          penalty_goals          Prop   131       116         0       0.000000             3.0              3.0                0.0                   0.0
+          penalty_goals    Scrum Half    68        66         1       0.030303             3.0              3.0                6.0                   0.0
+                   potm    Back Three   112         0         0            NaN            15.0             15.0                NaN                   NaN
+                   potm        Centre    87         0         0            NaN            15.0             15.0                NaN                   NaN
+                   potm      Fly Half    52         0         0            NaN            15.0             15.0                NaN                   NaN
+                   potm        Hooker    65         0         0            NaN            15.0             15.0                NaN                   NaN
+                   potm          Lock   106         0         0            NaN            15.0             15.0                NaN                   NaN
+                   potm Loose Forward   137         0         0            NaN            15.0             15.0                NaN                   NaN
+                   potm          Prop   131         0         0            NaN            15.0             15.0                NaN                   NaN
+                   potm    Scrum Half    68         0         0            NaN            15.0             15.0                NaN                   NaN
+              red_cards    Back Three   112        96         0       0.000000           -10.0            -10.0                0.0                   0.0
+              red_cards        Centre    87        83         0       0.000000           -10.0            -10.0                0.0                   0.0
+              red_cards      Fly Half    52        50         0       0.000000           -10.0            -10.0                0.0                   0.0
+              red_cards        Hooker    65        62         0       0.000000           -10.0            -10.0                0.0                   0.0
+              red_cards          Lock   106        94         1       0.010638           -10.0            -10.0              -10.0                   0.0
+              red_cards Loose Forward   137       130         0       0.000000           -10.0            -10.0                0.0                   0.0
+              red_cards          Prop   131       116         1       0.008621           -10.0            -10.0              -10.0                   0.0
+              red_cards    Scrum Half    68        66         1       0.015152           -10.0            -10.0              -10.0                   0.0
+             scrums_won    Back Three   112         0         0            NaN             0.0              0.0                NaN                   NaN
+             scrums_won        Centre    87         0         0            NaN             0.0              0.0                NaN                   NaN
+             scrums_won      Fly Half    52         0         0            NaN             0.0              0.0                NaN                   NaN
+             scrums_won        Hooker    65         0         0            NaN             2.0              2.0                NaN                   NaN
+             scrums_won          Lock   106         0         0            NaN             0.0              0.0                NaN                   NaN
+             scrums_won Loose Forward   137         0         0            NaN             0.0              0.0                NaN                   NaN
+             scrums_won          Prop   131         0         0            NaN             2.0              2.0                NaN                   NaN
+             scrums_won    Scrum Half    68         0         0            NaN             0.0              0.0                NaN                   NaN
+        tackle_turnover    Back Three   112        96        11       0.114583             4.0              4.0               44.0                   0.0
+        tackle_turnover        Centre    87        83         7       0.096386             4.0              4.0               32.0                   0.0
+        tackle_turnover      Fly Half    52        50         4       0.080000             4.0              4.0               16.0                   0.0
+        tackle_turnover        Hooker    65        62         4       0.080645             4.0              4.0               20.0                   0.0
+        tackle_turnover          Lock   106        94         9       0.095745             4.0              4.0               36.0                   0.0
+        tackle_turnover Loose Forward   137       130        19       0.176923             4.0              4.0               92.0                   0.0
+        tackle_turnover          Prop   131       116         2       0.017241             4.0              4.0                8.0                   0.0
+        tackle_turnover    Scrum Half    68        66        11       0.166667             4.0              4.0               44.0                   0.0
+                tackles    Back Three   112        96        89       4.760417             1.0              1.0              457.0                   0.0
+                tackles        Centre    87        83        77       6.771084             1.0              1.0              562.0                   0.0
+                tackles      Fly Half    52        50        49       4.640000             1.0              1.0              232.0                   0.0
+                tackles        Hooker    65        62        61       7.935484             1.0              1.0              492.0                   0.0
+                tackles          Lock   106        94        93       9.287234             1.0              1.0              873.0                   0.0
+                tackles Loose Forward   137       130       130      10.600000             1.0              1.0             1378.0                   0.0
+                tackles          Prop   131       116       114       6.672414             1.0              1.0              774.0                   0.0
+                tackles    Scrum Half    68        66        57       4.030303             1.0              1.0              266.0                   0.0
+                  tries    Back Three   112        96        25       0.281250            12.0             12.0              324.0                   0.0
+                  tries        Centre    87        83        16       0.192771            12.0             12.0              192.0                   0.0
+                  tries      Fly Half    52        50         6       0.140000            12.0             12.0               84.0                   0.0
+                  tries        Hooker    65        62        14       0.241935            12.0             12.0              180.0                   0.0
+                  tries          Lock   106        94        13       0.159574            12.0             12.0              180.0                   0.0
+                  tries Loose Forward   137       130        24       0.230769            12.0             12.0              360.0                   0.0
+                  tries          Prop   131       116        13       0.112069            12.0             12.0              156.0                   0.0
+                  tries    Scrum Half    68        66        11       0.181818            12.0             12.0              144.0                   0.0
+            try_assists    Back Three   112        96        13       0.135417             5.0              5.0               65.0                   0.0
+            try_assists        Centre    87        83        16       0.216867             5.0              5.0               90.0                   0.0
+            try_assists      Fly Half    52        50         8       0.160000             5.0              5.0               40.0                   0.0
+            try_assists        Hooker    65        62         2       0.032258             5.0              5.0               10.0                   0.0
+            try_assists          Lock   106        94         4       0.042553             5.0              5.0               20.0                   0.0
+            try_assists Loose Forward   137       130         7       0.053846             5.0              5.0               35.0                   0.0
+            try_assists          Prop   131       116         3       0.025862             5.0              5.0               15.0                   0.0
+            try_assists    Scrum Half    68        66        21       0.439394             5.0              5.0              145.0                   0.0
+           yellow_cards    Back Three   112        96         5       0.052083            -5.0             -5.0              -25.0                   0.0
+           yellow_cards        Centre    87        83         0       0.000000            -5.0             -5.0                0.0                   0.0
+           yellow_cards      Fly Half    52        50         1       0.020000            -5.0             -5.0               -5.0                   0.0
+           yellow_cards        Hooker    65        62         1       0.016129            -5.0             -5.0               -5.0                   0.0
+           yellow_cards          Lock   106        94         3       0.031915            -5.0             -5.0              -15.0                   0.0
+           yellow_cards Loose Forward   137       130         9       0.069231            -5.0             -5.0              -45.0                   0.0
+           yellow_cards          Prop   131       116         1       0.008621            -5.0             -5.0               -5.0                   0.0
+           yellow_cards    Scrum Half    68        66         2       0.030303            -5.0             -5.0              -10.0                   0.0
+status           pos  rows  raw_matches  metres_observed  mean_known_metres  residual_bias_before  residual_bias_after  residual_mae_before  residual_mae_after
+     B    Back Three    19           14               14           1.000000              5.473684             4.736842             5.789474            5.368421
+     B        Centre    19           16               16           0.625000              2.894737             2.368421             3.105263            2.789474
+     B      Fly Half    14           14               14           1.214286              1.714286             0.500000             2.571429            2.357143
+     B        Hooker    32           29               29           0.862069              2.937500             2.156250             3.875000            3.593750
+     B          Lock    28           24               24           0.166667              1.000000             0.857143             2.142857            2.000000
+     B Loose Forward    47           43               43           0.837209              2.404255             1.638298             3.340426            2.872340
+     B          Prop    65           55               55           0.218182              3.015385             2.830769             3.723077            3.723077
+     B    Scrum Half    32           31               31           0.548387              1.312500             0.781250             2.437500            2.156250
+     P    Back Three    93           82               82           3.987805              8.021505             4.505376             8.494624            5.903226
+     P        Centre    68           67               67           2.701493              4.882353             2.220588             5.970588            4.632353
+     P      Fly Half    38           36               36           2.611111              5.789474             3.315789             6.947368            5.315789
+     P        Hooker    33           33               33           0.606061              5.060606             4.454545             6.333333            6.090909
+     P          Lock    78           70               70           0.842857              2.884615             2.128205             4.423077            4.307692
+     P Loose Forward    90           87               87           1.942529              5.177778             3.300000             6.488889            5.411111
+     P          Prop    66           61               61           0.360656              5.303030             4.969697             5.484848            5.181818
+     P    Scrum Half    36           35               35           1.371429              4.083333             2.750000             5.972222            5.027778

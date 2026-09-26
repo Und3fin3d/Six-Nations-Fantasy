@@ -1,0 +1,16 @@
+lock_00/bounded/six_nations_2025_r1: complete pools and calculations verified
+lock_00/source_tail/six_nations_2025_r1: complete pools and calculations verified
+Traceback (most recent call last):
+  File "<frozen runpy>", line 198, in _run_module_as_main
+  File "<frozen runpy>", line 88, in _run_code
+  File "/home/runner/work/Six-Nations-Fantasy/Six-Nations-Fantasy/research/conditional_duration_review.py", line 274, in <module>
+    run(parser.parse_args())
+  File "/home/runner/work/Six-Nations-Fantasy/Six-Nations-Fantasy/research/conditional_duration_review.py", line 232, in run
+    **verify_conditional(forecasts[conditional])))
+      ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/runner/work/Six-Nations-Fantasy/Six-Nations-Fantasy/research/duration_evidence_validation.py", line 134, in verify_conditional
+    max_parameter_error = max(max_parameter_error, close(distribution.dispersion, parameter, f'{event}/dispersion'))
+                                                   ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/runner/work/Six-Nations-Fantasy/Six-Nations-Fantasy/research/duration_evidence_validation.py", line 24, in close
+    raise ValueError(f'Research evidence does not reproduce: {label}')
+ValueError: Research evidence does not reproduce: scrums_won/dispersion

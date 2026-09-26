@@ -1,0 +1,11 @@
+{
+  "parent": "DECISION_CONDITIONAL_DURATION_REGISTRATION_2026-09-26.json",
+  "parent_commit": "01d7848f61f414fef4527e89fda3fc9181058ce5",
+  "status": "registered_before_any_control_or_candidate_model_fitting",
+  "evidence_at_registration": "Only input preparation is executing (run36258801997). No conditional-duration control or candidate has been fitted or scored. The earlier diagnostic and role-policy outcomes remain consulted historical evidence.",
+  "additional_control": "v4_joint_support_control",
+  "reason": "The conditional event heads require observed duration as well as an observed event. Comparing only with a direct head fitted to every observed event would confound the conditional architecture with omission of the rows whose duration is unknown. This matched-support direct-head control isolates that exclusion mechanism.",
+  "formula": "Fit the same V4GBDT direct-total architecture and frozen corrected-history features as v4_corrected_full_refit. Keep the complete training feature rows and all feature values unchanged. For each event head only, replace its availability mask by event_observed AND duration_observed; the minute head already uses its own observed-duration mask. Keep the same natural weighting, native categories, pooled player identity, empirical-Bayes effects and fixed hyperparameters. Do not introduce a new forecasting candidate or tune a mixture weight.",
+  "reporting": "Report this control on all 13 fantasy slates and the exact fixed Friendly-15 cohort alongside the previously registered models. Compare its raw errors and decision outcomes with both the full-support V4 and conditional model. Count exclusions by event/level/status. No result from this ablation changes the registered advancement rules or supersedes the required incumbent comparators.",
+  "preservation": "No new or changed tests, no cache or protected experiment edits, no rugby API requests, no production switch or merge. Objective remains active and unfinished."
+}

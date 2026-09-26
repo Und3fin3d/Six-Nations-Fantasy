@@ -1,0 +1,44 @@
+{
+  "id": "decision_role_policy_v1",
+  "status": "registered_before_new_policy_execution",
+  "source_base": "a1d5d87ec053b85089b784b9b4e3798f7c5c7e72",
+  "objective_status": "active_unfinished",
+  "parent_protocol": "research/FANTASY_DECISION_PROTOCOL_2026-09-26.md",
+  "reason": "The retained diagnosis attributes 108 of the 110 Six Nations points lost to the empirical comparator to bonus roles. Prior group offsets cannot change within-position/status rankings; kicking and fixed-tree timing changes crossed no selection boundary. The deployed incumbent has separate ranking, captain and conditional bench heads, but its native unconstrained positional policy is illegal under country limits. The previous common optimiser discarded these role heads. Measure the full role policy under shared supported constraints before deciding whether a role-aware P3 route improves decisions.",
+  "evidence_already_inspected": "All prior historical tournament outcomes, original PR25 remedies and timing results, and native illegal-policy totals. New legal role-policy decisions have not been evaluated. No historical split is independent validation.",
+  "inputs": {
+    "remedy_forecasts_sha256": "46d47d855ef1584898b7a2c88c03f0f991d55c01eefd83d91cde061f19f6610e",
+    "remedy_metrics_sha256": "41489c6c4a92f840683e07a4b9adfaef4649c2f6fd6c697cae91c728620db6ba",
+    "causal_captain_forecasts_sha256": "c26ece257e03ed64be2f0d56f02af96634e5bbb39a0da109523ddc02c651bc61",
+    "canonical_input_sha256": "2b70331c0cf215def67831cd27c987362e2ec8330b2afb41c8d204f48ef17313",
+    "protected_november_experiment": "unchanged"
+  },
+  "information_contract": "Frozen archived forecasts only. Full triple-key candidate pools and all outcomes including unknowns retained. Reproduce existing common-optimiser selections first. No fitting, current-outcome filtering, future features, new forecast blend weights, or parameter selection.",
+  "constraints": {
+    "all": "Exactly 15 positional XV places, one separate super-sub and one captain within the XV; same complete original candidate pools. Captain eligibility P and super-sub eligibility B are retained policy restrictions, not claims that every alternative designation is forbidden by game rules.",
+    "six_nations": "Common historical positions, at most four players per country over all 16. No budget claim because historical prices are missing. These are price-free constrained diagnostics.",
+    "ncr": "Original budget 100, at most three per nation and ten per hemisphere, unchanged recorded prices/status and original GW1 exclusion. The Six Nations role-head candidates explicitly retain the incumbent NCR route, not transplanted unsupported Six Nations heads. Report all three NCR rounds and unchanged forecasts/decisions."
+  },
+  "scoring": {
+    "six_nations_2025": "six_nations_legacy_v1",
+    "six_nations_2026": "six_nations_2026_v2",
+    "ncr": "ncr_front_row_v2",
+    "outcomes": "Official unmultiplied points. Sum XV plus one additional captain contribution plus three times super-sub; any unknown selected outcome makes the total unknown."
+  },
+  "role_score_units": "The native selection_score, captain_score and supersub_score are ranking utilities, not fantasy-point forecasts. Never report their optimisation objective as expected fantasy points. Standardise each head over the full current candidate pool with population standard deviation, using zero for a constant head. This uses no outcomes and preserves each head's ordering.",
+  "comparators": {
+    "incumbent_common_points": "Existing lock-rebuilt point head through unchanged common optimiser, retained exactly.",
+    "incumbent_legal_sequential": "Legal extension of native sequential priorities: first maximise the sum of selection_score over the XV subject to a feasible complete 16-player squad; then maximise supersub_score among primary-optimal solutions; then captain_score. Use absolute objective tolerance 1e-8 per lexicographic stage, record all achieved objectives and solver optimality. No bonus-role trade-off with the primary XV objective. This is a newly constrained comparator, not a claim that historical native squads were legal.",
+    "p3_robust_native": "Corrected archived robust P3 through existing point optimiser.",
+    "equal_incumbent": "Previously registered fixed equal robust/incumbent point blend, unchanged.",
+    "empirical_baseline": "Corrected empirical fantasy comparator, unchanged."
+  },
+  "candidates": {
+    "incumbent_legal_joint_roles": "Jointly maximise sum(z(selection_score) for XV) + z(captain_score) for the captain + 3*z(supersub_score) for the super-sub under the same supported constraints. The factors one, one, three follow the ordinary, additional captain and full super-sub contributions. This is explicitly a rank-utility policy, not a coherent expected-point estimate.",
+    "p3_legal_joint_role_transfer": "Same joint policy, but replace only XV utility with z(corrected robust P3 expected points); retain corrected native captain and supersub ranking heads. This isolates role specialisation rather than another global point blend. NCR remains the incumbent route for both candidates."
+  },
+  "required_reporting": "Every candidate and comparator: all 13 slate totals, XV/captain/sub components, known/unknown outcomes, complete-pool and selected keys, constraints, forecast MAE using its named point forecast, paired season/competition differences and all single-round removals. Keep the fixed Friendly-15 count-stat/metres/minutes metric visible: these policies do not alter raw forecasts; do not invent or reassign old incompatible values. Until the exact reference forecast cohort is recovered or recomputed, mark that raw score not re-evaluated and the policy-induced change identically zero only when verified from unchanged raw artifacts.",
+  "admission": "The original numerical rules are unchanged: development delta > 0, later historical audit delta >= 0, pooled gain survives every one-round removal; shared route additionally NCR >= 0. Evaluate both candidates against incumbent_legal_sequential and incumbent_common_points, and also show robust, equal-blend and empirical comparisons. A claim of decision improvement must not rely on a weaker incumbent rendering. Passing research-priority rules alone is not confirmed future superiority or objective completion. Account for previous searches and all candidates, and preserve descriptive uncertainty.",
+  "next_if_failed": "Use per-role feasible ranking errors and event-weighted residual attribution to choose a full-model conditional opportunity or context experiment; do not retune joint-policy coefficients on the audit. A failed implementation is retained separately and does not disprove the policy hypothesis.",
+  "preservation": "No new/changed tests including temporary tests; existing checks and direct calculations only. No new code comments or pathlib imports. No permanent cache changes, rugby API calls, credential copies, production routing changes, merges or protected experiment edits."
+}

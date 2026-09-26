@@ -12,6 +12,7 @@ jobs:
     env:
       OMP_NUM_THREADS: '2'
       OPENBLAS_NUM_THREADS: '1'
+      SUPERVISION_VERSION: canonical_unknown_position_v3
     steps:
       - uses: actions/checkout@v5
         with:

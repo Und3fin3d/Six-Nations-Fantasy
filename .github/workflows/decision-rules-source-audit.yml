@@ -1,0 +1,55 @@
+name: Official fantasy rules source audit
+on:
+  push:
+    branches: [codex/fantasy-decision-workflow]
+    paths: [.github/workflows/decision-rules-source-audit.yml]
+permissions:
+  contents: write
+jobs:
+  read:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v5
+        with:
+          lfs: false
+          persist-credentials: false
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+      - name: Install public-page reader
+        run: |
+          python -m pip install requests beautifulsoup4 playwright==1.55.0
+          python -m playwright install --with-deps chromium
+      - name: Read official unauthenticated rules pages
+        id: audit
+        run: |
+          set -euo pipefail
+          mkdir -p "$RUNNER_TEMP/rules-evidence"
+          python -u -m research.decision_rules_source_audit --output "$RUNNER_TEMP/rules-evidence/official" 2>&1 | tee "$RUNNER_TEMP/rules-evidence/retrieval.log"
+      - name: Preserve source observations, not a scoring decision
+        if: always()
+        env:
+          GH_TOKEN: ${{ github.token }}
+          AUDIT_OUTCOME: ${{ steps.audit.outcome }}
+        run: |
+          set -euo pipefail
+          DEST="data/unified/decision_continuation_2026-09-26/run-$GITHUB_RUN_ID"
+          test ! -e "$DEST"
+          mkdir -p "$DEST" "$RUNNER_TEMP/rules-evidence"
+          cp -a "$RUNNER_TEMP/rules-evidence/." "$DEST/"
+          printf 'official_source_audit=%s\nobjective=active_unfinished\nmodels_or_scores_changed=0\n' "$AUDIT_OUTCOME" > "$DEST/execution-status.txt"
+          git config user.name 'github-actions[bot]'
+          git config user.email '41898282+github-actions[bot]@users.noreply.github.com'
+          git add -- "$DEST"
+          git commit -m "Retain official fantasy rules source audit $GITHUB_RUN_ID"
+          AUTH=$(printf 'x-access-token:%s' "$GH_TOKEN" | base64 -w0)
+          git -c "http.https://github.com/.extraheader=AUTHORIZATION: basic $AUTH" fetch origin codex/fantasy-decision-workflow
+          git rebase FETCH_HEAD
+          git -c "http.https://github.com/.extraheader=AUTHORIZATION: basic $AUTH" push origin HEAD:codex/fantasy-decision-workflow
+      - uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: official-fantasy-rules-${{ github.run_id }}
+          path: ${{ runner.temp }}/rules-evidence
+          retention-days: 30
+          if-no-files-found: warn

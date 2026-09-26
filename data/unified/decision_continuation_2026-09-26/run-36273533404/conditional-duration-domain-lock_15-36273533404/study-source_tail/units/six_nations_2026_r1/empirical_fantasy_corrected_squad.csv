@@ -1,0 +1,17 @@
+id,name,team,pos,hemi,value,status,in_squad,is_sub,is_capt,actual,point_forecast,slate,engine,actual_role_supersub_points,possible_min,possible_max,role_outcome_known,source_conflict
+11,Thomas Ramos,France,Back Three,1,0.0,P,True,False,True,46.0,34.01244183436877,six_nations_2026_r1,empirical_fantasy_corrected,23.0,23.0,23.0,True,False
+15,Antoine Dupont,France,Scrum Half,1,0.0,P,True,False,False,30.0,32.96918172365856,six_nations_2026_r1,empirical_fantasy_corrected,15.0,15.0,15.0,True,False
+23,Caelan Doris,Ireland,Loose Forward,1,0.0,P,True,False,False,34.0,27.89719023985121,six_nations_2026_r1,empirical_fantasy_corrected,17.0,17.0,17.0,True,False
+27,Matthieu Jalibert,France,Fly Half,1,0.0,P,True,False,False,52.0,30.542488798445635,six_nations_2026_r1,empirical_fantasy_corrected,26.0,26.0,26.0,True,False
+29,Dan Sheehan,Ireland,Hooker,1,0.0,P,True,False,False,13.0,24.867802352437955,six_nations_2026_r1,empirical_fantasy_corrected,6.5,6.5,6.5,True,False
+39,Louis Bielle-Biarrey,France,Back Three,1,0.0,P,True,False,False,51.0,28.809244144833468,six_nations_2026_r1,empirical_fantasy_corrected,25.5,25.5,25.5,True,False
+55,Pierre Schoeman,Scotland,Prop,1,0.0,P,True,False,False,10.0,16.752706422938477,six_nations_2026_r1,empirical_fantasy_corrected,5.0,5.0,5.0,True,False
+57,Monty Ioane,Italy,Back Three,1,0.0,P,True,False,False,17.0,24.80589010539405,six_nations_2026_r1,empirical_fantasy_corrected,8.5,8.5,8.5,True,False
+84,Tommaso Menoncello,Italy,Centre,1,0.0,P,True,False,False,34.0,23.227027258279417,six_nations_2026_r1,empirical_fantasy_corrected,17.0,17.0,17.0,True,False
+106,Ben Earl,England,Loose Forward,1,0.0,P,True,False,False,50.0,28.905551080171648,six_nations_2026_r1,empirical_fantasy_corrected,25.0,25.0,25.0,True,False
+119,Alex Coles,England,Lock,1,0.0,P,True,False,False,22.0,21.296244759741526,six_nations_2026_r1,empirical_fantasy_corrected,11.0,11.0,11.0,True,False
+123,Tommy Freeman,England,Centre,1,0.0,P,True,False,False,50.0,30.022582628755032,six_nations_2026_r1,empirical_fantasy_corrected,25.0,25.0,25.0,True,False
+125,Archie Griffin,Wales,Prop,1,0.0,P,True,False,False,14.0,17.04430582282449,six_nations_2026_r1,empirical_fantasy_corrected,7.0,7.0,7.0,True,False
+128,Dafydd Jenkins,Wales,Lock,1,0.0,P,True,False,False,14.0,23.284232630342505,six_nations_2026_r1,empirical_fantasy_corrected,7.0,7.0,7.0,True,False
+129,Alex Mann,Wales,Loose Forward,1,0.0,P,True,False,False,13.0,24.61182434467841,six_nations_2026_r1,empirical_fantasy_corrected,6.5,6.5,6.5,True,False
+135,Henry Pollock,England,Loose Forward,1,0.0,B,True,True,False,3.0,14.277667876734286,six_nations_2026_r1,empirical_fantasy_corrected,9.0,9.0,9.0,True,False

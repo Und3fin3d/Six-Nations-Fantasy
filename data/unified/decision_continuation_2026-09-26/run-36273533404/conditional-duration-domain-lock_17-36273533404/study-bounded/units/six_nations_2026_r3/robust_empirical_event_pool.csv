@@ -1,0 +1,139 @@
+id,name,team,pos,hemi,value,status,predicted,actual,key_fixture_id,key_player_id,key_team
+1,Finlay Bealham,Ireland,Prop,1,0.0,B,5.4212247865511065,2.0,8523997,112068,Ireland
+2,Tadhg Furlong,Ireland,Prop,1,0.0,P,11.61271919116229,13.0,8523997,112374,Ireland
+3,Luke Cowan-Dickie,England,Hooker,1,0.0,P,16.920415373904248,6.0,8523997,115452,England
+4,Tadhg Beirne,Ireland,Loose Forward,1,0.0,P,19.876039624776393,35.0,8523997,117954,Ireland
+5,Josh van der Flier,Ireland,Loose Forward,1,0.0,P,25.16487218394194,27.0,8523997,118518,Ireland
+6,James Lowe,Ireland,Back Three,1,0.0,P,20.30245787086297,7.0,8523997,120468,Ireland
+7,Jamison Gibson-Park,Ireland,Scrum Half,1,0.0,P,19.40553975617209,63.0,8523997,120504,Ireland
+8,Maro Itoje,England,Lock,1,0.0,P,19.333108017455512,16.0,8523997,122652,England
+9,Garry Ringrose,Ireland,Centre,1,0.0,P,15.626299805867772,8.0,8523997,129372,Ireland
+10,Sam Underhill,England,Loose Forward,1,0.0,B,7.602547433754815,19.0,8523997,129660,England
+11,Stuart McCloskey,Ireland,Centre,1,0.0,P,17.709744712702225,35.0,8523997,129840,Ireland
+12,Ellis Genge,England,Prop,1,0.0,P,14.115790437667995,13.0,8523997,136680,England
+13,Jeremy Loughman,Ireland,Prop,1,0.0,P,13.648144689550934,8.0,8523997,136854,Ireland
+14,Nick Timoney,Ireland,Loose Forward,1,0.0,B,9.322464117108211,16.0,8523997,136878,Ireland
+15,Alex Mitchell,England,Scrum Half,1,0.0,P,22.08134901485597,1.0,8523997,142356,England
+16,Ben Earl,England,Loose Forward,1,0.0,P,29.350871971485393,12.0,8523997,142404,England
+17,James Ryan,Ireland,Lock,1,0.0,P,15.830283186575503,15.0,8523997,143604,Ireland
+18,Ronan Kelleher,Ireland,Hooker,1,0.0,B,8.01522234327392,6.0,8523997,148644,Ireland
+19,Tom O'Toole,Ireland,Prop,1,0.0,B,5.36502029952736,7.0,8523997,148650,Ireland
+20,Caelan Doris,Ireland,Loose Forward,1,0.0,P,29.419423883340745,38.0,8523997,148680,Ireland
+21,Tommy O'Brien,Ireland,Back Three,1,0.0,B,4.73017415250703,22.0,8523997,148758,Ireland
+22,Ciaran Frawley,Ireland,Fly Half,1,0.0,B,6.125159944087973,2.0,8523997,148890,Ireland
+23,Tom Curry,England,Loose Forward,1,0.0,P,20.992169344366744,9.0,8523997,155892,England
+24,Fraser Dingwall,England,Centre,1,0.0,P,15.7638682604932,22.0,8523997,156030,England
+25,Marcus Smith,England,Fly Half,1,0.0,B,10.09064438333422,18.0,8523997,156288,England
+26,Trevor Davison,England,Prop,1,0.0,B,4.198002069632188,2.0,8523997,175890,England
+27,Ollie Lawrence,England,Centre,1,0.0,P,21.552209503073307,31.0,8523997,177378,England
+28,Joe Heyes,England,Prop,1,0.0,P,11.82406172752148,21.0,8523997,178806,England
+29,Dan Sheehan,Ireland,Hooker,1,0.0,P,23.809649416152762,43.0,8523997,186096,Ireland
+30,Robert Baloucoune,Ireland,Back Three,1,0.0,P,24.746947964236092,41.0,8523997,186198,Ireland
+31,Alex Coles,England,Lock,1,0.0,B,6.480660737931347,4.0,8523997,198696,England
+32,Bevan Rodd,England,Prop,1,0.0,B,7.344576632235605,8.0,8523997,198810,England
+33,Jack Crowley,Ireland,Fly Half,1,0.0,P,23.54652367017943,41.0,8523997,201696,Ireland
+34,Cian Prendergast,Ireland,Loose Forward,1,0.0,B,7.817168557364419,6.0,8523997,201978,Ireland
+35,Craig Casey,Ireland,Scrum Half,1,0.0,B,3.89311885184011,0.0,8523997,203124,Ireland
+36,Freddie Steward,England,Back Three,1,0.0,P,19.57929906876961,3.0,8523997,203496,England
+37,Tommy Freeman,England,Back Three,1,0.0,P,25.477584357304934,18.0,8523997,213192,England
+38,Jack van Poortvliet,England,Scrum Half,1,0.0,B,6.734452278936028,11.0,8523997,213786,England
+39,Ollie Chessum,England,Lock,1,0.0,P,18.78219131603791,14.0,8523997,218742,England
+40,Joe McCarthy,Ireland,Lock,1,0.0,P,16.453435699892747,17.0,8523997,220194,Ireland
+41,Jamie Osborne,Ireland,Back Three,1,0.0,P,17.616960421808727,18.0,8523997,227658,Ireland
+42,Henry Arundell,England,Back Three,1,0.0,P,23.008202931590745,12.0,8523997,238830,England
+43,Guy Pepper,England,Loose Forward,1,0.0,B,6.6675699070151575,5.0,8523997,239076,England
+44,Henry Pollock,England,Loose Forward,1,0.0,P,36.322000741326704,26.0,8523997,342324,England
+45,Jamie George,England,Hooker,1,0.0,B,7.5842571919940855,11.0,8523997,61134,England
+46,George Ford,England,Fly Half,1,0.0,P,28.211403072190837,31.0,8523997,66258,England
+47,Grant Gilchrist,Scotland,Lock,1,0.0,B,4.040387474539661,0.0,8524006,102762,Scotland
+48,Dave Cherry,Scotland,Hooker,1,0.0,P,14.228344908242331,14.0,8524006,111864,Scotland
+49,George Turner,Scotland,Hooker,1,0.0,B,8.103322938442634,17.0,8524006,117864,Scotland
+50,Finn Russell,Scotland,Fly Half,1,0.0,P,28.384077876621905,35.0,8524006,117894,Scotland
+51,Nicky Smith,Wales,Prop,1,0.0,B,6.085124178395773,24.0,8524006,121974,Wales
+52,Ryan Elias,Wales,Hooker,1,0.0,B,6.667390724060614,8.0,8524006,128574,Wales
+53,Tomos Williams,Wales,Scrum Half,1,0.0,P,18.80610677182653,11.0,8524006,128628,Wales
+54,Josh Adams,Wales,Back Three,1,0.0,P,13.089182058917046,18.0,8524006,129096,Wales
+55,George Horne,Scotland,Scrum Half,1,0.0,B,8.89929230513522,5.0,8524006,129792,Scotland
+56,Pierre Schoeman,Scotland,Prop,1,0.0,B,7.339394856175771,8.0,8524006,130290,Scotland
+57,Zander Fagerson,Scotland,Prop,1,0.0,P,12.160171552071535,19.0,8524006,130530,Scotland
+58,Duhan van der Merwe,Scotland,Back Three,1,0.0,P,30.648969338526285,5.0,8524006,131400,Scotland
+59,Tomas Francis,Wales,Prop,1,0.0,P,12.49472986009899,12.0,8524006,131898,Wales
+60,Kieran Hardy,Wales,Scrum Half,1,0.0,B,3.884446506734714,0.0,8524006,135900,Wales
+61,Scott Cummings,Scotland,Lock,1,0.0,P,16.14273786839186,14.0,8524006,136596,Scotland
+62,Huw Jones,Scotland,Centre,1,0.0,P,23.863510397721775,14.0,8524006,136776,Scotland
+63,Jarrod Evans,Wales,Centre,1,0.0,B,5.0237269253634675,6.0,8524006,139716,Wales
+64,Blair Kinghorn,Scotland,Back Three,1,0.0,P,22.70282533427224,19.0,8524006,139902,Scotland
+65,Sione Tuipulotu,Scotland,Centre,1,0.0,P,16.72386837720653,23.0,8524006,139998,Scotland
+66,Josh Bayliss,Scotland,Loose Forward,1,0.0,B,7.3772713372683025,19.0,8524006,141990,Scotland
+67,Ben White,Scotland,Scrum Half,1,0.0,P,22.07378304278129,12.0,8524006,142476,Scotland
+68,Darcy Graham,Scotland,Back Three,1,0.0,B,7.6006896573691,14.0,8524006,146754,Scotland
+69,James Botham,Wales,Loose Forward,1,0.0,B,7.647360010831054,27.0,8524006,154938,Wales
+70,Matt Fagerson,Scotland,Loose Forward,1,0.0,P,23.317261188562206,18.0,8524006,161856,Scotland
+71,Rhys Carre,Wales,Prop,1,0.0,P,13.234741151865789,29.0,8524006,162870,Wales
+72,Kyle Steyn,Scotland,Back Three,1,0.0,P,26.70014993461636,36.0,8524006,171582,Scotland
+73,Aaron Wainwright,Wales,Loose Forward,1,0.0,P,20.994916170633218,29.0,8524006,176652,Wales
+74,Elliot Millar-Mills,Scotland,Prop,1,0.0,B,5.965408702912756,6.0,8524006,178038,Scotland
+75,Dewi Lake,Wales,Hooker,1,0.0,P,20.985698795271198,19.0,8524006,178848,Wales
+76,Nathan McBeth,Scotland,Prop,1,0.0,P,11.348977040471757,8.0,8524006,179394,Scotland
+77,Rory Darge,Scotland,Loose Forward,1,0.0,P,24.700484595548623,45.0,8524006,180222,Scotland
+78,Louis Rees-Zammit,Wales,Back Three,1,0.0,P,22.104811866626356,14.0,8524006,187290,Wales
+79,Blair Murray,Wales,Back Three,1,0.0,B,4.378972931852623,3.0,8524006,197892,Wales
+80,Sam Costelow,Wales,Fly Half,1,0.0,P,22.457351232349755,20.0,8524006,203076,Wales
+81,Taine Plumtree,Wales,Loose Forward,1,0.0,P,21.559256986604957,,8524006,206706,Wales
+82,Gabriel Hamer-Webb,Wales,Back Three,1,0.0,P,16.713774034440537,4.0,8524006,213756,Wales
+83,Archie Griffin,Wales,Prop,1,0.0,B,8.705443817880537,10.0,8524006,219990,Wales
+84,Ben Carter,Wales,Lock,1,0.0,P,16.79999450257243,27.0,8524006,219996,Wales
+85,Gregor Brown,Scotland,Loose Forward,1,0.0,P,19.860198338846796,16.0,8524006,220296,Scotland
+86,Joe Hawkins,Wales,Centre,1,0.0,P,13.06958774156104,6.0,8524006,220962,Wales
+87,Freddie Thomas,Wales,Lock,1,0.0,B,5.92142778822214,0.0,8524006,226926,Wales
+88,Max Williamson,Scotland,Lock,1,0.0,P,16.634371865831294,6.0,8524006,231570,Scotland
+89,Dafydd Jenkins,Wales,Lock,1,0.0,P,22.08147810770591,24.0,8524006,232104,Wales
+90,Alex Mann,Wales,Loose Forward,1,0.0,P,23.526551461340972,36.0,8524006,232110,Wales
+91,Eddie James,Wales,Centre,1,0.0,P,12.764805653903768,17.0,8524006,232158,Wales
+92,Tom Jordan,Scotland,Back Three,1,0.0,B,4.645727349306069,0.0,8524006,242766,Scotland
+93,Baptiste Serin,France,Scrum Half,1,0.0,B,7.269603893539487,1.0,8524015,121830,France
+94,Simone Ferrari,Italy,Prop,1,0.0,P,14.803065150869365,4.0,8524015,123210,Italy
+95,Francois Cros,France,Loose Forward,1,0.0,P,16.74606953631426,11.0,8524015,123366,France
+96,Charles Ollivon,France,Lock,1,0.0,B,7.1787093567367375,8.0,8524015,123504,France
+97,Dorian Aldegheri,France,Prop,1,0.0,P,6.0040700909170805,10.0,8524015,127122,France
+98,Federico Ruzza,Italy,Lock,1,0.0,B,6.2224640604539,17.0,8524015,129234,Italy
+99,Thomas Ramos,France,Fly Half,1,0.0,P,44.80678000016414,56.0,8524015,129822,France
+100,Rodrigue Neti,France,Prop,1,0.0,B,4.062374056206637,12.0,8524015,133488,France
+101,Monty Ioane,Italy,Back Three,1,0.0,P,18.447861603628617,8.0,8524015,134016,Italy
+102,Julien Marchand,France,Hooker,1,0.0,P,19.78675160962778,9.0,8524015,135138,France
+103,Antoine Dupont,France,Scrum Half,1,0.0,P,42.91629926999183,41.0,8524015,135318,France
+104,Anthony Jelonch,France,Loose Forward,1,0.0,P,22.03921014647412,27.0,8524015,139728,France
+105,Paolo Odogwu,Italy,Centre,1,0.0,B,3.8137747425540147,7.0,8524015,142488,Italy
+106,Giosue Zilocchi,Italy,Prop,1,0.0,B,6.513083594455097,8.0,8524015,147354,Italy
+107,Peato Mauvaka,France,Hooker,1,0.0,B,9.766890572381055,9.0,8524015,147480,France
+108,Pierre-Louis Barassi,France,Centre,1,0.0,B,4.923668801497197,3.0,8524015,162150,France
+109,Michele Lamaro,Italy,Loose Forward,1,0.0,P,23.614481731362417,15.0,8524015,164220,Italy
+110,Danilo Fischetti,Italy,Prop,1,0.0,P,15.310243782864601,6.0,8524015,164232,Italy
+111,Georges-Henri Colombe,France,Prop,1,0.0,B,7.13218487453912,5.0,8524015,165192,France
+112,Emmanuel Meafou,France,Lock,1,0.0,P,18.49763810824361,61.0,8524015,166476,France
+113,Niccolo Cannone,Italy,Lock,1,0.0,P,21.0739529544376,10.0,8524015,167196,Italy
+114,Jean-Baptiste Gros,France,Prop,1,0.0,P,9.651765150158585,11.0,8524015,178704,France
+115,Alessandro Fusco,Italy,Scrum Half,1,0.0,P,15.186969018677411,12.0,8524015,180450,Italy
+116,Paolo Garbisi,Italy,Fly Half,1,0.0,P,18.386263807926483,15.0,8524015,203034,Italy
+117,Manuel Zuliani,Italy,Loose Forward,1,0.0,P,27.744837346317816,18.0,8524015,204054,Italy
+118,Pablo Dimcheff,Italy,Hooker,1,0.0,B,8.316509398785398,11.0,8524015,207198,Italy
+119,Ange Capuozzo,Italy,Back Three,1,0.0,P,19.29794689470269,26.0,8524015,207774,Italy
+120,Andrea Zambonin,Italy,Lock,1,0.0,P,20.66457148931137,5.0,8524015,208140,Italy
+121,Thibaud Flament,France,Lock,1,0.0,P,16.841024625118813,27.0,8524015,213072,France
+122,Louis Lynagh,Italy,Back Three,1,0.0,P,16.04819322164083,5.0,8524015,213750,Italy
+123,Mickael Guillard,France,Lock,1,0.0,B,8.713774055562336,7.0,8524015,219930,France
+124,Riccardo Favretto,Italy,Loose Forward,1,0.0,B,5.8619400038118,9.0,8524015,220128,Italy
+125,Lorenzo Cannone,Italy,Loose Forward,1,0.0,P,26.121740495677827,25.0,8524015,220140,Italy
+126,Tommaso Menoncello,Italy,Centre,1,0.0,P,20.569337153218765,28.0,8524015,226818,Italy
+127,Giacomo Nicotera,Italy,Hooker,1,0.0,P,18.582092297076144,7.0,8524015,226836,Italy
+128,Louis Bielle-Biarrey,France,Back Three,1,0.0,P,35.16873335012782,27.0,8524015,231684,France
+129,Emilien Gailleton,France,Centre,1,0.0,P,19.863452364520366,45.0,8524015,231696,France
+130,Alessandro Garbisi,Italy,Scrum Half,1,0.0,B,3.9809971602652467,5.0,8524015,231774,Italy
+131,Mirco Spagnolo,Italy,Prop,1,0.0,B,7.186525048397576,11.0,8524015,231804,Italy
+132,Leonardo Marin,Italy,Centre,1,0.0,P,16.12673947631164,26.0,8524015,231834,Italy
+133,Lenni Nouchi,France,Loose Forward,1,0.0,B,8.871370251590596,9.0,8524015,238116,France
+134,Oscar Jegou,France,Loose Forward,1,0.0,P,22.193442671779334,22.0,8524015,242478,France
+135,Gael Drean,France,Back Three,1,0.0,P,22.979921690454603,22.0,8524015,242484,France
+136,David Odiase,Italy,Loose Forward,1,0.0,B,7.338022210727243,1.0,8524015,263016,Italy
+137,Theo Attissogbe,France,Back Three,1,0.0,P,27.39734871282716,20.0,8524015,339450,France
+138,Fabien Brau-Boirie,France,Centre,1,0.0,P,28.135660374009877,22.0,8524015,354888,France

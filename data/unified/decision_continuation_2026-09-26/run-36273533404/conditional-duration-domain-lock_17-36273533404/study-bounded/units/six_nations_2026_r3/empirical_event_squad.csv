@@ -1,0 +1,17 @@
+id,name,team,pos,hemi,value,status,in_squad,is_sub,is_capt,actual,point_forecast,slate,engine,actual_role_supersub_points,possible_min,possible_max,role_outcome_known,source_conflict
+12,Ellis Genge,England,Prop,1,0.0,P,True,False,False,13.0,15.43570742354584,six_nations_2026_r3,empirical_event,6.5,6.5,6.5,True,False
+16,Ben Earl,England,Loose Forward,1,0.0,P,True,False,False,12.0,30.12578453334438,six_nations_2026_r3,empirical_event,6.0,6.0,6.0,True,False
+20,Caelan Doris,Ireland,Loose Forward,1,0.0,P,True,False,False,38.0,30.063777139557182,six_nations_2026_r3,empirical_event,19.0,19.0,19.0,True,False
+25,Marcus Smith,England,Fly Half,1,0.0,B,True,True,False,18.0,10.47659161341901,six_nations_2026_r3,empirical_event,54.0,54.0,54.0,True,False
+29,Dan Sheehan,Ireland,Hooker,1,0.0,P,True,False,False,43.0,24.504896684759508,six_nations_2026_r3,empirical_event,21.5,21.5,21.5,True,False
+44,Henry Pollock,England,Loose Forward,1,0.0,P,True,False,False,26.0,37.459042909264866,six_nations_2026_r3,empirical_event,13.0,13.0,13.0,True,False
+58,Duhan van der Merwe,Scotland,Back Three,1,0.0,P,True,False,False,5.0,29.95445101924068,six_nations_2026_r3,empirical_event,2.5,2.5,2.5,True,False
+62,Huw Jones,Scotland,Centre,1,0.0,P,True,False,False,14.0,24.75966141090131,six_nations_2026_r3,empirical_event,7.0,7.0,7.0,True,False
+72,Kyle Steyn,Scotland,Back Three,1,0.0,P,True,False,False,36.0,27.092531139237458,six_nations_2026_r3,empirical_event,18.0,18.0,18.0,True,False
+89,Dafydd Jenkins,Wales,Lock,1,0.0,P,True,False,False,24.0,22.957791771766782,six_nations_2026_r3,empirical_event,12.0,12.0,12.0,True,False
+99,Thomas Ramos,France,Fly Half,1,0.0,P,True,False,False,56.0,44.48975664422735,six_nations_2026_r3,empirical_event,28.0,28.0,28.0,True,False
+103,Antoine Dupont,France,Scrum Half,1,0.0,P,True,False,True,41.0,46.235925234777774,six_nations_2026_r3,empirical_event,20.5,20.5,20.5,True,False
+110,Danilo Fischetti,Italy,Prop,1,0.0,P,True,False,False,6.0,15.778329118875353,six_nations_2026_r3,empirical_event,3.0,3.0,3.0,True,False
+120,Andrea Zambonin,Italy,Lock,1,0.0,P,True,False,False,5.0,22.570788882185454,six_nations_2026_r3,empirical_event,2.5,2.5,2.5,True,False
+128,Louis Bielle-Biarrey,France,Back Three,1,0.0,P,True,False,False,27.0,34.777762137802796,six_nations_2026_r3,empirical_event,13.5,13.5,13.5,True,False
+138,Fabien Brau-Boirie,France,Centre,1,0.0,P,True,False,False,22.0,30.861668956091503,six_nations_2026_r3,empirical_event,11.0,11.0,11.0,True,False

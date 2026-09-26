@@ -1,0 +1,17 @@
+id,name,team,pos,hemi,value,status,in_squad,is_sub,is_capt,actual,point_forecast,slate,engine,actual_role_supersub_points,possible_min,possible_max,role_outcome_known,source_conflict
+8,Will Rowlands,Wales,Lock,1,0.0,P,True,False,False,8.0,19.650322768233234,six_nations_2025_r2,conditional_duration_source_tail_v2,4.0,4.0,4.0,True,False
+27,Gianmarco Lucchesi,Italy,Hooker,1,0.0,B,True,True,False,7.0,11.988506483594785,six_nations_2025_r2,conditional_duration_source_tail_v2,21.0,21.0,21.0,True,False
+30,Jac Morgan,Wales,Loose Forward,1,0.0,P,True,False,False,23.0,32.542347578769146,six_nations_2025_r2,conditional_duration_source_tail_v2,11.5,11.5,11.5,True,False
+36,Tommaso Menoncello,Italy,Centre,1,0.0,P,True,False,False,8.0,23.68204404175125,six_nations_2025_r2,conditional_duration_source_tail_v2,4.0,4.0,4.0,True,False
+53,Thomas Ramos,France,Back Three,1,0.0,P,True,False,True,34.0,32.602242609344415,six_nations_2025_r2,conditional_duration_source_tail_v2,17.0,17.0,17.0,True,False
+56,Antoine Dupont,France,Scrum Half,1,0.0,P,True,False,False,13.0,27.770746443073204,six_nations_2025_r2,conditional_duration_source_tail_v2,6.5,6.5,6.5,True,False
+58,Damian Penaud,France,Back Three,1,0.0,P,True,False,False,37.0,31.217081368325733,six_nations_2025_r2,conditional_duration_source_tail_v2,18.5,18.5,18.5,True,False
+67,Marcus Smith,England,Back Three,1,0.0,P,True,False,False,23.0,26.338929332805236,six_nations_2025_r2,conditional_duration_source_tail_v2,11.5,11.5,11.5,True,False
+69,Tom Willis,England,Loose Forward,1,0.0,P,True,False,False,34.0,28.894746134322396,six_nations_2025_r2,conditional_duration_source_tail_v2,17.0,17.0,17.0,True,False
+74,Gregory Alldritt,France,Loose Forward,1,0.0,P,True,False,False,27.0,32.10086201488351,six_nations_2025_r2,conditional_duration_source_tail_v2,13.5,13.5,13.5,True,False
+86,Fin Smith,England,Fly Half,1,0.0,P,True,False,False,39.0,23.516789351154742,six_nations_2025_r2,conditional_duration_source_tail_v2,19.5,19.5,19.5,True,False
+97,Jonny Gray,Scotland,Lock,1,0.0,P,True,False,False,15.0,21.066311855697055,six_nations_2025_r2,conditional_duration_source_tail_v2,7.5,7.5,7.5,True,False
+108,Zander Fagerson,Scotland,Prop,1,0.0,P,True,False,False,15.0,16.1463455614693,six_nations_2025_r2,conditional_duration_source_tail_v2,7.5,7.5,7.5,True,False
+113,Huw Jones,Scotland,Centre,1,0.0,P,True,False,False,24.0,25.03895141271081,six_nations_2025_r2,conditional_duration_source_tail_v2,12.0,12.0,12.0,True,False
+114,Andrew Porter,Ireland,Prop,1,0.0,P,True,False,False,18.0,14.673006396761696,six_nations_2025_r2,conditional_duration_source_tail_v2,9.0,9.0,9.0,True,False
+120,Ronan Kelleher,Ireland,Hooker,1,0.0,P,True,False,False,8.0,20.86773903777983,six_nations_2025_r2,conditional_duration_source_tail_v2,4.0,4.0,4.0,True,False

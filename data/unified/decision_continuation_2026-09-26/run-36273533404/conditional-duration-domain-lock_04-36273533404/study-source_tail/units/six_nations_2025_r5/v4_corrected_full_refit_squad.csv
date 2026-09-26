@@ -1,0 +1,17 @@
+id,name,team,pos,hemi,value,status,in_squad,is_sub,is_capt,actual,point_forecast,slate,engine,actual_role_supersub_points,possible_min,possible_max,role_outcome_known,source_conflict
+9,James Lowe,Ireland,Back Three,1,0.0,P,True,False,True,7.0,31.67752332303298,six_nations_2025_r5,v4_corrected_full_refit,3.5,3.5,3.5,True,False
+14,Federico Ruzza,Italy,Lock,1,0.0,P,True,False,False,25.0,19.908538361600932,six_nations_2025_r5,v4_corrected_full_refit,12.5,12.5,12.5,True,False
+22,Caelan Doris,Ireland,Loose Forward,1,0.0,P,True,False,False,20.0,31.59499062448267,six_nations_2025_r5,v4_corrected_full_refit,10.0,10.0,10.0,True,False
+24,Danilo Fischetti,Italy,Prop,1,0.0,P,True,False,False,15.0,14.170598313264028,six_nations_2025_r5,v4_corrected_full_refit,7.5,7.5,7.5,True,False
+25,Mack Hansen,Ireland,Back Three,1,0.0,P,True,False,False,23.0,28.89059906091585,six_nations_2025_r5,v4_corrected_full_refit,11.5,11.5,11.5,True,False
+27,Dan Sheehan,Ireland,Hooker,1,0.0,P,True,False,False,84.0,25.6929271173833,six_nations_2025_r5,v4_corrected_full_refit,42.0,42.0,42.0,True,False
+37,Tommaso Menoncello,Italy,Centre,1,0.0,P,True,False,False,45.0,22.544572260412313,six_nations_2025_r5,v4_corrected_full_refit,22.5,22.5,22.5,True,False
+59,Ellis Genge,England,Prop,1,0.0,P,True,False,False,18.0,13.62134374084129,six_nations_2025_r5,v4_corrected_full_refit,9.0,9.0,9.0,True,False
+71,Tom Willis,England,Loose Forward,1,0.0,B,True,True,False,22.0,11.090093513020104,six_nations_2025_r5,v4_corrected_full_refit,66.0,66.0,66.0,True,False
+78,Jac Morgan,Wales,Loose Forward,1,0.0,P,True,False,False,24.0,28.449648782456265,six_nations_2025_r5,v4_corrected_full_refit,12.0,12.0,12.0,True,False
+85,Fin Smith,England,Fly Half,1,0.0,P,True,False,False,28.0,24.339099444219098,six_nations_2025_r5,v4_corrected_full_refit,14.0,14.0,14.0,True,False
+100,Thomas Ramos,France,Back Three,1,0.0,P,True,False,False,36.0,30.946906536336286,six_nations_2025_r5,v4_corrected_full_refit,18.0,18.0,18.0,True,False
+108,Huw Jones,Scotland,Centre,1,0.0,P,True,False,False,15.0,20.876625043551897,six_nations_2025_r5,v4_corrected_full_refit,7.5,7.5,7.5,True,False
+119,Gregory Alldritt,France,Loose Forward,1,0.0,P,True,False,False,16.0,28.600131139019553,six_nations_2025_r5,v4_corrected_full_refit,8.0,8.0,8.0,True,False
+124,Maxime Lucu,France,Scrum Half,1,0.0,P,True,False,False,14.0,21.274620963829967,six_nations_2025_r5,v4_corrected_full_refit,7.0,7.0,7.0,True,False
+129,Thibaud Flament,France,Lock,1,0.0,P,True,False,False,21.0,20.396343917559527,six_nations_2025_r5,v4_corrected_full_refit,10.5,10.5,10.5,True,False

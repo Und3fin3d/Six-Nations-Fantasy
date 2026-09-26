@@ -1,0 +1,53 @@
+fixture_id,player_id,team,date,minutes,competition_level,started
+8381194,147750,Portugal,2022-06-25,82.0,international,True
+8387818,130308,Montpellier Herault Rugby,2022-09-17,84.0,club,True
+8392111,113046,Newcastle Falcons,2022-09-30,82.0,club,True
+8387989,224724,Stade Francais Paris,2022-10-01,82.0,club,True
+8387989,231684,Union Bordeaux-Begles,2022-10-01,82.0,club,True
+8392129,54306,London Irish,2022-10-01,81.0,club,True
+8388196,132594,Bayonne,2022-10-29,84.0,club,True
+8392336,151512,London Irish,2022-10-29,82.0,club,True
+8392363,187452,Sale Sharks,2022-10-30,81.0,club,True
+8396791,111036,Ulster Rugby,2022-12-23,81.0,club,True
+8396791,201792,Ulster Rugby,2022-12-23,81.0,club,True
+8396791,61512,Ulster Rugby,2022-12-23,81.0,club,True
+8393191,117816,Bristol Bears,2023-05-06,81.0,club,True
+8450521,172332,Sale Sharks,2023-10-21,84.0,club,True
+8446003,169632,Stade Francais Paris,2023-11-04,81.0,club,True
+8447857,148680,Leinster Rugby,2023-11-25,81.0,club,True
+8449531,149910,Benetton Rugby,2023-12-16,81.0,club,True
+8450809,226032,Bristol Bears,2023-12-22,81.0,club,True
+8459107,169158,Toyota Verblitz,2024-03-16,83.0,club,True
+8451007,203622,Exeter Chiefs,2024-03-23,97.0,club,True
+8451007,117762,Newcastle Falcons,2024-03-23,99.0,club,True
+8451007,67122,Newcastle Falcons,2024-03-23,92.0,club,True
+8449396,139806,Leinster Rugby,2024-05-25,88.0,club,True
+8447380,262248,Union Bordeaux-Begles,2024-06-22,84.0,club,True
+8488681,121614,Stade Rochelais,2024-09-15,83.0,club,True
+8489095,227028,Castres Olympique,2024-11-02,83.0,club,True
+8489158,129924,Section Paloise,2024-11-23,82.0,club,True
+8480626,226818,Benetton Rugby,2024-12-28,83.0,club,True
+8505979,185748,Kubota Spears,2025-03-14,82.0,club,True
+8507869,149724,Blues,2025-05-02,81.0,club,True
+8481364,154650,Sharks,2025-05-31,99.0,club,True
+8522494,177072,Blues,2025-06-13,85.0,club,True
+8523664,295386,Griquas,2025-08-24,82.0,club,True
+8531404,141984,RC Toulon,2025-09-13,81.0,club,True
+8523421,144918,Fiji,2025-09-21,86.0,international,True
+8523421,206742,Fiji,2025-09-21,81.0,international,True
+8523421,207894,Fiji,2025-09-21,83.0,international,True
+8523421,353514,Fiji,2025-09-21,89.0,international,True
+8523421,185784,Japan,2025-09-21,81.0,international,True
+8523421,206898,Japan,2025-09-21,93.0,international,True
+8523421,227256,Japan,2025-09-21,86.0,international,True
+8523421,371742,Japan,2025-09-21,86.0,international,True
+8524177,193200,Sharks,2025-09-26,82.0,club,True
+8531728,233220,Racing 92,2025-10-19,81.0,club,True
+8536579,130554,Northampton Saints,2025-10-24,81.0,club,True
+8536579,142356,Northampton Saints,2025-10-24,81.0,club,True
+8536606,113040,Bristol Bears,2025-10-25,89.0,club,True
+8536606,113184,Bristol Bears,2025-10-25,86.0,club,True
+8535571,152448,Cardiff Rugby,2026-01-10,81.0,club,True
+8525293,110982,Scarlets,2026-04-25,81.0,club,True
+8525293,236436,Scarlets,2026-04-25,81.0,club,True
+8537119,117816,Bristol Bears,2026-05-29,81.0,club,True

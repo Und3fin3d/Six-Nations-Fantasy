@@ -1,0 +1,17 @@
+id,name,team,pos,hemi,value,status,in_squad,is_sub,is_capt,actual,point_forecast,slate,engine,actual_role_supersub_points,possible_min,possible_max,role_outcome_known,source_conflict
+8,Tadhg Beirne,Ireland,Lock,1,0.0,P,True,False,False,35.0,20.987263608112066,six_nations_2026_r5,conditional_duration_bounded_v2,17.5,17.5,17.5,True,False
+12,Jack Dempsey,Scotland,Loose Forward,1,0.0,P,True,False,False,16.0,28.66494978036708,six_nations_2026_r5,conditional_duration_bounded_v2,8.0,8.0,8.0,True,False
+16,Stuart McCloskey,Ireland,Centre,1,0.0,P,True,False,False,36.0,22.55620960521554,six_nations_2026_r5,conditional_duration_bounded_v2,18.0,18.0,18.0,True,False
+17,Pierre Schoeman,Scotland,Prop,1,0.0,P,True,False,False,16.0,16.314406154651937,six_nations_2026_r5,conditional_duration_bounded_v2,8.0,8.0,8.0,True,False
+28,Caelan Doris,Ireland,Loose Forward,1,0.0,P,True,False,False,54.0,28.91923451907929,six_nations_2026_r5,conditional_duration_bounded_v2,27.0,27.0,27.0,True,False
+34,Kyle Steyn,Scotland,Back Three,1,0.0,P,True,False,False,22.0,26.899595056494903,six_nations_2026_r5,conditional_duration_bounded_v2,11.0,11.0,11.0,True,False
+36,Rory Darge,Scotland,Loose Forward,1,0.0,P,True,False,False,48.0,27.474880981461116,six_nations_2026_r5,conditional_duration_bounded_v2,24.0,24.0,24.0,True,False
+37,Dan Sheehan,Ireland,Hooker,1,0.0,P,True,False,False,43.0,21.07885850401626,six_nations_2026_r5,conditional_duration_bounded_v2,21.5,21.5,21.5,True,False
+64,Danilo Fischetti,Italy,Prop,1,0.0,P,True,False,False,15.0,14.38675099264961,six_nations_2026_r5,conditional_duration_bounded_v2,7.5,7.5,7.5,True,False
+81,Tommaso Menoncello,Italy,Centre,1,0.0,P,True,False,False,44.0,23.662486076470103,six_nations_2026_r5,conditional_duration_bounded_v2,22.0,22.0,22.0,True,False
+102,Thomas Ramos,France,Back Three,1,0.0,P,True,False,False,30.0,32.04831882414729,six_nations_2026_r5,conditional_duration_bounded_v2,15.0,15.0,15.0,True,False
+105,Antoine Dupont,France,Scrum Half,1,0.0,P,True,False,False,30.0,32.022973348461505,six_nations_2026_r5,conditional_duration_bounded_v2,15.0,15.0,15.0,True,False
+112,Matthieu Jalibert,France,Fly Half,1,0.0,P,True,False,True,44.0,34.392373516666765,six_nations_2026_r5,conditional_duration_bounded_v2,22.0,22.0,22.0,True,False
+120,Alex Coles,England,Lock,1,0.0,P,True,False,False,24.0,18.807656275016118,six_nations_2026_r5,conditional_duration_bounded_v2,12.0,12.0,12.0,True,False
+129,Louis Bielle-Biarrey,France,Back Three,1,0.0,P,True,False,False,68.0,31.82494900303294,six_nations_2026_r5,conditional_duration_bounded_v2,34.0,34.0,34.0,True,False
+136,Henry Pollock,England,Loose Forward,1,0.0,B,True,True,False,8.0,10.367320964999722,six_nations_2026_r5,conditional_duration_bounded_v2,24.0,24.0,24.0,True,False

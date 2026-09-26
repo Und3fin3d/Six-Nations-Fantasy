@@ -1,0 +1,228 @@
+fixture_id,player_id,team,position,started
+291582,149754,Japan,Second-row,True
+291578,175848,Fiji,Prop,True
+291578,206742,Fiji,Hooker,True
+291579,130242,South Africa,Prop,True
+291580,203124,Ireland,Scrum-half,False
+291580,117936,Ireland,Back-row,True
+291578,129576,Wales,Second-row,True
+291579,120234,South Africa,Centre,True
+291579,115452,England,Hooker,False
+291582,144684,Italy,Prop,True
+291579,232032,England,Centre,True
+291579,156420,South Africa,Back-row,False
+291577,130554,Scotland,Centre,True
+291577,171582,Scotland,Back-three,True
+291578,121974,Wales,Prop,False
+291579,172428,England,Back-three,True
+291582,213144,Italy,Scrum-half,True
+291579,185646,South Africa,Back-row,False
+291579,124026,South Africa,Centre,True
+291579,239076,England,Back-row,False
+291577,124308,Scotland,Back-row,True
+291580,112374,Ireland,Prop,True
+291579,213786,England,Scrum-half,True
+291578,124464,Fiji,Back-row,False
+291580,187842,Australia,Fly-half,False
+291577,112962,Argentina,Second-row,True
+291580,148644,Ireland,Hooker,False
+291578,203076,Wales,Fly-half,False
+291578,176652,Wales,Back-row,True
+291578,162870,Wales,Prop,True
+291582,67848,Japan,Back-row,False
+291582,164220,Italy,Back-row,True
+291578,187290,Wales,Back-three,True
+291579,128814,South Africa,Hooker,True
+291578,203070,Wales,Back-row,True
+291582,164232,Italy,Prop,True
+291578,169026,Fiji,Centre,False
+291580,118518,Ireland,Back-row,True
+291577,185502,Argentina,Back-row,True
+291579,128820,South Africa,Centre,False
+291578,162444,Fiji,Back-three,True
+291578,238038,Fiji,Prop,True
+291582,208140,Italy,Second-row,True
+291580,154110,Australia,Back-row,True
+291582,117834,Italy,Fly-half,False
+291579,137016,England,Prop,False
+291582,118614,Italy,Centre,True
+291582,193938,Japan,Prop,True
+291578,128628,Wales,Scrum-half,True
+291582,180450,Italy,Scrum-half,False
+291579,178806,England,Prop,True
+291582,142194,Japan,Second-row,True
+291577,206712,Scotland,Fly-half,False
+291582,202980,Italy,Hooker,False
+291580,161034,Australia,Hooker,False
+291579,149256,South Africa,Back-row,True
+291578,129096,Wales,Back-three,True
+291579,227772,England,Fly-half,True
+291579,114534,England,Centre,False
+291578,211638,Fiji,Back-three,True
+291582,150960,Japan,Scrum-half,True
+291577,187422,Scotland,Hooker,True
+291579,213798,England,Second-row,True
+291582,157710,Japan,Back-row,True
+291580,118890,Australia,Prop,True
+291578,206706,Wales,Back-row,False
+291578,172098,Fiji,Centre,True
+291578,219996,Wales,Second-row,True
+291580,fantasy_144570,Ireland,Back-three,True
+291579,218742,England,Second-row,True
+291580,143496,Ireland,Back-three,True
+291577,139998,Scotland,Centre,True
+291580,192666,Australia,Prop,True
+291580,117954,Ireland,Second-row,False
+291578,169128,Fiji,Second-row,True
+291577,134172,Scotland,Prop,False
+291582,185784,Japan,Back-row,True
+291577,113040,Argentina,Centre,False
+291579,123516,South Africa,Back-three,True
+291582,203034,Italy,Fly-half,True
+291580,201012,Australia,Back-three,False
+291580,153054,Australia,Hooker,True
+291579,213192,England,Back-three,True
+291580,114804,Ireland,Centre,False
+291577,161856,Scotland,Back-row,True
+291579,61134,England,Hooker,True
+291578,206814,Fiji,Scrum-half,False
+291577,124668,Argentina,Hooker,True
+291577,146754,Scotland,Back-three,False
+291578,203046,Wales,Prop,False
+291579,136680,England,Prop,True
+291577,185478,Argentina,Back-three,True
+291578,fantasy_166930,Fiji,Prop,False
+291578,135306,Wales,Prop,True
+291579,156564,South Africa,Prop,False
+291580,66978,Australia,Prop,False
+291579,118428,South Africa,Back-row,True
+291577,117852,Scotland,Second-row,True
+291582,220782,Italy,Prop,False
+291580,129840,Ireland,Centre,True
+291579,198696,England,Second-row,True
+291582,220128,Italy,Second-row,False
+291580,136854,Ireland,Prop,False
+291582,134016,Italy,Back-three,True
+291580,186198,Ireland,Back-three,True
+291577,178038,Scotland,Prop,True
+291579,142356,England,Scrum-half,False
+291580,173226,Australia,Back-three,True
+291577,169464,Argentina,Scrum-half,True
+291578,126930,Fiji,Centre,True
+291577,148386,Argentina,Back-three,False
+291579,161226,South Africa,Back-three,True
+291577,179370,Scotland,Back-three,True
+291578,128574,Wales,Hooker,False
+291577,169530,Argentina,Prop,True
+291580,131862,Australia,Prop,False
+291580,153318,Australia,Centre,True
+291579,140238,South Africa,Prop,True
+291577,180222,Scotland,Back-row,True
+291577,142476,Scotland,Scrum-half,True
+291578,173826,Fiji,Back-row,True
+291579,156288,England,Fly-half,True
+291577,169440,Argentina,Back-three,True
+291578,135900,Wales,Scrum-half,False
+291579,102654,South Africa,Back-row,True
+291579,204516,South Africa,Back-three,True
+291580,153066,Australia,Back-row,True
+291579,114744,South Africa,Scrum-half,False
+291580,136878,Ireland,Back-row,False
+291577,207228,Argentina,Back-three,True
+291577,214146,Scotland,Scrum-half,True
+291579,127014,England,Second-row,False
+291577,130530,Scotland,Prop,False
+291577,130290,Scotland,Prop,True
+291580,203208,Ireland,Prop,False
+291579,113430,South Africa,Second-row,True
+291582,220140,Italy,Back-row,True
+291578,220962,Wales,Centre,True
+291580,201978,Ireland,Back-row,True
+291582,165924,Japan,Centre,True
+291580,148890,Ireland,Fly-half,False
+291577,118578,Argentina,Back-row,True
+291577,169434,Argentina,Fly-half,True
+291579,149070,South Africa,Fly-half,True
+291578,171126,Fiji,Scrum-half,True
+291580,143604,Ireland,Second-row,True
+291582,206910,Japan,Hooker,True
+291579,178674,South Africa,Scrum-half,True
+291582,167196,Italy,Second-row,True
+291577,150600,Argentina,Second-row,False
+291579,142404,England,Back-row,True
+291577,136596,Scotland,Second-row,True
+291580,164268,Australia,Scrum-half,False
+291580,186096,Ireland,Hooker,True
+291578,178848,Wales,Hooker,True
+291578,154938,Wales,Back-row,False
+291580,161946,Australia,Back-row,True
+291577,124686,Argentina,Second-row,True
+291580,120504,Ireland,Scrum-half,True
+291578,209904,Fiji,Hooker,False
+291580,163734,Australia,Scrum-half,True
+291580,129372,Ireland,Centre,True
+291579,155892,England,Back-row,True
+291577,220296,Scotland,Second-row,False
+291580,220194,Ireland,Second-row,True
+291580,fantasy_224426,Ireland,Prop,True
+291577,129792,Scotland,Scrum-half,False
+291579,185688,South Africa,Second-row,True
+291578,214050,Fiji,Back-row,True
+291578,197268,Fiji,Second-row,True
+291577,201528,Argentina,Centre,True
+291582,226818,Italy,Centre,True
+291579,225984,South Africa,Prop,False
+291580,227658,Ireland,Centre,True
+291580,192618,Australia,Second-row,True
+291579,230898,England,Back-three,True
+291582,227256,Japan,Prop,True
+291578,232110,Wales,Back-row,True
+291577,226080,Argentina,Back-row,True
+291577,208518,Argentina,Hooker,False
+291582,231714,Italy,Hooker,True
+291582,231834,Italy,Fly-half,False
+291582,263058,Italy,Second-row,True
+291582,231744,Italy,Back-three,True
+291579,234822,South Africa,Back-three,False
+291577,383400,Argentina,Back-row,False
+291582,231804,Italy,Prop,False
+291582,231840,Italy,Back-row,False
+291577,231564,Scotland,Second-row,False
+291578,232158,Wales,Centre,True
+291578,243102,Fiji,Back-three,False
+291582,242406,Japan,Second-row,True
+291579,348570,England,Prop,False
+291579,342324,England,Back-row,False
+291582,229884,Japan,Back-three,True
+291579,234816,South Africa,Back-row,True
+291578,263442,Wales,Fly-half,True
+291577,263268,Scotland,Hooker,False
+291580,164262,Australia,Back-three,True
+291578,264132,Fiji,Centre,True
+291580,193422,Australia,Second-row,True
+291577,337350,Argentina,Prop,False
+291580,337638,Ireland,Fly-half,True
+291577,337308,Argentina,Centre,True
+291580,213924,Australia,Centre,True
+291578,197892,Wales,Back-three,True
+291577,242766,Scotland,Centre,True
+291577,346278,Argentina,Scrum-half,False
+291580,346554,Australia,Back-three,True
+291578,207894,Fiji,Back-row,True
+291582,353844,Japan,Back-row,False
+291579,342540,South Africa,Prop,False
+291577,359274,Argentina,Prop,False
+291578,358770,Fiji,Second-row,False
+291578,215232,Fiji,Fly-half,True
+291578,363636,Wales,Back-three,False
+291582,204228,Japan,Back-three,True
+291577,411264,Argentina,Prop,True
+291580,368232,Australia,Second-row,False
+291582,371742,Japan,Hooker,False
+291582,371544,Japan,Centre,True
+291582,371586,Japan,Prop,False
+291582,371430,Japan,Fly-half,True
+291582,350934,Japan,Back-three,True
+291582,421050,Italy,Back-three,True
+291582,372078,Japan,Scrum-half,False
+291582,370146,Japan,Prop,False

@@ -1,0 +1,17 @@
+id,name,team,hemi,pos,value,sel,status,opp,home,n_hist,rp_min,wr_margin,weather_att,per80,exp_min,starter_exp,supersub_exp,in_squad,is_sub,is_capt,actual,point_forecast,slate,engine,actual_role_supersub_points,possible_min,possible_max,role_outcome_known,source_conflict
+103703,Harry Hockings,Japan,2,Lock,4.5,1.1,P,Ireland,True,3,2967,-19.8,1.0,17.29,59.0,14.07,6.37,True,False,False,16.0,18.307242475107994,ncr_2026_r2,v4_corrected_full_refit,8.0,8.0,8.0,True,False
+123016,Jac Morgan,Wales,1,Loose Forward,7.0,31.4,P,Argentina,False,33,2124,-20.2,1.0,25.21,74.0,25.28,11.66,True,False,False,32.0,22.62975139497204,ncr_2026_r2,v4_corrected_full_refit,16.0,16.0,16.0,True,False
+141860,Ewan Ashman,Scotland,1,Hooker,5.5,2.3,P,South Africa,False,37,2179,-25.7,1.0,25.89,56.3,20.09,9.1,True,False,False,25.0,23.24221596177921,ncr_2026_r2,v4_corrected_full_refit,12.5,12.5,12.5,True,False
+144545,Ben Carter,Wales,1,Lock,4.0,1.3,P,Argentina,False,21,2062,-20.2,1.0,17.16,66.7,15.79,7.15,True,False,False,16.0,16.572772943935448,ncr_2026_r2,v4_corrected_full_refit,8.0,8.0,8.0,True,False
+146220,Will Jordan,New Zealand,2,Back Three,8.5,41.7,P,Italy,True,55,1530,33.5,1.0,29.12,78.6,30.56,14.3,True,False,True,92.0,39.52751915486944,ncr_2026_r2,v4_corrected_full_refit,46.0,46.0,46.0,True,False
+146815,Angus Bell,Australia,2,Prop,7.0,19.8,P,France,True,49,1772,-4.9,1.0,20.72,53.3,15.24,6.91,True,False,False,12.0,18.094314557668056,ncr_2026_r2,v4_corrected_full_refit,6.0,6.0,6.0,True,False
+172351,Stuart McCloskey,Ireland,1,Centre,6.5,22.9,P,Japan,False,26,2168,19.8,1.0,21.32,70.6,20.77,9.41,True,False,False,13.0,23.50116136583445,ncr_2026_r2,v4_corrected_full_refit,6.5,6.5,6.5,True,False
+173763,Leroy Carter,New Zealand,2,Back Three,5.0,2.7,P,Italy,True,6,1459,33.5,1.0,23.24,72.3,22.95,10.5,True,False,False,20.0,31.705871368235595,ncr_2026_r2,v4_corrected_full_refit,10.0,10.0,10.0,True,False
+190344,Matthieu Jalibert,France,1,Fly Half,8.0,28.9,P,Australia,False,35,3486,4.9,1.0,29.85,75.5,30.12,14.08,True,False,False,31.0,27.448670448998296,ncr_2026_r2,v4_corrected_full_refit,15.5,15.5,15.5,True,False
+193134,Nick Timoney,Ireland,1,Loose Forward,5.0,5.0,P,Japan,False,12,2973,19.8,1.0,21.03,62.7,18.19,8.24,True,False,False,34.0,26.671007738149747,ncr_2026_r2,v4_corrected_full_refit,17.0,17.0,17.0,True,False
+229307,Cam Roigard,New Zealand,2,Scrum Half,8.0,47.5,P,Italy,True,18,1230,33.5,1.0,37.05,65.5,32.29,15.17,True,False,False,30.0,31.431644977893896,ncr_2026_r2,v4_corrected_full_refit,15.0,15.0,15.0,True,False
+233260,Shuhei Takeuchi,Japan,2,Prop,4.0,1.4,P,Ireland,True,28,1677,-19.8,1.0,17.67,61.6,15.02,6.8,True,False,False,13.0,17.23182043468881,ncr_2026_r2,v4_corrected_full_refit,6.5,6.5,6.5,True,False
+235266,Joaquin Oviedo,Argentina,2,Loose Forward,5.5,5.4,P,Wales,True,24,2606,20.2,1.0,25.13,69.7,23.83,10.94,True,False,False,74.0,23.0137880987595,ncr_2026_r2,v4_corrected_full_refit,37.0,37.0,37.0,True,False
+239634,Henry Pollock,England,1,Loose Forward,5.5,14.1,B,Fiji,False,17,2680,2.8,1.0,25.89,21.1,7.55,20.52,True,True,False,65.0,12.490340194114163,ncr_2026_r2,v4_corrected_full_refit,195.0,195.0,195.0,True,False
+244532,Theo Attissogbe,France,1,Back Three,6.5,21.3,P,Australia,False,16,3133,4.9,1.0,21.41,77.9,22.79,10.42,True,False,False,55.0,29.438079489856314,ncr_2026_r2,v4_corrected_full_refit,27.5,27.5,27.5,True,False
+250067,Fabien Brau-Boirie,France,1,Centre,6.0,18.1,P,Australia,False,4,2817,4.9,1.0,24.49,70.7,23.61,10.83,True,False,False,22.0,29.263005486217374,ncr_2026_r2,v4_corrected_full_refit,11.0,11.0,11.0,True,False

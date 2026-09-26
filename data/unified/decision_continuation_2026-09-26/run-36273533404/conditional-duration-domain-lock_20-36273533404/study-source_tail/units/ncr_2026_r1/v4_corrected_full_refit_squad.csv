@@ -1,0 +1,17 @@
+id,name,team,hemi,pos,value,sel,status,opp,home,n_hist,rp_min,wr_margin,weather_att,per80,exp_min,starter_exp,supersub_exp,in_squad,is_sub,is_capt,actual,point_forecast,slate,engine,actual_role_supersub_points,possible_min,possible_max,role_outcome_known,source_conflict
+103703,Harry Hockings,Japan,2,Lock,4.5,1.3,P,Italy,True,2,2967,-5.1,1.0,16.06,72.0,15.95,7.23,True,False,False,14.0,16.760843032481056,ncr_2026_r1,v4_corrected_full_refit,7.0,7.0,7.0,True,False
+123016,Jac Morgan,Wales,1,Loose Forward,7.0,17.3,P,Fiji,False,32,2124,-18.1,1.0,24.3,73.3,24.22,11.14,True,False,False,56.0,22.628924778134223,ncr_2026_r1,v4_corrected_full_refit,28.0,28.0,28.0,True,False
+123723,Danilo Fischetti,Italy,1,Prop,5.5,15.7,P,Japan,False,58,1998,5.1,1.0,14.81,55.9,11.42,5.17,True,False,False,10.0,17.411897929745102,ncr_2026_r1,v4_corrected_full_refit,5.0,5.0,5.0,True,False
+136875,Gianmarco Lucchesi,Italy,1,Hooker,3.5,0.4,B,Japan,False,31,0,5.1,1.0,22.14,26.1,7.97,21.67,True,True,False,5.0,12.782537263845416,ncr_2026_r1,v4_corrected_full_refit,15.0,15.0,15.0,True,False
+140494,Jiuta Wainiqolo,Fiji,2,Back Three,5.5,18.4,P,Wales,True,18,2923,18.1,1.0,29.03,73.5,28.64,13.34,True,False,False,80.0,24.39902793929246,ncr_2026_r1,v4_corrected_full_refit,40.0,40.0,40.0,True,False
+141860,Ewan Ashman,Scotland,1,Hooker,5.5,2.7,P,Argentina,False,36,2179,-10.1,1.0,25.44,55.6,19.49,8.83,True,False,False,24.0,25.994206600716545,ncr_2026_r1,v4_corrected_full_refit,12.0,12.0,12.0,True,False
+144545,Ben Carter,Wales,1,Lock,4.0,1.0,P,Fiji,False,20,2062,-18.1,1.0,16.88,64.2,14.96,6.78,True,False,False,10.0,15.9048806533515,ncr_2026_r1,v4_corrected_full_refit,5.0,5.0,5.0,True,False
+154929,Cheslin Kolbe,South Africa,2,Back Three,8.0,37.7,P,England,True,34,2920,26.1,1.0,29.75,76.0,30.21,14.13,True,False,True,41.0,29.395117364321443,ncr_2026_r1,v4_corrected_full_refit,20.5,20.5,20.5,True,False
+179604,Josua Tuisova,Fiji,2,Centre,5.5,12.4,P,Wales,True,20,2758,18.1,1.0,21.04,76.7,22.11,10.08,True,False,False,32.0,21.953068118436548,ncr_2026_r1,v4_corrected_full_refit,16.0,16.0,16.0,True,False
+187820,Rory Darge,Scotland,1,Loose Forward,6.5,4.7,P,Argentina,False,39,2519,-10.1,1.0,22.12,72.7,22.06,10.06,True,False,False,42.0,20.247883012435388,ncr_2026_r1,v4_corrected_full_refit,21.0,21.0,21.0,True,False
+196773,Pierre Schoeman,Scotland,1,Prop,6.0,5.7,P,Argentina,False,54,2523,-10.1,1.0,17.46,59.6,14.34,6.5,True,False,False,22.0,17.05558510215499,ncr_2026_r1,v4_corrected_full_refit,11.0,11.0,11.0,True,False
+207343,Grant Williams,South Africa,2,Scrum Half,7.0,5.1,P,England,True,29,1514,26.1,1.0,26.61,58.7,21.46,9.76,True,False,False,39.0,18.006008862510292,ncr_2026_r1,v4_corrected_full_refit,19.5,19.5,19.5,True,False
+229557,Tommaso Menoncello,Italy,1,Centre,8.0,43.1,P,Japan,False,39,2558,5.1,1.0,20.18,78.1,21.64,9.84,True,False,False,24.0,25.176221598361316,ncr_2026_r1,v4_corrected_full_refit,12.0,12.0,12.0,True,False
+235266,Joaquin Oviedo,Argentina,2,Loose Forward,5.5,3.1,P,Scotland,True,23,2606,10.1,1.0,23.76,68.3,22.23,10.14,True,False,False,32.0,20.838784799010586,ncr_2026_r1,v4_corrected_full_refit,16.0,16.0,16.0,True,False
+243190,Blair Murray,Wales,1,Back Three,4.5,8.9,P,Fiji,False,17,2268,-18.1,1.0,11.85,78.6,12.85,5.82,True,False,False,15.0,23.581562026980716,ncr_2026_r1,v4_corrected_full_refit,7.5,7.5,7.5,True,False
+251673,Ryunosuke Ito,Japan,2,Fly Half,4.0,0.5,P,Italy,True,0,0,-5.1,1.0,17.53,70.0,16.93,7.67,True,False,False,13.0,23.32952493496708,ncr_2026_r1,v4_corrected_full_refit,6.5,6.5,6.5,True,False

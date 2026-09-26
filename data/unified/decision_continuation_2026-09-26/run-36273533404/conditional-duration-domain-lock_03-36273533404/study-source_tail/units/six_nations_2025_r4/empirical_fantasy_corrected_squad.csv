@@ -1,0 +1,17 @@
+id,name,team,pos,hemi,value,status,in_squad,is_sub,is_capt,actual,point_forecast,slate,engine,actual_role_supersub_points,possible_min,possible_max,role_outcome_known,source_conflict
+3,Bundee Aki,Ireland,Centre,1,0.0,P,True,False,False,13.0,24.47414067830312,six_nations_2025_r4,empirical_fantasy_corrected,6.5,6.5,6.5,True,False
+15,Antoine Dupont,France,Scrum Half,1,0.0,P,True,False,False,14.0,28.75165337802999,six_nations_2025_r4,empirical_fantasy_corrected,7.0,7.0,7.0,True,False
+22,Caelan Doris,Ireland,Loose Forward,1,0.0,P,True,False,False,30.0,28.627596329454867,six_nations_2025_r4,empirical_fantasy_corrected,15.0,15.0,15.0,True,False
+29,Dan Sheehan,Ireland,Hooker,1,0.0,P,True,False,False,30.0,25.37561156363374,six_nations_2025_r4,empirical_fantasy_corrected,15.0,15.0,15.0,True,False
+56,Will Rowlands,Wales,Lock,1,0.0,P,True,False,False,14.0,17.795155144742477,six_nations_2025_r4,empirical_fantasy_corrected,7.0,7.0,7.0,True,False
+61,Pierre Schoeman,Scotland,Prop,1,0.0,P,True,False,False,15.0,15.744877765077284,six_nations_2025_r4,empirical_fantasy_corrected,7.5,7.5,7.5,True,False
+64,Duhan van der Merwe,Scotland,Back Three,1,0.0,P,True,False,True,28.0,34.930507896972614,six_nations_2025_r4,empirical_fantasy_corrected,14.0,14.0,14.0,True,False
+66,Huw Jones,Scotland,Centre,1,0.0,P,True,False,False,26.0,29.55533127579343,six_nations_2025_r4,empirical_fantasy_corrected,13.0,13.0,13.0,True,False
+71,Darcy Graham,Scotland,Back Three,1,0.0,P,True,False,False,33.0,33.62600997897254,six_nations_2025_r4,empirical_fantasy_corrected,16.5,16.5,16.5,True,False
+84,Jac Morgan,Wales,Loose Forward,1,0.0,P,True,False,False,39.0,32.181616804924595,six_nations_2025_r4,empirical_fantasy_corrected,19.5,19.5,19.5,True,False
+89,Dafydd Jenkins,Wales,Lock,1,0.0,P,True,False,False,42.0,20.969932268159074,six_nations_2025_r4,empirical_fantasy_corrected,21.0,21.0,21.0,True,False
+103,Ellis Genge,England,Prop,1,0.0,P,True,False,False,9.0,15.50282575499978,six_nations_2025_r4,empirical_fantasy_corrected,4.5,4.5,4.5,True,False
+112,Marcus Smith,England,Back Three,1,0.0,B,True,True,False,36.0,10.78378847443069,six_nations_2025_r4,empirical_fantasy_corrected,108.0,108.0,108.0,True,False
+117,Ollie Sleightholme,England,Back Three,1,0.0,P,True,False,False,43.0,28.904971985099063,six_nations_2025_r4,empirical_fantasy_corrected,21.5,21.5,21.5,True,False
+134,Fin Smith,England,Fly Half,1,0.0,P,True,False,False,30.0,29.265881327837807,six_nations_2025_r4,empirical_fantasy_corrected,15.0,15.0,15.0,True,False
+136,Ross Vintcent,Italy,Loose Forward,1,0.0,P,True,False,False,39.0,27.62265428926842,six_nations_2025_r4,empirical_fantasy_corrected,19.5,19.5,19.5,True,False

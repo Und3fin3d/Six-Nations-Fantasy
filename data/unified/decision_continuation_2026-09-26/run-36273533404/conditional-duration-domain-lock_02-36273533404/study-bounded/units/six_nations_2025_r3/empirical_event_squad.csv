@@ -1,0 +1,17 @@
+id,name,team,pos,hemi,value,status,in_squad,is_sub,is_capt,actual,point_forecast,slate,engine,actual_role_supersub_points,possible_min,possible_max,role_outcome_known,source_conflict
+11,James Lowe,Ireland,Back Three,1,0.0,P,True,False,False,19.0,28.899052701946804,six_nations_2025_r3,empirical_event,9.5,9.5,9.5,True,False
+15,Will Rowlands,Wales,Lock,1,0.0,P,True,False,False,21.0,23.58368410528401,six_nations_2025_r3,empirical_event,10.5,10.5,10.5,True,False
+24,Mack Hansen,Ireland,Back Three,1,0.0,P,True,False,False,10.0,28.742652285727797,six_nations_2025_r3,empirical_event,5.0,5.0,5.0,True,False
+28,Dan Sheehan,Ireland,Hooker,1,0.0,P,True,False,False,18.0,28.93131880197774,six_nations_2025_r3,empirical_event,9.0,9.0,9.0,True,False
+31,Jac Morgan,Wales,Loose Forward,1,0.0,P,True,False,False,37.0,35.370131657158616,six_nations_2025_r3,empirical_event,18.5,18.5,18.5,True,False
+39,Dafydd Jenkins,Wales,Lock,1,0.0,P,True,False,False,13.0,27.491351372190678,six_nations_2025_r3,empirical_event,6.5,6.5,6.5,True,False
+57,Pierre Schoeman,Scotland,Prop,1,0.0,P,True,False,False,5.0,17.3442265750121,six_nations_2025_r3,empirical_event,2.5,2.5,2.5,True,False
+62,Ellis Genge,England,Prop,1,0.0,P,True,False,False,13.0,16.591646139524816,six_nations_2025_r3,empirical_event,6.5,6.5,6.5,True,False
+63,Huw Jones,Scotland,Centre,1,0.0,P,True,False,False,22.0,24.922941316386705,six_nations_2025_r3,empirical_event,11.0,11.0,11.0,True,False
+73,Marcus Smith,England,Back Three,1,0.0,P,True,False,False,20.0,31.080964179201615,six_nations_2025_r3,empirical_event,10.0,10.0,10.0,True,False
+76,Tom Willis,England,Loose Forward,1,0.0,P,True,False,False,10.0,36.929601365168644,six_nations_2025_r3,empirical_event,5.0,5.0,5.0,True,False
+78,Ollie Lawrence,England,Centre,1,0.0,P,True,False,False,17.0,24.61275314566973,six_nations_2025_r3,empirical_event,8.5,8.5,8.5,True,False
+82,Ewan Ashman,Scotland,Hooker,1,0.0,B,True,True,False,1.0,12.580676290562801,six_nations_2025_r3,empirical_event,3.0,3.0,3.0,True,False
+101,Thomas Ramos,France,Fly Half,1,0.0,P,True,False,True,36.0,37.041938591387854,six_nations_2025_r3,empirical_event,18.0,18.0,18.0,True,False
+104,Antoine Dupont,France,Scrum Half,1,0.0,P,True,False,False,90.0,33.43596213081136,six_nations_2025_r3,empirical_event,45.0,45.0,45.0,True,False
+113,Gregory Alldritt,France,Loose Forward,1,0.0,P,True,False,False,47.0,30.72647992714223,six_nations_2025_r3,empirical_event,23.5,23.5,23.5,True,False

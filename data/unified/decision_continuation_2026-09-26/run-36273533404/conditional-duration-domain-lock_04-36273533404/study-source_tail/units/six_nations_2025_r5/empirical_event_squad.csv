@@ -1,0 +1,17 @@
+id,name,team,pos,hemi,value,status,in_squad,is_sub,is_capt,actual,point_forecast,slate,engine,actual_role_supersub_points,possible_min,possible_max,role_outcome_known,source_conflict
+22,Caelan Doris,Ireland,Loose Forward,1,0.0,P,True,False,False,20.0,29.922183979200128,six_nations_2025_r5,empirical_event,10.0,10.0,10.0,True,False
+27,Dan Sheehan,Ireland,Hooker,1,0.0,P,True,False,False,84.0,25.93719579144121,six_nations_2025_r5,empirical_event,42.0,42.0,42.0,True,False
+70,Marcus Smith,England,Back Three,1,0.0,P,True,False,False,18.0,33.27803221242384,six_nations_2025_r5,empirical_event,9.0,9.0,9.0,True,False
+71,Tom Willis,England,Loose Forward,1,0.0,B,True,True,False,22.0,14.903597456729546,six_nations_2025_r5,empirical_event,66.0,66.0,66.0,True,False
+78,Jac Morgan,Wales,Loose Forward,1,0.0,P,True,False,False,24.0,31.677760202913486,six_nations_2025_r5,empirical_event,12.0,12.0,12.0,True,False
+81,Tommy Freeman,England,Centre,1,0.0,P,True,False,False,28.0,25.931014039210645,six_nations_2025_r5,empirical_event,14.0,14.0,14.0,True,False
+85,Fin Smith,England,Fly Half,1,0.0,P,True,False,False,28.0,28.06795956569654,six_nations_2025_r5,empirical_event,14.0,14.0,14.0,True,False
+86,Dafydd Jenkins,Wales,Lock,1,0.0,P,True,False,False,21.0,24.51534379552735,six_nations_2025_r5,empirical_event,10.5,10.5,10.5,True,False
+100,Thomas Ramos,France,Back Three,1,0.0,P,True,False,True,36.0,40.07632515695675,six_nations_2025_r5,empirical_event,18.0,18.0,18.0,True,False
+101,Pierre Schoeman,Scotland,Prop,1,0.0,P,True,False,False,27.0,16.26805433294686,six_nations_2025_r5,empirical_event,13.5,13.5,13.5,True,False
+102,Zander Fagerson,Scotland,Prop,1,0.0,P,True,False,False,24.0,15.25570219489199,six_nations_2025_r5,empirical_event,12.0,12.0,12.0,True,False
+108,Huw Jones,Scotland,Centre,1,0.0,P,True,False,False,15.0,22.006591826650425,six_nations_2025_r5,empirical_event,7.5,7.5,7.5,True,False
+109,Damian Penaud,France,Back Three,1,0.0,P,True,False,False,10.0,36.72852313675915,six_nations_2025_r5,empirical_event,5.0,5.0,5.0,True,False
+119,Gregory Alldritt,France,Loose Forward,1,0.0,P,True,False,False,16.0,29.472855469021503,six_nations_2025_r5,empirical_event,8.0,8.0,8.0,True,False
+124,Maxime Lucu,France,Scrum Half,1,0.0,P,True,False,False,14.0,21.64170764472659,six_nations_2025_r5,empirical_event,7.0,7.0,7.0,True,False
+133,Gregor Brown,Scotland,Lock,1,0.0,P,True,False,False,16.0,21.102453065866037,six_nations_2025_r5,empirical_event,8.0,8.0,8.0,True,False

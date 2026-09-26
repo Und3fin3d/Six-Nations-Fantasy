@@ -1,0 +1,24 @@
+{
+  "analysis_completed": true,
+  "duration_domain": "source_tail",
+  "fantasy_rows": 10,
+  "job": "lock_02",
+  "model_artifact_hashes": {
+    "conditional_duration_source_tail_v2.json": "fe6c84975686b58894715ce48d8baa95f6f78819eb176afb5d75a68c83feaede",
+    "conditional_duration_source_tail_v2.pkl.gz": "a5e9ecde1ab140070c6652780b4a4cd5ab450dacc6350195a8fb65076e1146e7",
+    "empirical_event.json": "fecc4ee915b2e35df6d34d5c9b8226299b1bff50b8d283390ef8033efe435b34",
+    "empirical_event.pkl.gz": "4569502beffa4ba0d79b1d5726fda4b1cb923c497bd9bd018132c74f03178b46",
+    "robust_empirical_event.json": "bc745a7e312e2edd0ad7e769cf4cfff5cec0ab055e8a06b1102fc7bfc2e08b04",
+    "robust_empirical_event.pkl.gz": "fcdd54f20dcac038ada3df16c7a3eaf626daa71610c884bc7191b1a5dbd7278d",
+    "v4_corrected_full_refit.json": "b127cad4836822c5df1b0330be5edaad43cfe2cc298769afc30a178c6735030a",
+    "v4_corrected_full_refit.pkl.gz": "88b1927bf3b10193167cc346e610dce1285a3df8daada03455b747f3104c11ea",
+    "v4_joint_support_control.json": "73d115b5db296cd8e87ea8dca6487362e9bda0ac54803fc116914de1522ec449",
+    "v4_joint_support_control.pkl.gz": "bef9d438c89252b680a7debae25ba19543278bd36e72df493d2da73ffbf92145"
+  },
+  "objective_completed": false,
+  "raw_rows": 224,
+  "training_rows": 114343,
+  "units": [
+    "six_nations_2025_r3"
+  ]
+}

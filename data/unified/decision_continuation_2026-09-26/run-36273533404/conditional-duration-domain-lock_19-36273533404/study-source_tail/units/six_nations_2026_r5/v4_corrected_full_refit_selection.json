@@ -1,0 +1,31 @@
+{
+  "mode": "joint",
+  "rules": {
+    "budget": "unbounded",
+    "max_nation": 4,
+    "max_hemi": null,
+    "captain_status": [
+      "P"
+    ],
+    "supersub_status": [
+      "B"
+    ]
+  },
+  "stages": [
+    {
+      "objective": 462.4727633102683,
+      "gap": 0.0,
+      "nodes": 1
+    }
+  ],
+  "final_component_objectives": [
+    391.81331262309334,
+    36.040487554724436,
+    34.61896313245048
+  ],
+  "maximum_constraint_violation": 0.0,
+  "players": 16,
+  "cost": 0.0,
+  "max_country_count": 4,
+  "max_hemisphere_count": 16
+}

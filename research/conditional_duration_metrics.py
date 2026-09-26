@@ -1,4 +1,5 @@
 import dataclasses
+import hashlib
 import json
 import os
 
@@ -14,6 +15,19 @@ from research.decision_role_policy import measure
 
 
 TARGETS = ('minutes', *STABLE_EVENTS, *EXTENDED_EVENTS)
+OUTCOME_AUDIT = 'data/unified/decision_continuation_2026-09-26/run-36272929019/outcomes/full_pool_outcomes.csv'
+OUTCOME_BLOB = '6cd79c7f10252d73d95f29a937d3dda2fe212172'
+
+
+def load_outcome_audit():
+    content = open(OUTCOME_AUDIT, 'rb').read()
+    blob = hashlib.sha1(f'blob {len(content)}\0'.encode() + content).hexdigest()
+    if blob != OUTCOME_BLOB:
+        raise ValueError('The independently reviewed actual-role outcome ledger changed')
+    frame = pd.read_csv(OUTCOME_AUDIT)
+    if len(frame) != 2138 or frame.duplicated(['slate', 'id']).any():
+        raise ValueError('The actual-role ledger does not cover the complete registered pools')
+    return frame
 
 
 def raw_measurements(unit, engine, forecasts):
@@ -39,12 +53,16 @@ def raw_measurements(unit, engine, forecasts):
     return rows
 
 
-def duration_measurements(unit, forecasts):
+def duration_measurements(unit, forecasts, *, open_tail=False):
     labels = unit['raw_labels']
     minutes = pd.to_numeric(labels.minutes, errors='coerce').to_numpy(float)
     observed = labels.available__minutes.fillna(False).to_numpy(bool) & np.isfinite(minutes)
     actual_class = np.full(len(minutes), -1)
-    actual_class[observed] = ConditionalDurationGBDT._duration_labels(minutes[observed])
+    labeler = ConditionalDurationGBDT._duration_labels
+    if open_tail:
+        from research.duration_domain_model import DurationDomainGBDT
+        labeler = DurationDomainGBDT._duration_labels
+    actual_class[observed] = labeler(minutes[observed])
     rows = []
     for index, prediction in enumerate(forecasts):
         probability = np.array(prediction.metadata['duration_probabilities'])
@@ -55,6 +73,8 @@ def duration_measurements(unit, forecasts):
                       actual_minutes=float(minutes[index]), predicted_minutes=float(prediction.minutes.mean),
                       actual_class=int(label), probability_zero=float(probability[0]),
                       probability_under_10=float(probability[:2].sum()), probability_at_least_30=float(probability[4:].sum()))
+        if open_tail:
+            record['above_original_training_domain'] = bool(observed[index] and minutes[index] > 80)
         if observed[index]:
             onehot = np.eye(10)[label]
             record['multiclass_brier'] = float(np.square(probability - onehot).sum())
@@ -64,7 +84,31 @@ def duration_measurements(unit, forecasts):
     return rows
 
 
-def select_points(unit, engine, values, directory):
+def audited_role_measurement(slate, metrics, selected, audit):
+    full = audit[audit.slate.eq(slate.name)].set_index('id').reindex(slate.pool.id)
+    if len(full) != len(slate.pool) or full.role_outcome_known.isna().any():
+        raise ValueError('Actual-role ledger is incomplete for this candidate pool')
+    if not np.allclose(full.official_points, slate.actual, rtol=0, atol=0, equal_nan=True):
+        raise ValueError('Actual-role ledger changed the original official point labels')
+    selected = selected.copy()
+    for column in ('actual_role_supersub_points', 'possible_min', 'possible_max', 'role_outcome_known', 'source_conflict'):
+        selected[column] = selected.id.map(full[column])
+    sub = selected.loc[selected.is_sub]
+    if len(sub) != 1:
+        raise ValueError('Exactly one selected super-sub is required by the outcome contract')
+    metrics['assigned_role_total'] = metrics['total']
+    metrics['assigned_role_super_sub'] = metrics['super_sub']
+    metrics['super_sub'] = sub.actual_role_supersub_points.iloc[0]
+    metrics['total'] = metrics['xv'] + metrics['captain_extra'] + metrics['super_sub']
+    metrics['unknown_role_selected'] = int(not bool(sub.role_outcome_known.iloc[0]))
+    metrics['selected_source_conflicts'] = int(selected.source_conflict.sum())
+    metrics['total_lower_role_bound'] = metrics['xv'] + metrics['captain_extra'] + sub.possible_min.iloc[0]
+    metrics['total_upper_role_bound'] = metrics['xv'] + metrics['captain_extra'] + sub.possible_max.iloc[0]
+    metrics['outcome_contract'] = 'actual_role_entry_v1'
+    return metrics, selected
+
+
+def select_points(unit, engine, values, directory, *, outcome_audit=None):
     slate = unit['slate']
     values = np.asarray(values, dtype=float)
     if values.shape != slate.actual.shape or not np.isfinite(values).all():
@@ -72,6 +116,8 @@ def select_points(unit, engine, values, directory):
     rules = SelectionRules(budget=np.inf, max_nation=4, max_hemi=None) if slate.competition == 'six_nations' else SelectionRules()
     selected, diagnostics = optimise_roles(slate.pool, values, values, values * 3, rules=rules)
     metrics, selected = measure(slate, engine, values, selected)
+    if outcome_audit is not None:
+        metrics, selected = audited_role_measurement(slate, metrics, selected, outcome_audit)
     pool = slate.pool.copy()
     pool['predicted'], pool['actual'] = values, slate.actual
     for key in KEY:
@@ -112,16 +158,17 @@ def duration_mixture_floor(conditional):
     return np.array(result)
 
 
-def floor_sensitivity(unit, forecasts_by_engine, metre_tree_weight):
+def floor_sensitivity(unit, forecasts_by_engine, metre_tree_weight,
+                      conditional_engine='conditional_duration_v1', blend_engine='p3_conditional_duration_v1'):
     if unit['slate'].competition != 'six_nations':
         return {}, []
-    conditional = forecasts_by_engine['conditional_duration_v1']
+    conditional = forecasts_by_engine[conditional_engine]
     raw_floor = duration_mixture_floor(conditional)
     empirical_floor = only_metres_points(forecasts_by_engine['robust_empirical_event'])
     alternatives, audit = {}, []
-    for engine in ('conditional_duration_v1', 'p3_conditional_duration_v1'):
+    for engine in (conditional_engine, blend_engine):
         predictions = forecasts_by_engine[engine]
-        alternative_floor = raw_floor if engine == 'conditional_duration_v1' else (
+        alternative_floor = raw_floor if engine == conditional_engine else (
             (1 - metre_tree_weight) * empirical_floor + metre_tree_weight * raw_floor)
         ordinary_floor = only_metres_points(predictions)
         means = np.array([prediction.events['metres'].mean for prediction in predictions])

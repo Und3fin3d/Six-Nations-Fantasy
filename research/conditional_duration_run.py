@@ -15,6 +15,7 @@ import pandas as pd
 
 from model.history import past_matches
 from model.unified.conditional_duration import ConditionalDurationGBDT
+from model.unified.raw_benchmark.blend import EventWeightedBlend
 from model.unified.raw_benchmark.config import EXTENDED_EVENTS, STABLE_EVENTS
 from model.unified.raw_benchmark.empirical import EmpiricalEventModel
 from model.unified.raw_benchmark.features import build_frozen_feature_frames
@@ -67,8 +68,6 @@ def fit_or_restore(name, model, frame, context, args):
 
 
 def fit_models(train, training_features, context, args):
-    from model.unified.raw_benchmark.event_weighted import EventWeightedBlend
-
     empirical = fit_or_restore('empirical_event', EmpiricalEventModel(asof=context['cutoff']), train, context, args)
     robust = fit_or_restore('robust_empirical_event', RobustEmpiricalEventModel(asof=context['cutoff']), train, context, args)
     parameters = dict(events=EVENTS, weighting='natural', pool_player_id=True, player_effects=True, native_categories=True)
@@ -82,8 +81,9 @@ def fit_models(train, training_features, context, args):
     gc.collect()
     conditional = fit_or_restore('conditional_duration_v1', ConditionalDurationGBDT(**parameters), training_features, context, args)
     configuration = json.load(open(CONFIG))
-    p3 = EventWeightedBlend(robust, direct, **configuration)
-    conditional_p3 = EventWeightedBlend(robust, conditional, **configuration)
+    weights = dict(weight_v4=configuration['default_weight_v4'], event_weights_v4=configuration['event_weights_v4'])
+    p3 = EventWeightedBlend(robust, direct, **weights)
+    conditional_p3 = EventWeightedBlend(robust, conditional, **weights)
     return dict(empirical_event=empirical, robust_empirical_event=robust,
                 v4_corrected_full_refit=direct, v4_joint_support_control=supported,
                 p3_corrected_full_refit=p3, conditional_duration_v1=conditional,
@@ -148,7 +148,7 @@ def record_unit(unit, models, configuration, candidates, store, wr, args):
     if unit['kind'] == 'fantasy':
         empirical = corrected_fantasy_points(unit, store, wr)
         fantasy_metrics.append(select_points(unit, 'empirical_fantasy_corrected', empirical, directory))
-        weight = configuration.get('event_weights', {}).get('metres', configuration.get('default_weight', .5))
+        weight = configuration['event_weights_v4'].get('metres', configuration['default_weight_v4'])
         alternatives, sensitivity = floor_sensitivity(unit, predictions, weight)
         for engine, points in alternatives.items():
             fantasy_metrics.append(select_points(unit, engine, points, directory))

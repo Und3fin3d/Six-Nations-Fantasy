@@ -34,9 +34,9 @@ def _weight(weights: dict, key: str) -> float:
     return float(weights.get(key, 0.0))
 
 
-def rubric_vector(competition: str) -> np.ndarray:
+def rubric_vector(competition: str, *, season: int | None = None) -> np.ndarray:
     """Return the ordered point-weight vector for ``competition``."""
-    scorer = scorer_for(competition)
+    scorer = scorer_for(competition, season=season)
     w = dict(scorer.weights)
     vec = {event: 0.0 for event in RUBRIC_EVENTS}
     for event in RUBRIC_EVENTS:

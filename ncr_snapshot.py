@@ -29,6 +29,7 @@ from __future__ import annotations
 import argparse
 import csv
 import json
+import hashlib
 import os
 import re
 import urllib.request
@@ -130,6 +131,36 @@ def carryover_gameday(
     return None
 
 
+def write_snapshot_receipt(gw, results_gw):
+    files = ["ncr_players.csv", "ncr_fixtures.csv", f"feeds/players_gw{gw}.json", "feeds/fixtures_latest.json"]
+    results = [f"feeds/players_gw{results_gw}.json", "feeds/fixtures_latest.json"]
+    payload = {
+        "round": gw, "fetched_at": datetime.now(timezone.utc).isoformat(),
+        "files": {name: hashlib.sha256((Path("data/ncr") / name).read_bytes()).hexdigest() for name in files},
+        "results_round": results_gw,
+        "results_files": {name: hashlib.sha256((Path("data/ncr") / name).read_bytes()).hexdigest() for name in results},
+    }
+    Path("data/ncr/ncr_snapshot.manifest.json").write_text(json.dumps(payload, indent=2, sort_keys=True) + "\n")
+
+
+def report_snapshot(rows, players, requested_gw, results_gw, archive):
+    cur = sorted({r["gameday"] for r in rows if int(float(r["iscurrent"])) == 1})
+    named = sum(1 for p in players if p.get("player_status") in ("P", "B"))
+    starters = sum(1 for p in players if p.get("player_status") == "P")
+    gd_id = {str(int(float(p["gameday_id"]))) for p in players}
+    print(f"players: {len(players)}   fixtures: {len(rows)}   current gameday: {cur}")
+    print(f"team sheets: {starters} starters + {named - starters} bench = {named} named")
+    sheet_state = (
+        "NOT POSTED" if named == 0 else
+        "PARTIAL" if named < 250 else
+        "POSTED"
+    )
+    print(f"current player catalogue: GW{requested_gw}   gameday_id: {sorted(gd_id)}")
+    print(f"GW{requested_gw} team sheets: {sheet_state}")
+    print(f"latest completed fantasy points: GW{results_gw} → {FEEDS / 'players_latest.json'}")
+    print(f"archived raw feed → {archive}")
+
+
 def main() -> int:
     ap = argparse.ArgumentParser(description=__doc__,
                                  formatter_class=argparse.RawDescriptionHelpFormatter)
@@ -190,21 +221,9 @@ def main() -> int:
         w = csv.DictWriter(fh, fieldnames=list(rows[0]))
         w.writeheader(); w.writerows(rows)
 
-    cur = sorted({r["gameday"] for r in rows if int(float(r["iscurrent"])) == 1})
-    named = sum(1 for p in players if p.get("player_status") in ("P", "B"))
-    starters = sum(1 for p in players if p.get("player_status") == "P")
-    gd_id = {str(int(float(p["gameday_id"]))) for p in players}
-    print(f"players: {len(players)}   fixtures: {len(rows)}   current gameday: {cur}")
-    print(f"team sheets: {starters} starters + {named - starters} bench = {named} named")
-    sheet_state = (
-        "NOT POSTED" if named == 0 else
-        "PARTIAL" if named < 250 else
-        "POSTED"
-    )
-    print(f"current player catalogue: GW{requested_gw}   gameday_id: {sorted(gd_id)}")
-    print(f"GW{requested_gw} team sheets: {sheet_state}")
-    print(f"latest completed fantasy points: GW{results_gw} → {FEEDS / 'players_latest.json'}")
-    print(f"archived raw feed → {archive}")
+    (FEEDS / "fixtures_latest.json").write_bytes(raw_fixtures)
+    write_snapshot_receipt(requested_gw, results_gw)
+    report_snapshot(rows, players, requested_gw, results_gw, archive)
     return 0
 
 

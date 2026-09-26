@@ -1,0 +1,17 @@
+id,name,team,hemi,pos,value,sel,status,opp,home,n_hist,rp_min,wr_margin,weather_att,per80,exp_min,starter_exp,supersub_exp,in_squad,is_sub,is_capt,role,proj,po
+246851,Toms Rapetti,Argentina,2,Prop,3.0,0.2,P,Wales,True,4,0,20.2,1.0,15.97,72.0,15.86,7.19,True,False,False,Starter,15.86,0
+196773,Pierre Schoeman,Scotland,1,Prop,6.0,5.7,P,South Africa,False,55,3017,-25.7,1.0,19.15,59.6,15.74,7.13,True,False,False,Starter,15.74,0
+141860,Ewan Ashman,Scotland,1,Hooker,5.5,2.7,P,South Africa,False,37,2562,-25.7,1.0,26.09,56.3,20.25,9.17,True,False,False,Starter,20.25,1
+238928,Warner Dearns,Japan,2,Lock,6.5,14.2,P,Ireland,True,33,2722,-19.8,0.998,16.2,78.3,17.49,7.93,True,False,False,Starter,17.49,2
+173801,Alex Coles,England,1,Lock,5.0,4.2,P,Fiji,False,20,3120,2.8,1.0,16.94,72.2,16.88,7.65,True,False,False,Starter,16.88,2
+179379,Ardie Savea,New Zealand,2,Loose Forward,8.5,50.2,P,Italy,True,63,3403,33.5,0.962,25.77,78.9,27.37,12.71,True,False,False,Starter,27.37,3
+123016,Jac Morgan,Wales,1,Loose Forward,7.0,17.3,P,Argentina,False,32,2339,-20.2,1.0,25.36,73.3,25.19,11.62,True,False,False,Starter,25.19,3
+235266,Joaquin Oviedo,Argentina,2,Loose Forward,5.5,3.1,P,Wales,True,24,2854,20.2,1.0,25.76,69.7,24.39,11.22,True,False,False,Starter,24.39,3
+229307,Cam Roigard,New Zealand,2,Scrum Half,8.0,35.2,P,Italy,True,18,2081,33.5,0.962,35.44,65.5,30.97,14.51,True,False,True,CAPTAIN,61.94,4
+190344,Matthieu Jalibert,France,1,Fly Half,8.0,21.8,P,Australia,False,35,4126,4.9,1.0,30.63,75.5,30.86,14.45,True,False,False,Starter,30.86,5
+250067,Fabien Brau-Boirie,France,1,Centre,6.0,3.8,P,Australia,False,3,2419,4.9,1.0,24.18,70.7,23.33,10.69,True,False,False,Starter,23.33,6
+172351,Stuart McCloskey,Ireland,1,Centre,6.5,13.4,P,Japan,False,26,2874,19.8,0.998,22.76,70.6,22.05,10.05,True,False,False,Starter,22.05,6
+146220,Will Jordan,New Zealand,2,Back Three,8.5,28.9,P,Italy,True,55,2032,33.5,0.962,28.11,78.6,29.56,13.81,True,False,False,Starter,29.56,7
+244532,Theo Attissogbe,France,1,Back Three,6.5,8.2,P,Australia,False,14,3569,4.9,1.0,23.45,80.0,25.4,11.73,True,False,False,Starter,25.4,7
+140494,Jiuta Wainiqolo,Fiji,2,Back Three,5.5,18.4,P,England,True,19,3482,-2.8,1.0,24.56,74.5,24.82,11.43,True,False,False,Starter,24.82,7
+136875,Gianmarco Lucchesi,Italy,1,Hooker,3.5,0.4,B,New Zealand,False,32,0,-33.5,0.962,22.73,27.6,8.6,23.55,True,True,False,SUPER SUB,23.55,1

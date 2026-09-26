@@ -27,6 +27,7 @@ from model.rp_rates import _norm, _season_end_year
 from model.unified.benchmark_v2 import _group_metrics
 from model.unified.data import ROOT
 from model.unified.labels import build_fantasy_labels
+from model.unified.scoring import SixNationsScorer
 from model.unified.v3.cohorts import match_labels_to_store
 
 DATA = ROOT / "data"
@@ -62,14 +63,17 @@ def event_rates(g: pd.DataFrame):
     return rates, wm
 
 
-def to_points(rates: dict, tryw: float) -> tuple[float, float, float]:
-    att = rates["tries"] * tryw + sum(rates[e] * v for e, v in ATT_EVENTS.items())
+def to_points(rates: dict, tryw: float, *, season: int | None = None) -> tuple[float, float, float]:
+    weights = {**ATT_EVENTS, "drop_goals_converted": SixNationsScorer(season=season).weights["drop_goals_converted"]}
+    att = rates["tries"] * tryw + sum(rates[e] * v for e, v in weights.items())
     dfn = sum(rates[e] * v for e, v in DEF_EVENTS.items())
     dsc = sum(rates[e] * v for e, v in DSC_EVENTS.items())
     return att, dfn, dsc
 
 
-def profiles(hist: pd.DataFrame, club: pd.DataFrame, tryw_by_pid: dict) -> dict:
+def profiles(
+    hist: pd.DataFrame, club: pd.DataFrame, tryw_by_pid: dict, *, season: int | None = None,
+) -> dict:
     club_by_pid = {pid: g for pid, g in club.groupby("player_id")} if len(club) else {}
     out = {}
     for pid, g in hist.groupby("player_id"):
@@ -77,12 +81,12 @@ def profiles(hist: pd.DataFrame, club: pd.DataFrame, tryw_by_pid: dict) -> dict:
         if rates is None:
             continue
         tryw = tryw_by_pid.get(pid, 12.5)
-        att, dfn, dsc = to_points(rates, tryw)
+        att, dfn, dsc = to_points(rates, tryw, season=season)
         cg = club_by_pid.get(pid)
         if cg is not None:
             crates, cwm = event_rates(cg)
             if crates is not None:
-                catt, cdfn, cdsc = to_points(crates, tryw)
+                catt, cdfn, cdsc = to_points(crates, tryw, season=season)
                 cw = CLUB_CONF * cwm
                 att = (wm * att + cw * catt * CLUB_ATT_CAL) / (wm + cw)
                 dfn = (wm * dfn + cw * cdfn * CLUB_DEF_CAL) / (wm + cw)
@@ -184,7 +188,7 @@ def main() -> None:
             tryw_by_pid[str(r.player_id)] = try_weight(r.is_forward)
         hist["player_id"] = hist["player_id"].astype(str)
         club["player_id"] = club["player_id"].astype(str)
-        prof = profiles(hist, club, tryw_by_pid)
+        prof = profiles(hist, club, tryw_by_pid, season=year)
         names = hist.groupby("player_id")["player_name"].first().to_dict()
         fac = calibrate_rp(rp_table, prof, names, tryw_by_pid)
 

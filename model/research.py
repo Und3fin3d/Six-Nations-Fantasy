@@ -2233,7 +2233,9 @@ def _prior_player_variance(
     df: pd.DataFrame, train_idx: np.ndarray, test_idx: np.ndarray
 ) -> tuple[np.ndarray, np.ndarray]:
     train = df.iloc[train_idx].copy()
-    target = _bench_target_points(train)
+    official = train["official_pts"].to_numpy(float)
+    known = (train["has_label"].astype(bool) & train["is_modern"].astype(bool)).to_numpy() & np.isfinite(official)
+    target = np.where(known, official, train["recon_pts"].to_numpy(float))
     train = train.assign(_target_for_var=target)
     player_std = train.groupby("player_id")["_target_for_var"].std()
     player_n = train.groupby("player_id")["_target_for_var"].size()

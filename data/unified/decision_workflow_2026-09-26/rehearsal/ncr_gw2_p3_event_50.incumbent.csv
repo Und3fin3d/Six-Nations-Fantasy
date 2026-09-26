@@ -1,0 +1,263 @@
+id,name,team,hemi,pos,value,sel,status,opp,home,n_hist,rp_min,wr_margin,weather_att,per80,exp_min,starter_exp,supersub_exp
+140494,Jiuta Wainiqolo,Fiji,2,Back Three,5.5,18.4,P,England,True,19,3482,-2.8,1.0,24.56,74.5,24.82,11.43
+229307,Cam Roigard,New Zealand,2,Scrum Half,8.0,35.2,P,Italy,True,18,2081,33.5,0.962,35.44,65.5,30.97,14.51
+146480,Sione Tuipulotu,Scotland,1,Centre,7.5,9.3,P,South Africa,False,44,3873,-25.7,1.0,14.65,76.1,15.38,6.97
+123016,Jac Morgan,Wales,1,Loose Forward,7.0,17.3,P,Argentina,False,32,2339,-20.2,1.0,25.36,73.3,25.19,11.62
+244532,Theo Attissogbe,France,1,Back Three,6.5,8.2,P,Australia,False,14,3569,4.9,1.0,23.45,80.0,25.4,11.73
+180778,Kyle Rowe,Scotland,1,Back Three,5.5,1.3,P,South Africa,False,20,2907,-25.7,1.0,14.91,76.0,15.63,7.08
+250067,Fabien Brau-Boirie,France,1,Centre,6.0,3.8,P,Australia,False,3,2419,4.9,1.0,24.18,70.7,23.33,10.69
+190344,Matthieu Jalibert,France,1,Fly Half,8.0,21.8,P,Australia,False,35,4126,4.9,1.0,30.63,75.5,30.86,14.45
+162344,Julian Montoya,Argentina,2,Hooker,7.5,9.0,P,Wales,True,60,3073,20.2,1.0,17.23,67.2,15.97,7.23
+180443,Damian Willemse,South Africa,2,Back Three,5.5,8.1,P,Scotland,True,41,2695,25.7,1.0,18.36,74.0,18.74,8.49
+142873,Ben Gunter,Japan,2,Loose Forward,4.5,10.7,P,Ireland,True,19,2235,-19.8,0.998,19.9,69.9,19.18,8.69
+146220,Will Jordan,New Zealand,2,Back Three,8.5,28.9,P,Italy,True,55,2032,33.5,0.962,28.11,78.6,29.56,13.81
+245050,Max Jorgensen,Australia,2,Back Three,7.5,13.4,P,France,True,21,2330,-4.9,1.0,17.4,78.8,18.91,8.57
+229505,Lucio Cinti,Argentina,2,Centre,6.0,1.4,P,Wales,True,42,2494,20.2,1.0,17.67,72.6,17.68,8.01
+187820,Rory Darge,Scotland,1,Loose Forward,6.5,4.7,P,South Africa,False,40,3091,-25.7,1.0,23.93,73.3,23.87,10.96
+104346,Tevita Ikanivere,Fiji,2,Hooker,5.0,3.7,P,England,True,32,2226,-2.8,1.0,20.2,65.3,18.19,8.24
+207343,Grant Williams,South Africa,2,Scrum Half,7.0,5.1,B,Scotland,True,29,1629,25.7,1.0,28.85,19.8,7.89,21.45
+105748,Jack Conan,Ireland,1,Loose Forward,7.0,12.8,P,Japan,False,49,2728,19.8,0.998,21.55,71.1,21.09,9.57
+109816,Rory Hutchinson,Scotland,1,Centre,4.0,1.1,P,South Africa,False,8,3342,-25.7,1.0,15.01,74.3,15.38,6.97
+239638,Takuro Matsunaga,Japan,2,Back Three,3.5,1.4,P,Ireland,True,6,3040,-19.8,0.998,9.72,65.2,8.75,3.96
+243815,Marko Gazzotti,France,1,Loose Forward,4.0,3.3,P,Australia,False,2,2538,4.9,1.0,18.31,80.0,20.2,9.15
+179379,Ardie Savea,New Zealand,2,Loose Forward,8.5,50.2,P,Italy,True,63,3403,33.5,0.962,25.77,78.9,27.37,12.71
+214439,Rob Valetini,Australia,2,Loose Forward,6.5,8.0,P,France,True,62,3062,-4.9,1.0,15.19,70.4,14.75,6.68
+128023,Salesi Rayasi,Fiji,2,Back Three,6.5,10.3,P,England,True,5,3122,-2.8,1.0,18.69,74.2,19.14,8.67
+165007,Ellis Genge,England,1,Prop,5.5,8.9,P,Fiji,False,69,2845,2.8,1.0,15.83,56.4,12.31,5.58
+178222,Jock Campbell,Australia,2,Back Three,4.0,2.7,B,France,True,8,2443,-4.9,1.0,13.47,31.6,5.87,15.95
+185160,Codie Taylor,New Zealand,2,Hooker,7.5,4.3,P,Italy,True,57,1887,33.5,0.962,20.69,54.7,15.62,7.08
+240621,Dylan Pietsch,Australia,2,Back Three,6.5,2.0,P,France,True,12,1690,-4.9,1.0,19.32,66.4,17.69,8.01
+179604,Josua Tuisova,Fiji,2,Centre,5.5,12.4,P,England,True,21,3187,-2.8,1.0,17.22,77.3,18.35,8.32
+235266,Joaquin Oviedo,Argentina,2,Loose Forward,5.5,3.1,P,Wales,True,24,2854,20.2,1.0,25.76,69.7,24.39,11.22
+245055,Elia Canakaivata,Fiji,2,Loose Forward,4.0,2.2,B,England,True,21,2070,-2.8,1.0,17.46,16.0,3.86,10.48
+172351,Stuart McCloskey,Ireland,1,Centre,6.5,13.4,P,Japan,False,26,2874,19.8,0.998,22.76,70.6,22.05,10.05
+137626,Fin Smith,England,1,Fly Half,5.0,4.5,P,Fiji,False,23,3884,2.8,1.0,24.33,73.4,24.29,11.17
+197335,Lorenzo Cannone,Italy,1,Loose Forward,6.0,8.0,P,New Zealand,False,39,2719,-33.5,0.962,19.41,70.0,18.75,8.5
+137453,Josh Adams,Wales,1,Back Three,4.5,7.0,P,Argentina,False,47,2261,-20.2,1.0,10.35,75.8,10.82,4.9
+242264,Joseph-Aukuso Suaalii,Australia,2,Centre,7.5,9.0,P,France,True,18,1147,-4.9,1.0,15.25,74.3,15.63,7.08
+238928,Warner Dearns,Japan,2,Lock,6.5,14.2,P,Ireland,True,33,2722,-19.8,0.998,16.2,78.3,17.49,7.93
+136190,Luke Jacobson,New Zealand,2,Loose Forward,4.0,2.9,P,Italy,True,24,2773,33.5,0.962,16.29,74.6,16.76,7.6
+110905,Ben-Jason Dixon,South Africa,2,Loose Forward,4.0,0.1,B,Scotland,True,8,2620,25.7,1.0,13.69,31.7,5.99,16.28
+209612,Ben Earl,England,1,Loose Forward,8.0,14.0,P,Fiji,False,55,3720,2.8,1.0,20.51,74.2,20.99,9.52
+130487,Nacho Brex,Italy,1,Centre,6.0,4.2,P,New Zealand,False,53,0,-33.5,0.962,10.76,75.1,11.14,5.05
+240799,Josh Canham,Australia,2,Lock,4.5,3.1,P,France,True,5,1759,-4.9,1.0,15.13,58.0,12.1,5.48
+206415,Mamoru Harada,Japan,2,Hooker,4.0,1.3,P,Ireland,True,13,1482,-19.8,0.998,19.86,60.6,16.59,7.52
+169055,Jordie Barrett,New Zealand,2,Centre,8.0,11.9,P,Italy,True,62,3072,33.5,0.962,22.46,70.7,21.8,9.93
+202239,Tomas Albornoz,Argentina,2,Fly Half,7.0,5.9,P,Wales,True,26,2612,20.2,1.0,28.33,64.7,24.86,11.46
+142211,George Martin,England,1,Lock,4.0,6.4,P,Fiji,False,23,1448,2.8,1.0,14.66,68.9,13.94,6.32
+219485,Ryan Lonergan,Australia,2,Scrum Half,4.0,1.6,P,France,True,8,2520,-4.9,1.0,11.36,46.2,7.23,3.28
+229297,Ruben Love,New Zealand,2,Fly Half,5.0,17.3,P,Italy,True,6,2402,33.5,0.962,21.91,72.0,21.68,9.86
+188103,Pita Gus Sowakula,Fiji,2,Loose Forward,4.0,1.8,B,England,True,6,0,-2.8,1.0,14.63,15.0,3.02,8.22
+236602,Tommaso di Bartolomeo,Italy,1,Hooker,3.5,3.8,P,New Zealand,False,11,1743,-33.5,0.962,24.53,43.9,14.84,6.72
+229557,Tommaso Menoncello,Italy,1,Centre,8.0,43.1,P,New Zealand,False,40,3214,-33.5,0.962,17.24,78.2,18.59,8.42
+141860,Ewan Ashman,Scotland,1,Hooker,5.5,2.7,P,South Africa,False,37,2562,-25.7,1.0,26.09,56.3,20.25,9.17
+173801,Alex Coles,England,1,Lock,5.0,4.2,P,Fiji,False,20,3120,2.8,1.0,16.94,72.2,16.88,7.65
+156253,Paolo Garbisi,Italy,1,Fly Half,7.0,5.1,P,New Zealand,False,53,3199,-33.5,0.962,13.7,78.2,14.77,6.69
+132322,Killian Tixeront,France,1,Loose Forward,4.0,0.2,B,Australia,False,5,3460,4.9,1.0,15.07,21.8,4.54,12.34
+119132,Aaron Wainwright,Wales,1,Loose Forward,6.5,5.6,P,Argentina,False,46,2728,-20.2,1.0,18.38,67.1,17.01,7.71
+222388,Yoram Moefana,France,1,Centre,6.5,11.0,P,Australia,False,40,4053,4.9,1.0,16.18,75.9,16.94,7.67
+196773,Pierre Schoeman,Scotland,1,Prop,6.0,5.7,P,South Africa,False,55,3017,-25.7,1.0,19.15,59.6,15.74,7.13
+210801,Scott Cummings,Scotland,1,Lock,6.0,3.1,P,South Africa,False,42,2903,-25.7,1.0,13.63,71.6,13.46,6.1
+100043,Maxime Lucu,France,1,Scrum Half,6.5,16.6,P,Australia,False,34,4035,4.9,1.0,17.67,68.1,16.61,7.53
+229303,Sam Darry,New Zealand,2,Lock,5.5,2.9,P,Italy,True,10,2202,33.5,0.962,15.47,68.8,14.68,6.65
+133163,Tomos Williams,Wales,1,Scrum Half,5.5,4.5,P,Argentina,False,55,2970,-20.2,1.0,12.67,71.0,12.41,5.63
+159599,Matt Fagerson,Scotland,1,Loose Forward,5.5,2.5,P,South Africa,False,59,3190,-25.7,1.0,19.81,75.2,20.56,9.31
+119955,Rhys Carre,Wales,1,Prop,4.5,28.7,P,Argentina,False,20,2337,-20.2,1.0,17.79,47.1,11.56,5.24
+210952,Tate McDermott,Australia,2,Scrum Half,4.0,0.9,B,France,True,51,1665,-4.9,1.0,17.77,30.3,7.42,20.17
+202316,Frank Lomani,Fiji,2,Scrum Half,3.5,2.2,B,England,True,30,1315,-2.8,1.0,15.53,32.7,7.01,19.04
+196669,Zander Fagerson,Scotland,1,Prop,6.5,1.4,P,South Africa,False,52,2641,-25.7,1.0,16.24,62.0,13.88,6.29
+113000,Jack Dempsey,Scotland,1,Loose Forward,6.5,5.0,P,South Africa,False,34,2639,-25.7,1.0,20.62,69.4,19.74,8.94
+103821,Eroni Mawi,Fiji,2,Prop,5.0,3.3,P,England,True,38,2010,-2.8,1.0,12.57,56.4,9.78,4.43
+182760,Mayco Vivas,Argentina,2,Prop,4.5,3.4,B,Wales,True,33,893,20.2,1.0,10.08,21.5,2.99,8.13
+240478,Gregor Hiddleston,Scotland,1,Hooker,4.0,0.2,B,South Africa,False,1,1610,-25.7,1.0,28.15,20.0,7.77,21.11
+182170,Ryan Elias,Wales,1,Hooker,4.0,0.2,B,Argentina,False,35,1900,-20.2,1.0,17.43,25.6,6.15,16.71
+246851,Toms Rapetti,Argentina,2,Prop,3.0,0.2,P,Wales,True,4,0,20.2,1.0,15.97,72.0,15.86,7.19
+233237,Immanuel Feyi-Waboso,England,1,Back Three,6.5,7.0,P,Fiji,False,15,2449,2.8,1.0,21.72,74.6,22.19,10.12
+190708,Harry Wilson,Australia,2,Loose Forward,6.0,6.4,P,France,True,37,512,-4.9,1.0,17.15,76.1,17.99,8.15
+244767,Oscar Jegou,France,1,Loose Forward,6.0,4.5,P,Australia,False,14,2951,4.9,1.0,16.97,76.0,17.78,8.06
+165591,Mateo Carreras,Argentina,2,Back Three,5.0,5.9,P,Wales,True,34,2828,20.2,1.0,23.64,77.1,24.74,11.39
+246824,Zac Porthen,South Africa,2,Prop,3.0,0.7,B,Scotland,True,4,0,25.7,1.0,13.72,30.6,5.79,15.74
+102468,Ethan de Groot,New Zealand,2,Prop,7.0,11.9,P,Italy,True,41,2056,33.5,0.962,12.28,46.6,7.9,3.58
+144635,Ollie Chessum,England,1,Lock,6.5,29.4,P,Fiji,False,42,0,2.8,1.0,12.9,70.7,12.58,5.7
+197546,Joe Hawkins,Wales,1,Centre,6.0,0.3,P,Argentina,False,12,2258,-20.2,1.0,9.43,80.0,10.4,4.71
+128750,Andrea Zambonin,Italy,1,Lock,5.5,13.0,P,New Zealand,False,19,3021,-33.5,0.962,13.84,63.9,12.19,5.52
+152990,Temo Mayanavanua,Fiji,2,Lock,5.0,2.4,B,England,True,35,1968,-2.8,1.0,11.02,20.4,3.09,8.41
+222920,Gregor Brown,Scotland,1,Lock,4.5,0.5,P,South Africa,False,19,1631,-25.7,1.0,19.65,58.5,15.85,7.18
+171003,Pieter-Steph du Toit,South Africa,2,Loose Forward,8.5,16.8,P,Scotland,True,39,1261,25.7,1.0,17.39,78.1,18.75,8.49
+110910,Jesse Kriel,South Africa,2,Centre,7.0,7.8,P,Scotland,True,44,2850,25.7,1.0,18.62,79.3,20.36,9.23
+222623,Tom Curry,England,1,Loose Forward,6.0,5.8,B,Fiji,False,51,2044,2.8,1.0,17.38,30.3,7.25,19.72
+212902,Dewi Lake,Wales,1,Hooker,6.0,7.1,P,Argentina,False,32,1787,-20.2,1.0,23.17,60.3,19.27,8.73
+160801,Jamie George,England,1,Hooker,5.5,5.7,P,Fiji,False,62,2578,2.8,1.0,17.42,59.6,14.31,6.49
+146815,Angus Bell,Australia,2,Prop,7.0,20.8,P,France,True,49,1772,-4.9,1.0,20.71,53.3,15.23,6.9
+135572,Jack Cornelsen,Japan,2,Lock,5.5,4.8,P,Ireland,True,30,2948,-19.8,0.998,14.96,77.5,16.0,7.25
+246864,Isaiah Armstrong-Ravula,Fiji,2,Fly Half,5.0,0.5,B,England,True,19,0,-2.8,1.0,10.33,9.5,1.35,3.66
+188057,Ben White,Scotland,1,Scrum Half,4.5,4.5,P,South Africa,False,40,2829,-25.7,1.0,15.43,62.0,13.21,5.98
+243190,Blair Murray,Wales,1,Back Three,4.5,8.9,P,Argentina,False,17,2296,-20.2,1.0,11.41,78.6,12.38,5.61
+251359,Yuya Hirose,Japan,2,Centre,4.0,0.5,P,Ireland,True,6,1653,-19.8,0.998,10.15,80.0,11.2,5.07
+233260,Shuhei Takeuchi,Japan,2,Prop,4.0,1.7,P,Ireland,True,25,1749,-19.8,0.998,17.68,60.0,14.64,6.63
+131550,Takato Okabe,Japan,2,Prop,3.0,3.6,P,Ireland,True,9,2164,-19.8,0.998,12.62,59.5,10.35,4.69
+237803,Kalaveti Ravouvou,Fiji,2,Back Three,6.5,2.4,P,England,True,16,3016,-2.8,1.0,21.07,77.2,22.29,10.17
+193134,Nick Timoney,Ireland,1,Loose Forward,5.0,4.9,P,Japan,False,12,3532,19.8,0.998,21.72,62.7,18.78,8.51
+103703,Harry Hockings,Japan,2,Lock,4.5,1.3,P,Ireland,True,3,2967,-19.8,0.998,17.37,59.0,14.14,6.41
+189190,Maxime Lamothe,France,1,Hooker,4.5,6.4,B,Australia,False,4,3426,4.9,1.0,18.85,25.9,6.72,18.28
+107059,Marco Riccioni,Italy,1,Prop,3.5,6.9,P,New Zealand,False,27,2091,-33.5,0.962,13.7,43.4,8.21,3.72
+255396,Malik Faissal,Italy,1,Back Three,3.5,2.6,P,New Zealand,False,1,1214,-33.5,0.962,13.85,80.0,15.29,6.93
+111475,Josh Lord,New Zealand,2,Lock,6.0,4.1,B,Italy,True,13,1714,33.5,0.962,13.45,31.3,5.82,15.81
+120191,Michele Lamaro,Italy,1,Loose Forward,6.0,2.4,P,New Zealand,False,55,3001,-33.5,0.962,15.21,69.8,14.64,6.63
+225264,Ruan Nortje,South Africa,2,Lock,6.0,6.0,P,Scotland,True,19,2807,25.7,1.0,10.51,72.6,10.52,4.77
+177559,Alex Mitchell,England,1,Scrum Half,5.5,1.1,B,Fiji,False,41,3128,2.8,1.0,15.38,15.1,3.21,8.73
+140735,Naoto Saito,Japan,2,Scrum Half,4.5,1.3,P,Ireland,True,28,1367,-19.8,0.998,7.9,67.3,7.33,3.32
+224426,Tom OToole,Ireland,1,Prop,4.0,4.9,P,Japan,False,22,2335,19.8,0.998,12.96,57.7,10.31,4.67
+251673,Ryunosuke Ito,Japan,2,Fly Half,4.0,0.5,P,Ireland,True,1,178,-19.8,0.998,13.22,80.0,14.59,6.61
+144570,Jimmy OBrien,Ireland,1,Back Three,4.0,0.5,P,Japan,False,12,2892,19.8,0.998,16.34,75.4,16.99,7.7
+251199,Hayate Era,Japan,2,Hooker,3.5,0.2,B,Ireland,True,8,1099,-19.8,0.998,25.38,23.0,8.05,21.91
+252801,Kazuma Ueda,Japan,2,Back Three,3.5,0.3,P,Ireland,True,4,1751,-19.8,0.998,12.17,80.0,13.42,6.08
+185293,Len Ikitau,Australia,2,Centre,6.5,7.6,P,France,True,52,2980,-4.9,1.0,15.78,74.9,16.29,7.38
+117823,Matias Alemanno,Argentina,2,Lock,6.0,2.2,P,Wales,True,39,2411,20.2,1.0,11.08,61.6,9.4,4.26
+127095,Santiago Grondona,Argentina,2,Loose Forward,5.5,1.0,P,Wales,True,28,1689,20.2,1.0,12.96,63.0,11.25,5.1
+229857,Jeremy Williams,Australia,2,Lock,5.5,6.8,P,France,True,26,2519,-4.9,1.0,12.76,69.0,12.13,5.5
+203381,James Ryan,Ireland,1,Lock,5.5,5.6,P,Japan,False,59,2829,19.8,0.998,8.72,62.6,7.53,3.41
+120076,Michael Leitch,Japan,2,Loose Forward,5.0,0.5,B,Ireland,True,28,2470,-19.8,0.998,19.32,29.3,7.82,21.25
+195298,Jamie Dobie,Scotland,1,Scrum Half,5.0,4.1,P,South Africa,False,21,2165,-25.7,1.0,16.59,72.3,16.54,7.5
+243508,Tom Jordan,Scotland,1,Centre,4.5,3.0,B,South Africa,False,19,3567,-25.7,1.0,15.03,14.1,2.92,7.94
+156422,Josh Nasser,Australia,2,Hooker,4.0,3.8,P,France,True,13,945,-4.9,1.0,22.2,52.4,16.03,7.26
+202570,Tom Staniforth,France,1,Lock,3.5,4.9,B,Australia,False,1,2015,4.9,1.0,14.19,22.3,4.37,11.88
+196853,Thomas Clarkson,Ireland,1,Prop,3.5,0.3,P,Japan,False,15,0,19.8,0.998,12.35,53.5,9.12,4.13
+229690,Jan-Hendrik Wessels,South Africa,2,Prop,3.5,1.0,B,Scotland,True,11,1657,25.7,1.0,14.52,21.9,4.38,11.91
+143492,Damian McKenzie,New Zealand,2,Fly Half,8.5,11.9,P,Italy,True,53,2888,33.5,0.962,29.58,77.7,30.69,14.37
+129616,Fraser McReight,Australia,2,Loose Forward,7.0,19.8,P,France,True,40,3080,-4.9,1.0,19.86,75.9,20.79,9.42
+134796,Joe Heyes,England,1,Prop,6.5,2.9,P,Fiji,False,23,3006,2.8,1.0,13.42,61.4,11.37,5.15
+189982,Santiago Carreras,Argentina,2,Back Three,6.5,13.9,P,Wales,True,62,3844,20.2,1.0,19.34,69.9,18.66,8.45
+110170,Kyle Steyn,Scotland,1,Back Three,6.5,12.3,P,South Africa,False,33,3388,-25.7,1.0,17.98,74.3,18.43,8.35
+241794,Wallace Sititi,New Zealand,2,Loose Forward,6.5,4.8,P,Italy,True,20,1343,33.5,0.962,24.64,70.9,23.78,10.92
+118531,Ronan Kelleher,Ireland,1,Hooker,6.0,1.1,P,Japan,False,54,1820,19.8,0.998,20.11,56.9,15.78,7.15
+143048,Allan Alaalatoa,Australia,2,Prop,5.5,4.9,P,France,True,52,1490,-4.9,1.0,16.15,53.8,11.99,5.43
+226250,Isoa Nasilasila,Fiji,2,Lock,4.5,3.6,P,England,True,31,2534,-2.8,1.0,8.36,72.1,8.32,3.77
+189326,Marcus Smith,England,1,Fly Half,4.5,2.2,P,Fiji,False,60,3883,2.8,1.0,22.38,76.0,23.21,10.63
+178772,Gonzalo Garcia,Argentina,2,Scrum Half,4.0,1.8,P,Wales,True,18,1537,20.2,1.0,12.63,54.1,9.43,4.27
+108021,Jefferson Poirot,France,1,Prop,4.0,2.7,B,Australia,False,1,2912,4.9,1.0,14.37,24.2,4.79,13.02
+123723,Danilo Fischetti,Italy,1,Prop,5.5,15.7,P,New Zealand,False,59,2483,-33.5,0.962,17.68,56.1,13.69,6.21
+136947,Brandon Paenga-Amosa,Australia,2,Hooker,4.0,0.3,B,France,True,25,1564,-4.9,1.0,18.19,20.2,5.07,13.78
+239229,Hugo Auradou,France,1,Lock,4.0,4.0,B,Australia,False,13,3206,4.9,1.0,9.62,17.5,2.33,6.33
+144545,Ben Carter,Wales,1,Lock,4.0,1.0,P,Argentina,False,20,2563,-20.2,1.0,17.32,64.3,15.36,6.96
+166930,Peni Ravai Kovekalou,Fiji,2,Prop,3.5,0.5,B,England,True,23,0,-2.8,1.0,12.94,27.4,4.88,13.28
+208272,Niccolo Cannone,Italy,1,Lock,6.5,7.7,P,New Zealand,False,59,2924,-33.5,0.962,14.91,72.0,14.82,6.71
+200003,Pablo Matera,Argentina,2,Loose Forward,6.5,11.6,B,Wales,True,57,2413,20.2,1.0,16.49,21.9,4.98,13.53
+214124,James Botham,Wales,1,Loose Forward,6.0,0.3,P,Argentina,False,22,1565,-20.2,1.0,21.51,73.4,21.67,9.86
+215963,Guido Petti,Argentina,2,Lock,5.5,4.1,P,Wales,True,46,0,20.2,1.0,9.69,69.1,9.24,4.19
+110319,Nicky Smith,Wales,1,Prop,4.5,0.5,B,Argentina,False,29,2646,-20.2,1.0,14.92,33.1,6.81,18.52
+113765,Peceli Yato,Fiji,2,Loose Forward,4.0,0.4,P,England,True,6,2567,-2.8,1.0,17.15,64.2,15.18,6.88
+109648,Seb Atkinson,England,1,Centre,4.0,1.1,P,Fiji,False,5,0,2.8,1.0,15.29,77.2,16.29,7.38
+251438,Keijiro Tamefusa,Japan,2,Prop,3.0,0.1,B,Ireland,True,22,1373,-19.8,0.998,17.08,18.1,4.25,11.56
+237271,Eddie James,Wales,1,Centre,5.0,0.7,P,Argentina,False,11,2180,-20.2,1.0,11.68,71.0,11.43,5.18
+113737,Jack van Poortvliet,England,1,Scrum Half,4.0,0.9,P,Fiji,False,25,2565,2.8,1.0,14.93,54.7,11.26,5.1
+172284,Muhamed Hasa,Italy,1,Prop,3.5,0.1,B,New Zealand,False,9,2055,-33.5,0.962,14.28,28.5,5.61,15.26
+150038,Tyrel Lomax,New Zealand,2,Prop,5.0,1.5,P,Italy,True,48,1327,33.5,0.962,9.78,55.2,7.45,3.37
+118619,Sam Costelow,Wales,1,Fly Half,4.0,0.1,P,Argentina,False,23,1852,-20.2,1.0,16.23,59.9,13.4,6.07
+151974,Billy Proctor,New Zealand,2,Centre,6.0,0.4,P,Italy,True,12,2641,33.5,0.962,22.18,71.5,21.78,9.91
+237233,Ross Vintcent,Italy,1,Loose Forward,4.5,6.2,P,New Zealand,False,20,1764,-33.5,0.962,23.69,70.4,22.8,10.42
+245177,Tiennan Costley,Japan,2,Loose Forward,4.5,0.2,B,Ireland,True,12,2962,-19.8,0.998,20.85,15.3,4.41,11.99
+182833,Taniela Tupou,Australia,2,Prop,4.0,1.4,B,France,True,53,1295,-4.9,1.0,11.42,27.5,4.33,11.77
+168641,Dillon Lewis,Wales,1,Prop,3.5,2.2,P,Argentina,False,31,987,-20.2,1.0,15.69,52.8,11.42,5.18
+164759,Ben Warren,Wales,1,Prop,3.0,0.2,B,Argentina,False,1,909,-20.2,1.0,14.68,34.0,6.88,18.72
+237078,Canan Moodie,South Africa,2,Back Three,6.5,1.0,P,Scotland,True,24,3051,25.7,1.0,17.52,72.8,17.59,7.97
+208971,Franco Molina,Argentina,2,Lock,5.0,0.8,B,Wales,True,21,1351,20.2,1.0,15.59,26.5,5.7,15.51
+198661,Dylan Riley,Japan,2,Centre,5.0,1.3,P,Ireland,True,39,2315,-19.8,0.998,11.41,78.9,12.42,5.63
+207407,Demba Bamba,France,1,Prop,4.5,4.6,P,Australia,False,21,2156,4.9,1.0,13.68,47.0,8.86,4.01
+199383,Ciaran Frawley,Ireland,1,Fly Half,4.5,0.5,P,Japan,False,14,2345,19.8,0.998,18.03,67.0,16.66,7.55
+154414,Kanji Shimokawa,Japan,2,Loose Forward,4.0,0.6,P,Ireland,True,24,3504,-19.8,0.998,12.87,67.6,12.0,5.44
+109697,Nolann le Garrec,France,1,Scrum Half,4.0,0.7,B,Australia,False,16,3911,4.9,1.0,21.32,14.6,4.31,11.71
+105892,Adam Beard,Wales,1,Lock,4.0,2.6,P,Argentina,False,45,2706,-20.2,1.0,12.35,69.1,11.77,5.33
+136875,Gianmarco Lucchesi,Italy,1,Hooker,3.5,0.4,B,New Zealand,False,32,0,-33.5,0.962,22.73,27.6,8.6,23.55
+239482,Asher Opoku-Fordjour,England,1,Prop,3.5,0.2,B,Fiji,False,7,0,2.8,1.0,13.08,21.9,3.94,10.72
+261209,Sojiro Otsuka,Japan,2,Prop,3.0,0.1,B,Ireland,True,1,0,-19.8,0.998,15.33,21.0,4.44,12.07
+154458,Matias Moroni,Argentina,2,Centre,5.5,0.5,B,Wales,True,49,1645,20.2,1.0,18.0,20.6,5.12,13.92
+237231,Mirco Spagnolo,Italy,1,Prop,4.0,0.3,B,New Zealand,False,25,1447,-33.5,0.962,17.58,24.3,5.89,16.03
+237261,Alex Samuel,Scotland,1,Lock,3.5,0.2,B,South Africa,False,4,1891,-25.7,1.0,11.51,28.0,4.45,12.09
+110891,Stephen Varney,Italy,1,Scrum Half,4.0,2.9,P,New Zealand,False,39,2848,-33.5,0.962,9.76,59.7,8.04,3.64
+153525,Rory Sutherland,Scotland,1,Prop,4.0,0.2,B,South Africa,False,42,1211,-25.7,1.0,14.68,18.3,3.71,10.09
+236606,Leonardo Marin,Italy,1,Fly Half,4.0,0.1,B,New Zealand,False,24,1662,-33.5,0.962,13.75,12.0,2.27,6.17
+240916,Boris Wenger,Argentina,2,Prop,4.0,0.2,P,Wales,True,7,392,20.2,1.0,15.69,72.0,15.58,7.06
+235935,Ignacio Ruiz,Argentina,2,Hooker,4.0,0.2,B,Wales,True,28,1936,20.2,1.0,17.97,14.7,3.64,9.89
+174208,Riccardo Favretto,Italy,1,Lock,4.0,0.1,B,New Zealand,False,14,1956,-33.5,0.962,13.95,16.1,3.11,8.45
+170835,James Slipper,Australia,2,Prop,4.0,0.2,B,France,True,56,2086,-4.9,1.0,14.09,25.4,4.94,13.43
+147486,Tadhg Beirne,Ireland,1,Lock,7.5,9.7,P,Japan,False,63,0,19.8,0.998,12.55,73.9,12.79,5.8
+156918,Tommy Freeman,England,1,Back Three,7.0,15.7,P,Fiji,False,34,4412,2.8,1.0,22.1,76.2,23.0,10.52
+180382,Bautista Delguy,Argentina,2,Back Three,5.0,3.1,P,Wales,True,26,4083,20.2,1.0,18.46,66.1,16.82,7.62
+130282,Tommaso Allan,Italy,1,Fly Half,5.0,0.4,P,New Zealand,False,35,2621,-33.5,0.962,10.59,73.3,10.7,4.85
+229826,Jamie Osborne,Ireland,1,Centre,5.0,5.8,P,Japan,False,17,2916,19.8,0.998,16.99,72.8,17.06,7.73
+249307,Ellis Mee,Wales,1,Back Three,4.5,0.2,P,Argentina,False,9,2321,-20.2,1.0,11.01,69.9,10.62,4.81
+138016,Henry Slade,England,1,Centre,4.0,0.6,P,Fiji,False,45,3985,2.8,1.0,14.36,74.6,14.77,6.69
+161973,Simione Kuruvoli,Fiji,2,Scrum Half,4.0,0.3,P,England,True,25,852,-2.8,1.0,16.91,68.2,15.91,7.21
+157406,Bundee Aki,Ireland,1,Centre,6.0,3.5,B,Japan,False,48,2866,19.8,0.998,18.06,26.7,6.66,18.11
+157863,Finn Russell,Scotland,1,Fly Half,8.5,17.1,P,South Africa,False,50,4810,-25.7,1.0,16.64,74.8,17.17,7.78
+219771,Handre Pollard,South Africa,2,Fly Half,8.0,1.5,P,Scotland,True,34,3457,25.7,1.0,20.84,69.3,19.93,9.03
+204526,Marcos Kremer,Argentina,2,Loose Forward,6.0,1.2,P,Wales,True,53,3253,20.2,1.0,10.26,71.8,10.15,4.6
+225671,Samisoni Taukeiaho,New Zealand,2,Hooker,6.0,1.0,B,Italy,True,43,1946,33.5,0.962,27.02,24.1,8.9,24.44
+156336,Tom Wright,Australia,2,Back Three,6.0,1.3,P,France,True,44,2720,-4.9,1.0,13.0,74.4,13.34,6.04
+114362,Evan Roos,South Africa,2,Loose Forward,5.5,0.3,P,Scotland,True,8,2846,25.7,1.0,21.18,49.5,14.47,6.56
+103440,Federico Ruzza,Italy,1,Lock,5.5,0.4,B,New Zealand,False,53,2440,-33.5,0.962,14.79,21.4,4.36,11.85
+153215,Aphelele Fassi,South Africa,2,Back Three,5.5,0.3,P,Scotland,True,16,2200,25.7,1.0,17.21,68.6,16.28,7.38
+102792,Anton Lienert-Brown,New Zealand,2,Centre,5.5,0.4,B,Italy,True,45,2439,33.5,0.962,21.39,20.4,6.02,16.37
+198516,Levani Botia,Fiji,2,Loose Forward,5.5,1.0,P,England,True,14,2832,-2.8,1.0,15.74,72.6,15.75,7.14
+173763,Leroy Carter,New Zealand,2,Back Three,5.0,0.4,P,Italy,True,6,2272,33.5,0.962,23.16,72.3,22.88,10.47
+172024,Josh Moorby,New Zealand,2,Back Three,5.0,0.2,B,Italy,True,0,0,33.5,0.962,22.04,20.8,6.33,17.22
+164116,Robbie Henshaw,Ireland,1,Centre,5.0,0.4,P,Japan,False,39,2527,19.8,0.998,14.19,71.5,13.99,6.34
+177342,Johan Grobbelaar,South Africa,2,Hooker,5.0,0.4,P,Scotland,True,8,2438,25.7,1.0,19.96,57.9,15.93,7.22
+101634,Tupou Vaai,New Zealand,2,Lock,5.0,1.0,P,Italy,True,47,2855,33.5,0.962,13.59,69.3,12.99,5.89
+251584,Simon Benitez Cruz,Argentina,2,Scrum Half,5.0,0.8,B,Wales,True,11,1292,20.2,1.0,14.73,18.6,3.77,10.25
+204878,Edwill van der Merwe,South Africa,2,Back Three,5.0,0.6,P,Scotland,True,5,3165,25.7,1.0,21.13,61.6,17.96,8.14
+217606,Benhard Janse van Rensburg,England,1,Centre,5.0,0.4,B,Fiji,False,0,3794,2.8,1.0,16.95,20.8,4.87,13.24
+244170,Lenni Nouchi,France,1,Loose Forward,5.0,0.4,P,Australia,False,6,3201,4.9,1.0,19.72,80.0,21.67,9.86
+182650,Caleb Muntz,Fiji,2,Fly Half,5.0,0.3,P,England,True,23,647,-2.8,1.0,14.54,78.3,15.7,7.11
+186092,Filipo Daugunu,Australia,2,Back Three,5.0,0.2,B,France,True,22,2223,-4.9,1.0,18.89,14.2,3.7,10.06
+209105,Louis Lynagh,Italy,1,Back Three,5.0,0.6,P,New Zealand,False,14,2452,-33.5,0.962,11.27,78.3,12.18,5.52
+122020,Jacob Stockdale,Ireland,1,Back Three,5.0,1.5,P,Japan,False,12,2790,19.8,0.998,21.05,67.2,19.5,8.84
+129754,Vincent Tshituka,South Africa,2,Loose Forward,4.5,0.1,B,Scotland,True,2,2988,25.7,1.0,13.2,21.4,3.91,10.62
+186214,Max Llewellyn,Wales,1,Centre,4.5,0.3,B,Argentina,False,11,2273,-20.2,1.0,15.5,28.0,5.98,16.27
+156550,Magnus Bradbury,Scotland,1,Loose Forward,4.5,0.4,B,South Africa,False,8,3341,-25.7,1.0,15.97,28.5,6.27,17.05
+113831,George Bower,New Zealand,2,Prop,4.5,0.3,B,Italy,True,25,1697,33.5,0.962,13.56,25.7,4.81,13.09
+192769,Ignacio Mendy,Argentina,2,Back Three,4.5,2.9,B,Wales,True,5,2576,20.2,1.0,24.31,21.0,7.04,19.14
+106142,Luke Cowan-Dickie,England,1,Hooker,4.5,0.8,B,Fiji,False,39,2166,2.8,1.0,18.29,26.9,6.8,18.48
+105642,Craig Casey,Ireland,1,Scrum Half,4.0,0.3,P,Japan,False,30,2474,19.8,0.998,17.76,62.2,15.25,6.91
+190215,Kieran Hardy,Wales,1,Scrum Half,4.0,0.3,B,Argentina,False,37,1680,-20.2,1.0,13.42,8.0,1.48,4.03
+138498,Tevita Ratuva,Fiji,2,Lock,4.0,0.5,P,England,True,8,783,-2.8,1.0,12.75,58.4,10.27,4.66
+193699,Embrose Papier,South Africa,2,Scrum Half,4.0,0.1,P,Scotland,True,0,3027,25.7,1.0,20.69,70.0,19.98,9.05
+229863,Cormac Izuchukwu,Ireland,1,Lock,4.0,0.3,B,Japan,False,4,1676,19.8,0.998,19.56,20.0,5.4,14.67
+252989,Noah Caluori,England,1,Back Three,4.0,0.4,B,Fiji,False,0,1575,2.8,1.0,23.81,20.8,6.84,18.6
+169185,Teddy Williams,Wales,1,Lock,4.0,1.3,B,Argentina,False,8,1734,-20.2,1.0,16.17,19.2,4.28,11.63
+197246,Tom Stewart,Ireland,1,Hooker,4.0,0.2,B,Japan,False,5,2181,19.8,0.998,26.23,22.5,8.12,22.1
+169560,Boan Venter,South Africa,2,Prop,4.0,0.2,P,Scotland,True,8,1709,25.7,1.0,14.35,38.0,7.51,3.4
+153142,Nick Champion de Crespigny,Australia,2,Loose Forward,4.0,0.1,B,France,True,5,2021,-4.9,1.0,16.77,13.9,3.22,8.76
+236722,Quan Horn,South Africa,2,Back Three,4.0,0.1,B,Scotland,True,1,3725,25.7,1.0,15.11,22.0,4.59,12.47
+149746,Stafford McDowall,Scotland,1,Centre,4.0,0.1,B,South Africa,False,17,3696,-25.7,1.0,15.11,22.9,4.76,12.95
+100192,Josh Bayliss,Scotland,1,Loose Forward,4.0,0.1,B,South Africa,False,17,2208,-25.7,1.0,17.74,26.0,6.37,17.31
+122465,Lekima Tagitagivalu,Fiji,2,Loose Forward,4.0,0.2,P,England,True,11,2574,-2.8,1.0,13.17,75.9,13.79,6.25
+229431,Anton Segner,New Zealand,2,Loose Forward,4.0,0.2,B,Italy,True,0,2782,33.5,0.962,17.41,21.4,5.15,14.0
+223308,Aaron Grandidier-Nkanang,France,1,Back Three,4.0,0.1,P,Australia,False,0,2644,4.9,1.0,14.04,70.0,13.56,6.14
+226014,Cobus Wiese,South Africa,2,Lock,4.0,0.2,P,Scotland,True,2,2701,25.7,1.0,8.67,44.0,5.26,2.38
+226261,Vuate Karawalevu,Fiji,2,Back Three,4.0,0.3,P,England,True,7,1629,-2.8,1.0,13.4,80.0,14.78,6.7
+229852,Tevita Tatafu,France,1,Prop,3.5,0.3,B,Australia,False,2,2040,4.9,1.0,16.73,24.2,5.58,15.17
+176354,Nathan Doak,Ireland,1,Scrum Half,3.5,0.1,B,Japan,False,1,2928,19.8,0.998,15.89,8.0,1.75,4.77
+245274,Declan Meredith,Australia,2,Back Three,3.5,0.4,P,France,True,0,1205,-4.9,1.0,12.46,70.0,12.03,5.45
+241018,Sean Jansen,Ireland,1,Loose Forward,3.5,0.2,P,Japan,False,0,2114,19.8,0.998,24.07,70.0,23.01,10.53
+236573,Alessandro Garbisi,Italy,1,Scrum Half,3.5,0.3,B,New Zealand,False,24,1915,-33.5,0.962,7.41,20.3,2.07,5.63
+188115,Harry Byrne,Ireland,1,Fly Half,3.5,0.1,B,Japan,False,4,1982,19.8,0.998,15.01,20.7,4.28,11.64
+116189,Pasilio Tosi,New Zealand,2,Prop,3.5,0.2,B,Italy,True,16,0,33.5,0.962,13.22,22.5,4.1,11.14
+209567,Ntuthuko Mchunu,South Africa,2,Prop,3.5,0.1,B,Scotland,True,3,1982,25.7,1.0,16.51,21.8,4.97,13.52
+243167,Kane James,Wales,1,Loose Forward,3.0,0.2,B,Argentina,False,0,859,-20.2,1.0,21.56,21.4,6.38,17.34
+155619,Francisco Coria Marchetti,Argentina,2,Prop,3.0,0.4,B,Wales,True,9,0,20.2,1.0,11.89,33.3,5.46,14.85
+165888,Wilco Louw,South Africa,2,Prop,3.0,0.4,P,Scotland,True,16,2595,25.7,1.0,9.71,51.3,6.87,3.11
+187476,Moses Alo-Emile,France,1,Prop,3.0,0.1,P,Australia,False,0,2508,4.9,1.0,12.09,70.0,11.67,5.29
+250771,Bryn Ward,Ireland,1,Loose Forward,3.0,0.4,B,Japan,False,0,835,19.8,0.998,18.33,21.4,5.42,14.74
+255945,Itsuki Kamimura,Japan,2,Scrum Half,3.0,0.3,B,Ireland,True,1,1266,-19.8,0.998,12.75,8.0,1.41,3.82
+171709,Sam Matavesi,Fiji,2,Hooker,3.0,0.7,B,England,True,27,0,-2.8,1.0,18.46,29.5,7.51,20.41
+237237,Sam Illo,Ireland,1,Prop,2.5,0.3,B,Japan,False,0,1075,19.8,0.998,15.66,24.2,5.22,14.2
+208037,Will Hurd,Scotland,1,Prop,2.5,0.7,B,South Africa,False,12,1029,-25.7,1.0,12.77,14.0,2.46,6.7
+254559,Billy Bohan,Ireland,1,Prop,2.5,0.3,B,Japan,False,0,0,19.8,0.998,12.68,24.2,4.23,11.49
+163209,George Kloska,England,1,Prop,2.5,0.6,B,Fiji,False,0,1231,2.8,1.0,14.62,24.2,4.87,13.25
+120767,Louis Rees-Zammit,Wales,1,Back Three,6.0,11.9,B,Argentina,False,41,1539,-20.2,1.0,13.27,30.7,5.62,15.27
+239634,Henry Pollock,England,1,Loose Forward,5.5,15.1,B,Fiji,False,16,2744,2.8,1.0,26.52,21.1,7.73,21.02
+112684,Guy Pepper,England,1,Loose Forward,4.5,1.1,P,Fiji,False,13,2480,2.8,1.0,18.54,65.3,16.69,7.56
+229255,Cortez Ratima,New Zealand,2,Scrum Half,4.0,0.5,B,Italy,True,23,2095,33.5,0.962,18.35,14.6,3.71,10.08
+251198,Lachlan Shaw,Australia,2,Lock,4.0,0.4,B,France,True,2,1807,-4.9,1.0,13.92,22.0,4.22,11.49

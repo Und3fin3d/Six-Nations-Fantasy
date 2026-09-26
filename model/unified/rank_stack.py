@@ -76,11 +76,11 @@ def _stage1_table(store_feat: pd.DataFrame, model: UniversalGBDT, competition: s
     """Run stage 1 over PIT-featured store rows and summarise each prediction."""
     if store_feat.empty:
         return pd.DataFrame(columns=["fixture_id", "player_id", *S1_FEATURES])
-    scorer = scorer_for(competition)
     preds = model.predict_frame(store_feat)
     rows = []
     start_rate = store_feat.get("recent_start_rate")
     for i, pred in enumerate(preds):
+        scorer = scorer_for(competition, season=store_feat.iloc[i].get("season"))
         summary = scorer.score_prediction(pred, n=800, seed=101 + i)
         row = {
             "fixture_id": str(pred.fixture_id), "player_id": str(pred.player_id),
@@ -153,7 +153,7 @@ def build_stage2_features(
             table = _stage1_table(sub, stage1, "ncr")
             merged = block.merge(table, left_on="api_player_id", right_on="player_id",
                                  how="left", suffixes=("", "_s1"))
-        rubric = rubric_vector(competition)
+        rubric = rubric_vector(competition, season=block["season"].iloc[0])
         for col, val in zip(rubric_columns(), rubric):
             merged[col] = val
         parts.append(merged)

@@ -1,0 +1,111 @@
+{
+  "remedies/final-replay": {
+    "admission.csv": {
+      "original_sha256": "caeac375e8c880bc7eaeddc6a3bc1b0a8bb4e463be723544d8f3741c7d28cc96",
+      "replayed_sha256": "caeac375e8c880bc7eaeddc6a3bc1b0a8bb4e463be723544d8f3741c7d28cc96",
+      "byte_identical": true
+    },
+    "archive_replay.csv": {
+      "original_sha256": "81a94df88735cc0394ad0cc400d7302810cd09ceba576aa65d02d987f15a50f6",
+      "replayed_sha256": "81a94df88735cc0394ad0cc400d7302810cd09ceba576aa65d02d987f15a50f6",
+      "byte_identical": true
+    },
+    "bench_history.csv": {
+      "original_sha256": "09e39e47715226e9c1f1244d1a0455b3f47ca99f761a39a19bab9ab1d8c8a04b",
+      "replayed_sha256": "09e39e47715226e9c1f1244d1a0455b3f47ca99f761a39a19bab9ab1d8c8a04b",
+      "byte_identical": true
+    },
+    "calibration.csv": {
+      "original_sha256": "7e698ecbb8584dad3bf29a1167d834594ae475ce661f4ae9c9974266d5b826ff",
+      "replayed_sha256": "7e698ecbb8584dad3bf29a1167d834594ae475ce661f4ae9c9974266d5b826ff",
+      "byte_identical": true
+    },
+    "forecasts.csv": {
+      "original_sha256": "46d47d855ef1584898b7a2c88c03f0f991d55c01eefd83d91cde061f19f6610e",
+      "replayed_sha256": "46d47d855ef1584898b7a2c88c03f0f991d55c01eefd83d91cde061f19f6610e",
+      "byte_identical": true
+    },
+    "kicking_gate.csv": {
+      "original_sha256": "fe96154cb64dff9d1a3234c6433ce4643ebfdb2f66ca695e936c50a5a9fba984",
+      "replayed_sha256": "fe96154cb64dff9d1a3234c6433ce4643ebfdb2f66ca695e936c50a5a9fba984",
+      "byte_identical": true
+    },
+    "metrics.csv": {
+      "original_sha256": "41489c6c4a92f840683e07a4b9adfaef4649c2f6fd6c697cae91c728620db6ba",
+      "replayed_sha256": "41489c6c4a92f840683e07a4b9adfaef4649c2f6fd6c697cae91c728620db6ba",
+      "byte_identical": true
+    },
+    "paired_competitions.csv": {
+      "original_sha256": "7f8fd38bf2770ee0b4397af3885e57651c61f795d977917974dca85f564538d7",
+      "replayed_sha256": "7f8fd38bf2770ee0b4397af3885e57651c61f795d977917974dca85f564538d7",
+      "byte_identical": true
+    },
+    "paired_rounds.csv": {
+      "original_sha256": "97870ef79165f29c33bb6388dc85a1930baf71d187bb739299dbae23eb286d88",
+      "replayed_sha256": "97870ef79165f29c33bb6388dc85a1930baf71d187bb739299dbae23eb286d88",
+      "byte_identical": true
+    },
+    "paired_seasons.csv": {
+      "original_sha256": "54ae4d6c5b9bdf94ac483e822f20eadb505a063576e4f71c370c46d2c7f18f43",
+      "replayed_sha256": "54ae4d6c5b9bdf94ac483e822f20eadb505a063576e4f71c370c46d2c7f18f43",
+      "byte_identical": true
+    },
+    "position_diagnostics.csv": {
+      "original_sha256": "6db58a9e9b41f20eb2c29104e9c0932e9bc1775f72b779976699720dc4a2668a",
+      "replayed_sha256": "6db58a9e9b41f20eb2c29104e9c0932e9bc1775f72b779976699720dc4a2668a",
+      "byte_identical": true
+    },
+    "squads.csv": {
+      "original_sha256": "829a1ef838fbd9e02efdb0b282c52403fd84422c3f2da111dd9d6372250077e7",
+      "replayed_sha256": "829a1ef838fbd9e02efdb0b282c52403fd84422c3f2da111dd9d6372250077e7",
+      "byte_identical": true
+    },
+    "summary.csv": {
+      "original_sha256": "e426764ef6f708d8ea7e9b5b1f4a040cb5c559cbd9f084389037580ad421b684",
+      "replayed_sha256": "e426764ef6f708d8ea7e9b5b1f4a040cb5c559cbd9f084389037580ad421b684",
+      "byte_identical": true
+    },
+    "weights.csv": {
+      "original_sha256": "78100c6706ff84f98f655c65387adc3effc82dca8a8875df4b6b4d230837dc40",
+      "replayed_sha256": "78100c6706ff84f98f655c65387adc3effc82dca8a8875df4b6b4d230837dc40",
+      "byte_identical": true
+    }
+  },
+  "summary-recheck": {
+    "admission.csv": {
+      "original_sha256": "caeac375e8c880bc7eaeddc6a3bc1b0a8bb4e463be723544d8f3741c7d28cc96",
+      "replayed_sha256": "caeac375e8c880bc7eaeddc6a3bc1b0a8bb4e463be723544d8f3741c7d28cc96",
+      "byte_identical": true
+    },
+    "forecasts.csv": {
+      "original_sha256": "46d47d855ef1584898b7a2c88c03f0f991d55c01eefd83d91cde061f19f6610e",
+      "replayed_sha256": "46d47d855ef1584898b7a2c88c03f0f991d55c01eefd83d91cde061f19f6610e",
+      "byte_identical": true
+    },
+    "metrics.csv": {
+      "original_sha256": "41489c6c4a92f840683e07a4b9adfaef4649c2f6fd6c697cae91c728620db6ba",
+      "replayed_sha256": "41489c6c4a92f840683e07a4b9adfaef4649c2f6fd6c697cae91c728620db6ba",
+      "byte_identical": true
+    },
+    "paired_competitions.csv": {
+      "original_sha256": "7f8fd38bf2770ee0b4397af3885e57651c61f795d977917974dca85f564538d7",
+      "replayed_sha256": "7f8fd38bf2770ee0b4397af3885e57651c61f795d977917974dca85f564538d7",
+      "byte_identical": true
+    },
+    "paired_rounds.csv": {
+      "original_sha256": "97870ef79165f29c33bb6388dc85a1930baf71d187bb739299dbae23eb286d88",
+      "replayed_sha256": "97870ef79165f29c33bb6388dc85a1930baf71d187bb739299dbae23eb286d88",
+      "byte_identical": true
+    },
+    "paired_seasons.csv": {
+      "original_sha256": "54ae4d6c5b9bdf94ac483e822f20eadb505a063576e4f71c370c46d2c7f18f43",
+      "replayed_sha256": "54ae4d6c5b9bdf94ac483e822f20eadb505a063576e4f71c370c46d2c7f18f43",
+      "byte_identical": true
+    },
+    "position_diagnostics.csv": {
+      "original_sha256": "6db58a9e9b41f20eb2c29104e9c0932e9bc1775f72b779976699720dc4a2668a",
+      "replayed_sha256": "6db58a9e9b41f20eb2c29104e9c0932e9bc1775f72b779976699720dc4a2668a",
+      "byte_identical": true
+    }
+  }
+}

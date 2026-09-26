@@ -1,0 +1,186 @@
+{
+  "checked": [
+    "/private/tmp/6n-decision-workflow/reproduction-base/model/empirical_unified.py",
+    "/private/tmp/6n-decision-workflow/reproduction-base/model/ncr_on_6n.py",
+    "/private/tmp/6n-decision-workflow/reproduction-base/model/research.py",
+    "/private/tmp/6n-decision-workflow/reproduction-base/model/unified/benchmark.py",
+    "/private/tmp/6n-decision-workflow/reproduction-base/model/unified/cli.py",
+    "/private/tmp/6n-decision-workflow/reproduction-base/model/unified/evaluation.py",
+    "/private/tmp/6n-decision-workflow/reproduction-base/model/unified/ncr_gw_eval.py",
+    "/private/tmp/6n-decision-workflow/reproduction-base/model/unified/rank_stack.py",
+    "/private/tmp/6n-decision-workflow/reproduction-base/model/unified/raw_benchmark/coverage.py",
+    "/private/tmp/6n-decision-workflow/reproduction-base/model/unified/raw_benchmark/metrics.py",
+    "/private/tmp/6n-decision-workflow/reproduction-base/model/unified/raw_benchmark/p3_checkpoint.py",
+    "/private/tmp/6n-decision-workflow/reproduction-base/model/unified/rolling_eval.py",
+    "/private/tmp/6n-decision-workflow/reproduction-base/model/unified/rubric.py",
+    "/private/tmp/6n-decision-workflow/reproduction-base/model/unified/scoring.py",
+    "/private/tmp/6n-decision-workflow/reproduction-base/model/unified/v3/audit.py",
+    "/private/tmp/6n-decision-workflow/reproduction-base/model/unified/v3/benchmark.py",
+    "/private/tmp/6n-decision-workflow/reproduction-base/model/unified/v3/cli.py",
+    "/private/tmp/6n-decision-workflow/reproduction-base/model/unified/v3/metrics.py",
+    "/private/tmp/6n-decision-workflow/reproduction-base/model/unified/v3/search.py",
+    "/private/tmp/6n-decision-workflow/reproduction-base/model/unified/v3/shadow.py",
+    "/private/tmp/6n-decision-workflow/reproduction-base/model/unified/v4/p0.py",
+    "/private/tmp/6n-decision-workflow/reproduction-base/model/unified/v5/benchmark.py",
+    "/private/tmp/6n-decision-workflow/reproduction-base/model/unified/v5/metrics.py",
+    "/private/tmp/6n-decision-workflow/reproduction-base/ncr_snapshot.py",
+    "/private/tmp/6n-decision-workflow/reproduction-base/report_2026_prediction_xv.py"
+  ],
+  "unsupported": [],
+  "findings": [
+    {
+      "path": "/private/tmp/6n-decision-workflow/reproduction-base/model/empirical_unified.py",
+      "line": 153,
+      "function": "project_candidates",
+      "complexity": 19,
+      "limit": 15
+    },
+    {
+      "path": "/private/tmp/6n-decision-workflow/reproduction-base/model/ncr_on_6n.py",
+      "line": 154,
+      "function": "main",
+      "complexity": 27,
+      "limit": 15
+    },
+    {
+      "path": "/private/tmp/6n-decision-workflow/reproduction-base/model/research.py",
+      "line": 672,
+      "function": "_add_selector_score",
+      "complexity": 36,
+      "limit": 15
+    },
+    {
+      "path": "/private/tmp/6n-decision-workflow/reproduction-base/model/research.py",
+      "line": 1403,
+      "function": "_apply_specialist_points",
+      "complexity": 24,
+      "limit": 15
+    },
+    {
+      "path": "/private/tmp/6n-decision-workflow/reproduction-base/model/research.py",
+      "line": 1752,
+      "function": "_refresh_post_target_role_scores",
+      "complexity": 23,
+      "limit": 15
+    },
+    {
+      "path": "/private/tmp/6n-decision-workflow/reproduction-base/model/research.py",
+      "line": 1912,
+      "function": "_bench_design",
+      "complexity": 20,
+      "limit": 15
+    },
+    {
+      "path": "/private/tmp/6n-decision-workflow/reproduction-base/model/research.py",
+      "line": 2309,
+      "function": "_predict_config",
+      "complexity": 25,
+      "limit": 15
+    },
+    {
+      "path": "/private/tmp/6n-decision-workflow/reproduction-base/model/research.py",
+      "line": 2601,
+      "function": "accept",
+      "complexity": 28,
+      "limit": 15
+    },
+    {
+      "path": "/private/tmp/6n-decision-workflow/reproduction-base/model/research.py",
+      "line": 3834,
+      "function": "run_loop",
+      "complexity": 19,
+      "limit": 15
+    },
+    {
+      "path": "/private/tmp/6n-decision-workflow/reproduction-base/model/unified/benchmark.py",
+      "line": 157,
+      "function": "render",
+      "complexity": 16,
+      "limit": 15
+    },
+    {
+      "path": "/private/tmp/6n-decision-workflow/reproduction-base/model/unified/rank_stack.py",
+      "line": 54,
+      "function": "_position_code",
+      "complexity": 16,
+      "limit": 15
+    },
+    {
+      "path": "/private/tmp/6n-decision-workflow/reproduction-base/model/unified/raw_benchmark/coverage.py",
+      "line": 50,
+      "function": "parse_cache_fixture",
+      "complexity": 25,
+      "limit": 15
+    },
+    {
+      "path": "/private/tmp/6n-decision-workflow/reproduction-base/model/unified/raw_benchmark/p3_checkpoint.py",
+      "line": 409,
+      "function": "build",
+      "complexity": 18,
+      "limit": 15
+    },
+    {
+      "path": "/private/tmp/6n-decision-workflow/reproduction-base/model/unified/raw_benchmark/p3_checkpoint.py",
+      "line": 674,
+      "function": "_run_search",
+      "complexity": 16,
+      "limit": 15
+    },
+    {
+      "path": "/private/tmp/6n-decision-workflow/reproduction-base/model/unified/raw_benchmark/p3_checkpoint.py",
+      "line": 835,
+      "function": "run_checkpoint",
+      "complexity": 16,
+      "limit": 15
+    },
+    {
+      "path": "/private/tmp/6n-decision-workflow/reproduction-base/model/unified/rolling_eval.py",
+      "line": 251,
+      "function": "run",
+      "complexity": 28,
+      "limit": 15
+    },
+    {
+      "path": "/private/tmp/6n-decision-workflow/reproduction-base/model/unified/v3/benchmark.py",
+      "line": 196,
+      "function": "run_benchmark",
+      "complexity": 22,
+      "limit": 15
+    },
+    {
+      "path": "/private/tmp/6n-decision-workflow/reproduction-base/model/unified/v3/benchmark.py",
+      "line": 306,
+      "function": "render_report",
+      "complexity": 36,
+      "limit": 15
+    },
+    {
+      "path": "/private/tmp/6n-decision-workflow/reproduction-base/model/unified/v3/search.py",
+      "line": 298,
+      "function": "tune_neural",
+      "complexity": 20,
+      "limit": 15
+    },
+    {
+      "path": "/private/tmp/6n-decision-workflow/reproduction-base/model/unified/v3/search.py",
+      "line": 388,
+      "function": "assess_blend",
+      "complexity": 19,
+      "limit": 15
+    },
+    {
+      "path": "/private/tmp/6n-decision-workflow/reproduction-base/model/unified/v3/shadow.py",
+      "line": 241,
+      "function": "evaluate_prospective_shadows",
+      "complexity": 18,
+      "limit": 15
+    },
+    {
+      "path": "/private/tmp/6n-decision-workflow/reproduction-base/ncr_snapshot.py",
+      "line": 133,
+      "function": "main",
+      "complexity": 18,
+      "limit": 15
+    }
+  ]
+}

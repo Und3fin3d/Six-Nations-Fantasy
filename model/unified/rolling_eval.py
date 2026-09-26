@@ -25,8 +25,7 @@ from model.ncr_rank_eval import load_actuals
 from .data import ROOT, DEFAULT_SOURCES, build_canonical_store
 from .features import build_pit_features
 from .contracts import RawPrediction
-from .scoring import SixNationsScorer
-from .ncr_gw_eval import expected_ncr_points
+from .scoring import scorer_for
 from .raw_benchmark.coverage import build_corrected_store, sha256
 from .raw_benchmark.empirical import EmpiricalEventModel
 from .raw_benchmark.robust_empirical import RobustEmpiricalEventModel
@@ -176,12 +175,16 @@ def official_slates(store: pd.DataFrame, competitions: tuple[str, ...]) -> list[
     return sorted(slates, key=lambda s: (s.cutoff,s.name))
 
 
-def expected_points(predictions: list[RawPrediction], competition: str) -> np.ndarray:
+def expected_points(
+    predictions: list[RawPrediction], competition: str, *, season: int | None = None,
+    scoring_version: str | None = None,
+) -> np.ndarray:
     if competition not in ('ncr','six_nations'):
         raise ValueError(f'unsupported scoring rules: {competition}')
+    scorer = scorer_for(competition, version=scoring_version, season=season)
     if competition == 'ncr':
-        return np.array([expected_ncr_points(p) for p in predictions])
-    scorer, result = SixNationsScorer(), []
+        return np.array([scorer.expected_points(p) for p in predictions])
+    result = []
     for p in predictions:
         value = sum(w*p.events[e].mean for e,w in scorer.weights.items() if e in p.events)
         value += (15 if p.is_forward else 10)*(p.events['tries'].mean if 'tries' in p.events else 0)
@@ -309,7 +312,7 @@ def run(output: Path, competitions: tuple[str,...], *, prepare_only: bool=False,
             model.save(model_dir/f'{name}.pkl')
             raw = model.predict_frame(candidates)
             (model_dir/f'{name}.jsonl').write_text(''.join(json.dumps(p.to_dict())+'\n' for p in raw))
-            results.append(evaluate(slate,name,expected_points(raw,slate.competition),output))
+            results.append(evaluate(slate,name,expected_points(raw,slate.competition,season=slate.season),output))
         key = (slate.competition,slate.season)
         if key not in frozen:
             frozen.clear()  # release the preceding tournament's large frames
@@ -327,11 +330,12 @@ def run(output: Path, competitions: tuple[str,...], *, prepare_only: bool=False,
             _,old_candidates = build_frozen_feature_frames(old_train,control.candidates,v4=True,prepared_train=old_features)
             role_columns = control.candidates.columns.intersection(['position','is_forward','position_source'])
             old_candidates[role_columns] = control.candidates[role_columns].to_numpy()
-            results.append(evaluate(control,'p3_tournament_frozen_native' if native_categories else 'p3_tournament_frozen',expected_points(old_model.predict_frame(old_candidates),control.competition),output))
+            results.append(evaluate(control,'p3_tournament_frozen_native' if native_categories else 'p3_tournament_frozen',expected_points(old_model.predict_frame(old_candidates),control.competition,season=control.season),output))
         manifests.append({'slate': slate.name,'cutoff': slate.cutoff.isoformat(),'training_rows': len(train),
             'training_fixtures': int(train.fixture_id.nunique()),'training_match_at_max': train.match_at.max().isoformat(),
             'same_tournament_prior_rows': int((train.competition_id_cache.eq(696 if slate.competition=='ncr' else 1266)&train.calendar_year.eq(slate.season)).sum()),
-            'lineup_basis': slate.lineup_basis,'budget_verified': slate.budget_verified})
+            'lineup_basis': slate.lineup_basis,'budget_verified': slate.budget_verified,
+            'scoring_version': scorer_for(slate.competition,season=slate.season).version})
         metrics = pd.DataFrame(results)
         metrics.to_csv(output/'metrics.csv',index=False)
         (output/'round_manifests.json').write_text(json.dumps(manifests,indent=2))

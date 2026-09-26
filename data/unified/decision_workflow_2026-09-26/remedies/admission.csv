@@ -1,0 +1,12 @@
+candidate,comparator,development_delta,audit_delta,pooled_min_leave_one_out,ncr_delta,improves_development,preserves_audit,gain_survives_round_removal,six_nations_research_priority,shared_research_priority
+equal_empirical_baseline,empirical_baseline,91.0,-60.0,-3.5555555555555554,-2.0,True,False,False,False,False
+equal_incumbent,incumbent,51.0,30.0,-0.2222222222222222,-2.0,True,True,False,False,False
+kicking_role_gate,incumbent,96.0,-43.0,-2.7777777777777777,76.0,True,False,False,False,False
+kicking_role_gate,p3_robust_native,0.0,0.0,0.0,0.0,False,True,False,False,False
+p3_robust_native,incumbent,96.0,-43.0,-2.7777777777777777,76.0,True,False,False,False,False
+p3_rolling_native,incumbent,30.0,,,-8.0,True,False,False,False,False
+p3_weighted_native,incumbent,-24.0,-26.0,-14.222222222222221,80.0,False,False,False,False,False
+regularised_empirical_baseline,empirical_baseline,37.0,18.0,-0.8888888888888888,19.0,True,True,False,False,False
+regularised_incumbent,incumbent,173.0,-36.0,6.555555555555555,19.0,True,False,True,False,False
+role_calibration,incumbent,59.0,0.0,-2.111111111111111,76.0,True,True,False,False,False
+role_calibration,p3_robust_native,-37.0,43.0,-2.3333333333333335,0.0,False,True,False,False,False

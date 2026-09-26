@@ -79,12 +79,12 @@ def _cohort_predictions(model: ShrunkFormGBDT, block: pd.DataFrame,
 
     predictions = model.predict_frame(combined)
     by_key = {(str(p.fixture_id), str(p.player_id)): p for p in predictions}
-    scorer = scorer_for(competition)
     points = []
     for i, (fixture, player) in enumerate(
         zip(matched["fixture_id"].astype(str), matched["player_id"].astype(str))
     ):
         prediction = by_key.get((fixture, player))
+        scorer = scorer_for(competition, season=matched.iloc[i].get("season"))
         points.append(
             scorer.score_prediction(prediction, n=mc, seed=701 + i).mean
             if prediction is not None else np.nan

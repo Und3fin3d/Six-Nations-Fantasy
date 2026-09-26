@@ -1,0 +1,7 @@
+competition,candidate,comparator,mean,lower,upper,min_leave_one_out,rounds,known_rounds,total,wins,losses,unknown_selected
+ncr,empirical_timing_only,equal_incumbent,26.0,-33.0,90.0,-6.0,3,3,78.0,2,1,0
+ncr,empirical_timing_only,incumbent,25.333333333333332,-53.0,130.0,-27.0,3,3,76.0,1,2,0
+ncr,empirical_timing_only,p3_robust_native,0.0,0.0,0.0,0.0,3,3,0.0,0,0,0
+six_nations,empirical_timing_only,equal_incumbent,-2.8,-25.0,20.8,-10.88888888888889,10,10,-28.0,3,7,0
+six_nations,empirical_timing_only,incumbent,5.3,-17.5,29.0,-2.7777777777777777,10,10,53.0,5,5,0
+six_nations,empirical_timing_only,p3_robust_native,0.0,0.0,0.0,0.0,10,10,0.0,0,0,0

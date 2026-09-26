@@ -34,7 +34,7 @@ from .raw_benchmark.folds import (
     strict_training_frame,
 )
 from .raw_benchmark.runner import _fit_engine
-from .scoring import NationsChampionshipScorer
+from .scoring import NCR_SCORING_VERSION, NationsChampionshipScorer
 from .v3.shadow import ncr_candidates
 
 DATA = ROOT / "data"
@@ -58,17 +58,11 @@ def sha256(path: Path) -> str:
     return digest.hexdigest()
 
 
-def expected_ncr_points(prediction: RawPrediction) -> float:
+def expected_ncr_points(
+    prediction: RawPrediction, *, version: str = NCR_SCORING_VERSION,
+) -> float:
     """Exact expectation for the NCR adapter's linear scoring rubric."""
-    scorer = NationsChampionshipScorer()
-    total = sum(
-        weight * prediction.events[event].mean
-        for event, weight in scorer.weights.items()
-        if event in prediction.events
-    )
-    if "scrums_won" in prediction.events:
-        total += 2.0 * prediction.events["scrums_won"].mean
-    return float(total)
+    return NationsChampionshipScorer(version=version).expected_points(prediction)
 
 
 def _candidate_cohort() -> pd.DataFrame:

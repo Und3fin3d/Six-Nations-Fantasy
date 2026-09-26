@@ -213,10 +213,20 @@ def run(args):
                              unobserved_scoring_events=';'.join(unknown_events))
                 player_rows.append(point)
         for engine in metrics[metrics.slate.eq(slate.name)].engine:
-            base = 'p3_robust_native' if engine.startswith('p3_') else ('empirical_baseline' if engine == 'empirical_baseline' else ('equal_incumbent' if engine == 'equal_incumbent' else 'incumbent'))
+            if engine in ('incumbent', 'empirical_baseline', 'equal_incumbent', 'p3_robust_native'):
+                base = engine
+            elif slate.competition == 'ncr':
+                base = 'incumbent'
+            else:
+                base = 'p3_robust_native' if engine.startswith('p3_') else 'incumbent'
             candidate_pool = slate.pool.copy()
             candidate_pool['actual'] = slate.actual
             candidate_pool['point_forecast'] = pool[base].to_numpy(float)
+            known = np.isfinite(slate.actual)
+            recorded = metrics[metrics.slate.eq(slate.name) & metrics.engine.eq(engine)]
+            reproduced_mae = np.abs(candidate_pool.point_forecast.to_numpy()[known]-slate.actual[known]).mean()
+            if len(recorded) != 1 or not np.isclose(reproduced_mae, recorded.mae.iloc[0], atol=1e-9, rtol=0):
+                raise ValueError('Diagnostic point-head attribution changed')
             selected_keys = squads[squads.slate.eq(slate.name) & squads.engine.eq(engine)][['id', 'is_sub', 'is_capt']]
             selected = candidate_pool.merge(selected_keys, on='id', how='inner', validate='one_to_one')
             verify_selection(selected, rules)
@@ -262,7 +272,7 @@ def run(args):
     with open(f'{args.output}/manifest.json', 'w') as handle:
         json.dump(dict(source_hashes=before, objective='active_unfinished', models_fitted=0,
                        new_candidates_evaluated=0, evidence='All previously inspected historical outcomes; descriptive only',
-                       exchange_definition='All feasible single-player changes, holding other assignments fixed; a replaced captain transfers that role to the incoming eligible player. Captain-only alternatives hold the XV fixed. Unknown outcomes remain unknown. These are hindsight diagnostics, not deployable selectors.',
+                       exchange_definition='All feasible single-player changes, holding other assignments fixed; a replaced captain transfers that role to the incoming eligible player. Captain-only alternatives hold the XV fixed. Unknown outcomes remain unknown. These are hindsight diagnostics, not deployable selectors. Predicted deltas use the named point forecast, not the native rank-utility objective.',
                        reconciliation='Unobserved scoring events are not imputed as observed zero. The unresolved component includes missing events and provider/rules reconciliation; it is not automatically a scoring defect.',
                        context='Prior-only exponentially weighted international team attacking and opponent-conceding tries, one observation per complete team-fixture, span eight; correlation is descriptive, not causal or independent validation.'), handle, indent=2)
     print(exposure.to_string(index=False), flush=True)

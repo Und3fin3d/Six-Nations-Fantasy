@@ -1,0 +1,20 @@
+{
+  "public_requests": [
+    {
+      "url": "https://fantasy.nationschampionshiprugby.com",
+      "status": 200,
+      "bytes": 4262,
+      "sha256": "fd70d2706b5191d4fd2512467489db142a6224a63a9fa97beabaa4f55a05d82f",
+      "script_assets": [
+        "https://fantasy.nationschampionshiprugby.com/static-assets/fantasy/static/build/static/index.KJ99yB3e.js"
+      ]
+    }
+  ],
+  "discovered_rules_links": [
+    "https://fantasy.nationschampionshiprugby.com/en/rules",
+    "https://fantasy.nationschampionshiprugby.com/en/tnc"
+  ],
+  "rugby_api_calls": 0,
+  "credentials_used": false,
+  "interpretation": "Current official public pages, not proof of unchanged historical rules. No scoring or model alteration is made by this audit."
+}

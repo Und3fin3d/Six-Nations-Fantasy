@@ -1,0 +1,154 @@
+https://fantasy.nationschampionshiprugby.com/en/rules/
+
+ENGLISH
+HOME
+RULES
+TERMS
+RULES
+
+Everything you need to know before you play.
+
+SQUAD RULES
+
+Build a squad of 16 players within the 100M budget.
+
+Squad Structure
+
+Position	Players Required
+Prop	2
+Hooker	1
+Lock	2
+Loose Forward	3
+Scrum Half	1
+Fly Half	1
+Centres	2
+Back Three	3
+Super Sub
+(Any Position)	1
+
+Squad Restrictions
+
+Rule	Limit
+Total Squad Size	16 Players
+Budget	100M
+Players Per Nation	Max 3
+Players Per Hemisphere	Max 10
+
+You can make unlimited transfers throughout the tournament, allowing you to react to team news and player form before every Gameweek.
+
+TRANSFERS
+Rule	Details
+Transfers	Unlimited
+Transfer Cost	None
+Points Deduction	None
+Transfer Deadline	Before the gameweek begins, unless you are a new user you can still make a squad past the deadline.
+CAPTAIN & SUPER SUB
+
+Captain
+
+Rule	Effect
+Captain	Scores 2x points
+
+Choose one player from your Starting XV to be Captain each Gameweek. Your super sub is not eligible.
+
+Super Sub
+
+Scenario	Multiplier
+Starts the Match	0.5x Points
+Comes Off the Bench	3x Points
+Does Not Play	0 Points
+
+The Super Sub can be selected from any position but cannot also be your Captain.
+
+BOOSTERS
+Booster	Action
+Co-captain	Choose a co-captain from your squad other than your super sub. For that gameweek, both your captain and vice captain score 2x points.
+Triple Captain	For that matchday, the user's captain will score 3x points instead of 2x
+POINTS SCORING
+
+Attack
+
+Action	Points
+Try	+12
+Try Assist	+5
+Conversion	+2
+Missed Conversion	-1
+Penalty Goal	+3
+Missed Penalty Goal	-1
+Drop Goal	+5
+Successful 50:22	+2
+Defender Beaten	+2
+Offload	+2
+Line Break	+3
+Every 10 Metres Gained	+1
+
+Defence & Set Piece
+
+Action	Points
+Tackle Made	+1
+Tackle Missed	-1
+Turnover Won	+4
+Interception	+5
+Own Lineout Won*	+1
+Lineout Steal*	+5
+Scrum Won**	+2
+Player of the Match	+15
+
+* Awarded only to players directly involved in the lineout.
+
+** Awarded only to front-row players on the field when the scrum is won.
+
+Discipline
+
+Action	Points
+Penalty Conceded	-1
+Error (Knock-on / Forward Pass)	-1
+Lineout Error	-2
+Yellow Card	-5
+Red Card	-10
+LEAGUES & LEADERBOARDS
+
+Global Leaderboard
+
+Every manager is automatically entered into the Global Leaderboard.
+
+View	Information Shown
+Gameweek	Rank, Gameweek Points, Overall Points
+Round	Rank, Round Points, Overall Points
+Overall	Rank, Overall Points
+
+Nation Leaderboards
+
+Support your favourite nation and compete against fellow fans.
+
+Feature	Details
+Entry	Select your favourite nation
+Ranking	Gameweek, Round and Overall
+Eligibility	Not based on country of residence
+
+Private Leagues
+
+Challenge friends, family and colleagues.
+
+Rule	Limit
+Maximum Private Leagues Joined	Unlimited
+League Size	Unlimited
+Join Method	League Code or Invite Link
+POINTS CALCULATION
+Stage	Description
+Live Matches	Points shown are provisional
+Gameweek Complete	Statistics are verified
+Points Calculation	Scores are finalised
+Leaderboards Updated	Rankings refreshed across all leagues
+
+Official fantasy scores may differ slightly from live scores if statistics are amended during verification.
+
+HOW TO WIN
+Strategy	Why It Matters
+Pick In-Form Players	Maximise scoring opportunities
+Monitor Team News	Avoid selecting non-starters
+Choose the Right Captain	Double a player's score
+Use Your Super Sub Wisely	Triple points from impact players
+Make Regular Transfers	Adapt to fixtures and form
+
+The manager with the highest overall score at the end of the tournament will finish top of the leaderboard.

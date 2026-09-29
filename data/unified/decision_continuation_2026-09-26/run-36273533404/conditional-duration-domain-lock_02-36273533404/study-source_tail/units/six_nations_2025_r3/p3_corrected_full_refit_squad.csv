@@ -1,0 +1,17 @@
+id,name,team,pos,hemi,value,status,in_squad,is_sub,is_capt,actual,point_forecast,slate,engine,actual_role_supersub_points,possible_min,possible_max,role_outcome_known,source_conflict
+11,James Lowe,Ireland,Back Three,1,0.0,P,True,False,False,19.0,28.1871412216055,six_nations_2025_r3,p3_corrected_full_refit,9.5,9.5,9.5,True,False
+24,Mack Hansen,Ireland,Back Three,1,0.0,P,True,False,False,10.0,27.516018099910944,six_nations_2025_r3,p3_corrected_full_refit,5.0,5.0,5.0,True,False
+28,Dan Sheehan,Ireland,Hooker,1,0.0,P,True,False,False,18.0,25.465865576432336,six_nations_2025_r3,p3_corrected_full_refit,9.0,9.0,9.0,True,False
+31,Jac Morgan,Wales,Loose Forward,1,0.0,P,True,False,False,37.0,32.669449715621816,six_nations_2025_r3,p3_corrected_full_refit,18.5,18.5,18.5,True,False
+39,Dafydd Jenkins,Wales,Lock,1,0.0,P,True,False,False,13.0,24.3480750775639,six_nations_2025_r3,p3_corrected_full_refit,6.5,6.5,6.5,True,False
+55,Maro Itoje,England,Lock,1,0.0,P,True,False,False,19.0,21.542859083095266,six_nations_2025_r3,p3_corrected_full_refit,9.5,9.5,9.5,True,False
+57,Pierre Schoeman,Scotland,Prop,1,0.0,P,True,False,False,5.0,15.296900694050574,six_nations_2025_r3,p3_corrected_full_refit,2.5,2.5,2.5,True,False
+62,Ellis Genge,England,Prop,1,0.0,P,True,False,False,13.0,16.80825938569199,six_nations_2025_r3,p3_corrected_full_refit,6.5,6.5,6.5,True,False
+63,Huw Jones,Scotland,Centre,1,0.0,P,True,False,False,22.0,22.787938006644918,six_nations_2025_r3,p3_corrected_full_refit,11.0,11.0,11.0,True,False
+76,Tom Willis,England,Loose Forward,1,0.0,P,True,False,False,10.0,34.218443906802996,six_nations_2025_r3,p3_corrected_full_refit,5.0,5.0,5.0,True,False
+78,Ollie Lawrence,England,Centre,1,0.0,P,True,False,False,17.0,21.570496925693238,six_nations_2025_r3,p3_corrected_full_refit,8.5,8.5,8.5,True,False
+82,Ewan Ashman,Scotland,Hooker,1,0.0,B,True,True,False,1.0,9.678469350584935,six_nations_2025_r3,p3_corrected_full_refit,3.0,3.0,3.0,True,False
+101,Thomas Ramos,France,Fly Half,1,0.0,P,True,False,True,36.0,36.39062275072651,six_nations_2025_r3,p3_corrected_full_refit,18.0,18.0,18.0,True,False
+104,Antoine Dupont,France,Scrum Half,1,0.0,P,True,False,False,90.0,32.653076897416724,six_nations_2025_r3,p3_corrected_full_refit,45.0,45.0,45.0,True,False
+113,Gregory Alldritt,France,Loose Forward,1,0.0,P,True,False,False,47.0,30.860834839926547,six_nations_2025_r3,p3_corrected_full_refit,23.5,23.5,23.5,True,False
+131,Louis Bielle-Biarrey,France,Back Three,1,0.0,P,True,False,False,37.0,28.628193177086157,six_nations_2025_r3,p3_corrected_full_refit,18.5,18.5,18.5,True,False

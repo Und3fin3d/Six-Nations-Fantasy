@@ -1,0 +1,10 @@
+competition,season,candidate,comparator,mean,lower,upper,min_leave_one_out,rounds,known_rounds,total,wins,losses,unknown_selected
+ncr,2026,empirical_timing_only,equal_incumbent,26.0,-33.0,90.0,-6.0,3,3,78.0,2,1,0
+ncr,2026,empirical_timing_only,incumbent,25.333333333333332,-53.0,130.0,-27.0,3,3,76.0,1,2,0
+ncr,2026,empirical_timing_only,p3_robust_native,0.0,0.0,0.0,0.0,3,3,0.0,0,0,0
+six_nations,2025,empirical_timing_only,equal_incumbent,9.0,-19.8,44.2,-6.25,5,5,45.0,2,3,0
+six_nations,2025,empirical_timing_only,incumbent,19.2,-14.2,54.6,4.5,5,5,96.0,3,2,0
+six_nations,2025,empirical_timing_only,p3_robust_native,0.0,0.0,0.0,0.0,5,5,0.0,0,0,0
+six_nations,2026,empirical_timing_only,equal_incumbent,-14.6,-43.43499999999997,17.8,-28.5,5,5,-73.0,1,4,0
+six_nations,2026,empirical_timing_only,incumbent,-8.6,-35.2,17.8,-19.75,5,5,-43.0,2,3,0
+six_nations,2026,empirical_timing_only,p3_robust_native,0.0,0.0,0.0,0.0,5,5,0.0,0,0,0

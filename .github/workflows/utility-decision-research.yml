@@ -1,0 +1,75 @@
+name: Fantasy utility research
+on:
+  push:
+    branches: [codex/fantasy-decision-workflow]
+    paths: [.github/workflows/utility-decision-research.yml]
+permissions:
+  contents: read
+  actions: read
+jobs:
+  supervision:
+    runs-on: ubuntu-latest
+    env:
+      OMP_NUM_THREADS: '2'
+      OPENBLAS_NUM_THREADS: '1'
+      SUPERVISION_VERSION: canonical_unknown_position_v3
+    steps:
+      - uses: actions/checkout@v5
+        with:
+          lfs: false
+          persist-credentials: false
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+          cache: pip
+          cache-dependency-path: requirements-model.txt
+      - uses: actions/download-artifact@v4
+        with:
+          github-token: ${{ github.token }}
+          repository: ${{ github.repository }}
+          run-id: 36258801997
+          name: conditional-duration-prepared-36258801997
+          path: ${{ runner.temp }}/prepared-inputs
+      - name: Execute source-taxonomy and supervision correction without fitting
+        run: |
+          set -euo pipefail
+          mkdir -p "$RUNNER_TEMP/utility-evidence"
+          python -m pip install torch==2.7.1 --index-url https://download.pytorch.org/whl/cpu
+          python -m pip install -r requirements-model.txt requests beautifulsoup4
+          python model_env_preflight.py
+          git rev-parse HEAD > "$RUNNER_TEMP/utility-evidence/source-commit.txt"
+          python -u -m research.utility_supervision_audit --prepared "$RUNNER_TEMP/prepared-inputs/prepared" --output "$RUNNER_TEMP/utility-evidence/supervision" 2>&1 | tee "$RUNNER_TEMP/utility-evidence/supervision.log"
+          git diff --exit-code -- tests
+      - uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: utility-supervision-${{ github.run_id }}
+          path: ${{ runner.temp }}/utility-evidence
+          retention-days: 30
+          if-no-files-found: error
+  checkpoint:
+    if: always()
+    needs: supervision
+    runs-on: ubuntu-latest
+    permissions:
+      contents: write
+    steps:
+      - uses: actions/checkout@v5
+        with:
+          ref: codex/fantasy-decision-workflow
+          lfs: false
+      - uses: actions/download-artifact@v4
+        with:
+          name: utility-supervision-${{ github.run_id }}
+          path: data/unified/decision_continuation_2026-09-26/run-${{ github.run_id }}
+      - name: Preserve the correction and original failed audit
+        env:
+          DEST: data/unified/decision_continuation_2026-09-26/run-${{ github.run_id }}
+        run: |
+          set -euo pipefail
+          git config user.name 'github-actions[bot]'
+          git config user.email '41898282+github-actions[bot]@users.noreply.github.com'
+          git add -- "$DEST"
+          git commit -m "Retain corrected utility supervision $GITHUB_RUN_ID [skip ci]"
+          git pull --rebase origin codex/fantasy-decision-workflow
+          git push origin HEAD:codex/fantasy-decision-workflow

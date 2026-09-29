@@ -1,0 +1,201 @@
+event,pos,rows,observed,positive,mean_observed,current_weight,official_weight,known_omitted_points
+clean_breaks,Back Three,112,96,49,0.8020833333333334,3.0,3.0,231.0
+clean_breaks,Centre,87,83,26,0.39759036144578314,3.0,3.0,99.0
+clean_breaks,Fly Half,52,50,13,0.36,3.0,3.0,54.0
+clean_breaks,Hooker,65,62,7,0.11290322580645161,3.0,3.0,21.0
+clean_breaks,Lock,106,94,10,0.1276595744680851,3.0,3.0,36.0
+clean_breaks,Loose Forward,137,130,20,0.18461538461538463,3.0,3.0,72.0
+clean_breaks,Prop,131,116,8,0.06896551724137931,3.0,3.0,24.0
+clean_breaks,Scrum Half,68,66,9,0.16666666666666666,3.0,3.0,33.0
+conversion_goals,Back Three,112,96,5,0.125,2.0,2.0,24.0
+conversion_goals,Centre,87,83,1,0.03614457831325301,2.0,2.0,6.0
+conversion_goals,Fly Half,52,50,26,1.58,2.0,2.0,158.0
+conversion_goals,Hooker,65,62,0,0.0,2.0,2.0,0.0
+conversion_goals,Lock,106,94,0,0.0,2.0,2.0,0.0
+conversion_goals,Loose Forward,137,130,0,0.0,2.0,2.0,0.0
+conversion_goals,Prop,131,116,0,0.0,2.0,2.0,0.0
+conversion_goals,Scrum Half,68,66,5,0.25757575757575757,2.0,2.0,34.0
+defenders_beaten,Back Three,112,96,71,2.2395833333333335,2.0,2.0,430.0
+defenders_beaten,Centre,87,83,57,1.6987951807228916,2.0,2.0,282.0
+defenders_beaten,Fly Half,52,50,35,1.74,2.0,2.0,174.0
+defenders_beaten,Hooker,65,62,23,0.6612903225806451,2.0,2.0,82.0
+defenders_beaten,Lock,106,94,33,0.5106382978723404,2.0,2.0,96.0
+defenders_beaten,Loose Forward,137,130,61,1.1615384615384616,2.0,2.0,302.0
+defenders_beaten,Prop,131,116,35,0.5,2.0,2.0,116.0
+defenders_beaten,Scrum Half,68,66,20,0.4696969696969697,2.0,2.0,62.0
+drop_goals_converted,Back Three,112,96,0,0.0,5.0,5.0,0.0
+drop_goals_converted,Centre,87,83,0,0.0,5.0,5.0,0.0
+drop_goals_converted,Fly Half,52,50,0,0.0,5.0,5.0,0.0
+drop_goals_converted,Hooker,65,62,0,0.0,5.0,5.0,0.0
+drop_goals_converted,Lock,106,94,0,0.0,5.0,5.0,0.0
+drop_goals_converted,Loose Forward,137,130,0,0.0,5.0,5.0,0.0
+drop_goals_converted,Prop,131,116,0,0.0,5.0,5.0,0.0
+drop_goals_converted,Scrum Half,68,66,0,0.0,5.0,5.0,0.0
+fifty_22,Back Three,112,0,0,,0.0,2.0,0.0
+fifty_22,Centre,87,0,0,,0.0,2.0,0.0
+fifty_22,Fly Half,52,0,0,,0.0,2.0,0.0
+fifty_22,Hooker,65,0,0,,0.0,2.0,0.0
+fifty_22,Lock,106,0,0,,0.0,2.0,0.0
+fifty_22,Loose Forward,137,0,0,,0.0,2.0,0.0
+fifty_22,Prop,131,0,0,,0.0,2.0,0.0
+fifty_22,Scrum Half,68,0,0,,0.0,2.0,0.0
+handling_errors,Back Three,112,0,0,,0.0,-1.0,0.0
+handling_errors,Centre,87,0,0,,0.0,-1.0,0.0
+handling_errors,Fly Half,52,0,0,,0.0,-1.0,0.0
+handling_errors,Hooker,65,0,0,,0.0,-1.0,0.0
+handling_errors,Lock,106,0,0,,0.0,-1.0,0.0
+handling_errors,Loose Forward,137,0,0,,0.0,-1.0,0.0
+handling_errors,Prop,131,0,0,,0.0,-1.0,0.0
+handling_errors,Scrum Half,68,0,0,,0.0,-1.0,0.0
+interceptions,Back Three,112,0,0,,5.0,5.0,0.0
+interceptions,Centre,87,0,0,,5.0,5.0,0.0
+interceptions,Fly Half,52,0,0,,5.0,5.0,0.0
+interceptions,Hooker,65,0,0,,5.0,5.0,0.0
+interceptions,Lock,106,0,0,,5.0,5.0,0.0
+interceptions,Loose Forward,137,0,0,,5.0,5.0,0.0
+interceptions,Prop,131,0,0,,5.0,5.0,0.0
+interceptions,Scrum Half,68,0,0,,5.0,5.0,0.0
+lineout_errors,Back Three,112,0,0,,0.0,-2.0,0.0
+lineout_errors,Centre,87,0,0,,0.0,-2.0,0.0
+lineout_errors,Fly Half,52,0,0,,0.0,-2.0,0.0
+lineout_errors,Hooker,65,0,0,,0.0,-2.0,0.0
+lineout_errors,Lock,106,0,0,,0.0,-2.0,0.0
+lineout_errors,Loose Forward,137,0,0,,0.0,-2.0,0.0
+lineout_errors,Prop,131,0,0,,0.0,-2.0,0.0
+lineout_errors,Scrum Half,68,0,0,,0.0,-2.0,0.0
+lineout_steals,Back Three,112,0,0,,5.0,5.0,0.0
+lineout_steals,Centre,87,0,0,,5.0,5.0,0.0
+lineout_steals,Fly Half,52,0,0,,5.0,5.0,0.0
+lineout_steals,Hooker,65,0,0,,5.0,5.0,0.0
+lineout_steals,Lock,106,0,0,,5.0,5.0,0.0
+lineout_steals,Loose Forward,137,0,0,,5.0,5.0,0.0
+lineout_steals,Prop,131,0,0,,5.0,5.0,0.0
+lineout_steals,Scrum Half,68,0,0,,5.0,5.0,0.0
+lineouts_won,Back Three,112,96,3,0.03125,1.0,1.0,3.0
+lineouts_won,Centre,87,83,1,0.012048192771084338,1.0,1.0,1.0
+lineouts_won,Fly Half,52,50,2,0.04,1.0,1.0,2.0
+lineouts_won,Hooker,65,62,59,6.016129032258065,1.0,1.0,373.0
+lineouts_won,Lock,106,94,0,0.0,1.0,1.0,0.0
+lineouts_won,Loose Forward,137,130,0,0.0,1.0,1.0,0.0
+lineouts_won,Prop,131,116,2,0.034482758620689655,1.0,1.0,4.0
+lineouts_won,Scrum Half,68,66,4,0.06060606060606061,1.0,1.0,4.0
+metres,Back Three,112,96,92,39.979166666666664,0.0,0.1,341.0
+metres,Centre,87,83,79,26.927710843373493,0.0,0.1,191.0
+metres,Fly Half,52,50,47,26.44,0.0,0.1,111.0
+metres,Hooker,65,62,55,11.225806451612904,0.0,0.1,45.0
+metres,Lock,106,94,79,10.074468085106384,0.0,0.1,63.0
+metres,Loose Forward,137,130,122,19.49230769230769,0.0,0.1,205.0
+metres,Prop,131,116,91,5.887931034482759,0.0,0.1,34.0
+metres,Scrum Half,68,66,49,12.909090909090908,0.0,0.1,65.0
+missed_conversion_goals,Back Three,112,96,3,0.041666666666666664,-1.0,-1.0,-4.0
+missed_conversion_goals,Centre,87,83,1,0.012048192771084338,-1.0,-1.0,-1.0
+missed_conversion_goals,Fly Half,52,50,12,0.38,-1.0,-1.0,-19.0
+missed_conversion_goals,Hooker,65,62,0,0.0,-1.0,-1.0,0.0
+missed_conversion_goals,Lock,106,94,0,0.0,-1.0,-1.0,0.0
+missed_conversion_goals,Loose Forward,137,130,0,0.0,-1.0,-1.0,0.0
+missed_conversion_goals,Prop,131,116,0,0.0,-1.0,-1.0,0.0
+missed_conversion_goals,Scrum Half,68,66,2,0.06060606060606061,-1.0,-1.0,-4.0
+missed_penalty_goals,Back Three,112,96,0,0.0,-1.0,-1.0,0.0
+missed_penalty_goals,Centre,87,83,0,0.0,-1.0,-1.0,0.0
+missed_penalty_goals,Fly Half,52,50,1,0.04,-1.0,-1.0,-2.0
+missed_penalty_goals,Hooker,65,62,0,0.0,-1.0,-1.0,0.0
+missed_penalty_goals,Lock,106,94,0,0.0,-1.0,-1.0,0.0
+missed_penalty_goals,Loose Forward,137,130,0,0.0,-1.0,-1.0,0.0
+missed_penalty_goals,Prop,131,116,0,0.0,-1.0,-1.0,0.0
+missed_penalty_goals,Scrum Half,68,66,0,0.0,-1.0,-1.0,0.0
+missed_tackles,Back Three,112,96,67,1.3854166666666667,-1.0,-1.0,-133.0
+missed_tackles,Centre,87,83,56,1.4096385542168675,-1.0,-1.0,-117.0
+missed_tackles,Fly Half,52,50,31,1.36,-1.0,-1.0,-68.0
+missed_tackles,Hooker,65,62,27,0.7580645161290323,-1.0,-1.0,-47.0
+missed_tackles,Lock,106,94,53,1.127659574468085,-1.0,-1.0,-106.0
+missed_tackles,Loose Forward,137,130,80,1.0769230769230769,-1.0,-1.0,-140.0
+missed_tackles,Prop,131,116,55,0.7327586206896551,-1.0,-1.0,-85.0
+missed_tackles,Scrum Half,68,66,40,1.303030303030303,-1.0,-1.0,-86.0
+offload,Back Three,112,96,33,0.5625,2.0,2.0,108.0
+offload,Centre,87,83,44,0.7590361445783133,2.0,2.0,126.0
+offload,Fly Half,52,50,15,0.42,2.0,2.0,42.0
+offload,Hooker,65,62,8,0.12903225806451613,2.0,2.0,16.0
+offload,Lock,106,94,17,0.2127659574468085,2.0,2.0,40.0
+offload,Loose Forward,137,130,33,0.3384615384615385,2.0,2.0,88.0
+offload,Prop,131,116,7,0.0603448275862069,2.0,2.0,14.0
+offload,Scrum Half,68,66,22,0.3787878787878788,2.0,2.0,50.0
+penalties_conceded,Back Three,112,96,18,0.23958333333333334,-1.0,-1.0,-23.0
+penalties_conceded,Centre,87,83,28,0.37349397590361444,-1.0,-1.0,-31.0
+penalties_conceded,Fly Half,52,50,9,0.2,-1.0,-1.0,-10.0
+penalties_conceded,Hooker,65,62,24,0.46774193548387094,-1.0,-1.0,-29.0
+penalties_conceded,Lock,106,94,42,0.5319148936170213,-1.0,-1.0,-50.0
+penalties_conceded,Loose Forward,137,130,46,0.43846153846153846,-1.0,-1.0,-57.0
+penalties_conceded,Prop,131,116,40,0.49137931034482757,-1.0,-1.0,-57.0
+penalties_conceded,Scrum Half,68,66,12,0.21212121212121213,-1.0,-1.0,-14.0
+penalty_goals,Back Three,112,96,3,0.052083333333333336,3.0,3.0,15.0
+penalty_goals,Centre,87,83,0,0.0,3.0,3.0,0.0
+penalty_goals,Fly Half,52,50,8,0.16,3.0,3.0,24.0
+penalty_goals,Hooker,65,62,0,0.0,3.0,3.0,0.0
+penalty_goals,Lock,106,94,0,0.0,3.0,3.0,0.0
+penalty_goals,Loose Forward,137,130,0,0.0,3.0,3.0,0.0
+penalty_goals,Prop,131,116,0,0.0,3.0,3.0,0.0
+penalty_goals,Scrum Half,68,66,1,0.030303030303030304,3.0,3.0,6.0
+potm,Back Three,112,0,0,,15.0,15.0,0.0
+potm,Centre,87,0,0,,15.0,15.0,0.0
+potm,Fly Half,52,0,0,,15.0,15.0,0.0
+potm,Hooker,65,0,0,,15.0,15.0,0.0
+potm,Lock,106,0,0,,15.0,15.0,0.0
+potm,Loose Forward,137,0,0,,15.0,15.0,0.0
+potm,Prop,131,0,0,,15.0,15.0,0.0
+potm,Scrum Half,68,0,0,,15.0,15.0,0.0
+red_cards,Back Three,112,96,0,0.0,-10.0,-10.0,0.0
+red_cards,Centre,87,83,0,0.0,-10.0,-10.0,0.0
+red_cards,Fly Half,52,50,0,0.0,-10.0,-10.0,0.0
+red_cards,Hooker,65,62,0,0.0,-10.0,-10.0,0.0
+red_cards,Lock,106,94,1,0.010638297872340425,-10.0,-10.0,-10.0
+red_cards,Loose Forward,137,130,0,0.0,-10.0,-10.0,0.0
+red_cards,Prop,131,116,1,0.008620689655172414,-10.0,-10.0,-10.0
+red_cards,Scrum Half,68,66,1,0.015151515151515152,-10.0,-10.0,-10.0
+scrums_won,Back Three,112,0,0,,0.0,0.0,0.0
+scrums_won,Centre,87,0,0,,0.0,0.0,0.0
+scrums_won,Fly Half,52,0,0,,0.0,0.0,0.0
+scrums_won,Hooker,65,0,0,,2.0,2.0,0.0
+scrums_won,Lock,106,0,0,,0.0,0.0,0.0
+scrums_won,Loose Forward,137,0,0,,0.0,0.0,0.0
+scrums_won,Prop,131,0,0,,2.0,2.0,0.0
+scrums_won,Scrum Half,68,0,0,,0.0,0.0,0.0
+tackle_turnover,Back Three,112,96,11,0.11458333333333333,4.0,4.0,44.0
+tackle_turnover,Centre,87,83,7,0.0963855421686747,4.0,4.0,32.0
+tackle_turnover,Fly Half,52,50,4,0.08,4.0,4.0,16.0
+tackle_turnover,Hooker,65,62,4,0.08064516129032258,4.0,4.0,20.0
+tackle_turnover,Lock,106,94,9,0.09574468085106383,4.0,4.0,36.0
+tackle_turnover,Loose Forward,137,130,19,0.17692307692307693,4.0,4.0,92.0
+tackle_turnover,Prop,131,116,2,0.017241379310344827,4.0,4.0,8.0
+tackle_turnover,Scrum Half,68,66,11,0.16666666666666666,4.0,4.0,44.0
+tackles,Back Three,112,96,89,4.760416666666667,1.0,1.0,457.0
+tackles,Centre,87,83,77,6.771084337349397,1.0,1.0,562.0
+tackles,Fly Half,52,50,49,4.64,1.0,1.0,232.0
+tackles,Hooker,65,62,61,7.935483870967742,1.0,1.0,492.0
+tackles,Lock,106,94,93,9.287234042553191,1.0,1.0,873.0
+tackles,Loose Forward,137,130,130,10.6,1.0,1.0,1378.0
+tackles,Prop,131,116,114,6.672413793103448,1.0,1.0,774.0
+tackles,Scrum Half,68,66,57,4.03030303030303,1.0,1.0,266.0
+tries,Back Three,112,96,25,0.28125,12.0,12.0,324.0
+tries,Centre,87,83,16,0.1927710843373494,12.0,12.0,192.0
+tries,Fly Half,52,50,6,0.14,12.0,12.0,84.0
+tries,Hooker,65,62,14,0.24193548387096775,12.0,12.0,180.0
+tries,Lock,106,94,13,0.1595744680851064,12.0,12.0,180.0
+tries,Loose Forward,137,130,24,0.23076923076923078,12.0,12.0,360.0
+tries,Prop,131,116,13,0.11206896551724138,12.0,12.0,156.0
+tries,Scrum Half,68,66,11,0.18181818181818182,12.0,12.0,144.0
+try_assists,Back Three,112,96,13,0.13541666666666666,5.0,5.0,65.0
+try_assists,Centre,87,83,16,0.21686746987951808,5.0,5.0,90.0
+try_assists,Fly Half,52,50,8,0.16,5.0,5.0,40.0
+try_assists,Hooker,65,62,2,0.03225806451612903,5.0,5.0,10.0
+try_assists,Lock,106,94,4,0.0425531914893617,5.0,5.0,20.0
+try_assists,Loose Forward,137,130,7,0.05384615384615385,5.0,5.0,35.0
+try_assists,Prop,131,116,3,0.02586206896551724,5.0,5.0,15.0
+try_assists,Scrum Half,68,66,21,0.4393939393939394,5.0,5.0,145.0
+yellow_cards,Back Three,112,96,5,0.052083333333333336,-5.0,-5.0,-25.0
+yellow_cards,Centre,87,83,0,0.0,-5.0,-5.0,0.0
+yellow_cards,Fly Half,52,50,1,0.02,-5.0,-5.0,-5.0
+yellow_cards,Hooker,65,62,1,0.016129032258064516,-5.0,-5.0,-5.0
+yellow_cards,Lock,106,94,3,0.031914893617021274,-5.0,-5.0,-15.0
+yellow_cards,Loose Forward,137,130,9,0.06923076923076923,-5.0,-5.0,-45.0
+yellow_cards,Prop,131,116,1,0.008620689655172414,-5.0,-5.0,-5.0
+yellow_cards,Scrum Half,68,66,2,0.030303030303030304,-5.0,-5.0,-10.0

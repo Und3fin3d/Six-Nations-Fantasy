@@ -1,0 +1,17 @@
+id,name,team,pos,hemi,value,status,in_squad,is_sub,is_capt,actual,point_forecast,slate,engine,actual_role_supersub_points,possible_min,possible_max,role_outcome_known,source_conflict
+11,Thomas Ramos,France,Back Three,1,0.0,P,True,False,False,46.0,30.61955422420315,six_nations_2026_r1,p3_conditional_duration_bounded_v2_mixture_floor,23.0,23.0,23.0,True,False
+15,Antoine Dupont,France,Scrum Half,1,0.0,P,True,False,True,30.0,31.500304055929142,six_nations_2026_r1,p3_conditional_duration_bounded_v2_mixture_floor,15.0,15.0,15.0,True,False
+23,Caelan Doris,Ireland,Loose Forward,1,0.0,P,True,False,False,34.0,26.67543727511956,six_nations_2026_r1,p3_conditional_duration_bounded_v2_mixture_floor,17.0,17.0,17.0,True,False
+27,Matthieu Jalibert,France,Fly Half,1,0.0,P,True,False,False,52.0,29.685059698910205,six_nations_2026_r1,p3_conditional_duration_bounded_v2_mixture_floor,26.0,26.0,26.0,True,False
+39,Louis Bielle-Biarrey,France,Back Three,1,0.0,P,True,False,False,51.0,26.91809479848675,six_nations_2026_r1,p3_conditional_duration_bounded_v2_mixture_floor,25.5,25.5,25.5,True,False
+52,Jack Dempsey,Scotland,Loose Forward,1,0.0,P,True,False,False,40.0,26.059117516475307,six_nations_2026_r1,p3_conditional_duration_bounded_v2_mixture_floor,20.0,20.0,20.0,True,False
+55,Pierre Schoeman,Scotland,Prop,1,0.0,P,True,False,False,10.0,14.651093531678121,six_nations_2026_r1,p3_conditional_duration_bounded_v2_mixture_floor,5.0,5.0,5.0,True,False
+68,Kyle Steyn,Scotland,Back Three,1,0.0,P,True,False,False,12.0,22.356645312609345,six_nations_2026_r1,p3_conditional_duration_bounded_v2_mixture_floor,6.0,6.0,6.0,True,False
+73,Ewan Ashman,Scotland,Hooker,1,0.0,P,True,False,False,14.0,23.71153732522005,six_nations_2026_r1,p3_conditional_duration_bounded_v2_mixture_floor,7.0,7.0,7.0,True,False
+84,Tommaso Menoncello,Italy,Centre,1,0.0,P,True,False,False,34.0,21.097018748793552,six_nations_2026_r1,p3_conditional_duration_bounded_v2_mixture_floor,17.0,17.0,17.0,True,False
+106,Ben Earl,England,Loose Forward,1,0.0,P,True,False,False,50.0,28.35919043771273,six_nations_2026_r1,p3_conditional_duration_bounded_v2_mixture_floor,25.0,25.0,25.0,True,False
+119,Alex Coles,England,Lock,1,0.0,P,True,False,False,22.0,22.75223525254555,six_nations_2026_r1,p3_conditional_duration_bounded_v2_mixture_floor,11.0,11.0,11.0,True,False
+123,Tommy Freeman,England,Centre,1,0.0,P,True,False,False,50.0,28.919575825149312,six_nations_2026_r1,p3_conditional_duration_bounded_v2_mixture_floor,25.0,25.0,25.0,True,False
+125,Archie Griffin,Wales,Prop,1,0.0,P,True,False,False,14.0,15.19213255116637,six_nations_2026_r1,p3_conditional_duration_bounded_v2_mixture_floor,7.0,7.0,7.0,True,False
+128,Dafydd Jenkins,Wales,Lock,1,0.0,P,True,False,False,14.0,20.932392399831006,six_nations_2026_r1,p3_conditional_duration_bounded_v2_mixture_floor,7.0,7.0,7.0,True,False
+135,Henry Pollock,England,Loose Forward,1,0.0,B,True,True,False,3.0,13.413347144556832,six_nations_2026_r1,p3_conditional_duration_bounded_v2_mixture_floor,9.0,9.0,9.0,True,False

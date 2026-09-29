@@ -1,0 +1,17 @@
+id,name,team,pos,hemi,value,status,in_squad,is_sub,is_capt,actual,point_forecast,slate,engine,actual_role_supersub_points,possible_min,possible_max,role_outcome_known,source_conflict
+7,Jack Conan,Ireland,Loose Forward,1,0.0,P,True,False,False,24.0,29.44778937869757,six_nations_2026_r5,robust_empirical_event,12.0,12.0,12.0,True,False
+17,Pierre Schoeman,Scotland,Prop,1,0.0,P,True,False,False,16.0,17.378162703756498,six_nations_2026_r5,robust_empirical_event,8.0,8.0,8.0,True,False
+18,Zander Fagerson,Scotland,Prop,1,0.0,P,True,False,False,17.0,14.683255195222786,six_nations_2026_r5,robust_empirical_event,8.5,8.5,8.5,True,False
+28,Caelan Doris,Ireland,Loose Forward,1,0.0,P,True,False,False,54.0,29.344634797134,six_nations_2026_r5,robust_empirical_event,27.0,27.0,27.0,True,False
+36,Rory Darge,Scotland,Loose Forward,1,0.0,P,True,False,False,48.0,27.99336866396593,six_nations_2026_r5,robust_empirical_event,24.0,24.0,24.0,True,False
+37,Dan Sheehan,Ireland,Hooker,1,0.0,P,True,False,False,43.0,27.46933732984071,six_nations_2026_r5,robust_empirical_event,21.5,21.5,21.5,True,False
+38,Robert Baloucoune,Ireland,Back Three,1,0.0,P,True,False,False,15.0,30.03331813664822,six_nations_2026_r5,robust_empirical_event,7.5,7.5,7.5,True,False
+81,Tommaso Menoncello,Italy,Centre,1,0.0,P,True,False,False,44.0,24.076644314402344,six_nations_2026_r5,robust_empirical_event,22.0,22.0,22.0,True,False
+87,Dafydd Jenkins,Wales,Lock,1,0.0,P,True,False,False,15.0,23.281358569562638,six_nations_2026_r5,robust_empirical_event,7.5,7.5,7.5,True,False
+102,Thomas Ramos,France,Back Three,1,0.0,P,True,False,False,30.0,39.21876035543938,six_nations_2026_r5,robust_empirical_event,15.0,15.0,15.0,True,False
+105,Antoine Dupont,France,Scrum Half,1,0.0,P,True,False,False,30.0,37.90393981816467,six_nations_2026_r5,robust_empirical_event,15.0,15.0,15.0,True,False
+112,Matthieu Jalibert,France,Fly Half,1,0.0,P,True,False,True,44.0,40.03443351277286,six_nations_2026_r5,robust_empirical_event,22.0,22.0,22.0,True,False
+120,Alex Coles,England,Lock,1,0.0,P,True,False,False,24.0,23.88553365730836,six_nations_2026_r5,robust_empirical_event,12.0,12.0,12.0,True,False
+123,Tommy Freeman,England,Centre,1,0.0,P,True,False,False,33.0,20.637353698730955,six_nations_2026_r5,robust_empirical_event,16.5,16.5,16.5,True,False
+129,Louis Bielle-Biarrey,France,Back Three,1,0.0,P,True,False,False,68.0,33.12317514977079,six_nations_2026_r5,robust_empirical_event,34.0,34.0,34.0,True,False
+136,Henry Pollock,England,Loose Forward,1,0.0,B,True,True,False,8.0,10.226995375347068,six_nations_2026_r5,robust_empirical_event,24.0,24.0,24.0,True,False

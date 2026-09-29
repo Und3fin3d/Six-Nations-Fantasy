@@ -1,0 +1,17 @@
+id,name,team,pos,hemi,value,status,in_squad,is_sub,is_capt,actual,point_forecast,slate,engine,actual_role_supersub_points,possible_min,possible_max,role_outcome_known,source_conflict
+10,Jamison Gibson-Park,Ireland,Scrum Half,1,0.0,P,True,False,False,8.0,20.493067379862385,six_nations_2025_r5,p3_corrected_full_refit,4.0,4.0,4.0,True,False
+14,Federico Ruzza,Italy,Lock,1,0.0,P,True,False,False,25.0,19.342562187965584,six_nations_2025_r5,p3_corrected_full_refit,12.5,12.5,12.5,True,False
+22,Caelan Doris,Ireland,Loose Forward,1,0.0,P,True,False,False,20.0,30.036253786396564,six_nations_2025_r5,p3_corrected_full_refit,10.0,10.0,10.0,True,False
+24,Danilo Fischetti,Italy,Prop,1,0.0,P,True,False,False,15.0,13.88284164703816,six_nations_2025_r5,p3_corrected_full_refit,7.5,7.5,7.5,True,False
+27,Dan Sheehan,Ireland,Hooker,1,0.0,P,True,False,False,84.0,25.560157751164965,six_nations_2025_r5,p3_corrected_full_refit,42.0,42.0,42.0,True,False
+37,Tommaso Menoncello,Italy,Centre,1,0.0,P,True,False,False,45.0,21.71757083129604,six_nations_2025_r5,p3_corrected_full_refit,22.5,22.5,22.5,True,False
+59,Ellis Genge,England,Prop,1,0.0,P,True,False,False,18.0,15.415275648334292,six_nations_2025_r5,p3_corrected_full_refit,9.0,9.0,9.0,True,False
+71,Tom Willis,England,Loose Forward,1,0.0,B,True,True,False,22.0,11.875319831205687,six_nations_2025_r5,p3_corrected_full_refit,66.0,66.0,66.0,True,False
+78,Jac Morgan,Wales,Loose Forward,1,0.0,P,True,False,False,24.0,29.700122945585445,six_nations_2025_r5,p3_corrected_full_refit,12.0,12.0,12.0,True,False
+81,Tommy Freeman,England,Centre,1,0.0,P,True,False,False,28.0,25.353151811645603,six_nations_2025_r5,p3_corrected_full_refit,14.0,14.0,14.0,True,False
+85,Fin Smith,England,Fly Half,1,0.0,P,True,False,False,28.0,28.105366691884658,six_nations_2025_r5,p3_corrected_full_refit,14.0,14.0,14.0,True,False
+86,Dafydd Jenkins,Wales,Lock,1,0.0,P,True,False,False,21.0,20.70702100925492,six_nations_2025_r5,p3_corrected_full_refit,10.5,10.5,10.5,True,False
+100,Thomas Ramos,France,Back Three,1,0.0,P,True,False,True,36.0,37.558263717128895,six_nations_2025_r5,p3_corrected_full_refit,18.0,18.0,18.0,True,False
+109,Damian Penaud,France,Back Three,1,0.0,P,True,False,False,10.0,36.46864609918716,six_nations_2025_r5,p3_corrected_full_refit,5.0,5.0,5.0,True,False
+119,Gregory Alldritt,France,Loose Forward,1,0.0,P,True,False,False,16.0,30.136325278616333,six_nations_2025_r5,p3_corrected_full_refit,8.0,8.0,8.0,True,False
+135,Louis Bielle-Biarrey,France,Back Three,1,0.0,P,True,False,False,25.0,32.29563337554287,six_nations_2025_r5,p3_corrected_full_refit,12.5,12.5,12.5,True,False

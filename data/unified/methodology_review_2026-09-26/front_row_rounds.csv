@@ -1,0 +1,19 @@
+slate,engine,variant,n,mae,team_points,cost,captain_id,captain_name,super_sub_id,super_sub_name,common_players,players_entered,players_removed
+ncr_2026_r1,p3_robust_native,archived_scoring,227,8.317041089518463,498.0,99.0,154929,Cheslin Kolbe,214124,James Botham,16,,
+ncr_2026_r1,p3_robust_native,front_row_only,227,8.22916308622924,476.0,95.0,154929,Cheslin Kolbe,136875,Gianmarco Lucchesi,13,Harry Hockings; Gianmarco Lucchesi; Alessandro Ortombina,Ben Carter; Alex Coles; James Botham
+ncr_2026_r1,p3_rolling_native,archived_scoring,227,8.42242317971711,502.0,94.5,123016,Jac Morgan,136875,Gianmarco Lucchesi,16,,
+ncr_2026_r1,p3_rolling_native,front_row_only,227,8.29144067877469,487.0,94.5,154929,Cheslin Kolbe,136875,Gianmarco Lucchesi,16,,
+ncr_2026_r1,p3_weighted_native,archived_scoring,227,8.355870335927177,507.0,100.0,154929,Cheslin Kolbe,136875,Gianmarco Lucchesi,16,,
+ncr_2026_r1,p3_weighted_native,front_row_only,227,8.214471726452688,476.0,96.0,154929,Cheslin Kolbe,136875,Gianmarco Lucchesi,14,Robert Baloucoune; Cameron Hanekom,Rory Darge; Kurt-Lee Arendse
+ncr_2026_r2,p3_robust_native,archived_scoring,262,8.3384012734908,684.0,99.5,179379,Ardie Savea,239634,Henry Pollock,16,,
+ncr_2026_r2,p3_robust_native,front_row_only,262,8.12827466534633,623.0,99.5,146220,Will Jordan,136875,Gianmarco Lucchesi,12,Gianmarco Lucchesi; Ewan Ashman; Alex Coles; Theo Attissogbe,Mateo Carreras; Tommaso di Bartolomeo; Warner Dearns; Henry Pollock
+ncr_2026_r2,p3_rolling_native,archived_scoring,262,8.309864655765312,681.0,100.0,179379,Ardie Savea,239634,Henry Pollock,16,,
+ncr_2026_r2,p3_rolling_native,front_row_only,262,8.094687465502329,587.0,98.0,146220,Will Jordan,136875,Gianmarco Lucchesi,15,Gianmarco Lucchesi,Henry Pollock
+ncr_2026_r2,p3_weighted_native,archived_scoring,262,8.266343800816557,531.0,98.0,179379,Ardie Savea,136875,Gianmarco Lucchesi,16,,
+ncr_2026_r2,p3_weighted_native,front_row_only,262,8.038074966495069,625.0,97.5,146220,Will Jordan,136875,Gianmarco Lucchesi,14,Alex Coles; Joaquin Oviedo,Jac Morgan; Ben Carter
+ncr_2026_r3,p3_robust_native,archived_scoring,269,8.456052776874802,557.0,100.0,190344,Matthieu Jalibert,239634,Henry Pollock,16,,
+ncr_2026_r3,p3_robust_native,front_row_only,269,8.39758345777741,555.0,98.0,190344,Matthieu Jalibert,237049,Andre-Hugo Venter,13,Ellis Genge; Teddy Williams; Andre-Hugo Venter,Warner Dearns; Henry Pollock; Toms Rapetti
+ncr_2026_r3,p3_rolling_native,archived_scoring,269,8.480965011842834,499.0,100.0,190344,Matthieu Jalibert,239634,Henry Pollock,16,,
+ncr_2026_r3,p3_rolling_native,front_row_only,269,8.414023448905171,496.0,97.5,190344,Matthieu Jalibert,237049,Andre-Hugo Venter,13,Ellis Genge; Teddy Williams; Andre-Hugo Venter,Muhamed Hasa; Warner Dearns; Henry Pollock
+ncr_2026_r3,p3_weighted_native,archived_scoring,269,8.439071688657073,524.0,100.0,190344,Matthieu Jalibert,239634,Henry Pollock,16,,
+ncr_2026_r3,p3_weighted_native,front_row_only,269,8.352180230402896,557.0,98.5,190344,Matthieu Jalibert,237049,Andre-Hugo Venter,13,Ellis Genge; Joaquin Oviedo; Andre-Hugo Venter,Jac Morgan; Muhamed Hasa; Henry Pollock

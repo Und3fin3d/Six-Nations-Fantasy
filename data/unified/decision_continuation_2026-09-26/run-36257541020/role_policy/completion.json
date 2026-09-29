@@ -1,0 +1,19 @@
+{
+  "analysis_completed": true,
+  "objective_completed": false,
+  "output_hashes": {
+    "admission.csv": "39703f70fa1672a6ff34d32f947de42c7ca2581c44d0e46d35359c8ba940a19b",
+    "control_metrics.csv": "2da3995ecac18c6d7f03499fc488f5264776b39261855776e9b377ebe7851aa3",
+    "control_squads.csv": "985b8c8907145d32b4cebe21a66c3f96d831ae52cdcbecb1f7d64180739eee90",
+    "control_verification.json": "00823ff6437f6738015eb044676a2947ab859c21efcf34abda6f8d8a2603896c",
+    "manifest.json": "18838b596ba8b8f1a527f3454d83f3544d7bedb4a81d2d7c00782fe9f3e69596",
+    "metrics.csv": "de36e51b10d78b1ffcf80a8ebbfc7fd9da8b495c13285132bd6a8dbe0b126250",
+    "paired_competitions.csv": "f1123e3a930663ba12648c6995177c24af0d3e1865701da96a4b465140ebbb1b",
+    "paired_rounds.csv": "bc7d1007793c4fcf7cb2b0b7109bd666d12330c270694aedd576a1453abbb291",
+    "paired_seasons.csv": "4c988b18e89e141d55a43ddb1a07af69c494194613c6612fa7142c9e14399f33",
+    "pools.csv": "c701695d564d8ee8add0774aa08e19ac145d46d141e4e48677c5a972038e5538",
+    "solver_diagnostics.json": "faa6e39e26f725ecf4a1fac5c714e313cc2d48f92801488478e3c572b10ebf8c",
+    "squads.csv": "9ded64ddede67f17c19bb4c32a8fb33e01b74e4ec2dacd8dce620b3654bff257",
+    "summary.csv": "3b4c7f624d11992cf45d329a60682cd4b4d09e1d839d7dd10e108ba4a01f2de2"
+  }
+}

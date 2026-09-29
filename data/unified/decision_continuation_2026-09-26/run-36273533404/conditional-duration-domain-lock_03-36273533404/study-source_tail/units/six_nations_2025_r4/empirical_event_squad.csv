@@ -1,0 +1,17 @@
+id,name,team,pos,hemi,value,status,in_squad,is_sub,is_capt,actual,point_forecast,slate,engine,actual_role_supersub_points,possible_min,possible_max,role_outcome_known,source_conflict
+15,Antoine Dupont,France,Scrum Half,1,0.0,P,True,False,False,14.0,29.521895164571056,six_nations_2025_r4,empirical_event,7.0,7.0,7.0,True,False
+22,Caelan Doris,Ireland,Loose Forward,1,0.0,P,True,False,False,30.0,30.850577988345016,six_nations_2025_r4,empirical_event,15.0,15.0,15.0,True,False
+29,Dan Sheehan,Ireland,Hooker,1,0.0,P,True,False,False,30.0,25.89202322937679,six_nations_2025_r4,empirical_event,15.0,15.0,15.0,True,False
+53,Finn Russell,Scotland,Fly Half,1,0.0,P,True,False,False,26.0,29.873460656816622,six_nations_2025_r4,empirical_event,13.0,13.0,13.0,True,False
+56,Will Rowlands,Wales,Lock,1,0.0,P,True,False,False,14.0,22.63710504448761,six_nations_2025_r4,empirical_event,7.0,7.0,7.0,True,False
+64,Duhan van der Merwe,Scotland,Back Three,1,0.0,P,True,False,False,28.0,34.71288104755122,six_nations_2025_r4,empirical_event,14.0,14.0,14.0,True,False
+66,Huw Jones,Scotland,Centre,1,0.0,P,True,False,False,26.0,30.263470298928326,six_nations_2025_r4,empirical_event,13.0,13.0,13.0,True,False
+71,Darcy Graham,Scotland,Back Three,1,0.0,P,True,False,False,33.0,34.389361164483965,six_nations_2025_r4,empirical_event,16.5,16.5,16.5,True,False
+79,Dewi Lake,Wales,Hooker,1,0.0,B,True,True,False,16.0,13.25021295984506,six_nations_2025_r4,empirical_event,48.0,48.0,48.0,True,False
+84,Jac Morgan,Wales,Loose Forward,1,0.0,P,True,False,False,39.0,33.33348844018492,six_nations_2025_r4,empirical_event,19.5,19.5,19.5,True,False
+89,Dafydd Jenkins,Wales,Lock,1,0.0,P,True,False,False,42.0,24.27141063006322,six_nations_2025_r4,empirical_event,21.0,21.0,21.0,True,False
+103,Ellis Genge,England,Prop,1,0.0,P,True,False,False,9.0,15.972779637911417,six_nations_2025_r4,empirical_event,4.5,4.5,4.5,True,False
+114,Danilo Fischetti,Italy,Prop,1,0.0,P,True,False,False,17.0,14.926511686979682,six_nations_2025_r4,empirical_event,8.5,8.5,8.5,True,False
+115,Tom Willis,England,Loose Forward,1,0.0,P,True,False,True,40.0,35.47438915264388,six_nations_2025_r4,empirical_event,20.0,20.0,20.0,True,False
+117,Ollie Sleightholme,England,Back Three,1,0.0,P,True,False,False,43.0,26.82338608953892,six_nations_2025_r4,empirical_event,21.5,21.5,21.5,True,False
+118,Ollie Lawrence,England,Centre,1,0.0,P,True,False,False,6.0,25.35849950893711,six_nations_2025_r4,empirical_event,3.0,3.0,3.0,True,False

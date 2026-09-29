@@ -1,0 +1,17 @@
+id,name,team,pos,hemi,value,status,in_squad,is_sub,is_capt,actual,point_forecast,slate,engine,actual_role_supersub_points,possible_min,possible_max,role_outcome_known,source_conflict
+3,WillGriff John,Wales,Prop,1,0.0,P,True,False,False,14.0,17.101655990390686,six_nations_2025_r3,empirical_fantasy_corrected,7.0,7.0,7.0,True,False
+5,Bundee Aki,Ireland,Centre,1,0.0,B,True,True,False,11.0,9.459664771730667,six_nations_2025_r3,empirical_fantasy_corrected,33.0,33.0,33.0,True,False
+11,James Lowe,Ireland,Back Three,1,0.0,P,True,False,False,19.0,31.04914257592245,six_nations_2025_r3,empirical_fantasy_corrected,9.5,9.5,9.5,True,False
+15,Will Rowlands,Wales,Lock,1,0.0,P,True,False,False,21.0,17.86331180108122,six_nations_2025_r3,empirical_fantasy_corrected,10.5,10.5,10.5,True,False
+28,Dan Sheehan,Ireland,Hooker,1,0.0,P,True,False,False,18.0,26.554843496339835,six_nations_2025_r3,empirical_fantasy_corrected,9.0,9.0,9.0,True,False
+31,Jac Morgan,Wales,Loose Forward,1,0.0,P,True,False,False,37.0,32.51904344244588,six_nations_2025_r3,empirical_fantasy_corrected,18.5,18.5,18.5,True,False
+39,Dafydd Jenkins,Wales,Lock,1,0.0,P,True,False,False,13.0,21.38825164144675,six_nations_2025_r3,empirical_fantasy_corrected,6.5,6.5,6.5,True,False
+57,Pierre Schoeman,Scotland,Prop,1,0.0,P,True,False,False,5.0,15.983498250492493,six_nations_2025_r3,empirical_fantasy_corrected,2.5,2.5,2.5,True,False
+63,Huw Jones,Scotland,Centre,1,0.0,P,True,False,False,22.0,23.740044455879673,six_nations_2025_r3,empirical_fantasy_corrected,11.0,11.0,11.0,True,False
+66,Ben Earl,England,Loose Forward,1,0.0,P,True,False,False,34.0,28.145892163867128,six_nations_2025_r3,empirical_fantasy_corrected,17.0,17.0,17.0,True,False
+73,Marcus Smith,England,Back Three,1,0.0,P,True,False,False,20.0,31.84155670894154,six_nations_2025_r3,empirical_fantasy_corrected,10.0,10.0,10.0,True,False
+76,Tom Willis,England,Loose Forward,1,0.0,P,True,False,False,10.0,30.940721354094762,six_nations_2025_r3,empirical_fantasy_corrected,5.0,5.0,5.0,True,False
+77,Ollie Sleightholme,England,Back Three,1,0.0,P,True,False,False,5.0,30.48052170110504,six_nations_2025_r3,empirical_fantasy_corrected,2.5,2.5,2.5,True,False
+101,Thomas Ramos,France,Fly Half,1,0.0,P,True,False,True,36.0,37.0572676191881,six_nations_2025_r3,empirical_fantasy_corrected,18.0,18.0,18.0,True,False
+104,Antoine Dupont,France,Scrum Half,1,0.0,P,True,False,False,90.0,34.24114369789027,six_nations_2025_r3,empirical_fantasy_corrected,45.0,45.0,45.0,True,False
+129,Tommaso Menoncello,Italy,Centre,1,0.0,P,True,False,False,38.0,23.860917394056933,six_nations_2025_r3,empirical_fantasy_corrected,19.0,19.0,19.0,True,False

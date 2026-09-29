@@ -35,16 +35,18 @@ def appearance_eligibility(store: pd.DataFrame) -> dict:
 
 
 def _reconstructed_points(frame: pd.DataFrame, competition: str) -> np.ndarray:
-    scorer = scorer_for(competition)
     rows = []
     for row in frame.itertuples(index=False):
+        scorer = scorer_for(competition, season=getattr(row, "season", None))
         events = {}
         for event in set(getattr(scorer, "weights", {})) | {"scrums_won", "metres"}:
             available = getattr(row, f"available__{event}", False)
             value = getattr(row, event, np.nan)
             if bool(available) and pd.notna(value):
                 events[event] = np.array([float(value)])
-        rows.append(float(scorer.score_samples(events, is_forward=bool(row.is_forward))[0]))
+        rows.append(float(scorer.score_samples(
+            events, is_forward=bool(row.is_forward), position=getattr(row, "position", None),
+        )[0]))
     return np.asarray(rows)
 
 

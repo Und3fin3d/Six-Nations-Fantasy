@@ -1,0 +1,17 @@
+id,name,team,pos,hemi,value,status,in_squad,is_sub,is_capt,actual,point_forecast,slate,engine,actual_role_supersub_points,possible_min,possible_max,role_outcome_known,source_conflict
+13,Stuart McCloskey,Ireland,Centre,1,0.0,P,True,False,False,32.0,24.218208432866202,six_nations_2026_r4,v4_corrected_full_refit,16.0,16.0,16.0,True,False
+23,Caelan Doris,Ireland,Loose Forward,1,0.0,P,True,False,False,30.0,29.335981308849032,six_nations_2026_r4,v4_corrected_full_refit,15.0,15.0,15.0,True,False
+29,Dewi Lake,Wales,Hooker,1,0.0,P,True,False,False,32.0,21.006830792234346,six_nations_2026_r4,v4_corrected_full_refit,16.0,16.0,16.0,True,False
+34,Tom Stewart,Ireland,Hooker,1,0.0,B,True,True,False,3.0,15.423978961641204,six_nations_2026_r4,v4_corrected_full_refit,9.0,9.0,9.0,True,False
+37,Ben Carter,Wales,Lock,1,0.0,P,True,False,False,24.0,19.719352164220357,six_nations_2026_r4,v4_corrected_full_refit,12.0,12.0,12.0,True,False
+41,Dafydd Jenkins,Wales,Lock,1,0.0,P,True,False,False,32.0,22.743962838357728,six_nations_2026_r4,v4_corrected_full_refit,16.0,16.0,16.0,True,False
+54,Jack Dempsey,Scotland,Loose Forward,1,0.0,P,True,False,False,23.0,26.285899625392577,six_nations_2026_r4,v4_corrected_full_refit,11.5,11.5,11.5,True,False
+57,Thomas Ramos,France,Back Three,1,0.0,P,True,False,False,45.0,31.91581320633141,six_nations_2026_r4,v4_corrected_full_refit,22.5,22.5,22.5,True,False
+63,Antoine Dupont,France,Scrum Half,1,0.0,P,True,False,False,21.0,37.26000001646057,six_nations_2026_r4,v4_corrected_full_refit,10.5,10.5,10.5,True,False
+76,Matthieu Jalibert,France,Fly Half,1,0.0,P,True,False,True,14.0,39.37752565059998,six_nations_2026_r4,v4_corrected_full_refit,7.0,7.0,7.0,True,False
+86,Louis Bielle-Biarrey,France,Back Three,1,0.0,P,True,False,False,49.0,28.60058477568366,six_nations_2026_r4,v4_corrected_full_refit,24.5,24.5,24.5,True,False
+103,Ellis Genge,England,Prop,1,0.0,P,True,False,False,8.0,15.51773054380204,six_nations_2026_r4,v4_corrected_full_refit,4.0,4.0,4.0,True,False
+104,Ben Earl,England,Loose Forward,1,0.0,P,True,False,False,26.0,26.148548819039927,six_nations_2026_r4,v4_corrected_full_refit,13.0,13.0,13.0,True,False
+107,Danilo Fischetti,Italy,Prop,1,0.0,P,True,False,False,15.0,14.138000848958429,six_nations_2026_r4,v4_corrected_full_refit,7.5,7.5,7.5,True,False
+109,Cadan Murley,England,Back Three,1,0.0,P,True,False,False,16.0,26.68651931098257,six_nations_2026_r4,v4_corrected_full_refit,8.0,8.0,8.0,True,False
+134,Seb Atkinson,England,Centre,1,0.0,P,True,False,False,9.0,24.607170861488918,six_nations_2026_r4,v4_corrected_full_refit,4.5,4.5,4.5,True,False

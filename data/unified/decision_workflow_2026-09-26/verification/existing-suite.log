@@ -1,0 +1,69 @@
+............................................F........................... [ 59%]
+................F................................                        [100%]
+=================================== FAILURES ===================================
+___________ test_ncr_converter_includes_api_blind_scoring_categories ___________
+
+    def test_ncr_converter_includes_api_blind_scoring_categories():
+        events = {
+            "lineouts_won": np.array([2.]), "lineout_steals": np.array([1.]),
+            "scrums_won": np.array([1.]), "interceptions": np.array([1.]),
+            "potm": np.array([1.]),
+        }
+>       score = NationsChampionshipScorer().score_samples(events, is_forward=True)
+                ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+tests/test_unified_model.py:37:
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _
+model/unified/scoring.py:92: in score_samples
+    result += self.scrum_weight(position) * scrums
+              ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _
+
+self = <model.unified.scoring.NationsChampionshipScorer object at 0x11999b8d0>
+position = None
+
+    def scrum_weight(self, position: str | None) -> float:
+        if self.version == NCR_LEGACY_SCORING_VERSION:
+            return 2.0
+        if not isinstance(position, str) or not position:
+>           raise ValueError("NCR scrum scoring requires the player's position")
+E           ValueError: NCR scrum scoring requires the player's position
+
+model/unified/scoring.py:82: ValueError
+_______________ test_real_data_audit_covers_all_labelled_rounds ________________
+
+tmp_path = PosixPath('/private/var/folders/1b/r0p6kdgx4nj53gtqnycx0rmh0000gn/T/pytest-of-williamgreenfield/pytest-26/test_real_data_audit_covers_al0')
+
+    def test_real_data_audit_covers_all_labelled_rounds(tmp_path: Path):
+        payload = run_audit(output_dir=tmp_path)
+        correlations = pd.read_csv(tmp_path / "observable_points_correlation.csv")
+>       assert payload["official_label_rows"] == 2144
+E       assert 2164 == 2144
+
+tests/test_unified_v3.py:133: AssertionError
+=============================== warnings summary ===============================
+tests/test_rolling_history.py: 3 warnings
+tests/test_unified_v4.py: 36 warnings
+  /Users/williamgreenfield/.codex/worktrees/d151/6n/model/unified/v4/features.py:50: PerformanceWarning: DataFrame is highly fragmented.  This is usually the result of calling `frame.insert` many times, which has poor performance.  Consider joining all columns at once using pd.concat(axis=1) instead. To get a de-fragmented frame, use `newframe = frame.copy()`
+    df[f"cum_min__{event}"] = mins.fillna(0).groupby(df["player_id"]).cumsum() - mins.fillna(0)
+
+tests/test_rolling_history.py: 3 warnings
+tests/test_unified_v4.py: 36 warnings
+  /Users/williamgreenfield/.codex/worktrees/d151/6n/model/unified/v4/features.py:54: PerformanceWarning: DataFrame is highly fragmented.  This is usually the result of calling `frame.insert` many times, which has poor performance.  Consider joining all columns at once using pd.concat(axis=1) instead. To get a de-fragmented frame, use `newframe = frame.copy()`
+    df[f"prior_per80__{event}"] = per80.groupby(group).transform(
+
+tests/test_rolling_history.py: 4 warnings
+tests/test_unified_v4.py: 48 warnings
+  /Users/williamgreenfield/.codex/worktrees/d151/6n/model/unified/v4/features.py:45: PerformanceWarning: DataFrame is highly fragmented.  This is usually the result of calling `frame.insert` many times, which has poor performance.  Consider joining all columns at once using pd.concat(axis=1) instead. To get a de-fragmented frame, use `newframe = frame.copy()`
+    df[f"form_per80_{level}__{event}"] = grouped_ewm(
+
+tests/test_rolling_history.py: 2 warnings
+tests/test_unified_v4.py: 24 warnings
+  /Users/williamgreenfield/.codex/worktrees/d151/6n/model/unified/v4/features.py:49: PerformanceWarning: DataFrame is highly fragmented.  This is usually the result of calling `frame.insert` many times, which has poor performance.  Consider joining all columns at once using pd.concat(axis=1) instead. To get a de-fragmented frame, use `newframe = frame.copy()`
+    df[f"cum_count__{event}"] = count.fillna(0).groupby(df["player_id"]).cumsum() - count.fillna(0)
+
+-- Docs: https://docs.pytest.org/en/stable/how-to/capture-warnings.html
+=========================== short test summary info ============================
+FAILED tests/test_unified_model.py::test_ncr_converter_includes_api_blind_scoring_categories
+FAILED tests/test_unified_v3.py::test_real_data_audit_covers_all_labelled_rounds
+2 failed, 119 passed, 156 warnings in 83.72s (0:01:23)

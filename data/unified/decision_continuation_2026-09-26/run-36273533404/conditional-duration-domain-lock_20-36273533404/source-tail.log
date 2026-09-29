@@ -1,0 +1,24 @@
+empirical_event: restore verified fitted checkpoint
+robust_empirical_event: restore verified fitted checkpoint
+v4_corrected_full_refit: restore verified fitted checkpoint
+v4_joint_support_control: restore verified fitted checkpoint
+conditional_duration_source_tail_v2: fit 174,649 prior rows
+ncr_2026_r1/empirical_event: predict complete pool
+ncr_2026_r1/robust_empirical_event: predict complete pool
+ncr_2026_r1/v4_corrected_full_refit: predict complete pool
+ncr_2026_r1/v4_joint_support_control: predict complete pool
+ncr_2026_r1/p3_corrected_full_refit: predict complete pool
+ncr_2026_r1/conditional_duration_source_tail_v2: predict complete pool
+ncr_2026_r1/p3_conditional_duration_source_tail_v2: predict complete pool
+RugbyPass prior: 980 players, calibration {'att': 0.8576952242704856, 'dfn': 0.9004915702718145}
+RugbyPass prior: 980 players, calibration {'att': 0.859452818605716, 'dfn': 0.9027363138607246}
+RugbyPass prior: 980 players, calibration {'att': 0.8624886288233952, 'dfn': 0.904492276178199}
+      slate competition  season                    cutoff                                 engine   n  n_labelled  unknown_selected    xv  captain_extra  super_sub  total      mae      bias      rmse       captain                sub  assigned_role_total  assigned_role_super_sub  unknown_role_selected  selected_source_conflicts  total_lower_role_bound  total_upper_role_bound     outcome_contract
+ncr_2026_r1         ncr    2026 2026-07-04T06:40:00+00:00                        empirical_event 227         227                 0 433.0           41.0       15.0  489.0 8.255876 -2.996317 11.844441 Cheslin Kolbe Gianmarco Lucchesi                489.0                     15.0                      0                          0                   489.0                   489.0 actual_role_entry_v1
+ncr_2026_r1         ncr    2026 2026-07-04T06:40:00+00:00                 robust_empirical_event 227         227                 0 459.0           41.0       39.0  539.0 8.280910 -3.522617 12.004329 Cheslin Kolbe         Hayate Era                539.0                     39.0                      0                          0                   539.0                   539.0 actual_role_entry_v1
+ncr_2026_r1         ncr    2026 2026-07-04T06:40:00+00:00                v4_corrected_full_refit 227         227                 0 454.0           41.0       15.0  510.0 8.484682 -3.345973 12.101679 Cheslin Kolbe Gianmarco Lucchesi                510.0                     15.0                      0                          0                   510.0                   510.0 actual_role_entry_v1
+ncr_2026_r1         ncr    2026 2026-07-04T06:40:00+00:00               v4_joint_support_control 227         227                 0 472.0           41.0       15.0  528.0 8.501917 -3.334200 12.115793 Cheslin Kolbe Gianmarco Lucchesi                528.0                     15.0                      0                          0                   528.0                   528.0 actual_role_entry_v1
+ncr_2026_r1         ncr    2026 2026-07-04T06:40:00+00:00                p3_corrected_full_refit 227         227                 0 420.0           41.0       15.0  476.0 8.242247 -3.396411 11.905910 Cheslin Kolbe Gianmarco Lucchesi                476.0                     15.0                      0                          0                   476.0                   476.0 actual_role_entry_v1
+ncr_2026_r1         ncr    2026 2026-07-04T06:40:00+00:00    conditional_duration_source_tail_v2 227         227                 0 454.0           41.0       15.0  510.0 8.542012 -3.509043 12.228632 Cheslin Kolbe Gianmarco Lucchesi                510.0                     15.0                      0                          0                   510.0                   510.0 actual_role_entry_v1
+ncr_2026_r1         ncr    2026 2026-07-04T06:40:00+00:00 p3_conditional_duration_source_tail_v2 227         227                 0 415.0           41.0       15.0  471.0 8.263398 -3.477232 11.971689 Cheslin Kolbe Gianmarco Lucchesi                471.0                     15.0                      0                          0                   471.0                   471.0 actual_role_entry_v1
+ncr_2026_r1         ncr    2026 2026-07-04T06:40:00+00:00            empirical_fantasy_corrected 227         227                 0 461.0           41.0       27.0  529.0 8.263877 -3.725639 11.966622 Cheslin Kolbe       James Botham                529.0                     27.0                      0                          0                   529.0                   529.0 actual_role_entry_v1

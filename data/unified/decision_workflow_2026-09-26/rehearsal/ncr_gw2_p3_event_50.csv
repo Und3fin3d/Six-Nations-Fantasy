@@ -1,0 +1,263 @@
+fantasy_id,fixture_id,player_id,player_name,team,opponent,position,started,engine,expected_points,p10,median,p90,p_play,expected_minutes,career_matches
+179379,291587,120396,Ardie Savea,New Zealand,Italy,Back-row,True,p3_event_50,26.265,14.0,25.0,41.0,,71.82739747865787,0.0
+143492,291587,130452,Damian McKenzie,New Zealand,Italy,Fly-half,True,p3_event_50,25.587,12.0,24.0,41.0,,73.5883941157193,0.0
+123016,291583,203070,Jac Morgan,Wales,Argentina,Back-row,True,p3_event_50,25.585,14.0,24.0,38.0,,69.97499437651416,0.0
+187820,291585,180222,Rory Darge,Scotland,South Africa,Back-row,True,p3_event_50,25.46825,13.0,24.0,39.0,,68.84090749495914,0.0
+193134,291588,136878,Nick Timoney,Ireland,Japan,Back-row,True,p3_event_50,24.11125,12.0,23.0,38.0,,71.21488327767591,0.0
+214124,291583,154938,James Botham,Wales,Argentina,Back-row,True,p3_event_50,23.99525,12.0,23.0,37.0,,68.09755260964863,0.0
+190344,291586,169662,Matthieu Jalibert,France,Australia,Fly-half,True,p3_event_50,23.9945,10.0,23.0,40.0,,70.70028478409091,0.0
+237233,291587,231840,Ross Vintcent,Italy,New Zealand,Back-row,True,p3_event_50,23.70325,12.0,23.0,36.0,,67.19010349090192,0.0
+146220,291587,168972,Will Jordan,New Zealand,Italy,Back-three,True,p3_event_50,23.2805,8.0,22.0,41.0,,74.30625096931269,0.0
+103703,291588,149754,Harry Hockings,Japan,Ireland,Second-row,True,p3_event_50,23.0795,12.0,22.0,36.0,,71.59389635016268,0.0
+129616,291586,154110,Fraser McReight,Australia,France,Back-row,True,p3_event_50,23.06775,12.0,22.0,36.0,,71.64469604487223,0.0
+114362,291585,210300,Evan Roos,South Africa,Scotland,Back-row,True,p3_event_50,22.81775,10.0,21.0,38.0,,70.17775143367025,0.0
+159599,291585,161856,Matt Fagerson,Scotland,South Africa,Back-row,True,p3_event_50,22.61575,12.0,21.0,35.0,,70.26863918549248,0.0
+241018,291588,fantasy_241018,Sean Jansen,Ireland,Japan,Back-row,True,p3_event_50,22.56275,10.0,21.0,36.0,,67.15716016817174,0.0
+241794,291587,337404,Wallace Sititi,New Zealand,Italy,Back-row,True,p3_event_50,22.522,11.0,21.0,36.0,,66.01721095149679,0.0
+244767,291586,242478,Oscar Jegou,France,Australia,Back-row,True,p3_event_50,22.51525,11.0,21.0,36.0,,69.04698046639871,0.0
+235266,291583,226080,Joaquin Oviedo,Argentina,Wales,Back-row,True,p3_event_50,22.34825,11.0,21.0,35.0,,67.66203715706729,0.0
+229307,291587,225594,Cam Roigard,New Zealand,Italy,Scrum-half,True,p3_event_50,22.2635,8.0,20.0,39.0,,64.03372944401066,0.0
+244170,291586,238116,Lenni Nouchi,France,Australia,Back-row,True,p3_event_50,22.209,12.0,21.0,34.0,,67.30746895118826,0.0
+113000,291585,124308,Jack Dempsey,Scotland,South Africa,Back-row,True,p3_event_50,21.753,11.0,21.0,33.0,,68.3539250481791,0.0
+209612,291584,142404,Ben Earl,England,Fiji,Back-row,True,p3_event_50,21.707,11.0,21.0,34.0,,70.97460890678107,0.0
+142873,291588,157710,Ben Gunter,Japan,Ireland,Back-row,True,p3_event_50,21.55525,10.0,21.0,34.0,,67.89510147610663,0.0
+171003,291585,118428,Pieter-Steph du Toit,South Africa,Scotland,Back-row,True,p3_event_50,21.5065,9.0,20.0,35.0,,71.46385054703964,0.0
+202239,291583,169434,Tomas Albornoz,Argentina,Wales,Fly-half,True,p3_event_50,21.40775,9.0,20.0,36.0,,68.64054442597103,0.0
+197335,291587,220140,Lorenzo Cannone,Italy,New Zealand,Back-row,True,p3_event_50,21.349,11.0,20.0,33.0,,67.2745084045,0.0
+135572,291588,142194,Jack Cornelsen,Japan,Ireland,Second-row,True,p3_event_50,21.3445,10.0,20.0,34.0,,71.45959743755498,0.0
+238928,291588,242406,Warner Dearns,Japan,Ireland,Second-row,True,p3_event_50,21.308,10.0,20.0,34.0,,69.76483145001694,0.0
+236602,291587,231714,Tommaso di Bartolomeo,Italy,New Zealand,Hooker,True,p3_event_50,21.2465,11.0,20.0,33.0,,57.974544437975865,0.0
+105748,291588,117936,Jack Conan,Ireland,Japan,Back-row,True,p3_event_50,21.218,10.0,20.0,35.0,,65.85787811602346,0.0
+119132,291583,176652,Aaron Wainwright,Wales,Argentina,Back-row,True,p3_event_50,21.07725,10.0,20.0,34.0,,69.25496539679555,0.0
+144545,291583,219996,Ben Carter,Wales,Argentina,Second-row,True,p3_event_50,20.865,10.900000000000034,20.0,32.0,,69.44125683850487,0.0
+190708,291586,153066,Harry Wilson,Australia,France,Back-row,True,p3_event_50,20.7035,10.0,20.0,33.0,,70.22739428645663,0.0
+137626,291584,227772,Fin Smith,England,Fiji,Fly-half,True,p3_event_50,20.65725,9.0,20.0,33.0,,71.74265490395717,0.0
+219771,291585,119340,Handre Pollard,South Africa,Scotland,Fly-half,True,p3_event_50,20.52125,8.0,19.0,34.0,,71.06142259477554,0.0
+141860,291585,187422,Ewan Ashman,Scotland,South Africa,Hooker,True,p3_event_50,20.37225,9.0,19.0,34.0,,58.369355025699214,0.0
+189326,291584,156288,Marcus Smith,England,Fiji,Fly-half,True,p3_event_50,20.14175,9.0,19.0,33.0,,73.78180243614581,0.0
+250067,291586,354888,Fabien Brau-Boirie,France,Australia,Centre,True,p3_event_50,19.89775,9.0,19.0,33.0,,74.93800960256434,0.0
+222920,291585,220296,Gregor Brown,Scotland,South Africa,Second-row,True,p3_event_50,19.885,10.0,19.0,31.0,,61.54597544866223,0.0
+140494,291584,211638,Jiuta Wainiqolo,Fiji,England,Back-three,True,p3_event_50,19.6995,7.0,18.0,34.0,,74.12871039836782,0.0
+136190,291587,149676,Luke Jacobson,New Zealand,Italy,Back-row,True,p3_event_50,19.595,10.0,18.0,31.0,,70.42239083105683,0.0
+173763,291587,206718,Leroy Carter,New Zealand,Italy,Back-three,True,p3_event_50,19.55,6.0,18.0,35.0,,72.60365215767347,0.0
+173801,291584,198696,Alex Coles,England,Fiji,Second-row,True,p3_event_50,19.52925,9.0,18.0,32.0,,69.32884865826779,0.0
+214439,291586,161946,Rob Valetini,Australia,France,Back-row,True,p3_event_50,19.4375,10.0,18.0,31.0,,70.53408148074074,0.0
+120191,291587,164220,Michele Lamaro,Italy,New Zealand,Back-row,True,p3_event_50,19.36425,10.0,19.0,30.0,,67.63808889213227,0.0
+204878,291585,150096,Edwill van der Merwe,South Africa,Scotland,Back-three,True,p3_event_50,19.33975,5.0,18.0,36.0,,74.1311456474427,0.0
+229297,291587,216096,Ruben Love,New Zealand,Italy,Fly-half,True,p3_event_50,19.32925,6.0,18.0,34.0,,72.42951376806194,0.0
+156918,291584,213192,Tommy Freeman,England,Fiji,Back-three,True,p3_event_50,19.2445,6.0,18.0,34.0,,74.44193306101303,0.0
+229303,291587,197832,Sam Darry,New Zealand,Italy,Second-row,True,p3_event_50,19.231,8.0,18.0,32.0,,68.66858858741179,0.0
+208272,291587,167196,Niccolo Cannone,Italy,New Zealand,Second-row,True,p3_event_50,19.211,10.0,18.0,30.0,,67.46742906941283,0.0
+210801,291585,136596,Scott Cummings,Scotland,South Africa,Second-row,True,p3_event_50,19.01625,9.0,18.0,30.0,,68.18116394631093,0.0
+154414,291588,185784,Kanji Shimokawa,Japan,Ireland,Back-row,True,p3_event_50,18.80675,9.0,17.0,30.0,,70.59243961880958,0.0
+128750,291587,208140,Andrea Zambonin,Italy,New Zealand,Second-row,True,p3_event_50,18.78375,8.0,18.0,30.0,,68.05009390727469,0.0
+165591,291583,185478,Mateo Carreras,Argentina,Wales,Back-three,True,p3_event_50,18.7655,6.0,17.0,33.0,,72.89059721555813,0.0
+151974,291587,176550,Billy Proctor,New Zealand,Italy,Centre,True,p3_event_50,18.764,7.0,18.0,32.0,,74.13929344867825,0.0
+212902,291583,178848,Dewi Lake,Wales,Argentina,Hooker,True,p3_event_50,18.75875,8.0,18.0,31.0,,57.434440819803314,0.0
+147486,291588,117954,Tadhg Beirne,Ireland,Japan,Second-row,True,p3_event_50,18.699,8.0,18.0,31.0,,70.21255392797718,0.0
+244532,291586,339450,Theo Attissogbe,France,Australia,Back-three,True,p3_event_50,18.627,7.0,17.0,32.0,,74.17931012891987,0.0
+206415,291588,206910,Mamoru Harada,Japan,Ireland,Hooker,True,p3_event_50,18.51825,8.0,17.0,30.0,,58.270656719197504,0.0
+177342,291585,156558,Johan Grobbelaar,South Africa,Scotland,Hooker,True,p3_event_50,18.44075,7.0,17.0,33.0,,57.67108701979953,0.0
+237803,291584,243102,Kalaveti Ravouvou,Fiji,England,Back-three,True,p3_event_50,18.3145,5.0,17.0,33.0,,73.030481340206,0.0
+243815,291586,340140,Marko Gazzotti,France,Australia,Back-row,True,p3_event_50,18.15275,8.0,17.0,29.0,,61.818676593583824,0.0
+112684,291584,239076,Guy Pepper,England,Fiji,Back-row,True,p3_event_50,18.13325,8.0,17.0,30.0,,64.37294397786037,0.0
+229857,291586,192618,Jeremy Williams,Australia,France,Second-row,True,p3_event_50,18.088,8.0,17.0,29.0,,69.42541506253805,0.0
+169055,291587,149694,Jordie Barrett,New Zealand,Italy,Centre,True,p3_event_50,18.0745,7.0,17.0,31.0,,72.62809054690254,0.0
+240799,291586,193422,Josh Canham,Australia,France,Second-row,True,p3_event_50,17.962,8.0,17.0,29.0,,66.74875128090909,0.0
+105892,291583,129576,Adam Beard,Wales,Argentina,Second-row,True,p3_event_50,17.91175,8.0,17.0,29.0,,67.8755911574155,0.0
+233237,291584,230898,Immanuel Feyi-Waboso,England,Fiji,Back-three,True,p3_event_50,17.87625,5.0,16.0,33.0,,72.51160184901659,0.0
+104346,291584,206742,Tevita Ikanivere,Fiji,England,Hooker,True,p3_event_50,17.64225,6.0,16.0,31.0,,59.05463379901888,0.0
+122020,291588,136848,Jacob Stockdale,Ireland,Japan,Back-three,True,p3_event_50,17.468,5.0,16.0,33.0,,72.9157031961013,0.0
+185160,291587,112860,Codie Taylor,New Zealand,Italy,Hooker,True,p3_event_50,17.31975,6.0,16.0,30.0,,56.82247071505506,0.0
+110910,291585,124026,Jesse Kriel,South Africa,Scotland,Centre,True,p3_event_50,17.2875,5.0,16.0,32.0,,74.89335975917714,0.0
+128023,291584,162444,Salesi Rayasi,Fiji,England,Back-three,True,p3_event_50,17.16975,5.0,16.0,31.0,,72.01821326285956,0.0
+144570,291588,fantasy_144570,Jimmy OBrien,Ireland,Japan,Back-three,True,p3_event_50,17.00625,5.0,15.0,32.0,,72.56476027966448,0.0
+144635,291584,218742,Ollie Chessum,England,Fiji,Second-row,True,p3_event_50,16.9835,7.0,16.0,29.0,,69.0995444717544,0.0
+110170,291585,171582,Kyle Steyn,Scotland,South Africa,Back-three,True,p3_event_50,16.91775,5.0,15.0,31.0,,73.09662022934177,0.0
+113765,291584,124464,Peceli Yato,Fiji,England,Back-row,True,p3_event_50,16.90425,6.0,16.0,29.0,,63.557523385551875,0.0
+142211,291584,213798,George Martin,England,Fiji,Second-row,True,p3_event_50,16.87425,7.0,16.0,28.0,,64.48956656196336,0.0
+156422,291586,153054,Josh Nasser,Australia,France,Hooker,True,p3_event_50,16.71025,7.0,15.0,28.0,,52.70150118693778,0.0
+172351,291588,129840,Stuart McCloskey,Ireland,Japan,Centre,True,p3_event_50,16.667,7.0,16.0,28.0,,71.3051670222286,0.0
+196773,291585,130290,Pierre Schoeman,Scotland,South Africa,Prop,True,p3_event_50,16.6315,7.0,15.0,28.0,,56.48121730976981,0.0
+101634,291587,fantasy_101634,Tupou Vaai,New Zealand,Italy,Second-row,True,p3_event_50,16.60125,7.0,15.0,28.0,,65.72941981472442,0.0
+127095,291583,185502,Santiago Grondona,Argentina,Wales,Back-row,True,p3_event_50,16.46925,7.0,15.0,28.0,,66.46146144912029,0.0
+182650,291584,184806,Caleb Muntz,Fiji,England,Fly-half,True,p3_event_50,16.46625,6.0,15.0,28.0,,71.3923174334927,0.0
+189982,291583,169440,Santiago Carreras,Argentina,Wales,Back-three,True,p3_event_50,16.4575,4.0,15.0,31.0,,73.71571368609061,0.0
+100043,291586,186162,Maxime Lucu,France,Australia,Scrum-half,True,p3_event_50,16.376,5.0,15.0,29.0,,69.32575862692775,0.0
+198516,291584,128238,Levani Botia,Fiji,England,Back-row,True,p3_event_50,16.34625,6.0,15.0,28.0,,62.56922452457754,0.0
+153215,291585,190890,Aphelele Fassi,South Africa,Scotland,Back-three,True,p3_event_50,16.33325,4.0,15.0,32.0,,72.02997979027447,0.0
+251673,291588,371430,Ryunosuke Ito,Japan,Ireland,Fly-half,True,p3_event_50,16.2955,6.0,15.0,28.0,,70.11626649998934,0.0
+199383,291588,148890,Ciaran Frawley,Ireland,Japan,Fly-half,True,p3_event_50,16.19825,5.0,15.0,29.0,,69.79266889443551,0.0
+180443,291585,161226,Damian Willemse,South Africa,Scotland,Back-three,True,p3_event_50,16.189,5.0,15.0,30.0,,71.60585561349163,0.0
+193699,291585,fantasy_193699,Embrose Papier,South Africa,Scotland,Scrum-half,True,p3_event_50,16.164,4.0,14.0,30.0,,63.218539513144364,0.0
+229557,291587,226818,Tommaso Menoncello,Italy,New Zealand,Centre,True,p3_event_50,16.15125,6.0,15.0,28.0,,72.99261651031486,0.0
+162344,291583,124668,Julian Montoya,Argentina,Wales,Hooker,True,p3_event_50,16.136,6.0,15.0,28.0,,60.00648606675276,0.0
+117823,291583,112962,Matias Alemanno,Argentina,Wales,Second-row,True,p3_event_50,16.1225,6.0,15.0,28.0,,67.96241631047147,0.0
+157863,291585,117894,Finn Russell,Scotland,South Africa,Fly-half,True,p3_event_50,16.0125,5.0,15.0,28.0,,72.19873265435933,0.0
+255396,291587,421050,Malik Faissal,Italy,New Zealand,Back-three,True,p3_event_50,15.95175,5.0,15.0,29.0,,75.83184528821866,0.0
+233260,291588,227256,Shuhei Takeuchi,Japan,Ireland,Prop,True,p3_event_50,15.881,7.0,15.0,26.0,,55.373649319847445,0.0
+225264,291585,185688,Ruan Nortje,South Africa,Scotland,Second-row,True,p3_event_50,15.7845,6.0,14.0,27.0,,68.69003856000356,0.0
+118531,291588,148644,Ronan Kelleher,Ireland,Japan,Hooker,True,p3_event_50,15.78025,6.0,15.0,27.0,,55.5703049480917,0.0
+146815,291586,192666,Angus Bell,Australia,France,Prop,True,p3_event_50,15.58325,6.0,14.0,26.0,,53.61364099017041,0.0
+237078,291585,234822,Canan Moodie,South Africa,Scotland,Back-three,True,p3_event_50,15.5245,3.0,14.0,30.0,,70.99906185627081,0.0
+118619,291583,203076,Sam Costelow,Wales,Argentina,Fly-half,True,p3_event_50,15.52125,6.0,14.0,27.0,,66.82462350622563,0.0
+245050,291586,346554,Max Jorgensen,Australia,France,Back-three,True,p3_event_50,15.42625,4.0,14.0,29.0,,72.92186710970202,0.0
+109648,291584,232032,Seb Atkinson,England,Fiji,Centre,True,p3_event_50,15.38175,6.0,15.0,26.0,,74.40158378687684,0.0
+179604,291584,126930,Josua Tuisova,Fiji,England,Centre,True,p3_event_50,15.3445,5.0,14.0,26.09999999999991,,70.8630795938659,0.0
+138498,291584,177156,Tevita Ratuva,Fiji,England,Second-row,True,p3_event_50,15.342,5.0,14.0,27.0,,62.83115385332469,0.0
+195298,291585,214146,Jamie Dobie,Scotland,South Africa,Scrum-half,True,p3_event_50,15.338,4.0,14.0,29.0,,68.79114898440616,0.0
+122465,291584,176772,Lekima Tagitagivalu,Fiji,England,Back-row,True,p3_event_50,15.32775,6.0,14.0,25.0,,62.71727331556714,0.0
+180382,291583,148386,Bautista Delguy,Argentina,Wales,Back-three,True,p3_event_50,15.18075,4.0,14.0,29.0,,73.36654012029214,0.0
+160801,291584,61134,Jamie George,England,Fiji,Hooker,True,p3_event_50,15.17725,6.0,14.0,26.0,,56.89105049243488,0.0
+123723,291587,164232,Danilo Fischetti,Italy,New Zealand,Prop,True,p3_event_50,14.93675,6.0,14.0,25.0,,55.625529208838856,0.0
+229826,291588,227658,Jamie Osborne,Ireland,Japan,Centre,True,p3_event_50,14.81325,4.0,13.0,28.09999999999991,,73.54393526382387,0.0
+203381,291588,143604,James Ryan,Ireland,Japan,Second-row,True,p3_event_50,14.78,6.0,14.0,24.09999999999991,,66.15206992659039,0.0
+204526,291583,150576,Marcos Kremer,Argentina,Wales,Back-row,True,p3_event_50,14.76975,6.0,14.0,25.0,,69.84024041585891,0.0
+223308,291586,fantasy_223308,Aaron Grandidier-Nkanang,France,Australia,Back-three,True,p3_event_50,14.69075,4.0,13.0,28.0,,72.56476027966448,0.0
+240621,291586,164262,Dylan Pietsch,Australia,France,Back-three,True,p3_event_50,14.505,4.0,13.0,27.0,,70.65642465513471,0.0
+119955,291583,162870,Rhys Carre,Wales,Argentina,Prop,True,p3_event_50,14.474,5.0,13.0,26.0,,52.778689596448956,0.0
+169560,291585,207024,Boan Venter,South Africa,Scotland,Prop,True,p3_event_50,14.434,4.0,13.0,27.0,,56.01287817555378,0.0
+143048,291586,118890,Allan Alaalatoa,Australia,France,Prop,True,p3_event_50,14.41125,6.0,13.0,25.0,,55.051514590122935,0.0
+131550,291588,193938,Takato Okabe,Japan,Ireland,Prop,True,p3_event_50,14.3575,6.0,13.0,24.0,,58.45015737872434,0.0
+226250,291584,197268,Isoa Nasilasila,Fiji,England,Second-row,True,p3_event_50,14.33225,5.0,13.0,24.0,,67.98950188119036,0.0
+105642,291588,203124,Craig Casey,Ireland,Japan,Scrum-half,True,p3_event_50,14.1295,2.0,12.0,29.0,,65.92171096307374,0.0
+196669,291585,130530,Zander Fagerson,Scotland,South Africa,Prop,True,p3_event_50,14.0445,6.0,13.0,23.0,,57.64139290059285,0.0
+222388,291586,196152,Yoram Moefana,France,Australia,Centre,True,p3_event_50,13.994,5.0,13.0,25.0,,73.60954248750804,0.0
+215963,291583,124686,Guido Petti,Argentina,Wales,Second-row,True,p3_event_50,13.9845,5.0,13.0,24.0,,67.75689473926883,0.0
+180778,291585,179370,Kyle Rowe,Scotland,South Africa,Back-three,True,p3_event_50,13.89825,3.0,12.0,27.0,,73.226667621865,0.0
+229505,291583,201528,Lucio Cinti,Argentina,Wales,Centre,True,p3_event_50,13.87025,4.0,13.0,25.0,,72.43688486108401,0.0
+242264,291586,213924,Joseph-Aukuso Suaalii,Australia,France,Centre,True,p3_event_50,13.85025,4.0,13.0,25.0,,72.60849198259926,0.0
+161973,291584,206814,Simione Kuruvoli,Fiji,England,Scrum-half,True,p3_event_50,13.841,2.0,12.0,27.0,,62.254105915423786,0.0
+168641,291583,135306,Dillon Lewis,Wales,Argentina,Prop,True,p3_event_50,13.74175,5.0,13.0,23.0,,54.23581673280472,0.0
+156253,291587,203034,Paolo Garbisi,Italy,New Zealand,Fly-half,True,p3_event_50,13.62525,4.0,12.5,24.0,,71.50108354534582,0.0
+185293,291586,153318,Len Ikitau,Australia,France,Centre,True,p3_event_50,13.52625,4.0,12.0,25.0,,72.02546437088273,0.0
+240916,291583,337350,Boris Wenger,Argentina,Wales,Prop,True,p3_event_50,13.45975,4.0,12.0,25.0,,58.02046944108426,0.0
+226014,291585,150120,Cobus Wiese,South Africa,Scotland,Second-row,True,p3_event_50,13.41825,4.0,12.0,25.0,,62.10452615069751,0.0
+130282,291587,117834,Tommaso Allan,Italy,New Zealand,Fly-half,True,p3_event_50,13.34575,3.0,12.0,25.0,,70.6021508935333,0.0
+134796,291584,178806,Joe Heyes,England,Fiji,Prop,True,p3_event_50,13.18425,5.0,12.0,22.0,,57.32636362444541,0.0
+165007,291584,136680,Ellis Genge,England,Fiji,Prop,True,p3_event_50,13.11325,4.0,12.0,23.0,,57.02847889778984,0.0
+224426,291588,fantasy_224426,Tom OToole,Ireland,Japan,Prop,True,p3_event_50,13.044,4.0,12.0,24.0,,54.0425992751197,0.0
+226261,291584,359628,Vuate Karawalevu,Fiji,England,Back-three,True,p3_event_50,12.9005,2.0,12.0,26.0,,69.61565238220244,0.0
+243190,291583,197892,Blair Murray,Wales,Argentina,Back-three,True,p3_event_50,12.71225,3.0,11.0,25.0,,74.63656423885517,0.0
+156336,291586,201012,Tom Wright,Australia,France,Back-three,True,p3_event_50,12.6215,2.0,11.0,26.0,,74.52781295164998,0.0
+196853,291588,203208,Thomas Clarkson,Ireland,Japan,Prop,True,p3_event_50,12.619,3.0,11.0,24.0,,55.40139331881497,0.0
+102468,291587,196176,Ethan de Groot,New Zealand,Italy,Prop,True,p3_event_50,12.595,4.0,11.0,22.0,,54.59931676792282,0.0
+146480,291585,139998,Sione Tuipulotu,Scotland,South Africa,Centre,True,p3_event_50,12.5905,4.0,11.0,22.0,,74.00163449127099,0.0
+109816,291585,130554,Rory Hutchinson,Scotland,South Africa,Centre,True,p3_event_50,12.581,3.0,11.0,23.0,,73.02937575209643,0.0
+187476,291586,fantasy_187476,Moses Alo-Emile,France,Australia,Prop,True,p3_event_50,12.52025,4.0,11.0,23.0,,54.0425992751197,0.0
+245274,291586,fantasy_245274,Declan Meredith,Australia,France,Back-three,True,p3_event_50,12.4565,2.0,11.0,26.0,,72.50819899535851,0.0
+164116,291588,120702,Robbie Henshaw,Ireland,Japan,Centre,True,p3_event_50,12.21625,3.0,11.0,23.0,,69.73588971709627,0.0
+138016,291584,114534,Henry Slade,England,Fiji,Centre,True,p3_event_50,12.08725,2.0,11.0,24.0,,73.78552248288892,0.0
+103821,291584,175848,Eroni Mawi,Fiji,England,Prop,True,p3_event_50,12.031,3.0,11.0,22.0,,54.14128578102822,0.0
+209105,291587,213750,Louis Lynagh,Italy,New Zealand,Back-three,True,p3_event_50,11.96775,1.0,10.0,25.0,,74.21190060497578,0.0
+133163,291583,128628,Tomos Williams,Wales,Argentina,Scrum-half,True,p3_event_50,11.8385,2.0,10.0,24.0,,66.51179797626469,0.0
+252801,291588,350934,Kazuma Ueda,Japan,Ireland,Back-three,True,p3_event_50,11.75475,1.0,10.0,25.0,,73.20159919308264,0.0
+188057,291585,142476,Ben White,Scotland,South Africa,Scrum-half,True,p3_event_50,11.6935,2.0,10.0,23.0,,62.07128773763095,0.0
+198661,291588,165924,Dylan Riley,Japan,Ireland,Centre,True,p3_event_50,11.643,2.0,10.0,23.0,,73.967127013506,0.0
+207407,291586,178656,Demba Bamba,France,Australia,Prop,True,p3_event_50,11.6305,3.0,11.0,21.0,,53.15946586204377,0.0
+113737,291584,213786,Jack van Poortvliet,England,Fiji,Scrum-half,True,p3_event_50,11.54875,1.0,10.0,24.0,,63.495472837213434,0.0
+150038,291587,140004,Tyrel Lomax,New Zealand,Italy,Prop,True,p3_event_50,11.4575,3.0,10.0,21.0,,55.21824664211142,0.0
+237271,291583,232158,Eddie James,Wales,Argentina,Centre,True,p3_event_50,11.4425,3.0,10.0,21.0,,73.90894076202704,0.0
+239638,291588,229884,Takuro Matsunaga,Japan,Ireland,Back-three,True,p3_event_50,11.351,1.0,10.0,23.0,,74.71749176557348,0.0
+107059,291587,144684,Marco Riccioni,Italy,New Zealand,Prop,True,p3_event_50,11.30825,3.0,10.0,20.0,,54.51646674295772,0.0
+165888,291585,130260,Wilco Louw,South Africa,Scotland,Prop,True,p3_event_50,11.24225,2.0,10.0,22.0,,55.531218442245304,0.0
+246851,291583,359274,Toms Rapetti,Argentina,Wales,Prop,True,p3_event_50,11.18,3.0,10.0,21.0,,54.015762529454825,0.0
+178772,291583,169464,Gonzalo Garcia,Argentina,Wales,Scrum-half,True,p3_event_50,11.12925,1.0,9.0,24.0,,63.25303528026225,0.0
+136875,291587,202980,Gianmarco Lucchesi,Italy,New Zealand,Hooker,False,p3_event_50,11.02125,2.0,9.0,21.0,,24.766276727680726,0.0
+249307,291583,363636,Ellis Mee,Wales,Argentina,Back-three,True,p3_event_50,11.001,2.0,10.0,22.0,,71.39448707258381,0.0
+130487,291587,118614,Nacho Brex,Italy,New Zealand,Centre,True,p3_event_50,10.83375,2.0,9.0,21.0,,74.33872801250902,0.0
+219485,291586,163734,Ryan Lonergan,Australia,France,Scrum-half,True,p3_event_50,10.5835,1.0,9.0,23.0,,66.53889708928061,0.0
+110891,291587,213144,Stephen Varney,Italy,New Zealand,Scrum-half,True,p3_event_50,10.54125,1.0,9.0,22.0,,67.2910738458746,0.0
+137453,291583,129096,Josh Adams,Wales,Argentina,Back-three,True,p3_event_50,10.45625,0.0,9.0,23.0,,72.0899507886034,0.0
+240478,291585,263268,Gregor Hiddleston,Scotland,South Africa,Hooker,False,p3_event_50,10.40275,2.0,9.0,21.0,,22.099245213280142,0.0
+197246,291588,201792,Tom Stewart,Ireland,Japan,Hooker,False,p3_event_50,10.0665,1.0,8.0,22.0,,23.335833351122638,0.0
+120076,291588,67848,Michael Leitch,Japan,Ireland,Back-row,False,p3_event_50,9.928,2.0,8.0,20.0,,23.364895803743707,0.0
+251359,291588,371544,Yuya Hirose,Japan,Ireland,Centre,True,p3_event_50,9.722,2.0,8.0,19.0,,71.04301612918908,0.0
+140735,291588,150960,Naoto Saito,Japan,Ireland,Scrum-half,True,p3_event_50,9.712,0.0,8.0,22.0,,65.81768521182221,0.0
+129754,291585,193200,Vincent Tshituka,South Africa,Scotland,Back-row,False,p3_event_50,8.976,1.0,7.0,20.0,,29.39433276871589,0.0
+197546,291583,220962,Joe Hawkins,Wales,Argentina,Centre,True,p3_event_50,8.96875,1.0,8.0,18.0,,71.96229848023732,0.0
+239634,291584,342324,Henry Pollock,England,Fiji,Back-row,False,p3_event_50,8.83725,0.0,7.0,20.0,,19.667543853964307,0.0
+189190,291586,178824,Maxime Lamothe,France,Australia,Hooker,False,p3_event_50,8.676,1.0,7.0,19.0,,24.087751651580938,0.0
+251199,291588,371742,Hayate Era,Japan,Ireland,Hooker,False,p3_event_50,8.656,1.0,7.0,18.0,,19.282793486359417,0.0
+229863,291588,208038,Cormac Izuchukwu,Ireland,Japan,Second-row,False,p3_event_50,8.61275,1.0,7.0,19.0,,20.13020207447596,0.0
+237231,291587,231804,Mirco Spagnolo,Italy,New Zealand,Prop,False,p3_event_50,8.49775,1.0,7.0,17.0,,23.184743076344102,0.0
+172284,291587,220782,Muhamed Hasa,Italy,New Zealand,Prop,False,p3_event_50,8.495,1.0,7.0,17.0,,25.54862771869827,0.0
+225671,291587,fantasy_225671,Samisoni Taukeiaho,New Zealand,Italy,Hooker,False,p3_event_50,8.424,0.0,6.0,19.0,,20.309847405045588,0.0
+222623,291584,155892,Tom Curry,England,Fiji,Back-row,False,p3_event_50,8.16625,0.0,7.0,18.0,,23.024876614616698,0.0
+171709,291584,124944,Sam Matavesi,Fiji,England,Hooker,False,p3_event_50,8.09325,0.0,6.0,18.0,,22.58129354590156,0.0
+182170,291583,128574,Ryan Elias,Wales,Argentina,Hooker,False,p3_event_50,8.00775,1.0,7.0,17.0,,23.015848113951506,0.0
+156550,291585,129396,Magnus Bradbury,Scotland,South Africa,Back-row,False,p3_event_50,8.00725,0.0,6.0,17.0,,20.901092392694274,0.0
+110319,291583,121974,Nicky Smith,Wales,Argentina,Prop,False,p3_event_50,7.922,1.0,7.0,17.0,,26.119718047387316,0.0
+103440,291587,129234,Federico Ruzza,Italy,New Zealand,Second-row,False,p3_event_50,7.819,1.0,7.0,16.0,,20.392608553821574,0.0
+188103,291584,173826,Pita Gus Sowakula,Fiji,England,Back-row,False,p3_event_50,7.69575,0.0,6.0,18.0,,23.629414151223926,0.0
+106142,291584,115452,Luke Cowan-Dickie,England,Fiji,Hooker,False,p3_event_50,7.645,0.0,6.0,18.0,,22.63262111920157,0.0
+111475,291587,197916,Josh Lord,New Zealand,Italy,Second-row,False,p3_event_50,7.63075,0.0,6.0,16.0,,23.008976954305346,0.0
+245055,291584,207894,Elia Canakaivata,Fiji,England,Back-row,False,p3_event_50,7.62125,0.0,6.0,18.0,,21.468012907203388,0.0
+209567,291585,227988,Ntuthuko Mchunu,South Africa,Scotland,Prop,False,p3_event_50,7.3795,0.0,5.0,19.0,,23.968335717318503,0.0
+200003,291583,118578,Pablo Matera,Argentina,Wales,Back-row,False,p3_event_50,7.34075,0.0,5.0,17.0,,22.21072411104373,0.0
+202570,291586,124296,Tom Staniforth,France,Australia,Second-row,False,p3_event_50,7.33625,0.0,6.0,16.0,,21.454500379964173,0.0
+100192,291585,141990,Josh Bayliss,Scotland,South Africa,Back-row,False,p3_event_50,7.3005,0.0,6.0,16.0,,19.793359604324444,0.0
+250771,291588,fantasy_250771,Bryn Ward,Ireland,Japan,Back-row,False,p3_event_50,7.2215,0.0,5.0,17.0,,18.870136498822546,0.0
+261209,291588,370146,Sojiro Otsuka,Japan,Ireland,Prop,False,p3_event_50,7.20525,1.0,6.0,16.0,,22.14384089885207,0.0
+207343,291585,178674,Grant Williams,South Africa,Scotland,Scrum-half,False,p3_event_50,7.14775,0.0,5.0,18.0,,21.36018345462416,0.0
+251438,291588,371586,Keijiro Tamefusa,Japan,Ireland,Prop,False,p3_event_50,7.125,1.0,6.0,15.0,,21.149714705178273,0.0
+110905,291585,185646,Ben-Jason Dixon,South Africa,Scotland,Back-row,False,p3_event_50,7.08175,0.0,6.0,16.0,,24.36803277236017,0.0
+246824,291585,342540,Zac Porthen,South Africa,Scotland,Prop,False,p3_event_50,7.08,0.0,6.0,16.0,,24.36590077952555,0.0
+136947,291586,161034,Brandon Paenga-Amosa,Australia,France,Hooker,False,p3_event_50,7.05275,0.0,5.0,16.0,,21.595524398146345,0.0
+245177,291588,353844,Tiennan Costley,Japan,Ireland,Back-row,False,p3_event_50,7.02875,0.0,6.0,16.0,,16.227402808634007,0.0
+174208,291587,220128,Riccardo Favretto,Italy,New Zealand,Second-row,False,p3_event_50,7.02525,0.0,6.0,15.0,,18.36131649772748,0.0
+229431,291587,fantasy_229431,Anton Segner,New Zealand,Italy,Back-row,False,p3_event_50,6.9975,0.0,5.0,17.0,,18.636498783423136,0.0
+132322,291586,224352,Killian Tixeront,France,Australia,Back-row,False,p3_event_50,6.94475,0.0,5.0,16.0,,21.282818186900556,0.0
+169185,291583,203082,Teddy Williams,Wales,Argentina,Second-row,False,p3_event_50,6.73825,0.0,5.0,15.0,,20.29459789934647,0.0
+208971,291583,150600,Franco Molina,Argentina,Wales,Second-row,False,p3_event_50,6.73825,0.0,5.0,16.0,,21.434788574053762,0.0
+237237,291588,fantasy_237237,Sam Illo,Ireland,Japan,Prop,False,p3_event_50,6.71875,0.0,5.0,16.0,,21.81402925467969,0.0
+170835,291586,66978,James Slipper,Australia,France,Prop,False,p3_event_50,6.7005,0.0,5.0,15.0,,24.555019641898628,0.0
+109697,291586,219972,Nolann le Garrec,France,Australia,Scrum-half,False,p3_event_50,6.622,-1.0,4.0,18.0,,20.50712607645828,0.0
+164759,291583,203046,Ben Warren,Wales,Argentina,Prop,False,p3_event_50,6.60575,0.0,6.0,15.0,,22.80392651848578,0.0
+108021,291586,116592,Jefferson Poirot,France,Australia,Prop,False,p3_event_50,6.59625,0.0,5.0,15.0,,24.111451252397735,0.0
+243167,291583,366690,Kane James,Wales,Argentina,Back-row,False,p3_event_50,6.54625,0.0,5.0,15.0,,17.600606777951555,0.0
+235935,291583,208518,Ignacio Ruiz,Argentina,Wales,Hooker,False,p3_event_50,6.53325,0.0,5.0,16.0,,20.785764329169993,0.0
+155619,291583,207192,Francisco Coria Marchetti,Argentina,Wales,Prop,False,p3_event_50,6.389,0.0,5.0,15.099999999999909,,24.42489952400299,0.0
+237261,291585,231564,Alex Samuel,Scotland,South Africa,Second-row,False,p3_event_50,6.3445,0.0,5.0,14.0,,17.198464119174645,0.0
+113831,291587,134226,George Bower,New Zealand,Italy,Prop,False,p3_event_50,6.3155,0.0,5.0,15.0,,22.18958875022342,0.0
+229690,291585,225984,Jan-Hendrik Wessels,South Africa,Scotland,Prop,False,p3_event_50,6.31375,-0.0999999999999659,4.0,16.0,,21.793543158880194,0.0
+163209,291584,fantasy_163209,George Kloska,England,Fiji,Prop,False,p3_event_50,6.23225,0.0,5.0,15.0,,21.78793878869884,0.0
+166930,291584,fantasy_166930,Peni Ravai Kovekalou,Fiji,England,Prop,False,p3_event_50,6.232,0.0,5.0,15.0,,21.81402925467969,0.0
+153142,291586,182262,Nick Champion de Crespigny,Australia,France,Back-row,False,p3_event_50,6.2155,0.0,5.0,15.0,,18.846407333583798,0.0
+239482,291584,348570,Asher Opoku-Fordjour,England,Fiji,Prop,False,p3_event_50,6.179,0.0,5.0,15.0,,22.18048053779237,0.0
+116189,291587,198180,Pasilio Tosi,New Zealand,Italy,Prop,False,p3_event_50,6.13225,0.0,5.0,15.0,,20.934807926280506,0.0
+192769,291583,185436,Ignacio Mendy,Argentina,Wales,Back-three,False,p3_event_50,6.1165,0.0,4.0,16.0,,19.515291004741034,0.0
+251198,291586,368232,Lachlan Shaw,Australia,France,Second-row,False,p3_event_50,6.0455,0.0,4.0,14.0,,18.629084910072564,0.0
+210952,291586,164268,Tate McDermott,Australia,France,Scrum-half,False,p3_event_50,6.0415,-1.0,4.0,16.0,,22.998685597731402,0.0
+229852,291586,227784,Tevita Tatafu,France,Australia,Prop,False,p3_event_50,5.96,-1.0,4.0,15.0,,22.578176335412493,0.0
+153525,291585,134172,Rory Sutherland,Scotland,South Africa,Prop,False,p3_event_50,5.958,0.0,5.0,14.0,,20.44169146181806,0.0
+202316,291584,171126,Frank Lomani,Fiji,England,Scrum-half,False,p3_event_50,5.958,-1.0,4.0,16.0,,23.57181452095049,0.0
+182833,291586,131862,Taniela Tupou,Australia,France,Prop,False,p3_event_50,5.9245,-1.0,4.0,15.0,,24.974564734759287,0.0
+254559,291588,fantasy_254559,Billy Bohan,Ireland,Japan,Prop,False,p3_event_50,5.8965,0.0,4.0,14.0,,21.81402925467969,0.0
+172024,291587,fantasy_172024,Josh Moorby,New Zealand,Italy,Back-three,False,p3_event_50,5.878,-1.0,3.0,16.0,,19.119493380926592,0.0
+120767,291583,187290,Louis Rees-Zammit,Wales,Argentina,Back-three,False,p3_event_50,5.752,-1.0,4.0,16.0,,29.52998263555614,0.0
+152990,291584,169128,Temo Mayanavanua,Fiji,England,Second-row,False,p3_event_50,5.56925,0.0,4.0,14.0,,18.58717474215812,0.0
+252989,291584,fantasy_252989,Noah Caluori,England,Fiji,Back-three,False,p3_event_50,5.4525,-1.0,3.0,15.0,,19.254049718989148,0.0
+102792,291587,128790,Anton Lienert-Brown,New Zealand,Italy,Centre,False,p3_event_50,5.35575,0.0,3.0,15.0,,18.33512629261136,0.0
+157406,291588,114804,Bundee Aki,Ireland,Japan,Centre,False,p3_event_50,5.3195,-1.0,3.0,14.0,,20.44482354492231,0.0
+251584,291583,349518,Simon Benitez Cruz,Argentina,Wales,Scrum-half,False,p3_event_50,5.255,-1.0,3.0,15.0,,21.603015335759828,0.0
+239229,291586,238278,Hugo Auradou,France,Australia,Second-row,False,p3_event_50,5.16425,-1.0,4.0,14.0,,19.933891299119992,0.0
+236722,291585,235254,Quan Horn,South Africa,Scotland,Back-three,False,p3_event_50,5.1385,0.0,3.0,15.0,,20.976678002078224,0.0
+229255,291587,225720,Cortez Ratima,New Zealand,Italy,Scrum-half,False,p3_event_50,5.07125,-1.0,2.0,15.0,,18.145404901732675,0.0
+208037,291585,203400,Will Hurd,Scotland,South Africa,Prop,False,p3_event_50,5.034,-1.0,4.0,12.0,,18.502559257479653,0.0
+154458,291583,113040,Matias Moroni,Argentina,Wales,Centre,False,p3_event_50,4.979,-1.0,3.0,14.0,,20.709741365217855,0.0
+186092,291586,173220,Filipo Daugunu,Australia,France,Back-three,False,p3_event_50,4.85775,-1.0,2.0,15.0,,19.333359344616838,0.0
+176354,291588,201750,Nathan Doak,Ireland,Japan,Scrum-half,False,p3_event_50,4.80675,-1.0,3.0,14.0,,19.92697947729663,0.0
+182760,291583,169530,Mayco Vivas,Argentina,Wales,Prop,False,p3_event_50,4.71125,-1.0,3.0,13.0,,20.03771231940567,0.0
+149746,291585,163866,Stafford McDowall,Scotland,South Africa,Centre,False,p3_event_50,4.5765,-1.0,2.0,14.0,,19.975274106559127,0.0
+255945,291588,372078,Itsuki Kamimura,Japan,Ireland,Scrum-half,False,p3_event_50,4.34425,-1.0,2.0,13.0,,18.42377964382768,0.0
+178222,291586,173226,Jock Campbell,Australia,France,Back-three,False,p3_event_50,4.24375,-1.0,2.0,13.0,,20.36256717129627,0.0
+217606,291584,fantasy_217606,Benhard Janse van Rensburg,England,Fiji,Centre,False,p3_event_50,4.18725,-1.0,2.0,12.0,,17.81098389551288,0.0
+186214,291583,177912,Max Llewellyn,Wales,Argentina,Centre,False,p3_event_50,4.0855,-1.0,2.0,13.0,,18.532600705807862,0.0
+190215,291583,135900,Kieran Hardy,Wales,Argentina,Scrum-half,False,p3_event_50,4.012,-2.0,1.0,13.0,,17.805247457190593,0.0
+188115,291588,179142,Harry Byrne,Ireland,Japan,Fly-half,False,p3_event_50,3.992,-1.0,2.0,12.0,,16.492113320600293,0.0
+236606,291587,231834,Leonardo Marin,Italy,New Zealand,Fly-half,False,p3_event_50,3.96375,-2.0,2.0,12.0,,18.518302422830743,0.0
+243508,291585,242766,Tom Jordan,Scotland,South Africa,Centre,False,p3_event_50,3.83475,-2.0,2.0,13.0,,17.235369967343857,0.0
+177559,291584,142356,Alex Mitchell,England,Fiji,Scrum-half,False,p3_event_50,3.52675,-2.0,1.0,12.0,,16.289798485595345,0.0
+236573,291587,231774,Alessandro Garbisi,Italy,New Zealand,Scrum-half,False,p3_event_50,3.22375,-2.0,0.0,12.0,,18.47434785419326,0.0
+246864,291584,215232,Isaiah Armstrong-Ravula,Fiji,England,Fly-half,False,p3_event_50,2.59575,-1.0,0.0,9.0,,14.323735492684774,0.0

@@ -1,0 +1,79 @@
+name: Prepare registered conditional duration study
+on:
+  push:
+    branches: [codex/fantasy-decision-workflow]
+    paths: [.github/workflows/conditional-duration-prepare.yml]
+permissions:
+  contents: write
+  actions: read
+jobs:
+  prepare:
+    runs-on: ubuntu-latest
+    env:
+      OMP_NUM_THREADS: '2'
+      OMP_THREAD_LIMIT: '2'
+      OPENBLAS_NUM_THREADS: '1'
+      PYTEST_DISABLE_PLUGIN_AUTOLOAD: '1'
+    steps:
+      - uses: actions/checkout@v5
+        with:
+          lfs: false
+          persist-credentials: false
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+      - uses: actions/download-artifact@v4
+        with:
+          github-token: ${{ github.token }}
+          repository: Und3fin3d/Six-Nations-Fantasy
+          run-id: 36257138991
+          name: research-verified-stores-and-registrations
+          path: ${{ runner.temp }}/transport
+      - name: Install pinned environment and verify stores
+        run: |
+          set -euo pipefail
+          python -m pip install torch==2.7.1 --index-url https://download.pytorch.org/whl/cpu
+          python -m pip install -r requirements-model.txt requests beautifulsoup4 pytest
+          python model_env_preflight.py
+          git lfs pull --include='data/ncr/club_player_match.csv' --exclude=''
+          mkdir -p "$RUNNER_TEMP/duration/stores" "$RUNNER_TEMP/duration/evidence"
+          cd "$RUNNER_TEMP/transport"
+          grep 'stores.tar.gz$' sha256.txt | sha256sum -c -
+          tar -xzf stores.tar.gz -C "$RUNNER_TEMP/duration/stores"
+          cd "$GITHUB_WORKSPACE"
+          git rev-parse HEAD > "$RUNNER_TEMP/duration/evidence/source-commit.txt"
+          python -m pip freeze > "$RUNNER_TEMP/duration/evidence/environment.txt"
+          python -m py_compile model/unified/conditional_duration.py research/conditional_duration_inputs.py
+      - name: Prepare matched units and audit chronological comparators
+        id: prepare
+        run: |
+          set -euo pipefail
+          python -u -m research.conditional_duration_inputs --original-store "$RUNNER_TEMP/duration/stores/original/inputs/player_match.csv" --corrected-store "$RUNNER_TEMP/duration/stores/corrected/player_match.csv" --output "$RUNNER_TEMP/duration/evidence/prepared" 2>&1 | tee "$RUNNER_TEMP/duration/evidence/preparation.log"
+      - name: Preserve input audit or failed implementation without changing original evidence
+        if: always()
+        env:
+          GH_TOKEN: ${{ github.token }}
+          PREPARE_OUTCOME: ${{ steps.prepare.outcome }}
+        run: |
+          set -euo pipefail
+          DEST="data/unified/decision_continuation_2026-09-26/run-$GITHUB_RUN_ID"
+          test ! -e "$DEST"
+          mkdir -p "$DEST" "$RUNNER_TEMP/duration/evidence"
+          rsync -a --exclude='*.pkl' "$RUNNER_TEMP/duration/evidence/" "$DEST/"
+          printf 'preparation=%s\nobjective=active_unfinished\nmodels_fitted=0\n' "$PREPARE_OUTCOME" > "$DEST/execution-status.txt"
+          git config user.name 'github-actions[bot]'
+          git config user.email '41898282+github-actions[bot]@users.noreply.github.com'
+          git add -- "$DEST"
+          git diff --cached --name-only | grep -v "^$DEST/" && exit 1 || true
+          git commit -m "Retain full-model preparation $GITHUB_RUN_ID; objective remains active"
+          AUTH=$(printf 'x-access-token:%s' "$GH_TOKEN" | base64 -w0)
+          git -c "http.https://github.com/.extraheader=AUTHORIZATION: basic $AUTH" fetch origin codex/fantasy-decision-workflow
+          git rebase FETCH_HEAD
+          git -c "http.https://github.com/.extraheader=AUTHORIZATION: basic $AUTH" push origin HEAD:codex/fantasy-decision-workflow
+      - uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: conditional-duration-prepared-${{ github.run_id }}
+          path: ${{ runner.temp }}/duration/evidence
+          retention-days: 30
+          if-no-files-found: warn

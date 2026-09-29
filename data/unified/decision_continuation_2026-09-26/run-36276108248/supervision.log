@@ -1,0 +1,11 @@
+Traceback (most recent call last):
+  File "<frozen runpy>", line 198, in _run_module_as_main
+  File "<frozen runpy>", line 88, in _run_code
+  File "/home/runner/work/Six-Nations-Fantasy/Six-Nations-Fantasy/research/utility_supervision_audit.py", line 138, in <module>
+    run(parser.parse_args())
+  File "/home/runner/work/Six-Nations-Fantasy/Six-Nations-Fantasy/research/utility_supervision_audit.py", line 90, in run
+    target, valid, events = core_targets(train, slate.competition, slate.season, rubric)
+                            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/runner/work/Six-Nations-Fantasy/Six-Nations-Fantasy/research/utility_supervision_audit.py", line 48, in core_targets
+    raise ValueError(f'Unresolved canonical positions: {frame.loc[~known_positions, "position"].value_counts(dropna=False).to_dict()}')
+ValueError: Unresolved canonical positions: {'Unknown': 7999}

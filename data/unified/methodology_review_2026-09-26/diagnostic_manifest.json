@@ -1,0 +1,14 @@
+{
+  "repo": "/Users/williamgreenfield/.codex/worktrees/d151/6n",
+  "commit": "93f9670f38ed1699c0029192ac38227392b329fb",
+  "python": "3.11.15 (main, May  4 2026, 21:04:48) [Clang 22.1.3 ]",
+  "pandas": "2.1.0",
+  "numpy": "1.24.3",
+  "verification": {
+    "compared_totals": 26,
+    "max_total_error": 0.0,
+    "unknown_selected": 0,
+    "bench_in_xv": 0
+  },
+  "official_archive_sha256": "3dc40e10b5f2a2ff804fa9d60e6568eea08aabeff48a7ce79e9782f459605293"
+}

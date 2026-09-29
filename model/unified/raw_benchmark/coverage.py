@@ -47,24 +47,41 @@ def _hemisphere(team: object) -> str:
     return "other"
 
 
-def parse_cache_fixture(path: Path) -> tuple[dict, list[dict], list[dict]]:
-    """Return fixture metadata, player truth rows and fixture-event coverage."""
-    payload = json.loads(path.read_text()).get("results", {})
-    match = payload.get("match") or {}
-    fixture_id = str(match.get("id") or path.stem.removeprefix("match_"))
-    match_at = pd.to_datetime(match.get("date"), errors="coerce", utc=True)
-    metadata = {
-        "fixture_id": fixture_id,
-        "match_at": match_at,
-        "date": match_at.tz_convert(None).normalize() if pd.notna(match_at) else pd.NaT,
-        "competition_id_cache": match.get("comp_id"),
-        "competition_cache": match.get("comp_name"),
-        "calendar_year": int(match_at.year) if pd.notna(match_at) else None,
-        "source_season": match.get("season"),
-        "source_game_week": match.get("game_week"),
-        "source_round": match.get("round_id"),
-        "match_status": match.get("status"),
-    }
+def _minutes_observed(pid, started, on, stats) -> bool:
+    if started or pid in on:
+        return True
+    return not any(
+        _number((stats or {}).get(event)) > 0
+        for event in STABLE_EVENTS if event not in {"yellow_cards", "red_cards"}
+    )
+
+
+def _fixture_event_coverage(metadata, players, teamsheet_players):
+    n_stats = len(teamsheet_players)
+    coverage = []
+    for event in DIRECT_EVENTS:
+        present = sum(event in (player.get("match_stats") or {}) for player in teamsheet_players)
+        fraction = present / n_stats if n_stats else 0.0
+        status = (
+            "recorded" if fraction >= DENSE_THRESHOLD
+            else "unobserved" if present == 0 else "ambiguous"
+        )
+        coverage.append({
+            **metadata, "event": event, "status": status, "source_kind": "match_stats",
+            "players_total": n_stats, "players_with_key": present,
+            "coverage_fraction": fraction,
+        })
+    for event in DERIVED_EVENTS:
+        observed = sum(player[f"available__{event}_cache"] for player in players)
+        coverage.append({
+            **metadata, "event": event, "status": "derived", "source_kind": "event_log",
+            "players_total": len(players), "players_with_key": observed,
+            "coverage_fraction": observed / len(players) if players else 0.0,
+        })
+    return coverage
+
+
+def _cache_players(payload, metadata, match):
     off, on, cards = derive_minutes(payload.get("events") or [])
     players: list[dict] = []
     teamsheet_players: list[dict] = []
@@ -84,6 +101,7 @@ def parse_cache_fixture(path: Path) -> tuple[dict, list[dict], list[dict]]:
                 continue
             seen_players.add(player_key)
             started = not bool(player.get("substitute", False))
+            minutes_observed = _minutes_observed(pid, started, on, stats)
             row = {
                 **{key: value for key, value in metadata.items() if key != "date"},
                 "player_id": stable_pid,
@@ -96,10 +114,10 @@ def parse_cache_fixture(path: Path) -> tuple[dict, list[dict], list[dict]]:
                 "opp_score_cache": match.get(f"{opponent_side}_score"),
                 "jersey_cache": player.get("position"),
                 "started_cache": started,
-                "minutes_cache": player_minutes(pid, started, off, on),
+                "minutes_cache": player_minutes(pid, started, off, on) if minutes_observed else np.nan,
                 "yellow_cards_cache": cards[pid]["yellow_cards"],
                 "red_cards_cache": cards[pid]["red_cards"],
-                "available__minutes_cache": True,
+                "available__minutes_cache": minutes_observed,
                 "available__yellow_cards_cache": True,
                 "available__red_cards_cache": True,
             }
@@ -110,27 +128,29 @@ def parse_cache_fixture(path: Path) -> tuple[dict, list[dict], list[dict]]:
                 row[f"available__{event}_cache"] = present
             players.append(row)
 
-    n_stats = len(teamsheet_players)
-    coverage: list[dict] = []
-    for event in DIRECT_EVENTS:
-        present = sum(event in (player.get("match_stats") or {}) for player in teamsheet_players)
-        fraction = present / n_stats if n_stats else 0.0
-        status = (
-            "recorded" if fraction >= DENSE_THRESHOLD
-            else "unobserved" if present == 0 else "ambiguous"
-        )
-        coverage.append({
-            **metadata, "event": event, "status": status, "source_kind": "match_stats",
-            "players_total": n_stats, "players_with_key": present,
-            "coverage_fraction": fraction,
-        })
-    for event in DERIVED_EVENTS:
-        coverage.append({
-            **metadata, "event": event, "status": "derived", "source_kind": "event_log",
-            "players_total": len(players), "players_with_key": len(players),
-            "coverage_fraction": 1.0,
-        })
-    return metadata, players, coverage
+    return players, teamsheet_players
+
+
+def parse_cache_fixture(path: Path) -> tuple[dict, list[dict], list[dict]]:
+    """Return fixture metadata, player truth rows and fixture-event coverage."""
+    payload = json.loads(path.read_text()).get("results", {})
+    match = payload.get("match") or {}
+    fixture_id = str(match.get("id") or path.stem.removeprefix("match_"))
+    match_at = pd.to_datetime(match.get("date"), errors="coerce", utc=True)
+    metadata = {
+        "fixture_id": fixture_id,
+        "match_at": match_at,
+        "date": match_at.tz_convert(None).normalize() if pd.notna(match_at) else pd.NaT,
+        "competition_id_cache": match.get("comp_id"),
+        "competition_cache": match.get("comp_name"),
+        "calendar_year": int(match_at.year) if pd.notna(match_at) else None,
+        "source_season": match.get("season"),
+        "source_game_week": match.get("game_week"),
+        "source_round": match.get("round_id"),
+        "match_status": match.get("status"),
+    }
+    players, teamsheet_players = _cache_players(payload, metadata, match)
+    return metadata, players, _fixture_event_coverage(metadata, players, teamsheet_players)
 
 
 def build_cache_tables(fixture_ids: set[str]) -> tuple[pd.DataFrame, pd.DataFrame, pd.DataFrame]:
@@ -245,7 +265,7 @@ def build_corrected_store(legacy_path: Path = LEGACY_STORE, *, complete_asof=Non
         out[f"provenance__{target}"] = np.where(
             out[f"available__{target}"],
             "event_log" if target in DERIVED_EVENTS else "match_stats_key",
-            "unobserved",
+            "unobserved_entry_time" if target == "minutes" else "unobserved",
         )
         out = out.drop(columns=[value_col, mask_col])
 

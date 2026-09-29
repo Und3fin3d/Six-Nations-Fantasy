@@ -1,0 +1,149 @@
+name: Review conditional duration and corrected scoring evidence
+on:
+  push:
+    branches: [codex/fantasy-decision-workflow]
+    paths: [.github/workflows/conditional-duration-review.yml]
+permissions:
+  contents: read
+  actions: read
+jobs:
+  review:
+    runs-on: ubuntu-latest
+    env:
+      OMP_NUM_THREADS: '2'
+      OMP_THREAD_LIMIT: '2'
+      OPENBLAS_NUM_THREADS: '1'
+      PYTEST_DISABLE_PLUGIN_AUTOLOAD: '1'
+      REVIEW_IMPLEMENTATION: mechanism_and_supervision_v3
+    steps:
+      - uses: actions/checkout@v5
+        with:
+          lfs: false
+          persist-credentials: false
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+          cache: pip
+          cache-dependency-path: requirements-model.txt
+      - uses: actions/download-artifact@v4
+        with:
+          github-token: ${{ github.token }}
+          repository: ${{ github.repository }}
+          run-id: 36258801997
+          name: conditional-duration-prepared-36258801997
+          path: ${{ runner.temp }}/prepared-inputs
+      - uses: actions/download-artifact@v4
+        with:
+          github-token: ${{ github.token }}
+          repository: ${{ github.repository }}
+          run-id: 36273533404
+          pattern: conditional-duration-domain-lock_*-36273533404
+          path: ${{ runner.temp }}/fitted-artifacts
+      - name: Restore exact environment and compile research commands
+        id: environment
+        run: |
+          set -euo pipefail
+          mkdir -p "$RUNNER_TEMP/review-evidence"
+          python -m pip install torch==2.7.1 --index-url https://download.pytorch.org/whl/cpu
+          python -m pip install -r requirements-model.txt requests beautifulsoup4 pytest
+          python model_env_preflight.py
+          python -m py_compile research/duration_evidence_validation.py research/duration_decision_summary.py research/conditional_duration_review.py research/ncr_rubric_completion.py research/duration_mechanism_diagnostics.py research/utility_supervision_audit.py
+          git rev-parse HEAD > "$RUNNER_TEMP/review-evidence/source-commit.txt"
+          python -m pip freeze > "$RUNNER_TEMP/review-evidence/environment.txt"
+      - name: Verify the already executed corrected source-coverage checkpoint
+        id: coverage
+        if: always() && steps.environment.outcome == 'success'
+        run: |
+          python - <<'PY'
+          import json, os
+          from research.conditional_duration_inputs import digest, write_json
+          source = 'data/unified/decision_continuation_2026-09-26/run-36274871423/corrected-coverage'
+          manifest = json.load(open(source + '/manifest.json'))
+          for path, expected in manifest['source_hashes'].items():
+              if digest(path) != expected:
+                  raise ValueError('Corrected source-coverage input changed: ' + path)
+          write_json(os.environ['RUNNER_TEMP'] + '/review-evidence/coverage-reference.json',
+                     dict(source=source, source_manifest_sha256=digest(source + '/manifest.json'),
+                          table_sha256=digest(source + '/component_coverage.csv'),
+                          status='Previously executed corrected report, not a repeated candidate experiment'))
+          PY
+      - name: Verify available paired model evidence without admitting partial cohorts
+        id: comparison
+        if: always() && steps.environment.outcome == 'success' && steps.coverage.outcome == 'success'
+        run: |
+          set -euo pipefail
+          python -u -m research.conditional_duration_review --artifacts "$RUNNER_TEMP/fitted-artifacts" --prepared "$RUNNER_TEMP/prepared-inputs/prepared" --output "$RUNNER_TEMP/review-evidence/review" --allow-partial 2>&1 | tee "$RUNNER_TEMP/review-evidence/review.log"
+      - name: Diagnose exposure discrimination and conditional event adequacy
+        id: mechanism
+        if: always() && steps.comparison.outcome == 'success'
+        run: |
+          set -euo pipefail
+          python -u -m research.duration_mechanism_diagnostics --artifacts "$RUNNER_TEMP/fitted-artifacts" --prepared "$RUNNER_TEMP/prepared-inputs/prepared" --output "$RUNNER_TEMP/review-evidence/mechanism" 2>&1 | tee "$RUNNER_TEMP/review-evidence/mechanism.log"
+          python - <<'PY'
+          import os
+          import pandas as pd
+          from research.conditional_duration_inputs import write_json
+          from research.duration_mechanism_diagnostics import summaries
+          root = os.environ['RUNNER_TEMP'] + '/review-evidence/mechanism'
+          probability = pd.read_csv(root + '/exposure_probabilities.csv')
+          points = pd.read_csv(root + '/hindsight_duration_points.csv')
+          required = {'six_nations_2025': 5, 'six_nations_2026': 5, 'ncr_2026': 3, 'friendly15': 15}
+          available = {name: int(probability.loc[probability.cohort.eq(name), 'unit'].nunique()) for name in required}
+          ready = [name for name, count in required.items() if available[name] == count]
+          output = root + '/complete-cohort-diagnostics'
+          os.makedirs(output, exist_ok=False)
+          if ready:
+              summaries(probability[probability.cohort.isin(ready)], points[points.cohort.isin(ready)], output)
+          write_json(output + '/scope.json', dict(required=required, available=available, complete_cohorts=ready,
+              interpretation='Diagnostic summaries only for complete predeclared cohorts. No partial aggregate admission, new holdout or oracle candidate.'))
+          PY
+      - name: Audit point-target supervision before any utility-model fit
+        id: supervision
+        if: always() && steps.environment.outcome == 'success' && steps.coverage.outcome == 'success'
+        run: |
+          set -euo pipefail
+          python -u -m research.utility_supervision_audit --prepared "$RUNNER_TEMP/prepared-inputs/prepared" --output "$RUNNER_TEMP/review-evidence/utility-supervision" 2>&1 | tee "$RUNNER_TEMP/review-evidence/utility-supervision.log"
+      - name: Preserve execution outcomes and test-file boundary
+        if: always()
+        env:
+          COMPARISON: ${{ steps.comparison.outcome }}
+          COVERAGE: ${{ steps.coverage.outcome }}
+          MECHANISM: ${{ steps.mechanism.outcome }}
+          SUPERVISION: ${{ steps.supervision.outcome }}
+        run: |
+          mkdir -p "$RUNNER_TEMP/review-evidence"
+          printf 'comparison=%s\ncoverage=%s\nmechanism=%s\nsupervision=%s\nobjective=active_unfinished\npartial_admission=prohibited\n' "$COMPARISON" "$COVERAGE" "$MECHANISM" "$SUPERVISION" > "$RUNNER_TEMP/review-evidence/execution-status.txt"
+          git diff --exit-code -- tests
+      - uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: conditional-duration-review-${{ github.run_id }}
+          path: ${{ runner.temp }}/review-evidence
+          retention-days: 30
+          if-no-files-found: error
+  checkpoint:
+    needs: review
+    if: always()
+    runs-on: ubuntu-latest
+    permissions:
+      contents: write
+    steps:
+      - uses: actions/checkout@v5
+        with:
+          ref: codex/fantasy-decision-workflow
+          lfs: false
+      - uses: actions/download-artifact@v4
+        with:
+          name: conditional-duration-review-${{ github.run_id }}
+          path: data/unified/decision_continuation_2026-09-26/run-${{ github.run_id }}
+      - name: Retain calculations without replacing prior evidence or promoting models
+        env:
+          DEST: data/unified/decision_continuation_2026-09-26/run-${{ github.run_id }}
+        run: |
+          set -euo pipefail
+          git config user.name 'github-actions[bot]'
+          git config user.email '41898282+github-actions[bot]@users.noreply.github.com'
+          git add -- "$DEST"
+          git commit -m "Retain duration verification and rubric coverage $GITHUB_RUN_ID [skip ci]"
+          git pull --rebase origin codex/fantasy-decision-workflow
+          git push origin HEAD:codex/fantasy-decision-workflow

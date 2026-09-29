@@ -1,0 +1,7 @@
+candidate,comparator,rounds,changed_forecasts,maximum_absolute_change,changed_xv_players,changed_captains,changed_subs,delta_xv,delta_captain,delta_sub,delta_total
+equal_empirical_baseline,empirical_baseline,13,2138,5.083601031075911,24,4,3,73.0,-62.0,18.0,29.0
+equal_incumbent,incumbent,13,2138,10.297085488557531,60,0,6,31.0,0.0,48.0,79.0
+kicking_role_gate,p3_robust_native,13,1723,0.8434178497892049,0,0,0,0.0,0.0,0.0,0.0
+regularised_empirical_baseline,empirical_baseline,13,2138,5.59979568047142,24,3,4,90.0,-46.0,30.0,74.0
+regularised_incumbent,incumbent,13,2138,11.869990484661496,81,5,9,80.0,-56.0,132.0,156.0
+role_calibration,p3_robust_native,13,1773,4.696708562302959,0,3,1,0.0,-21.0,27.0,6.0

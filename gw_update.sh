@@ -176,8 +176,9 @@ PY
     else
       while IFS=$'\t' read -r shadow_engine shadow_model shadow_gw; do
         [[ -z "$shadow_engine" ]] && continue
-        if [[ -f "data/unified/v3/shadow/ncr_gw${shadow_gw}_${shadow_engine}.csv" ]]; then
-          note "immutable GW${shadow_gw} ${shadow_engine} shadow already exists — keeping it"
+        if [[ -e "data/unified/v3/shadow/ncr_gw${shadow_gw}_${shadow_engine}.csv" || -e "data/unified/v3/shadow/ncr_gw${shadow_gw}_${shadow_engine}.manifest.json" || -e "data/unified/v3/shadow/ncr_gw${shadow_gw}_${shadow_engine}.inputs" ]]; then
+          run "$PY_MODEL" -m model.unified.v3.cli shadow --verify-existing \
+            --gw "$shadow_gw" --engine "$shadow_engine" --model "$shadow_model"
         else
           run "$PY_MODEL" -m model.unified.v3.cli shadow \
             --gw "$shadow_gw" --engine "$shadow_engine" --model "$shadow_model"

@@ -1,0 +1,41 @@
+slate,mode,policy,countries_exceeding_four,violations,bench_captain
+six_nations_2025_r1,native_store,deployed_policy,0,,False
+six_nations_2025_r1,native_store,common_roles_policy,0,,False
+six_nations_2025_r1,lock_rebuilt,deployed_policy,0,,False
+six_nations_2025_r1,lock_rebuilt,common_roles_policy,0,,False
+six_nations_2025_r2,native_store,deployed_policy,1,Wales:7,False
+six_nations_2025_r2,native_store,common_roles_policy,1,Wales:7,False
+six_nations_2025_r2,lock_rebuilt,deployed_policy,1,Wales:7,False
+six_nations_2025_r2,lock_rebuilt,common_roles_policy,1,Wales:7,False
+six_nations_2025_r3,native_store,deployed_policy,1,France:5,False
+six_nations_2025_r3,native_store,common_roles_policy,1,France:5,False
+six_nations_2025_r3,lock_rebuilt,deployed_policy,1,France:5,False
+six_nations_2025_r3,lock_rebuilt,common_roles_policy,1,France:5,False
+six_nations_2025_r4,native_store,deployed_policy,0,,False
+six_nations_2025_r4,native_store,common_roles_policy,0,,False
+six_nations_2025_r4,lock_rebuilt,deployed_policy,0,,False
+six_nations_2025_r4,lock_rebuilt,common_roles_policy,0,,False
+six_nations_2025_r5,native_store,deployed_policy,2,England:7; France:5,False
+six_nations_2025_r5,native_store,common_roles_policy,1,England:8,False
+six_nations_2025_r5,lock_rebuilt,deployed_policy,2,England:7; France:5,False
+six_nations_2025_r5,lock_rebuilt,common_roles_policy,1,England:8,False
+six_nations_2026_r1,native_store,deployed_policy,2,England:7; France:6,False
+six_nations_2026_r1,native_store,common_roles_policy,2,England:6; France:7,False
+six_nations_2026_r1,lock_rebuilt,deployed_policy,2,England:7; France:6,False
+six_nations_2026_r1,lock_rebuilt,common_roles_policy,2,England:6; France:7,False
+six_nations_2026_r2,native_store,deployed_policy,2,England:7; France:7,False
+six_nations_2026_r2,native_store,common_roles_policy,2,England:7; France:8,False
+six_nations_2026_r2,lock_rebuilt,deployed_policy,2,England:7; France:7,False
+six_nations_2026_r2,lock_rebuilt,common_roles_policy,2,England:7; France:8,False
+six_nations_2026_r3,native_store,deployed_policy,1,France:5,False
+six_nations_2026_r3,native_store,common_roles_policy,2,France:5; Italy:5,False
+six_nations_2026_r3,lock_rebuilt,deployed_policy,1,France:5,False
+six_nations_2026_r3,lock_rebuilt,common_roles_policy,1,France:5,False
+six_nations_2026_r4,native_store,deployed_policy,1,France:7,False
+six_nations_2026_r4,native_store,common_roles_policy,1,France:9,False
+six_nations_2026_r4,lock_rebuilt,deployed_policy,1,France:7,False
+six_nations_2026_r4,lock_rebuilt,common_roles_policy,1,France:9,False
+six_nations_2026_r5,native_store,deployed_policy,1,Ireland:6,False
+six_nations_2026_r5,native_store,common_roles_policy,1,Ireland:5,False
+six_nations_2026_r5,lock_rebuilt,deployed_policy,1,Ireland:6,False
+six_nations_2026_r5,lock_rebuilt,common_roles_policy,1,Ireland:5,False

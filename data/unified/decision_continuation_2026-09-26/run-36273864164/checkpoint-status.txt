@@ -1,0 +1,2 @@
+objective=active_unfinished
+role=independent_scoring_audit_not_candidate_result

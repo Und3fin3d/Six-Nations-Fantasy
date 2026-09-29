@@ -1,12 +1,14 @@
 #!/usr/bin/env python3
-"""Build 2026 Six Nations model-picked XVs and compare them with actual points.
+"""Build 2026 Six Nations position-quota XV diagnostics and compare actual points.
 
 The script reads a season prediction artifact such as
-`data/model_predictions_2026.csv`, selects a fantasy XV for each round using the
+`data/model_predictions_2026.csv`, selects a position-quota XV for each round using the
 branch's best available model selection score, adds a captain and supersub, and
 also selects an overall XV from season aggregates.  For both views it reports
 predicted points beside the realised official fantasy points and writes CSV
 outputs by default.
+
+These diagnostics do not enforce country limits or verify historical budgets.
 
 Usage:
   python report_2026_prediction_xv.py
@@ -90,7 +92,7 @@ CONTEXT_COLUMNS = (
 
 def parse_args() -> argparse.Namespace:
     parser = argparse.ArgumentParser(
-        description="Create 2026 Six Nations predicted XV reports."
+        description="Create 2026 Six Nations position-quota XV diagnostics."
     )
     parser.add_argument(
         "--predictions",
@@ -164,7 +166,7 @@ def main() -> None:
     pred = coerce_numeric(
         pred, {selection_col, predicted_col, captain_col, supersub_col, "official_pts"}
     )
-    pred = labelled_rows(pred)
+    pred = eligible_predictions(pred, {selection_col, predicted_col, captain_col, supersub_col})
 
     round_xv = build_round_xvs(
         pred, selection_col, predicted_col, captain_col, supersub_col)
@@ -255,16 +257,21 @@ def as_bool(series: pd.Series) -> pd.Series:
     return series.astype(str).str.lower().isin({"true", "1", "yes", "y"})
 
 
-def labelled_rows(df: pd.DataFrame) -> pd.DataFrame:
-    mask = df["official_pts"].notna()
+def eligible_predictions(df: pd.DataFrame, score_cols: set[str]) -> pd.DataFrame:
+    if not np.isfinite(df[list(score_cols)].to_numpy(float)).all():
+        raise SystemExit("every eligible player must have finite forecast and role scores")
+    mask = np.isfinite(df["official_pts"])
     if "has_label" in df.columns:
         mask &= as_bool(df["has_label"])
     if "is_modern" in df.columns:
         mask &= as_bool(df["is_modern"])
-    out = df[mask].copy()
-    if out.empty:
-        raise SystemExit("no labelled rows with official_pts are available to compare")
+    out = df.copy()
+    out.loc[~mask, "official_pts"] = np.nan
     return out
+
+
+def complete_total(values: pd.Series) -> float:
+    return float(values.sum(min_count=len(values)))
 
 
 def build_round_xvs(
@@ -302,7 +309,7 @@ def build_overall_xv(
         "predicted_pts": (predicted_col, "sum"),
         "captain_score": (captain_col, "sum"),
         "supersub_score": (supersub_col, "sum"),
-        "actual_pts": ("official_pts", "sum"),
+        "actual_pts": ("official_pts", complete_total),
     }
     for col in optional:
         named_aggs[col] = (col, mode_value)
@@ -338,7 +345,7 @@ def aggregate_supersub_pool(
         "selection_score": (selection_col, "sum"),
         "predicted_pts": (predicted_col, "sum"),
         "supersub_score": (supersub_col, "sum"),
-        "actual_pts": ("official_pts", "sum"),
+        "actual_pts": ("official_pts", complete_total),
         "started": ("started", "first"),
     }
     for col in optional:
@@ -348,16 +355,11 @@ def aggregate_supersub_pool(
 
 def pick_xv(df: pd.DataFrame, selection_col: str, predicted_col: str) -> pd.DataFrame:
     picked = []
-    actual_col = "official_pts" if "official_pts" in df.columns else "actual_pts"
     for pos, quota in XV_QUOTA.items():
         pool = df[df["canonical_pos"] == pos].copy()
         if pool.empty:
             continue
-        pool = pool.sort_values(
-            [selection_col, predicted_col, actual_col, "player_name"],
-            ascending=[False, False, False, True],
-            kind="mergesort",
-        )
+        pool = ordered_candidates(pool, selection_col, predicted_col)
         pos_pick = pool.head(quota).copy()
         pos_pick["pos_slot"] = np.arange(1, len(pos_pick) + 1)
         pos_pick["quota"] = quota
@@ -431,12 +433,14 @@ def top_model_index(
 ) -> Optional[int]:
     if df.empty:
         return None
-    sorted_df = df.sort_values(
-        [selection_col, predicted_col, "player_name"],
-        ascending=[False, False, True],
-        kind="mergesort",
-    )
+    sorted_df = ordered_candidates(df, selection_col, predicted_col)
     return int(sorted_df.index[0])
+
+
+def ordered_candidates(df: pd.DataFrame, selection_col: str, predicted_col: str) -> pd.DataFrame:
+    scores = list(dict.fromkeys([selection_col, predicted_col]))
+    identity = [c for c in ("player_name", "player_id", "team", "fixture_id") if c in df]
+    return df.sort_values(scores+identity, ascending=[False]*len(scores)+[True]*len(identity), kind="mergesort")
 
 
 def pick_supersub(
@@ -501,9 +505,9 @@ def build_summary(
     rows = []
     for round_no, group in round_xv.groupby("round", sort=True):
         pool = pred[pred["round"] == round_no]
-        raw_actual_total = float(group["actual_pts"].sum())
+        raw_actual_total = complete_total(group["actual_pts"])
         raw_predicted_total = float(group["predicted_pts"].sum())
-        actual_total = float(group["fantasy_actual_pts"].sum())
+        actual_total = complete_total(group["fantasy_actual_pts"])
         predicted_total = float(group["fantasy_predicted_pts"].sum())
         optimal_total = hindsight_team_total(pool)
         rows.append(
@@ -511,6 +515,8 @@ def build_summary(
                 "view": "round",
                 "round": round_no,
                 "picked_players": int(len(group)),
+                "unlabelled_pool": int(pool["official_pts"].isna().sum()),
+                "unlabelled_selected": int(group["actual_pts"].isna().sum()),
                 "raw_predicted_total": raw_predicted_total,
                 "raw_actual_total": raw_actual_total,
                 "predicted_total": predicted_total,
@@ -526,28 +532,30 @@ def build_summary(
         "view": "rounds_total",
         "round": "all",
         "picked_players": int(round_xv.shape[0]),
+        "unlabelled_pool": int(pred["official_pts"].isna().sum()),
+        "unlabelled_selected": int(round_xv["actual_pts"].isna().sum()),
         "raw_predicted_total": float(round_rows["raw_predicted_total"].sum()),
-        "raw_actual_total": float(round_rows["raw_actual_total"].sum()),
+        "raw_actual_total": complete_total(round_rows["raw_actual_total"]),
         "predicted_total": float(round_rows["predicted_total"].sum()),
-        "actual_total": float(round_rows["actual_total"].sum()),
-        "actual_minus_predicted_total": float(
-            round_rows["actual_minus_predicted_total"].sum()
-        ),
-        "hindsight_actual_team_total": float(round_rows["hindsight_actual_team_total"].sum()),
+        "actual_total": complete_total(round_rows["actual_total"]),
+        "actual_minus_predicted_total": complete_total(round_rows["actual_minus_predicted_total"]),
+        "hindsight_actual_team_total": complete_total(round_rows["hindsight_actual_team_total"]),
         "actual_value_ratio": safe_ratio(
-            round_rows["actual_total"].sum(),
-            round_rows["hindsight_actual_team_total"].sum(),
+            complete_total(round_rows["actual_total"]),
+            complete_total(round_rows["hindsight_actual_team_total"]),
         ),
     }
-    overall_raw_actual = float(overall_xv["actual_pts"].sum())
+    overall_raw_actual = complete_total(overall_xv["actual_pts"])
     overall_raw_predicted = float(overall_xv["predicted_pts"].sum())
-    overall_actual = float(overall_xv["fantasy_actual_pts"].sum())
+    overall_actual = complete_total(overall_xv["fantasy_actual_pts"])
     overall_predicted = float(overall_xv["fantasy_predicted_pts"].sum())
     overall_optimal = hindsight_overall_team_total(pred)
     overall = {
         "view": "overall_xv",
         "round": "season",
         "picked_players": int(len(overall_xv)),
+        "unlabelled_pool": int(pred["official_pts"].isna().sum()),
+        "unlabelled_selected": int(overall_xv["actual_pts"].isna().sum()),
         "raw_predicted_total": overall_raw_predicted,
         "raw_actual_total": overall_raw_actual,
         "predicted_total": overall_predicted,
@@ -566,12 +574,14 @@ def aggregate_for_overall(
 ) -> pd.DataFrame:
     return (
         pred.groupby(["player_id", "player_name", "canonical_pos"], as_index=False)
-        .agg(predicted_pts=(predicted_col, "sum"), official_pts=(actual_col, "sum"))
+        .agg(predicted_pts=(predicted_col, "sum"), official_pts=(actual_col, complete_total))
         .rename(columns={"predicted_pts": predicted_col})
     )
 
 
 def hindsight_team_total(df: pd.DataFrame) -> float:
+    if df["official_pts"].isna().any():
+        return np.nan
     xv = pick_xv(df, "official_pts", "official_pts")
     selected_ids = set(xv["player_id"])
     base_total = float(xv["official_pts"].sum())
@@ -581,6 +591,8 @@ def hindsight_team_total(df: pd.DataFrame) -> float:
 
 
 def hindsight_overall_team_total(pred: pd.DataFrame) -> float:
+    if pred["official_pts"].isna().any():
+        return np.nan
     agg = (
         pred.groupby(["player_id", "player_name", "canonical_pos"], as_index=False)
         .agg(official_pts=("official_pts", "sum"))
@@ -610,6 +622,8 @@ def best_actual_supersub(df: pd.DataFrame, selected_player_ids: set) -> float:
 
 
 def hindsight_xv_total(df: pd.DataFrame) -> float:
+    if df["official_pts"].isna().any():
+        return np.nan
     total = 0.0
     for pos, quota in XV_QUOTA.items():
         pool = df[df["canonical_pos"] == pos]
@@ -643,7 +657,8 @@ def print_report(
     *,
     summary_only: bool,
 ) -> None:
-    print(f"\n{season} Six Nations model XV report")
+    print(f"\n{season} Six Nations position-quota XV diagnostics")
+    print("  Country limits and historical budgets are not verified.")
     print(f"  selecting XVs by: {selection_col}")
     print(f"  captain by: {captain_col}")
     print(f"  supersub by: {supersub_col}")
@@ -654,6 +669,8 @@ def print_report(
         "view",
         "round",
         "picked_players",
+        "unlabelled_pool",
+        "unlabelled_selected",
         "raw_predicted_total",
         "raw_actual_total",
         "predicted_total",

@@ -1,0 +1,18 @@
+{
+  "accessed_at": "2026-09-26T14:27:56.770288+00:00",
+  "sources": [
+    {
+      "url": "https://fantasy.nationschampionshiprugby.com/static-assets/fantasy/static/build/static/index.KJ99yB3e.js",
+      "sha256": "e4c2fb98216bd7c2276a10bbc80e64305c947b17038658e50ea8bed0a8f0083a",
+      "weight": 2,
+      "footnote": "Awarded only to front-row players on the field when the scrum is won.",
+      "source_type": "Current public official application bundle, English fallback rule text",
+      "historical_limit": "Original July publication not separately archived"
+    },
+    {
+      "url": "https://www.sixnationsrugby.com/en/m6n/news/how-to-win-at-six-nations-fantasy-rugby-2026",
+      "published": "2026-01-14",
+      "observation": "Guide lists drop goal weight 5; repository adapters use 4. Season-specific game configuration and workbook validation remain unresolved."
+    }
+  ]
+}

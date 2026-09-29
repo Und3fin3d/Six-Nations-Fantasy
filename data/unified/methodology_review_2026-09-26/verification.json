@@ -1,0 +1,111 @@
+{
+  "source_commit": "93f9670f38ed1699c0029192ac38227392b329fb",
+  "source_tree": "57e82caa1b76a336c7a4dc0659dceb6423038f74",
+  "retained_csv_replay": [
+    {
+      "file": "front_row_rounds.csv",
+      "byte_identical": true,
+      "sha256": "41ecfdeaeddd53c86cc057ae0c46a356ff6ba08fabf3792c1c9074bb85099426"
+    },
+    {
+      "file": "front_row_summary.csv",
+      "byte_identical": true,
+      "sha256": "03ae80468b208ec07fb572e8ee26de40d7c2e505c38abd0b97fb1454fec9a06b"
+    },
+    {
+      "file": "interpolation_rounds.csv",
+      "byte_identical": true,
+      "sha256": "e0afa40af0254fa15a3e08d261c3447278a7321afbf2a398ee1dabd725feb9b8"
+    },
+    {
+      "file": "interpolation_seasons.csv",
+      "byte_identical": true,
+      "sha256": "538914aa5eec5cef9297a7fd047d58ea380797cb4b7bff7d2f68e26382d73863"
+    },
+    {
+      "file": "raw_event_differences.csv",
+      "byte_identical": true,
+      "sha256": "36894cfcce3bb0df4dc6450fefff7b8b2206520164459aa80b850daeba3b3d77"
+    },
+    {
+      "file": "raw_minutes_summary.csv",
+      "byte_identical": true,
+      "sha256": "566823c744aa424d59ef713a003738834fd776a8439de189ab2a4702316d57b1"
+    },
+    {
+      "file": "raw_scoring_relevance.csv",
+      "byte_identical": true,
+      "sha256": "e162f49a6db1a08bb3bef01d4590e6b2032511ff884f544381b144218ab18ef5"
+    },
+    {
+      "file": "round_calibration_bins.csv",
+      "byte_identical": true,
+      "sha256": "a9d6dd2708911fe3050c547cbf03416b87623bda8bfb80bb923d6d3dff9ebf24"
+    },
+    {
+      "file": "round_differences.csv",
+      "byte_identical": true,
+      "sha256": "339857ce2e73a1554c2a4ccde162e0d8485941f8c20ca953996624871d73873a"
+    },
+    {
+      "file": "round_error.csv",
+      "byte_identical": true,
+      "sha256": "de3c8d101588d802a9d5775748493b7dd0e637bb7ad9b119becb33c7c38c48bd"
+    },
+    {
+      "file": "season_differences.csv",
+      "byte_identical": true,
+      "sha256": "a19185f34bacc07f9ab8a5a677a068c0550da32e072f99ae4f1c10485a38c266"
+    },
+    {
+      "file": "season_error_by_position.csv",
+      "byte_identical": true,
+      "sha256": "f860a4b1f87db360f50055e5a9694c16cd3916934a7a9729789daaf065d1b1c9"
+    },
+    {
+      "file": "season_error_by_status.csv",
+      "byte_identical": true,
+      "sha256": "82f0e48ba692da8cfca5e89f6a2bb804cb9ee3251b10df1eb15fa66dae835010"
+    },
+    {
+      "file": "selected_players.csv",
+      "byte_identical": true,
+      "sha256": "5a77dfc42fb5b79d08ee708c24cf20a5fb1e2e067d8aa8895fd855dd74834465"
+    },
+    {
+      "file": "squad_components.csv",
+      "byte_identical": true,
+      "sha256": "2bb38ab869ca4c5f0c040e40dec779cea4234864dbd0d476ad50090a066b722c"
+    },
+    {
+      "file": "squad_swaps.csv",
+      "byte_identical": true,
+      "sha256": "b97f76dc713ba9f46bc88617b0f1adca3018080d05ca322a92e29eb0ab65a858"
+    },
+    {
+      "file": "workflow_runtime.csv",
+      "byte_identical": true,
+      "sha256": "775cb0f7bb4dd50307be50462c579152117dbbe984e9f9907a3ca9d81d6cd704"
+    },
+    {
+      "file": "xv_position_differences.csv",
+      "byte_identical": true,
+      "sha256": "7f4083d9abc7068a88c72859e1a4dadced298d2f4ba0438884fb3ef4762913b3"
+    }
+  ],
+  "original_summary_replay": {
+    "files": 11,
+    "byte_mismatches": 0
+  },
+  "existing_focused_tests_passed": 5,
+  "new_or_modified_tests": 0,
+  "model_refits": 0,
+  "paid_rugby_api_calls": 0,
+  "production_changes": 0,
+  "complexity_check": {
+    "files": 4,
+    "findings": []
+  },
+  "broken_local_document_links": [],
+  "trailing_whitespace": []
+}

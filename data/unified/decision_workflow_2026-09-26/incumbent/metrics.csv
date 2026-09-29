@@ -1,0 +1,111 @@
+slate,competition,season,round,engine,n,n_labelled,n_unlabelled,team_unlabelled,mae,team_points,budget_verified,lineup_basis,xv_points,captain_extra,supersub_points,known_contribution,country_limit_exceeded
+six_nations_2025_r1,six_nations,2025,1,empirical_baseline,138,132,6,0,6.782401487047886,502.0,False,complete teamsheet pool; kickoff lock proxy; NO archived prices; missing scores remain unknown,450.0,37.0,15.0,502.0,0
+six_nations_2025_r1,six_nations,2025,1,incumbent_lock_rebuilt_common,138,132,6,0,7.7979513024601985,498.0,False,complete teamsheet pool; kickoff lock proxy; NO archived prices; missing scores remain unknown,443.0,37.0,18.0,498.0,0
+six_nations_2025_r1,,2025,1,incumbent_lock_rebuilt_common_roles_policy,138,132,6,0,7.7979513024601985,580.0,,,492.0,37.0,51.0,580.0,0
+six_nations_2025_r1,,2025,1,incumbent_lock_rebuilt_deployed_policy,138,132,6,0,7.7979513024601985,580.0,,,492.0,37.0,51.0,580.0,0
+six_nations_2025_r1,six_nations,2025,1,incumbent_native_store_common,138,132,6,0,7.777732778552842,498.0,False,complete teamsheet pool; kickoff lock proxy; NO archived prices; missing scores remain unknown,443.0,37.0,18.0,498.0,0
+six_nations_2025_r1,,2025,1,incumbent_native_store_common_roles_policy,138,132,6,0,7.777732778552842,580.0,,,492.0,37.0,51.0,580.0,0
+six_nations_2025_r1,,2025,1,incumbent_native_store_deployed_policy,138,132,6,0,7.777732778552842,580.0,,,492.0,37.0,51.0,580.0,0
+six_nations_2025_r1,six_nations,2025,1,p3_robust_native,138,132,6,0,6.890568617739768,546.0,False,complete teamsheet pool; kickoff lock proxy; NO archived prices; missing scores remain unknown,440.0,31.0,75.0,546.0,0
+six_nations_2025_r1,six_nations,2025,1,p3_rolling_native,138,132,6,0,6.829945597463422,529.0,False,complete teamsheet pool; kickoff lock proxy; NO archived prices; missing scores remain unknown,483.0,31.0,15.0,529.0,0
+six_nations_2025_r1,six_nations,2025,1,p3_tournament_frozen_native,138,132,6,0,6.829945597463422,529.0,False,complete teamsheet pool; kickoff lock proxy; NO archived prices; missing scores remain unknown,483.0,31.0,15.0,529.0,0
+six_nations_2025_r1,six_nations,2025,1,p3_weighted_native,138,132,6,0,6.875909114585709,462.0,False,complete teamsheet pool; kickoff lock proxy; NO archived prices; missing scores remain unknown,416.0,31.0,15.0,462.0,0
+six_nations_2025_r2,six_nations,2025,2,empirical_baseline,138,138,0,0,6.87587584376193,382.0,False,complete teamsheet pool; kickoff lock proxy; NO archived prices; missing scores remain unknown,318.0,34.0,30.0,382.0,0
+six_nations_2025_r2,six_nations,2025,2,incumbent_lock_rebuilt_common,138,138,0,0,6.87515140497859,388.0,False,complete teamsheet pool; kickoff lock proxy; NO archived prices; missing scores remain unknown,354.0,34.0,0.0,388.0,0
+six_nations_2025_r2,,2025,2,incumbent_lock_rebuilt_common_roles_policy,138,138,0,0,6.87515140497859,419.0,,,295.0,34.0,90.0,419.0,1
+six_nations_2025_r2,,2025,2,incumbent_lock_rebuilt_deployed_policy,138,138,0,0,6.87515140497859,388.0,,,264.0,34.0,90.0,388.0,1
+six_nations_2025_r2,six_nations,2025,2,incumbent_native_store_common,138,138,0,0,6.909810972163991,378.0,False,complete teamsheet pool; kickoff lock proxy; NO archived prices; missing scores remain unknown,344.0,34.0,0.0,378.0,0
+six_nations_2025_r2,,2025,2,incumbent_native_store_common_roles_policy,138,138,0,0,6.909810972163991,419.0,,,295.0,34.0,90.0,419.0,1
+six_nations_2025_r2,,2025,2,incumbent_native_store_deployed_policy,138,138,0,0,6.909810972163991,388.0,,,264.0,34.0,90.0,388.0,1
+six_nations_2025_r2,six_nations,2025,2,p3_robust_native,138,138,0,0,6.840640310869786,399.0,False,complete teamsheet pool; kickoff lock proxy; NO archived prices; missing scores remain unknown,335.0,34.0,30.0,399.0,0
+six_nations_2025_r2,six_nations,2025,2,p3_rolling_native,138,138,0,0,7.16380443191514,349.0,False,complete teamsheet pool; kickoff lock proxy; NO archived prices; missing scores remain unknown,294.0,34.0,21.0,349.0,0
+six_nations_2025_r2,six_nations,2025,2,p3_tournament_frozen_native,138,138,0,0,6.914021923655188,319.0,False,complete teamsheet pool; kickoff lock proxy; NO archived prices; missing scores remain unknown,285.0,13.0,21.0,319.0,0
+six_nations_2025_r2,six_nations,2025,2,p3_weighted_native,138,138,0,0,7.167499508315274,351.0,False,complete teamsheet pool; kickoff lock proxy; NO archived prices; missing scores remain unknown,296.0,34.0,21.0,351.0,0
+six_nations_2025_r3,six_nations,2025,3,empirical_baseline,138,138,0,0,6.999373156139082,451.0,False,complete teamsheet pool; kickoff lock proxy; NO archived prices; missing scores remain unknown,382.0,36.0,33.0,451.0,0
+six_nations_2025_r3,six_nations,2025,3,incumbent_lock_rebuilt_common,138,138,0,0,7.105718800584563,441.0,False,complete teamsheet pool; kickoff lock proxy; NO archived prices; missing scores remain unknown,378.0,36.0,27.0,441.0,0
+six_nations_2025_r3,,2025,3,incumbent_lock_rebuilt_common_roles_policy,138,138,0,0,7.105718800584563,519.0,,,436.0,56.0,27.0,519.0,1
+six_nations_2025_r3,,2025,3,incumbent_lock_rebuilt_deployed_policy,138,138,0,0,7.105718800584563,519.0,,,436.0,56.0,27.0,519.0,1
+six_nations_2025_r3,six_nations,2025,3,incumbent_native_store_common,138,138,0,0,7.1056911645147975,441.0,False,complete teamsheet pool; kickoff lock proxy; NO archived prices; missing scores remain unknown,378.0,36.0,27.0,441.0,0
+six_nations_2025_r3,,2025,3,incumbent_native_store_common_roles_policy,138,138,0,0,7.1056911645147975,519.0,,,436.0,56.0,27.0,519.0,1
+six_nations_2025_r3,,2025,3,incumbent_native_store_deployed_policy,138,138,0,0,7.1056911645147975,519.0,,,436.0,56.0,27.0,519.0,1
+six_nations_2025_r3,six_nations,2025,3,p3_robust_native,138,138,0,0,7.278381344202609,432.0,False,complete teamsheet pool; kickoff lock proxy; NO archived prices; missing scores remain unknown,393.0,36.0,3.0,432.0,0
+six_nations_2025_r3,six_nations,2025,3,p3_rolling_native,138,138,0,0,7.146700073559738,435.0,False,complete teamsheet pool; kickoff lock proxy; NO archived prices; missing scores remain unknown,396.0,36.0,3.0,435.0,0
+six_nations_2025_r3,six_nations,2025,3,p3_tournament_frozen_native,138,138,0,0,6.709801961824843,507.0,False,complete teamsheet pool; kickoff lock proxy; NO archived prices; missing scores remain unknown,384.0,90.0,33.0,507.0,0
+six_nations_2025_r3,six_nations,2025,3,p3_weighted_native,138,138,0,0,7.357068613938005,432.0,False,complete teamsheet pool; kickoff lock proxy; NO archived prices; missing scores remain unknown,393.0,36.0,3.0,432.0,0
+six_nations_2025_r4,six_nations,2025,4,empirical_baseline,138,138,0,0,7.774974393912702,541.0,False,complete teamsheet pool; kickoff lock proxy; NO archived prices; missing scores remain unknown,405.0,28.0,108.0,541.0,0
+six_nations_2025_r4,six_nations,2025,4,incumbent_lock_rebuilt_common,138,138,0,0,8.064776425875444,506.0,False,complete teamsheet pool; kickoff lock proxy; NO archived prices; missing scores remain unknown,449.0,36.0,21.0,506.0,0
+six_nations_2025_r4,,2025,4,incumbent_lock_rebuilt_common_roles_policy,138,138,0,0,8.064776425875444,504.0,,,447.0,36.0,21.0,504.0,0
+six_nations_2025_r4,,2025,4,incumbent_lock_rebuilt_deployed_policy,138,138,0,0,8.064776425875444,504.0,,,447.0,36.0,21.0,504.0,0
+six_nations_2025_r4,six_nations,2025,4,incumbent_native_store_common,138,138,0,0,8.082866016266482,506.0,False,complete teamsheet pool; kickoff lock proxy; NO archived prices; missing scores remain unknown,449.0,36.0,21.0,506.0,0
+six_nations_2025_r4,,2025,4,incumbent_native_store_common_roles_policy,138,138,0,0,8.082866016266482,504.0,,,447.0,36.0,21.0,504.0,0
+six_nations_2025_r4,,2025,4,incumbent_native_store_deployed_policy,138,138,0,0,8.082866016266482,504.0,,,447.0,36.0,21.0,504.0,0
+six_nations_2025_r4,six_nations,2025,4,p3_robust_native,138,138,0,0,7.780909026839934,474.0,False,complete teamsheet pool; kickoff lock proxy; NO archived prices; missing scores remain unknown,398.0,28.0,48.0,474.0,0
+six_nations_2025_r4,six_nations,2025,4,p3_rolling_native,138,138,0,0,7.793280953743896,464.0,False,complete teamsheet pool; kickoff lock proxy; NO archived prices; missing scores remain unknown,376.0,40.0,48.0,464.0,0
+six_nations_2025_r4,six_nations,2025,4,p3_tournament_frozen_native,138,138,0,0,7.916762979256652,538.0,False,complete teamsheet pool; kickoff lock proxy; NO archived prices; missing scores remain unknown,390.0,40.0,108.0,538.0,0
+six_nations_2025_r4,six_nations,2025,4,p3_weighted_native,138,138,0,0,7.81574244976516,486.0,False,complete teamsheet pool; kickoff lock proxy; NO archived prices; missing scores remain unknown,398.0,40.0,48.0,486.0,0
+six_nations_2025_r5,six_nations,2025,5,empirical_baseline,138,138,0,0,7.40739219493164,534.0,False,complete teamsheet pool; kickoff lock proxy; NO archived prices; missing scores remain unknown,432.0,36.0,66.0,534.0,0
+six_nations_2025_r5,six_nations,2025,5,incumbent_lock_rebuilt_common,138,138,0,0,7.363732985019462,427.0,False,complete teamsheet pool; kickoff lock proxy; NO archived prices; missing scores remain unknown,388.0,36.0,3.0,427.0,0
+six_nations_2025_r5,,2025,5,incumbent_lock_rebuilt_common_roles_policy,138,138,0,0,7.363732985019462,600.0,,,414.0,36.0,150.0,600.0,1
+six_nations_2025_r5,,2025,5,incumbent_lock_rebuilt_deployed_policy,138,138,0,0,7.363732985019462,635.0,,,449.0,36.0,150.0,635.0,2
+six_nations_2025_r5,six_nations,2025,5,incumbent_native_store_common,138,138,0,0,7.35670516706093,427.0,False,complete teamsheet pool; kickoff lock proxy; NO archived prices; missing scores remain unknown,388.0,36.0,3.0,427.0,0
+six_nations_2025_r5,,2025,5,incumbent_native_store_common_roles_policy,138,138,0,0,7.35670516706093,600.0,,,414.0,36.0,150.0,600.0,1
+six_nations_2025_r5,,2025,5,incumbent_native_store_deployed_policy,138,138,0,0,7.35670516706093,635.0,,,449.0,36.0,150.0,635.0,2
+six_nations_2025_r5,six_nations,2025,5,p3_robust_native,138,138,0,0,7.424246650504721,505.0,False,complete teamsheet pool; kickoff lock proxy; NO archived prices; missing scores remain unknown,403.0,36.0,66.0,505.0,0
+six_nations_2025_r5,six_nations,2025,5,p3_rolling_native,138,138,0,0,7.405839922011311,513.0,False,complete teamsheet pool; kickoff lock proxy; NO archived prices; missing scores remain unknown,411.0,36.0,66.0,513.0,0
+six_nations_2025_r5,six_nations,2025,5,p3_tournament_frozen_native,138,138,0,0,7.555464914284443,468.0,False,complete teamsheet pool; kickoff lock proxy; NO archived prices; missing scores remain unknown,366.0,36.0,66.0,468.0,0
+six_nations_2025_r5,six_nations,2025,5,p3_weighted_native,138,138,0,0,7.394052156935123,505.0,False,complete teamsheet pool; kickoff lock proxy; NO archived prices; missing scores remain unknown,403.0,36.0,66.0,505.0,0
+six_nations_2026_r1,six_nations,2026,1,empirical_baseline,138,134,4,0,8.000927593138426,505.0,False,complete teamsheet pool; kickoff lock proxy; NO archived prices; missing scores remain unknown,450.0,46.0,9.0,505.0,0
+six_nations_2026_r1,six_nations,2026,1,incumbent_lock_rebuilt_common,138,134,4,0,7.25185048508637,549.0,False,complete teamsheet pool; kickoff lock proxy; NO archived prices; missing scores remain unknown,476.0,46.0,27.0,549.0,0
+six_nations_2026_r1,,2026,1,incumbent_lock_rebuilt_common_roles_policy,138,134,4,0,7.25185048508637,554.0,,,495.0,50.0,9.0,554.0,2
+six_nations_2026_r1,,2026,1,incumbent_lock_rebuilt_deployed_policy,138,134,4,0,7.25185048508637,548.0,,,489.0,50.0,9.0,548.0,2
+six_nations_2026_r1,six_nations,2026,1,incumbent_native_store_common,138,134,4,0,7.229823539172547,549.0,False,complete teamsheet pool; kickoff lock proxy; NO archived prices; missing scores remain unknown,476.0,46.0,27.0,549.0,0
+six_nations_2026_r1,,2026,1,incumbent_native_store_common_roles_policy,138,134,4,0,7.229823539172547,554.0,,,495.0,50.0,9.0,554.0,2
+six_nations_2026_r1,,2026,1,incumbent_native_store_deployed_policy,138,134,4,0,7.229823539172547,548.0,,,489.0,50.0,9.0,548.0,2
+six_nations_2026_r1,six_nations,2026,1,p3_robust_native,138,134,4,0,7.561415857016793,494.0,False,complete teamsheet pool; kickoff lock proxy; NO archived prices; missing scores remain unknown,455.0,30.0,9.0,494.0,0
+six_nations_2026_r1,six_nations,2026,1,p3_rolling_native,138,134,4,1,7.87595417708909,,False,complete teamsheet pool; kickoff lock proxy; NO archived prices; missing scores remain unknown,,30.0,9.0,472.0,0
+six_nations_2026_r1,six_nations,2026,1,p3_tournament_frozen_native,138,134,4,1,7.87595417708909,,False,complete teamsheet pool; kickoff lock proxy; NO archived prices; missing scores remain unknown,,30.0,9.0,472.0,0
+six_nations_2026_r1,six_nations,2026,1,p3_weighted_native,138,134,4,0,7.743071860575277,494.0,False,complete teamsheet pool; kickoff lock proxy; NO archived prices; missing scores remain unknown,455.0,30.0,9.0,494.0,0
+six_nations_2026_r2,six_nations,2026,2,empirical_baseline,138,131,7,0,7.4213109258849235,547.0,False,complete teamsheet pool; kickoff lock proxy; NO archived prices; missing scores remain unknown,433.0,48.0,66.0,547.0,0
+six_nations_2026_r2,six_nations,2026,2,incumbent_lock_rebuilt_common,138,131,7,0,7.826014859997409,528.0,False,complete teamsheet pool; kickoff lock proxy; NO archived prices; missing scores remain unknown,414.0,48.0,66.0,528.0,0
+six_nations_2026_r2,,2026,2,incumbent_lock_rebuilt_common_roles_policy,138,131,7,0,7.826014859997409,600.0,,,486.0,48.0,66.0,600.0,2
+six_nations_2026_r2,,2026,2,incumbent_lock_rebuilt_deployed_policy,138,131,7,0,7.826014859997409,575.0,,,461.0,48.0,66.0,575.0,2
+six_nations_2026_r2,six_nations,2026,2,incumbent_native_store_common,138,131,7,0,7.793419523115078,528.0,False,complete teamsheet pool; kickoff lock proxy; NO archived prices; missing scores remain unknown,414.0,48.0,66.0,528.0,0
+six_nations_2026_r2,,2026,2,incumbent_native_store_common_roles_policy,138,131,7,0,7.793419523115078,600.0,,,486.0,48.0,66.0,600.0,2
+six_nations_2026_r2,,2026,2,incumbent_native_store_deployed_policy,138,131,7,0,7.793419523115078,575.0,,,461.0,48.0,66.0,575.0,2
+six_nations_2026_r2,six_nations,2026,2,p3_robust_native,138,131,7,0,7.609865622175453,564.0,False,complete teamsheet pool; kickoff lock proxy; NO archived prices; missing scores remain unknown,465.0,33.0,66.0,564.0,0
+six_nations_2026_r2,six_nations,2026,2,p3_rolling_native,138,131,7,0,7.49388484966987,552.0,False,complete teamsheet pool; kickoff lock proxy; NO archived prices; missing scores remain unknown,453.0,33.0,66.0,552.0,0
+six_nations_2026_r2,six_nations,2026,2,p3_tournament_frozen_native,138,131,7,0,7.492020817669858,484.0,False,complete teamsheet pool; kickoff lock proxy; NO archived prices; missing scores remain unknown,385.0,33.0,66.0,484.0,0
+six_nations_2026_r2,six_nations,2026,2,p3_weighted_native,138,131,7,0,7.620187698915835,552.0,False,complete teamsheet pool; kickoff lock proxy; NO archived prices; missing scores remain unknown,453.0,33.0,66.0,552.0,0
+six_nations_2026_r3,six_nations,2026,3,empirical_baseline,138,137,1,0,7.559644231581972,460.0,False,complete teamsheet pool; kickoff lock proxy; NO archived prices; missing scores remain unknown,350.0,56.0,54.0,460.0,0
+six_nations_2026_r3,six_nations,2026,3,incumbent_lock_rebuilt_common,138,137,1,0,7.549074426065453,486.0,False,complete teamsheet pool; kickoff lock proxy; NO archived prices; missing scores remain unknown,376.0,56.0,54.0,486.0,0
+six_nations_2026_r3,,2026,3,incumbent_lock_rebuilt_common_roles_policy,138,137,1,0,7.549074426065453,477.0,,,367.0,56.0,54.0,477.0,1
+six_nations_2026_r3,,2026,3,incumbent_lock_rebuilt_deployed_policy,138,137,1,0,7.549074426065453,468.0,,,358.0,56.0,54.0,468.0,1
+six_nations_2026_r3,six_nations,2026,3,incumbent_native_store_common,138,137,1,0,7.603522443080073,486.0,False,complete teamsheet pool; kickoff lock proxy; NO archived prices; missing scores remain unknown,376.0,56.0,54.0,486.0,0
+six_nations_2026_r3,,2026,3,incumbent_native_store_common_roles_policy,138,137,1,0,7.603522443080073,455.0,,,345.0,56.0,54.0,455.0,2
+six_nations_2026_r3,,2026,3,incumbent_native_store_deployed_policy,138,137,1,0,7.603522443080073,468.0,,,358.0,56.0,54.0,468.0,1
+six_nations_2026_r3,six_nations,2026,3,p3_robust_native,138,137,1,0,7.434736770703762,463.0,False,complete teamsheet pool; kickoff lock proxy; NO archived prices; missing scores remain unknown,377.0,56.0,30.0,463.0,0
+six_nations_2026_r3,six_nations,2026,3,p3_rolling_native,138,137,1,0,7.484806293992856,455.0,False,complete teamsheet pool; kickoff lock proxy; NO archived prices; missing scores remain unknown,366.0,41.0,48.0,455.0,0
+six_nations_2026_r3,six_nations,2026,3,p3_tournament_frozen_native,138,137,1,0,7.263110680898394,488.0,False,complete teamsheet pool; kickoff lock proxy; NO archived prices; missing scores remain unknown,405.0,41.0,42.0,488.0,0
+six_nations_2026_r3,six_nations,2026,3,p3_weighted_native,138,137,1,0,7.518912772149121,485.0,False,complete teamsheet pool; kickoff lock proxy; NO archived prices; missing scores remain unknown,390.0,41.0,54.0,485.0,0
+six_nations_2026_r4,six_nations,2026,4,empirical_baseline,138,138,0,0,6.988266294478257,516.0,False,complete teamsheet pool; kickoff lock proxy; NO archived prices; missing scores remain unknown,471.0,45.0,0.0,516.0,0
+six_nations_2026_r4,six_nations,2026,4,incumbent_lock_rebuilt_common,138,138,0,0,7.138155442534171,395.0,False,complete teamsheet pool; kickoff lock proxy; NO archived prices; missing scores remain unknown,350.0,45.0,0.0,395.0,0
+six_nations_2026_r4,,2026,4,incumbent_lock_rebuilt_common_roles_policy,138,138,0,0,7.138155442534171,408.0,,,363.0,45.0,0.0,408.0,1
+six_nations_2026_r4,,2026,4,incumbent_lock_rebuilt_deployed_policy,138,138,0,0,7.138155442534171,457.0,,,412.0,45.0,0.0,457.0,1
+six_nations_2026_r4,six_nations,2026,4,incumbent_native_store_common,138,138,0,0,7.148393656121754,397.0,False,complete teamsheet pool; kickoff lock proxy; NO archived prices; missing scores remain unknown,352.0,45.0,0.0,397.0,0
+six_nations_2026_r4,,2026,4,incumbent_native_store_common_roles_policy,138,138,0,0,7.148393656121754,408.0,,,363.0,45.0,0.0,408.0,1
+six_nations_2026_r4,,2026,4,incumbent_native_store_deployed_policy,138,138,0,0,7.148393656121754,457.0,,,412.0,45.0,0.0,457.0,1
+six_nations_2026_r4,six_nations,2026,4,p3_robust_native,138,138,0,0,6.941017605465607,407.0,False,complete teamsheet pool; kickoff lock proxy; NO archived prices; missing scores remain unknown,393.0,14.0,0.0,407.0,0
+six_nations_2026_r4,six_nations,2026,4,p3_rolling_native,138,138,0,0,6.990073226643369,407.0,False,complete teamsheet pool; kickoff lock proxy; NO archived prices; missing scores remain unknown,393.0,14.0,0.0,407.0,0
+six_nations_2026_r4,six_nations,2026,4,p3_tournament_frozen_native,138,138,0,0,6.944921049034462,412.0,False,complete teamsheet pool; kickoff lock proxy; NO archived prices; missing scores remain unknown,391.0,21.0,0.0,412.0,0
+six_nations_2026_r4,six_nations,2026,4,p3_weighted_native,138,138,0,0,7.027845307536549,407.0,False,complete teamsheet pool; kickoff lock proxy; NO archived prices; missing scores remain unknown,393.0,14.0,0.0,407.0,0
+six_nations_2026_r5,six_nations,2026,5,empirical_baseline,138,138,0,0,6.782769875789765,524.0,False,complete teamsheet pool; kickoff lock proxy; NO archived prices; missing scores remain unknown,470.0,30.0,24.0,524.0,0
+six_nations_2026_r5,six_nations,2026,5,incumbent_lock_rebuilt_common,138,138,0,0,6.759633828254337,581.0,False,complete teamsheet pool; kickoff lock proxy; NO archived prices; missing scores remain unknown,488.0,30.0,63.0,581.0,0
+six_nations_2026_r5,,2026,5,incumbent_lock_rebuilt_common_roles_policy,138,138,0,0,6.759633828254337,635.0,,,504.0,68.0,63.0,635.0,1
+six_nations_2026_r5,,2026,5,incumbent_lock_rebuilt_deployed_policy,138,138,0,0,6.759633828254337,638.0,,,507.0,68.0,63.0,638.0,1
+six_nations_2026_r5,six_nations,2026,5,incumbent_native_store_common,138,138,0,0,6.744618429261798,569.0,False,complete teamsheet pool; kickoff lock proxy; NO archived prices; missing scores remain unknown,476.0,30.0,63.0,569.0,0
+six_nations_2026_r5,,2026,5,incumbent_native_store_common_roles_policy,138,138,0,0,6.744618429261798,647.0,,,516.0,68.0,63.0,647.0,1
+six_nations_2026_r5,,2026,5,incumbent_native_store_deployed_policy,138,138,0,0,6.744618429261798,650.0,,,519.0,68.0,63.0,650.0,1
+six_nations_2026_r5,six_nations,2026,5,p3_robust_native,138,138,0,0,6.671765217787377,568.0,False,complete teamsheet pool; kickoff lock proxy; NO archived prices; missing scores remain unknown,500.0,44.0,24.0,568.0,0
+six_nations_2026_r5,six_nations,2026,5,p3_rolling_native,138,138,0,0,6.712755470367397,564.0,False,complete teamsheet pool; kickoff lock proxy; NO archived prices; missing scores remain unknown,510.0,30.0,24.0,564.0,0
+six_nations_2026_r5,six_nations,2026,5,p3_tournament_frozen_native,138,138,0,0,6.784085259694187,524.0,False,complete teamsheet pool; kickoff lock proxy; NO archived prices; missing scores remain unknown,470.0,30.0,24.0,524.0,0
+six_nations_2026_r5,six_nations,2026,5,p3_weighted_native,138,138,0,0,6.675530534223663,575.0,False,complete teamsheet pool; kickoff lock proxy; NO archived prices; missing scores remain unknown,503.0,30.0,42.0,575.0,0

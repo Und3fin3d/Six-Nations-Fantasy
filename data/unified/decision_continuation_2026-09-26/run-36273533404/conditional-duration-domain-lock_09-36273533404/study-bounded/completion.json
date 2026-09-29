@@ -1,0 +1,26 @@
+{
+  "analysis_completed": true,
+  "duration_domain": "bounded",
+  "fantasy_rows": 0,
+  "job": "lock_09",
+  "model_artifact_hashes": {
+    "conditional_duration_bounded_v2.json": "4ed359eab452295fb9ca4f63d34f07a9863522a432c9b7be2f3b74b9b96b64ea",
+    "conditional_duration_bounded_v2.pkl.gz": "248fc1510f79c4d81b4573e8df207583262ee42e4e39e2fd8a85e7ac45ac1214",
+    "empirical_event.json": "d1cae012c70613d5b0e18f8b768a84b84897881ae41cfed7ee09ae1b7d7579c1",
+    "empirical_event.pkl.gz": "f0c66c5a2d1c143d0c12d82a899d9585b3c172506623618482c53c87b853528a",
+    "robust_empirical_event.json": "575ce994c55e52ffea44fad0e3e53a30bb100de2b3740fc3704241e69f29d92a",
+    "robust_empirical_event.pkl.gz": "36d8eaa003b9bf5da5349956fe324a60db4db39ab0bbc053313cf2ff3f8d3339",
+    "v4_bounded_support_control.json": "0bdab7bad103e94a198bb7805f3c92e4ea73aea4b432cead83d9002bd512a33d",
+    "v4_bounded_support_control.pkl.gz": "4438155ee729411e851fb13b7077852a7ab9cd44017de1b1dc289a6885b61064",
+    "v4_corrected_full_refit.json": "a6afb0f1570a5d166dadf7aae564776de43592a4e7a341d3ebf5ca9b9338db43",
+    "v4_corrected_full_refit.pkl.gz": "0072f120e7de44cf2119489b4a4f36e12d7e75a8795fdca401c785884c764960",
+    "v4_joint_support_control.json": "600b9626a90e0936dcb276d833e9a045d6d536c58dfaba841a92f06e97c45a48",
+    "v4_joint_support_control.pkl.gz": "1f5ecff1ed9ea3f21684a13f99fc7451b23f3fde4dae3cc17bd0a327752ba272"
+  },
+  "objective_completed": false,
+  "raw_rows": 256,
+  "training_rows": 145255,
+  "units": [
+    "friendly_8544553"
+  ]
+}

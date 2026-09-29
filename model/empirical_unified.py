@@ -29,6 +29,7 @@ from model.ncr_on_6n import (CLUB_ATT_CAL, CLUB_CONF, CLUB_DEF_CAL,
 from model.unified.benchmark_v2 import _group_metrics
 from model.unified.data import ROOT
 from model.unified.labels import build_fantasy_labels
+from model.unified.scoring import scorer_for
 from model.unified.v3.cohorts import match_labels_to_store
 from model.unified.v3.harness import attach_match_timestamps
 
@@ -153,8 +154,11 @@ def calibrate_rp(table, prof, names, tryw_by_pid) -> float:
 def project_candidates(played: pd.DataFrame, store: pd.DataFrame, competition: str,
                        wr: pd.DataFrame, *, asof: str | pd.Timestamp) -> pd.DataFrame:
     """Project an explicit pre-lock cohort; outcomes are not prediction inputs."""
-    cfg = CONFIGS[competition]
     asof = utc_cutoff(asof).tz_convert(None)
+    cfg = {**CONFIGS[competition], "att": dict(CONFIGS[competition]["att"])}
+    cfg["att"]["drop_goals_converted"] = scorer_for(
+        competition, season=asof.year,
+    ).weights["drop_goals_converted"]
     history = past_matches(store, asof)
     hist = history[history.competition_level.eq("international")].copy()
     hist["date"] = pd.to_datetime(hist["date"], utc=True).dt.tz_convert(None)

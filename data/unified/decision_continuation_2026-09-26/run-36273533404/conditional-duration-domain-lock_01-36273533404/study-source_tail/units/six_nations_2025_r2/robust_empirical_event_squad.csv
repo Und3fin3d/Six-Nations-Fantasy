@@ -1,0 +1,17 @@
+id,name,team,pos,hemi,value,status,in_squad,is_sub,is_capt,actual,point_forecast,slate,engine,actual_role_supersub_points,possible_min,possible_max,role_outcome_known,source_conflict
+8,Will Rowlands,Wales,Lock,1,0.0,P,True,False,False,8.0,20.947207481326313,six_nations_2025_r2,robust_empirical_event,4.0,4.0,4.0,True,False
+15,Monty Ioane,Italy,Back Three,1,0.0,P,True,False,False,8.0,27.63312018800319,six_nations_2025_r2,robust_empirical_event,4.0,4.0,4.0,True,False
+30,Jac Morgan,Wales,Loose Forward,1,0.0,P,True,False,False,23.0,33.49348669087807,six_nations_2025_r2,robust_empirical_event,11.5,11.5,11.5,True,False
+36,Tommaso Menoncello,Italy,Centre,1,0.0,P,True,False,False,8.0,24.726364316133598,six_nations_2025_r2,robust_empirical_event,4.0,4.0,4.0,True,False
+38,Freddie Thomas,Wales,Lock,1,0.0,P,True,False,False,16.0,21.889258456959467,six_nations_2025_r2,robust_empirical_event,8.0,8.0,8.0,True,False
+53,Thomas Ramos,France,Back Three,1,0.0,P,True,False,True,34.0,34.95163660365656,six_nations_2025_r2,robust_empirical_event,17.0,17.0,17.0,True,False
+56,Antoine Dupont,France,Scrum Half,1,0.0,P,True,False,False,13.0,30.646566027686816,six_nations_2025_r2,robust_empirical_event,6.5,6.5,6.5,True,False
+57,Ellis Genge,England,Prop,1,0.0,P,True,False,False,18.0,14.763689909204023,six_nations_2025_r2,robust_empirical_event,9.0,9.0,9.0,True,False
+58,Damian Penaud,France,Back Three,1,0.0,P,True,False,False,37.0,31.601311698704777,six_nations_2025_r2,robust_empirical_event,18.5,18.5,18.5,True,False
+63,Peato Mauvaka,France,Hooker,1,0.0,P,True,False,False,17.0,21.495920039856966,six_nations_2025_r2,robust_empirical_event,8.5,8.5,8.5,True,False
+69,Tom Willis,England,Loose Forward,1,0.0,P,True,False,False,34.0,33.64948173600953,six_nations_2025_r2,robust_empirical_event,17.0,17.0,17.0,True,False
+98,Finn Russell,Scotland,Fly Half,1,0.0,P,True,False,False,1.0,24.918011668228047,six_nations_2025_r2,robust_empirical_event,0.5,0.5,0.5,True,False
+108,Zander Fagerson,Scotland,Prop,1,0.0,P,True,False,False,15.0,14.655303003068495,six_nations_2025_r2,robust_empirical_event,7.5,7.5,7.5,True,False
+113,Huw Jones,Scotland,Centre,1,0.0,P,True,False,False,24.0,24.520257151018075,six_nations_2025_r2,robust_empirical_event,12.0,12.0,12.0,True,False
+121,Caelan Doris,Ireland,Loose Forward,1,0.0,P,True,False,False,53.0,29.29469043064215,six_nations_2025_r2,robust_empirical_event,26.5,26.5,26.5,True,False
+126,Dan Sheehan,Ireland,Hooker,1,0.0,B,True,True,False,10.0,10.599035371663017,six_nations_2025_r2,robust_empirical_event,30.0,30.0,30.0,True,False

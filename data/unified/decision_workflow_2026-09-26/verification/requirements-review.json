@@ -1,0 +1,192 @@
+{
+  "axis": "Spec",
+  "base_commit": "93f9670f38ed1699c0029192ac38227392b329fb",
+  "boundary": "Read-only source review and direct artifact/hash calculations. No source or tests changed. No prospective or historical publication-time validity claim.",
+  "created_at": "2026-09-26T15:23:01.234563+00:00",
+  "final_evidence_check": {
+    "boundary": "Artifact update only. No source or tests changed. No supplemental timing review included.",
+    "completed_at": "2026-09-26T15:27:32.347532+00:00",
+    "confirmed_claims": [
+      "The unscored Six Nations events account for 30.3249 percent of the net robust-versus-rolling raw-event improvement.",
+      "Original Six Nations robust-minus-empirical components are XV -2, captain extra -54, super-sub -54, total -110.",
+      "The incumbent replay contains 1380 unique fixture/player/team keys and 18 unknown outcomes.",
+      "Reported incumbent, corrected captain, and registered-remedy totals, paired intervals, and admission failures match retained evidence.",
+      "Native-policy country violations occur in three 2025 rounds and all five 2026 rounds.",
+      "The kicking adjustment preserves selected player, captain, and super-sub identities across all thirteen slates.",
+      "Thirty-nine archived raw forecast files reproduce their legacy expected points within maximum floating-point error 1.07e-14.",
+      "The rehearsal manifest records 262 forecasts, 116 frozen files, and retrospective-only evidence.",
+      "The retained existing-suite log records 119 passes and two stated failures.",
+      "Country, price, publication-time, historical-audit, and prospective-deployment qualifications remain appropriate."
+    ],
+    "correction": {
+      "description": "Change 53 position-map differences to 52 in both reports.",
+      "evidence": "Both retained forecast modes and all ten lock-rebuilt audit records show 19 differences in 2025 plus 33 in 2026.",
+      "files": [
+        "research/DECISION_WORKFLOW_RESULTS_2026-09-26.md:32",
+        "research/INCUMBENT_REPLAY_2026-09-26.md:26"
+      ],
+      "parent_confirmation": "Root independently verified both audit-mode totals and confirmed both reports corrected.",
+      "status": "resolved_by_parent",
+      "verified_count": 52
+    },
+    "scope": "Bounded check of report numerical claims and deployment boundaries against retained decision-workflow and original methodology evidence. Pending timing section excluded."
+  },
+  "finding": {
+    "description": "Captain replay read current native stores and promoted configuration without recording or validating those input hashes. A changed reconstruction fallback could alter corrected scores while legacy reproduction passed.",
+    "file": "research/incumbent_captain_replay.py",
+    "original_lines": [
+      58,
+      66
+    ],
+    "priority": "P2",
+    "requirement": "The final deliverable includes reproducible commands and source/data/configuration identifiers.",
+    "requirement_source": "research/FANTASY_DECISION_PROTOCOL_2026-09-26.md:61",
+    "resolution": "replay_input_hashes validates all original-manifest data files and the promoted configuration before loading and after all slates. The output manifest records effective input hashes and five executed source modules.",
+    "status": "resolved"
+  },
+  "original_snapshot_manifest_sha256": "60867bc81752309368eba91e64c023ed67f246f597c7c2d3cff3edf9c6b6d1f4",
+  "parent_reported_remedy_replay": "Parent reports all thirteen output CSVs reproduced byte-identically; not independently rechecked in this narrow follow-up.",
+  "recheck": {
+    "all_corrected_slates_match_original_pinned_repair": true,
+    "all_inputs_match": true,
+    "all_sources_match": true,
+    "corrected_slate_count": 10,
+    "corrected_slates": [
+      {
+        "file": "six_nations_2025_r1/incumbent_causal_captain_full_forecasts.csv",
+        "matches_original_pinned_repair": true,
+        "sha256": "f5aad3f4e870830f92fc8227070157c0543677e84b48854381e6dcbc46b68a9d"
+      },
+      {
+        "file": "six_nations_2025_r2/incumbent_causal_captain_full_forecasts.csv",
+        "matches_original_pinned_repair": true,
+        "sha256": "36e0e7e4215e0ec76d446a1df6b8af005637fb304713d51782becc35f3c84b4b"
+      },
+      {
+        "file": "six_nations_2025_r3/incumbent_causal_captain_full_forecasts.csv",
+        "matches_original_pinned_repair": true,
+        "sha256": "a1d0c5020910450fd7eb41e2546f3a6da7df9a48638d4dc7af418c93c9aa7a33"
+      },
+      {
+        "file": "six_nations_2025_r4/incumbent_causal_captain_full_forecasts.csv",
+        "matches_original_pinned_repair": true,
+        "sha256": "2e53136ba303117aa6faee13afccb2c0df3b48efd8ec120e591f9ea56c513708"
+      },
+      {
+        "file": "six_nations_2025_r5/incumbent_causal_captain_full_forecasts.csv",
+        "matches_original_pinned_repair": true,
+        "sha256": "010a9ef2ae9f199b8ef6f7cf29c11cdd50e1ab4fce30cc3f37b83cde6b24ae75"
+      },
+      {
+        "file": "six_nations_2026_r1/incumbent_causal_captain_full_forecasts.csv",
+        "matches_original_pinned_repair": true,
+        "sha256": "f61ea1a1782eb94c859df360ae6a1e02b48b246072385cb2c64dc1e98241e5b5"
+      },
+      {
+        "file": "six_nations_2026_r2/incumbent_causal_captain_full_forecasts.csv",
+        "matches_original_pinned_repair": true,
+        "sha256": "f1344014d3c5fe1d37493de6cb4456687a2e3446fa09d2728e6b3b9548fefcbe"
+      },
+      {
+        "file": "six_nations_2026_r3/incumbent_causal_captain_full_forecasts.csv",
+        "matches_original_pinned_repair": true,
+        "sha256": "b39289b928bc42701a14cffc088c9cbd7fed387fb23170c6ae4bd318603e6ce5"
+      },
+      {
+        "file": "six_nations_2026_r4/incumbent_causal_captain_full_forecasts.csv",
+        "matches_original_pinned_repair": true,
+        "sha256": "e80ae3615a5901f63d617771a2f1474564145a7184bc70825f0d23ffeb17c485"
+      },
+      {
+        "file": "six_nations_2026_r5/incumbent_causal_captain_full_forecasts.csv",
+        "matches_original_pinned_repair": true,
+        "sha256": "52a6911b4f63dd715fd4ff166d8879f2508342bd4ec389be8663e4d4cbd9e3a8"
+      }
+    ],
+    "input_count": 13,
+    "inputs": {
+      "data/6n_players.csv": {
+        "current": "0271ebd3b2bde0a85e536a85ae17afb5873e25055a7df9ccca43aa2ee351a8f3",
+        "recorded": "0271ebd3b2bde0a85e536a85ae17afb5873e25055a7df9ccca43aa2ee351a8f3"
+      },
+      "data/api_player_match.csv": {
+        "current": "63e97b3deacf4f3601458fc57fd699e0a0e4f3b71a521984f421e934c3b4e56d",
+        "recorded": "63e97b3deacf4f3601458fc57fd699e0a0e4f3b71a521984f421e934c3b4e56d"
+      },
+      "data/api_team_match.csv": {
+        "current": "247907335355de6848c177ce15bf2da4d3e80e3e19e2c4a5410593c7e04fc1ce",
+        "recorded": "247907335355de6848c177ce15bf2da4d3e80e3e19e2c4a5410593c7e04fc1ce"
+      },
+      "data/fixture_difficulty.csv": {
+        "current": "683e8806c6edeb1a850a6982e517b5c60200818fa62277fb5508b3c0b5b9c635",
+        "recorded": "683e8806c6edeb1a850a6982e517b5c60200818fa62277fb5508b3c0b5b9c635"
+      },
+      "data/model_player_match.csv": {
+        "current": "184754def0144f5fdfa7d15ae3ce2344c6e777ede6131474821a99d4d72358d2",
+        "recorded": "184754def0144f5fdfa7d15ae3ce2344c6e777ede6131474821a99d4d72358d2"
+      },
+      "data/model_targets.csv": {
+        "current": "0250912ed4bcbf640a9733c74aa0fa39dc45c97d0d6281e8716c55f314b01459",
+        "recorded": "0250912ed4bcbf640a9733c74aa0fa39dc45c97d0d6281e8716c55f314b01459"
+      },
+      "data/official_player_match.csv": {
+        "current": "e61b9680e2861ff70cf4e536b3d9009b7e2022217c0a7847fe27a5aaa0dcf144",
+        "recorded": "e61b9680e2861ff70cf4e536b3d9009b7e2022217c0a7847fe27a5aaa0dcf144"
+      },
+      "data/player_crosswalk.csv": {
+        "current": "93a87363d5b48dea5491240cc7138813c232c8a3c12670ad3cf4e1945f3daa15",
+        "recorded": "93a87363d5b48dea5491240cc7138813c232c8a3c12670ad3cf4e1945f3daa15"
+      },
+      "data/rp_bio.csv": {
+        "current": "07eb3afb8e9bf0c44985678999db92b9f320f1e022de6ec86fb9a9b349d32690",
+        "recorded": "07eb3afb8e9bf0c44985678999db92b9f320f1e022de6ec86fb9a9b349d32690"
+      },
+      "data/rp_compstats.csv": {
+        "current": "bf013e2b74434c3a3ce73bcad69a17bcdec53e24801ddde9252c9b615ad02464",
+        "recorded": "bf013e2b74434c3a3ce73bcad69a17bcdec53e24801ddde9252c9b615ad02464"
+      },
+      "data/team_play_predictions.csv": {
+        "current": "4000ba4da6fdd5495f41b5d8f50eba0f365deed348a5410b9c729393bee59b78",
+        "recorded": "4000ba4da6fdd5495f41b5d8f50eba0f365deed348a5410b9c729393bee59b78"
+      },
+      "data/wr_rankings.csv": {
+        "current": "561fb3ddcbda5347ad5a429037e1dc93aa81cd31cb440374f37f8cba6a3bba92",
+        "recorded": "561fb3ddcbda5347ad5a429037e1dc93aa81cd31cb440374f37f8cba6a3bba92"
+      },
+      "research/promoted_config.json": {
+        "current": "049b4e7c94c6a61cac1746ff7a9f4bcf77041711a6c49d422d076fe845cc95f6",
+        "recorded": "049b4e7c94c6a61cac1746ff7a9f4bcf77041711a6c49d422d076fe845cc95f6"
+      }
+    },
+    "manifest_sha256": "112487031b626adeb0ce384e03d6b63f6be79d7f4d7b1cd57c59cf59a8c06ab5",
+    "maximum_legacy_upside_error": 1.7763568394002505e-15,
+    "original_forecasts_unchanged": true,
+    "run_directory": "/tmp/6n-decision-workflow/incumbent/captain-final",
+    "source_count": 5,
+    "source_sha256": "4f37019c88ac078db9ba53664370907e5f14530f9e47799e113ce46e56f11d22",
+    "sources": {
+      "model/data.py": {
+        "current": "76d346c5a1bfa1043342126f988dc9f05db0d1c1a881eee50024a299ca06b951",
+        "recorded": "76d346c5a1bfa1043342126f988dc9f05db0d1c1a881eee50024a299ca06b951"
+      },
+      "model/evaluate.py": {
+        "current": "1229718e77e5d75bc1427de03b2a4e8e710c121a724ff8bd1229d60912f4b91b",
+        "recorded": "1229718e77e5d75bc1427de03b2a4e8e710c121a724ff8bd1229d60912f4b91b"
+      },
+      "model/research.py": {
+        "current": "5750e8af09d44446202a806e4e99e7fe989560e14fdf3146679394eb687e4bb4",
+        "recorded": "5750e8af09d44446202a806e4e99e7fe989560e14fdf3146679394eb687e4bb4"
+      },
+      "research/incumbent_captain_replay.py": {
+        "current": "4f37019c88ac078db9ba53664370907e5f14530f9e47799e113ce46e56f11d22",
+        "recorded": "4f37019c88ac078db9ba53664370907e5f14530f9e47799e113ce46e56f11d22"
+      },
+      "research/incumbent_replay.py": {
+        "current": "dba98adf3efbd122112c1ca7014efddfdf90acf4ccc3e76eff6aa6908a50227a",
+        "recorded": "dba98adf3efbd122112c1ca7014efddfdf90acf4ccc3e76eff6aa6908a50227a"
+      }
+    }
+  },
+  "schema_version": 1,
+  "supplemental_timing_review": "Covered separately by bench_mechanism child; not included in this record."
+}

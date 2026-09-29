@@ -1,0 +1,4 @@
+comparison=failure
+coverage=success
+objective=active_unfinished
+partial_admission=prohibited

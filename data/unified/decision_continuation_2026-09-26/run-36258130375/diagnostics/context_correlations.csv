@@ -1,0 +1,7 @@
+engine,feature,team_rounds,descriptive_spearman
+p3_robust_native,prior_team_tries,94,-0.17409240327999134
+p3_robust_native,prior_opponent_tries_conceded,94,-0.14782357403460608
+p3_rolling_native,prior_team_tries,94,-0.20361232525376582
+p3_rolling_native,prior_opponent_tries_conceded,94,-0.17480041902972945
+p3_weighted_native,prior_team_tries,94,-0.16735902900697178
+p3_weighted_native,prior_opponent_tries_conceded,94,-0.1563053137304483

@@ -1,0 +1,17 @@
+id,name,team,pos,hemi,value,status,in_squad,is_sub,is_capt,actual,point_forecast,slate,engine,actual_role_supersub_points,possible_min,possible_max,role_outcome_known,source_conflict
+12,Ellis Genge,England,Prop,1,0.0,P,True,False,False,13.0,14.603768583661669,six_nations_2026_r3,v4_joint_support_control,6.5,6.5,6.5,True,False
+20,Caelan Doris,Ireland,Loose Forward,1,0.0,P,True,False,False,38.0,27.900145672204765,six_nations_2026_r3,v4_joint_support_control,19.0,19.0,19.0,True,False
+44,Henry Pollock,England,Loose Forward,1,0.0,P,True,False,False,26.0,29.718528741494875,six_nations_2026_r3,v4_joint_support_control,13.0,13.0,13.0,True,False
+58,Duhan van der Merwe,Scotland,Back Three,1,0.0,P,True,False,False,5.0,32.28284833759239,six_nations_2026_r3,v4_joint_support_control,2.5,2.5,2.5,True,False
+62,Huw Jones,Scotland,Centre,1,0.0,P,True,False,False,14.0,22.692157772582902,six_nations_2026_r3,v4_joint_support_control,7.0,7.0,7.0,True,False
+66,Josh Bayliss,Scotland,Loose Forward,1,0.0,B,True,True,False,19.0,10.169260255328666,six_nations_2026_r3,v4_joint_support_control,57.0,57.0,57.0,True,False
+72,Kyle Steyn,Scotland,Back Three,1,0.0,P,True,False,False,36.0,29.543836304920347,six_nations_2026_r3,v4_joint_support_control,18.0,18.0,18.0,True,False
+75,Dewi Lake,Wales,Hooker,1,0.0,P,True,False,False,19.0,21.93086131499081,six_nations_2026_r3,v4_joint_support_control,9.5,9.5,9.5,True,False
+84,Ben Carter,Wales,Lock,1,0.0,P,True,False,False,27.0,19.556041818814673,six_nations_2026_r3,v4_joint_support_control,13.5,13.5,13.5,True,False
+89,Dafydd Jenkins,Wales,Lock,1,0.0,P,True,False,False,24.0,24.318220251112766,six_nations_2026_r3,v4_joint_support_control,12.0,12.0,12.0,True,False
+99,Thomas Ramos,France,Fly Half,1,0.0,P,True,False,False,56.0,40.6994643254267,six_nations_2026_r3,v4_joint_support_control,28.0,28.0,28.0,True,False
+103,Antoine Dupont,France,Scrum Half,1,0.0,P,True,False,True,41.0,42.628342751617204,six_nations_2026_r3,v4_joint_support_control,20.5,20.5,20.5,True,False
+110,Danilo Fischetti,Italy,Prop,1,0.0,P,True,False,False,6.0,15.054621425294089,six_nations_2026_r3,v4_joint_support_control,3.0,3.0,3.0,True,False
+125,Lorenzo Cannone,Italy,Loose Forward,1,0.0,P,True,False,False,25.0,25.412817301603514,six_nations_2026_r3,v4_joint_support_control,12.5,12.5,12.5,True,False
+128,Louis Bielle-Biarrey,France,Back Three,1,0.0,P,True,False,False,27.0,39.02577845488283,six_nations_2026_r3,v4_joint_support_control,13.5,13.5,13.5,True,False
+138,Fabien Brau-Boirie,France,Centre,1,0.0,P,True,False,False,22.0,37.65983590803785,six_nations_2026_r3,v4_joint_support_control,11.0,11.0,11.0,True,False

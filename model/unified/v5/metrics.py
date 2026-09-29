@@ -77,6 +77,7 @@ def subgroup_mae(
 def ablated_expected_points(
     predictions: list[RawPrediction], competition: str,
     drop_events: tuple[str, ...] = (),
+    *, season: int | None = None,
 ) -> np.ndarray:
     """Expected points with selected event means zeroed (E1 counterfactual).
 
@@ -86,7 +87,7 @@ def ablated_expected_points(
     measure how much of a capture/MAE gap is scorer-attribution bias without
     retraining (plan experiment E1).
     """
-    scorer = scorer_for(competition)
+    scorer = scorer_for(competition, season=season)
     drop = set(drop_events)
     rows = []
     for prediction in predictions:
@@ -94,7 +95,9 @@ def ablated_expected_points(
             name: np.array([0.0 if name in drop else dist.mean])
             for name, dist in prediction.events.items()
         }
-        rows.append(float(scorer.score_samples(events, is_forward=prediction.is_forward)[0]))
+        rows.append(float(scorer.score_samples(
+            events, is_forward=prediction.is_forward, position=prediction.position,
+        )[0]))
     return np.asarray(rows)
 
 

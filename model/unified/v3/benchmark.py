@@ -106,10 +106,11 @@ def _load(engine: str, path: Path):
 
 
 def _score_predictions(model, rows: pd.DataFrame, competition: str) -> np.ndarray:
-    scorer = scorer_for(competition)
     predictions = model.predict_frame(rows)
     return np.array([
-        scorer.score_prediction(prediction, n=800, seed=701 + i).mean
+        scorer_for(competition, season=rows.iloc[i].get("season")).score_prediction(
+            prediction, n=800, seed=701 + i,
+        ).mean
         for i, prediction in enumerate(predictions)
     ])
 

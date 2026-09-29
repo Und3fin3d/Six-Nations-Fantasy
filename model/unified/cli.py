@@ -82,7 +82,7 @@ def evaluate(args) -> None:
     else:
         model = UniversalNeuralModel.load(args.model)
     predictions = model.predict_frame(test)
-    metrics = evaluate_predictions(test, predictions, scorer_for(args.competition))
+    metrics = evaluate_predictions(test, predictions, args.competition)
     print(json.dumps(metrics, indent=2, sort_keys=True))
     if args.output:
         args.output.parent.mkdir(parents=True, exist_ok=True)
@@ -109,13 +109,16 @@ def predict(args) -> None:
     future = features[features.source.eq("prediction_input")].copy()
     model = (UniversalGBDT.load(args.model) if args.engine == "gbdt"
              else UniversalNeuralModel.load(args.model))
-    scorer = scorer_for(args.competition)
     rows = []
-    for i, prediction in enumerate(model.predict_frame(future)):
+    for i, (source, prediction) in enumerate(zip(
+        future.itertuples(index=False), model.predict_frame(future),
+    )):
+        scorer = scorer_for(args.competition, season=pd.Timestamp(source.date).year)
         summary = scorer.score_prediction(prediction, n=args.samples, seed=args.seed + i)
         payload = prediction.to_dict()
         payload["fantasy_points"] = {
-            "rules": scorer.name, "mean": summary.mean, "p10": summary.p10,
+            "rules": scorer.name, "scoring_version": scorer.version,
+            "mean": summary.mean, "p10": summary.p10,
             "median": summary.median, "p90": summary.p90,
             "ceiling_probability": summary.ceiling_probability,
         }

@@ -1,0 +1,24 @@
+empirical_event: restore verified fitted checkpoint
+robust_empirical_event: restore verified fitted checkpoint
+v4_corrected_full_refit: restore verified fitted checkpoint
+v4_joint_support_control: restore verified fitted checkpoint
+conditional_duration_source_tail_v2: fit 175,201 prior rows
+ncr_2026_r3/empirical_event: predict complete pool
+ncr_2026_r3/robust_empirical_event: predict complete pool
+ncr_2026_r3/v4_corrected_full_refit: predict complete pool
+ncr_2026_r3/v4_joint_support_control: predict complete pool
+ncr_2026_r3/p3_corrected_full_refit: predict complete pool
+ncr_2026_r3/conditional_duration_source_tail_v2: predict complete pool
+ncr_2026_r3/p3_conditional_duration_source_tail_v2: predict complete pool
+RugbyPass prior: 980 players, calibration {'att': 0.8576952242704856, 'dfn': 0.9004915702718145}
+RugbyPass prior: 980 players, calibration {'att': 0.859452818605716, 'dfn': 0.9027363138607247}
+RugbyPass prior: 980 players, calibration {'att': 0.8624886288233952, 'dfn': 0.904492276178199}
+      slate competition  season                    cutoff                                 engine   n  n_labelled  unknown_selected    xv  captain_extra  super_sub  total      mae      bias      rmse           captain               sub  assigned_role_total  assigned_role_super_sub  unknown_role_selected  selected_source_conflicts  total_lower_role_bound  total_upper_role_bound     outcome_contract
+ncr_2026_r3         ncr    2026 2026-07-18T06:40:00+00:00                        empirical_event 269         269                 0 390.0           45.0       21.0  456.0 8.471456 -3.769095 12.238049 Matthieu Jalibert       Seb Stephen                456.0                     21.0                      0                          0                   456.0                   456.0 actual_role_entry_v1
+ncr_2026_r3         ncr    2026 2026-07-18T06:40:00+00:00                 robust_empirical_event 269         269                 0 450.0           45.0       -3.0  492.0 8.541302 -4.148260 12.361070 Matthieu Jalibert        Ben Warren                492.0                     -3.0                      0                          0                   492.0                   492.0 actual_role_entry_v1
+ncr_2026_r3         ncr    2026 2026-07-18T06:40:00+00:00                v4_corrected_full_refit 269         269                 0 461.0           44.0       48.0  553.0 8.498455 -4.041815 12.429514   Theo Attissogbe Andre-Hugo Venter                553.0                     48.0                      0                          0                   553.0                   553.0 actual_role_entry_v1
+ncr_2026_r3         ncr    2026 2026-07-18T06:40:00+00:00               v4_joint_support_control 269         269                 0 468.0           44.0       48.0  560.0 8.505363 -4.094359 12.447838   Theo Attissogbe Andre-Hugo Venter                560.0                     48.0                      0                          0                   560.0                   560.0 actual_role_entry_v1
+ncr_2026_r3         ncr    2026 2026-07-18T06:40:00+00:00                p3_corrected_full_refit 269         269                 0 453.0           45.0       48.0  546.0 8.400715 -4.075512 12.220586 Matthieu Jalibert Andre-Hugo Venter                546.0                     48.0                      0                          0                   546.0                   546.0 actual_role_entry_v1
+ncr_2026_r3         ncr    2026 2026-07-18T06:40:00+00:00    conditional_duration_source_tail_v2 269         269                 0 470.0           45.0       48.0  563.0 8.484200 -4.199215 12.513440 Matthieu Jalibert Andre-Hugo Venter                563.0                     48.0                      0                          0                   563.0                   563.0 actual_role_entry_v1
+ncr_2026_r3         ncr    2026 2026-07-18T06:40:00+00:00 p3_conditional_duration_source_tail_v2 269         269                 0 479.0           45.0       48.0  572.0 8.394225 -4.145854 12.266161 Matthieu Jalibert Andre-Hugo Venter                572.0                     48.0                      0                          0                   572.0                   572.0 actual_role_entry_v1
+ncr_2026_r3         ncr    2026 2026-07-18T06:40:00+00:00            empirical_fantasy_corrected 269         269                 0 475.0           45.0       36.0  556.0 8.545799 -4.304015 12.325555 Matthieu Jalibert       Sean Jansen                556.0                     36.0                      0                          0                   556.0                   556.0 actual_role_entry_v1

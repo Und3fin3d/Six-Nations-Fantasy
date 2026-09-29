@@ -1,0 +1,772 @@
+[
+  {
+    "cost": 0.0,
+    "domain": "bounded",
+    "engine": "empirical_event",
+    "final_component_objectives": [
+      399.13524049240607,
+      38.341039371338596,
+      39.88723909151774
+    ],
+    "max_country_count": 4,
+    "max_hemisphere_count": 16,
+    "maximum_constraint_violation": 0.0,
+    "mode": "joint",
+    "players": 16,
+    "rubric": "original_v2",
+    "rules": {
+      "budget": "unbounded",
+      "captain_status": [
+        "P"
+      ],
+      "max_hemi": null,
+      "max_nation": 4,
+      "supersub_status": [
+        "B"
+      ]
+    },
+    "slate": "six_nations_2025_r1",
+    "stages": [
+      {
+        "gap": 0.0,
+        "nodes": 1,
+        "objective": 477.3635189552624
+      }
+    ]
+  },
+  {
+    "cost": 0.0,
+    "domain": "bounded",
+    "engine": "robust_empirical_event",
+    "final_component_objectives": [
+      385.72726823347875,
+      28.724674988394682,
+      39.869518109903865
+    ],
+    "max_country_count": 4,
+    "max_hemisphere_count": 16,
+    "maximum_constraint_violation": 0.0,
+    "mode": "joint",
+    "players": 16,
+    "rubric": "original_v2",
+    "rules": {
+      "budget": "unbounded",
+      "captain_status": [
+        "P"
+      ],
+      "max_hemi": null,
+      "max_nation": 4,
+      "supersub_status": [
+        "B"
+      ]
+    },
+    "slate": "six_nations_2025_r1",
+    "stages": [
+      {
+        "gap": 0.0,
+        "nodes": 1,
+        "objective": 454.32146133177724
+      }
+    ]
+  },
+  {
+    "cost": 0.0,
+    "domain": "bounded",
+    "engine": "v4_corrected_full_refit",
+    "final_component_objectives": [
+      390.3257418028941,
+      30.781448444598908,
+      40.302795376696004
+    ],
+    "max_country_count": 4,
+    "max_hemisphere_count": 16,
+    "maximum_constraint_violation": 0.0,
+    "mode": "joint",
+    "players": 16,
+    "rubric": "original_v2",
+    "rules": {
+      "budget": "unbounded",
+      "captain_status": [
+        "P"
+      ],
+      "max_hemi": null,
+      "max_nation": 4,
+      "supersub_status": [
+        "B"
+      ]
+    },
+    "slate": "six_nations_2025_r1",
+    "stages": [
+      {
+        "gap": 0.0,
+        "nodes": 1,
+        "objective": 461.40998562418895
+      }
+    ]
+  },
+  {
+    "cost": 0.0,
+    "domain": "bounded",
+    "engine": "v4_joint_support_control",
+    "final_component_objectives": [
+      391.8299212429549,
+      31.225792879440824,
+      40.541600966477745
+    ],
+    "max_country_count": 4,
+    "max_hemisphere_count": 16,
+    "maximum_constraint_violation": 0.0,
+    "mode": "joint",
+    "players": 16,
+    "rubric": "original_v2",
+    "rules": {
+      "budget": "unbounded",
+      "captain_status": [
+        "P"
+      ],
+      "max_hemi": null,
+      "max_nation": 4,
+      "supersub_status": [
+        "B"
+      ]
+    },
+    "slate": "six_nations_2025_r1",
+    "stages": [
+      {
+        "gap": 0.0,
+        "nodes": 1,
+        "objective": 463.59731508887353
+      }
+    ]
+  },
+  {
+    "cost": 0.0,
+    "domain": "bounded",
+    "engine": "p3_corrected_full_refit",
+    "final_component_objectives": [
+      389.5367718893045,
+      29.89974644824472,
+      38.87293819073095
+    ],
+    "max_country_count": 4,
+    "max_hemisphere_count": 16,
+    "maximum_constraint_violation": 0.0,
+    "mode": "joint",
+    "players": 16,
+    "rubric": "original_v2",
+    "rules": {
+      "budget": "unbounded",
+      "captain_status": [
+        "P"
+      ],
+      "max_hemi": null,
+      "max_nation": 4,
+      "supersub_status": [
+        "B"
+      ]
+    },
+    "slate": "six_nations_2025_r1",
+    "stages": [
+      {
+        "gap": 0.0,
+        "nodes": 1,
+        "objective": 458.3094565282802
+      }
+    ]
+  },
+  {
+    "cost": 0.0,
+    "domain": "bounded",
+    "engine": "conditional_duration_bounded_v2",
+    "final_component_objectives": [
+      382.56598420287685,
+      29.81792236212199,
+      37.78394821065497
+    ],
+    "max_country_count": 4,
+    "max_hemisphere_count": 16,
+    "maximum_constraint_violation": 0.0,
+    "mode": "joint",
+    "players": 16,
+    "rubric": "original_v2",
+    "rules": {
+      "budget": "unbounded",
+      "captain_status": [
+        "P"
+      ],
+      "max_hemi": null,
+      "max_nation": 4,
+      "supersub_status": [
+        "B"
+      ]
+    },
+    "slate": "six_nations_2025_r1",
+    "stages": [
+      {
+        "gap": 0.0,
+        "nodes": 1,
+        "objective": 450.16785477565384
+      }
+    ]
+  },
+  {
+    "cost": 0.0,
+    "domain": "bounded",
+    "engine": "p3_conditional_duration_bounded_v2",
+    "final_component_objectives": [
+      385.88202927231976,
+      30.03560153634953,
+      39.07464947572201
+    ],
+    "max_country_count": 4,
+    "max_hemisphere_count": 16,
+    "maximum_constraint_violation": 0.0,
+    "mode": "joint",
+    "players": 16,
+    "rubric": "original_v2",
+    "rules": {
+      "budget": "unbounded",
+      "captain_status": [
+        "P"
+      ],
+      "max_hemi": null,
+      "max_nation": 4,
+      "supersub_status": [
+        "B"
+      ]
+    },
+    "slate": "six_nations_2025_r1",
+    "stages": [
+      {
+        "gap": 0.0,
+        "nodes": 1,
+        "objective": 454.9922802843913
+      }
+    ]
+  },
+  {
+    "cost": 0.0,
+    "domain": "bounded",
+    "engine": "v4_bounded_support_control",
+    "final_component_objectives": [
+      391.60333486499417,
+      32.41259892213899,
+      39.693903989871025
+    ],
+    "max_country_count": 4,
+    "max_hemisphere_count": 16,
+    "maximum_constraint_violation": 0.0,
+    "mode": "joint",
+    "players": 16,
+    "rubric": "original_v2",
+    "rules": {
+      "budget": "unbounded",
+      "captain_status": [
+        "P"
+      ],
+      "max_hemi": null,
+      "max_nation": 4,
+      "supersub_status": [
+        "B"
+      ]
+    },
+    "slate": "six_nations_2025_r1",
+    "stages": [
+      {
+        "gap": 0.0,
+        "nodes": 1,
+        "objective": 463.7098377770042
+      }
+    ]
+  },
+  {
+    "cost": 0.0,
+    "domain": "bounded",
+    "engine": "conditional_duration_bounded_v2_mixture_floor",
+    "final_component_objectives": [
+      382.6109251106791,
+      29.8817269774209,
+      37.78398075474135
+    ],
+    "max_country_count": 4,
+    "max_hemisphere_count": 16,
+    "maximum_constraint_violation": 0.0,
+    "mode": "joint",
+    "players": 16,
+    "rubric": "original_v2",
+    "rules": {
+      "budget": "unbounded",
+      "captain_status": [
+        "P"
+      ],
+      "max_hemi": null,
+      "max_nation": 4,
+      "supersub_status": [
+        "B"
+      ]
+    },
+    "slate": "six_nations_2025_r1",
+    "stages": [
+      {
+        "gap": 0.0,
+        "nodes": 1,
+        "objective": 450.27663284284137
+      }
+    ]
+  },
+  {
+    "cost": 0.0,
+    "domain": "bounded",
+    "engine": "p3_conditional_duration_bounded_v2_mixture_floor",
+    "final_component_objectives": [
+      385.88651104331825,
+      30.045958116580174,
+      39.0747001150019
+    ],
+    "max_country_count": 4,
+    "max_hemisphere_count": 16,
+    "maximum_constraint_violation": 0.0,
+    "mode": "joint",
+    "players": 16,
+    "rubric": "original_v2",
+    "rules": {
+      "budget": "unbounded",
+      "captain_status": [
+        "P"
+      ],
+      "max_hemi": null,
+      "max_nation": 4,
+      "supersub_status": [
+        "B"
+      ]
+    },
+    "slate": "six_nations_2025_r1",
+    "stages": [
+      {
+        "gap": 0.0,
+        "nodes": 1,
+        "objective": 455.0071692749003
+      }
+    ]
+  },
+  {
+    "cost": 0.0,
+    "domain": "bounded",
+    "engine": "empirical_fantasy_corrected",
+    "final_component_objectives": [
+      414.6280435313778,
+      34.410301609738625,
+      41.230207190046094
+    ],
+    "max_country_count": 4,
+    "max_hemisphere_count": 16,
+    "maximum_constraint_violation": 0.0,
+    "mode": "joint",
+    "players": 16,
+    "rubric": "original_v2",
+    "rules": {
+      "budget": "unbounded",
+      "captain_status": [
+        "P"
+      ],
+      "max_hemi": null,
+      "max_nation": 4,
+      "supersub_status": [
+        "B"
+      ]
+    },
+    "slate": "six_nations_2025_r1",
+    "stages": [
+      {
+        "gap": 0.0,
+        "nodes": 1,
+        "objective": 490.26855233116254
+      }
+    ]
+  },
+  {
+    "cost": 0.0,
+    "domain": "bounded",
+    "engine": "empirical_event",
+    "final_component_objectives": [
+      399.13524049240607,
+      38.341039371338596,
+      39.88723909151774
+    ],
+    "max_country_count": 4,
+    "max_hemisphere_count": 16,
+    "maximum_constraint_violation": 0.0,
+    "mode": "joint",
+    "players": 16,
+    "rubric": "missing_attack_v3",
+    "rules": {
+      "budget": "unbounded",
+      "captain_status": [
+        "P"
+      ],
+      "max_hemi": null,
+      "max_nation": 4,
+      "supersub_status": [
+        "B"
+      ]
+    },
+    "slate": "six_nations_2025_r1",
+    "stages": [
+      {
+        "gap": 0.0,
+        "nodes": 1,
+        "objective": 477.3635189552624
+      }
+    ]
+  },
+  {
+    "cost": 0.0,
+    "domain": "bounded",
+    "engine": "robust_empirical_event",
+    "final_component_objectives": [
+      385.72726823347875,
+      28.724674988394682,
+      39.869518109903865
+    ],
+    "max_country_count": 4,
+    "max_hemisphere_count": 16,
+    "maximum_constraint_violation": 0.0,
+    "mode": "joint",
+    "players": 16,
+    "rubric": "missing_attack_v3",
+    "rules": {
+      "budget": "unbounded",
+      "captain_status": [
+        "P"
+      ],
+      "max_hemi": null,
+      "max_nation": 4,
+      "supersub_status": [
+        "B"
+      ]
+    },
+    "slate": "six_nations_2025_r1",
+    "stages": [
+      {
+        "gap": 0.0,
+        "nodes": 1,
+        "objective": 454.32146133177724
+      }
+    ]
+  },
+  {
+    "cost": 0.0,
+    "domain": "bounded",
+    "engine": "v4_corrected_full_refit",
+    "final_component_objectives": [
+      390.3257418028941,
+      30.781448444598908,
+      40.302795376696004
+    ],
+    "max_country_count": 4,
+    "max_hemisphere_count": 16,
+    "maximum_constraint_violation": 0.0,
+    "mode": "joint",
+    "players": 16,
+    "rubric": "missing_attack_v3",
+    "rules": {
+      "budget": "unbounded",
+      "captain_status": [
+        "P"
+      ],
+      "max_hemi": null,
+      "max_nation": 4,
+      "supersub_status": [
+        "B"
+      ]
+    },
+    "slate": "six_nations_2025_r1",
+    "stages": [
+      {
+        "gap": 0.0,
+        "nodes": 1,
+        "objective": 461.40998562418895
+      }
+    ]
+  },
+  {
+    "cost": 0.0,
+    "domain": "bounded",
+    "engine": "v4_joint_support_control",
+    "final_component_objectives": [
+      391.8299212429549,
+      31.225792879440824,
+      40.541600966477745
+    ],
+    "max_country_count": 4,
+    "max_hemisphere_count": 16,
+    "maximum_constraint_violation": 0.0,
+    "mode": "joint",
+    "players": 16,
+    "rubric": "missing_attack_v3",
+    "rules": {
+      "budget": "unbounded",
+      "captain_status": [
+        "P"
+      ],
+      "max_hemi": null,
+      "max_nation": 4,
+      "supersub_status": [
+        "B"
+      ]
+    },
+    "slate": "six_nations_2025_r1",
+    "stages": [
+      {
+        "gap": 0.0,
+        "nodes": 1,
+        "objective": 463.59731508887353
+      }
+    ]
+  },
+  {
+    "cost": 0.0,
+    "domain": "bounded",
+    "engine": "p3_corrected_full_refit",
+    "final_component_objectives": [
+      389.5367718893045,
+      29.89974644824472,
+      38.87293819073095
+    ],
+    "max_country_count": 4,
+    "max_hemisphere_count": 16,
+    "maximum_constraint_violation": 0.0,
+    "mode": "joint",
+    "players": 16,
+    "rubric": "missing_attack_v3",
+    "rules": {
+      "budget": "unbounded",
+      "captain_status": [
+        "P"
+      ],
+      "max_hemi": null,
+      "max_nation": 4,
+      "supersub_status": [
+        "B"
+      ]
+    },
+    "slate": "six_nations_2025_r1",
+    "stages": [
+      {
+        "gap": 0.0,
+        "nodes": 1,
+        "objective": 458.3094565282802
+      }
+    ]
+  },
+  {
+    "cost": 0.0,
+    "domain": "bounded",
+    "engine": "conditional_duration_bounded_v2",
+    "final_component_objectives": [
+      382.56598420287685,
+      29.81792236212199,
+      37.78394821065497
+    ],
+    "max_country_count": 4,
+    "max_hemisphere_count": 16,
+    "maximum_constraint_violation": 0.0,
+    "mode": "joint",
+    "players": 16,
+    "rubric": "missing_attack_v3",
+    "rules": {
+      "budget": "unbounded",
+      "captain_status": [
+        "P"
+      ],
+      "max_hemi": null,
+      "max_nation": 4,
+      "supersub_status": [
+        "B"
+      ]
+    },
+    "slate": "six_nations_2025_r1",
+    "stages": [
+      {
+        "gap": 0.0,
+        "nodes": 1,
+        "objective": 450.16785477565384
+      }
+    ]
+  },
+  {
+    "cost": 0.0,
+    "domain": "bounded",
+    "engine": "p3_conditional_duration_bounded_v2",
+    "final_component_objectives": [
+      385.88202927231976,
+      30.03560153634953,
+      39.07464947572201
+    ],
+    "max_country_count": 4,
+    "max_hemisphere_count": 16,
+    "maximum_constraint_violation": 0.0,
+    "mode": "joint",
+    "players": 16,
+    "rubric": "missing_attack_v3",
+    "rules": {
+      "budget": "unbounded",
+      "captain_status": [
+        "P"
+      ],
+      "max_hemi": null,
+      "max_nation": 4,
+      "supersub_status": [
+        "B"
+      ]
+    },
+    "slate": "six_nations_2025_r1",
+    "stages": [
+      {
+        "gap": 0.0,
+        "nodes": 1,
+        "objective": 454.9922802843913
+      }
+    ]
+  },
+  {
+    "cost": 0.0,
+    "domain": "bounded",
+    "engine": "v4_bounded_support_control",
+    "final_component_objectives": [
+      391.60333486499417,
+      32.41259892213899,
+      39.693903989871025
+    ],
+    "max_country_count": 4,
+    "max_hemisphere_count": 16,
+    "maximum_constraint_violation": 0.0,
+    "mode": "joint",
+    "players": 16,
+    "rubric": "missing_attack_v3",
+    "rules": {
+      "budget": "unbounded",
+      "captain_status": [
+        "P"
+      ],
+      "max_hemi": null,
+      "max_nation": 4,
+      "supersub_status": [
+        "B"
+      ]
+    },
+    "slate": "six_nations_2025_r1",
+    "stages": [
+      {
+        "gap": 0.0,
+        "nodes": 1,
+        "objective": 463.7098377770042
+      }
+    ]
+  },
+  {
+    "cost": 0.0,
+    "domain": "bounded",
+    "engine": "conditional_duration_bounded_v2_mixture_floor",
+    "final_component_objectives": [
+      382.6109251106791,
+      29.8817269774209,
+      37.78398075474135
+    ],
+    "max_country_count": 4,
+    "max_hemisphere_count": 16,
+    "maximum_constraint_violation": 0.0,
+    "mode": "joint",
+    "players": 16,
+    "rubric": "missing_attack_v3",
+    "rules": {
+      "budget": "unbounded",
+      "captain_status": [
+        "P"
+      ],
+      "max_hemi": null,
+      "max_nation": 4,
+      "supersub_status": [
+        "B"
+      ]
+    },
+    "slate": "six_nations_2025_r1",
+    "stages": [
+      {
+        "gap": 0.0,
+        "nodes": 1,
+        "objective": 450.27663284284137
+      }
+    ]
+  },
+  {
+    "cost": 0.0,
+    "domain": "bounded",
+    "engine": "p3_conditional_duration_bounded_v2_mixture_floor",
+    "final_component_objectives": [
+      385.88651104331825,
+      30.045958116580174,
+      39.0747001150019
+    ],
+    "max_country_count": 4,
+    "max_hemisphere_count": 16,
+    "maximum_constraint_violation": 0.0,
+    "mode": "joint",
+    "players": 16,
+    "rubric": "missing_attack_v3",
+    "rules": {
+      "budget": "unbounded",
+      "captain_status": [
+        "P"
+      ],
+      "max_hemi": null,
+      "max_nation": 4,
+      "supersub_status": [
+        "B"
+      ]
+    },
+    "slate": "six_nations_2025_r1",
+    "stages": [
+      {
+        "gap": 0.0,
+        "nodes": 1,
+        "objective": 455.0071692749003
+      }
+    ]
+  },
+  {
+    "cost": 0.0,
+    "domain": "bounded",
+    "engine": "empirical_fantasy_corrected",
+    "final_component_objectives": [
+      414.6280435313778,
+      34.410301609738625,
+      41.230207190046094
+    ],
+    "max_country_count": 4,
+    "max_hemisphere_count": 16,
+    "maximum_constraint_violation": 0.0,
+    "mode": "joint",
+    "players": 16,
+    "rubric": "missing_attack_v3",
+    "rules": {
+      "budget": "unbounded",
+      "captain_status": [
+        "P"
+      ],
+      "max_hemi": null,
+      "max_nation": 4,
+      "supersub_status": [
+        "B"
+      ]
+    },
+    "slate": "six_nations_2025_r1",
+    "stages": [
+      {
+        "gap": 0.0,
+        "nodes": 1,
+        "objective": 490.26855233116254
+      }
+    ]
+  }
+]

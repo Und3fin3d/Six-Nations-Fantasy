@@ -1,0 +1,17 @@
+id,name,team,pos,hemi,value,status,in_squad,is_sub,is_capt,actual,point_forecast,slate,engine,actual_role_supersub_points,possible_min,possible_max,role_outcome_known,source_conflict
+13,Thomas Ramos,France,Back Three,1,0.0,P,True,False,False,37.0,36.81215511923829,six_nations_2025_r1,v4_bounded_support_control,18.5,18.5,18.5,True,False
+16,Antoine Dupont,France,Scrum Half,1,0.0,P,True,False,True,31.0,39.693903989871025,six_nations_2025_r1,v4_bounded_support_control,15.5,15.5,15.5,True,False
+27,Emmanuel Meafou,France,Lock,1,0.0,P,True,False,False,19.0,17.510549404119402,six_nations_2025_r1,v4_bounded_support_control,9.5,9.5,9.5,True,False
+29,Gregory Alldritt,France,Loose Forward,1,0.0,P,True,False,False,71.0,26.71159250780116,six_nations_2025_r1,v4_bounded_support_control,35.5,35.5,35.5,True,False
+35,Jac Morgan,Wales,Loose Forward,1,0.0,P,True,False,False,49.0,25.41878933337846,six_nations_2025_r1,v4_bounded_support_control,24.5,24.5,24.5,True,False
+51,Finn Russell,Scotland,Fly Half,1,0.0,P,True,False,False,19.0,34.445530935032565,six_nations_2025_r1,v4_bounded_support_control,9.5,9.5,9.5,True,False
+61,Duhan van der Merwe,Scotland,Back Three,1,0.0,P,True,False,False,27.0,35.28291386259416,six_nations_2025_r1,v4_bounded_support_control,13.5,13.5,13.5,True,False
+64,Huw Jones,Scotland,Centre,1,0.0,P,True,False,False,66.0,30.91493324874052,six_nations_2025_r1,v4_bounded_support_control,33.0,33.0,33.0,True,False
+69,Darcy Graham,Scotland,Back Three,1,0.0,P,True,False,False,41.0,38.636522963178464,six_nations_2025_r1,v4_bounded_support_control,20.5,20.5,20.5,True,False
+73,Danilo Fischetti,Italy,Prop,1,0.0,P,True,False,False,26.0,11.615448142366056,six_nations_2025_r1,v4_bounded_support_control,13.0,13.0,13.0,True,False
+96,Bundee Aki,Ireland,Centre,1,0.0,P,True,False,False,31.0,21.598795947577152,six_nations_2025_r1,v4_bounded_support_control,15.5,15.5,15.5,True,False
+100,Josh van der Flier,Ireland,Loose Forward,1,0.0,P,True,False,False,24.0,23.914635457746463,six_nations_2025_r1,v4_bounded_support_control,12.0,12.0,12.0,True,False
+104,Maro Itoje,England,Lock,1,0.0,P,True,False,False,16.0,18.30082787206421,six_nations_2025_r1,v4_bounded_support_control,8.0,8.0,8.0,True,False
+106,Ellis Genge,England,Prop,1,0.0,P,True,False,False,14.0,13.546925405391484,six_nations_2025_r1,v4_bounded_support_control,7.0,7.0,7.0,True,False
+114,Ronan Kelleher,Ireland,Hooker,1,0.0,P,True,False,False,23.0,17.199810675894764,six_nations_2025_r1,v4_bounded_support_control,11.5,11.5,11.5,True,False
+119,Tom Willis,England,Loose Forward,1,0.0,B,True,True,False,5.0,10.804199640712996,six_nations_2025_r1,v4_bounded_support_control,15.0,15.0,15.0,True,False

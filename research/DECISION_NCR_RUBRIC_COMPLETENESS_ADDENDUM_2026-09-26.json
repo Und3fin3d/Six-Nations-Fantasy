@@ -1,0 +1,42 @@
+{
+  "id": "ncr_missing_attack_terms_v3",
+  "objective": "active_unfinished",
+  "status": "independent_correctness_correction_registered_before_inspecting_new_duration_candidate_scores",
+  "parent": "research/DECISION_DURATION_DOMAIN_ADDENDUM_2026-09-26.json",
+  "original_decision": "All ncr_front_row_v2 runs, registrations, predictions, selections, outcomes and failed admissions remain intact. The running full duration-domain experiment 36273533404 retains that scorer for exact reproduction. Its NCR scores cannot establish a corrected shared-route admission until this independently justified correction is evaluated for candidates and incumbents. No previous failure is reversed by deleting the old result.",
+  "primary_evidence": {
+    "official_rules": "data/unified/decision_continuation_2026-09-26/run-36259688139/official/public_pages.json",
+    "official_rules_git_blob": "338a439767709e8c26aaf4161c641c556f9a95c9",
+    "url": "https://fantasy.nationschampionshiprugby.com/en/rules/",
+    "coverage_run": 36273864164,
+    "coverage_directory": "data/unified/decision_continuation_2026-09-26/run-36273864164/audit",
+    "findings": "The official archived table awards +1 for every 10 metres gained and +2 for a successful 50:22. NationsChampionshipScorer omits both terms; native ncr_project and its RugbyPass prior also omit them. This conclusion follows from source/code inspection, not a winning candidate. Across the 82 matched starting back-three players, observed floor(metres/10) averages 3.9878 omitted points. Adding observed metres reduces, but does not close, the partial official-score reconstruction residual. All 758 official candidates remain; 61 unmatched raw records remain unknown. No missing event is asserted to have happened zero times.",
+    "reporting_correction": "The initial audit's component_coverage.csv field named known_omitted_points contains the sum of known rule contributions for each event, not their difference from existing contributions. For the two missing terms these coincide; for existing terms they do not. Commit 8367d6355b8d8d0b74574aac7437c2b5f27f5d0e separates known_rule_points and known_omitted_points and retains all-unobserved group sums as unknown. The original audit is preserved, and the corrected calculation must be rerun before using that table beyond the missing terms.",
+    "historical_boundary": "The current primary page does not prove original July publication time. Contemporary June 27 commentary agrees on both additions, and July official-score reconstruction supports the missing-metre contribution, but neither establishes an archived original rules version. Report current-rule reconstruction and original v2 results side by side; do not invent temporal independence or rewrite July source history."
+  },
+  "corrected_scoring_version": {
+    "name": "ncr_missing_attack_terms_v3",
+    "formula": "ncr_front_row_v2 + floor(metres/10) + 2*fifty_22 for recorded deterministic events; expected points integrate the metre distribution with the existing deterministic analytic Six Nations metre-floor method and add 2*E[fifty_22]. All other v2 weights and front-row scrum allocation remain unchanged.",
+    "limits": "This fixes two demonstrated omitted scoring terms, not every provider-semantic gap. Handling-error versus turnovers-conceded mapping, lineout errors, lineout credit, unavailable interception/50:22 observations, missing event forecasts and every remaining official-score residual are separate unresolved source/modeling issues. Do not label partial observed-event reconstruction a complete score reconstruction.",
+    "original_november_experiment": "No change to the original p3_event_50 registration, its legacy scorer, severe-failure veto, frozen inputs or capture protocol. A corrected sidecar is a separately labelled research result, not a silent change to that experiment."
+  },
+  "native_incumbent_completion": {
+    "method": "The native point forecast has no metre or 50:22 head. Keep its existing point forecast, all parameters and all other components fixed. Add only the two missing expected contributions supplied by the existing chronological empirical_event control fitted on the corrected store at the identical lock. Use that same fixed empirical supplement for each native incumbent policy; do not choose between empirical and robust supplements after viewing results. The original native utility and original selections are retained as explicit v2 controls.",
+    "reason": "Adding missing terms only to P3 would leave a knowingly incomplete incumbent and falsely credit correctness as model superiority. The existing empirical control supplies an independently defined, reproducible, non-tuned completion without changing native time, opponent, kicking or player-of-match assumptions.",
+    "required_comparators": "Original native v2 points and its declared legal policy, native empirical-completed v3 points under the same policy, full-support V4 v3, corrected-refit P3 v3, and appropriate duration-support V4 v3. Retain empirical_event and robust_empirical_event v2/v3 references. NCR's archived common-point and legal-sequential incumbent policies coincide; verify rather than assume their exact selected signatures."
+  },
+  "candidate_comparison": {
+    "raw_forecasts": "Do not refit or change any already registered raw forecast in this correctness comparison. Reconstruct v2 and v3 from each full saved raw forecast. Keep all 27 locks, 28 units, 13 fantasy pools and exact Friendly-15 raw evaluations. Raw MAE is unchanged by rescoring.",
+    "selection": "Re-solve every complete pool under its original declared budget, country, hemisphere and role restrictions. Attach audited official point and actual role/entry outcomes after selection. Unknown selected outcomes remain unknown. Add no chips or action-space changes.",
+    "metre_sensitivity": "For each duration candidate and its fixed P3 blend, retain both moment-matched and duration-mixture floor expectations in NCR as well as Six Nations. Apply the identical empirical floor term to the native-completed control. A favourable floor approximation cannot be chosen after scoring.",
+    "admission": "The original Six Nations development>0, later audit>=0, both-incumbent, every-single-round-removal criteria and mandatory source-tail sensitivity remain unchanged. For a shared NCR route additionally require nonnegative three-round gain against the declared native comparator under original v2 AND against the empirically completed native comparator under corrected v3. Both old and new rubric results remain visible. Report leave-two-out, equal-season aggregation and the existing descriptive paired-round bootstrap. No corrected-score gain alone completes the research objective.",
+    "multiplicity": "This is a mandatory source-driven correction, not a favourable extra candidate. The full historical candidate family remains disclosed. All historical outcomes have been reused; no fresh holdout claim follows from a new scorer name."
+  },
+  "next_executable_work": [
+    "Rerun the corrected source-coverage report and preserve the first report's explicitly identified column-label error.",
+    "Implement a separately versioned research scorer and native completion, verify deterministic additions on all retained raw forecasts and observed source rows, and retain old decisions.",
+    "Finish the full conditional-duration fits, verify all raw pools and legal squads, then evaluate complete v2/v3 comparisons and both duration/floor sensitivities.",
+    "Use the remaining point-error decomposition and feasible decision alternatives to choose a subsequent modeling experiment; do not treat unresolved lineout/error semantics as proven zero outcomes."
+  ],
+  "protection": "No tests added or changed, including temporary tests; existing checks and direct research calculations only. No permanent-cache mutation, rugby API calls, credential/quota changes, dirty-work reset, production default change, merge, or November-registration edit."
+}

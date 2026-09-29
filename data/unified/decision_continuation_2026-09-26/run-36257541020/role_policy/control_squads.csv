@@ -1,0 +1,833 @@
+id,name,team,pos,hemi,value,status,actual,starter_exp,supersub_exp,in_squad,is_sub,is_capt,slate,engine,sel,opp,home,n_hist,rp_min,wr_margin,weather_att,per80,exp_min
+1,Henry Thomas,Wales,Prop,1,0.0,P,16.0,15.158660664945211,7.579330332472606,True,False,False,six_nations_2025_r1,incumbent,,,,,,,,,
+13,Thomas Ramos,France,Back Three,1,0.0,P,37.0,30.44836048870906,15.22418024435453,True,False,True,six_nations_2025_r1,incumbent,,,,,,,,,
+16,Antoine Dupont,France,Scrum Half,1,0.0,P,31.0,18.292143755060785,9.146071877530392,True,False,False,six_nations_2025_r1,incumbent,,,,,,,,,
+35,Jac Morgan,Wales,Loose Forward,1,0.0,P,49.0,20.809054229759816,10.404527114879908,True,False,False,six_nations_2025_r1,incumbent,,,,,,,,,
+41,Dafydd Jenkins,Wales,Lock,1,0.0,P,35.0,17.428859158240314,8.714429579120157,True,False,False,six_nations_2025_r1,incumbent,,,,,,,,,
+42,Evan Lloyd,Wales,Hooker,1,0.0,P,8.0,15.863719975307228,7.931859987653614,True,False,False,six_nations_2025_r1,incumbent,,,,,,,,,
+61,Duhan van der Merwe,Scotland,Back Three,1,0.0,P,27.0,19.150986994036806,9.575493497018403,True,False,False,six_nations_2025_r1,incumbent,,,,,,,,,
+64,Huw Jones,Scotland,Centre,1,0.0,P,66.0,21.73013781734328,10.86506890867164,True,False,False,six_nations_2025_r1,incumbent,,,,,,,,,
+65,Blair Kinghorn,Scotland,Back Three,1,0.0,P,28.0,20.100113315764432,10.050056657882216,True,False,False,six_nations_2025_r1,incumbent,,,,,,,,,
+83,Lorenzo Cannone,Italy,Loose Forward,1,0.0,P,22.0,20.857507075257423,10.428753537628712,True,False,False,six_nations_2025_r1,incumbent,,,,,,,,,
+86,Tommaso Menoncello,Italy,Centre,1,0.0,P,39.0,18.6668661698018,9.3334330849009,True,False,False,six_nations_2025_r1,incumbent,,,,,,,,,
+104,Maro Itoje,England,Lock,1,0.0,P,16.0,15.859398696245712,7.929699348122856,True,False,False,six_nations_2025_r1,incumbent,,,,,,,,,
+106,Ellis Genge,England,Prop,1,0.0,P,14.0,14.72898755763903,7.364493778819515,True,False,False,six_nations_2025_r1,incumbent,,,,,,,,,
+109,Ben Earl,England,Loose Forward,1,0.0,P,26.0,20.129065891372136,10.064532945686068,True,False,False,six_nations_2025_r1,incumbent,,,,,,,,,
+118,Marcus Smith,England,Fly Half,1,0.0,P,29.0,23.072694840198544,11.536347420099272,True,False,False,six_nations_2025_r1,incumbent,,,,,,,,,
+125,Jack Crowley,Ireland,Fly Half,1,0.0,B,6.0,8.184571697289439,24.553715091868316,True,True,False,six_nations_2025_r1,incumbent,,,,,,,,,
+4,Gareth Thomas,Wales,Prop,1,0.0,P,18.0,13.789528379701595,6.894764189850798,True,False,False,six_nations_2025_r1,empirical_baseline,,,,,,,,,
+13,Thomas Ramos,France,Back Three,1,0.0,P,37.0,41.230207190046094,20.615103595023047,True,False,True,six_nations_2025_r1,empirical_baseline,,,,,,,,,
+16,Antoine Dupont,France,Scrum Half,1,0.0,P,31.0,38.49875557956808,19.24937778978404,True,False,False,six_nations_2025_r1,empirical_baseline,,,,,,,,,
+20,Peato Mauvaka,France,Hooker,1,0.0,P,15.0,23.757488916201545,11.878744458100773,True,False,False,six_nations_2025_r1,empirical_baseline,,,,,,,,,
+35,Jac Morgan,Wales,Loose Forward,1,0.0,P,49.0,32.48057165254121,16.240285826270604,True,False,False,six_nations_2025_r1,empirical_baseline,,,,,,,,,
+41,Dafydd Jenkins,Wales,Lock,1,0.0,P,35.0,20.30531552484893,10.152657762424464,True,False,False,six_nations_2025_r1,empirical_baseline,,,,,,,,,
+51,Finn Russell,Scotland,Fly Half,1,0.0,P,19.0,31.62485576115255,15.812427880576275,True,False,False,six_nations_2025_r1,empirical_baseline,,,,,,,,,
+61,Duhan van der Merwe,Scotland,Back Three,1,0.0,P,27.0,32.443829305670604,16.221914652835302,True,False,False,six_nations_2025_r1,empirical_baseline,,,,,,,,,
+64,Huw Jones,Scotland,Centre,1,0.0,P,66.0,27.509295322140435,13.754647661070218,True,False,False,six_nations_2025_r1,empirical_baseline,,,,,,,,,
+69,Darcy Graham,Scotland,Back Three,1,0.0,P,41.0,33.40968616740751,16.704843083703754,True,False,False,six_nations_2025_r1,empirical_baseline,,,,,,,,,
+96,Bundee Aki,Ireland,Centre,1,0.0,P,31.0,26.90461299486393,13.452306497431964,True,False,False,six_nations_2025_r1,empirical_baseline,,,,,,,,,
+104,Maro Itoje,England,Lock,1,0.0,P,16.0,21.094957603815168,10.547478801907584,True,False,False,six_nations_2025_r1,empirical_baseline,,,,,,,,,
+106,Ellis Genge,England,Prop,1,0.0,P,14.0,14.602585962605533,7.301292981302766,True,False,False,six_nations_2025_r1,empirical_baseline,,,,,,,,,
+109,Ben Earl,England,Loose Forward,1,0.0,P,26.0,28.00537677643544,14.00268838821772,True,False,False,six_nations_2025_r1,empirical_baseline,,,,,,,,,
+115,Caelan Doris,Ireland,Loose Forward,1,0.0,P,25.0,28.970976394379186,14.485488197189593,True,False,False,six_nations_2025_r1,empirical_baseline,,,,,,,,,
+119,Tom Willis,England,Loose Forward,1,0.0,B,5.0,11.47010053657954,34.410301609738625,True,True,False,six_nations_2025_r1,empirical_baseline,,,,,,,,,
+13,Thomas Ramos,France,Back Three,1,0.0,P,37.0,38.63593584415226,19.31796792207613,True,False,False,six_nations_2025_r1,p3_robust_native,,,,,,,,,
+16,Antoine Dupont,France,Scrum Half,1,0.0,P,31.0,38.88631473217584,19.44315736608792,True,False,True,six_nations_2025_r1,p3_robust_native,,,,,,,,,
+20,Peato Mauvaka,France,Hooker,1,0.0,P,15.0,21.531486569444017,10.765743284722008,True,False,False,six_nations_2025_r1,p3_robust_native,,,,,,,,,
+27,Emmanuel Meafou,France,Lock,1,0.0,P,19.0,19.68810746125913,9.844053730629565,True,False,False,six_nations_2025_r1,p3_robust_native,,,,,,,,,
+35,Jac Morgan,Wales,Loose Forward,1,0.0,P,49.0,27.000416189416494,13.500208094708247,True,False,False,six_nations_2025_r1,p3_robust_native,,,,,,,,,
+51,Finn Russell,Scotland,Fly Half,1,0.0,P,19.0,31.34685138896367,15.673425694481836,True,False,False,six_nations_2025_r1,p3_robust_native,,,,,,,,,
+61,Duhan van der Merwe,Scotland,Back Three,1,0.0,P,27.0,31.60285834657816,15.80142917328908,True,False,False,six_nations_2025_r1,p3_robust_native,,,,,,,,,
+64,Huw Jones,Scotland,Centre,1,0.0,P,66.0,27.112559196979777,13.556279598489889,True,False,False,six_nations_2025_r1,p3_robust_native,,,,,,,,,
+69,Darcy Graham,Scotland,Back Three,1,0.0,P,41.0,33.39132566879819,16.695662834399094,True,False,False,six_nations_2025_r1,p3_robust_native,,,,,,,,,
+73,Danilo Fischetti,Italy,Prop,1,0.0,P,26.0,10.940743387793711,5.470371693896856,True,False,False,six_nations_2025_r1,p3_robust_native,,,,,,,,,
+96,Bundee Aki,Ireland,Centre,1,0.0,P,31.0,25.241769889895277,12.620884944947639,True,False,False,six_nations_2025_r1,p3_robust_native,,,,,,,,,
+100,Josh van der Flier,Ireland,Loose Forward,1,0.0,P,24.0,24.852379305419703,12.426189652709851,True,False,False,six_nations_2025_r1,p3_robust_native,,,,,,,,,
+104,Maro Itoje,England,Lock,1,0.0,P,16.0,18.78919936002876,9.39459968001438,True,False,False,six_nations_2025_r1,p3_robust_native,,,,,,,,,
+106,Ellis Genge,England,Prop,1,0.0,P,14.0,12.811094411781315,6.405547205890658,True,False,False,six_nations_2025_r1,p3_robust_native,,,,,,,,,
+115,Caelan Doris,Ireland,Loose Forward,1,0.0,P,25.0,27.861755907663174,13.930877953831587,True,False,False,six_nations_2025_r1,p3_robust_native,,,,,,,,,
+124,Dan Sheehan,Ireland,Hooker,1,0.0,B,25.0,9.785270592361485,29.355811777084455,True,True,False,six_nations_2025_r1,p3_robust_native,,,,,,,,,
+13,Thomas Ramos,France,Back Three,1,0.0,P,37.0,34.54214816643066,17.27107408321533,True,False,True,six_nations_2025_r1,equal_incumbent,,,,,,,,,
+16,Antoine Dupont,France,Scrum Half,1,0.0,P,31.0,28.589229243618316,14.294614621809158,True,False,False,six_nations_2025_r1,equal_incumbent,,,,,,,,,
+20,Peato Mauvaka,France,Hooker,1,0.0,P,15.0,17.601840262730732,8.800920131365366,True,False,False,six_nations_2025_r1,equal_incumbent,,,,,,,,,
+35,Jac Morgan,Wales,Loose Forward,1,0.0,P,49.0,23.90473520958816,11.95236760479408,True,False,False,six_nations_2025_r1,equal_incumbent,,,,,,,,,
+41,Dafydd Jenkins,Wales,Lock,1,0.0,P,35.0,17.044287597612595,8.522143798806297,True,False,False,six_nations_2025_r1,equal_incumbent,,,,,,,,,
+46,Theo Attissogbe,France,Back Three,1,0.0,P,38.0,23.4382929589954,11.7191464794977,True,False,False,six_nations_2025_r1,equal_incumbent,,,,,,,,,
+51,Finn Russell,Scotland,Fly Half,1,0.0,P,19.0,27.071605316042973,13.535802658021487,True,False,False,six_nations_2025_r1,equal_incumbent,,,,,,,,,
+54,Jack Dempsey,Scotland,Loose Forward,1,0.0,B,17.0,8.565958518386557,25.69787555515967,True,True,False,six_nations_2025_r1,equal_incumbent,,,,,,,,,
+58,Pierre Schoeman,Scotland,Prop,1,0.0,P,10.0,14.271317582189097,7.135658791094548,True,False,False,six_nations_2025_r1,equal_incumbent,,,,,,,,,
+64,Huw Jones,Scotland,Centre,1,0.0,P,66.0,24.42134850716153,12.210674253580764,True,False,False,six_nations_2025_r1,equal_incumbent,,,,,,,,,
+96,Bundee Aki,Ireland,Centre,1,0.0,P,31.0,20.875487583938263,10.437743791969131,True,False,False,six_nations_2025_r1,equal_incumbent,,,,,,,,,
+104,Maro Itoje,England,Lock,1,0.0,P,16.0,17.324299028137233,8.662149514068616,True,False,False,six_nations_2025_r1,equal_incumbent,,,,,,,,,
+106,Ellis Genge,England,Prop,1,0.0,P,14.0,13.770040984710176,6.885020492355088,True,False,False,six_nations_2025_r1,equal_incumbent,,,,,,,,,
+109,Ben Earl,England,Loose Forward,1,0.0,P,26.0,22.188999593212184,11.094499796606092,True,False,False,six_nations_2025_r1,equal_incumbent,,,,,,,,,
+115,Caelan Doris,Ireland,Loose Forward,1,0.0,P,25.0,22.60121089666803,11.300605448334014,True,False,False,six_nations_2025_r1,equal_incumbent,,,,,,,,,
+120,Mack Hansen,Ireland,Back Three,1,0.0,P,19.0,23.078048663737157,11.539024331868578,True,False,False,six_nations_2025_r1,equal_incumbent,,,,,,,,,
+1,Henry Thomas,Wales,Prop,1,0.0,P,3.0,20.22197577982533,10.110987889912664,True,False,False,six_nations_2025_r2,incumbent,,,,,,,,,
+5,Gareth Thomas,Wales,Prop,1,0.0,P,7.0,17.391413641288032,8.695706820644016,True,False,False,six_nations_2025_r2,incumbent,,,,,,,,,
+30,Jac Morgan,Wales,Loose Forward,1,0.0,P,23.0,30.661459099127967,15.330729549563983,True,False,False,six_nations_2025_r2,incumbent,,,,,,,,,
+34,Lorenzo Cannone,Italy,Loose Forward,1,0.0,P,67.0,27.237625319817777,13.618812659908889,True,False,False,six_nations_2025_r2,incumbent,,,,,,,,,
+36,Tommaso Menoncello,Italy,Centre,1,0.0,P,8.0,24.63289471926161,12.316447359630805,True,False,False,six_nations_2025_r2,incumbent,,,,,,,,,
+37,Giacomo Nicotera,Italy,Hooker,1,0.0,P,12.0,21.53860188698484,10.76930094349242,True,False,False,six_nations_2025_r2,incumbent,,,,,,,,,
+38,Freddie Thomas,Wales,Lock,1,0.0,P,16.0,23.75944159307497,11.879720796537486,True,False,False,six_nations_2025_r2,incumbent,,,,,,,,,
+53,Thomas Ramos,France,Back Three,1,0.0,P,34.0,33.22362199977984,16.61181099988992,True,False,True,six_nations_2025_r2,incumbent,,,,,,,,,
+58,Damian Penaud,France,Back Three,1,0.0,P,37.0,25.089932362320344,12.544966181160172,True,False,False,six_nations_2025_r2,incumbent,,,,,,,,,
+67,Marcus Smith,England,Back Three,1,0.0,P,23.0,30.550254525020407,15.275127262510203,True,False,False,six_nations_2025_r2,incumbent,,,,,,,,,
+74,Gregory Alldritt,France,Loose Forward,1,0.0,P,27.0,32.781678495505886,16.390839247752943,True,False,False,six_nations_2025_r2,incumbent,,,,,,,,,
+86,Fin Smith,England,Fly Half,1,0.0,P,39.0,28.27570237885612,14.13785118942806,True,False,False,six_nations_2025_r2,incumbent,,,,,,,,,
+100,Tadhg Beirne,Ireland,Lock,1,0.0,P,25.0,19.944487817889176,9.972243908944588,True,False,False,six_nations_2025_r2,incumbent,,,,,,,,,
+103,Jamison Gibson-Park,Ireland,Scrum Half,1,0.0,P,9.0,20.60579446426104,10.30289723213052,True,False,False,six_nations_2025_r2,incumbent,,,,,,,,,
+113,Huw Jones,Scotland,Centre,1,0.0,P,24.0,24.67994399262361,12.339971996311805,True,False,False,six_nations_2025_r2,incumbent,,,,,,,,,
+128,Jack Crowley,Ireland,Fly Half,1,0.0,B,0.0,9.960289137853838,29.880867413561514,True,True,False,six_nations_2025_r2,incumbent,,,,,,,,,
+15,Monty Ioane,Italy,Back Three,1,0.0,P,8.0,29.71166743590021,14.855833717950105,True,False,False,six_nations_2025_r2,empirical_baseline,,,,,,,,,
+30,Jac Morgan,Wales,Loose Forward,1,0.0,P,23.0,31.242270804523105,15.621135402261553,True,False,False,six_nations_2025_r2,empirical_baseline,,,,,,,,,
+36,Tommaso Menoncello,Italy,Centre,1,0.0,P,8.0,27.01208423019593,13.506042115097966,True,False,False,six_nations_2025_r2,empirical_baseline,,,,,,,,,
+38,Freddie Thomas,Wales,Lock,1,0.0,P,16.0,20.21503037649488,10.10751518824744,True,False,False,six_nations_2025_r2,empirical_baseline,,,,,,,,,
+51,Maro Itoje,England,Lock,1,0.0,P,21.0,19.16786030718629,9.583930153593146,True,False,False,six_nations_2025_r2,empirical_baseline,,,,,,,,,
+53,Thomas Ramos,France,Back Three,1,0.0,P,34.0,35.05943609022002,17.52971804511001,True,False,False,six_nations_2025_r2,empirical_baseline,,,,,,,,,
+56,Antoine Dupont,France,Scrum Half,1,0.0,P,13.0,33.33605851765929,16.668029258829645,True,False,False,six_nations_2025_r2,empirical_baseline,,,,,,,,,
+57,Ellis Genge,England,Prop,1,0.0,P,18.0,14.681867446371642,7.340933723185821,True,False,False,six_nations_2025_r2,empirical_baseline,,,,,,,,,
+58,Damian Penaud,France,Back Three,1,0.0,P,37.0,34.20868425594634,17.10434212797317,True,False,False,six_nations_2025_r2,empirical_baseline,,,,,,,,,
+69,Tom Willis,England,Loose Forward,1,0.0,P,34.0,35.241629546866406,17.620814773433203,True,False,True,six_nations_2025_r2,empirical_baseline,,,,,,,,,
+72,Matthieu Jalibert,France,Fly Half,1,0.0,P,24.0,26.23691732494033,13.118458662470164,True,False,False,six_nations_2025_r2,empirical_baseline,,,,,,,,,
+96,Bundee Aki,Ireland,Centre,1,0.0,P,6.0,24.913787684627284,12.456893842313642,True,False,False,six_nations_2025_r2,empirical_baseline,,,,,,,,,
+108,Zander Fagerson,Scotland,Prop,1,0.0,P,15.0,14.031777254639351,7.015888627319676,True,False,False,six_nations_2025_r2,empirical_baseline,,,,,,,,,
+120,Ronan Kelleher,Ireland,Hooker,1,0.0,P,8.0,21.426862439253057,10.713431219626528,True,False,False,six_nations_2025_r2,empirical_baseline,,,,,,,,,
+121,Caelan Doris,Ireland,Loose Forward,1,0.0,P,53.0,27.72328514984212,13.86164257492106,True,False,False,six_nations_2025_r2,empirical_baseline,,,,,,,,,
+126,Dan Sheehan,Ireland,Hooker,1,0.0,B,10.0,11.512961572334792,34.53888471700438,True,True,False,six_nations_2025_r2,empirical_baseline,,,,,,,,,
+15,Monty Ioane,Italy,Back Three,1,0.0,P,8.0,27.608434566352585,13.804217283176293,True,False,False,six_nations_2025_r2,p3_robust_native,,,,,,,,,
+30,Jac Morgan,Wales,Loose Forward,1,0.0,P,23.0,31.586298932418373,15.793149466209186,True,False,False,six_nations_2025_r2,p3_robust_native,,,,,,,,,
+36,Tommaso Menoncello,Italy,Centre,1,0.0,P,8.0,26.35322914933288,13.17661457466644,True,False,False,six_nations_2025_r2,p3_robust_native,,,,,,,,,
+51,Maro Itoje,England,Lock,1,0.0,P,21.0,20.214711624757214,10.107355812378607,True,False,False,six_nations_2025_r2,p3_robust_native,,,,,,,,,
+53,Thomas Ramos,France,Back Three,1,0.0,P,34.0,33.48503563771882,16.74251781885941,True,False,True,six_nations_2025_r2,p3_robust_native,,,,,,,,,
+56,Antoine Dupont,France,Scrum Half,1,0.0,P,13.0,31.528487936607977,15.764243968303989,True,False,False,six_nations_2025_r2,p3_robust_native,,,,,,,,,
+57,Ellis Genge,England,Prop,1,0.0,P,18.0,14.219352954026366,7.109676477013183,True,False,False,six_nations_2025_r2,p3_robust_native,,,,,,,,,
+58,Damian Penaud,France,Back Three,1,0.0,P,37.0,32.28793118433276,16.14396559216638,True,False,False,six_nations_2025_r2,p3_robust_native,,,,,,,,,
+69,Tom Willis,England,Loose Forward,1,0.0,P,34.0,31.48978296836291,15.744891484181455,True,False,False,six_nations_2025_r2,p3_robust_native,,,,,,,,,
+72,Matthieu Jalibert,France,Fly Half,1,0.0,P,24.0,25.76001503626368,12.88000751813184,True,False,False,six_nations_2025_r2,p3_robust_native,,,,,,,,,
+97,Jonny Gray,Scotland,Lock,1,0.0,P,15.0,20.8423843881421,10.42119219407105,True,False,False,six_nations_2025_r2,p3_robust_native,,,,,,,,,
+108,Zander Fagerson,Scotland,Prop,1,0.0,P,15.0,15.921721582137089,7.960860791068544,True,False,False,six_nations_2025_r2,p3_robust_native,,,,,,,,,
+113,Huw Jones,Scotland,Centre,1,0.0,P,24.0,25.85627524799621,12.928137623998104,True,False,False,six_nations_2025_r2,p3_robust_native,,,,,,,,,
+120,Ronan Kelleher,Ireland,Hooker,1,0.0,P,8.0,21.381340695789326,10.690670347894663,True,False,False,six_nations_2025_r2,p3_robust_native,,,,,,,,,
+121,Caelan Doris,Ireland,Loose Forward,1,0.0,P,53.0,29.78378354003172,14.89189177001586,True,False,False,six_nations_2025_r2,p3_robust_native,,,,,,,,,
+126,Dan Sheehan,Ireland,Hooker,1,0.0,B,10.0,10.918721118422514,32.756163355267546,True,True,False,six_nations_2025_r2,p3_robust_native,,,,,,,,,
+1,Henry Thomas,Wales,Prop,1,0.0,P,3.0,15.886274855983707,7.943137427991854,True,False,False,six_nations_2025_r2,equal_incumbent,,,,,,,,,
+8,Will Rowlands,Wales,Lock,1,0.0,P,8.0,20.09185328245917,10.045926641229585,True,False,False,six_nations_2025_r2,equal_incumbent,,,,,,,,,
+27,Gianmarco Lucchesi,Italy,Hooker,1,0.0,B,7.0,9.658556904554498,28.975670713663494,True,True,False,six_nations_2025_r2,equal_incumbent,,,,,,,,,
+30,Jac Morgan,Wales,Loose Forward,1,0.0,P,23.0,31.12387901577317,15.561939507886585,True,False,False,six_nations_2025_r2,equal_incumbent,,,,,,,,,
+36,Tommaso Menoncello,Italy,Centre,1,0.0,P,8.0,25.493061934297245,12.746530967148622,True,False,False,six_nations_2025_r2,equal_incumbent,,,,,,,,,
+38,Freddie Thomas,Wales,Lock,1,0.0,P,16.0,21.818535290298197,10.909267645149098,True,False,False,six_nations_2025_r2,equal_incumbent,,,,,,,,,
+53,Thomas Ramos,France,Back Three,1,0.0,P,34.0,33.35432881874933,16.677164409374665,True,False,True,six_nations_2025_r2,equal_incumbent,,,,,,,,,
+56,Antoine Dupont,France,Scrum Half,1,0.0,P,13.0,25.59349269427723,12.796746347138615,True,False,False,six_nations_2025_r2,equal_incumbent,,,,,,,,,
+58,Damian Penaud,France,Back Three,1,0.0,P,37.0,28.68893177332655,14.344465886663276,True,False,False,six_nations_2025_r2,equal_incumbent,,,,,,,,,
+67,Marcus Smith,England,Back Three,1,0.0,P,23.0,27.57168574486363,13.785842872431814,True,False,False,six_nations_2025_r2,equal_incumbent,,,,,,,,,
+69,Tom Willis,England,Loose Forward,1,0.0,P,34.0,27.997048867641936,13.998524433820968,True,False,False,six_nations_2025_r2,equal_incumbent,,,,,,,,,
+74,Gregory Alldritt,France,Loose Forward,1,0.0,P,27.0,31.60109307527448,15.80054653763724,True,False,False,six_nations_2025_r2,equal_incumbent,,,,,,,,,
+98,Finn Russell,Scotland,Fly Half,1,0.0,P,1.0,25.57704457019905,12.788522285099525,True,False,False,six_nations_2025_r2,equal_incumbent,,,,,,,,,
+108,Zander Fagerson,Scotland,Prop,1,0.0,P,15.0,15.717947324102436,7.858973662051218,True,False,False,six_nations_2025_r2,equal_incumbent,,,,,,,,,
+113,Huw Jones,Scotland,Centre,1,0.0,P,24.0,25.268109620309907,12.634054810154954,True,False,False,six_nations_2025_r2,equal_incumbent,,,,,,,,,
+120,Ronan Kelleher,Ireland,Hooker,1,0.0,P,8.0,20.174145483769777,10.087072741884889,True,False,False,six_nations_2025_r2,equal_incumbent,,,,,,,,,
+9,Josh van der Flier,Ireland,Loose Forward,1,0.0,P,15.0,27.02293938191069,13.511469690955344,True,False,False,six_nations_2025_r3,incumbent,,,,,,,,,
+12,Jamison Gibson-Park,Ireland,Scrum Half,1,0.0,P,33.0,22.86137726039337,11.430688630196684,True,False,False,six_nations_2025_r3,incumbent,,,,,,,,,
+36,Joe McCarthy,Ireland,Lock,1,0.0,P,19.0,22.12356167253188,11.06178083626594,True,False,False,six_nations_2025_r3,incumbent,,,,,,,,,
+39,Dafydd Jenkins,Wales,Lock,1,0.0,P,13.0,22.618926253637586,11.309463126818793,True,False,False,six_nations_2025_r3,incumbent,,,,,,,,,
+62,Ellis Genge,England,Prop,1,0.0,P,13.0,14.711119338388738,7.355559669194369,True,False,False,six_nations_2025_r3,incumbent,,,,,,,,,
+63,Huw Jones,Scotland,Centre,1,0.0,P,22.0,24.70619221333077,12.353096106665385,True,False,False,six_nations_2025_r3,incumbent,,,,,,,,,
+73,Marcus Smith,England,Back Three,1,0.0,P,20.0,27.00017500819648,13.50008750409824,True,False,False,six_nations_2025_r3,incumbent,,,,,,,,,
+90,Tom Jordan,Scotland,Centre,1,0.0,P,27.0,21.279683310331844,10.639841655165922,True,False,False,six_nations_2025_r3,incumbent,,,,,,,,,
+101,Thomas Ramos,France,Fly Half,1,0.0,P,36.0,35.54908001564726,17.77454000782363,True,False,True,six_nations_2025_r3,incumbent,,,,,,,,,
+111,Danilo Fischetti,Italy,Prop,1,0.0,P,7.0,16.003737244210065,8.001868622105032,True,False,False,six_nations_2025_r3,incumbent,,,,,,,,,
+113,Gregory Alldritt,France,Loose Forward,1,0.0,P,47.0,31.00600740574677,15.503003702873386,True,False,False,six_nations_2025_r3,incumbent,,,,,,,,,
+118,Gianmarco Lucchesi,Italy,Hooker,1,0.0,P,17.0,20.6435070648934,10.3217535324467,True,False,False,six_nations_2025_r3,incumbent,,,,,,,,,
+126,Lorenzo Cannone,Italy,Loose Forward,1,0.0,P,11.0,32.5470867118346,16.2735433559173,True,False,False,six_nations_2025_r3,incumbent,,,,,,,,,
+128,Leo Barre,France,Back Three,1,0.0,P,56.0,27.4706554965716,13.7353277482858,True,False,False,six_nations_2025_r3,incumbent,,,,,,,,,
+135,Ross Vintcent,Italy,Loose Forward,1,0.0,B,9.0,9.540993898449845,28.622981695349534,True,True,False,six_nations_2025_r3,incumbent,,,,,,,,,
+137,Theo Attissogbe,France,Back Three,1,0.0,P,42.0,25.25063938892108,12.62531969446054,True,False,False,six_nations_2025_r3,incumbent,,,,,,,,,
+3,WillGriff John,Wales,Prop,1,0.0,P,14.0,17.101655990390686,8.550827995195343,True,False,False,six_nations_2025_r3,empirical_baseline,,,,,,,,,
+5,Bundee Aki,Ireland,Centre,1,0.0,B,11.0,9.459664771730669,28.378994315192006,True,True,False,six_nations_2025_r3,empirical_baseline,,,,,,,,,
+11,James Lowe,Ireland,Back Three,1,0.0,P,19.0,31.04914257592245,15.524571287961225,True,False,False,six_nations_2025_r3,empirical_baseline,,,,,,,,,
+15,Will Rowlands,Wales,Lock,1,0.0,P,21.0,17.86331180108122,8.93165590054061,True,False,False,six_nations_2025_r3,empirical_baseline,,,,,,,,,
+28,Dan Sheehan,Ireland,Hooker,1,0.0,P,18.0,26.554843496339835,13.277421748169917,True,False,False,six_nations_2025_r3,empirical_baseline,,,,,,,,,
+31,Jac Morgan,Wales,Loose Forward,1,0.0,P,37.0,32.51904344244588,16.25952172122294,True,False,False,six_nations_2025_r3,empirical_baseline,,,,,,,,,
+39,Dafydd Jenkins,Wales,Lock,1,0.0,P,13.0,21.38825164144675,10.694125820723375,True,False,False,six_nations_2025_r3,empirical_baseline,,,,,,,,,
+57,Pierre Schoeman,Scotland,Prop,1,0.0,P,5.0,15.983498250492492,7.991749125246246,True,False,False,six_nations_2025_r3,empirical_baseline,,,,,,,,,
+63,Huw Jones,Scotland,Centre,1,0.0,P,22.0,23.740044455879676,11.870022227939838,True,False,False,six_nations_2025_r3,empirical_baseline,,,,,,,,,
+66,Ben Earl,England,Loose Forward,1,0.0,P,34.0,28.145892163867128,14.072946081933564,True,False,False,six_nations_2025_r3,empirical_baseline,,,,,,,,,
+73,Marcus Smith,England,Back Three,1,0.0,P,20.0,31.84155670894154,15.92077835447077,True,False,False,six_nations_2025_r3,empirical_baseline,,,,,,,,,
+76,Tom Willis,England,Loose Forward,1,0.0,P,10.0,30.94072135409476,15.47036067704738,True,False,False,six_nations_2025_r3,empirical_baseline,,,,,,,,,
+77,Ollie Sleightholme,England,Back Three,1,0.0,P,5.0,30.48052170110504,15.24026085055252,True,False,False,six_nations_2025_r3,empirical_baseline,,,,,,,,,
+101,Thomas Ramos,France,Fly Half,1,0.0,P,36.0,37.0572676191881,18.52863380959405,True,False,True,six_nations_2025_r3,empirical_baseline,,,,,,,,,
+104,Antoine Dupont,France,Scrum Half,1,0.0,P,90.0,34.24114369789027,17.120571848945136,True,False,False,six_nations_2025_r3,empirical_baseline,,,,,,,,,
+129,Tommaso Menoncello,Italy,Centre,1,0.0,P,38.0,23.860917394056933,11.930458697028467,True,False,False,six_nations_2025_r3,empirical_baseline,,,,,,,,,
+11,James Lowe,Ireland,Back Three,1,0.0,P,19.0,28.150674192839887,14.075337096419943,True,False,False,six_nations_2025_r3,p3_robust_native,,,,,,,,,
+24,Mack Hansen,Ireland,Back Three,1,0.0,P,10.0,27.582699739934935,13.791349869967467,True,False,False,six_nations_2025_r3,p3_robust_native,,,,,,,,,
+28,Dan Sheehan,Ireland,Hooker,1,0.0,P,18.0,25.570453343833268,12.785226671916634,True,False,False,six_nations_2025_r3,p3_robust_native,,,,,,,,,
+31,Jac Morgan,Wales,Loose Forward,1,0.0,P,37.0,32.64090428990881,16.320452144954405,True,False,False,six_nations_2025_r3,p3_robust_native,,,,,,,,,
+39,Dafydd Jenkins,Wales,Lock,1,0.0,P,13.0,24.202325106296627,12.101162553148313,True,False,False,six_nations_2025_r3,p3_robust_native,,,,,,,,,
+55,Maro Itoje,England,Lock,1,0.0,P,19.0,21.659450386557936,10.829725193278968,True,False,False,six_nations_2025_r3,p3_robust_native,,,,,,,,,
+57,Pierre Schoeman,Scotland,Prop,1,0.0,P,5.0,15.38964487747734,7.69482243873867,True,False,False,six_nations_2025_r3,p3_robust_native,,,,,,,,,
+62,Ellis Genge,England,Prop,1,0.0,P,13.0,16.837810607053363,8.418905303526682,True,False,False,six_nations_2025_r3,p3_robust_native,,,,,,,,,
+63,Huw Jones,Scotland,Centre,1,0.0,P,22.0,22.94281508946495,11.471407544732475,True,False,False,six_nations_2025_r3,p3_robust_native,,,,,,,,,
+76,Tom Willis,England,Loose Forward,1,0.0,P,10.0,34.32643915849136,17.16321957924568,True,False,False,six_nations_2025_r3,p3_robust_native,,,,,,,,,
+78,Ollie Lawrence,England,Centre,1,0.0,P,17.0,21.508229126084224,10.754114563042112,True,False,False,six_nations_2025_r3,p3_robust_native,,,,,,,,,
+82,Ewan Ashman,Scotland,Hooker,1,0.0,B,1.0,9.669467568036316,29.008402704108946,True,True,False,six_nations_2025_r3,p3_robust_native,,,,,,,,,
+101,Thomas Ramos,France,Fly Half,1,0.0,P,36.0,36.41492959618017,18.207464798090086,True,False,True,six_nations_2025_r3,p3_robust_native,,,,,,,,,
+104,Antoine Dupont,France,Scrum Half,1,0.0,P,90.0,32.75566123678418,16.37783061839209,True,False,False,six_nations_2025_r3,p3_robust_native,,,,,,,,,
+113,Gregory Alldritt,France,Loose Forward,1,0.0,P,47.0,30.75106711561725,15.375533557808625,True,False,False,six_nations_2025_r3,p3_robust_native,,,,,,,,,
+131,Louis Bielle-Biarrey,France,Back Three,1,0.0,P,37.0,28.570499740271902,14.285249870135951,True,False,False,six_nations_2025_r3,p3_robust_native,,,,,,,,,
+24,Mack Hansen,Ireland,Back Three,1,0.0,P,10.0,24.806557826787436,12.403278913393718,True,False,False,six_nations_2025_r3,equal_incumbent,,,,,,,,,
+28,Dan Sheehan,Ireland,Hooker,1,0.0,P,18.0,22.422394094385965,11.211197047192982,True,False,False,six_nations_2025_r3,equal_incumbent,,,,,,,,,
+31,Jac Morgan,Wales,Loose Forward,1,0.0,P,37.0,29.46632837931783,14.733164189658915,True,False,False,six_nations_2025_r3,equal_incumbent,,,,,,,,,
+39,Dafydd Jenkins,Wales,Lock,1,0.0,P,13.0,23.410625679967104,11.705312839983552,True,False,False,six_nations_2025_r3,equal_incumbent,,,,,,,,,
+55,Maro Itoje,England,Lock,1,0.0,P,19.0,20.49374201317645,10.246871006588226,True,False,False,six_nations_2025_r3,equal_incumbent,,,,,,,,,
+62,Ellis Genge,England,Prop,1,0.0,P,13.0,15.77446497272105,7.887232486360525,True,False,False,six_nations_2025_r3,equal_incumbent,,,,,,,,,
+63,Huw Jones,Scotland,Centre,1,0.0,P,22.0,23.824503651397865,11.912251825698933,True,False,False,six_nations_2025_r3,equal_incumbent,,,,,,,,,
+73,Marcus Smith,England,Back Three,1,0.0,P,20.0,27.303393326364333,13.651696663182166,True,False,False,six_nations_2025_r3,equal_incumbent,,,,,,,,,
+90,Tom Jordan,Scotland,Centre,1,0.0,P,27.0,20.381228438957265,10.190614219478633,True,False,False,six_nations_2025_r3,equal_incumbent,,,,,,,,,
+101,Thomas Ramos,France,Fly Half,1,0.0,P,36.0,35.98200480591372,17.99100240295686,True,False,True,six_nations_2025_r3,equal_incumbent,,,,,,,,,
+104,Antoine Dupont,France,Scrum Half,1,0.0,P,90.0,27.061891943212764,13.530945971606382,True,False,False,six_nations_2025_r3,equal_incumbent,,,,,,,,,
+111,Danilo Fischetti,Italy,Prop,1,0.0,P,7.0,15.062638245572876,7.531319122786438,True,False,False,six_nations_2025_r3,equal_incumbent,,,,,,,,,
+113,Gregory Alldritt,France,Loose Forward,1,0.0,P,47.0,30.87853726068201,15.439268630341004,True,False,False,six_nations_2025_r3,equal_incumbent,,,,,,,,,
+126,Lorenzo Cannone,Italy,Loose Forward,1,0.0,P,11.0,29.57868405746438,14.78934202873219,True,False,False,six_nations_2025_r3,equal_incumbent,,,,,,,,,
+131,Louis Bielle-Biarrey,France,Back Three,1,0.0,P,37.0,26.21412520337256,13.10706260168628,True,False,False,six_nations_2025_r3,equal_incumbent,,,,,,,,,
+135,Ross Vintcent,Italy,Loose Forward,1,0.0,B,9.0,8.799881369675088,26.399644109025264,True,True,False,six_nations_2025_r3,equal_incumbent,,,,,,,,,
+12,Thomas Ramos,France,Back Three,1,0.0,P,36.0,34.86126783220043,17.430633916100216,True,False,True,six_nations_2025_r4,incumbent,,,,,,,,,
+15,Antoine Dupont,France,Scrum Half,1,0.0,P,14.0,22.08242017086771,11.041210085433855,True,False,False,six_nations_2025_r4,incumbent,,,,,,,,,
+27,Gregory Alldritt,France,Loose Forward,1,0.0,P,14.0,28.00517021723782,14.00258510861891,True,False,False,six_nations_2025_r4,incumbent,,,,,,,,,
+29,Dan Sheehan,Ireland,Hooker,1,0.0,P,30.0,18.41374010946497,9.206870054732486,True,False,False,six_nations_2025_r4,incumbent,,,,,,,,,
+38,Joe McCarthy,Ireland,Lock,1,0.0,P,7.0,20.21382661929301,10.106913309646504,True,False,False,six_nations_2025_r4,incumbent,,,,,,,,,
+64,Duhan van der Merwe,Scotland,Back Three,1,0.0,P,28.0,24.380269848272683,12.190134924136341,True,False,False,six_nations_2025_r4,incumbent,,,,,,,,,
+66,Huw Jones,Scotland,Centre,1,0.0,P,26.0,26.04192162011952,13.02096081005976,True,False,False,six_nations_2025_r4,incumbent,,,,,,,,,
+68,Blair Kinghorn,Scotland,Back Three,1,0.0,P,71.0,24.89494037060925,12.447470185304624,True,False,False,six_nations_2025_r4,incumbent,,,,,,,,,
+84,Jac Morgan,Wales,Loose Forward,1,0.0,P,39.0,26.4378797599662,13.2189398799831,True,False,False,six_nations_2025_r4,incumbent,,,,,,,,,
+89,Dafydd Jenkins,Wales,Lock,1,0.0,P,42.0,22.50231421198959,11.251157105994794,True,False,False,six_nations_2025_r4,incumbent,,,,,,,,,
+90,Tom Jordan,Scotland,Centre,1,0.0,P,52.0,24.481000234766103,12.240500117383052,True,False,False,six_nations_2025_r4,incumbent,,,,,,,,,
+103,Ellis Genge,England,Prop,1,0.0,P,9.0,15.493425722569024,7.746712861284512,True,False,False,six_nations_2025_r4,incumbent,,,,,,,,,
+105,Ben Earl,England,Loose Forward,1,0.0,P,34.0,26.05238225026223,13.026191125131115,True,False,False,six_nations_2025_r4,incumbent,,,,,,,,,
+114,Danilo Fischetti,Italy,Prop,1,0.0,P,17.0,14.756014733005234,7.378007366502617,True,False,False,six_nations_2025_r4,incumbent,,,,,,,,,
+129,Lorenzo Cannone,Italy,Loose Forward,1,0.0,B,7.0,13.534065601859986,40.60219680557996,True,True,False,six_nations_2025_r4,incumbent,,,,,,,,,
+134,Fin Smith,England,Fly Half,1,0.0,P,30.0,27.597272697250062,13.798636348625031,True,False,False,six_nations_2025_r4,incumbent,,,,,,,,,
+3,Bundee Aki,Ireland,Centre,1,0.0,P,13.0,24.47414067830312,12.23707033915156,True,False,False,six_nations_2025_r4,empirical_baseline,,,,,,,,,
+15,Antoine Dupont,France,Scrum Half,1,0.0,P,14.0,28.75165337802999,14.375826689014994,True,False,False,six_nations_2025_r4,empirical_baseline,,,,,,,,,
+22,Caelan Doris,Ireland,Loose Forward,1,0.0,P,30.0,28.627596329454867,14.313798164727434,True,False,False,six_nations_2025_r4,empirical_baseline,,,,,,,,,
+29,Dan Sheehan,Ireland,Hooker,1,0.0,P,30.0,25.37561156363374,12.68780578181687,True,False,False,six_nations_2025_r4,empirical_baseline,,,,,,,,,
+56,Will Rowlands,Wales,Lock,1,0.0,P,14.0,17.795155144742477,8.897577572371238,True,False,False,six_nations_2025_r4,empirical_baseline,,,,,,,,,
+61,Pierre Schoeman,Scotland,Prop,1,0.0,P,15.0,15.744877765077284,7.872438882538642,True,False,False,six_nations_2025_r4,empirical_baseline,,,,,,,,,
+64,Duhan van der Merwe,Scotland,Back Three,1,0.0,P,28.0,34.930507896972614,17.465253948486307,True,False,True,six_nations_2025_r4,empirical_baseline,,,,,,,,,
+66,Huw Jones,Scotland,Centre,1,0.0,P,26.0,29.55533127579343,14.777665637896716,True,False,False,six_nations_2025_r4,empirical_baseline,,,,,,,,,
+71,Darcy Graham,Scotland,Back Three,1,0.0,P,33.0,33.62600997897254,16.81300498948627,True,False,False,six_nations_2025_r4,empirical_baseline,,,,,,,,,
+84,Jac Morgan,Wales,Loose Forward,1,0.0,P,39.0,32.181616804924595,16.090808402462297,True,False,False,six_nations_2025_r4,empirical_baseline,,,,,,,,,
+89,Dafydd Jenkins,Wales,Lock,1,0.0,P,42.0,20.969932268159077,10.484966134079539,True,False,False,six_nations_2025_r4,empirical_baseline,,,,,,,,,
+103,Ellis Genge,England,Prop,1,0.0,P,9.0,15.50282575499978,7.75141287749989,True,False,False,six_nations_2025_r4,empirical_baseline,,,,,,,,,
+112,Marcus Smith,England,Back Three,1,0.0,B,36.0,10.78378847443069,32.351365423292066,True,True,False,six_nations_2025_r4,empirical_baseline,,,,,,,,,
+117,Ollie Sleightholme,England,Back Three,1,0.0,P,43.0,28.904971985099063,14.452485992549532,True,False,False,six_nations_2025_r4,empirical_baseline,,,,,,,,,
+134,Fin Smith,England,Fly Half,1,0.0,P,30.0,29.265881327837807,14.632940663918903,True,False,False,six_nations_2025_r4,empirical_baseline,,,,,,,,,
+136,Ross Vintcent,Italy,Loose Forward,1,0.0,P,39.0,27.62265428926842,13.81132714463421,True,False,False,six_nations_2025_r4,empirical_baseline,,,,,,,,,
+15,Antoine Dupont,France,Scrum Half,1,0.0,P,14.0,29.16582794538536,14.58291397269268,True,False,False,six_nations_2025_r4,p3_robust_native,,,,,,,,,
+22,Caelan Doris,Ireland,Loose Forward,1,0.0,P,30.0,29.72805322423071,14.864026612115355,True,False,False,six_nations_2025_r4,p3_robust_native,,,,,,,,,
+29,Dan Sheehan,Ireland,Hooker,1,0.0,P,30.0,23.535147890137893,11.767573945068946,True,False,False,six_nations_2025_r4,p3_robust_native,,,,,,,,,
+43,Sam Prendergast,Ireland,Fly Half,1,0.0,P,29.0,28.555829758445032,14.277914879222516,True,False,False,six_nations_2025_r4,p3_robust_native,,,,,,,,,
+56,Will Rowlands,Wales,Lock,1,0.0,P,14.0,19.753509116357247,9.876754558178623,True,False,False,six_nations_2025_r4,p3_robust_native,,,,,,,,,
+61,Pierre Schoeman,Scotland,Prop,1,0.0,P,15.0,15.734707870088556,7.867353935044278,True,False,False,six_nations_2025_r4,p3_robust_native,,,,,,,,,
+64,Duhan van der Merwe,Scotland,Back Three,1,0.0,P,28.0,33.803095867856975,16.901547933928487,True,False,True,six_nations_2025_r4,p3_robust_native,,,,,,,,,
+66,Huw Jones,Scotland,Centre,1,0.0,P,26.0,29.10090318817841,14.550451594089205,True,False,False,six_nations_2025_r4,p3_robust_native,,,,,,,,,
+71,Darcy Graham,Scotland,Back Three,1,0.0,P,33.0,32.25071316637801,16.125356583189006,True,False,False,six_nations_2025_r4,p3_robust_native,,,,,,,,,
+79,Dewi Lake,Wales,Hooker,1,0.0,B,16.0,9.571493217942493,28.71447965382748,True,True,False,six_nations_2025_r4,p3_robust_native,,,,,,,,,
+84,Jac Morgan,Wales,Loose Forward,1,0.0,P,39.0,30.94073014225181,15.470365071125904,True,False,False,six_nations_2025_r4,p3_robust_native,,,,,,,,,
+89,Dafydd Jenkins,Wales,Lock,1,0.0,P,42.0,21.27906750506441,10.639533752532206,True,False,False,six_nations_2025_r4,p3_robust_native,,,,,,,,,
+103,Ellis Genge,England,Prop,1,0.0,P,9.0,15.481543757921845,7.740771878960922,True,False,False,six_nations_2025_r4,p3_robust_native,,,,,,,,,
+115,Tom Willis,England,Loose Forward,1,0.0,P,40.0,32.68095150507899,16.340475752539493,True,False,False,six_nations_2025_r4,p3_robust_native,,,,,,,,,
+117,Ollie Sleightholme,England,Back Three,1,0.0,P,43.0,27.19256975513088,13.59628487756544,True,False,False,six_nations_2025_r4,p3_robust_native,,,,,,,,,
+118,Ollie Lawrence,England,Centre,1,0.0,P,6.0,23.16271251710532,11.58135625855266,True,False,False,six_nations_2025_r4,p3_robust_native,,,,,,,,,
+12,Thomas Ramos,France,Back Three,1,0.0,P,36.0,30.033192537677916,15.016596268838958,True,False,True,six_nations_2025_r4,equal_incumbent,,,,,,,,,
+15,Antoine Dupont,France,Scrum Half,1,0.0,P,14.0,25.624124058126533,12.812062029063267,True,False,False,six_nations_2025_r4,equal_incumbent,,,,,,,,,
+16,Damian Penaud,France,Back Three,1,0.0,P,37.0,24.92574801031944,12.46287400515972,True,False,False,six_nations_2025_r4,equal_incumbent,,,,,,,,,
+27,Gregory Alldritt,France,Loose Forward,1,0.0,P,14.0,28.297377634414843,14.148688817207422,True,False,False,six_nations_2025_r4,equal_incumbent,,,,,,,,,
+29,Dan Sheehan,Ireland,Hooker,1,0.0,P,30.0,20.97444399980143,10.487221999900715,True,False,False,six_nations_2025_r4,equal_incumbent,,,,,,,,,
+56,Will Rowlands,Wales,Lock,1,0.0,P,14.0,19.08458346487465,9.542291732437326,True,False,False,six_nations_2025_r4,equal_incumbent,,,,,,,,,
+61,Pierre Schoeman,Scotland,Prop,1,0.0,P,15.0,15.17128024336508,7.58564012168254,True,False,False,six_nations_2025_r4,equal_incumbent,,,,,,,,,
+64,Duhan van der Merwe,Scotland,Back Three,1,0.0,P,28.0,29.09168285806483,14.545841429032414,True,False,False,six_nations_2025_r4,equal_incumbent,,,,,,,,,
+66,Huw Jones,Scotland,Centre,1,0.0,P,26.0,27.571412404148965,13.785706202074483,True,False,False,six_nations_2025_r4,equal_incumbent,,,,,,,,,
+84,Jac Morgan,Wales,Loose Forward,1,0.0,P,39.0,28.689304951109005,14.344652475554502,True,False,False,six_nations_2025_r4,equal_incumbent,,,,,,,,,
+89,Dafydd Jenkins,Wales,Lock,1,0.0,P,42.0,21.890690858527,10.9453454292635,True,False,False,six_nations_2025_r4,equal_incumbent,,,,,,,,,
+90,Tom Jordan,Scotland,Centre,1,0.0,P,52.0,24.889737682708542,12.444868841354271,True,False,False,six_nations_2025_r4,equal_incumbent,,,,,,,,,
+103,Ellis Genge,England,Prop,1,0.0,P,9.0,15.487484740245437,7.743742370122718,True,False,False,six_nations_2025_r4,equal_incumbent,,,,,,,,,
+115,Tom Willis,England,Loose Forward,1,0.0,P,40.0,29.136494954760547,14.568247477380273,True,False,False,six_nations_2025_r4,equal_incumbent,,,,,,,,,
+129,Lorenzo Cannone,Italy,Loose Forward,1,0.0,B,7.0,10.51984510751503,31.559535322545088,True,True,False,six_nations_2025_r4,equal_incumbent,,,,,,,,,
+134,Fin Smith,England,Fly Half,1,0.0,P,30.0,27.56655354616085,13.783276773080425,True,False,False,six_nations_2025_r4,equal_incumbent,,,,,,,,,
+24,Danilo Fischetti,Italy,Prop,1,0.0,P,15.0,15.565069567184874,7.782534783592437,True,False,False,six_nations_2025_r5,incumbent,,,,,,,,,
+27,Dan Sheehan,Ireland,Hooker,1,0.0,P,84.0,19.61510229451557,9.807551147257785,True,False,False,six_nations_2025_r5,incumbent,,,,,,,,,
+34,Lorenzo Cannone,Italy,Loose Forward,1,0.0,P,15.0,25.87819292531973,12.939096462659865,True,False,False,six_nations_2025_r5,incumbent,,,,,,,,,
+37,Tommaso Menoncello,Italy,Centre,1,0.0,P,45.0,24.787015033410054,12.393507516705027,True,False,False,six_nations_2025_r5,incumbent,,,,,,,,,
+43,Sam Prendergast,Ireland,Fly Half,1,0.0,B,1.0,9.944823444596812,29.834470333790435,True,True,False,six_nations_2025_r5,incumbent,,,,,,,,,
+70,Marcus Smith,England,Back Three,1,0.0,P,18.0,30.346598743165785,15.173299371582893,True,False,False,six_nations_2025_r5,incumbent,,,,,,,,,
+78,Jac Morgan,Wales,Loose Forward,1,0.0,P,24.0,27.231133472591203,13.615566736295602,True,False,False,six_nations_2025_r5,incumbent,,,,,,,,,
+81,Tommy Freeman,England,Centre,1,0.0,P,28.0,23.46917581695944,11.73458790847972,True,False,False,six_nations_2025_r5,incumbent,,,,,,,,,
+83,Ollie Chessum,England,Lock,1,0.0,P,10.0,23.23127023801642,11.61563511900821,True,False,False,six_nations_2025_r5,incumbent,,,,,,,,,
+85,Fin Smith,England,Fly Half,1,0.0,P,28.0,31.1319384447216,15.5659692223608,True,False,False,six_nations_2025_r5,incumbent,,,,,,,,,
+86,Dafydd Jenkins,Wales,Lock,1,0.0,P,21.0,19.68883863968218,9.84441931984109,True,False,False,six_nations_2025_r5,incumbent,,,,,,,,,
+100,Thomas Ramos,France,Back Three,1,0.0,P,36.0,37.7162817166394,18.8581408583197,True,False,True,six_nations_2025_r5,incumbent,,,,,,,,,
+102,Zander Fagerson,Scotland,Prop,1,0.0,P,24.0,14.6925475142689,7.34627375713445,True,False,False,six_nations_2025_r5,incumbent,,,,,,,,,
+109,Damian Penaud,France,Back Three,1,0.0,P,10.0,27.372595407843026,13.686297703921513,True,False,False,six_nations_2025_r5,incumbent,,,,,,,,,
+119,Gregory Alldritt,France,Loose Forward,1,0.0,P,16.0,26.837171844450083,13.418585922225041,True,False,False,six_nations_2025_r5,incumbent,,,,,,,,,
+124,Maxime Lucu,France,Scrum Half,1,0.0,P,14.0,22.73717194879021,11.368585974395105,True,False,False,six_nations_2025_r5,incumbent,,,,,,,,,
+10,Jamison Gibson-Park,Ireland,Scrum Half,1,0.0,P,8.0,19.69179436428924,9.84589718214462,True,False,False,six_nations_2025_r5,empirical_baseline,,,,,,,,,
+22,Caelan Doris,Ireland,Loose Forward,1,0.0,P,20.0,28.47408121793917,14.237040608969584,True,False,False,six_nations_2025_r5,empirical_baseline,,,,,,,,,
+27,Dan Sheehan,Ireland,Hooker,1,0.0,P,84.0,26.43258498415935,13.216292492079676,True,False,False,six_nations_2025_r5,empirical_baseline,,,,,,,,,
+37,Tommaso Menoncello,Italy,Centre,1,0.0,P,45.0,23.955607857849557,11.977803928924779,True,False,False,six_nations_2025_r5,empirical_baseline,,,,,,,,,
+62,Ben Earl,England,Loose Forward,1,0.0,P,36.0,28.600167490974272,14.300083745487136,True,False,False,six_nations_2025_r5,empirical_baseline,,,,,,,,,
+71,Tom Willis,England,Loose Forward,1,0.0,B,22.0,12.511989433285946,37.535968299857835,True,True,False,six_nations_2025_r5,empirical_baseline,,,,,,,,,
+78,Jac Morgan,Wales,Loose Forward,1,0.0,P,24.0,31.29275743017636,15.64637871508818,True,False,False,six_nations_2025_r5,empirical_baseline,,,,,,,,,
+81,Tommy Freeman,England,Centre,1,0.0,P,28.0,27.12941329166236,13.56470664583118,True,False,False,six_nations_2025_r5,empirical_baseline,,,,,,,,,
+85,Fin Smith,England,Fly Half,1,0.0,P,28.0,29.00350669255478,14.50175334627739,True,False,False,six_nations_2025_r5,empirical_baseline,,,,,,,,,
+86,Dafydd Jenkins,Wales,Lock,1,0.0,P,21.0,21.38315801703546,10.69157900851773,True,False,False,six_nations_2025_r5,empirical_baseline,,,,,,,,,
+100,Thomas Ramos,France,Back Three,1,0.0,P,36.0,41.14097871184083,20.570489355920415,True,False,True,six_nations_2025_r5,empirical_baseline,,,,,,,,,
+101,Pierre Schoeman,Scotland,Prop,1,0.0,P,27.0,16.110899591031888,8.055449795515944,True,False,False,six_nations_2025_r5,empirical_baseline,,,,,,,,,
+102,Zander Fagerson,Scotland,Prop,1,0.0,P,24.0,14.969172949844417,7.484586474922208,True,False,False,six_nations_2025_r5,empirical_baseline,,,,,,,,,
+109,Damian Penaud,France,Back Three,1,0.0,P,10.0,39.90618156116477,19.953090780582386,True,False,False,six_nations_2025_r5,empirical_baseline,,,,,,,,,
+133,Gregor Brown,Scotland,Lock,1,0.0,P,16.0,19.10654057082357,9.553270285411784,True,False,False,six_nations_2025_r5,empirical_baseline,,,,,,,,,
+135,Louis Bielle-Biarrey,France,Back Three,1,0.0,P,25.0,33.2209327845529,16.61046639227645,True,False,False,six_nations_2025_r5,empirical_baseline,,,,,,,,,
+10,Jamison Gibson-Park,Ireland,Scrum Half,1,0.0,P,8.0,20.496461005617167,10.248230502808584,True,False,False,six_nations_2025_r5,p3_robust_native,,,,,,,,,
+14,Federico Ruzza,Italy,Lock,1,0.0,P,25.0,19.290711918870723,9.645355959435362,True,False,False,six_nations_2025_r5,p3_robust_native,,,,,,,,,
+22,Caelan Doris,Ireland,Loose Forward,1,0.0,P,20.0,30.090885354924744,15.045442677462372,True,False,False,six_nations_2025_r5,p3_robust_native,,,,,,,,,
+24,Danilo Fischetti,Italy,Prop,1,0.0,P,15.0,13.928008157678912,6.964004078839456,True,False,False,six_nations_2025_r5,p3_robust_native,,,,,,,,,
+27,Dan Sheehan,Ireland,Hooker,1,0.0,P,84.0,25.578529655925536,12.789264827962768,True,False,False,six_nations_2025_r5,p3_robust_native,,,,,,,,,
+37,Tommaso Menoncello,Italy,Centre,1,0.0,P,45.0,21.724912931272065,10.862456465636033,True,False,False,six_nations_2025_r5,p3_robust_native,,,,,,,,,
+59,Ellis Genge,England,Prop,1,0.0,P,18.0,15.436135023739642,7.718067511869821,True,False,False,six_nations_2025_r5,p3_robust_native,,,,,,,,,
+71,Tom Willis,England,Loose Forward,1,0.0,B,22.0,11.612996768801542,34.838990306404625,True,True,False,six_nations_2025_r5,p3_robust_native,,,,,,,,,
+78,Jac Morgan,Wales,Loose Forward,1,0.0,P,24.0,29.755486294319283,14.877743147159642,True,False,False,six_nations_2025_r5,p3_robust_native,,,,,,,,,
+81,Tommy Freeman,England,Centre,1,0.0,P,28.0,25.331889249733685,12.665944624866842,True,False,False,six_nations_2025_r5,p3_robust_native,,,,,,,,,
+85,Fin Smith,England,Fly Half,1,0.0,P,28.0,28.01217349805625,14.006086749028125,True,False,False,six_nations_2025_r5,p3_robust_native,,,,,,,,,
+86,Dafydd Jenkins,Wales,Lock,1,0.0,P,21.0,20.76017643498192,10.38008821749096,True,False,False,six_nations_2025_r5,p3_robust_native,,,,,,,,,
+100,Thomas Ramos,France,Back Three,1,0.0,P,36.0,37.69982389066978,18.84991194533489,True,False,True,six_nations_2025_r5,p3_robust_native,,,,,,,,,
+109,Damian Penaud,France,Back Three,1,0.0,P,10.0,36.44038864658791,18.220194323293956,True,False,False,six_nations_2025_r5,p3_robust_native,,,,,,,,,
+119,Gregory Alldritt,France,Loose Forward,1,0.0,P,16.0,29.91755883096845,14.958779415484225,True,False,False,six_nations_2025_r5,p3_robust_native,,,,,,,,,
+135,Louis Bielle-Biarrey,France,Back Three,1,0.0,P,25.0,32.16979287631699,16.084896438158495,True,False,False,six_nations_2025_r5,p3_robust_native,,,,,,,,,
+14,Federico Ruzza,Italy,Lock,1,0.0,P,25.0,19.09457209538621,9.547286047693104,True,False,False,six_nations_2025_r5,equal_incumbent,,,,,,,,,
+22,Caelan Doris,Ireland,Loose Forward,1,0.0,P,20.0,26.85774012153251,13.428870060766254,True,False,False,six_nations_2025_r5,equal_incumbent,,,,,,,,,
+24,Danilo Fischetti,Italy,Prop,1,0.0,P,15.0,14.746538862431894,7.373269431215947,True,False,False,six_nations_2025_r5,equal_incumbent,,,,,,,,,
+27,Dan Sheehan,Ireland,Hooker,1,0.0,P,84.0,22.59681597522055,11.298407987610275,True,False,False,six_nations_2025_r5,equal_incumbent,,,,,,,,,
+37,Tommaso Menoncello,Italy,Centre,1,0.0,P,45.0,23.255963982341058,11.627981991170529,True,False,False,six_nations_2025_r5,equal_incumbent,,,,,,,,,
+70,Marcus Smith,England,Back Three,1,0.0,P,18.0,30.38035525375416,15.19017762687708,True,False,False,six_nations_2025_r5,equal_incumbent,,,,,,,,,
+71,Tom Willis,England,Loose Forward,1,0.0,B,22.0,10.659519174325908,31.978557522977724,True,True,False,six_nations_2025_r5,equal_incumbent,,,,,,,,,
+78,Jac Morgan,Wales,Loose Forward,1,0.0,P,24.0,28.493309883455243,14.246654941727622,True,False,False,six_nations_2025_r5,equal_incumbent,,,,,,,,,
+81,Tommy Freeman,England,Centre,1,0.0,P,28.0,24.400532533346563,12.200266266673282,True,False,False,six_nations_2025_r5,equal_incumbent,,,,,,,,,
+85,Fin Smith,England,Fly Half,1,0.0,P,28.0,29.572055971388924,14.786027985694462,True,False,False,six_nations_2025_r5,equal_incumbent,,,,,,,,,
+86,Dafydd Jenkins,Wales,Lock,1,0.0,P,21.0,20.22450753733205,10.112253768666026,True,False,False,six_nations_2025_r5,equal_incumbent,,,,,,,,,
+100,Thomas Ramos,France,Back Three,1,0.0,P,36.0,37.7080528036546,18.8540264018273,True,False,True,six_nations_2025_r5,equal_incumbent,,,,,,,,,
+102,Zander Fagerson,Scotland,Prop,1,0.0,P,24.0,13.929667575572946,6.964833787786473,True,False,False,six_nations_2025_r5,equal_incumbent,,,,,,,,,
+109,Damian Penaud,France,Back Three,1,0.0,P,10.0,31.906492027215464,15.953246013607732,True,False,False,six_nations_2025_r5,equal_incumbent,,,,,,,,,
+119,Gregory Alldritt,France,Loose Forward,1,0.0,P,16.0,28.377365337709264,14.188682668854632,True,False,False,six_nations_2025_r5,equal_incumbent,,,,,,,,,
+124,Maxime Lucu,France,Scrum Half,1,0.0,P,14.0,21.131738627933878,10.565869313966939,True,False,False,six_nations_2025_r5,equal_incumbent,,,,,,,,,
+11,Thomas Ramos,France,Back Three,1,0.0,P,46.0,37.22882904189773,18.614414520948866,True,False,True,six_nations_2026_r1,incumbent,,,,,,,,,
+15,Antoine Dupont,France,Scrum Half,1,0.0,P,30.0,28.11901476142436,14.05950738071218,True,False,False,six_nations_2026_r1,incumbent,,,,,,,,,
+23,Caelan Doris,Ireland,Loose Forward,1,0.0,P,34.0,25.23303336182273,12.616516680911365,True,False,False,six_nations_2026_r1,incumbent,,,,,,,,,
+27,Matthieu Jalibert,France,Fly Half,1,0.0,P,52.0,27.8333450730134,13.9166725365067,True,False,False,six_nations_2026_r1,incumbent,,,,,,,,,
+43,Nicolas Depoortere,France,Centre,1,0.0,P,36.0,28.38711158214933,14.193555791074665,True,False,False,six_nations_2026_r1,incumbent,,,,,,,,,
+51,Simone Ferrari,Italy,Prop,1,0.0,P,33.0,15.579094468194375,7.789547234097188,True,False,False,six_nations_2026_r1,incumbent,,,,,,,,,
+66,Danilo Fischetti,Italy,Prop,1,0.0,P,19.0,15.4821982430115,7.74109912150575,True,False,False,six_nations_2026_r1,incumbent,,,,,,,,,
+68,Kyle Steyn,Scotland,Back Three,1,0.0,P,12.0,25.13892110595369,12.569460552976844,True,False,False,six_nations_2026_r1,incumbent,,,,,,,,,
+81,Lorenzo Cannone,Italy,Loose Forward,1,0.0,P,44.0,30.44595961478207,15.222979807391035,True,False,False,six_nations_2026_r1,incumbent,,,,,,,,,
+85,Giacomo Nicotera,Italy,Hooker,1,0.0,P,20.0,21.085521830992327,10.542760915496164,True,False,False,six_nations_2026_r1,incumbent,,,,,,,,,
+92,Tom Jordan,Scotland,Back Three,1,0.0,P,6.0,23.084445530593847,11.542222765296923,True,False,False,six_nations_2026_r1,incumbent,,,,,,,,,
+106,Ben Earl,England,Loose Forward,1,0.0,P,50.0,28.647801957700256,14.323900978850128,True,False,False,six_nations_2026_r1,incumbent,,,,,,,,,
+111,Marcus Smith,England,Fly Half,1,0.0,B,9.0,15.38391001298605,46.15173003895815,True,True,False,six_nations_2026_r1,incumbent,,,,,,,,,
+123,Tommy Freeman,England,Centre,1,0.0,P,50.0,30.72035106173781,15.360175530868904,True,False,False,six_nations_2026_r1,incumbent,,,,,,,,,
+124,Ollie Chessum,England,Lock,1,0.0,P,30.0,26.93275526426289,13.466377632131445,True,False,False,six_nations_2026_r1,incumbent,,,,,,,,,
+128,Dafydd Jenkins,Wales,Lock,1,0.0,P,14.0,18.844469720842795,9.422234860421398,True,False,False,six_nations_2026_r1,incumbent,,,,,,,,,
+11,Thomas Ramos,France,Back Three,1,0.0,P,46.0,34.01244183436877,17.006220917184386,True,False,True,six_nations_2026_r1,empirical_baseline,,,,,,,,,
+15,Antoine Dupont,France,Scrum Half,1,0.0,P,30.0,32.96918172365856,16.48459086182928,True,False,False,six_nations_2026_r1,empirical_baseline,,,,,,,,,
+23,Caelan Doris,Ireland,Loose Forward,1,0.0,P,34.0,27.89719023985121,13.948595119925605,True,False,False,six_nations_2026_r1,empirical_baseline,,,,,,,,,
+27,Matthieu Jalibert,France,Fly Half,1,0.0,P,52.0,30.542488798445635,15.271244399222818,True,False,False,six_nations_2026_r1,empirical_baseline,,,,,,,,,
+29,Dan Sheehan,Ireland,Hooker,1,0.0,P,13.0,24.867802352437955,12.433901176218978,True,False,False,six_nations_2026_r1,empirical_baseline,,,,,,,,,
+39,Louis Bielle-Biarrey,France,Back Three,1,0.0,P,51.0,28.809244144833468,14.404622072416734,True,False,False,six_nations_2026_r1,empirical_baseline,,,,,,,,,
+55,Pierre Schoeman,Scotland,Prop,1,0.0,P,10.0,16.752706422938477,8.376353211469239,True,False,False,six_nations_2026_r1,empirical_baseline,,,,,,,,,
+57,Monty Ioane,Italy,Back Three,1,0.0,P,17.0,24.80589010539405,12.402945052697024,True,False,False,six_nations_2026_r1,empirical_baseline,,,,,,,,,
+84,Tommaso Menoncello,Italy,Centre,1,0.0,P,34.0,23.227027258279417,11.613513629139709,True,False,False,six_nations_2026_r1,empirical_baseline,,,,,,,,,
+106,Ben Earl,England,Loose Forward,1,0.0,P,50.0,28.905551080171648,14.452775540085824,True,False,False,six_nations_2026_r1,empirical_baseline,,,,,,,,,
+119,Alex Coles,England,Lock,1,0.0,P,22.0,21.296244759741526,10.648122379870763,True,False,False,six_nations_2026_r1,empirical_baseline,,,,,,,,,
+123,Tommy Freeman,England,Centre,1,0.0,P,50.0,30.022582628755032,15.011291314377516,True,False,False,six_nations_2026_r1,empirical_baseline,,,,,,,,,
+125,Archie Griffin,Wales,Prop,1,0.0,P,14.0,17.04430582282449,8.522152911412245,True,False,False,six_nations_2026_r1,empirical_baseline,,,,,,,,,
+128,Dafydd Jenkins,Wales,Lock,1,0.0,P,14.0,23.284232630342505,11.642116315171252,True,False,False,six_nations_2026_r1,empirical_baseline,,,,,,,,,
+129,Alex Mann,Wales,Loose Forward,1,0.0,P,13.0,24.61182434467841,12.305912172339205,True,False,False,six_nations_2026_r1,empirical_baseline,,,,,,,,,
+135,Henry Pollock,England,Loose Forward,1,0.0,B,3.0,14.277667876734286,42.83300363020286,True,True,False,six_nations_2026_r1,empirical_baseline,,,,,,,,,
+11,Thomas Ramos,France,Back Three,1,0.0,P,46.0,30.319996410350445,15.159998205175222,True,False,False,six_nations_2026_r1,p3_robust_native,,,,,,,,,
+15,Antoine Dupont,France,Scrum Half,1,0.0,P,30.0,31.95772566308817,15.978862831544085,True,False,True,six_nations_2026_r1,p3_robust_native,,,,,,,,,
+23,Caelan Doris,Ireland,Loose Forward,1,0.0,P,34.0,26.65217994380925,13.326089971904626,True,False,False,six_nations_2026_r1,p3_robust_native,,,,,,,,,
+27,Matthieu Jalibert,France,Fly Half,1,0.0,P,52.0,29.62573808338803,14.812869041694015,True,False,False,six_nations_2026_r1,p3_robust_native,,,,,,,,,
+39,Louis Bielle-Biarrey,France,Back Three,1,0.0,P,51.0,27.095606557264645,13.547803278632323,True,False,False,six_nations_2026_r1,p3_robust_native,,,,,,,,,
+52,Jack Dempsey,Scotland,Loose Forward,1,0.0,P,40.0,26.590851902841187,13.295425951420594,True,False,False,six_nations_2026_r1,p3_robust_native,,,,,,,,,
+59,Huw Jones,Scotland,Centre,1,0.0,P,7.0,21.81062154291078,10.90531077145539,True,False,False,six_nations_2026_r1,p3_robust_native,,,,,,,,,
+66,Danilo Fischetti,Italy,Prop,1,0.0,P,19.0,14.18074773917408,7.09037386958704,True,False,False,six_nations_2026_r1,p3_robust_native,,,,,,,,,
+68,Kyle Steyn,Scotland,Back Three,1,0.0,P,12.0,22.494038676743852,11.247019338371926,True,False,False,six_nations_2026_r1,p3_robust_native,,,,,,,,,
+73,Ewan Ashman,Scotland,Hooker,1,0.0,P,14.0,23.40801912873489,11.704009564367444,True,False,False,six_nations_2026_r1,p3_robust_native,,,,,,,,,
+106,Ben Earl,England,Loose Forward,1,0.0,P,50.0,28.504472521247628,14.252236260623814,True,False,False,six_nations_2026_r1,p3_robust_native,,,,,,,,,
+119,Alex Coles,England,Lock,1,0.0,P,22.0,22.672738148262013,11.336369074131007,True,False,False,six_nations_2026_r1,p3_robust_native,,,,,,,,,
+123,Tommy Freeman,England,Centre,1,0.0,P,50.0,29.085662041511775,14.542831020755887,True,False,False,six_nations_2026_r1,p3_robust_native,,,,,,,,,
+125,Archie Griffin,Wales,Prop,1,0.0,P,14.0,15.398438053440875,7.699219026720438,True,False,False,six_nations_2026_r1,p3_robust_native,,,,,,,,,
+128,Dafydd Jenkins,Wales,Lock,1,0.0,P,14.0,21.78728465730672,10.89364232865336,True,False,False,six_nations_2026_r1,p3_robust_native,,,,,,,,,
+135,Henry Pollock,England,Loose Forward,1,0.0,B,3.0,14.284279848357126,42.852839545071376,True,True,False,six_nations_2026_r1,p3_robust_native,,,,,,,,,
+11,Thomas Ramos,France,Back Three,1,0.0,P,46.0,33.77441272612409,16.887206363062045,True,False,True,six_nations_2026_r1,equal_incumbent,,,,,,,,,
+15,Antoine Dupont,France,Scrum Half,1,0.0,P,30.0,30.038370212256265,15.019185106128132,True,False,False,six_nations_2026_r1,equal_incumbent,,,,,,,,,
+23,Caelan Doris,Ireland,Loose Forward,1,0.0,P,34.0,25.94260665281599,12.971303326407995,True,False,False,six_nations_2026_r1,equal_incumbent,,,,,,,,,
+27,Matthieu Jalibert,France,Fly Half,1,0.0,P,52.0,28.72954157820072,14.36477078910036,True,False,False,six_nations_2026_r1,equal_incumbent,,,,,,,,,
+39,Louis Bielle-Biarrey,France,Back Three,1,0.0,P,51.0,26.75406380941898,13.37703190470949,True,False,False,six_nations_2026_r1,equal_incumbent,,,,,,,,,
+55,Pierre Schoeman,Scotland,Prop,1,0.0,P,10.0,13.987508299225464,6.993754149612732,True,False,False,six_nations_2026_r1,equal_incumbent,,,,,,,,,
+59,Huw Jones,Scotland,Centre,1,0.0,P,7.0,22.429382643098396,11.214691321549198,True,False,False,six_nations_2026_r1,equal_incumbent,,,,,,,,,
+66,Danilo Fischetti,Italy,Prop,1,0.0,P,19.0,14.83147299109279,7.415736495546395,True,False,False,six_nations_2026_r1,equal_incumbent,,,,,,,,,
+68,Kyle Steyn,Scotland,Back Three,1,0.0,P,12.0,23.81647989134877,11.908239945674385,True,False,False,six_nations_2026_r1,equal_incumbent,,,,,,,,,
+73,Ewan Ashman,Scotland,Hooker,1,0.0,P,14.0,20.06043721643635,10.030218608218174,True,False,False,six_nations_2026_r1,equal_incumbent,,,,,,,,,
+81,Lorenzo Cannone,Italy,Loose Forward,1,0.0,P,44.0,26.79141718777524,13.39570859388762,True,False,False,six_nations_2026_r1,equal_incumbent,,,,,,,,,
+106,Ben Earl,England,Loose Forward,1,0.0,P,50.0,28.576137239473944,14.288068619736972,True,False,False,six_nations_2026_r1,equal_incumbent,,,,,,,,,
+119,Alex Coles,England,Lock,1,0.0,P,22.0,22.399044149749244,11.199522074874622,True,False,False,six_nations_2026_r1,equal_incumbent,,,,,,,,,
+123,Tommy Freeman,England,Centre,1,0.0,P,50.0,29.90300655162479,14.951503275812396,True,False,False,six_nations_2026_r1,equal_incumbent,,,,,,,,,
+128,Dafydd Jenkins,Wales,Lock,1,0.0,P,14.0,20.315877189074754,10.157938594537377,True,False,False,six_nations_2026_r1,equal_incumbent,,,,,,,,,
+135,Henry Pollock,England,Loose Forward,1,0.0,B,3.0,14.76257316128946,44.28771948386838,True,True,False,six_nations_2026_r1,equal_incumbent,,,,,,,,,
+6,Simone Ferrari,Italy,Prop,1,0.0,P,14.0,18.56056558855241,9.280282794276205,True,False,False,six_nations_2026_r2,incumbent,,,,,,,,,
+33,Lorenzo Cannone,Italy,Loose Forward,1,0.0,P,28.0,29.62977650980984,14.81488825490492,True,False,False,six_nations_2026_r2,incumbent,,,,,,,,,
+36,Tommaso Menoncello,Italy,Centre,1,0.0,P,24.0,26.259174675658983,13.129587337829491,True,False,False,six_nations_2026_r2,incumbent,,,,,,,,,
+37,Giacomo Nicotera,Italy,Hooker,1,0.0,P,31.0,19.602054003154315,9.801027001577157,True,False,False,six_nations_2026_r2,incumbent,,,,,,,,,
+53,Jack Dempsey,Scotland,Loose Forward,1,0.0,P,16.0,24.37217520881827,12.186087604409135,True,False,False,six_nations_2026_r2,incumbent,,,,,,,,,
+57,Zander Fagerson,Scotland,Prop,1,0.0,P,8.0,13.748449878783337,6.874224939391668,True,False,False,six_nations_2026_r2,incumbent,,,,,,,,,
+65,Ben Earl,England,Loose Forward,1,0.0,P,40.0,32.387792960177485,16.193896480088743,True,False,False,six_nations_2026_r2,incumbent,,,,,,,,,
+71,Kyle Steyn,Scotland,Back Three,1,0.0,P,44.0,20.41721031905998,10.20860515952999,True,False,False,six_nations_2026_r2,incumbent,,,,,,,,,
+81,Tommy Freeman,England,Centre,1,0.0,P,8.0,29.230315431553404,14.615157715776702,True,False,False,six_nations_2026_r2,incumbent,,,,,,,,,
+90,Henry Pollock,England,Loose Forward,1,0.0,B,22.0,15.711740974880517,47.13522292464155,True,True,False,six_nations_2026_r2,incumbent,,,,,,,,,
+92,George Ford,England,Fly Half,1,0.0,P,29.0,28.700221109312142,14.350110554656071,True,False,False,six_nations_2026_r2,incumbent,,,,,,,,,
+102,Thomas Ramos,France,Back Three,1,0.0,P,48.0,41.91479811811004,20.95739905905502,True,False,True,six_nations_2026_r2,incumbent,,,,,,,,,
+107,Antoine Dupont,France,Scrum Half,1,0.0,P,33.0,33.74882822984806,16.87441411492403,True,False,False,six_nations_2026_r2,incumbent,,,,,,,,,
+122,Mickael Guillard,France,Lock,1,0.0,P,31.0,29.15218869681684,14.57609434840842,True,False,False,six_nations_2026_r2,incumbent,,,,,,,,,
+127,Louis Bielle-Biarrey,France,Back Three,1,0.0,P,39.0,33.67318984702468,16.83659492351234,True,False,False,six_nations_2026_r2,incumbent,,,,,,,,,
+129,Dafydd Jenkins,Wales,Lock,1,0.0,P,21.0,20.188381668429663,10.094190834214832,True,False,False,six_nations_2026_r2,incumbent,,,,,,,,,
+17,Caelan Doris,Ireland,Loose Forward,1,0.0,P,38.0,28.81912589892417,14.409562949462085,True,False,False,six_nations_2026_r2,empirical_baseline,,,,,,,,,
+19,Danilo Fischetti,Italy,Prop,1,0.0,P,12.0,14.266390817081753,7.133195408540876,True,False,False,six_nations_2026_r2,empirical_baseline,,,,,,,,,
+22,Dan Sheehan,Ireland,Hooker,1,0.0,P,4.0,28.03514094316465,14.017570471582324,True,False,False,six_nations_2026_r2,empirical_baseline,,,,,,,,,
+23,Robert Baloucoune,Ireland,Back Three,1,0.0,P,45.0,29.0178992857558,14.5089496428779,True,False,False,six_nations_2026_r2,empirical_baseline,,,,,,,,,
+36,Tommaso Menoncello,Italy,Centre,1,0.0,P,24.0,22.314079205925747,11.157039602962874,True,False,False,six_nations_2026_r2,empirical_baseline,,,,,,,,,
+52,Maro Itoje,England,Lock,1,0.0,P,11.0,18.630920920964662,9.315460460482331,True,False,False,six_nations_2026_r2,empirical_baseline,,,,,,,,,
+57,Zander Fagerson,Scotland,Prop,1,0.0,P,8.0,14.201075842791935,7.100537921395968,True,False,False,six_nations_2026_r2,empirical_baseline,,,,,,,,,
+65,Ben Earl,England,Loose Forward,1,0.0,P,40.0,28.77470096806782,14.38735048403391,True,False,False,six_nations_2026_r2,empirical_baseline,,,,,,,,,
+81,Tommy Freeman,England,Centre,1,0.0,P,8.0,29.1408474247678,14.5704237123839,True,False,False,six_nations_2026_r2,empirical_baseline,,,,,,,,,
+90,Henry Pollock,England,Loose Forward,1,0.0,B,22.0,12.735281455257187,38.20584436577156,True,True,False,six_nations_2026_r2,empirical_baseline,,,,,,,,,
+102,Thomas Ramos,France,Back Three,1,0.0,P,48.0,41.603545887272105,20.801772943636053,True,False,True,six_nations_2026_r2,empirical_baseline,,,,,,,,,
+103,Olly Cracknell,Wales,Loose Forward,1,0.0,P,15.0,26.94809782101161,13.474048910505806,True,False,False,six_nations_2026_r2,empirical_baseline,,,,,,,,,
+107,Antoine Dupont,France,Scrum Half,1,0.0,P,33.0,38.520659937922325,19.260329968961162,True,False,False,six_nations_2026_r2,empirical_baseline,,,,,,,,,
+113,Matthieu Jalibert,France,Fly Half,1,0.0,P,87.0,37.89990336315616,18.94995168157808,True,False,False,six_nations_2026_r2,empirical_baseline,,,,,,,,,
+127,Louis Bielle-Biarrey,France,Back Three,1,0.0,P,39.0,34.84962502488073,17.424812512440365,True,False,False,six_nations_2026_r2,empirical_baseline,,,,,,,,,
+129,Dafydd Jenkins,Wales,Lock,1,0.0,P,21.0,22.779305057776075,11.389652528888037,True,False,False,six_nations_2026_r2,empirical_baseline,,,,,,,,,
+4,James Lowe,Ireland,Back Three,1,0.0,P,47.0,26.65873561050965,13.329367805254824,True,False,False,six_nations_2026_r2,p3_robust_native,,,,,,,,,
+9,Stuart McCloskey,Ireland,Centre,1,0.0,P,40.0,21.46333443272802,10.73166721636401,True,False,False,six_nations_2026_r2,p3_robust_native,,,,,,,,,
+17,Caelan Doris,Ireland,Loose Forward,1,0.0,P,38.0,30.18689567393577,15.093447836967885,True,False,False,six_nations_2026_r2,p3_robust_native,,,,,,,,,
+19,Danilo Fischetti,Italy,Prop,1,0.0,P,12.0,15.764111713529958,7.882055856764979,True,False,False,six_nations_2026_r2,p3_robust_native,,,,,,,,,
+22,Dan Sheehan,Ireland,Hooker,1,0.0,P,4.0,27.276578219653988,13.638289109826994,True,False,False,six_nations_2026_r2,p3_robust_native,,,,,,,,,
+30,Andrea Zambonin,Italy,Lock,1,0.0,P,16.0,19.695566237324098,9.847783118662049,True,False,False,six_nations_2026_r2,p3_robust_native,,,,,,,,,
+33,Lorenzo Cannone,Italy,Loose Forward,1,0.0,P,28.0,25.04565635865169,12.522828179325845,True,False,False,six_nations_2026_r2,p3_robust_native,,,,,,,,,
+60,Ellis Genge,England,Prop,1,0.0,P,4.0,16.34348478245439,8.171742391227195,True,False,False,six_nations_2026_r2,p3_robust_native,,,,,,,,,
+65,Ben Earl,England,Loose Forward,1,0.0,P,40.0,30.05918420643622,15.02959210321811,True,False,False,six_nations_2026_r2,p3_robust_native,,,,,,,,,
+81,Tommy Freeman,England,Centre,1,0.0,P,8.0,28.0606938170514,14.0303469085257,True,False,False,six_nations_2026_r2,p3_robust_native,,,,,,,,,
+90,Henry Pollock,England,Loose Forward,1,0.0,B,22.0,12.791145542399851,38.37343662719955,True,True,False,six_nations_2026_r2,p3_robust_native,,,,,,,,,
+102,Thomas Ramos,France,Back Three,1,0.0,P,48.0,40.04291326385904,20.02145663192952,True,False,False,six_nations_2026_r2,p3_robust_native,,,,,,,,,
+107,Antoine Dupont,France,Scrum Half,1,0.0,P,33.0,44.81859578615926,22.40929789307963,True,False,True,six_nations_2026_r2,p3_robust_native,,,,,,,,,
+113,Matthieu Jalibert,France,Fly Half,1,0.0,P,87.0,40.02858979235278,20.01429489617639,True,False,False,six_nations_2026_r2,p3_robust_native,,,,,,,,,
+127,Louis Bielle-Biarrey,France,Back Three,1,0.0,P,39.0,34.844809820628825,17.422404910314413,True,False,False,six_nations_2026_r2,p3_robust_native,,,,,,,,,
+129,Dafydd Jenkins,Wales,Lock,1,0.0,P,21.0,23.222595766528983,11.611297883264491,True,False,False,six_nations_2026_r2,p3_robust_native,,,,,,,,,
+4,James Lowe,Ireland,Back Three,1,0.0,P,47.0,21.49422187026896,10.74711093513448,True,False,False,six_nations_2026_r2,equal_incumbent,,,,,,,,,
+6,Simone Ferrari,Italy,Prop,1,0.0,P,14.0,16.642245343114457,8.321122671557228,True,False,False,six_nations_2026_r2,equal_incumbent,,,,,,,,,
+17,Caelan Doris,Ireland,Loose Forward,1,0.0,P,38.0,26.630516986986954,13.315258493493477,True,False,False,six_nations_2026_r2,equal_incumbent,,,,,,,,,
+19,Danilo Fischetti,Italy,Prop,1,0.0,P,12.0,15.245494604159555,7.622747302079778,True,False,False,six_nations_2026_r2,equal_incumbent,,,,,,,,,
+22,Dan Sheehan,Ireland,Hooker,1,0.0,P,4.0,22.638118642242723,11.319059321121362,True,False,False,six_nations_2026_r2,equal_incumbent,,,,,,,,,
+33,Lorenzo Cannone,Italy,Loose Forward,1,0.0,P,28.0,27.337716434230764,13.668858217115382,True,False,False,six_nations_2026_r2,equal_incumbent,,,,,,,,,
+36,Tommaso Menoncello,Italy,Centre,1,0.0,P,24.0,22.77635139704034,11.38817569852017,True,False,False,six_nations_2026_r2,equal_incumbent,,,,,,,,,
+65,Ben Earl,England,Loose Forward,1,0.0,P,40.0,31.223488583306853,15.611744291653427,True,False,False,six_nations_2026_r2,equal_incumbent,,,,,,,,,
+81,Tommy Freeman,England,Centre,1,0.0,P,8.0,28.645504624302404,14.322752312151202,True,False,False,six_nations_2026_r2,equal_incumbent,,,,,,,,,
+83,Ollie Chessum,England,Lock,1,0.0,P,16.0,22.344219102366004,11.172109551183002,True,False,False,six_nations_2026_r2,equal_incumbent,,,,,,,,,
+90,Henry Pollock,England,Loose Forward,1,0.0,B,22.0,14.251443258640183,42.75432977592055,True,True,False,six_nations_2026_r2,equal_incumbent,,,,,,,,,
+102,Thomas Ramos,France,Back Three,1,0.0,P,48.0,40.97885569098454,20.48942784549227,True,False,True,six_nations_2026_r2,equal_incumbent,,,,,,,,,
+107,Antoine Dupont,France,Scrum Half,1,0.0,P,33.0,39.28371200800366,19.64185600400183,True,False,False,six_nations_2026_r2,equal_incumbent,,,,,,,,,
+113,Matthieu Jalibert,France,Fly Half,1,0.0,P,87.0,35.80275910918309,17.901379554591546,True,False,False,six_nations_2026_r2,equal_incumbent,,,,,,,,,
+127,Louis Bielle-Biarrey,France,Back Three,1,0.0,P,39.0,34.25899983382675,17.129499916913375,True,False,False,six_nations_2026_r2,equal_incumbent,,,,,,,,,
+129,Dafydd Jenkins,Wales,Lock,1,0.0,P,21.0,21.705488717479323,10.852744358739661,True,False,False,six_nations_2026_r2,equal_incumbent,,,,,,,,,
+12,Ellis Genge,England,Prop,1,0.0,P,13.0,15.63484878981351,7.817424394906755,True,False,False,six_nations_2026_r3,incumbent,,,,,,,,,
+25,Marcus Smith,England,Fly Half,1,0.0,B,18.0,13.46529975604841,40.39589926814523,True,True,False,six_nations_2026_r3,incumbent,,,,,,,,,
+37,Tommy Freeman,England,Back Three,1,0.0,P,18.0,27.1369978993824,13.5684989496912,True,False,False,six_nations_2026_r3,incumbent,,,,,,,,,
+44,Henry Pollock,England,Loose Forward,1,0.0,P,26.0,32.658078960904874,16.329039480452437,True,False,False,six_nations_2026_r3,incumbent,,,,,,,,,
+72,Kyle Steyn,Scotland,Back Three,1,0.0,P,36.0,25.999511107475765,12.999755553737883,True,False,False,six_nations_2026_r3,incumbent,,,,,,,,,
+73,Aaron Wainwright,Wales,Loose Forward,1,0.0,P,29.0,27.19842341728671,13.599211708643354,True,False,False,six_nations_2026_r3,incumbent,,,,,,,,,
+84,Ben Carter,Wales,Lock,1,0.0,P,27.0,21.28433808360233,10.642169041801164,True,False,False,six_nations_2026_r3,incumbent,,,,,,,,,
+89,Dafydd Jenkins,Wales,Lock,1,0.0,P,24.0,25.35389952925929,12.676949764629645,True,False,False,six_nations_2026_r3,incumbent,,,,,,,,,
+94,Simone Ferrari,Italy,Prop,1,0.0,P,4.0,18.173977999569544,9.086988999784772,True,False,False,six_nations_2026_r3,incumbent,,,,,,,,,
+99,Thomas Ramos,France,Fly Half,1,0.0,P,56.0,37.771363947570464,18.885681973785232,True,False,True,six_nations_2026_r3,incumbent,,,,,,,,,
+103,Antoine Dupont,France,Scrum Half,1,0.0,P,41.0,30.78391588663384,15.39195794331692,True,False,False,six_nations_2026_r3,incumbent,,,,,,,,,
+125,Lorenzo Cannone,Italy,Loose Forward,1,0.0,P,25.0,27.683909622902057,13.841954811451028,True,False,False,six_nations_2026_r3,incumbent,,,,,,,,,
+126,Tommaso Menoncello,Italy,Centre,1,0.0,P,28.0,24.87584339599489,12.437921697997446,True,False,False,six_nations_2026_r3,incumbent,,,,,,,,,
+127,Giacomo Nicotera,Italy,Hooker,1,0.0,P,7.0,19.586196987809853,9.793098493904926,True,False,False,six_nations_2026_r3,incumbent,,,,,,,,,
+137,Theo Attissogbe,France,Back Three,1,0.0,P,20.0,33.01865528278584,16.50932764139292,True,False,False,six_nations_2026_r3,incumbent,,,,,,,,,
+138,Fabien Brau-Boirie,France,Centre,1,0.0,P,22.0,30.89864724473426,15.44932362236713,True,False,False,six_nations_2026_r3,incumbent,,,,,,,,,
+13,Jeremy Loughman,Ireland,Prop,1,0.0,P,8.0,13.576456663180764,6.788228331590382,True,False,False,six_nations_2026_r3,empirical_baseline,,,,,,,,,
+16,Ben Earl,England,Loose Forward,1,0.0,P,12.0,28.839673923829395,14.419836961914697,True,False,False,six_nations_2026_r3,empirical_baseline,,,,,,,,,
+20,Caelan Doris,Ireland,Loose Forward,1,0.0,P,38.0,27.80859928105164,13.90429964052582,True,False,False,six_nations_2026_r3,empirical_baseline,,,,,,,,,
+25,Marcus Smith,England,Fly Half,1,0.0,B,18.0,10.484855426933828,31.454566280801487,True,True,False,six_nations_2026_r3,empirical_baseline,,,,,,,,,
+29,Dan Sheehan,Ireland,Hooker,1,0.0,P,43.0,23.156698087425237,11.578349043712619,True,False,False,six_nations_2026_r3,empirical_baseline,,,,,,,,,
+37,Tommy Freeman,England,Back Three,1,0.0,P,18.0,27.344592486169155,13.672296243084578,True,False,False,six_nations_2026_r3,empirical_baseline,,,,,,,,,
+44,Henry Pollock,England,Loose Forward,1,0.0,P,26.0,38.14077469052206,19.07038734526103,True,False,False,six_nations_2026_r3,empirical_baseline,,,,,,,,,
+58,Duhan van der Merwe,Scotland,Back Three,1,0.0,P,5.0,31.11278093305955,15.556390466529775,True,False,False,six_nations_2026_r3,empirical_baseline,,,,,,,,,
+62,Huw Jones,Scotland,Centre,1,0.0,P,14.0,25.27504816576865,12.637524082884324,True,False,False,six_nations_2026_r3,empirical_baseline,,,,,,,,,
+89,Dafydd Jenkins,Wales,Lock,1,0.0,P,24.0,20.401744936771458,10.200872468385729,True,False,False,six_nations_2026_r3,empirical_baseline,,,,,,,,,
+99,Thomas Ramos,France,Fly Half,1,0.0,P,56.0,42.32437427984639,21.162187139923194,True,False,True,six_nations_2026_r3,empirical_baseline,,,,,,,,,
+103,Antoine Dupont,France,Scrum Half,1,0.0,P,41.0,38.34024448371154,19.17012224185577,True,False,False,six_nations_2026_r3,empirical_baseline,,,,,,,,,
+110,Danilo Fischetti,Italy,Prop,1,0.0,P,6.0,14.544461571727616,7.272230785863808,True,False,False,six_nations_2026_r3,empirical_baseline,,,,,,,,,
+113,Niccolo Cannone,Italy,Lock,1,0.0,P,10.0,17.847121702243964,8.923560851121982,True,False,False,six_nations_2026_r3,empirical_baseline,,,,,,,,,
+128,Louis Bielle-Biarrey,France,Back Three,1,0.0,P,27.0,35.50779048391824,17.75389524195912,True,False,False,six_nations_2026_r3,empirical_baseline,,,,,,,,,
+138,Fabien Brau-Boirie,France,Centre,1,0.0,P,22.0,32.28362183538266,16.14181091769133,True,False,False,six_nations_2026_r3,empirical_baseline,,,,,,,,,
+12,Ellis Genge,England,Prop,1,0.0,P,13.0,15.229228872839556,7.614614436419778,True,False,False,six_nations_2026_r3,p3_robust_native,,,,,,,,,
+16,Ben Earl,England,Loose Forward,1,0.0,P,12.0,30.459428889205675,15.229714444602838,True,False,False,six_nations_2026_r3,p3_robust_native,,,,,,,,,
+20,Caelan Doris,Ireland,Loose Forward,1,0.0,P,38.0,28.605994741281805,14.302997370640902,True,False,False,six_nations_2026_r3,p3_robust_native,,,,,,,,,
+29,Dan Sheehan,Ireland,Hooker,1,0.0,P,43.0,22.250339932214303,11.125169966107151,True,False,False,six_nations_2026_r3,p3_robust_native,,,,,,,,,
+39,Ollie Chessum,England,Lock,1,0.0,P,14.0,19.859506614053828,9.929753307026914,True,False,False,six_nations_2026_r3,p3_robust_native,,,,,,,,,
+44,Henry Pollock,England,Loose Forward,1,0.0,P,26.0,36.67623404777684,18.33811702388842,True,False,False,six_nations_2026_r3,p3_robust_native,,,,,,,,,
+58,Duhan van der Merwe,Scotland,Back Three,1,0.0,P,5.0,30.69259841060472,15.34629920530236,True,False,False,six_nations_2026_r3,p3_robust_native,,,,,,,,,
+62,Huw Jones,Scotland,Centre,1,0.0,P,14.0,24.31519029646056,12.15759514823028,True,False,False,six_nations_2026_r3,p3_robust_native,,,,,,,,,
+72,Kyle Steyn,Scotland,Back Three,1,0.0,P,36.0,26.74546972216282,13.37273486108141,True,False,False,six_nations_2026_r3,p3_robust_native,,,,,,,,,
+83,Archie Griffin,Wales,Prop,1,0.0,B,10.0,9.320491585722603,27.96147475716781,True,True,False,six_nations_2026_r3,p3_robust_native,,,,,,,,,
+89,Dafydd Jenkins,Wales,Lock,1,0.0,P,24.0,23.699375670675742,11.849687835337871,True,False,False,six_nations_2026_r3,p3_robust_native,,,,,,,,,
+99,Thomas Ramos,France,Fly Half,1,0.0,P,56.0,42.91115751534054,21.45557875767027,True,False,True,six_nations_2026_r3,p3_robust_native,,,,,,,,,
+103,Antoine Dupont,France,Scrum Half,1,0.0,P,41.0,42.57123576876407,21.285617884382035,True,False,False,six_nations_2026_r3,p3_robust_native,,,,,,,,,
+110,Danilo Fischetti,Italy,Prop,1,0.0,P,6.0,14.378772501085262,7.189386250542631,True,False,False,six_nations_2026_r3,p3_robust_native,,,,,,,,,
+128,Louis Bielle-Biarrey,France,Back Three,1,0.0,P,27.0,36.063026425590266,18.031513212795133,True,False,False,six_nations_2026_r3,p3_robust_native,,,,,,,,,
+138,Fabien Brau-Boirie,France,Centre,1,0.0,P,22.0,31.359083790091567,15.679541895045784,True,False,False,six_nations_2026_r3,p3_robust_native,,,,,,,,,
+12,Ellis Genge,England,Prop,1,0.0,P,13.0,15.432038831326532,7.716019415663266,True,False,False,six_nations_2026_r3,equal_incumbent,,,,,,,,,
+16,Ben Earl,England,Loose Forward,1,0.0,P,12.0,28.423986988480777,14.211993494240389,True,False,False,six_nations_2026_r3,equal_incumbent,,,,,,,,,
+20,Caelan Doris,Ireland,Loose Forward,1,0.0,P,38.0,26.0032274784022,13.0016137392011,True,False,False,six_nations_2026_r3,equal_incumbent,,,,,,,,,
+25,Marcus Smith,England,Fly Half,1,0.0,B,18.0,11.545823922780574,34.637471768341726,True,True,False,six_nations_2026_r3,equal_incumbent,,,,,,,,,
+44,Henry Pollock,England,Loose Forward,1,0.0,P,26.0,34.66715650434085,17.333578252170426,True,False,False,six_nations_2026_r3,equal_incumbent,,,,,,,,,
+58,Duhan van der Merwe,Scotland,Back Three,1,0.0,P,5.0,26.23997231221577,13.119986156107885,True,False,False,six_nations_2026_r3,equal_incumbent,,,,,,,,,
+72,Kyle Steyn,Scotland,Back Three,1,0.0,P,36.0,26.372490414819293,13.186245207409646,True,False,False,six_nations_2026_r3,equal_incumbent,,,,,,,,,
+75,Dewi Lake,Wales,Hooker,1,0.0,P,19.0,20.287154475457637,10.143577237728818,True,False,False,six_nations_2026_r3,equal_incumbent,,,,,,,,,
+84,Ben Carter,Wales,Lock,1,0.0,P,27.0,19.91947575667873,9.959737878339364,True,False,False,six_nations_2026_r3,equal_incumbent,,,,,,,,,
+89,Dafydd Jenkins,Wales,Lock,1,0.0,P,24.0,24.52663759996752,12.26331879998376,True,False,False,six_nations_2026_r3,equal_incumbent,,,,,,,,,
+94,Simone Ferrari,Italy,Prop,1,0.0,P,4.0,15.735746522653116,7.867873261326558,True,False,False,six_nations_2026_r3,equal_incumbent,,,,,,,,,
+99,Thomas Ramos,France,Fly Half,1,0.0,P,56.0,40.34126073145551,20.170630365727757,True,False,True,six_nations_2026_r3,equal_incumbent,,,,,,,,,
+103,Antoine Dupont,France,Scrum Half,1,0.0,P,41.0,36.67757582769895,18.338787913849476,True,False,False,six_nations_2026_r3,equal_incumbent,,,,,,,,,
+126,Tommaso Menoncello,Italy,Centre,1,0.0,P,28.0,21.714952960865297,10.857476480432648,True,False,False,six_nations_2026_r3,equal_incumbent,,,,,,,,,
+128,Louis Bielle-Biarrey,France,Back Three,1,0.0,P,27.0,33.49554011917151,16.747770059585754,True,False,False,six_nations_2026_r3,equal_incumbent,,,,,,,,,
+138,Fabien Brau-Boirie,France,Centre,1,0.0,P,22.0,31.128865517412912,15.564432758706456,True,False,False,six_nations_2026_r3,equal_incumbent,,,,,,,,,
+17,Jacob Stockdale,Ireland,Back Three,1,0.0,P,30.0,25.382298862163413,12.691149431081707,True,False,False,six_nations_2026_r4,incumbent,,,,,,,,,
+21,Ronan Kelleher,Ireland,Hooker,1,0.0,P,35.0,20.43035885691013,10.215179428455064,True,False,False,six_nations_2026_r4,incumbent,,,,,,,,,
+23,Caelan Doris,Ireland,Loose Forward,1,0.0,P,30.0,29.517119428506632,14.758559714253316,True,False,False,six_nations_2026_r4,incumbent,,,,,,,,,
+30,Robert Baloucoune,Ireland,Back Three,1,0.0,P,16.0,29.20489306123332,14.60244653061666,True,False,False,six_nations_2026_r4,incumbent,,,,,,,,,
+41,Dafydd Jenkins,Wales,Lock,1,0.0,P,32.0,22.15182454499901,11.075912272499504,True,False,False,six_nations_2026_r4,incumbent,,,,,,,,,
+53,Charles Ollivon,France,Lock,1,0.0,P,12.0,23.22811512711197,11.614057563555985,True,False,False,six_nations_2026_r4,incumbent,,,,,,,,,
+57,Thomas Ramos,France,Back Three,1,0.0,P,45.0,36.98428805265751,18.492144026328756,True,False,True,six_nations_2026_r4,incumbent,,,,,,,,,
+63,Antoine Dupont,France,Scrum Half,1,0.0,P,21.0,27.561078687736742,13.780539343868371,True,False,False,six_nations_2026_r4,incumbent,,,,,,,,,
+90,Nicolas Depoortere,France,Centre,1,0.0,P,8.0,28.89517847606772,14.44758923803386,True,False,False,six_nations_2026_r4,incumbent,,,,,,,,,
+99,Simone Ferrari,Italy,Prop,1,0.0,P,8.0,19.650472913340508,9.825236456670254,True,False,False,six_nations_2026_r4,incumbent,,,,,,,,,
+104,Ben Earl,England,Loose Forward,1,0.0,P,26.0,28.798274462855808,14.399137231427904,True,False,False,six_nations_2026_r4,incumbent,,,,,,,,,
+107,Danilo Fischetti,Italy,Prop,1,0.0,P,15.0,14.287933139508064,7.143966569754032,True,False,False,six_nations_2026_r4,incumbent,,,,,,,,,
+119,Tommy Freeman,England,Centre,1,0.0,P,21.0,26.557904177130013,13.278952088565006,True,False,False,six_nations_2026_r4,incumbent,,,,,,,,,
+124,Lorenzo Cannone,Italy,Loose Forward,1,0.0,P,32.0,26.91678381128812,13.45839190564406,True,False,False,six_nations_2026_r4,incumbent,,,,,,,,,
+128,Fin Smith,England,Fly Half,1,0.0,P,19.0,30.537077103649963,15.268538551824982,True,False,False,six_nations_2026_r4,incumbent,,,,,,,,,
+137,Henry Pollock,England,Loose Forward,1,0.0,B,0.0,15.619018770813415,46.85705631244025,True,True,False,six_nations_2026_r4,incumbent,,,,,,,,,
+2,Jack Conan,Ireland,Loose Forward,1,0.0,P,68.0,26.065636585096858,13.032818292548429,True,False,False,six_nations_2026_r4,empirical_baseline,,,,,,,,,
+23,Caelan Doris,Ireland,Loose Forward,1,0.0,P,30.0,29.400029711647555,14.700014855823778,True,False,False,six_nations_2026_r4,empirical_baseline,,,,,,,,,
+29,Dewi Lake,Wales,Hooker,1,0.0,P,32.0,22.61563286798568,11.30781643399284,True,False,False,six_nations_2026_r4,empirical_baseline,,,,,,,,,
+30,Robert Baloucoune,Ireland,Back Three,1,0.0,P,16.0,32.45043619067074,16.22521809533537,True,False,False,six_nations_2026_r4,empirical_baseline,,,,,,,,,
+41,Dafydd Jenkins,Wales,Lock,1,0.0,P,32.0,23.395749949811403,11.697874974905702,True,False,False,six_nations_2026_r4,empirical_baseline,,,,,,,,,
+57,Thomas Ramos,France,Back Three,1,0.0,P,45.0,37.06519955981501,18.532599779907503,True,False,True,six_nations_2026_r4,empirical_baseline,,,,,,,,,
+58,Pierre Schoeman,Scotland,Prop,1,0.0,P,24.0,16.220000911418133,8.110000455709066,True,False,False,six_nations_2026_r4,empirical_baseline,,,,,,,,,
+63,Antoine Dupont,France,Scrum Half,1,0.0,P,21.0,34.38740888083195,17.193704440415974,True,False,False,six_nations_2026_r4,empirical_baseline,,,,,,,,,
+76,Matthieu Jalibert,France,Fly Half,1,0.0,P,14.0,35.41026728171635,17.705133640858175,True,False,False,six_nations_2026_r4,empirical_baseline,,,,,,,,,
+86,Louis Bielle-Biarrey,France,Back Three,1,0.0,P,49.0,31.20909463347548,15.60454731673774,True,False,False,six_nations_2026_r4,empirical_baseline,,,,,,,,,
+104,Ben Earl,England,Loose Forward,1,0.0,P,26.0,28.07944023707437,14.039720118537184,True,False,False,six_nations_2026_r4,empirical_baseline,,,,,,,,,
+107,Danilo Fischetti,Italy,Prop,1,0.0,P,15.0,12.992713538360691,6.496356769180346,True,False,False,six_nations_2026_r4,empirical_baseline,,,,,,,,,
+114,Alex Coles,England,Lock,1,0.0,P,24.0,19.98502480223117,9.992512401115585,True,False,False,six_nations_2026_r4,empirical_baseline,,,,,,,,,
+119,Tommy Freeman,England,Centre,1,0.0,P,21.0,26.693492435998746,13.346746217999373,True,False,False,six_nations_2026_r4,empirical_baseline,,,,,,,,,
+126,Tommaso Menoncello,Italy,Centre,1,0.0,P,54.0,22.983067865258377,11.491533932629189,True,False,False,six_nations_2026_r4,empirical_baseline,,,,,,,,,
+137,Henry Pollock,England,Loose Forward,1,0.0,B,0.0,11.898168339652024,35.69450501895607,True,True,False,six_nations_2026_r4,empirical_baseline,,,,,,,,,
+13,Stuart McCloskey,Ireland,Centre,1,0.0,P,32.0,23.36285001772884,11.68142500886442,True,False,False,six_nations_2026_r4,p3_robust_native,,,,,,,,,
+18,Nick Timoney,Ireland,Loose Forward,1,0.0,P,19.0,26.43205087333723,13.216025436668614,True,False,False,six_nations_2026_r4,p3_robust_native,,,,,,,,,
+23,Caelan Doris,Ireland,Loose Forward,1,0.0,P,30.0,31.13380935274632,15.56690467637316,True,False,False,six_nations_2026_r4,p3_robust_native,,,,,,,,,
+29,Dewi Lake,Wales,Hooker,1,0.0,P,32.0,21.62501705689263,10.812508528446315,True,False,False,six_nations_2026_r4,p3_robust_native,,,,,,,,,
+30,Robert Baloucoune,Ireland,Back Three,1,0.0,P,16.0,30.525832730398577,15.262916365199288,True,False,False,six_nations_2026_r4,p3_robust_native,,,,,,,,,
+37,Ben Carter,Wales,Lock,1,0.0,P,24.0,20.164725441818216,10.082362720909108,True,False,False,six_nations_2026_r4,p3_robust_native,,,,,,,,,
+41,Dafydd Jenkins,Wales,Lock,1,0.0,P,32.0,24.234196473797795,12.117098236898897,True,False,False,six_nations_2026_r4,p3_robust_native,,,,,,,,,
+57,Thomas Ramos,France,Back Three,1,0.0,P,45.0,35.496567688541894,17.748283844270947,True,False,False,six_nations_2026_r4,p3_robust_native,,,,,,,,,
+58,Pierre Schoeman,Scotland,Prop,1,0.0,P,24.0,14.619393276785692,7.309696638392846,True,False,False,six_nations_2026_r4,p3_robust_native,,,,,,,,,
+63,Antoine Dupont,France,Scrum Half,1,0.0,P,21.0,38.21205314232735,19.106026571163675,True,False,False,six_nations_2026_r4,p3_robust_native,,,,,,,,,
+76,Matthieu Jalibert,France,Fly Half,1,0.0,P,14.0,41.104323619262416,20.552161809631208,True,False,True,six_nations_2026_r4,p3_robust_native,,,,,,,,,
+86,Louis Bielle-Biarrey,France,Back Three,1,0.0,P,49.0,30.902111308988736,15.451055654494368,True,False,False,six_nations_2026_r4,p3_robust_native,,,,,,,,,
+103,Ellis Genge,England,Prop,1,0.0,P,8.0,14.428347277192527,7.214173638596264,True,False,False,six_nations_2026_r4,p3_robust_native,,,,,,,,,
+104,Ben Earl,England,Loose Forward,1,0.0,P,26.0,28.119674610323383,14.059837305161691,True,False,False,six_nations_2026_r4,p3_robust_native,,,,,,,,,
+119,Tommy Freeman,England,Centre,1,0.0,P,21.0,25.43481990400472,12.71740995200236,True,False,False,six_nations_2026_r4,p3_robust_native,,,,,,,,,
+137,Henry Pollock,England,Loose Forward,1,0.0,B,0.0,12.485653246926391,37.456959740779176,True,True,False,six_nations_2026_r4,p3_robust_native,,,,,,,,,
+2,Jack Conan,Ireland,Loose Forward,1,0.0,P,68.0,26.055779179178245,13.027889589589122,True,False,False,six_nations_2026_r4,equal_incumbent,,,,,,,,,
+13,Stuart McCloskey,Ireland,Centre,1,0.0,P,32.0,23.497820988785,11.7489104943925,True,False,False,six_nations_2026_r4,equal_incumbent,,,,,,,,,
+23,Caelan Doris,Ireland,Loose Forward,1,0.0,P,30.0,30.325464390626475,15.162732195313238,True,False,False,six_nations_2026_r4,equal_incumbent,,,,,,,,,
+29,Dewi Lake,Wales,Hooker,1,0.0,P,32.0,19.784019101685285,9.892009550842642,True,False,False,six_nations_2026_r4,equal_incumbent,,,,,,,,,
+30,Robert Baloucoune,Ireland,Back Three,1,0.0,P,16.0,29.86536289581595,14.932681447907974,True,False,False,six_nations_2026_r4,equal_incumbent,,,,,,,,,
+37,Ben Carter,Wales,Lock,1,0.0,P,24.0,19.224718399425647,9.612359199712824,True,False,False,six_nations_2026_r4,equal_incumbent,,,,,,,,,
+41,Dafydd Jenkins,Wales,Lock,1,0.0,P,32.0,23.1930105093984,11.5965052546992,True,False,False,six_nations_2026_r4,equal_incumbent,,,,,,,,,
+57,Thomas Ramos,France,Back Three,1,0.0,P,45.0,36.2404278705997,18.12021393529985,True,False,True,six_nations_2026_r4,equal_incumbent,,,,,,,,,
+63,Antoine Dupont,France,Scrum Half,1,0.0,P,21.0,32.886565915032044,16.443282957516022,True,False,False,six_nations_2026_r4,equal_incumbent,,,,,,,,,
+76,Matthieu Jalibert,France,Fly Half,1,0.0,P,14.0,35.47061040312238,17.73530520156119,True,False,False,six_nations_2026_r4,equal_incumbent,,,,,,,,,
+86,Louis Bielle-Biarrey,France,Back Three,1,0.0,P,49.0,29.277174566611773,14.638587283305887,True,False,False,six_nations_2026_r4,equal_incumbent,,,,,,,,,
+99,Simone Ferrari,Italy,Prop,1,0.0,P,8.0,15.611750098651342,7.805875049325671,True,False,False,six_nations_2026_r4,equal_incumbent,,,,,,,,,
+103,Ellis Genge,England,Prop,1,0.0,P,8.0,15.045366225117755,7.522683112558878,True,False,False,six_nations_2026_r4,equal_incumbent,,,,,,,,,
+104,Ben Earl,England,Loose Forward,1,0.0,P,26.0,28.458974536589597,14.229487268294799,True,False,False,six_nations_2026_r4,equal_incumbent,,,,,,,,,
+119,Tommy Freeman,England,Centre,1,0.0,P,21.0,25.99636204056737,12.998181020283685,True,False,False,six_nations_2026_r4,equal_incumbent,,,,,,,,,
+137,Henry Pollock,England,Loose Forward,1,0.0,B,0.0,14.052336008869904,42.15700802660972,True,True,False,six_nations_2026_r4,equal_incumbent,,,,,,,,,
+7,Jack Conan,Ireland,Loose Forward,1,0.0,P,24.0,27.781569156854182,13.890784578427091,True,False,False,six_nations_2026_r5,incumbent,,,,,,,,,
+8,Tadhg Beirne,Ireland,Lock,1,0.0,P,35.0,20.33121860592521,10.165609302962604,True,False,False,six_nations_2026_r5,incumbent,,,,,,,,,
+17,Pierre Schoeman,Scotland,Prop,1,0.0,P,16.0,14.652192099116156,7.326096049558078,True,False,False,six_nations_2026_r5,incumbent,,,,,,,,,
+22,Blair Kinghorn,Scotland,Back Three,1,0.0,P,19.0,25.501857095198325,12.750928547599162,True,False,False,six_nations_2026_r5,incumbent,,,,,,,,,
+28,Caelan Doris,Ireland,Loose Forward,1,0.0,P,54.0,29.55665530692648,14.77832765346324,True,False,False,six_nations_2026_r5,incumbent,,,,,,,,,
+37,Dan Sheehan,Ireland,Hooker,1,0.0,P,43.0,18.70700779420252,9.35350389710126,True,False,False,six_nations_2026_r5,incumbent,,,,,,,,,
+81,Tommaso Menoncello,Italy,Centre,1,0.0,P,44.0,33.819796944151015,16.909898472075508,True,False,False,six_nations_2026_r5,incumbent,,,,,,,,,
+87,Dafydd Jenkins,Wales,Lock,1,0.0,P,15.0,20.78859879801608,10.39429939900804,True,False,False,six_nations_2026_r5,incumbent,,,,,,,,,
+102,Thomas Ramos,France,Back Three,1,0.0,P,30.0,36.59363973769796,18.29681986884898,True,False,True,six_nations_2026_r5,incumbent,,,,,,,,,
+105,Antoine Dupont,France,Scrum Half,1,0.0,P,30.0,25.875091081676924,12.937545540838462,True,False,False,six_nations_2026_r5,incumbent,,,,,,,,,
+106,Ellis Genge,England,Prop,1,0.0,P,20.0,14.455272511564724,7.227636255782362,True,False,False,six_nations_2026_r5,incumbent,,,,,,,,,
+107,Ben Earl,England,Loose Forward,1,0.0,P,13.0,27.43573343892438,13.71786671946219,True,False,False,six_nations_2026_r5,incumbent,,,,,,,,,
+109,Marcus Smith,England,Fly Half,1,0.0,B,21.0,13.482638054563218,40.44791416368965,True,True,False,six_nations_2026_r5,incumbent,,,,,,,,,
+112,Matthieu Jalibert,France,Fly Half,1,0.0,P,44.0,30.91102069920305,15.455510349601525,True,False,False,six_nations_2026_r5,incumbent,,,,,,,,,
+123,Tommy Freeman,England,Centre,1,0.0,P,33.0,22.82096694527437,11.410483472637186,True,False,False,six_nations_2026_r5,incumbent,,,,,,,,,
+129,Louis Bielle-Biarrey,France,Back Three,1,0.0,P,68.0,28.1815604479162,14.0907802239581,True,False,False,six_nations_2026_r5,incumbent,,,,,,,,,
+7,Jack Conan,Ireland,Loose Forward,1,0.0,P,24.0,26.864689055812104,13.432344527906052,True,False,False,six_nations_2026_r5,empirical_baseline,,,,,,,,,
+17,Pierre Schoeman,Scotland,Prop,1,0.0,P,16.0,16.82672639765212,8.41336319882606,True,False,False,six_nations_2026_r5,empirical_baseline,,,,,,,,,
+18,Zander Fagerson,Scotland,Prop,1,0.0,P,17.0,14.630579726516885,7.315289863258442,True,False,False,six_nations_2026_r5,empirical_baseline,,,,,,,,,
+28,Caelan Doris,Ireland,Loose Forward,1,0.0,P,54.0,28.78429939816813,14.392149699084065,True,False,False,six_nations_2026_r5,empirical_baseline,,,,,,,,,
+37,Dan Sheehan,Ireland,Hooker,1,0.0,P,43.0,27.151786923586048,13.575893461793024,True,False,False,six_nations_2026_r5,empirical_baseline,,,,,,,,,
+38,Robert Baloucoune,Ireland,Back Three,1,0.0,P,15.0,30.645075434147905,15.322537717073953,True,False,False,six_nations_2026_r5,empirical_baseline,,,,,,,,,
+81,Tommaso Menoncello,Italy,Centre,1,0.0,P,44.0,25.006579249451725,12.503289624725863,True,False,False,six_nations_2026_r5,empirical_baseline,,,,,,,,,
+87,Dafydd Jenkins,Wales,Lock,1,0.0,P,15.0,21.36122647796869,10.680613238984344,True,False,False,six_nations_2026_r5,empirical_baseline,,,,,,,,,
+102,Thomas Ramos,France,Back Three,1,0.0,P,30.0,39.31888229187905,19.659441145939525,True,False,True,six_nations_2026_r5,empirical_baseline,,,,,,,,,
+105,Antoine Dupont,France,Scrum Half,1,0.0,P,30.0,35.569767846562954,17.784883923281477,True,False,False,six_nations_2026_r5,empirical_baseline,,,,,,,,,
+107,Ben Earl,England,Loose Forward,1,0.0,P,13.0,26.70852901964209,13.354264509821045,True,False,False,six_nations_2026_r5,empirical_baseline,,,,,,,,,
+112,Matthieu Jalibert,France,Fly Half,1,0.0,P,44.0,36.636828301057896,18.318414150528948,True,False,False,six_nations_2026_r5,empirical_baseline,,,,,,,,,
+120,Alex Coles,England,Lock,1,0.0,P,24.0,20.603874398823216,10.301937199411608,True,False,False,six_nations_2026_r5,empirical_baseline,,,,,,,,,
+123,Tommy Freeman,England,Centre,1,0.0,P,33.0,22.852220474522404,11.426110237261202,True,False,False,six_nations_2026_r5,empirical_baseline,,,,,,,,,
+129,Louis Bielle-Biarrey,France,Back Three,1,0.0,P,68.0,33.24546378566512,16.62273189283256,True,False,False,six_nations_2026_r5,empirical_baseline,,,,,,,,,
+136,Henry Pollock,England,Loose Forward,1,0.0,B,8.0,10.05264933774867,30.157948013246013,True,True,False,six_nations_2026_r5,empirical_baseline,,,,,,,,,
+12,Jack Dempsey,Scotland,Loose Forward,1,0.0,P,16.0,27.93647582747717,13.968237913738585,True,False,False,six_nations_2026_r5,p3_robust_native,,,,,,,,,
+16,Stuart McCloskey,Ireland,Centre,1,0.0,P,36.0,22.989422054711,11.4947110273555,True,False,False,six_nations_2026_r5,p3_robust_native,,,,,,,,,
+17,Pierre Schoeman,Scotland,Prop,1,0.0,P,16.0,17.297429946881433,8.648714973440716,True,False,False,six_nations_2026_r5,p3_robust_native,,,,,,,,,
+18,Zander Fagerson,Scotland,Prop,1,0.0,P,17.0,14.877271224326837,7.438635612163418,True,False,False,six_nations_2026_r5,p3_robust_native,,,,,,,,,
+28,Caelan Doris,Ireland,Loose Forward,1,0.0,P,54.0,32.42929583494287,16.214647917471435,True,False,False,six_nations_2026_r5,p3_robust_native,,,,,,,,,
+36,Rory Darge,Scotland,Loose Forward,1,0.0,P,48.0,28.34053738609105,14.170268693045525,True,False,False,six_nations_2026_r5,p3_robust_native,,,,,,,,,
+37,Dan Sheehan,Ireland,Hooker,1,0.0,P,43.0,28.10127702051977,14.050638510259885,True,False,False,six_nations_2026_r5,p3_robust_native,,,,,,,,,
+38,Robert Baloucoune,Ireland,Back Three,1,0.0,P,15.0,28.89166231658332,14.44583115829166,True,False,False,six_nations_2026_r5,p3_robust_native,,,,,,,,,
+81,Tommaso Menoncello,Italy,Centre,1,0.0,P,44.0,24.89298546229492,12.44649273114746,True,False,False,six_nations_2026_r5,p3_robust_native,,,,,,,,,
+87,Dafydd Jenkins,Wales,Lock,1,0.0,P,15.0,20.94237840045886,10.47118920022943,True,False,False,six_nations_2026_r5,p3_robust_native,,,,,,,,,
+102,Thomas Ramos,France,Back Three,1,0.0,P,30.0,37.11935675999809,18.559678379999045,True,False,False,six_nations_2026_r5,p3_robust_native,,,,,,,,,
+105,Antoine Dupont,France,Scrum Half,1,0.0,P,30.0,37.46277030786213,18.731385153931065,True,False,False,six_nations_2026_r5,p3_robust_native,,,,,,,,,
+112,Matthieu Jalibert,France,Fly Half,1,0.0,P,44.0,38.68178549395098,19.34089274697549,True,False,True,six_nations_2026_r5,p3_robust_native,,,,,,,,,
+120,Alex Coles,England,Lock,1,0.0,P,24.0,22.01777357308752,11.00888678654376,True,False,False,six_nations_2026_r5,p3_robust_native,,,,,,,,,
+129,Louis Bielle-Biarrey,France,Back Three,1,0.0,P,68.0,34.01517252283518,17.00758626141759,True,False,False,six_nations_2026_r5,p3_robust_native,,,,,,,,,
+136,Henry Pollock,England,Loose Forward,1,0.0,B,8.0,10.22470736189566,30.67412208568698,True,True,False,six_nations_2026_r5,p3_robust_native,,,,,,,,,
+7,Jack Conan,Ireland,Loose Forward,1,0.0,P,24.0,28.57789472672081,14.288947363360405,True,False,False,six_nations_2026_r5,equal_incumbent,,,,,,,,,
+12,Jack Dempsey,Scotland,Loose Forward,1,0.0,P,16.0,27.047651442672677,13.523825721336339,True,False,False,six_nations_2026_r5,equal_incumbent,,,,,,,,,
+17,Pierre Schoeman,Scotland,Prop,1,0.0,P,16.0,15.974811022998797,7.987405511499398,True,False,False,six_nations_2026_r5,equal_incumbent,,,,,,,,,
+18,Zander Fagerson,Scotland,Prop,1,0.0,P,17.0,14.08076379493082,7.04038189746541,True,False,False,six_nations_2026_r5,equal_incumbent,,,,,,,,,
+28,Caelan Doris,Ireland,Loose Forward,1,0.0,P,54.0,30.992975570934675,15.496487785467338,True,False,False,six_nations_2026_r5,equal_incumbent,,,,,,,,,
+37,Dan Sheehan,Ireland,Hooker,1,0.0,P,43.0,23.404142407361142,11.702071203680571,True,False,False,six_nations_2026_r5,equal_incumbent,,,,,,,,,
+38,Robert Baloucoune,Ireland,Back Three,1,0.0,P,15.0,25.306355580763185,12.653177790381593,True,False,False,six_nations_2026_r5,equal_incumbent,,,,,,,,,
+81,Tommaso Menoncello,Italy,Centre,1,0.0,P,44.0,29.35639120322297,14.678195601611485,True,False,False,six_nations_2026_r5,equal_incumbent,,,,,,,,,
+87,Dafydd Jenkins,Wales,Lock,1,0.0,P,15.0,20.86548859923747,10.432744299618735,True,False,False,six_nations_2026_r5,equal_incumbent,,,,,,,,,
+102,Thomas Ramos,France,Back Three,1,0.0,P,30.0,36.85649824884803,18.428249124424013,True,False,True,six_nations_2026_r5,equal_incumbent,,,,,,,,,
+105,Antoine Dupont,France,Scrum Half,1,0.0,P,30.0,31.66893069476953,15.834465347384764,True,False,False,six_nations_2026_r5,equal_incumbent,,,,,,,,,
+112,Matthieu Jalibert,France,Fly Half,1,0.0,P,44.0,34.796403096577016,17.398201548288508,True,False,False,six_nations_2026_r5,equal_incumbent,,,,,,,,,
+120,Alex Coles,England,Lock,1,0.0,P,24.0,20.38785114200519,10.193925571002595,True,False,False,six_nations_2026_r5,equal_incumbent,,,,,,,,,
+123,Tommy Freeman,England,Centre,1,0.0,P,33.0,21.717517697138856,10.858758848569428,True,False,False,six_nations_2026_r5,equal_incumbent,,,,,,,,,
+129,Louis Bielle-Biarrey,France,Back Three,1,0.0,P,68.0,31.09836648537569,15.549183242687844,True,False,False,six_nations_2026_r5,equal_incumbent,,,,,,,,,
+136,Henry Pollock,England,Loose Forward,1,0.0,B,8.0,10.880535595038095,32.641606785114284,True,True,False,six_nations_2026_r5,equal_incumbent,,,,,,,,,
+123016,Jac Morgan,Wales,Loose Forward,1,7.0,P,56.0,24.22,12.11,True,False,False,ncr_2026_r1,incumbent,17.3,Fiji,False,32.0,2124.0,-18.1,1.0,24.3,73.3
+137626,Fin Smith,England,Fly Half,1,5.0,P,31.0,21.89,10.945,True,False,False,ncr_2026_r1,incumbent,4.5,South Africa,False,22.0,3396.0,-26.1,1.0,22.03,72.4
+140494,Jiuta Wainiqolo,Fiji,Back Three,2,5.5,P,80.0,28.64,14.32,True,False,False,ncr_2026_r1,incumbent,18.4,Wales,True,18.0,2923.0,18.1,1.0,29.03,73.5
+143950,Semi Radradra,Fiji,Centre,2,6.0,P,12.0,25.76,12.88,True,False,False,ncr_2026_r1,incumbent,9.3,Wales,True,13.0,2201.0,18.1,1.0,24.86,76.6
+146815,Angus Bell,Australia,Prop,2,7.0,P,15.0,15.15,7.575,True,False,False,ncr_2026_r1,incumbent,20.8,Ireland,True,48.0,1772.0,-9.1,1.0,20.63,53.2
+154929,Cheslin Kolbe,South Africa,Back Three,2,8.0,P,41.0,30.21,15.105,True,False,True,ncr_2026_r1,incumbent,37.7,England,True,34.0,2920.0,26.1,1.0,29.75,76.0
+173801,Alex Coles,England,Lock,1,5.0,P,24.0,17.65,8.825,True,False,False,ncr_2026_r1,incumbent,4.2,South Africa,False,20.0,2682.0,-26.1,1.0,17.64,72.6
+175150,Robert Baloucoune,Ireland,Back Three,1,5.0,P,0.0,26.25,13.125,True,False,False,ncr_2026_r1,incumbent,7.9,Australia,False,9.0,1148.0,9.1,1.0,25.22,77.1
+179604,Josua Tuisova,Fiji,Centre,2,5.5,P,32.0,22.11,11.055,True,False,False,ncr_2026_r1,incumbent,12.4,Wales,True,20.0,2758.0,18.1,1.0,21.04,76.7
+196773,Pierre Schoeman,Scotland,Prop,1,6.0,P,22.0,14.34,7.17,True,False,False,ncr_2026_r1,incumbent,5.7,Argentina,False,54.0,2523.0,-10.1,1.0,17.46,59.6
+207343,Grant Williams,South Africa,Scrum Half,2,7.0,P,39.0,21.46,10.73,True,False,False,ncr_2026_r1,incumbent,5.1,England,True,29.0,1514.0,26.1,1.0,26.61,58.7
+211240,Dan Sheehan,Ireland,Hooker,1,8.0,P,30.0,21.56,10.78,True,False,False,ncr_2026_r1,incumbent,22.7,Australia,False,45.0,2070.0,9.1,1.0,26.38,59.5
+214124,James Botham,Wales,Loose Forward,1,6.0,B,9.0,10.0,30.0,True,True,False,ncr_2026_r1,incumbent,0.3,Fiji,False,21.0,1627.0,-18.1,1.0,21.15,35.0
+235266,Joaquin Oviedo,Argentina,Loose Forward,2,5.5,P,32.0,22.23,11.115,True,False,False,ncr_2026_r1,incumbent,3.1,Scotland,True,23.0,2606.0,10.1,1.0,23.76,68.3
+238928,Warner Dearns,Japan,Lock,2,6.5,P,29.0,17.16,8.58,True,False,False,ncr_2026_r1,incumbent,14.2,Italy,True,32.0,1697.0,-5.1,1.0,15.92,78.1
+240452,Cameron Hanekom,South Africa,Loose Forward,2,4.0,P,18.0,26.39,13.195,True,False,False,ncr_2026_r1,incumbent,4.5,England,True,1.0,1975.0,26.1,1.0,27.16,72.0
+123016,Jac Morgan,Wales,Loose Forward,1,7.0,P,56.0,24.22,12.11,True,False,False,ncr_2026_r1,empirical_baseline,17.3,Fiji,False,32.0,2124.0,-18.1,1.0,24.3,73.3
+137626,Fin Smith,England,Fly Half,1,5.0,P,31.0,21.89,10.945,True,False,False,ncr_2026_r1,empirical_baseline,4.5,South Africa,False,22.0,3396.0,-26.1,1.0,22.03,72.4
+140494,Jiuta Wainiqolo,Fiji,Back Three,2,5.5,P,80.0,28.64,14.32,True,False,False,ncr_2026_r1,empirical_baseline,18.4,Wales,True,18.0,2923.0,18.1,1.0,29.03,73.5
+143950,Semi Radradra,Fiji,Centre,2,6.0,P,12.0,25.76,12.88,True,False,False,ncr_2026_r1,empirical_baseline,9.3,Wales,True,13.0,2201.0,18.1,1.0,24.86,76.6
+146815,Angus Bell,Australia,Prop,2,7.0,P,15.0,15.15,7.575,True,False,False,ncr_2026_r1,empirical_baseline,20.8,Ireland,True,48.0,1772.0,-9.1,1.0,20.63,53.2
+154929,Cheslin Kolbe,South Africa,Back Three,2,8.0,P,41.0,30.21,15.105,True,False,True,ncr_2026_r1,empirical_baseline,37.7,England,True,34.0,2920.0,26.1,1.0,29.75,76.0
+173801,Alex Coles,England,Lock,1,5.0,P,24.0,17.65,8.825,True,False,False,ncr_2026_r1,empirical_baseline,4.2,South Africa,False,20.0,2682.0,-26.1,1.0,17.64,72.6
+175150,Robert Baloucoune,Ireland,Back Three,1,5.0,P,0.0,26.25,13.125,True,False,False,ncr_2026_r1,empirical_baseline,7.9,Australia,False,9.0,1148.0,9.1,1.0,25.22,77.1
+179604,Josua Tuisova,Fiji,Centre,2,5.5,P,32.0,22.11,11.055,True,False,False,ncr_2026_r1,empirical_baseline,12.4,Wales,True,20.0,2758.0,18.1,1.0,21.04,76.7
+196773,Pierre Schoeman,Scotland,Prop,1,6.0,P,22.0,14.34,7.17,True,False,False,ncr_2026_r1,empirical_baseline,5.7,Argentina,False,54.0,2523.0,-10.1,1.0,17.46,59.6
+207343,Grant Williams,South Africa,Scrum Half,2,7.0,P,39.0,21.46,10.73,True,False,False,ncr_2026_r1,empirical_baseline,5.1,England,True,29.0,1514.0,26.1,1.0,26.61,58.7
+211240,Dan Sheehan,Ireland,Hooker,1,8.0,P,30.0,21.56,10.78,True,False,False,ncr_2026_r1,empirical_baseline,22.7,Australia,False,45.0,2070.0,9.1,1.0,26.38,59.5
+214124,James Botham,Wales,Loose Forward,1,6.0,B,9.0,10.0,30.0,True,True,False,ncr_2026_r1,empirical_baseline,0.3,Fiji,False,21.0,1627.0,-18.1,1.0,21.15,35.0
+235266,Joaquin Oviedo,Argentina,Loose Forward,2,5.5,P,32.0,22.23,11.115,True,False,False,ncr_2026_r1,empirical_baseline,3.1,Scotland,True,23.0,2606.0,10.1,1.0,23.76,68.3
+238928,Warner Dearns,Japan,Lock,2,6.5,P,29.0,17.16,8.58,True,False,False,ncr_2026_r1,empirical_baseline,14.2,Italy,True,32.0,1697.0,-5.1,1.0,15.92,78.1
+240452,Cameron Hanekom,South Africa,Loose Forward,2,4.0,P,18.0,26.39,13.195,True,False,False,ncr_2026_r1,empirical_baseline,4.5,England,True,1.0,1975.0,26.1,1.0,27.16,72.0
+103703,Harry Hockings,Japan,Lock,2,4.5,P,14.0,15.743700255438208,7.871850127719104,True,False,False,ncr_2026_r1,p3_robust_native,1.3,Italy,True,2.0,2967.0,-5.1,1.0,16.06,72.0
+123016,Jac Morgan,Wales,Loose Forward,1,7.0,P,56.0,21.789481863309533,10.894740931654766,True,False,False,ncr_2026_r1,p3_robust_native,17.3,Fiji,False,32.0,2124.0,-18.1,1.0,24.3,73.3
+136875,Gianmarco Lucchesi,Italy,Hooker,1,3.5,B,5.0,10.13891125299092,30.41673375897276,True,True,False,ncr_2026_r1,p3_robust_native,0.4,Japan,False,31.0,0.0,5.1,1.0,22.14,26.1
+140494,Jiuta Wainiqolo,Fiji,Back Three,2,5.5,P,80.0,27.361992218051626,13.680996109025813,True,False,False,ncr_2026_r1,p3_robust_native,18.4,Wales,True,18.0,2923.0,18.1,1.0,29.03,73.5
+143950,Semi Radradra,Fiji,Centre,2,6.0,P,12.0,23.763971455745462,11.881985727872731,True,False,False,ncr_2026_r1,p3_robust_native,9.3,Wales,True,13.0,2201.0,18.1,1.0,24.86,76.6
+146815,Angus Bell,Australia,Prop,2,7.0,P,15.0,17.464062081395028,8.732031040697514,True,False,False,ncr_2026_r1,p3_robust_native,20.8,Ireland,True,48.0,1772.0,-9.1,1.0,20.63,53.2
+154929,Cheslin Kolbe,South Africa,Back Three,2,8.0,P,41.0,30.53819988173014,15.26909994086507,True,False,True,ncr_2026_r1,p3_robust_native,37.7,England,True,34.0,2920.0,26.1,1.0,29.75,76.0
+175150,Robert Baloucoune,Ireland,Back Three,1,5.0,P,0.0,24.04888045393283,12.024440226966416,True,False,False,ncr_2026_r1,p3_robust_native,7.9,Australia,False,9.0,1148.0,9.1,1.0,25.22,77.1
+196773,Pierre Schoeman,Scotland,Prop,1,6.0,P,22.0,17.35827524820176,8.67913762410088,True,False,False,ncr_2026_r1,p3_robust_native,5.7,Argentina,False,54.0,2523.0,-10.1,1.0,17.46,59.6
+202239,Tomas Albornoz,Argentina,Fly Half,2,7.0,P,27.0,20.8476530570634,10.4238265285317,True,False,False,ncr_2026_r1,p3_robust_native,5.9,Scotland,True,26.0,2469.0,10.1,1.0,24.96,60.5
+207343,Grant Williams,South Africa,Scrum Half,2,7.0,P,39.0,20.710641945308502,10.355320972654251,True,False,False,ncr_2026_r1,p3_robust_native,5.1,England,True,29.0,1514.0,26.1,1.0,26.61,58.7
+211240,Dan Sheehan,Ireland,Hooker,1,8.0,P,30.0,25.60546701551597,12.802733507757985,True,False,False,ncr_2026_r1,p3_robust_native,22.7,Australia,False,45.0,2070.0,9.1,1.0,26.38,59.5
+229557,Tommaso Menoncello,Italy,Centre,1,8.0,P,24.0,22.14718282793045,11.073591413965225,True,False,False,ncr_2026_r1,p3_robust_native,43.1,Japan,False,39.0,2558.0,5.1,1.0,20.18,78.1
+235266,Joaquin Oviedo,Argentina,Loose Forward,2,5.5,P,32.0,22.11690202350673,11.058451011753364,True,False,False,ncr_2026_r1,p3_robust_native,3.1,Scotland,True,23.0,2606.0,10.1,1.0,23.76,68.3
+236608,Alessandro Ortombina,Italy,Lock,1,3.0,P,10.0,15.569852924508789,7.784926462254394,True,False,False,ncr_2026_r1,p3_robust_native,6.7,Japan,False,0.0,1360.0,5.1,1.0,13.26,70.0
+240452,Cameron Hanekom,South Africa,Loose Forward,2,4.0,P,18.0,22.776698085315825,11.388349042657913,True,False,False,ncr_2026_r1,p3_robust_native,4.5,England,True,1.0,1975.0,26.1,1.0,27.16,72.0
+123016,Jac Morgan,Wales,Loose Forward,1,7.0,P,56.0,23.00474093165477,11.502370465827385,True,False,False,ncr_2026_r1,equal_incumbent,17.3,Fiji,False,32.0,2124.0,-18.1,1.0,24.3,73.3
+136875,Gianmarco Lucchesi,Italy,Hooker,1,3.5,B,5.0,9.05445562649546,27.163366879486382,True,True,False,ncr_2026_r1,equal_incumbent,0.4,Japan,False,31.0,0.0,5.1,1.0,22.14,26.1
+137626,Fin Smith,England,Fly Half,1,5.0,P,31.0,20.86693826012753,10.433469130063765,True,False,False,ncr_2026_r1,equal_incumbent,4.5,South Africa,False,22.0,3396.0,-26.1,1.0,22.03,72.4
+140494,Jiuta Wainiqolo,Fiji,Back Three,2,5.5,P,80.0,28.000996109025813,14.000498054512907,True,False,False,ncr_2026_r1,equal_incumbent,18.4,Wales,True,18.0,2923.0,18.1,1.0,29.03,73.5
+143950,Semi Radradra,Fiji,Centre,2,6.0,P,12.0,24.761985727872734,12.380992863936367,True,False,False,ncr_2026_r1,equal_incumbent,9.3,Wales,True,13.0,2201.0,18.1,1.0,24.86,76.6
+146815,Angus Bell,Australia,Prop,2,7.0,P,15.0,16.307031040697513,8.153515520348757,True,False,False,ncr_2026_r1,equal_incumbent,20.8,Ireland,True,48.0,1772.0,-9.1,1.0,20.63,53.2
+154929,Cheslin Kolbe,South Africa,Back Three,2,8.0,P,41.0,30.374099940865072,15.187049970432536,True,False,True,ncr_2026_r1,equal_incumbent,37.7,England,True,34.0,2920.0,26.1,1.0,29.75,76.0
+173801,Alex Coles,England,Lock,1,5.0,P,24.0,16.18763101133535,8.093815505667674,True,False,False,ncr_2026_r1,equal_incumbent,4.2,South Africa,False,20.0,2682.0,-26.1,1.0,17.64,72.6
+175150,Robert Baloucoune,Ireland,Back Three,1,5.0,P,0.0,25.149440226966416,12.574720113483208,True,False,False,ncr_2026_r1,equal_incumbent,7.9,Australia,False,9.0,1148.0,9.1,1.0,25.22,77.1
+196773,Pierre Schoeman,Scotland,Prop,1,6.0,P,22.0,15.84913762410088,7.92456881205044,True,False,False,ncr_2026_r1,equal_incumbent,5.7,Argentina,False,54.0,2523.0,-10.1,1.0,17.46,59.6
+207343,Grant Williams,South Africa,Scrum Half,2,7.0,P,39.0,21.08532097265425,10.542660486327126,True,False,False,ncr_2026_r1,equal_incumbent,5.1,England,True,29.0,1514.0,26.1,1.0,26.61,58.7
+211240,Dan Sheehan,Ireland,Hooker,1,8.0,P,30.0,23.582733507757982,11.791366753878991,True,False,False,ncr_2026_r1,equal_incumbent,22.7,Australia,False,45.0,2070.0,9.1,1.0,26.38,59.5
+229557,Tommaso Menoncello,Italy,Centre,1,8.0,P,24.0,21.893591413965225,10.946795706982613,True,False,False,ncr_2026_r1,equal_incumbent,43.1,Japan,False,39.0,2558.0,5.1,1.0,20.18,78.1
+235266,Joaquin Oviedo,Argentina,Loose Forward,2,5.5,P,32.0,22.173451011753365,11.086725505876682,True,False,False,ncr_2026_r1,equal_incumbent,3.1,Scotland,True,23.0,2606.0,10.1,1.0,23.76,68.3
+238928,Warner Dearns,Japan,Lock,2,6.5,P,29.0,16.13792562807807,8.068962814039034,True,False,False,ncr_2026_r1,equal_incumbent,14.2,Italy,True,32.0,1697.0,-5.1,1.0,15.92,78.1
+240452,Cameron Hanekom,South Africa,Loose Forward,2,4.0,P,18.0,24.583349042657915,12.291674521328957,True,False,False,ncr_2026_r1,equal_incumbent,4.5,England,True,1.0,1975.0,26.1,1.0,27.16,72.0
+110910,Jesse Kriel,South Africa,Centre,2,7.0,P,27.0,20.97,10.485,True,False,False,ncr_2026_r2,incumbent,8.8,Scotland,True,45.0,2770.0,25.7,1.0,19.18,79.3
+123016,Jac Morgan,Wales,Loose Forward,1,7.0,P,32.0,25.28,12.64,True,False,False,ncr_2026_r2,incumbent,31.4,Argentina,False,33.0,2124.0,-20.2,1.0,25.21,74.0
+136875,Gianmarco Lucchesi,Italy,Hooker,1,3.5,B,15.0,9.29,27.869999999999997,True,True,False,ncr_2026_r2,incumbent,0.2,New Zealand,False,32.0,0.0,-33.5,1.0,24.74,27.6
+140494,Jiuta Wainiqolo,Fiji,Back Three,2,5.5,P,23.0,24.38,12.19,True,False,False,ncr_2026_r2,incumbent,25.3,England,True,19.0,2923.0,-2.8,1.0,24.09,74.5
+141860,Ewan Ashman,Scotland,Hooker,1,5.5,P,25.0,20.09,10.045,True,False,False,ncr_2026_r2,incumbent,2.3,South Africa,False,37.0,2179.0,-25.7,1.0,25.89,56.3
+146220,Will Jordan,New Zealand,Back Three,2,8.5,P,92.0,30.56,15.28,True,False,False,ncr_2026_r2,incumbent,41.7,Italy,True,55.0,1530.0,33.5,1.0,29.12,78.6
+165591,Mateo Carreras,Argentina,Back Three,2,5.0,P,32.0,23.56,11.78,True,False,False,ncr_2026_r2,incumbent,6.3,Wales,True,34.0,2453.0,20.2,1.0,22.42,77.1
+173801,Alex Coles,England,Lock,1,5.0,P,12.0,16.58,8.29,True,False,False,ncr_2026_r2,incumbent,7.0,Fiji,False,21.0,2682.0,2.8,1.0,16.53,72.7
+179379,Ardie Savea,New Zealand,Loose Forward,2,8.5,P,36.0,28.55,14.275,True,False,False,ncr_2026_r2,incumbent,46.6,Italy,True,63.0,3406.0,33.5,1.0,26.97,78.9
+187820,Rory Darge,Scotland,Loose Forward,1,6.5,P,16.0,24.26,12.13,True,False,False,ncr_2026_r2,incumbent,7.6,South Africa,False,40.0,2519.0,-25.7,1.0,24.35,73.3
+190344,Matthieu Jalibert,France,Fly Half,1,8.0,P,31.0,30.12,15.06,True,False,False,ncr_2026_r2,incumbent,28.9,Australia,False,35.0,3486.0,4.9,1.0,29.85,75.5
+196773,Pierre Schoeman,Scotland,Prop,1,6.0,P,14.0,16.06,8.03,True,False,False,ncr_2026_r2,incumbent,7.2,South Africa,False,55.0,2523.0,-25.7,1.0,19.54,59.6
+229307,Cam Roigard,New Zealand,Scrum Half,2,8.0,P,30.0,32.29,16.145,True,False,True,ncr_2026_r2,incumbent,47.5,Italy,True,18.0,1230.0,33.5,1.0,37.05,65.5
+238928,Warner Dearns,Japan,Lock,2,6.5,P,11.0,17.49,8.745,True,False,False,ncr_2026_r2,incumbent,17.3,Ireland,True,33.0,1697.0,-19.8,1.0,16.19,78.3
+246851,Toms Rapetti,Argentina,Prop,2,3.0,P,15.0,15.74,7.87,True,False,False,ncr_2026_r2,incumbent,6.0,Wales,True,4.0,0.0,20.2,1.0,15.85,72.0
+250067,Fabien Brau-Boirie,France,Centre,1,6.0,P,22.0,23.61,11.805,True,False,False,ncr_2026_r2,incumbent,18.1,Australia,False,4.0,2817.0,4.9,1.0,24.49,70.7
+110910,Jesse Kriel,South Africa,Centre,2,7.0,P,27.0,20.97,10.485,True,False,False,ncr_2026_r2,empirical_baseline,8.8,Scotland,True,45.0,2770.0,25.7,1.0,19.18,79.3
+123016,Jac Morgan,Wales,Loose Forward,1,7.0,P,32.0,25.28,12.64,True,False,False,ncr_2026_r2,empirical_baseline,31.4,Argentina,False,33.0,2124.0,-20.2,1.0,25.21,74.0
+136875,Gianmarco Lucchesi,Italy,Hooker,1,3.5,B,15.0,9.29,27.869999999999997,True,True,False,ncr_2026_r2,empirical_baseline,0.2,New Zealand,False,32.0,0.0,-33.5,1.0,24.74,27.6
+140494,Jiuta Wainiqolo,Fiji,Back Three,2,5.5,P,23.0,24.38,12.19,True,False,False,ncr_2026_r2,empirical_baseline,25.3,England,True,19.0,2923.0,-2.8,1.0,24.09,74.5
+141860,Ewan Ashman,Scotland,Hooker,1,5.5,P,25.0,20.09,10.045,True,False,False,ncr_2026_r2,empirical_baseline,2.3,South Africa,False,37.0,2179.0,-25.7,1.0,25.89,56.3
+146220,Will Jordan,New Zealand,Back Three,2,8.5,P,92.0,30.56,15.28,True,False,False,ncr_2026_r2,empirical_baseline,41.7,Italy,True,55.0,1530.0,33.5,1.0,29.12,78.6
+165591,Mateo Carreras,Argentina,Back Three,2,5.0,P,32.0,23.56,11.78,True,False,False,ncr_2026_r2,empirical_baseline,6.3,Wales,True,34.0,2453.0,20.2,1.0,22.42,77.1
+173801,Alex Coles,England,Lock,1,5.0,P,12.0,16.58,8.29,True,False,False,ncr_2026_r2,empirical_baseline,7.0,Fiji,False,21.0,2682.0,2.8,1.0,16.53,72.7
+179379,Ardie Savea,New Zealand,Loose Forward,2,8.5,P,36.0,28.55,14.275,True,False,False,ncr_2026_r2,empirical_baseline,46.6,Italy,True,63.0,3406.0,33.5,1.0,26.97,78.9
+187820,Rory Darge,Scotland,Loose Forward,1,6.5,P,16.0,24.26,12.13,True,False,False,ncr_2026_r2,empirical_baseline,7.6,South Africa,False,40.0,2519.0,-25.7,1.0,24.35,73.3
+190344,Matthieu Jalibert,France,Fly Half,1,8.0,P,31.0,30.12,15.06,True,False,False,ncr_2026_r2,empirical_baseline,28.9,Australia,False,35.0,3486.0,4.9,1.0,29.85,75.5
+196773,Pierre Schoeman,Scotland,Prop,1,6.0,P,14.0,16.06,8.03,True,False,False,ncr_2026_r2,empirical_baseline,7.2,South Africa,False,55.0,2523.0,-25.7,1.0,19.54,59.6
+229307,Cam Roigard,New Zealand,Scrum Half,2,8.0,P,30.0,32.29,16.145,True,False,True,ncr_2026_r2,empirical_baseline,47.5,Italy,True,18.0,1230.0,33.5,1.0,37.05,65.5
+238928,Warner Dearns,Japan,Lock,2,6.5,P,11.0,17.49,8.745,True,False,False,ncr_2026_r2,empirical_baseline,17.3,Ireland,True,33.0,1697.0,-19.8,1.0,16.19,78.3
+246851,Toms Rapetti,Argentina,Prop,2,3.0,P,15.0,15.74,7.87,True,False,False,ncr_2026_r2,empirical_baseline,6.0,Wales,True,4.0,0.0,20.2,1.0,15.85,72.0
+250067,Fabien Brau-Boirie,France,Centre,1,6.0,P,22.0,23.61,11.805,True,False,False,ncr_2026_r2,empirical_baseline,18.1,Australia,False,4.0,2817.0,4.9,1.0,24.49,70.7
+103703,Harry Hockings,Japan,Lock,2,4.5,P,16.0,17.068375834651526,8.534187917325763,True,False,False,ncr_2026_r2,p3_robust_native,1.1,Ireland,True,3.0,2967.0,-19.8,1.0,17.29,59.0
+123016,Jac Morgan,Wales,Loose Forward,1,7.0,P,32.0,22.49766829296082,11.24883414648041,True,False,False,ncr_2026_r2,p3_robust_native,31.4,Argentina,False,33.0,2124.0,-20.2,1.0,25.21,74.0
+136875,Gianmarco Lucchesi,Italy,Hooker,1,3.5,B,15.0,10.396313898062788,31.188941694188365,True,True,False,ncr_2026_r2,p3_robust_native,0.2,New Zealand,False,32.0,0.0,-33.5,1.0,24.74,27.6
+140494,Jiuta Wainiqolo,Fiji,Back Three,2,5.5,P,23.0,23.349930623854757,11.674965311927378,True,False,False,ncr_2026_r2,p3_robust_native,25.3,England,True,19.0,2923.0,-2.8,1.0,24.09,74.5
+141860,Ewan Ashman,Scotland,Hooker,1,5.5,P,25.0,22.888642591920448,11.444321295960224,True,False,False,ncr_2026_r2,p3_robust_native,2.3,South Africa,False,37.0,2179.0,-25.7,1.0,25.89,56.3
+146220,Will Jordan,New Zealand,Back Three,2,8.5,P,92.0,31.28955833052605,15.644779165263024,True,False,True,ncr_2026_r2,p3_robust_native,41.7,Italy,True,55.0,1530.0,33.5,1.0,29.12,78.6
+146815,Angus Bell,Australia,Prop,2,7.0,P,12.0,18.52966084952083,9.264830424760415,True,False,False,ncr_2026_r2,p3_robust_native,19.8,France,True,49.0,1772.0,-4.9,1.0,20.72,53.3
+172351,Stuart McCloskey,Ireland,Centre,1,6.5,P,13.0,21.110835400130885,10.555417700065442,True,False,False,ncr_2026_r2,p3_robust_native,22.9,Japan,False,26.0,2168.0,19.8,1.0,21.32,70.6
+173801,Alex Coles,England,Lock,1,5.0,P,12.0,16.384239688036697,8.192119844018348,True,False,False,ncr_2026_r2,p3_robust_native,7.0,Fiji,False,21.0,2682.0,2.8,1.0,16.53,72.7
+179379,Ardie Savea,New Zealand,Loose Forward,2,8.5,P,36.0,26.32818973527832,13.16409486763916,True,False,False,ncr_2026_r2,p3_robust_native,46.6,Italy,True,63.0,3406.0,33.5,1.0,26.97,78.9
+190344,Matthieu Jalibert,France,Fly Half,1,8.0,P,31.0,29.416216766803384,14.708108383401692,True,False,False,ncr_2026_r2,p3_robust_native,28.9,Australia,False,35.0,3486.0,4.9,1.0,29.85,75.5
+229307,Cam Roigard,New Zealand,Scrum Half,2,8.0,P,30.0,30.684961733840936,15.342480866920468,True,False,False,ncr_2026_r2,p3_robust_native,47.5,Italy,True,18.0,1230.0,33.5,1.0,37.05,65.5
+233260,Shuhei Takeuchi,Japan,Prop,2,4.0,P,13.0,17.961697354182125,8.980848677091062,True,False,False,ncr_2026_r2,p3_robust_native,1.4,Ireland,True,28.0,1677.0,-19.8,1.0,17.67,61.6
+235266,Joaquin Oviedo,Argentina,Loose Forward,2,5.5,P,74.0,23.38018492802141,11.690092464010705,True,False,False,ncr_2026_r2,p3_robust_native,5.4,Wales,True,24.0,2606.0,20.2,1.0,25.13,69.7
+244532,Theo Attissogbe,France,Back Three,1,6.5,P,55.0,22.945675607042997,11.472837803521498,True,False,False,ncr_2026_r2,p3_robust_native,21.3,Australia,False,16.0,3133.0,4.9,1.0,21.41,77.9
+250067,Fabien Brau-Boirie,France,Centre,1,6.0,P,22.0,24.947300304016988,12.473650152008494,True,False,False,ncr_2026_r2,p3_robust_native,18.1,Australia,False,4.0,2817.0,4.9,1.0,24.49,70.7
+123016,Jac Morgan,Wales,Loose Forward,1,7.0,P,32.0,23.888834146480413,11.944417073240206,True,False,False,ncr_2026_r2,equal_incumbent,31.4,Argentina,False,33.0,2124.0,-20.2,1.0,25.21,74.0
+136875,Gianmarco Lucchesi,Italy,Hooker,1,3.5,B,15.0,9.843156949031393,29.529470847094178,True,True,False,ncr_2026_r2,equal_incumbent,0.2,New Zealand,False,32.0,0.0,-33.5,1.0,24.74,27.6
+140494,Jiuta Wainiqolo,Fiji,Back Three,2,5.5,P,23.0,23.864965311927374,11.932482655963687,True,False,False,ncr_2026_r2,equal_incumbent,25.3,England,True,19.0,2923.0,-2.8,1.0,24.09,74.5
+141860,Ewan Ashman,Scotland,Hooker,1,5.5,P,25.0,21.489321295960224,10.744660647980112,True,False,False,ncr_2026_r2,equal_incumbent,2.3,South Africa,False,37.0,2179.0,-25.7,1.0,25.89,56.3
+146220,Will Jordan,New Zealand,Back Three,2,8.5,P,92.0,30.924779165263026,15.462389582631513,True,False,False,ncr_2026_r2,equal_incumbent,41.7,Italy,True,55.0,1530.0,33.5,1.0,29.12,78.6
+146815,Angus Bell,Australia,Prop,2,7.0,P,12.0,16.884830424760416,8.442415212380208,True,False,False,ncr_2026_r2,equal_incumbent,19.8,France,True,49.0,1772.0,-4.9,1.0,20.72,53.3
+165591,Mateo Carreras,Argentina,Back Three,2,5.0,P,32.0,22.87404198052664,11.43702099026332,True,False,False,ncr_2026_r2,equal_incumbent,6.3,Wales,True,34.0,2453.0,20.2,1.0,22.42,77.1
+172351,Stuart McCloskey,Ireland,Centre,1,6.5,P,13.0,20.94041770006544,10.47020885003272,True,False,False,ncr_2026_r2,equal_incumbent,22.9,Japan,False,26.0,2168.0,19.8,1.0,21.32,70.6
+173801,Alex Coles,England,Lock,1,5.0,P,12.0,16.48211984401835,8.241059922009175,True,False,False,ncr_2026_r2,equal_incumbent,7.0,Fiji,False,21.0,2682.0,2.8,1.0,16.53,72.7
+179379,Ardie Savea,New Zealand,Loose Forward,2,8.5,P,36.0,27.439094867639163,13.719547433819582,True,False,False,ncr_2026_r2,equal_incumbent,46.6,Italy,True,63.0,3406.0,33.5,1.0,26.97,78.9
+190344,Matthieu Jalibert,France,Fly Half,1,8.0,P,31.0,29.76810838340169,14.884054191700844,True,False,False,ncr_2026_r2,equal_incumbent,28.9,Australia,False,35.0,3486.0,4.9,1.0,29.85,75.5
+229307,Cam Roigard,New Zealand,Scrum Half,2,8.0,P,30.0,31.487480866920468,15.743740433460234,True,False,True,ncr_2026_r2,equal_incumbent,47.5,Italy,True,18.0,1230.0,33.5,1.0,37.05,65.5
+233260,Shuhei Takeuchi,Japan,Prop,2,4.0,P,13.0,16.490848677091062,8.245424338545531,True,False,False,ncr_2026_r2,equal_incumbent,1.4,Ireland,True,28.0,1677.0,-19.8,1.0,17.67,61.6
+235266,Joaquin Oviedo,Argentina,Loose Forward,2,5.5,P,74.0,23.605092464010703,11.802546232005351,True,False,False,ncr_2026_r2,equal_incumbent,5.4,Wales,True,24.0,2606.0,20.2,1.0,25.13,69.7
+238928,Warner Dearns,Japan,Lock,2,6.5,P,11.0,16.78168529441409,8.390842647207045,True,False,False,ncr_2026_r2,equal_incumbent,17.3,Ireland,True,33.0,1697.0,-19.8,1.0,16.19,78.3
+250067,Fabien Brau-Boirie,France,Centre,1,6.0,P,22.0,24.278650152008492,12.139325076004246,True,False,False,ncr_2026_r2,equal_incumbent,18.1,Australia,False,4.0,2817.0,4.9,1.0,24.49,70.7
+123016,Jac Morgan,Wales,Loose Forward,1,7.0,P,22.0,26.46,13.23,True,False,False,ncr_2026_r3,incumbent,29.4,South Africa,False,34.0,2124.0,-40.5,1.0,26.29,74.6
+146220,Will Jordan,New Zealand,Back Three,2,8.5,P,50.0,28.19,14.095,True,False,False,ncr_2026_r3,incumbent,44.1,Ireland,True,56.0,1530.0,9.4,1.0,26.68,78.7
+146815,Angus Bell,Australia,Prop,2,7.0,P,28.0,14.89,7.445,True,False,False,ncr_2026_r3,incumbent,21.3,Italy,True,50.0,1772.0,13.9,1.0,20.34,53.1
+169185,Teddy Williams,Wales,Lock,1,4.0,P,2.0,17.37,8.685,True,False,False,ncr_2026_r3,incumbent,0.8,South Africa,False,10.0,1592.0,-40.5,1.0,18.21,69.1
+172455,Duhan van der Merwe,Scotland,Back Three,1,5.0,P,56.0,25.43,12.715,True,False,False,ncr_2026_r3,incumbent,5.1,Fiji,False,58.0,2537.0,3.2,1.0,24.41,76.9
+179379,Ardie Savea,New Zealand,Loose Forward,2,8.5,P,49.0,26.97,13.485,True,False,False,ncr_2026_r3,incumbent,46.1,Ireland,True,64.0,3406.0,9.4,1.0,25.62,78.1
+190344,Matthieu Jalibert,France,Fly Half,1,8.0,P,45.0,33.69,16.845,True,False,True,ncr_2026_r3,incumbent,33.2,Japan,False,36.0,3486.0,14.6,1.0,33.38,76.1
+208620,Carlo Tizzano,Australia,Loose Forward,2,6.0,P,28.0,27.11,13.555,True,False,False,ncr_2026_r3,incumbent,3.7,Italy,True,14.0,1335.0,13.9,1.0,26.29,76.6
+224426,Tom OToole,Ireland,Prop,1,4.0,P,16.0,13.08,6.54,True,False,False,ncr_2026_r3,incumbent,11.0,New Zealand,False,25.0,2054.0,-9.4,1.0,16.42,57.7
+229307,Cam Roigard,New Zealand,Scrum Half,2,8.0,P,20.0,28.94,14.47,True,False,False,ncr_2026_r3,incumbent,45.2,Ireland,True,19.0,1230.0,9.4,1.0,33.52,64.4
+237155,Justo Piccardo,Argentina,Centre,2,5.5,P,43.0,22.92,11.46,True,False,False,ncr_2026_r3,incumbent,3.4,England,True,13.0,1108.0,5.7,1.0,22.77,73.7
+238928,Warner Dearns,Japan,Lock,2,6.5,P,29.0,17.14,8.57,True,False,False,ncr_2026_r3,incumbent,16.0,France,True,34.0,1697.0,-14.6,1.0,15.85,78.4
+240478,Gregor Hiddleston,Scotland,Hooker,1,4.0,P,25.0,24.15,12.075,True,False,False,ncr_2026_r3,incumbent,3.7,Fiji,False,2.0,1610.0,3.2,1.0,24.66,72.0
+241018,Sean Jansen,Ireland,Loose Forward,1,3.5,B,12.0,12.09,36.269999999999996,True,True,False,ncr_2026_r3,incumbent,2.1,New Zealand,False,3.0,2034.0,-9.4,1.0,26.68,34.0
+244532,Theo Attissogbe,France,Back Three,1,6.5,P,44.0,25.7,12.85,True,False,False,ncr_2026_r3,incumbent,35.7,Japan,False,17.0,3133.0,14.6,1.0,24.34,78.1
+250067,Fabien Brau-Boirie,France,Centre,1,6.0,P,18.0,25.58,12.79,True,False,False,ncr_2026_r3,incumbent,24.7,Japan,False,5.0,2817.0,14.6,1.0,25.78,73.3
+123016,Jac Morgan,Wales,Loose Forward,1,7.0,P,22.0,26.46,13.23,True,False,False,ncr_2026_r3,empirical_baseline,29.4,South Africa,False,34.0,2124.0,-40.5,1.0,26.29,74.6
+146220,Will Jordan,New Zealand,Back Three,2,8.5,P,50.0,28.19,14.095,True,False,False,ncr_2026_r3,empirical_baseline,44.1,Ireland,True,56.0,1530.0,9.4,1.0,26.68,78.7
+146815,Angus Bell,Australia,Prop,2,7.0,P,28.0,14.89,7.445,True,False,False,ncr_2026_r3,empirical_baseline,21.3,Italy,True,50.0,1772.0,13.9,1.0,20.34,53.1
+169185,Teddy Williams,Wales,Lock,1,4.0,P,2.0,17.37,8.685,True,False,False,ncr_2026_r3,empirical_baseline,0.8,South Africa,False,10.0,1592.0,-40.5,1.0,18.21,69.1
+172455,Duhan van der Merwe,Scotland,Back Three,1,5.0,P,56.0,25.43,12.715,True,False,False,ncr_2026_r3,empirical_baseline,5.1,Fiji,False,58.0,2537.0,3.2,1.0,24.41,76.9
+179379,Ardie Savea,New Zealand,Loose Forward,2,8.5,P,49.0,26.97,13.485,True,False,False,ncr_2026_r3,empirical_baseline,46.1,Ireland,True,64.0,3406.0,9.4,1.0,25.62,78.1
+190344,Matthieu Jalibert,France,Fly Half,1,8.0,P,45.0,33.69,16.845,True,False,True,ncr_2026_r3,empirical_baseline,33.2,Japan,False,36.0,3486.0,14.6,1.0,33.38,76.1
+208620,Carlo Tizzano,Australia,Loose Forward,2,6.0,P,28.0,27.11,13.555,True,False,False,ncr_2026_r3,empirical_baseline,3.7,Italy,True,14.0,1335.0,13.9,1.0,26.29,76.6
+224426,Tom OToole,Ireland,Prop,1,4.0,P,16.0,13.08,6.54,True,False,False,ncr_2026_r3,empirical_baseline,11.0,New Zealand,False,25.0,2054.0,-9.4,1.0,16.42,57.7
+229307,Cam Roigard,New Zealand,Scrum Half,2,8.0,P,20.0,28.94,14.47,True,False,False,ncr_2026_r3,empirical_baseline,45.2,Ireland,True,19.0,1230.0,9.4,1.0,33.52,64.4
+237155,Justo Piccardo,Argentina,Centre,2,5.5,P,43.0,22.92,11.46,True,False,False,ncr_2026_r3,empirical_baseline,3.4,England,True,13.0,1108.0,5.7,1.0,22.77,73.7
+238928,Warner Dearns,Japan,Lock,2,6.5,P,29.0,17.14,8.57,True,False,False,ncr_2026_r3,empirical_baseline,16.0,France,True,34.0,1697.0,-14.6,1.0,15.85,78.4
+240478,Gregor Hiddleston,Scotland,Hooker,1,4.0,P,25.0,24.15,12.075,True,False,False,ncr_2026_r3,empirical_baseline,3.7,Fiji,False,2.0,1610.0,3.2,1.0,24.66,72.0
+241018,Sean Jansen,Ireland,Loose Forward,1,3.5,B,12.0,12.09,36.269999999999996,True,True,False,ncr_2026_r3,empirical_baseline,2.1,New Zealand,False,3.0,2034.0,-9.4,1.0,26.68,34.0
+244532,Theo Attissogbe,France,Back Three,1,6.5,P,44.0,25.7,12.85,True,False,False,ncr_2026_r3,empirical_baseline,35.7,Japan,False,17.0,3133.0,14.6,1.0,24.34,78.1
+250067,Fabien Brau-Boirie,France,Centre,1,6.0,P,18.0,25.58,12.79,True,False,False,ncr_2026_r3,empirical_baseline,24.7,Japan,False,5.0,2817.0,14.6,1.0,25.78,73.3
+110910,Jesse Kriel,South Africa,Centre,2,7.0,P,26.0,19.93297407339723,9.966487036698615,True,False,False,ncr_2026_r3,p3_robust_native,14.9,Wales,True,46.0,2770.0,40.5,1.0,19.67,79.4
+146220,Will Jordan,New Zealand,Back Three,2,8.5,P,50.0,27.292189457250934,13.646094728625467,True,False,False,ncr_2026_r3,p3_robust_native,44.1,Ireland,True,56.0,1530.0,9.4,1.0,26.68,78.7
+146815,Angus Bell,Australia,Prop,2,7.0,P,28.0,16.87227783993122,8.43613891996561,True,False,False,ncr_2026_r3,p3_robust_native,21.3,Italy,True,50.0,1772.0,13.9,1.0,20.34,53.1
+165007,Ellis Genge,England,Prop,1,5.5,P,24.0,15.838963435398922,7.919481717699461,True,False,False,ncr_2026_r3,p3_robust_native,26.8,Argentina,False,70.0,2381.0,-5.7,1.0,15.71,55.9
+169185,Teddy Williams,Wales,Lock,1,4.0,P,2.0,15.216460562934529,7.608230281467264,True,False,False,ncr_2026_r3,p3_robust_native,0.8,South Africa,False,10.0,1592.0,-40.5,1.0,18.21,69.1
+172455,Duhan van der Merwe,Scotland,Back Three,1,5.0,P,56.0,25.80500901884444,12.90250450942222,True,False,False,ncr_2026_r3,p3_robust_native,5.1,Fiji,False,58.0,2537.0,3.2,1.0,24.41,76.9
+173801,Alex Coles,England,Lock,1,5.0,P,16.0,16.443046762209967,8.221523381104983,True,False,False,ncr_2026_r3,p3_robust_native,8.2,Argentina,False,22.0,2682.0,-5.7,1.0,16.65,73.6
+179379,Ardie Savea,New Zealand,Loose Forward,2,8.5,P,49.0,25.62117275874347,12.810586379371735,True,False,False,ncr_2026_r3,p3_robust_native,46.1,Ireland,True,64.0,3406.0,9.4,1.0,25.62,78.1
+190344,Matthieu Jalibert,France,Fly Half,1,8.0,P,45.0,34.36538801499809,17.182694007499045,True,False,True,ncr_2026_r3,p3_robust_native,33.2,Japan,False,36.0,3486.0,14.6,1.0,33.38,76.1
+208620,Carlo Tizzano,Australia,Loose Forward,2,6.0,P,28.0,23.312156969627807,11.656078484813904,True,False,False,ncr_2026_r3,p3_robust_native,3.7,Italy,True,14.0,1335.0,13.9,1.0,26.29,76.6
+229307,Cam Roigard,New Zealand,Scrum Half,2,8.0,P,20.0,27.089220996397135,13.544610498198567,True,False,False,ncr_2026_r3,p3_robust_native,45.2,Ireland,True,19.0,1230.0,9.4,1.0,33.52,64.4
+235266,Joaquin Oviedo,Argentina,Loose Forward,2,5.5,P,31.0,22.16840901886805,11.084204509434025,True,False,False,ncr_2026_r3,p3_robust_native,19.3,England,True,25.0,2606.0,5.7,1.0,25.09,67.3
+237049,Andre-Hugo Venter,South Africa,Hooker,2,3.5,B,16.0,9.604945400968075,28.814836202904225,True,True,False,ncr_2026_r3,p3_robust_native,0.2,Wales,True,3.0,2208.0,40.5,1.0,19.46,31.2
+240478,Gregor Hiddleston,Scotland,Hooker,1,4.0,P,25.0,23.666618585278243,11.833309292639122,True,False,False,ncr_2026_r3,p3_robust_native,3.7,Fiji,False,2.0,1610.0,3.2,1.0,24.66,72.0
+244532,Theo Attissogbe,France,Back Three,1,6.5,P,44.0,27.500233990955355,13.750116995477677,True,False,False,ncr_2026_r3,p3_robust_native,35.7,Japan,False,17.0,3133.0,14.6,1.0,24.34,78.1
+250067,Fabien Brau-Boirie,France,Centre,1,6.0,P,18.0,27.15999054283316,13.57999527141658,True,False,False,ncr_2026_r3,p3_robust_native,24.7,Japan,False,5.0,2817.0,14.6,1.0,25.78,73.3
+110910,Jesse Kriel,South Africa,Centre,2,7.0,P,26.0,20.696487036698613,10.348243518349307,True,False,False,ncr_2026_r3,equal_incumbent,14.9,Wales,True,46.0,2770.0,40.5,1.0,19.67,79.4
+123016,Jac Morgan,Wales,Loose Forward,1,7.0,P,22.0,24.05593173320962,12.02796586660481,True,False,False,ncr_2026_r3,equal_incumbent,29.4,South Africa,False,34.0,2124.0,-40.5,1.0,26.29,74.6
+146220,Will Jordan,New Zealand,Back Three,2,8.5,P,50.0,27.74109472862547,13.870547364312735,True,False,False,ncr_2026_r3,equal_incumbent,44.1,Ireland,True,56.0,1530.0,9.4,1.0,26.68,78.7
+146815,Angus Bell,Australia,Prop,2,7.0,P,28.0,15.88113891996561,7.940569459982805,True,False,False,ncr_2026_r3,equal_incumbent,21.3,Italy,True,50.0,1772.0,13.9,1.0,20.34,53.1
+165007,Ellis Genge,England,Prop,1,5.5,P,24.0,13.974481717699462,6.987240858849731,True,False,False,ncr_2026_r3,equal_incumbent,26.8,Argentina,False,70.0,2381.0,-5.7,1.0,15.71,55.9
+169185,Teddy Williams,Wales,Lock,1,4.0,P,2.0,16.293230281467263,8.146615140733632,True,False,False,ncr_2026_r3,equal_incumbent,0.8,South Africa,False,10.0,1592.0,-40.5,1.0,18.21,69.1
+172455,Duhan van der Merwe,Scotland,Back Three,1,5.0,P,56.0,25.61750450942222,12.80875225471111,True,False,False,ncr_2026_r3,equal_incumbent,5.1,Fiji,False,58.0,2537.0,3.2,1.0,24.41,76.9
+173801,Alex Coles,England,Lock,1,5.0,P,16.0,16.666523381104984,8.333261690552492,True,False,False,ncr_2026_r3,equal_incumbent,8.2,Argentina,False,22.0,2682.0,-5.7,1.0,16.65,73.6
+179379,Ardie Savea,New Zealand,Loose Forward,2,8.5,P,49.0,26.29558637937173,13.147793189685865,True,False,False,ncr_2026_r3,equal_incumbent,46.1,Ireland,True,64.0,3406.0,9.4,1.0,25.62,78.1
+190344,Matthieu Jalibert,France,Fly Half,1,8.0,P,45.0,34.02769400749904,17.01384700374952,True,False,True,ncr_2026_r3,equal_incumbent,33.2,Japan,False,36.0,3486.0,14.6,1.0,33.38,76.1
+208620,Carlo Tizzano,Australia,Loose Forward,2,6.0,P,28.0,25.211078484813903,12.605539242406952,True,False,False,ncr_2026_r3,equal_incumbent,3.7,Italy,True,14.0,1335.0,13.9,1.0,26.29,76.6
+229307,Cam Roigard,New Zealand,Scrum Half,2,8.0,P,20.0,28.01461049819857,14.007305249099286,True,False,False,ncr_2026_r3,equal_incumbent,45.2,Ireland,True,19.0,1230.0,9.4,1.0,33.52,64.4
+240478,Gregor Hiddleston,Scotland,Hooker,1,4.0,P,25.0,23.90830929263912,11.95415464631956,True,False,False,ncr_2026_r3,equal_incumbent,3.7,Fiji,False,2.0,1610.0,3.2,1.0,24.66,72.0
+241018,Sean Jansen,Ireland,Loose Forward,1,3.5,B,12.0,9.285413890940676,27.85624167282203,True,True,False,ncr_2026_r3,equal_incumbent,2.1,New Zealand,False,3.0,2034.0,-9.4,1.0,26.68,34.0
+244532,Theo Attissogbe,France,Back Three,1,6.5,P,44.0,26.60011699547768,13.30005849773884,True,False,False,ncr_2026_r3,equal_incumbent,35.7,Japan,False,17.0,3133.0,14.6,1.0,24.34,78.1
+250067,Fabien Brau-Boirie,France,Centre,1,6.0,P,18.0,26.369995271416578,13.184997635708289,True,False,False,ncr_2026_r3,equal_incumbent,24.7,Japan,False,5.0,2817.0,14.6,1.0,25.78,73.3

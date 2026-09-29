@@ -1,0 +1,211 @@
+RugbyPass prior: 980 players, calibration {'att': 0.8576952242704856, 'dfn': 0.9004915702718145}
+RugbyPass prior: 980 players, calibration {'att': 0.859452818605716, 'dfn': 0.9027363138607247}
+RugbyPass prior: 980 players, calibration {'att': 0.8624886288233952, 'dfn': 0.904492276178199}
+               unit                    cutoff   earliest_source_kickoff  source_key_matches  rows source_fixtures_in_training  cutoff_after_known_kickoff
+six_nations_2025_r1 2025-01-31T20:15:00+00:00 2025-01-31T20:15:00+00:00                 138   138                                                   False
+six_nations_2025_r2 2025-02-08T14:15:00+00:00 2025-02-08T14:15:00+00:00                 138   138                                                   False
+six_nations_2025_r3 2025-02-22T14:15:00+00:00 2025-02-22T14:15:00+00:00                 138   138                                                   False
+six_nations_2025_r4 2025-03-08T14:15:00+00:00 2025-03-08T14:15:00+00:00                 138   138                                                   False
+six_nations_2025_r5 2025-03-15T14:15:00+00:00 2025-03-15T14:15:00+00:00                 138   138                                                   False
+six_nations_2026_r1 2026-02-05T20:10:00+00:00 2026-02-05T20:10:00+00:00                 138   138                                                   False
+six_nations_2026_r2 2026-02-14T14:10:00+00:00 2026-02-14T14:10:00+00:00                 138   138                                                   False
+six_nations_2026_r3 2026-02-21T14:10:00+00:00 2026-02-21T14:10:00+00:00                 138   138                                                   False
+six_nations_2026_r4 2026-03-06T20:10:00+00:00 2026-03-06T20:10:00+00:00                 138   138                                                   False
+six_nations_2026_r5 2026-03-14T14:10:00+00:00 2026-03-14T14:10:00+00:00                 138   138                                                   False
+        ncr_2026_r1 2026-07-04T06:40:00+00:00 2026-07-04T08:40:00+00:00                 221   227                                                   False
+        ncr_2026_r2 2026-07-11T04:40:00+00:00 2026-07-11T05:10:00+00:00                 242   262                                                   False
+        ncr_2026_r3 2026-07-18T06:40:00+00:00 2026-07-18T07:10:00+00:00                 234   269                                                   False
+Checking native comparator feature effects
+Preparing corrected prior-only full-model feature store
+[
+  {
+    "job": "lock_00",
+    "cutoff": "2025-01-31T20:15:00+00:00",
+    "units": [
+      "six_nations_2025_r1"
+    ]
+  },
+  {
+    "job": "lock_01",
+    "cutoff": "2025-02-08T14:15:00+00:00",
+    "units": [
+      "six_nations_2025_r2"
+    ]
+  },
+  {
+    "job": "lock_02",
+    "cutoff": "2025-02-22T14:15:00+00:00",
+    "units": [
+      "six_nations_2025_r3"
+    ]
+  },
+  {
+    "job": "lock_03",
+    "cutoff": "2025-03-08T14:15:00+00:00",
+    "units": [
+      "six_nations_2025_r4"
+    ]
+  },
+  {
+    "job": "lock_04",
+    "cutoff": "2025-03-15T14:15:00+00:00",
+    "units": [
+      "six_nations_2025_r5"
+    ]
+  },
+  {
+    "job": "lock_05",
+    "cutoff": "2025-11-15T20:10:00+00:00",
+    "units": [
+      "friendly_8518300"
+    ]
+  },
+  {
+    "job": "lock_06",
+    "cutoff": "2025-11-16T15:10:00+00:00",
+    "units": [
+      "friendly_8518309"
+    ]
+  },
+  {
+    "job": "lock_07",
+    "cutoff": "2025-11-22T12:00:00+00:00",
+    "units": [
+      "friendly_8518390"
+    ]
+  },
+  {
+    "job": "lock_08",
+    "cutoff": "2025-11-22T15:10:00+00:00",
+    "units": [
+      "friendly_8518318"
+    ]
+  },
+  {
+    "job": "lock_09",
+    "cutoff": "2025-11-22T16:00:00+00:00",
+    "units": [
+      "friendly_8544553"
+    ]
+  },
+  {
+    "job": "lock_10",
+    "cutoff": "2025-11-22T17:40:00+00:00",
+    "units": [
+      "friendly_8518327"
+    ]
+  },
+  {
+    "job": "lock_11",
+    "cutoff": "2025-11-22T20:10:00+00:00",
+    "units": [
+      "friendly_8518336",
+      "friendly_8518345"
+    ]
+  },
+  {
+    "job": "lock_12",
+    "cutoff": "2025-11-23T13:40:00+00:00",
+    "units": [
+      "friendly_8518354"
+    ]
+  },
+  {
+    "job": "lock_13",
+    "cutoff": "2025-11-23T16:10:00+00:00",
+    "units": [
+      "friendly_8518363"
+    ]
+  },
+  {
+    "job": "lock_14",
+    "cutoff": "2025-11-29T15:10:00+00:00",
+    "units": [
+      "friendly_8518372"
+    ]
+  },
+  {
+    "job": "lock_15",
+    "cutoff": "2026-02-05T20:10:00+00:00",
+    "units": [
+      "six_nations_2026_r1"
+    ]
+  },
+  {
+    "job": "lock_16",
+    "cutoff": "2026-02-14T14:10:00+00:00",
+    "units": [
+      "six_nations_2026_r2"
+    ]
+  },
+  {
+    "job": "lock_17",
+    "cutoff": "2026-02-21T14:10:00+00:00",
+    "units": [
+      "six_nations_2026_r3"
+    ]
+  },
+  {
+    "job": "lock_18",
+    "cutoff": "2026-03-06T20:10:00+00:00",
+    "units": [
+      "six_nations_2026_r4"
+    ]
+  },
+  {
+    "job": "lock_19",
+    "cutoff": "2026-03-14T14:10:00+00:00",
+    "units": [
+      "six_nations_2026_r5"
+    ]
+  },
+  {
+    "job": "lock_20",
+    "cutoff": "2026-07-04T06:40:00+00:00",
+    "units": [
+      "ncr_2026_r1"
+    ]
+  },
+  {
+    "job": "lock_21",
+    "cutoff": "2026-07-11T04:40:00+00:00",
+    "units": [
+      "ncr_2026_r2"
+    ]
+  },
+  {
+    "job": "lock_22",
+    "cutoff": "2026-07-18T06:40:00+00:00",
+    "units": [
+      "ncr_2026_r3"
+    ]
+  },
+  {
+    "job": "lock_23",
+    "cutoff": "2026-08-08T10:05:00+00:00",
+    "units": [
+      "friendly_8546596"
+    ]
+  },
+  {
+    "job": "lock_24",
+    "cutoff": "2026-08-08T19:00:00+00:00",
+    "units": [
+      "friendly_8553454"
+    ]
+  },
+  {
+    "job": "lock_25",
+    "cutoff": "2026-08-15T05:15:00+00:00",
+    "units": [
+      "friendly_8546605"
+    ]
+  },
+  {
+    "job": "lock_26",
+    "cutoff": "2026-08-22T15:10:00+00:00",
+    "units": [
+      "friendly_8545138"
+    ]
+  }
+]

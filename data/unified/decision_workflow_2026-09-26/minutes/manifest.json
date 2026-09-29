@@ -1,0 +1,21 @@
+{
+  "cache_hashes_unchanged": true,
+  "changed_international_rows": 211,
+  "changed_rows": 1224,
+  "fixtures": 3892,
+  "input_path": "/tmp/6n-complete-labels/all-cache-final-prepared/inputs/player_match.csv",
+  "input_sha256": "2b70331c0cf215def67831cd27c987362e2ec8330b2afb41c8d204f48ef17313",
+  "model_fits": 0,
+  "model_gains": "untested",
+  "outputs": {
+    "cache_hashes.json": "af59bf1114317ad5ddef1b13f6f39cbe6d84ea471b6322b1d105e0b037d9deff",
+    "fixture_event_coverage.csv": "9e1b799357ddaa71663ace318afa45df95aac44a4de195cf6bdedadfb6301de8",
+    "minutes_overlay.csv": "7c3b5e89d25531e1d507d60349c92212c450e095b25b08196dd44b356825b705",
+    "player_match.csv": "e4b20637e2b514d622bb35cc7c43762e0eddb4f3b4e50f1ca2e39155ae96e6be"
+  },
+  "raw_event_differences": {},
+  "rows": 179295,
+  "rule_version": "unlogged_activity_minutes_v1",
+  "source_path": "/Users/williamgreenfield/.codex/worktrees/d151/6n/model/unified/raw_benchmark/coverage.py",
+  "source_sha256": "01534ba7de211bccb7c4d026c5261d1a1c673901ad99ce92028058cd3c24f9e9"
+}

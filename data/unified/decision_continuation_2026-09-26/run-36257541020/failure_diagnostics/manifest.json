@@ -1,0 +1,11 @@
+{
+  "input_hashes": {
+    "forecasts": "46d47d855ef1584898b7a2c88c03f0f991d55c01eefd83d91cde061f19f6610e",
+    "squads": "829a1ef838fbd9e02efdb0b282c52403fd84422c3f2da111dd9d6372250077e7",
+    "metrics": "41489c6c4a92f840683e07a4b9adfaef4649c2f6fd6c697cae91c728620db6ba"
+  },
+  "source_sha256": "034a4128ac03eb0e9cfda8537b1295bdaa6be777b5e9a3e0d37fc5dfa9b37202",
+  "models_fitted": 0,
+  "new_candidates_scored": 0,
+  "interpretation": "Diagnostic recomputation of already completed failed methods; no untouched validation"
+}

@@ -50,7 +50,9 @@ def _objective(train: pd.DataFrame, validation: pd.DataFrame, model,
         if allowed:
             for competition in ("six_nations", "ncr"):
                 actual = observable_points_actual(validation, competition, allowed)
-                predicted = observable_points_predicted(predictions, competition, allowed)
+                predicted = observable_points_predicted(
+                    predictions, competition, allowed, season=validation.iloc[0].get("season"),
+                )
                 observable_maes.append(float(np.mean(np.abs(predicted - actual))))
     observable_mae = float(np.mean(observable_maes)) if observable_maes else np.nan
     metrics["observable_points_mae"] = observable_mae
@@ -433,7 +435,9 @@ def assess_blend(output_dir: Path = OUT / "search") -> dict:
             if observable_enabled and allowed:
                 for competition in ("six_nations", "ncr"):
                     actual = observable_points_actual(g_validation, competition, allowed)
-                    predicted = observable_points_predicted(blended, competition, allowed)
+                    predicted = observable_points_predicted(
+                        blended, competition, allowed, season=g_validation.iloc[0].get("season"),
+                    )
                     observable_maes.append(float(np.mean(np.abs(predicted - actual))))
             observable_mae = (
                 float(np.mean(observable_maes)) if observable_maes else np.nan

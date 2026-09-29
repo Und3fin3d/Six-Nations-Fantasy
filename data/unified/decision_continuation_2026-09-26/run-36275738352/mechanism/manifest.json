@@ -1,0 +1,23 @@
+{
+  "baseline_probability": "Existing marginal lognormal duration contract versus classifier mass at duration >=30, without recalibration",
+  "candidate_admission": false,
+  "completed_locks": [
+    "lock_00",
+    "lock_01",
+    "lock_02",
+    "lock_03",
+    "lock_04",
+    "lock_05",
+    "lock_06",
+    "lock_07",
+    "lock_08"
+  ],
+  "config_sha256": "c9a4a68bb1b54ba25bc22325afa53b6227d5ebced5fafc5cde8d07420ca80cf7",
+  "diagnostic": "Actual duration bins are unavailable at the lock. No oracle squad is optimised. Unknown durations and points are retained.",
+  "fitted_run": 36273533404,
+  "full_cohort": false,
+  "objective": "active_unfinished",
+  "registered_mechanism": "Exposure discrimination and conditional event adequacy, not a new fitted candidate",
+  "selection_or_fit_performed": false,
+  "source_sha256": "33ade0dd2e8e7d582a29e1d156d6aebfe70fd3417c2644d77261aeb4d3eeb9b8"
+}

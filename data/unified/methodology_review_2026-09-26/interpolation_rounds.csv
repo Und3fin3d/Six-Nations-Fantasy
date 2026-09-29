@@ -1,0 +1,66 @@
+slate,robust_weight,xv,captain_extra,super_sub,total,predicted_total,unknown_selected,captain,common_with_previous,competition,season
+ncr_2026_r1,0.0,461.0,41.0,James Botham,529.0,395.23,0,Cheslin Kolbe,,ncr,2026
+ncr_2026_r1,0.25,461.0,41.0,James Botham,529.0,401.4212088270583,0,Cheslin Kolbe,16.0,ncr,2026
+ncr_2026_r1,0.5,453.0,41.0,James Botham,521.0,407.86810885252163,0,Cheslin Kolbe,15.0,ncr,2026
+ncr_2026_r1,0.75,430.0,41.0,James Botham,498.0,414.63819370490216,0,Cheslin Kolbe,14.0,ncr,2026
+ncr_2026_r1,1.0,430.0,41.0,James Botham,498.0,422.3575916065362,0,Cheslin Kolbe,16.0,ncr,2026
+ncr_2026_r2,0.0,418.0,30.0,Gianmarco Lucchesi,493.0,409.70000000000005,0,Cam Roigard,,ncr,2026
+ncr_2026_r2,0.25,402.0,30.0,Gianmarco Lucchesi,477.0,417.80622290887896,0,Cam Roigard,14.0,ncr,2026
+ncr_2026_r2,0.5,458.0,30.0,Gianmarco Lucchesi,533.0,427.18061144624073,0,Cam Roigard,14.0,ncr,2026
+ncr_2026_r2,0.75,458.0,36.0,Gianmarco Lucchesi,539.0,438.4348944109514,0,Ardie Savea,16.0,ncr,2026
+ncr_2026_r2,1.0,453.0,36.0,Henry Pollock,684.0,451.5674373528426,0,Ardie Savea,13.0,ncr,2026
+ncr_2026_r3,0.0,475.0,45.0,Sean Jansen,556.0,427.5799999999999,0,Matthieu Jalibert,,ncr,2026
+ncr_2026_r3,0.25,489.0,45.0,Sean Jansen,570.0,430.1084849558288,0,Matthieu Jalibert,15.0,ncr,2026
+ncr_2026_r3,0.5,464.0,45.0,Sean Jansen,545.0,433.85653047950336,0,Matthieu Jalibert,14.0,ncr,2026
+ncr_2026_r3,0.75,473.0,45.0,Henry Pollock,557.0,441.3571473511456,0,Matthieu Jalibert,14.0,ncr,2026
+ncr_2026_r3,1.0,473.0,45.0,Henry Pollock,557.0,452.0195298015275,0,Matthieu Jalibert,16.0,ncr,2026
+six_nations_2025_r1,0.0,450.0,37.0,Tom Willis,502.0,490.26855233116254,0,Thomas Ramos,,six_nations,2025
+six_nations_2025_r1,0.25,456.0,37.0,Tom Willis,508.0,480.5461535161441,0,Thomas Ramos,14.0,six_nations,2025
+six_nations_2025_r1,0.5,453.0,37.0,Dan Sheehan,565.0,471.2104475932785,0,Thomas Ramos,14.0,six_nations,2025
+six_nations_2025_r1,0.75,418.0,37.0,Dan Sheehan,530.0,463.9392020432362,0,Thomas Ramos,14.0,six_nations,2025
+six_nations_2025_r1,1.0,440.0,31.0,Dan Sheehan,546.0,457.93492416960976,0,Antoine Dupont,13.0,six_nations,2025
+six_nations_2025_r2,0.0,318.0,34.0,Dan Sheehan,382.0,463.98973312853707,0,Tom Willis,,six_nations,2025
+six_nations_2025_r2,0.25,318.0,34.0,Dan Sheehan,382.0,460.6505246267912,0,Thomas Ramos,16.0,six_nations,2025
+six_nations_2025_r2,0.5,336.0,34.0,Dan Sheehan,400.0,458.22212673074483,0,Thomas Ramos,15.0,six_nations,2025
+six_nations_2025_r2,0.75,330.0,34.0,Dan Sheehan,394.0,456.00437483861884,0,Thomas Ramos,15.0,six_nations,2025
+six_nations_2025_r2,1.0,335.0,34.0,Dan Sheehan,399.0,454.5599844372563,0,Thomas Ramos,15.0,six_nations,2025
+six_nations_2025_r3,0.0,382.0,36.0,Bundee Aki,451.0,468.2040742275228,0,Thomas Ramos,,six_nations,2025
+six_nations_2025_r3,0.25,412.0,36.0,Ewan Ashman,451.0,464.96244651308393,0,Thomas Ramos,13.0,six_nations,2025
+six_nations_2025_r3,0.5,413.0,36.0,Ewan Ashman,452.0,463.4280691307063,0,Thomas Ramos,14.0,six_nations,2025
+six_nations_2025_r3,0.75,405.0,36.0,Ewan Ashman,444.0,463.3435901485706,0,Thomas Ramos,14.0,six_nations,2025
+six_nations_2025_r3,1.0,393.0,36.0,Ewan Ashman,432.0,464.72693590708536,0,Thomas Ramos,14.0,six_nations,2025
+six_nations_2025_r4,0.0,405.0,28.0,Marcus Smith,541.0,460.6106397615335,0,Duhan van der Merwe,,six_nations,2025
+six_nations_2025_r4,0.25,398.0,28.0,Marcus Smith,534.0,457.44088790278107,0,Duhan van der Merwe,13.0,six_nations,2025
+six_nations_2025_r4,0.5,405.0,28.0,Marcus Smith,541.0,455.73605328111967,0,Duhan van der Merwe,13.0,six_nations,2025
+six_nations_2025_r4,0.75,442.0,28.0,Marcus Smith,578.0,454.9753223416018,0,Duhan van der Merwe,14.0,six_nations,2025
+six_nations_2025_r4,1.0,398.0,28.0,Dewi Lake,474.0,454.8829387312959,0,Duhan van der Merwe,13.0,six_nations,2025
+six_nations_2025_r5,0.0,432.0,36.0,Tom Willis,534.0,479.0947245275975,0,Thomas Ramos,,six_nations,2025
+six_nations_2025_r5,0.25,432.0,36.0,Tom Willis,534.0,472.42374924410024,0,Thomas Ramos,16.0,six_nations,2025
+six_nations_2025_r5,0.5,441.0,36.0,Tom Willis,543.0,465.8794161511792,0,Thomas Ramos,15.0,six_nations,2025
+six_nations_2025_r5,0.75,415.0,36.0,Tom Willis,517.0,462.2362847417902,0,Thomas Ramos,14.0,six_nations,2025
+six_nations_2025_r5,1.0,403.0,36.0,Tom Willis,505.0,459.1717479667375,0,Thomas Ramos,15.0,six_nations,2025
+six_nations_2026_r1,0.0,450.0,46.0,Henry Pollock,505.0,465.8684991066608,0,Thomas Ramos,,six_nations,2026
+six_nations_2026_r1,0.25,477.0,46.0,Henry Pollock,532.0,459.8345576544579,0,Thomas Ramos,15.0,six_nations,2026
+six_nations_2026_r1,0.5,450.0,30.0,Henry Pollock,489.0,454.4637203464167,0,Antoine Dupont,15.0,six_nations,2026
+six_nations_2026_r1,0.75,445.0,30.0,Henry Pollock,484.0,450.25156789749184,0,Antoine Dupont,15.0,six_nations,2026
+six_nations_2026_r1,1.0,455.0,30.0,Henry Pollock,494.0,446.37973881562823,0,Antoine Dupont,14.0,six_nations,2026
+six_nations_2026_r2,0.0,433.0,48.0,Henry Pollock,547.0,495.5790168818042,0,Thomas Ramos,,six_nations,2026
+six_nations_2026_r2,0.25,433.0,48.0,Henry Pollock,547.0,495.83468466440956,0,Thomas Ramos,14.0,six_nations,2026
+six_nations_2026_r2,0.5,433.0,33.0,Henry Pollock,532.0,496.99733104896967,0,Antoine Dupont,16.0,six_nations,2026
+six_nations_2026_r2,0.75,450.0,33.0,Henry Pollock,549.0,501.27622207741,0,Antoine Dupont,14.0,six_nations,2026
+six_nations_2026_r2,1.0,465.0,33.0,Henry Pollock,564.0,506.69563307853866,0,Antoine Dupont,13.0,six_nations,2026
+six_nations_2026_r3,0.0,350.0,56.0,Marcus Smith,460.0,490.2377927402622,0,Thomas Ramos,,six_nations,2026
+six_nations_2026_r3,0.25,373.0,56.0,Marcus Smith,483.0,491.5899735446097,0,Thomas Ramos,14.0,six_nations,2026
+six_nations_2026_r3,0.5,373.0,56.0,Marcus Smith,483.0,493.1909331382567,0,Thomas Ramos,16.0,six_nations,2026
+six_nations_2026_r3,0.75,373.0,56.0,Marcus Smith,483.0,494.7918927319036,0,Thomas Ramos,16.0,six_nations,2026
+six_nations_2026_r3,1.0,377.0,56.0,Archie Griffin,463.0,496.680144207983,0,Thomas Ramos,14.0,six_nations,2026
+six_nations_2026_r4,0.0,471.0,45.0,Henry Pollock,516.0,471.6887011575124,0,Thomas Ramos,,six_nations,2026
+six_nations_2026_r4,0.25,449.0,14.0,Henry Pollock,463.0,473.1536899812202,0,Matthieu Jalibert,15.0,six_nations,2026
+six_nations_2026_r4,0.5,450.0,14.0,Henry Pollock,464.0,476.4573307143197,0,Matthieu Jalibert,15.0,six_nations,2026
+six_nations_2026_r4,0.75,450.0,14.0,Henry Pollock,464.0,479.8500645262331,0,Matthieu Jalibert,16.0,six_nations,2026
+six_nations_2026_r4,1.0,393.0,14.0,Henry Pollock,407.0,484.34099071630493,0,Matthieu Jalibert,13.0,six_nations,2026
+six_nations_2026_r5,0.0,470.0,30.0,Henry Pollock,524.0,475.6585019415902,0,Thomas Ramos,,six_nations,2026
+six_nations_2026_r5,0.25,470.0,30.0,Henry Pollock,524.0,477.03036111569475,0,Thomas Ramos,16.0,six_nations,2026
+six_nations_2026_r5,0.5,470.0,30.0,Henry Pollock,524.0,478.4022202897994,0,Thomas Ramos,16.0,six_nations,2026
+six_nations_2026_r5,0.75,500.0,44.0,Henry Pollock,568.0,481.0007004952313,0,Matthieu Jalibert,13.0,six_nations,2026
+six_nations_2026_r5,1.0,500.0,44.0,Henry Pollock,568.0,485.33689336533826,0,Matthieu Jalibert,16.0,six_nations,2026

@@ -9,7 +9,7 @@ import pandas as pd
 
 from .contracts import RawPrediction
 from .schema import EVENTS
-from .scoring import CompetitionScorer
+from .scoring import CompetitionScorer, scorer_for
 
 
 def tie_aware_top_n(predicted: pd.Series, actual: pd.Series, n: int) -> tuple[float, float]:
@@ -26,25 +26,34 @@ def tie_aware_top_n(predicted: pd.Series, actual: pd.Series, n: int) -> tuple[fl
     return float(hits / n), capture
 
 
-def actual_points(frame: pd.DataFrame, scorer: CompetitionScorer) -> np.ndarray:
+def scorer_for_row(scorer: CompetitionScorer | str, row) -> CompetitionScorer:
+    return scorer_for(scorer, season=getattr(row, "season", None)) if isinstance(scorer, str) else scorer
+
+
+def actual_points(frame: pd.DataFrame, scorer: CompetitionScorer | str) -> np.ndarray:
     rows = []
     for row in frame.itertuples(index=False):
+        rules = scorer_for_row(scorer, row)
         events = {
             event: np.array([float(getattr(row, event))])
             for event in EVENTS if hasattr(row, event) and pd.notna(getattr(row, event))
         }
-        rows.append(float(scorer.score_samples(events, is_forward=bool(row.is_forward))[0]))
+        rows.append(float(rules.score_samples(
+            events, is_forward=bool(row.is_forward), position=getattr(row, "position", None),
+        )[0]))
     return np.asarray(rows)
 
 
 def evaluate_predictions(
-    frame: pd.DataFrame, predictions: list[RawPrediction], scorer: CompetitionScorer,
+    frame: pd.DataFrame, predictions: list[RawPrediction], scorer: CompetitionScorer | str,
     top_ns: tuple[int, ...] = (10, 25, 50, 100),
 ) -> dict[str, float]:
     if len(frame) != len(predictions):
         raise ValueError("frame and predictions must have the same length")
-    predicted = np.array([scorer.score_prediction(p, n=1200, seed=31 + i).mean
-                          for i, p in enumerate(predictions)])
+    predicted = np.array([
+        scorer_for_row(scorer, row).score_prediction(prediction, n=1200, seed=31 + i).mean
+        for i, (row, prediction) in enumerate(zip(frame.itertuples(index=False), predictions))
+    ])
     actual = actual_points(frame, scorer)
     metrics: dict[str, float] = {
         "n": float(len(frame)), "points_mae": float(np.mean(np.abs(predicted - actual))),

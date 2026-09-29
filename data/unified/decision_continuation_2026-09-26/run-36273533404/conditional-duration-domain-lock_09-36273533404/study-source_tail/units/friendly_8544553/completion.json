@@ -1,0 +1,29 @@
+{
+  "candidate_keys_sha256": "b3ae1728d3b2ad55f2cb95f17ee92246ba817da157e7b070e9115dba92efac49",
+  "fantasy_engines": [],
+  "objective": "active_unfinished",
+  "output_hashes": {
+    "candidate_keys.csv": "b3ae1728d3b2ad55f2cb95f17ee92246ba817da157e7b070e9115dba92efac49",
+    "conditional_duration_source_tail_v2.jsonl": "74641137d7476dc754ac4b01b3b445df415d29a876b24ffa8e7f9727fa4dcc9b",
+    "duration_calibration.csv": "0804c9397fa95acd29341bfb77b9240dde8805d88e455b353549fcd77fb13036",
+    "empirical_event.jsonl": "c9633c5081bb32ceb2ee9fc7789b33a09ff131135dfc7007b49b761cd33c525b",
+    "p3_conditional_duration_source_tail_v2.jsonl": "177afd54c755ad44572c42a382719fefaf951559e527494e3091733cd07b40d7",
+    "p3_corrected_full_refit.jsonl": "56f9ce2d373238ecd0934c08379d775cf95bba6e061ce0c2e9f1d0901b640d8e",
+    "raw_labels.csv": "2e60a75acd5bdd359b486a50ebf91a4944eb4971d6ac8b7f38d7960ae0bd45fe",
+    "raw_metrics.csv": "bca2b991c5402d356ca37fa9dde0afb353309cefd9a7816abb801a2139fefe91",
+    "robust_empirical_event.jsonl": "f119c4123c21b9fa7d2fffadb614d1ceeffeb2604dc3557353ad5dee25ae23fe",
+    "v4_corrected_full_refit.jsonl": "9ef9e3cde201f2113059ded9a967f89f427fb3ea5ea814e52c0855bce7613062",
+    "v4_joint_support_control.jsonl": "e33f043d2409ce6019e15d9b14e2d287ec7132cfbd814369f6514d30d9734081"
+  },
+  "raw_engines": [
+    "empirical_event",
+    "robust_empirical_event",
+    "v4_corrected_full_refit",
+    "v4_joint_support_control",
+    "p3_corrected_full_refit",
+    "conditional_duration_source_tail_v2",
+    "p3_conditional_duration_source_tail_v2"
+  ],
+  "rows": 46,
+  "unit": "friendly_8544553"
+}

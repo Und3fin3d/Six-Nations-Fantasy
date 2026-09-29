@@ -1,0 +1,280 @@
+{
+  "six_nations_workbook": {
+    "source": "2026/sixnationmatch.xlsx",
+    "source_sha256": "41a342665e61ee1f5d9382fcac20d711c9e716170bf3b978608a0799f7167560",
+    "worksheet": "Sheet5",
+    "row": 65,
+    "cells": {
+      "A65": "D. Edwards",
+      "B65": "67",
+      "C65": "1",
+      "E65": "4",
+      "G65": "25",
+      "H65": "4",
+      "I65": "2",
+      "M65": "1",
+      "U65": "35"
+    },
+    "legacy_score": 34.0,
+    "season_2026_score": 35.0,
+    "official_score": 35.0,
+    "nonzero_drop_goal_rows": {
+      "2025": 0,
+      "2026": 1
+    },
+    "legacy_version": "six_nations_legacy_v1",
+    "season_2026_version": "six_nations_2026_v2"
+  },
+  "ncr_archive_replays": [
+    {
+      "slate": "ncr_2026_r1",
+      "engine": "p3_robust_native",
+      "n": 227,
+      "legacy_formula_max_error": 0.0,
+      "corrected_delta_max_error": 3.552713678800501e-15,
+      "legacy_sample_max_error": 0.0,
+      "non_front_row_rows": 168,
+      "removed_points_sum": 377.30886750321207,
+      "source": "/tmp/6n-methodology-review/retained-replay/replay/comparison-slate-ncr_2026_r1/results/models/ncr_2026_r1/p3_robust_native.jsonl",
+      "source_sha256": "b505aa7a4ae9dc81ab50d4008f8003efb5b56b8a8fa0d26f6af1461d95a4aea2"
+    },
+    {
+      "slate": "ncr_2026_r1",
+      "engine": "p3_rolling_native",
+      "n": 227,
+      "legacy_formula_max_error": 0.0,
+      "corrected_delta_max_error": 3.552713678800501e-15,
+      "legacy_sample_max_error": 0.0,
+      "non_front_row_rows": 168,
+      "removed_points_sum": 394.35329954824215,
+      "source": "/tmp/6n-methodology-review/retained-replay/replay/comparison-slate-ncr_2026_r1/results/models/ncr_2026_r1/p3_rolling_native.jsonl",
+      "source_sha256": "80d2c0057d3aa5fa5b36ec7ddb0d7af72266c41cf1a15b9a4ed4b4fbafb5a567"
+    },
+    {
+      "slate": "ncr_2026_r1",
+      "engine": "p3_weighted_native",
+      "n": 227,
+      "legacy_formula_max_error": 0.0,
+      "corrected_delta_max_error": 3.552713678800501e-15,
+      "legacy_sample_max_error": 0.0,
+      "non_front_row_rows": 168,
+      "removed_points_sum": 394.35329954824215,
+      "source": "/tmp/6n-methodology-review/retained-replay/replay/comparison-slate-ncr_2026_r1/results/models/ncr_2026_r1/p3_weighted_native.jsonl",
+      "source_sha256": "857c9943c28ae90fbadc29a1ccaf14214d185ee826ef07b292c0f85c1871a64e"
+    },
+    {
+      "slate": "ncr_2026_r2",
+      "engine": "p3_robust_native",
+      "n": 262,
+      "legacy_formula_max_error": 0.0,
+      "corrected_delta_max_error": 3.552713678800501e-15,
+      "legacy_sample_max_error": 0.0,
+      "non_front_row_rows": 193,
+      "removed_points_sum": 476.2562970559611,
+      "source": "/tmp/6n-methodology-review/retained-replay/replay/comparison-slate-ncr_2026_r2/results/models/ncr_2026_r2/p3_robust_native.jsonl",
+      "source_sha256": "180f8eadf1af6f9f8817948c4993971df0d38be2b1b2a4e1981672aaec2bb20a"
+    },
+    {
+      "slate": "ncr_2026_r2",
+      "engine": "p3_rolling_native",
+      "n": 262,
+      "legacy_formula_max_error": 0.0,
+      "corrected_delta_max_error": 3.552713678800501e-15,
+      "legacy_sample_max_error": 0.0,
+      "non_front_row_rows": 193,
+      "removed_points_sum": 493.43870797917873,
+      "source": "/tmp/6n-methodology-review/retained-replay/replay/comparison-slate-ncr_2026_r2/results/models/ncr_2026_r2/p3_rolling_native.jsonl",
+      "source_sha256": "d9498533e9e6dbea823d7e258f5d7586ce38769d40bf5d5276d3f55424df988a"
+    },
+    {
+      "slate": "ncr_2026_r2",
+      "engine": "p3_weighted_native",
+      "n": 262,
+      "legacy_formula_max_error": 0.0,
+      "corrected_delta_max_error": 3.552713678800501e-15,
+      "legacy_sample_max_error": 0.0,
+      "non_front_row_rows": 193,
+      "removed_points_sum": 493.43870797917873,
+      "source": "/tmp/6n-methodology-review/retained-replay/replay/comparison-slate-ncr_2026_r2/results/models/ncr_2026_r2/p3_weighted_native.jsonl",
+      "source_sha256": "353f1610177a3f7d7de6ced8c363a72aeba64e351d6ac6769bea7d97d433ebfb"
+    },
+    {
+      "slate": "ncr_2026_r3",
+      "engine": "p3_robust_native",
+      "n": 269,
+      "legacy_formula_max_error": 0.0,
+      "corrected_delta_max_error": 3.552713678800501e-15,
+      "legacy_sample_max_error": 0.0,
+      "non_front_row_rows": 201,
+      "removed_points_sum": 469.70197267657727,
+      "source": "/tmp/6n-methodology-review/retained-replay/replay/comparison-slate-ncr_2026_r3/results/models/ncr_2026_r3/p3_robust_native.jsonl",
+      "source_sha256": "285c1b0a8fbfb9238b945bb7cb41b8f71af16c945be15882c2edc76318fd1de9"
+    },
+    {
+      "slate": "ncr_2026_r3",
+      "engine": "p3_rolling_native",
+      "n": 269,
+      "legacy_formula_max_error": 0.0,
+      "corrected_delta_max_error": 3.552713678800501e-15,
+      "legacy_sample_max_error": 0.0,
+      "non_front_row_rows": 201,
+      "removed_points_sum": 486.09207970461694,
+      "source": "/tmp/6n-methodology-review/retained-replay/replay/comparison-slate-ncr_2026_r3/results/models/ncr_2026_r3/p3_rolling_native.jsonl",
+      "source_sha256": "4e0fe65f33472a11cb4565ecd1915aa0646659e40139bd6c6b833aefecf1e085"
+    },
+    {
+      "slate": "ncr_2026_r3",
+      "engine": "p3_weighted_native",
+      "n": 269,
+      "legacy_formula_max_error": 0.0,
+      "corrected_delta_max_error": 3.552713678800501e-15,
+      "legacy_sample_max_error": 0.0,
+      "non_front_row_rows": 201,
+      "removed_points_sum": 486.09207970461694,
+      "source": "/tmp/6n-methodology-review/retained-replay/replay/comparison-slate-ncr_2026_r3/results/models/ncr_2026_r3/p3_weighted_native.jsonl",
+      "source_sha256": "276789ad01284efc8c231007377855bb3e3b0934aaebfc13fb88151f69dfb24e"
+    }
+  ],
+  "six_nations_archive_replays": [
+    {
+      "slate": "six_nations_2025_r1",
+      "forecasts": 138,
+      "season": 2025,
+      "delta_max_error": 0.0,
+      "drop_goal_delta_sum": 0.0,
+      "source": "/tmp/6n-methodology-review/retained-replay/replay/comparison-slate-six_nations_2025_r1/results/models/six_nations_2025_r1/p3_robust_native.jsonl",
+      "source_sha256": "09bc293943e4707d730f28ef4fa637b86e49f75416c28cbebfde64861231b3d7"
+    },
+    {
+      "slate": "six_nations_2025_r2",
+      "forecasts": 138,
+      "season": 2025,
+      "delta_max_error": 0.0,
+      "drop_goal_delta_sum": 0.0,
+      "source": "/tmp/6n-methodology-review/retained-replay/replay/comparison-slate-six_nations_2025_r2/results/models/six_nations_2025_r2/p3_robust_native.jsonl",
+      "source_sha256": "f8b52c65f599662fed2292168a9ab4b20e4dc3e158c9ad811aa3a4d073431723"
+    },
+    {
+      "slate": "six_nations_2025_r3",
+      "forecasts": 138,
+      "season": 2025,
+      "delta_max_error": 0.0,
+      "drop_goal_delta_sum": 0.0,
+      "source": "/tmp/6n-methodology-review/retained-replay/replay/comparison-slate-six_nations_2025_r3/results/models/six_nations_2025_r3/p3_robust_native.jsonl",
+      "source_sha256": "ea11e828f793f549ed71dc27ec9f9f3c0b9d8b422ff628ad373db15808b4b8a0"
+    },
+    {
+      "slate": "six_nations_2025_r4",
+      "forecasts": 138,
+      "season": 2025,
+      "delta_max_error": 0.0,
+      "drop_goal_delta_sum": 0.0,
+      "source": "/tmp/6n-methodology-review/retained-replay/replay/comparison-slate-six_nations_2025_r4/results/models/six_nations_2025_r4/p3_robust_native.jsonl",
+      "source_sha256": "43929649f3fee627e7ba1e6a764492b6c90d4bbbc83e2ebc00ccb75398bb4a07"
+    },
+    {
+      "slate": "six_nations_2025_r5",
+      "forecasts": 138,
+      "season": 2025,
+      "delta_max_error": 0.0,
+      "drop_goal_delta_sum": 0.0,
+      "source": "/tmp/6n-methodology-review/retained-replay/replay/comparison-slate-six_nations_2025_r5/results/models/six_nations_2025_r5/p3_robust_native.jsonl",
+      "source_sha256": "a16856c47c504165191a6b636ebf86e0c65d318c49933390757ded95e43bafa9"
+    },
+    {
+      "slate": "six_nations_2026_r1",
+      "forecasts": 138,
+      "season": 2026,
+      "delta_max_error": 6.5503158452884236e-15,
+      "drop_goal_delta_sum": 0.1428278506092402,
+      "source": "/tmp/6n-methodology-review/retained-replay/replay/comparison-slate-six_nations_2026_r1/results/models/six_nations_2026_r1/p3_robust_native.jsonl",
+      "source_sha256": "167c2d06f1d87593858df888fc193a99f37dcf00d30abc452575431be621e2d3"
+    },
+    {
+      "slate": "six_nations_2026_r2",
+      "forecasts": 138,
+      "season": 2026,
+      "delta_max_error": 1.0593522586921367e-14,
+      "drop_goal_delta_sum": 0.15754678932941724,
+      "source": "/tmp/6n-methodology-review/retained-replay/replay/comparison-slate-six_nations_2026_r2/results/models/six_nations_2026_r2/p3_robust_native.jsonl",
+      "source_sha256": "d39ded919a0042f1065799ffc26a6e1d55f27402311f7e366b65ae8a54f57fc9"
+    },
+    {
+      "slate": "six_nations_2026_r3",
+      "forecasts": 138,
+      "season": 2026,
+      "delta_max_error": 6.614825874551311e-15,
+      "drop_goal_delta_sum": 0.13695542450429096,
+      "source": "/tmp/6n-methodology-review/retained-replay/replay/comparison-slate-six_nations_2026_r3/results/models/six_nations_2026_r3/p3_robust_native.jsonl",
+      "source_sha256": "73e1242ed7e8752b7f560add1ec1ae2e041d1626b89802b2a6e63392622c2270"
+    },
+    {
+      "slate": "six_nations_2026_r4",
+      "forecasts": 138,
+      "season": 2026,
+      "delta_max_error": 4.563244313665615e-15,
+      "drop_goal_delta_sum": 0.06846320506313086,
+      "source": "/tmp/6n-methodology-review/retained-replay/replay/comparison-slate-six_nations_2026_r4/results/models/six_nations_2026_r4/p3_robust_native.jsonl",
+      "source_sha256": "ca353d9c8e2624848ebd61d900912cff22633db9998fc7f71b45e07d67dd847d"
+    },
+    {
+      "slate": "six_nations_2026_r5",
+      "forecasts": 138,
+      "season": 2026,
+      "delta_max_error": 6.579806144380029e-15,
+      "drop_goal_delta_sum": 0.07198807799889735,
+      "source": "/tmp/6n-methodology-review/retained-replay/replay/comparison-slate-six_nations_2026_r5/results/models/six_nations_2026_r5/p3_robust_native.jsonl",
+      "source_sha256": "a2d2faab7657432342442a3552c5746205bdd188813dabcf76e395e4eb95c200"
+    }
+  ],
+  "existing_tests": {
+    "command": "PYTEST_DISABLE_PLUGIN_AUTOLOAD=1 /tmp/6n-pr-decision/venv/bin/python -m pytest -q tests/test_unified_model.py tests/test_unified_ncr_gw_eval.py tests/test_unified_raw_benchmark.py tests/test_unified_v3.py tests/test_unified_v5.py tests/test_unified_stack.py tests/test_rolling_history.py tests/test_unified_v4.py",
+    "passed": 87,
+    "failed": 2,
+    "failures": {
+      "tests/test_unified_model.py::test_ncr_converter_includes_api_blind_scoring_categories": "Nonzero scrum event lacks player position; current contract refuses role inference.",
+      "tests/test_unified_v3.py::test_real_data_audit_covers_all_labelled_rounds": "Existing expectation2144 differs from repaired2164 labels."
+    }
+  },
+  "complexity": {
+    "checked_code_files": 19,
+    "existing_findings": 12,
+    "new_or_changed_findings": 0
+  },
+  "after_cli_checks": {
+    "existing_tests_passed": 12,
+    "existing_tests_failed": 1,
+    "failure": "Existing NCR nonzero scrum category test supplies no position.",
+    "cli_and_evaluation_complexity_findings": 0,
+    "observed_row_season_deltas": [
+      {
+        "season": 2025,
+        "player": "Pierre Popelin",
+        "drop_goals": 1,
+        "legacy": 11,
+        "current": 11
+      },
+      {
+        "season": 2025,
+        "player": "Louis Carbonel",
+        "drop_goals": 1,
+        "legacy": 21,
+        "current": 21
+      },
+      {
+        "season": 2026,
+        "player": "Ugo Seunes",
+        "drop_goals": 1,
+        "legacy": 23,
+        "current": 24
+      },
+      {
+        "season": 2026,
+        "player": "Henry Slade",
+        "drop_goals": 1,
+        "legacy": 19,
+        "current": 20
+      }
+    ]
+  }
+}

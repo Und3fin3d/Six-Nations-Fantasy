@@ -1,0 +1,27 @@
+empirical_event: fit 145,577 prior rows
+robust_empirical_event: fit 145,577 prior rows
+v4_corrected_full_refit: fit 145,577 prior rows
+v4_joint_support_control: fit 145,577 prior rows
+conditional_duration_v1: fit 145,577 prior rows
+Traceback (most recent call last):
+  File "<frozen runpy>", line 198, in _run_module_as_main
+  File "<frozen runpy>", line 88, in _run_code
+  File "/home/runner/work/Six-Nations-Fantasy/Six-Nations-Fantasy/research/conditional_duration_run.py", line 229, in <module>
+    run(parser.parse_args())
+  File "/home/runner/work/Six-Nations-Fantasy/Six-Nations-Fantasy/research/conditional_duration_run.py", line 196, in run
+    models, configuration = fit_models(train, training_features, context, args)
+                            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/runner/work/Six-Nations-Fantasy/Six-Nations-Fantasy/research/conditional_duration_run.py", line 82, in fit_models
+    conditional = fit_or_restore('conditional_duration_v1', ConditionalDurationGBDT(**parameters), training_features, context, args)
+                  ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/runner/work/Six-Nations-Fantasy/Six-Nations-Fantasy/research/conditional_duration_run.py", line 62, in fit_or_restore
+    fitted = model.fit(frame)
+             ^^^^^^^^^^^^^^^^
+  File "/home/runner/work/Six-Nations-Fantasy/Six-Nations-Fantasy/model/unified/conditional_duration.py", line 110, in fit
+    self._fit_duration(matrix, minutes, valid, arguments)
+  File "/home/runner/work/Six-Nations-Fantasy/Six-Nations-Fantasy/model/unified/conditional_duration.py", line 59, in _fit_duration
+    labels = self._duration_labels(y)
+             ^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/runner/work/Six-Nations-Fantasy/Six-Nations-Fantasy/model/unified/conditional_duration.py", line 50, in _duration_labels
+    raise ValueError('Observed duration outside the registered [0,80] contract')
+ValueError: Observed duration outside the registered [0,80] contract

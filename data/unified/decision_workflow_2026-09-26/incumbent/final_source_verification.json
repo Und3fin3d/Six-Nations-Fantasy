@@ -1,0 +1,21 @@
+{
+  "complete_final_source_rerun": false,
+  "direct_run_manifest_sha256": "e6447f5bf53462a4d4bddd7d87fbd5076dcfd569a9b48c09bbdc9a8f424ae501",
+  "forecast_rows": 138,
+  "interpretation": "One representative final-source slate reproduced the separately repaired captain policy numerically. The full original run retains its fit-time source snapshot.",
+  "maximum_absolute_difference": {
+    "captain_score": 1.7763568394002505e-15,
+    "selection_score": 4.440892098500626e-16,
+    "supersub_score": 0.0,
+    "target_pts_hat": 3.552713678800501e-15,
+    "upside_score": 1.3322676295501878e-15
+  },
+  "model_research_sha256": "5750e8af09d44446202a806e4e99e7fe989560e14fdf3146679394eb687e4bb4",
+  "original_forecast_hash_matches_captain_input": true,
+  "original_full_forecasts_sha256": "41ac2105b3f47e7944b5384617655f640a53c9871a5b9461f8473e721119a066",
+  "representative_slate": "six_nations_2026_r5",
+  "selected_roles_match": {
+    "common_roles": true,
+    "native_roles": true
+  }
+}

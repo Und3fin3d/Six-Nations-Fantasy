@@ -1,0 +1,87 @@
+{
+  "axis": "standards",
+  "base_commit": "93f9670f38ed1699c0029192ac38227392b329fb",
+  "current_resolution_source_sha256": {
+    "data/unified/methodology_review_2026-09-26/front_row.py": "a63dc9bd0aaf2b5594691f2a82e26d5a14099b6cdec468ed415936ac2f6a87d0",
+    "data/unified/methodology_review_2026-09-26/interpolate.py": "cf8c7388753ccea4a41b1279e92295381fe0c6461a899c42bf81571b594a0115",
+    "research/decision_replay.py": "9b1225bdfee27e61fe9a3961658df2138b53ef60cbe3647ccb0a074003a8a568",
+    "research/decision_summary.py": "bc736072b09641ad2cf5319acbb937635768828920601352a54799edb5c5316f",
+    "research/timing_ablation.py": "57493b4f486d151b36510e59eeabe4a55cd350ffce20bb0b6a787e1fc1472559"
+  },
+  "findings": [
+    {
+      "classification": "judgement_call",
+      "finding": "Archived squad identity and numeric comparisons were duplicated.",
+      "id": "S1",
+      "original_locations": [
+        "data/unified/methodology_review_2026-09-26/front_row.py:33",
+        "data/unified/methodology_review_2026-09-26/interpolate.py:55"
+      ],
+      "resolution": "Both callers now use interpolate.verify_archived_squad; comparison fields and checks remain intact.",
+      "severity": "P3",
+      "smell": "Duplicated Code",
+      "standard": "personal-code-style.md Core direction 2: Share the invariant implementation across variants.",
+      "status": "resolved",
+      "verification": "Compared narrow follow-up against the original snapshot and searched call sites; rechecked references when recording this result."
+    },
+    {
+      "classification": "judgement_call",
+      "finding": "prior_candidates adds current remedy forecasts by mutating points and returns audit tables.",
+      "id": "S2",
+      "original_locations": [
+        "research/decision_replay.py:100"
+      ],
+      "resolution": "Renamed definition and caller to add_remedy_forecasts.",
+      "severity": "P3",
+      "smell": "Mysterious Name",
+      "standard": "code-style/python.md Naming: Name the operation or domain question directly.",
+      "status": "resolved",
+      "verification": "Compared narrow follow-up against the original snapshot and searched call sites; rechecked references when recording this result."
+    },
+    {
+      "classification": "judgement_call",
+      "finding": "Timing paired_rows duplicated existing pairing logic while omitting its forecast-support check.",
+      "id": "S3",
+      "original_locations": [
+        "research/timing_ablation.py:152",
+        "research/decision_summary.py:20"
+      ],
+      "resolution": "timing_ablation imports decision_summary.paired_rows and supplies explicit candidate/comparator pairs. The shared helper retains slate and n/n_labelled support checks.",
+      "severity": "P3",
+      "smell": "Duplicated Code",
+      "standard": "personal-code-style.md Core direction 2: Share the invariant implementation across variants.",
+      "status": "resolved",
+      "verification": "Inspected current import, call and helper; timing source hash matches the requested final hash."
+    }
+  ],
+  "hard_violations": [],
+  "original_snapshot": {
+    "manifest": "/tmp/6n-decision-workflow/review/manifest.json",
+    "manifest_sha256": "60867bc81752309368eba91e64c023ed67f246f597c7c2d3cff3edf9c6b6d1f4",
+    "verified_file_hashes": 94
+  },
+  "result": {
+    "historical_judgement_calls": 3,
+    "new_hard_violations": 0,
+    "resolved_judgement_calls": 3,
+    "unresolved_findings": 0
+  },
+  "reviewed_at": "2026-09-26T15:23:03.164687+00:00",
+  "standards_sources": [
+    "AGENTS.md and supplied shared project instructions",
+    "/Users/williamgreenfield/Agentic/instructions/personal-code-style.md",
+    "/Users/williamgreenfield/Agentic/instructions/code-style/python.md",
+    "/Users/williamgreenfield/.agents/skills/code-review/SKILL.md"
+  ],
+  "supplemental_snapshot": {
+    "manifest": "/tmp/6n-decision-workflow/review-timing/manifest.json",
+    "manifest_sha256": "ed274eb9f27ce12d532dd8095e240fd0f6bb19d23343757276091b3fd93f2a74",
+    "timing_ablation_sha256": "12fb1e9af38411b02aeac06b155fb5aaa185e2a8a686ebb4acb4731067f38d53",
+    "verified_file_hashes": 3
+  },
+  "verification_limits": [
+    "Broad reviews apply to the pinned snapshots. Follow-up reviews checked only the requested resolutions.",
+    "No tests or experiment replays were run by this reviewer.",
+    "No source files, tests or memory records were changed. This JSON record is the only file written by this follow-up."
+  ]
+}

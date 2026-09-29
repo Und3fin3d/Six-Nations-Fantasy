@@ -1,0 +1,17 @@
+id,name,team,hemi,pos,value,sel,status,opp,home,n_hist,rp_min,wr_margin,weather_att,per80,exp_min,starter_exp,supersub_exp,in_squad,is_sub,is_capt,actual,point_forecast,slate,engine,actual_role_supersub_points,possible_min,possible_max,role_outcome_known,source_conflict
+103703,Harry Hockings,Japan,2,Lock,4.5,1.5,P,France,True,4,2967,-14.6,1.0,17.24,55.5,13.19,5.98,True,False,False,4.0,18.082457576372168,ncr_2026_r3,empirical_event,2.0,2.0,2.0,True,False
+110910,Jesse Kriel,South Africa,2,Centre,7.0,14.9,P,Wales,True,46,2770,40.5,1.0,19.67,79.4,21.46,9.76,True,False,False,26.0,20.976395892211933,ncr_2026_r3,empirical_event,13.0,13.0,13.0,True,False
+119955,Rhys Carre,Wales,1,Prop,4.5,29.3,P,South Africa,False,21,1809,-40.5,1.0,17.07,46.0,10.84,4.91,True,False,False,16.0,17.083412595901567,ncr_2026_r3,empirical_event,8.0,8.0,8.0,True,False
+123016,Jac Morgan,Wales,1,Loose Forward,7.0,29.4,P,South Africa,False,34,2124,-40.5,1.0,26.29,74.6,26.46,12.26,True,False,False,22.0,24.96803441683437,ncr_2026_r3,empirical_event,11.0,11.0,11.0,True,False
+140494,Jiuta Wainiqolo,Fiji,2,Back Three,5.5,19.2,P,Scotland,True,20,2923,-3.2,1.0,23.95,75.2,24.46,11.25,True,False,False,13.0,23.611479371976714,ncr_2026_r3,empirical_event,6.5,6.5,6.5,True,False
+146220,Will Jordan,New Zealand,2,Back Three,8.5,44.1,P,Ireland,True,56,1530,9.4,1.0,26.68,78.7,28.19,13.12,True,False,False,50.0,26.39173306149959,ncr_2026_r3,empirical_event,25.0,25.0,25.0,True,False
+169185,Teddy Williams,Wales,1,Lock,4.0,0.8,P,South Africa,False,10,1592,-40.5,1.0,18.21,69.1,17.37,7.87,True,False,False,2.0,18.894521025545846,ncr_2026_r3,empirical_event,1.0,1.0,1.0,True,False
+172284,Muhamed Hasa,Italy,1,Prop,3.5,0.5,P,Australia,False,10,1821,-13.9,1.0,13.67,44.9,8.47,3.84,True,False,False,9.0,16.497883464499317,ncr_2026_r3,empirical_event,4.5,4.5,4.5,True,False
+172455,Duhan van der Merwe,Scotland,1,Back Three,5.0,5.1,P,Fiji,False,58,2537,3.2,1.0,24.41,76.9,25.43,11.74,True,False,False,56.0,24.431915585156638,ncr_2026_r3,empirical_event,28.0,28.0,28.0,True,False
+179379,Ardie Savea,New Zealand,2,Loose Forward,8.5,46.1,P,Ireland,True,64,3406,9.4,1.0,25.62,78.1,26.97,12.51,True,False,False,49.0,25.359155274537663,ncr_2026_r3,empirical_event,24.5,24.5,24.5,True,False
+190344,Matthieu Jalibert,France,1,Fly Half,8.0,33.2,P,Japan,False,36,3486,14.6,1.0,33.38,76.1,33.69,15.87,True,False,True,45.0,32.75301856014635,ncr_2026_r3,empirical_event,22.5,22.5,22.5,True,False
+208620,Carlo Tizzano,Australia,2,Loose Forward,6.0,3.7,P,Italy,True,14,1335,13.9,1.0,26.29,76.6,27.11,12.58,True,False,False,28.0,26.105921182081516,ncr_2026_r3,empirical_event,14.0,14.0,14.0,True,False
+211240,Dan Sheehan,Ireland,1,Hooker,8.0,12.4,P,New Zealand,False,46,2070,-9.4,1.0,23.93,59.5,19.64,8.9,True,False,False,32.0,25.72601332169349,ncr_2026_r3,empirical_event,16.0,16.0,16.0,True,False
+229307,Cam Roigard,New Zealand,2,Scrum Half,8.0,45.2,P,Ireland,True,19,1230,9.4,1.0,33.52,64.4,28.94,13.49,True,False,False,20.0,27.589990175920644,ncr_2026_r3,empirical_event,10.0,10.0,10.0,True,False
+250067,Fabien Brau-Boirie,France,1,Centre,6.0,24.7,P,Japan,False,5,2817,14.6,1.0,25.78,73.3,25.58,11.81,True,False,False,18.0,26.10776380210909,ncr_2026_r3,empirical_event,9.0,9.0,9.0,True,False
+252532,Seb Stephen,Scotland,1,Hooker,3.0,0.3,B,Fiji,False,0,820,3.2,1.0,25.2,22.0,7.66,20.83,True,True,False,7.0,9.964064996153851,ncr_2026_r3,empirical_event,21.0,21.0,21.0,True,False

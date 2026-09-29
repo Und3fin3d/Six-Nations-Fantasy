@@ -9,7 +9,7 @@ import pandas as pd
 
 from ..contracts import RawPrediction
 from ..schema import EVENTS, distribution_family
-from ..scoring import NationsChampionshipScorer, SixNationsScorer
+from ..scoring import NationsChampionshipScorer, SixNationsScorer, scorer_for
 
 
 def scoring_importance() -> dict[str, float]:
@@ -111,23 +111,26 @@ def raw_residual_vector(
 def observable_points_actual(
     frame: pd.DataFrame, competition: str, allowed_events: Iterable[str],
 ) -> np.ndarray:
-    scorer = SixNationsScorer() if competition == "six_nations" else NationsChampionshipScorer()
     allowed = set(allowed_events)
     rows = []
     for row in frame.itertuples(index=False):
+        scorer = scorer_for(competition, season=getattr(row, "season", None))
         events = {
             event: np.array([float(getattr(row, event))])
             for event in allowed
             if hasattr(row, event) and pd.notna(getattr(row, event))
         }
-        rows.append(float(scorer.score_samples(events, is_forward=bool(row.is_forward))[0]))
+        rows.append(float(scorer.score_samples(
+            events, is_forward=bool(row.is_forward), position=getattr(row, "position", None),
+        )[0]))
     return np.asarray(rows)
 
 
 def observable_points_predicted(
     predictions: list[RawPrediction], competition: str, allowed_events: Iterable[str],
+    *, season: int | None = None,
 ) -> np.ndarray:
-    scorer = SixNationsScorer() if competition == "six_nations" else NationsChampionshipScorer()
+    scorer = scorer_for(competition, season=season)
     allowed = set(allowed_events)
     rows = []
     for prediction in predictions:
@@ -135,7 +138,9 @@ def observable_points_predicted(
             event: np.array([dist.mean])
             for event, dist in prediction.events.items() if event in allowed
         }
-        rows.append(float(scorer.score_samples(events, is_forward=prediction.is_forward)[0]))
+        rows.append(float(scorer.score_samples(
+            events, is_forward=prediction.is_forward, position=prediction.position,
+        )[0]))
     return np.asarray(rows)
 
 

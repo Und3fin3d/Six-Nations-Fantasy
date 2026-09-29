@@ -1,0 +1,22 @@
+{
+  "captain_repair_evidence.tar.gz": {
+    "bytes": 965003,
+    "sha256": "97026d862c7055e294ccc85d7c3d39ccec5b3e71f2ca228cd4e48492460d197b"
+  },
+  "incumbent_evidence.tar.gz": {
+    "bytes": 2304907,
+    "sha256": "289c73c13ffa9c7faa758ec7ff55cda3164506e54484a15615c487d44eeefd18"
+  },
+  "minutes_evidence.tar.gz": {
+    "bytes": 687864,
+    "sha256": "95b827b74204cfe8b393e29142e84bc28f24d2bc4ef1ee5aec4c65395aa07837"
+  },
+  "remedies_evidence.tar.gz": {
+    "bytes": 849597,
+    "sha256": "e8dc6be95b41f08aa2a814964ca9e64022555b7bb99c429a91b8ef2a25799677"
+  },
+  "timing_evidence.tar.gz": {
+    "bytes": 6275162,
+    "sha256": "839885cdfdb50ef97a4857aca6f25f218d1f088fa5523a34e88a55765ae8650e"
+  }
+}

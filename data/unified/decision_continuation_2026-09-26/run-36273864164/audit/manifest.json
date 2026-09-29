@@ -1,0 +1,25 @@
+{
+  "candidate_fits": 0,
+  "candidate_selections": 0,
+  "chronology": "Current archived rules do not alone establish original July publication time",
+  "matched_raw_rows": 697,
+  "objective": "active_unfinished",
+  "official_rows": 758,
+  "point_labels_changed": false,
+  "rugby_api_calls": 0,
+  "source_hashes": {
+    "/home/runner/work/Six-Nations-Fantasy/Six-Nations-Fantasy/research/ncr_scoring_coverage_audit.py": "7a34e18d79351a552de28ddb6f14be0776d0f903ea4d058e98f0837ab9186ac3",
+    "data/ncr/feeds/players_gw1.json": "22e24d749924b0c8c966fc90b1572eb566cfd3675a01cb37d0ff5e487411c819",
+    "data/ncr/feeds/players_gw2.json": "a5a9f7b025544f271e4844a0e894c5cd462a26505cd9f2fcfa3f3536e4dd8594",
+    "data/ncr/feeds/players_gw3.json": "a68a9b598c48fc9c7a56bce85d06b9ae33ab4e0e3ac39dcacb8bc0421cb49bc8",
+    "data/unified/decision_continuation_2026-09-26/run-36259688139/official/public_pages.json": "9bcefcd4c4967607bd0abafab49305ee519cbeb07be8f6194424b89c796dfc7e",
+    "data/unified/decision_continuation_2026-09-26/run-36272929019/outcomes/bridged_raw_labels.csv": "c2775c5387e4cb06e75da4818ac896ca7000febfdcff82e64e8e82a09ccc05de",
+    "model/ncr_project.py": "4d4aef22ddccfecc2fa071fc2cb9176d810818ff4de64b53038d517e06780615",
+    "model/unified/scoring.py": "cfa855b81c5415a80dcb842d731c6dd03dd320cedff5623caf1900c24dbff37e"
+  },
+  "source_retrieved_at": "2026-09-26T17:38:30.034939+00:00",
+  "source_text_sha256": "bb83074f2fb064ad5de9df68333cd5fd596985c9fe14085e20679cef18534b84",
+  "source_url": "https://fantasy.nationschampionshiprugby.com/en/rules/",
+  "status": "Independent scoring/source coverage audit; not evidence of improved forecast or selection",
+  "unknown_raw_rows": 61
+}

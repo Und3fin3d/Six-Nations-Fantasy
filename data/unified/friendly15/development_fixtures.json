@@ -1,0 +1,146 @@
+{
+  "asof": "2025-01-01T00:00:00+00:00",
+  "availability": "earlier results require kickoff plus strictly more than three hours",
+  "count": 12,
+  "count_targets": [
+    "tries",
+    "try_assists",
+    "conversion_goals",
+    "missed_conversion_goals",
+    "penalty_goals",
+    "missed_penalty_goals",
+    "drop_goals_converted",
+    "drop_goal_missed",
+    "defenders_beaten",
+    "clean_breaks",
+    "offload",
+    "runs",
+    "tackles",
+    "missed_tackles",
+    "rucks_won",
+    "rucks_lost",
+    "passes",
+    "bad_passes",
+    "turnovers_conceded",
+    "penalties_conceded",
+    "yellow_cards",
+    "red_cards"
+  ],
+  "eligible_count": 158,
+  "fixtures": [
+    {
+      "away": "Portugal",
+      "cache_sha256": "c11f13136d9a011a4702dfbef6ea9feb785e74f06c3f1240e534a354e2337655",
+      "fixture_id": "8476315",
+      "home": "Scotland",
+      "kickoff": "2024-11-16T15:10:00+00:00"
+    },
+    {
+      "away": "South Africa",
+      "cache_sha256": "38385aadf4c556d59602d5842cb16623d0d540e3c3493682a2cf3970c2526ac3",
+      "fixture_id": "8472247",
+      "home": "England",
+      "kickoff": "2024-11-16T17:40:00+00:00"
+    },
+    {
+      "away": "New Zealand",
+      "cache_sha256": "ce93caae0ca4a435d307cee65e3fa1a71dc766d5b4657703a2961a199731b94f",
+      "fixture_id": "8472337",
+      "home": "France",
+      "kickoff": "2024-11-16T20:10:00+00:00"
+    },
+    {
+      "away": "Georgia",
+      "cache_sha256": "b57fc994a328f6e334f613b48fba0dfda2382002cceffbda94a721f684a94c15",
+      "fixture_id": "8476324",
+      "home": "Italy",
+      "kickoff": "2024-11-17T13:40:00+00:00"
+    },
+    {
+      "away": "Australia",
+      "cache_sha256": "d23eeb4958a2a540807a0e0f7fd6b8454717ca6c8102f34d03a94846b6c475ef",
+      "fixture_id": "8476333",
+      "home": "Wales",
+      "kickoff": "2024-11-17T16:10:00+00:00"
+    },
+    {
+      "away": "Argentina",
+      "cache_sha256": "2f111925720a820cb86a6ee5ac360774f2fd720b620e6af53a27c438a022b880",
+      "fixture_id": "8476342",
+      "home": "France",
+      "kickoff": "2024-11-22T20:10:00+00:00"
+    },
+    {
+      "away": "Fiji",
+      "cache_sha256": "824adddeb97718f16f3c3a9002172895d84839a232faebfe1bdc5d211367330d",
+      "fixture_id": "8476351",
+      "home": "Ireland",
+      "kickoff": "2024-11-23T15:10:00+00:00"
+    },
+    {
+      "away": "South Africa",
+      "cache_sha256": "5c6d29804ba0bdffe6dcec188f6f6c2bd4872eb8b4be2a6ea0f72a175d916033",
+      "fixture_id": "8476360",
+      "home": "Wales",
+      "kickoff": "2024-11-23T17:40:00+00:00"
+    },
+    {
+      "away": "New Zealand",
+      "cache_sha256": "1233980add400cfc42fe24fd4821ce184aea9ee3516e069d1fca3f73d2c4796a",
+      "fixture_id": "8472346",
+      "home": "Italy",
+      "kickoff": "2024-11-23T20:10:00+00:00"
+    },
+    {
+      "away": "Australia",
+      "cache_sha256": "0652b756631b52aebfb3b275812bf3a793eaccd9fddd323e8eecae8af2062f2e",
+      "fixture_id": "8476369",
+      "home": "Scotland",
+      "kickoff": "2024-11-24T13:40:00+00:00"
+    },
+    {
+      "away": "Japan",
+      "cache_sha256": "8d9c6129256c10f29fbe7c0a3d30814f7b7c737f35ddc2c836f9ceca8042ccf0",
+      "fixture_id": "8472256",
+      "home": "England",
+      "kickoff": "2024-11-24T16:10:00+00:00"
+    },
+    {
+      "away": "Australia",
+      "cache_sha256": "ff951098b0f213c6ba346a279028fc02c662befe0cfdd76f323a04b8c278ce56",
+      "fixture_id": "8476378",
+      "home": "Ireland",
+      "kickoff": "2024-11-30T15:10:00+00:00"
+    }
+  ],
+  "label_scope": "no official fantasy labels in this repository; not a claim about all platforms",
+  "lineup_basis": "historical oracle teamsheets; kickoff is the prediction lock proxy",
+  "selection": "latest completed canonical comp_id=30, excluding fantasy-labelled fixtures",
+  "targets": [
+    "minutes",
+    "tries",
+    "try_assists",
+    "conversion_goals",
+    "missed_conversion_goals",
+    "penalty_goals",
+    "missed_penalty_goals",
+    "drop_goals_converted",
+    "drop_goal_missed",
+    "defenders_beaten",
+    "clean_breaks",
+    "offload",
+    "runs",
+    "tackles",
+    "missed_tackles",
+    "rucks_won",
+    "rucks_lost",
+    "passes",
+    "bad_passes",
+    "turnovers_conceded",
+    "penalties_conceded",
+    "yellow_cards",
+    "red_cards",
+    "metres"
+  ],
+  "version": 1
+}

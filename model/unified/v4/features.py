@@ -112,5 +112,5 @@ def apply_eb_features(store: pd.DataFrame, k_by_event: dict[str, float]) -> pd.D
     return df
 
 
-V4_FEATURE_PREFIXES = ("form_per80_intl__", "form_per80_club__", "eb_rate__", "eb_weight__")
+V4_FEATURE_PREFIXES = ("form_per80_intl__", "form_per80_club__", "eb_rate__", "eb_weight__", "ctx__")
 V4_BASE_NUMERIC = ("intl_prior_matches", "club_prior_matches")

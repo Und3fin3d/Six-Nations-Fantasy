@@ -1,0 +1,626 @@
+{
+ "2023-07": {
+  "lock": "2023-07-01T00:00:00+00:00",
+  "training_rows": 46355,
+  "training_fixtures": 1002,
+  "training_match_at_max": "2023-06-24T14:00:00+00:00",
+  "candidate_rows": 506,
+  "candidate_fixtures": 11,
+  "seconds": {
+   "features": 6.5,
+   "context": 0.3,
+   "baseline": 28.1,
+   "fit": 143.9,
+   "predict": 0.9
+  },
+  "omp_num_threads": "2"
+ },
+ "2023-08": {
+  "lock": "2023-08-01T00:00:00+00:00",
+  "training_rows": 46861,
+  "training_fixtures": 1013,
+  "training_match_at_max": "2023-07-29T15:05:00+00:00",
+  "candidate_rows": 2990,
+  "candidate_fixtures": 65,
+  "seconds": {
+   "features": 6.0,
+   "context": 0.4,
+   "baseline": 36.7,
+   "fit": 91.4,
+   "predict": 3.5
+  },
+  "omp_num_threads": "2"
+ },
+ "2023-09": {
+  "lock": "2023-09-01T00:00:00+00:00",
+  "training_rows": 49851,
+  "training_fixtures": 1078,
+  "training_match_at_max": "2023-08-30T07:05:00+00:00",
+  "candidate_rows": 3404,
+  "candidate_fixtures": 74,
+  "seconds": {
+   "features": 6.3,
+   "context": 0.4,
+   "baseline": 35.8,
+   "fit": 97.7,
+   "predict": 4.5
+  },
+  "omp_num_threads": "2"
+ },
+ "2023-10": {
+  "lock": "2023-10-01T00:00:00+00:00",
+  "training_rows": 53025,
+  "training_fixtures": 1147,
+  "training_match_at_max": "2023-09-30T19:00:00+00:00",
+  "candidate_rows": 2760,
+  "candidate_fixtures": 60,
+  "seconds": {
+   "features": 6.8,
+   "context": 0.4,
+   "baseline": 41.7,
+   "fit": 105.4,
+   "predict": 3.7
+  },
+  "omp_num_threads": "2"
+ },
+ "2023-11": {
+  "lock": "2023-11-01T00:00:00+00:00",
+  "training_rows": 56015,
+  "training_fixtures": 1212,
+  "training_match_at_max": "2023-10-29T20:05:00+00:00",
+  "candidate_rows": 3680,
+  "candidate_fixtures": 80,
+  "seconds": {
+   "features": 7.8,
+   "context": 0.5,
+   "baseline": 40.8,
+   "fit": 111.3,
+   "predict": 5.3
+  },
+  "omp_num_threads": "2"
+ },
+ "2023-12": {
+  "lock": "2023-12-01T00:00:00+00:00",
+  "training_rows": 59695,
+  "training_fixtures": 1292,
+  "training_match_at_max": "2023-11-26T20:05:00+00:00",
+  "candidate_rows": 5428,
+  "candidate_fixtures": 118,
+  "seconds": {
+   "features": 8.2,
+   "context": 0.6,
+   "baseline": 49.5,
+   "fit": 124.6,
+   "predict": 8.3
+  },
+  "omp_num_threads": "2"
+ },
+ "2024-01": {
+  "lock": "2024-01-01T00:00:00+00:00",
+  "training_rows": 64939,
+  "training_fixtures": 1406,
+  "training_match_at_max": "2023-12-31T15:00:00+00:00",
+  "candidate_rows": 3956,
+  "candidate_fixtures": 86,
+  "seconds": {
+   "features": 9.5,
+   "context": 0.4,
+   "baseline": 44.8,
+   "fit": 198.0,
+   "predict": 6.0
+  },
+  "omp_num_threads": "2"
+ },
+ "2024-02": {
+  "lock": "2024-02-01T00:00:00+00:00",
+  "training_rows": 69079,
+  "training_fixtures": 1496,
+  "training_match_at_max": "2024-01-28T20:05:00+00:00",
+  "candidate_rows": 2300,
+  "candidate_fixtures": 50,
+  "seconds": {
+   "features": 8.9,
+   "context": 0.5,
+   "baseline": 43.3,
+   "fit": 139.4,
+   "predict": 3.4
+  },
+  "omp_num_threads": "2"
+ },
+ "2024-03": {
+  "lock": "2024-03-01T00:00:00+00:00",
+  "training_rows": 71379,
+  "training_fixtures": 1546,
+  "training_match_at_max": "2024-02-25T20:05:00+00:00",
+  "candidate_rows": 5612,
+  "candidate_fixtures": 122,
+  "seconds": {
+   "features": 9.8,
+   "context": 0.6,
+   "baseline": 57.3,
+   "fit": 133.2,
+   "predict": 7.1
+  },
+  "omp_num_threads": "2"
+ },
+ "2024-04": {
+  "lock": "2024-04-01T00:00:00+00:00",
+  "training_rows": 76991,
+  "training_fixtures": 1668,
+  "training_match_at_max": "2024-03-31T19:05:00+00:00",
+  "candidate_rows": 4186,
+  "candidate_fixtures": 91,
+  "seconds": {
+   "features": 9.2,
+   "context": 0.5,
+   "baseline": 53.7,
+   "fit": 143.2,
+   "predict": 5.5
+  },
+  "omp_num_threads": "2"
+ },
+ "2024-05": {
+  "lock": "2024-05-01T00:00:00+00:00",
+  "training_rows": 81177,
+  "training_fixtures": 1759,
+  "training_match_at_max": "2024-04-28T19:05:00+00:00",
+  "candidate_rows": 3956,
+  "candidate_fixtures": 86,
+  "seconds": {
+   "features": 10.0,
+   "context": 0.5,
+   "baseline": 56.3,
+   "fit": 168.2,
+   "predict": 5.7
+  },
+  "omp_num_threads": "2"
+ },
+ "2024-06": {
+  "lock": "2024-06-01T00:00:00+00:00",
+  "training_rows": 84627,
+  "training_fixtures": 1834,
+  "training_match_at_max": "2024-05-31T18:45:00+00:00",
+  "candidate_rows": 1748,
+  "candidate_fixtures": 38,
+  "seconds": {
+   "features": 10.0,
+   "context": 0.4,
+   "baseline": 48.4,
+   "fit": 148.6,
+   "predict": 2.4
+  },
+  "omp_num_threads": "2"
+ },
+ "2024-07": {
+  "lock": "2024-07-01T00:00:00+00:00",
+  "training_rows": 86881,
+  "training_fixtures": 1883,
+  "training_match_at_max": "2024-06-29T10:00:00+00:00",
+  "candidate_rows": 1886,
+  "candidate_fixtures": 41,
+  "seconds": {
+   "features": 9.7,
+   "context": 0.4,
+   "baseline": 42.8,
+   "fit": 147.6,
+   "predict": 2.6
+  },
+  "omp_num_threads": "2"
+ },
+ "2024-08": {
+  "lock": "2024-08-01T00:00:00+00:00",
+  "training_rows": 88767,
+  "training_fixtures": 1924,
+  "training_match_at_max": "2024-07-28T12:00:00+00:00",
+  "candidate_rows": 2806,
+  "candidate_fixtures": 61,
+  "seconds": {
+   "features": 9.3,
+   "context": 0.4,
+   "baseline": 54.8,
+   "fit": 157.3,
+   "predict": 3.8
+  },
+  "omp_num_threads": "2"
+ },
+ "2024-09": {
+  "lock": "2024-09-01T00:00:00+00:00",
+  "training_rows": 91297,
+  "training_fixtures": 1979,
+  "training_match_at_max": "2024-08-31T15:00:00+00:00",
+  "candidate_rows": 4784,
+  "candidate_fixtures": 104,
+  "seconds": {
+   "features": 9.6,
+   "context": 0.4,
+   "baseline": 63.5,
+   "fit": 162.1,
+   "predict": 6.4
+  },
+  "omp_num_threads": "2"
+ },
+ "2024-10": {
+  "lock": "2024-10-01T00:00:00+00:00",
+  "training_rows": 96311,
+  "training_fixtures": 2088,
+  "training_match_at_max": "2024-09-29T19:05:00+00:00",
+  "candidate_rows": 4370,
+  "candidate_fixtures": 95,
+  "seconds": {
+   "features": 10.3,
+   "context": 0.5,
+   "baseline": 62.9,
+   "fit": 166.1,
+   "predict": 5.9
+  },
+  "omp_num_threads": "2"
+ },
+ "2024-11": {
+  "lock": "2024-11-01T00:00:00+00:00",
+  "training_rows": 100727,
+  "training_fixtures": 2184,
+  "training_match_at_max": "2024-10-27T20:05:00+00:00",
+  "candidate_rows": 2806,
+  "candidate_fixtures": 61,
+  "seconds": {
+   "features": 11.3,
+   "context": 0.5,
+   "baseline": 55.8,
+   "fit": 171.3,
+   "predict": 3.5
+  },
+  "omp_num_threads": "2"
+ },
+ "2024-12": {
+  "lock": "2024-12-01T00:00:00+00:00",
+  "training_rows": 103441,
+  "training_fixtures": 2243,
+  "training_match_at_max": "2024-11-30T20:05:00+00:00",
+  "candidate_rows": 4278,
+  "candidate_fixtures": 93,
+  "seconds": {
+   "features": 10.8,
+   "context": 0.5,
+   "baseline": 60.1,
+   "fit": 177.4,
+   "predict": 5.7
+  },
+  "omp_num_threads": "2"
+ },
+ "2025-01": {
+  "lock": "2025-01-01T00:00:00+00:00",
+  "training_rows": 107719,
+  "training_fixtures": 2336,
+  "training_match_at_max": "2024-12-29T20:05:00+00:00",
+  "candidate_rows": 4370,
+  "candidate_fixtures": 95,
+  "seconds": {
+   "features": 11.0,
+   "context": 0.5,
+   "baseline": 66.3,
+   "fit": 190.3,
+   "predict": 5.7
+  },
+  "omp_num_threads": "2"
+ },
+ "2025-02": {
+  "lock": "2025-02-01T00:00:00+00:00",
+  "training_rows": 112089,
+  "training_fixtures": 2431,
+  "training_match_at_max": "2025-01-31T20:15:00+00:00",
+  "candidate_rows": 3634,
+  "candidate_fixtures": 79,
+  "seconds": {
+   "features": 11.6,
+   "context": 0.4,
+   "baseline": 70.8,
+   "fit": 190.8,
+   "predict": 5.1
+  },
+  "omp_num_threads": "2"
+ },
+ "2025-03": {
+  "lock": "2025-03-01T00:00:00+00:00",
+  "training_rows": 115355,
+  "training_fixtures": 2502,
+  "training_match_at_max": "2025-02-28T19:35:00+00:00",
+  "candidate_rows": 4416,
+  "candidate_fixtures": 96,
+  "seconds": {
+   "features": 11.9,
+   "context": 0.5,
+   "baseline": 74.5,
+   "fit": 199.3,
+   "predict": 6.2
+  },
+  "omp_num_threads": "2"
+ },
+ "2025-04": {
+  "lock": "2025-04-01T00:00:00+00:00",
+  "training_rows": 120231,
+  "training_fixtures": 2608,
+  "training_match_at_max": "2025-03-30T19:05:00+00:00",
+  "candidate_rows": 4692,
+  "candidate_fixtures": 102,
+  "seconds": {
+   "features": 11.8,
+   "context": 0.5,
+   "baseline": 75.3,
+   "fit": 205.7,
+   "predict": 6.4
+  },
+  "omp_num_threads": "2"
+ },
+ "2025-05": {
+  "lock": "2025-05-01T00:00:00+00:00",
+  "training_rows": 124923,
+  "training_fixtures": 2710,
+  "training_match_at_max": "2025-04-27T19:05:00+00:00",
+  "candidate_rows": 4830,
+  "candidate_fixtures": 105,
+  "seconds": {
+   "features": 11.8,
+   "context": 0.6,
+   "baseline": 99.7,
+   "fit": 214.6,
+   "predict": 6.2
+  },
+  "omp_num_threads": "2"
+ },
+ "2025-06": {
+  "lock": "2025-06-01T00:00:00+00:00",
+  "training_rows": 129661,
+  "training_fixtures": 2813,
+  "training_match_at_max": "2025-05-31T16:30:00+00:00",
+  "candidate_rows": 1426,
+  "candidate_fixtures": 31,
+  "seconds": {
+   "features": 12.5,
+   "context": 0.4,
+   "baseline": 70.3,
+   "fit": 221.4,
+   "predict": 1.8
+  },
+  "omp_num_threads": "2"
+ },
+ "2025-07": {
+  "lock": "2025-07-01T00:00:00+00:00",
+  "training_rows": 131179,
+  "training_fixtures": 2846,
+  "training_match_at_max": "2025-06-28T19:05:00+00:00",
+  "candidate_rows": 1656,
+  "candidate_fixtures": 36,
+  "seconds": {
+   "features": 12.3,
+   "context": 0.4,
+   "baseline": 55.4,
+   "fit": 216.4,
+   "predict": 2.2
+  },
+  "omp_num_threads": "2"
+ },
+ "2025-08": {
+  "lock": "2025-08-01T00:00:00+00:00",
+  "training_rows": 132559,
+  "training_fixtures": 2876,
+  "training_match_at_max": "2025-07-31T07:10:00+00:00",
+  "candidate_rows": 2622,
+  "candidate_fixtures": 57,
+  "seconds": {
+   "features": 12.2,
+   "context": 0.5,
+   "baseline": 69.7,
+   "fit": 223.0,
+   "predict": 3.4
+  },
+  "omp_num_threads": "2"
+ },
+ "2025-09": {
+  "lock": "2025-09-01T00:00:00+00:00",
+  "training_rows": 135457,
+  "training_fixtures": 2939,
+  "training_match_at_max": "2025-08-31T04:35:00+00:00",
+  "candidate_rows": 4048,
+  "candidate_fixtures": 88,
+  "seconds": {
+   "features": 13.1,
+   "context": 0.6,
+   "baseline": 82.7,
+   "fit": 223.9,
+   "predict": 4.7
+  },
+  "omp_num_threads": "2"
+ },
+ "2025-10": {
+  "lock": "2025-10-01T00:00:00+00:00",
+  "training_rows": 139505,
+  "training_fixtures": 3027,
+  "training_match_at_max": "2025-09-28T19:05:00+00:00",
+  "candidate_rows": 4462,
+  "candidate_fixtures": 97,
+  "seconds": {
+   "features": 13.3,
+   "context": 0.5,
+   "baseline": 83.8,
+   "fit": 232.4,
+   "predict": 5.6
+  },
+  "omp_num_threads": "2"
+ },
+ "2025-11": {
+  "lock": "2025-11-01T00:00:00+00:00",
+  "training_rows": 143967,
+  "training_fixtures": 3124,
+  "training_match_at_max": "2025-10-26T20:05:00+00:00",
+  "candidate_rows": 3036,
+  "candidate_fixtures": 66,
+  "seconds": {
+   "features": 13.7,
+   "context": 0.5,
+   "baseline": 70.7,
+   "fit": 238.8,
+   "predict": 4.0
+  },
+  "omp_num_threads": "2"
+ },
+ "2025-12": {
+  "lock": "2025-12-01T00:00:00+00:00",
+  "training_rows": 147003,
+  "training_fixtures": 3190,
+  "training_match_at_max": "2025-11-30T20:05:00+00:00",
+  "candidate_rows": 4508,
+  "candidate_fixtures": 98,
+  "seconds": {
+   "features": 13.6,
+   "context": 0.6,
+   "baseline": 76.9,
+   "fit": 245.2,
+   "predict": 6.7
+  },
+  "omp_num_threads": "2"
+ },
+ "2026-01": {
+  "lock": "2026-01-01T00:00:00+00:00",
+  "training_rows": 151511,
+  "training_fixtures": 3288,
+  "training_match_at_max": "2025-12-28T20:05:00+00:00",
+  "candidate_rows": 5290,
+  "candidate_fixtures": 115,
+  "seconds": {
+   "features": 15.3,
+   "context": 0.7,
+   "baseline": 82.0,
+   "fit": 259.7,
+   "predict": 6.2
+  },
+  "omp_num_threads": "2"
+ },
+ "2026-02": {
+  "lock": "2026-02-01T00:00:00+00:00",
+  "training_rows": 156755,
+  "training_fixtures": 3402,
+  "training_match_at_max": "2026-01-31T20:00:00+00:00",
+  "candidate_rows": 3312,
+  "candidate_fixtures": 72,
+  "seconds": {
+   "features": 14.6,
+   "context": 0.5,
+   "baseline": 84.1,
+   "fit": 274.7,
+   "predict": 4.9
+  },
+  "omp_num_threads": "2"
+ },
+ "2026-03": {
+  "lock": "2026-03-01T00:00:00+00:00",
+  "training_rows": 159883,
+  "training_fixtures": 3470,
+  "training_match_at_max": "2026-02-28T20:00:00+00:00",
+  "candidate_rows": 4002,
+  "candidate_fixtures": 87,
+  "seconds": {
+   "features": 16.4,
+   "context": 0.6,
+   "baseline": 96.8,
+   "fit": 281.2,
+   "predict": 6.1
+  },
+  "omp_num_threads": "2"
+ },
+ "2026-04": {
+  "lock": "2026-04-01T00:00:00+00:00",
+  "training_rows": 164115,
+  "training_fixtures": 3562,
+  "training_match_at_max": "2026-03-29T19:05:00+00:00",
+  "candidate_rows": 4600,
+  "candidate_fixtures": 100,
+  "seconds": {
+   "features": 15.3,
+   "context": 0.6,
+   "baseline": 100.4,
+   "fit": 295.6,
+   "predict": 6.9
+  },
+  "omp_num_threads": "2"
+ },
+ "2026-05": {
+  "lock": "2026-05-01T00:00:00+00:00",
+  "training_rows": 168715,
+  "training_fixtures": 3662,
+  "training_match_at_max": "2026-04-26T19:05:00+00:00",
+  "candidate_rows": 4692,
+  "candidate_fixtures": 102,
+  "seconds": {
+   "features": 16.9,
+   "context": 0.6,
+   "baseline": 116.8,
+   "fit": 294.9,
+   "predict": 6.8
+  },
+  "omp_num_threads": "2"
+ },
+ "2026-06": {
+  "lock": "2026-06-01T00:00:00+00:00",
+  "training_rows": 173407,
+  "training_fixtures": 3764,
+  "training_match_at_max": "2026-05-31T19:05:00+00:00",
+  "candidate_rows": 1426,
+  "candidate_fixtures": 31,
+  "seconds": {
+   "features": 17.9,
+   "context": 0.6,
+   "baseline": 85.4,
+   "fit": 290.1,
+   "predict": 2.2
+  },
+  "omp_num_threads": "2"
+ },
+ "2026-07": {
+  "lock": "2026-07-01T00:00:00+00:00",
+  "training_rows": 174833,
+  "training_fixtures": 3795,
+  "training_match_at_max": "2026-06-27T13:00:00+00:00",
+  "candidate_rows": 1150,
+  "candidate_fixtures": 25,
+  "seconds": {
+   "features": 17.1,
+   "context": 0.5,
+   "baseline": 62.6,
+   "fit": 298.0,
+   "predict": 2.1
+  },
+  "omp_num_threads": "2"
+ },
+ "2026-08": {
+  "lock": "2026-08-01T00:00:00+00:00",
+  "training_rows": 175753,
+  "training_fixtures": 3815,
+  "training_match_at_max": "2026-07-31T07:10:00+00:00",
+  "candidate_rows": 1702,
+  "candidate_fixtures": 37,
+  "seconds": {
+   "features": 16.9,
+   "context": 0.5,
+   "baseline": 70.3,
+   "fit": 296.6,
+   "predict": 2.2
+  },
+  "omp_num_threads": "2"
+ },
+ "2026-09": {
+  "lock": "2026-09-01T00:00:00+00:00",
+  "training_rows": 177685,
+  "training_fixtures": 3857,
+  "training_match_at_max": "2026-08-30T05:05:00+00:00",
+  "candidate_rows": 1932,
+  "candidate_fixtures": 42,
+  "seconds": {
+   "features": 17.3,
+   "context": 0.5,
+   "baseline": 68.3,
+   "fit": 312.8,
+   "predict": 3.2
+  },
+  "omp_num_threads": "2"
+ }
+}

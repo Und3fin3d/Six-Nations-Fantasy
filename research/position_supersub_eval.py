@@ -65,14 +65,18 @@ def decisions(slate, points: np.ndarray, smooth: bool = True) -> dict:
     return out
 
 
-def engines_for(slate, reference, status, context: Context | None, mk: bool) -> dict[str, np.ndarray]:
+def engines_for(slate, reference, status, context: Context | None, mk: bool, shrunk=None) -> dict[str, np.ndarray]:
     values = {'p3_robust_native': expected_points(reference, slate.competition),
               'status_rates': expected_points(status, slate.competition),
               'empirical_baseline': np.asarray(slate.baseline, float)}
+    if shrunk is not None:
+        values['status_shrunk'] = expected_points(shrunk, slate.competition)
     if mk and context is not None:
         features = context.features(slate.name, slate.candidates, slate.cutoff)
         values['MK'] = expected_points(transform(reference, features, MK), slate.competition)
         values['status_MK'] = expected_points(transform(status, features, MK), slate.competition)
+        if shrunk is not None:
+            values['status_shrunk_MK'] = expected_points(transform(shrunk, features, MK), slate.competition)
     return values
 
 
@@ -84,12 +88,14 @@ def evaluate_set(slates, reference_dir: Path, status_dir: Path, context: Context
                         slate.candidates.team.astype(str)))
         reference = load_raw(reference_dir/slate.name/'p3_robust_native.jsonl')
         status = load_raw(status_dir/slate.name/'status.jsonl')
-        for raw in (reference, status):
+        shrunk_path = status_dir/slate.name/'shrunk.jsonl'
+        shrunk = load_raw(shrunk_path) if shrunk_path.exists() else None
+        for raw in (reference, status) + ((shrunk,) if shrunk is not None else ()):
             if [(p.fixture_id, p.player_id, p.team) for p in raw] != keys:
                 raise ValueError(f'{slate.name}: forecasts misaligned')
         labelled = np.isfinite(slate.actual)
         minutes = slate.candidates.minutes if 'minutes' in slate.candidates and slate.candidates.minutes.notna().any() else None
-        for engine, points in engines_for(slate, reference, status, context, mk).items():
+        for engine, points in engines_for(slate, reference, status, context, mk, shrunk).items():
             y, p = slate.actual[labelled], points[labelled]
             row = {'slate': slate.name, 'competition': slate.competition, 'season': slate.season, 'round': slate.round,
                    'engine': engine, 'n': int(labelled.sum()), 'mae': float(np.abs(p-y).mean()),

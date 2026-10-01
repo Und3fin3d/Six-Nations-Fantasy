@@ -87,3 +87,39 @@ def test_model_raises_bench_and_keeps_starters_and_kicking_close():
         else:
             assert ratio > 1.15
     assert status_model.status_factors[("Prop", False, "tackles")] > 1.3
+
+
+def _rates_history(spread, seed=1, n_players=60, n_games=40):
+    rng = np.random.default_rng(seed)
+    rows = []
+    dates = pd.date_range("2023-01-07", periods=n_games, freq="7D", tz="UTC")
+    for p in range(n_players):
+        position = ("Prop", "Centre")[p % 2]
+        base = 2.0 if position == "Prop" else 6.0  # positional gap must not count as player signal
+        rate = base * np.exp(rng.normal(0, spread))
+        for date in dates:
+            rows.append({"player_id": f"P{p}", "position": position, "competition_level": "international",
+                         "date": date.tz_convert(None), "minutes": 80.0, "started": True,
+                         "tackles": float(rng.poisson(rate)), "available__tackles": True})
+    return pd.DataFrame(rows)
+
+
+def test_within_position_shrinkage_tracks_true_player_spread():
+    from model.unified.raw_benchmark.status_rates import K_BOUNDS, within_position_shrinkage_k
+    flat = within_position_shrinkage_k(_rates_history(0.0), ("tackles", "metres"), "2024-01-01")
+    varied = within_position_shrinkage_k(_rates_history(0.5), ("tackles",), "2024-01-01")
+    assert "metres" not in flat  # continuous metres keep the default
+    assert flat["tackles"] > 1000 or flat["tackles"] == K_BOUNDS[1]
+    # True K = 80*mu/tau^2 with tau ~ 0.5*rate: of order a hundred minutes.
+    assert varied["tackles"] < 400
+
+
+def test_shrunk_model_pulls_profiles_towards_prior():
+    from model.unified.raw_benchmark.status_rates import ShrunkStatusEmpiricalEventModel
+    model = ShrunkStatusEmpiricalEventModel(asof="2024-01-01")
+    model.position_priors = {("Prop", "tries"): 0.1}
+    model.profiles = {("P1", "tries"): (0.5, 220.0)}
+    model.shrinkage_k = {"tries": 1980.0}
+    assert model._rate("P1", "Nobody", "Prop", "tries") == pytest.approx((220 * 0.5 + 1980 * 0.1) / 2200)
+    model.shrinkage_k = {}
+    assert model._rate("P1", "Nobody", "Prop", "tries") == pytest.approx((220 * 0.5 + 220 * 0.1) / 440)

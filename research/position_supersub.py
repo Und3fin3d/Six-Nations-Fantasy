@@ -33,7 +33,9 @@ from model.history import past_matches
 from model.unified.contracts import EventDistribution, RawPrediction
 from model.unified.raw_benchmark.folds import masked_candidates
 from model.unified.raw_benchmark.robust_empirical import RobustEmpiricalEventModel
-from model.unified.raw_benchmark.status_rates import StatusAwareEmpiricalEventModel
+from model.unified.raw_benchmark.status_rates import ShrunkStatusEmpiricalEventModel, StatusAwareEmpiricalEventModel
+
+VARIANTS = {'status': StatusAwareEmpiricalEventModel, 'shrunk': ShrunkStatusEmpiricalEventModel}
 from model.unified.rolling_eval import DATA
 from research.context_experiment import load_store
 from research.reweight_eval import cached_slates, reblend
@@ -83,14 +85,14 @@ def shift_blend(reference: list[RawPrediction], plain: list[RawPrediction], stat
     return output
 
 
-def _fit_predict(train, cutoff, candidates, plain_too: bool):
-    status = StatusAwareEmpiricalEventModel(asof=cutoff).fit(train)
+def _fit_predict(train, cutoff, candidates, plain_too: bool, variant: str = 'status'):
+    status = VARIANTS[variant](asof=cutoff).fit(train)
     plain = RobustEmpiricalEventModel(asof=cutoff).fit(train) if plain_too else None
     return (status.predict_frame(candidates), plain.predict_frame(candidates) if plain else None,
             status.status_factors)
 
 
-def generate(runs: Path, output: Path, sets: list[str], fallback: Path | None = None) -> None:
+def generate(runs: Path, output: Path, sets: list[str], fallback: Path | None = None, variant: str = 'status') -> None:
     warnings.filterwarnings('ignore', category=pd.errors.PerformanceWarning)
     config = json.loads((DATA/'unified'/'p3_hillclimb'/'config.json').read_text())
     default, weights = config['default_weight_v4'], config['event_weights_v4']
@@ -129,7 +131,7 @@ def generate(runs: Path, output: Path, sets: list[str], fallback: Path | None = 
                           masked_candidates(truth.drop(columns=['team_score', 'opp_score'], errors='ignore')),
                           directory/'p3_robust_native.jsonl', None))
     for kind, name, cutoff, candidates, reference_path, components in units:
-        path = output/kind/name/'status.jsonl'
+        path = output/kind/name/f'{variant}.jsonl'
         if path.exists():
             continue
         start = time.monotonic()
@@ -138,7 +140,7 @@ def generate(runs: Path, output: Path, sets: list[str], fallback: Path | None = 
         by_key = {(p.fixture_id, p.player_id, p.team): p for p in reference}
         keys = list(zip(candidates.fixture_id.astype(str), candidates.player_id.astype(str), candidates.team.astype(str)))
         reference = [by_key[k] for k in keys]
-        status, plain, unit_factors = _fit_predict(train, cutoff, candidates, components is None)
+        status, plain, unit_factors = _fit_predict(train, cutoff, candidates, components is None, variant)
         if components is not None:
             raw = reblend(status, load_raw(components/'v4.jsonl'), default, weights)
         else:
@@ -146,8 +148,8 @@ def generate(runs: Path, output: Path, sets: list[str], fallback: Path | None = 
         save_raw(path, raw)
         factors[f'{kind}/{name}'] = {f'{k[0]}|{k[1]}|{k[2]}': v for k, v in unit_factors.items()}
         print(f'{kind}/{name}: {len(raw)} rows, {time.monotonic()-start:.1f}s', flush=True)
-        (output/'factors.json').write_text(json.dumps(
-            {**(json.loads((output/'factors.json').read_text()) if (output/'factors.json').exists() else {}), **factors},
+        (output/f'factors_{variant}.json').write_text(json.dumps(
+            {**(json.loads((output/f'factors_{variant}.json').read_text()) if (output/f'factors_{variant}.json').exists() else {}), **factors},
             indent=1, sort_keys=True))
 
 
@@ -159,8 +161,9 @@ def main() -> None:
                         choices=['devcr', 'blocks', 'official', 'friendly'])
     parser.add_argument('--components-fallback', type=Path,
                         help='directory with <slate>/{empirical,v4}.jsonl for slates missing from base/components')
+    parser.add_argument('--variant', choices=sorted(VARIANTS), default='status')
     args = parser.parse_args()
-    generate(args.runs, args.output, args.sets, args.components_fallback)
+    generate(args.runs, args.output, args.sets, args.components_fallback, args.variant)
 
 
 if __name__ == '__main__':

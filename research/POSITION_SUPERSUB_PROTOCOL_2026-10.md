@@ -69,3 +69,46 @@ Score robust P3, S, MK and S+MK on the 13 official slates, plus Friendly-25 for 
 2. Fantasy MAE moving by less than ±0.02 counts as neutral.
 3. Super-sub and squad differences count as **noise** unless they exceed the 1% jitter null (SD 22–37 per season) and agree in sign across seasons.
 4. The super-sub ceiling is reported from the variance decomposition (`supersub_ceiling.csv`): realistic expected gain against the hindsight gap.
+
+## Addendum: candidate SK, frozen after the S test results and before any SK test result
+
+**Seen before freezing SK.** S was scored on the official slates and Friendly-25 (commit after 453ab7a). Those results did not select anything in SK: SK has no tuned parameter, and its motivation comes from development diagnostics.
+
+- **Hooker tries.** Starting hookers' try forecasts are too high on every block era: forecast/actual 1.35 on pre-2025 blocks. Development slopes are below 1; the 2025–26 blocks show the same pattern.
+- **Over-dispersion.** Within-position calibration slopes of try forecasts are 0.5–0.65 on pre-2025 blocks, and the gap is largest among international-heavy players. This points to profile shrinkage, not club calibration.
+- **Shrinkage strength.** The robust empirical profile uses one prior strength, K = 220 minutes, for every event. A within-position gamma-Poisson moment estimate on pre-lock international rows gives:
+
+  | Event | K (minutes) |
+  |---|---:|
+  | tries | ≈ 1,200 |
+  | try assists | ≈ 1,500 |
+  | breakdown-steal proxy | ≈ 1,800 |
+  | conceded penalties | ≈ 1,500 |
+  | tackles | ≈ 200 |
+  | carries | ≈ 130 |
+  | defenders beaten | ≈ 150 |
+
+  Values are at the Six Nations 2024 R1 lock (`shrinkage_k_dev_2024r1.csv`).
+
+**SK** = S plus that event-specific within-position prior strength (`ShrunkStatusEmpiricalEventModel`). Its settings:
+
+- recency weights as in the model, with the effective-sample correction;
+- K bounded to [40, 4000] minutes, the bounds of the existing v4 EB feature;
+- metres keep K = 220;
+- K re-estimated at every lock, with no tuned constant.
+
+Development evidence (`blocks_pre2025_with_shrunk.txt`, `dev_seasons.csv`):
+
+- **Pre-2025 blocks:**
+  - Poisson deviance is lower in 13 of 14 events, and MSE in 13 of 14.
+  - Observable points: starters' MSE 92.44 → 92.06 and MAE 7.152 → 7.089; bench MSE 33.83 → 33.50.
+  - Within-weekend Pearson 0.6036 → 0.6058, with starters 0.469 → 0.473 and bench 0.219 → 0.226.
+  - Count-stat MAE is 0.63949 → 0.63982.
+  - Starting hooker bias +1.44 → +1.03.
+- **Six Nations 2023–24 development slates:**
+  - MAE 7.182 / 5.844 → 7.149 / 5.812.
+  - MSE 104.10 / 65.54 → 104.20 / 65.50.
+  - Pearson is unchanged; bench Pearson is 0.185 / 0.242 → 0.168 / 0.235.
+  - Smoothed super-sub points 164.6 / 103.4 → 152.2 / 96.4, which is inside the noise.
+
+SK and SK + MK are scored on the same official, Friendly-25 and 2025–26 block sets under the same verdict rules.

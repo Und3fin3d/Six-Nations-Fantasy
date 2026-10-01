@@ -107,6 +107,9 @@ def main() -> None:
             truth['is_forward'] = [p.is_forward for p in status]
             truth['position'] = [p.position for p in status]
         engines = {'p3_robust_native': reference, 'status_rates': status}
+        shrunk_path = args.status/args.set/unit/'shrunk.jsonl'
+        if shrunk_path.exists():
+            engines['status_shrunk'] = load_raw(shrunk_path)
         events.append(event_rows(truth, engines, unit))
         actual = observable_points(truth)
         for engine, raw in engines.items():

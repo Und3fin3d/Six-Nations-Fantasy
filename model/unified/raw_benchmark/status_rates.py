@@ -36,7 +36,7 @@ import pandas as pd
 from model.history import past_matches, utc_cutoff
 
 from ..contracts import EventDistribution, RawPrediction
-from .empirical import HALFLIFE_DAYS
+from .empirical import HALFLIFE_DAYS, K, _norm
 from .robust_empirical import RobustEmpiricalEventModel
 
 UNADJUSTED_EVENTS = frozenset({
@@ -186,3 +186,92 @@ class StatusAwareEmpiricalEventModel(RobustEmpiricalEventModel):
                 metadata={**prediction.metadata, "status_rates": True},
             ))
         return output
+
+
+K_BOUNDS = (40.0, 4000.0)
+CONTINUOUS_EVENTS = frozenset({"metres"})
+
+
+def within_position_shrinkage_k(
+    frame: pd.DataFrame, events, asof, *, halflife_days: float = HALFLIFE_DAYS,
+    min_minutes: float = 80.0,
+) -> dict[str, float]:
+    """Empirical-Bayes prior strength (minutes) per event, measured within position.
+
+    Gamma-Poisson moment matching on recency-weighted international rows:
+    tau^2 is the exposure-weighted between-player variance of per-80 rates
+    around each player's positional mean, minus the Poisson sampling variance
+    ``80 * mu / minutes``, pooled over positions; ``K = 80 * mu / tau^2``.
+    Spread is measured within position because positional differences are
+    already in the prior and must not count as player signal. Continuous
+    metres keep the model default.
+    """
+    rows = frame[frame["competition_level"].eq("international")
+                 & pd.to_numeric(frame["minutes"], errors="coerce").gt(0)
+                 & frame["position"].astype(str).ne("Unknown")].copy()
+    if rows.empty:
+        return {}
+    dates = pd.to_datetime(rows["date"], errors="coerce", utc=True)
+    age = (utc_cutoff(asof) - dates).dt.days.clip(lower=0).fillna(1e9)
+    rows["_w"] = np.power(0.5, age.to_numpy(float) / halflife_days)
+    rows["_m"] = pd.to_numeric(rows["minutes"], errors="coerce") * rows["_w"]
+    rows["_m2"] = rows["_m"] * rows["_w"]
+    output: dict[str, float] = {}
+    for event in events:
+        if event in CONTINUOUS_EVENTS or event not in rows or f"available__{event}" not in rows:
+            continue
+        valid = (rows[f"available__{event}"].fillna(False).astype(bool)
+                 & pd.to_numeric(rows[event], errors="coerce").notna())
+        block = rows[valid].copy()
+        if len(block) < 500:
+            continue
+        block["_c"] = pd.to_numeric(block[event], errors="coerce").clip(lower=0) * block["_w"]
+        agg = block.groupby(["position", "player_id"])[["_c", "_m", "_m2"]].sum().reset_index()
+        agg = agg[agg["_m"] >= min_minutes]
+        excess, weight, mean_num = 0.0, 0.0, 0.0
+        for _, group in agg.groupby("position"):
+            if group["_m"].sum() <= 0:
+                continue
+            mu = 80.0 * group["_c"].sum() / group["_m"].sum()
+            rate = 80.0 * group["_c"] / group["_m"]
+            w = group["_m"].to_numpy(float)
+            between = float(np.average((rate - mu) ** 2, weights=w))
+            # Recency weights shrink the effective sample: Var = 80 mu sum(w^2 m) / (sum w m)^2.
+            sampling = float(np.average(80.0 * mu * group["_m2"] / group["_m"] ** 2, weights=w))
+            excess += (between - sampling) * w.sum()
+            mean_num += mu * w.sum()
+            weight += w.sum()
+        if weight <= 0 or mean_num <= 0:
+            continue
+        tau2, mu = excess / weight, mean_num / weight
+        output[event] = float(K_BOUNDS[1] if tau2 <= 1e-12 else np.clip(80.0 * mu / tau2, *K_BOUNDS))
+    return output
+
+
+@dataclass
+class ShrunkStatusEmpiricalEventModel(StatusAwareEmpiricalEventModel):
+    """Status-aware rates plus event-specific within-position shrinkage of player profiles."""
+
+    shrinkage_k: dict[str, float] = field(default_factory=dict)
+
+    def fit(self, frame: pd.DataFrame) -> "ShrunkStatusEmpiricalEventModel":
+        super().fit(frame)
+        train = past_matches(frame, self.asof)
+        self.shrinkage_k = within_position_shrinkage_k(
+            starter_equivalent(train, self.status_factors, self.events), self.events, self.asof)
+        return self
+
+    def _rate(self, player: str, name: str, position: str, event: str) -> float:
+        base = self.position_priors.get((position, event), 0.0)
+        rp = self.rp_priors.get((_norm(name), event))
+        if rp:
+            confidence = min(rp[1], 900.0) / 900.0 * 200.0
+            prior = (confidence * rp[0] + 80.0 * base) / (confidence + 80.0)
+        else:
+            prior = base
+        profile = self.profiles.get((player, event))
+        if not profile:
+            return max(float(prior), 0.0)
+        rate, exposure = profile
+        k = self.shrinkage_k.get(event, K)
+        return max(float((exposure * rate + k * prior) / (exposure + k)), 0.0)

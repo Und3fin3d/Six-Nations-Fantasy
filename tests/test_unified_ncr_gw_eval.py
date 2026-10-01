@@ -21,6 +21,17 @@ def test_expected_ncr_points_uses_linear_adapter_and_omits_missing_events() -> N
     assert expected_ncr_points(prediction) == pytest.approx(17.0)
 
 
+def test_expected_ncr_points_award_scrums_only_to_the_front_row() -> None:
+    events = {"scrums_won": EventDistribution("negative_binomial", 2.0, 1.0)}
+    minutes = EventDistribution("lognormal", 60.0, 10.0)
+    for position, expected in (("Prop", 4.0), ("Hooker", 4.0), ("Back-row", 0.0), ("Second-row", 0.0)):
+        prediction = RawPrediction(
+            fixture_id="1", player_id="2", player_name="Player", team="A", opponent="B",
+            position=position, is_forward=True, events=events, minutes=minutes,
+        )
+        assert expected_ncr_points(prediction) == pytest.approx(expected)
+
+
 def test_team_contributions_apply_captain_and_bench_super_sub() -> None:
     import pandas as pd
 

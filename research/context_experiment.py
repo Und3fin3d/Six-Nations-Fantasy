@@ -39,7 +39,10 @@ def fit_v4(features: pd.DataFrame, variant: dict) -> V4GBDT:
     return V4GBDT(events=(*STABLE_EVENTS, *EXTENDED_EVENTS), weighting='natural', pool_player_id=True,
                   player_effects=True, native_categories=True,
                   n_estimators=int(variant.get('n_estimators', 180)),
-                  num_leaves=int(variant.get('num_leaves', 23))).fit(features)
+                  num_leaves=int(variant.get('num_leaves', 23)),
+                  learning_rate=float(variant.get('learning_rate', .045)),
+                  min_child_samples=int(variant.get('min_child_samples', 35)),
+                  random_state=int(variant.get('seed', 17))).fit(features)
 
 
 def main() -> None:

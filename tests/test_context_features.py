@@ -87,3 +87,58 @@ def test_v4_encoder_admits_context_only_when_present():
     with_context = frame.assign(**{c: [1.0, 2.0] for c in COLUMNS})
     encoder = V4FeatureEncoder().fit(with_context)
     assert set(COLUMNS) <= set(encoder.numeric_columns)
+
+
+from model.unified.contracts import EventDistribution, RawPrediction
+from model.unified.v4.context import (TeamStrengthCalibration, fit_team_strength_beta,
+                                      team_strength_scale)
+
+
+def _prediction():
+    return RawPrediction("9", "p", "P", "A", "B", "Centre", False, {
+        "tries": EventDistribution("negative_binomial", 0.4, 2.0),
+        "metres": EventDistribution("lognormal", 50.0, 900.0),
+        "yellow_cards": EventDistribution("bernoulli", 0.9, 1.0),
+    }, EventDistribution("lognormal", 70.0, 100.0))
+
+
+def test_team_strength_scale_preserves_shape_and_bounds():
+    scaled = team_strength_scale(_prediction(), 400.0, {"tries": 0.5, "metres": -0.2, "yellow_cards": 1.0})
+    assert scaled.events["tries"].mean == pytest.approx(0.4 * np.exp(0.5))
+    assert scaled.events["tries"].dispersion == 2.0
+    factor = np.exp(-0.2)
+    assert scaled.events["metres"].mean == pytest.approx(50.0 * factor)
+    assert scaled.events["metres"].dispersion == pytest.approx(900.0 * factor ** 2)
+    assert scaled.events["yellow_cards"].mean == 1.0
+    assert scaled.minutes == _prediction().minutes
+
+
+def test_zero_edge_or_missing_beta_is_identity():
+    original = _prediction()
+    assert team_strength_scale(original, 0.0, {"tries": 0.5}).events == original.events
+    assert team_strength_scale(original, 300.0, {}).events == original.events
+
+
+def test_beta_fit_recovers_known_coefficient_and_skips_sparse_events():
+    rng = np.random.default_rng(3)
+    edge = rng.uniform(-400, 400, 40000)
+    forecast = rng.uniform(1, 3, 40000)
+    observed = rng.poisson(forecast * np.exp(0.3 * edge / 400))
+    frame = pd.DataFrame({"edge": edge, "p_tries": forecast, "y_tries": observed,
+                          "p_red_cards": 0.001, "y_red_cards": 0.0})
+    beta = fit_team_strength_beta(frame, ("tries", "red_cards"))
+    assert beta["tries"] == pytest.approx(0.3, abs=0.03)
+    assert beta["red_cards"] == 0.0
+
+
+def test_calibration_uses_lock_state_and_candidate_venue():
+    _, state = pre_match_context(_store())
+
+    class Fixed:
+        def predict_frame(self, frame):
+            return [_prediction() for _ in range(len(frame))]
+
+    frame = pd.DataFrame([{"fixture_id": "9", "team": "A", "opponent": "B", "home_away": "home"}])
+    out = TeamStrengthCalibration(Fixed(), {"tries": 0.4}, state).predict_frame(frame)[0]
+    edge = state.elo["A"] - state.elo["B"] + 45.0
+    assert out.events["tries"].mean == pytest.approx(0.4 * np.exp(0.4 * edge / 400))

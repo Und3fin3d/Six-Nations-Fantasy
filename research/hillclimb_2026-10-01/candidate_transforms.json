@@ -1,0 +1,81 @@
+{
+ "C2_team_strength": {
+  "beta": {
+   "tries": 0.17507869149532707,
+   "try_assists": 0.19469857198934934,
+   "conversion_goals": 0.09650664220422675,
+   "missed_conversion_goals": 0.06345994913827172,
+   "penalty_goals": -0.31803718010089427,
+   "missed_penalty_goals": -0.24923750350796714,
+   "drop_goals_converted": 0.0,
+   "drop_goal_missed": -0.840991898016966,
+   "defenders_beaten": -0.11132535346055193,
+   "clean_breaks": 0.039302442396032894,
+   "offload": -0.0873281588732908,
+   "runs": -0.08212692800635538,
+   "tackles": 0.04547742873757289,
+   "missed_tackles": 0.0181535640907298,
+   "rucks_won": 0.1323247338036037,
+   "rucks_lost": 0.0008220428648804371,
+   "passes": -0.04375960750837557,
+   "bad_passes": -0.13222216643900875,
+   "turnovers_conceded": 0.00434300742935954,
+   "penalties_conceded": -0.04964414956086632,
+   "yellow_cards": 0.01041479879856749,
+   "red_cards": 0.36104676868323693,
+   "metres": -0.13961253009071461
+  }
+ },
+ "C2s_team_strength_dev_subset": {
+  "beta": {
+   "defenders_beaten": -0.11132535346055193,
+   "metres": -0.13961253009071461,
+   "missed_conversion_goals": 0.06345994913827172,
+   "offload": -0.0873281588732908,
+   "penalties_conceded": -0.04964414956086632,
+   "penalty_goals": -0.31803718010089427
+  }
+ },
+ "K15_kicking": {
+  "gamma": 1.5
+ },
+ "K15_C2": {
+  "gamma": 1.5,
+  "beta": {
+   "tries": 0.17507869149532707,
+   "try_assists": 0.19469857198934934,
+   "conversion_goals": 0.09650664220422675,
+   "missed_conversion_goals": 0.06345994913827172,
+   "penalty_goals": -0.31803718010089427,
+   "missed_penalty_goals": -0.24923750350796714,
+   "drop_goals_converted": 0.0,
+   "drop_goal_missed": -0.840991898016966,
+   "defenders_beaten": -0.11132535346055193,
+   "clean_breaks": 0.039302442396032894,
+   "offload": -0.0873281588732908,
+   "runs": -0.08212692800635538,
+   "tackles": 0.04547742873757289,
+   "missed_tackles": 0.0181535640907298,
+   "rucks_won": 0.1323247338036037,
+   "rucks_lost": 0.0008220428648804371,
+   "passes": -0.04375960750837557,
+   "bad_passes": -0.13222216643900875,
+   "turnovers_conceded": 0.00434300742935954,
+   "penalties_conceded": -0.04964414956086632,
+   "yellow_cards": 0.01041479879856749,
+   "red_cards": 0.36104676868323693,
+   "metres": -0.13961253009071461
+  }
+ },
+ "K15_C2s": {
+  "gamma": 1.5,
+  "beta": {
+   "defenders_beaten": -0.11132535346055193,
+   "metres": -0.13961253009071461,
+   "missed_conversion_goals": 0.06345994913827172,
+   "offload": -0.0873281588732908,
+   "penalties_conceded": -0.04964414956086632,
+   "penalty_goals": -0.31803718010089427
+  }
+ }
+}

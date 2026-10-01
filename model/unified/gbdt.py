@@ -34,7 +34,8 @@ class UniversalGBDT:
         weighting: str = "level_balanced",
         time_half_life_days: float | None = None,
         n_estimators: int = 180, num_leaves: int = 23,
-        native_categories: bool = False,
+        native_categories: bool = False, learning_rate: float = .045,
+        min_child_samples: int = 35,
     ):
         self.events = tuple(events)
         self.random_state = random_state
@@ -43,6 +44,8 @@ class UniversalGBDT:
         self.n_estimators = n_estimators
         self.num_leaves = num_leaves
         self.native_categories = bool(native_categories)
+        self.learning_rate = float(learning_rate)
+        self.min_child_samples = int(min_child_samples)
         self.encoder = FeatureEncoder()
         self.models: dict[str, object] = {}
         self.dispersion: dict[str, float] = {}
@@ -83,10 +86,12 @@ class UniversalGBDT:
                 continue
             y = np.clip(frame.loc[valid, target].to_numpy(float), 0, None)
             family = distribution_family(target)
+            if family != "bernoulli" and not y.any():
+                continue  # Poisson/Tweedie objectives reject an all-zero label set
             kwargs = dict(
-                n_estimators=self.n_estimators, learning_rate=.045,
+                n_estimators=self.n_estimators, learning_rate=self.learning_rate,
                 num_leaves=self.num_leaves,
-                min_child_samples=35, reg_lambda=4.0, subsample=.85,
+                min_child_samples=self.min_child_samples, reg_lambda=4.0, subsample=.85,
                 subsample_freq=1, colsample_bytree=.8, random_state=self.random_state,
                 n_jobs=-1, verbosity=-1, deterministic=True, force_col_wise=True,
             )

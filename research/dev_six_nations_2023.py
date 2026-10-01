@@ -33,9 +33,16 @@ SEASON = 2023
 
 def development_slates(store: pd.DataFrame) -> list[Slate]:
     labels = pd.read_csv(DATA/'model_targets.csv', dtype={'fixture_id': str, 'player_id': str})
-    labels = labels[labels.season.eq(SEASON)][KEY+['official_pts']]
+    labels = labels[labels.season.eq(SEASON)][KEY+['official_pts', 'canonical_pos']]
     six = store[store.competition_id_cache.eq(1266) & store.calendar_year.eq(SEASON)]
     joined = six.merge(labels, on=KEY, how='left', validate='one_to_one')
+    # Substitutes without a prior start fall back to the fantasy catalogue
+    # position, which is published before the lock.
+    unknown = joined.position.eq('Unknown') & joined.canonical_pos.isin(list(POS))
+    joined.loc[unknown, 'position'] = joined.loc[unknown, 'canonical_pos']
+    joined.loc[unknown, 'is_forward'] = joined.loc[unknown, 'position'].isin(
+        ['Prop', 'Hooker', 'Second-row', 'Back-row'])
+    joined = joined.drop(columns='canonical_pos')
     slates = []
     for round_no, rows in joined.groupby('round'):
         if rows.official_pts.notna().sum() == 0:

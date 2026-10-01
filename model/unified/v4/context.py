@@ -12,8 +12,13 @@ update one another.
 """
 from __future__ import annotations
 
+from dataclasses import dataclass, replace
+from typing import Mapping
+
 import numpy as np
 import pandas as pd
+
+from ..contracts import EventDistribution, RawPrediction
 
 PREFIX = "ctx__"
 COLUMNS = (
@@ -115,3 +120,66 @@ def add_candidate_context(candidates: pd.DataFrame, state: TeamState) -> pd.Data
             for r in output.itertuples(index=False)]
     context = pd.DataFrame(rows, index=output.index, columns=list(COLUMNS))
     return pd.concat([output, context], axis=1)
+
+
+def team_strength_scale(prediction: RawPrediction, edge: float, beta: Mapping[str, float]) -> RawPrediction:
+    """Rescale event means by exp(beta * edge / 400), preserving each event's shape.
+
+    Count dispersion (negative-binomial size) is kept, lognormal variance scales
+    with the squared factor so its coefficient of variation is unchanged, and
+    Bernoulli probabilities stay within [0, 1]. Minutes are not changed.
+    """
+    events = {}
+    for name, dist in prediction.events.items():
+        factor = float(np.exp(beta.get(name, 0.0) * edge / 400.0))
+        if dist.family == "bernoulli":
+            events[name] = EventDistribution(dist.family, min(dist.mean * factor, 1.0), dist.dispersion)
+        elif dist.family == "lognormal":
+            events[name] = EventDistribution(dist.family, dist.mean * factor, dist.dispersion * factor ** 2)
+        else:
+            events[name] = EventDistribution(dist.family, dist.mean * factor, dist.dispersion)
+    return replace(prediction, events=events)
+
+
+@dataclass
+class TeamStrengthCalibration:
+    """Event-specific matchup calibration on top of a fitted raw-event model.
+
+    ``beta`` comes from team-level Poisson fits of observed totals on the
+    wrapped model's forecasts in earlier periods. ``state`` is the team state
+    at the prediction lock, so candidates never see their own results.
+    """
+
+    model: object
+    beta: Mapping[str, float]
+    state: TeamState
+
+    def predict_frame(self, frame: pd.DataFrame) -> list[RawPrediction]:
+        raw = self.model.predict_frame(frame)
+        context = add_candidate_context(frame, self.state)
+        return [team_strength_scale(p, float(edge), self.beta)
+                for p, edge in zip(raw, context["ctx__elo_edge"])]
+
+
+def fit_team_strength_beta(predictions: pd.DataFrame, events: tuple[str, ...],
+                           bound: float = 1.5) -> dict[str, float]:
+    """Team-level Poisson fit: observed total ~ forecast total * exp(beta * edge / 400).
+
+    ``predictions`` has one row per (fixture, team) with ``edge``, ``p_<event>``
+    (summed forecast means) and ``y_<event>`` (summed observed values, missing
+    when unobserved). Events with fewer than 30 observed units keep beta 0.
+    """
+    from scipy.optimize import minimize_scalar
+
+    beta = {}
+    for event in events:
+        block = predictions[["edge", f"p_{event}", f"y_{event}"]].dropna()
+        block = block[block[f"p_{event}"] > 0]
+        if block[f"y_{event}"].sum() <= 30:
+            beta[event] = 0.0
+            continue
+        x = block["edge"].to_numpy(float) / 400.0
+        p, y = block[f"p_{event}"].to_numpy(float), block[f"y_{event}"].to_numpy(float)
+        loss = lambda b: float(np.sum(p * np.exp(b * x) - y * (np.log(p) + b * x)))
+        beta[event] = float(minimize_scalar(loss, bounds=(-bound, bound), method="bounded").x)
+    return beta

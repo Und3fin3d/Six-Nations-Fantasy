@@ -38,6 +38,7 @@ from .raw_benchmark.blend import EventBlend50, EventWeightedBlend
 from .v4.gbdt import V4GBDT
 from .v4.features import add_v4_base_stats
 from .v3.shadow import ncr_candidates
+from .hillclimb import adjust_raw, blend_points
 
 DATA = ROOT / 'data'
 DEFAULT_OUTPUT = DATA / 'unified' / 'rolling_eval'
@@ -248,7 +249,7 @@ def season_summary(metrics):
         scored_teams=('team_points','count'),rounds=('round','nunique')).reset_index()
 
 
-def run(output: Path, competitions: tuple[str,...], *, prepare_only: bool=False, round_job: str | None=None, native_categories: bool=False) -> pd.DataFrame:
+def run(output: Path, competitions: tuple[str,...], *, prepare_only: bool=False, round_job: str | None=None, native_categories: bool=False, hillclimb: bool=False) -> pd.DataFrame:
     from model_env_preflight import check
     errors = check(ROOT/'requirements-model.txt')
     if errors and not prepare_only:
@@ -260,6 +261,7 @@ def run(output: Path, competitions: tuple[str,...], *, prepare_only: bool=False,
     manifest_path = output/'run_manifest.json'
     manifest = {
         'native_categories': bool(native_categories),
+        **({'hillclimb_2026_10': True} if hillclimb else {}),
         'source_base_commit': '086b474334a50d4e3d34880a20fdd4e6d573cd85',
         'python': platform.python_version(),
         'packages': {name: version(name) for name in ('numpy','pandas','scipy','scikit-learn','lightgbm','torch')},
@@ -310,6 +312,9 @@ def run(output: Path, competitions: tuple[str,...], *, prepare_only: bool=False,
             raw = model.predict_frame(candidates)
             (model_dir/f'{name}.jsonl').write_text(''.join(json.dumps(p.to_dict())+'\n' for p in raw))
             results.append(evaluate(slate,name,expected_points(raw,slate.competition),output))
+            if hillclimb and name.startswith('p3_robust'):
+                adjusted = expected_points(adjust_raw(raw,candidates,train),slate.competition)
+                results.append(evaluate(slate,'p3_hillclimb_2026_10',blend_points(adjusted,slate.baseline),output))
         key = (slate.competition,slate.season)
         if key not in frozen:
             frozen.clear()  # release the preceding tournament's large frames
@@ -350,8 +355,9 @@ def main() -> None:
     parser.add_argument('--prepare-only',action='store_true')
     parser.add_argument('--native-categories',action='store_true',help='Research-only native categorical tree splits; no promotion')
     parser.add_argument('--round-job',help='Fit one round; season-first jobs also emit every frozen control')
+    parser.add_argument('--hillclimb',action='store_true',help='Also score the October 2026 research candidate; no promotion')
     args = parser.parse_args()
-    run(args.output,tuple(args.competitions),prepare_only=args.prepare_only,round_job=args.round_job,native_categories=args.native_categories)
+    run(args.output,tuple(args.competitions),prepare_only=args.prepare_only,round_job=args.round_job,native_categories=args.native_categories,hillclimb=args.hillclimb)
 
 if __name__ == '__main__':
     main()

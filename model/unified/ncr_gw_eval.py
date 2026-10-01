@@ -48,6 +48,7 @@ DISPLAY = {
     "ncr_incumbent": "NCR incumbent",
 }
 GW_EXCLUSIONS = {1: ("New Zealand", "France"), 2: (), 3: ()}
+FRONT_ROW = frozenset({"Prop", "Hooker"})
 
 
 def sha256(path: Path) -> str:
@@ -66,7 +67,8 @@ def expected_ncr_points(prediction: RawPrediction) -> float:
         for event, weight in scorer.weights.items()
         if event in prediction.events
     )
-    if "scrums_won" in prediction.events:
+    # Official NCR rules award scrum points only to front-row players.
+    if "scrums_won" in prediction.events and prediction.position in FRONT_ROW:
         total += 2.0 * prediction.events["scrums_won"].mean
     return float(total)
 

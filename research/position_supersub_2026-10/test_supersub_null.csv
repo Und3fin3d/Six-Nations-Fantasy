@@ -1,3 +1,3 @@
-comp,p3_robust_native,status_rates,MK,status_MK,null_mean,null_sd
-6N 2025,203.6,215.3,184.7,214.0,213.6,24.0
-6N 2026,132.0,132.2,137.1,140.1,133.8,4.3
+comp,p3_robust_native,status_rates,status_shrunk,MK,status_MK,status_shrunk_MK,null_mean,null_sd
+6N 2025,203.6,215.3,272.5,184.0,214.9,183.1,214.0,23.9
+6N 2026,132.0,132.2,132.0,137.3,140.1,135.8,133.8,4.6

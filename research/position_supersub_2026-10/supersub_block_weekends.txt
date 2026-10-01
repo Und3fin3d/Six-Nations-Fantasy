@@ -3,16 +3,20 @@ random              178.7
 p3_robust_native    343.2
 status_rates        350.3
 top_backrow         315.0
-hindsight           815.3 
+hindsight           815.3
+status_shrunk       401.5 
 (per 10 weekends)
 status - ref per 10 weekends: 7.1  90% [-52.9, 58.2]
 top back-row - ref per 10: -28.2 [-76.8, 16.8]
+shrunk - ref per 10: 58.2 [19.4, 107.6]
 ===== pre weekends 69 mean pool 57.0 same pick share 0.87 median near-ties (within 0.5) 1.0
 random              153.7
 p3_robust_native    267.0
 status_rates        263.0
 top_backrow         259.9
-hindsight           773.0 
+hindsight           773.0
+status_shrunk       272.6 
 (per 10 weekends)
 status - ref per 10 weekends: -3.9  90% [-30.4, 18.3]
 top back-row - ref per 10: -7.1 [-48.8, 37.0]
+shrunk - ref per 10: 5.7 [-18.7, 30.0]

@@ -87,11 +87,16 @@ def official_history(store: pd.DataFrame, official: pd.DataFrame | None = None) 
 def rugbypass_turnovers(compstats: pd.DataFrame, cutoff) -> pd.DataFrame:
     """Turnovers won and minutes per player key over seasons completed before ``cutoff``.
 
-    Keys shared by more than one RugbyPass slug are ambiguous and dropped.
+    A key shared by RugbyPass slugs with different statistics (two players with
+    the same initial and surname) is ambiguous and dropped; slugs that duplicate
+    one player's rows are collapsed.
     """
-    frame = compstats.drop_duplicates(['key', 'competition', 'season'])
-    ambiguous = frame.groupby('key').slug.nunique()
-    frame = frame[~frame.key.isin(ambiguous[ambiguous > 1].index)]
+    columns = ['competition', 'season', 'minutes', 'turnovers_won']
+    signature = compstats.assign(_row=compstats[columns].astype(str).agg('|'.join, axis=1)).groupby(
+        ['key', 'slug'])._row.agg(lambda rows: '/'.join(sorted(rows)))
+    ambiguous = signature.groupby(level='key').nunique()
+    frame = compstats[~compstats.key.isin(ambiguous[ambiguous > 1].index)]
+    frame = frame.drop_duplicates(['key', 'competition', 'season'])
     frame = past_seasons(frame, cutoff)
     minutes = pd.to_numeric(frame.minutes, errors='coerce').fillna(0)
     won = pd.to_numeric(frame.turnovers_won, errors='coerce').fillna(0)

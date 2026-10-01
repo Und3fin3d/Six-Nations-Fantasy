@@ -74,12 +74,17 @@ def main() -> None:
     parser.add_argument('--variants', nargs='+', default=list(VARIANTS))
     parser.add_argument('--rounds', nargs='*', help='only these slate names')
     parser.add_argument('--no-smooth', action='store_true')
+    parser.add_argument('--exclude-official', nargs='*', default=[],
+                        help='SEASON:ROUND official rounds withheld from the adapter history (sensitivity checks)')
     parser.add_argument('--output', type=Path, required=True)
     args = parser.parse_args()
     args.output.mkdir(parents=True, exist_ok=True)
     store, _ = load_store(args.runs/'base')
     context = Context(store, args.cache)
     official = official_history(store)
+    for item in args.exclude_official:
+        season, round_no = map(int, item.split(':'))
+        official = official[~(official.season.astype(int).eq(season) & official['round'].astype(int).eq(round_no))]
     compstats = load_compstats()
     if args.set == 'dev':
         slates = [s for s in pickle.loads((args.runs/'devcr'/'slates.pkl').read_bytes())

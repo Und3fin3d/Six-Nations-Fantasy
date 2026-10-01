@@ -8,6 +8,10 @@ Engines (all from the same lock-time robust P3 fit; no refits):
 ``h1_oct1``            1 October candidate: 0.75 * c2k15 + 0.25 * baseline;
 ``mk``                 matchup calibration + kicking gamma 1.5 (no blend);
 ``h2``                 round-2 candidate: 0.7 * mk + 0.3 * baseline;
+``sk``                 robust P3 with the status-aware, within-position-shrunk
+                       empirical component (``status_rates``; same trees and weights);
+``sk_mk``              SK + matchup calibration + kicking gamma 1.5;
+``sk_h2``              0.7 * sk_mk + 0.3 * baseline;
 ``null3_a``/``null3_b`` reference points times a fixed per-player factor
                        exp(N(0, 0.03)): equally informed copies that differ from
                        the reference about as much as the candidates do. They
@@ -36,8 +40,10 @@ from .decision import pool_positions
 from .fit import FIT_NAME, KEY, load_raw, lock_name, write_atomic
 from .rubrics import RUBRICS, actual_points, expected_points
 from .slates import COMPETITIONS
+from .status import SK_NAME
 
-ENGINES = ('p3_robust', 'empirical_baseline', 'c2k15', 'h1_oct1', 'mk', 'h2', 'null3_a', 'null3_b')
+ENGINES = ('p3_robust', 'empirical_baseline', 'c2k15', 'h1_oct1', 'mk', 'h2', 'sk', 'sk_mk', 'sk_h2',
+           'null3_a', 'null3_b')
 REFERENCE = 'p3_robust'
 GAMMA = 1.5
 H1_WEIGHT, H2_WEIGHT = 0.75, 0.7
@@ -46,14 +52,18 @@ BETA_PATH = ROOT/'research'/'hillclimb_2026-10-01'/'team_strength_beta.json'
 MATCHUP_PATH = ROOT/'research'/'hillclimb_2026-10-02'/'matchup_coefficients.json'
 
 
-def raw_engines(reference, context: pd.DataFrame) -> dict:
+def raw_engines(reference, context: pd.DataFrame, sk=None) -> dict:
     beta = json.loads(BETA_PATH.read_text())
     coefficients = json.loads(MATCHUP_PATH.read_text())
     records = context.to_dict('records')
     c2 = [team_strength_scale(p, float(row['elo_edge']), beta) for p, row in zip(reference, records)]
     matchup = [matchup_scale(p, row, coefficients) for p, row in zip(reference, records)]
-    return {'p3_robust': reference, 'c2k15': concentrate_kicking(c2, GAMMA),
+    raws = {'p3_robust': reference, 'c2k15': concentrate_kicking(c2, GAMMA),
             'mk': concentrate_kicking(matchup, GAMMA)}
+    if sk is not None:
+        raws['sk'] = sk
+        raws['sk_mk'] = concentrate_kicking([matchup_scale(p, row, coefficients) for p, row in zip(sk, records)], GAMMA)
+    return raws
 
 
 def null_factor(keys: pd.DataFrame, label: str) -> np.ndarray:
@@ -85,7 +95,10 @@ def score_lock(store: pd.DataFrame, manifest: dict, output: Path, lock: pd.Times
     if truth['minutes'].isna().any():
         raise ValueError(f'{name}: candidate rows missing from the store')
     slate_info = pd.DataFrame(manifest['slates']).set_index('slate')
-    raws = raw_engines(reference, context)
+    sk_path = directory/f'{SK_NAME}.jsonl.gz'
+    if any(e.startswith('sk') for e in engines) and not sk_path.exists():
+        raise FileNotFoundError(f'{name}: run the sk stage before scoring SK engines')
+    raws = raw_engines(reference, context, load_raw(sk_path) if sk_path.exists() else None)
     frame = candidates[['slate', *KEY, 'player_name', 'started', 'jersey', 'position', 'is_forward']].copy()
     frame['lock'] = name
     frame['competition'] = truth['competition_id_cache'].astype(int).map(COMPETITIONS).to_numpy()
@@ -103,6 +116,8 @@ def score_lock(store: pd.DataFrame, manifest: dict, output: Path, lock: pd.Times
         points['empirical_baseline'] = baseline[rubric_name].to_numpy(float)
         points['h1_oct1'] = H1_WEIGHT*points['c2k15'] + (1 - H1_WEIGHT)*points['empirical_baseline']
         points['h2'] = H2_WEIGHT*points['mk'] + (1 - H2_WEIGHT)*points['empirical_baseline']
+        if 'sk_mk' in points:
+            points['sk_h2'] = H2_WEIGHT*points['sk_mk'] + (1 - H2_WEIGHT)*points['empirical_baseline']
         for label, factor in factors.items():
             points[label] = points[REFERENCE]*factor
         for engine in engines:

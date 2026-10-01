@@ -162,6 +162,41 @@ def test_stats_helpers():
     assert corr.pearson.tolist() == pytest.approx([1.0, -1.0])
 
 
+class _Fixed:
+    def __init__(self, predictions):
+        self.predictions = predictions
+
+    def predict_frame(self, frame):
+        return self.predictions
+
+
+def test_sk_reblend_recovers_the_tree_exactly():
+    from model.unified.raw_benchmark.blend import EventWeightedBlend
+    from research.big_benchmark.status import reblend
+    minutes = EventDistribution('lognormal', 60.0, 90.0)
+
+    def player(events, mins=minutes):
+        return RawPrediction('f', 'p', 'n', 't', 'o', 'Prop', True, events, mins)
+
+    tree = [player({'tries': EventDistribution('negative_binomial', 0.3, 2.0),
+                    'metres': EventDistribution('lognormal', 40.0, 600.0),
+                    'potm': EventDistribution('bernoulli', 0.05, 1.0)})]
+    plain = [player({'tries': EventDistribution('negative_binomial', 0.2, 1.5),
+                     'metres': EventDistribution('lognormal', 30.0, 500.0),
+                     'drop_goal_missed': EventDistribution('poisson', 0.01, 1.0)})]
+    new = [player({'tries': EventDistribution('negative_binomial', 0.25, 1.2),
+                   'metres': EventDistribution('lognormal', 33.0, 450.0),
+                   'drop_goal_missed': EventDistribution('poisson', 0.02, 1.0)}, EventDistribution('lognormal', 61.0, 95.0))]
+    weights = {'tries': 0.1, 'metres': 0.1}
+    blended = EventWeightedBlend(_Fixed(plain), _Fixed(tree), 0.5, weights).predict_frame(None)
+    direct = EventWeightedBlend(_Fixed(new), _Fixed(tree), 0.5, weights).predict_frame(None)[0]
+    rebuilt = reblend(blended, plain, new, 0.5, weights)[0]
+    for event in ('tries', 'metres', 'potm', 'drop_goal_missed'):
+        assert rebuilt.events[event].mean == pytest.approx(direct.events[event].mean, rel=1e-9)
+        assert rebuilt.events[event].dispersion == pytest.approx(direct.events[event].dispersion, rel=1e-6)
+    assert rebuilt.minutes.mean == pytest.approx(direct.minutes.mean)
+
+
 def test_null_factor_is_reproducible_and_three_percent():
     from research.big_benchmark.score import null_factor
     keys = pd.DataFrame({'fixture_id': np.arange(20000).astype(str), 'player_id': '7'})

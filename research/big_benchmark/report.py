@@ -326,7 +326,7 @@ def report_stage(manifest: dict, output: Path, engines, rubrics, official_rounds
 
 ENGINE_LABELS = {'p3_robust': 'Robust P3 (reference)', 'empirical_baseline': 'Empirical baseline',
                  'c2k15': 'C2+K15 (no blend)', 'h1_oct1': '1 Oct candidate (H1)', 'mk': 'MK',
-                 'h2': 'H2', 'null3_a': 'Null copy A (3% noise)', 'null3_b': 'Null copy B (3% noise)'}
+                 'h2': 'H2', 'sk': 'SK', 'sk_mk': 'SK+MK', 'sk_h2': 'SK+H2', 'null3_a': 'Null copy A (3% noise)', 'null3_b': 'Null copy B (3% noise)'}
 
 
 def _markdown(frame: pd.DataFrame) -> str:

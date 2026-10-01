@@ -32,7 +32,7 @@ INPUT_FILES = (
     ROOT/'research'/'hillclimb_2026-10-01'/'team_strength_beta.json',
     ROOT/'research'/'hillclimb_2026-10-02'/'matchup_coefficients.json',
 )
-STAGES = ('manifest', 'fit', 'score', 'decide', 'report')
+STAGES = ('manifest', 'fit', 'sk', 'score', 'decide', 'report')
 
 
 def sha256(path: Path) -> str:
@@ -104,13 +104,16 @@ def main(argv: list[str] | None = None) -> None:
     args.output.mkdir(parents=True, exist_ok=True)
     stages = STAGES if args.stage == 'all' else (args.stage,)
     store = prepared = None
-    if {'manifest', 'fit', 'score'} & set(stages):
+    if {'manifest', 'fit', 'sk', 'score'} & set(stages):
         store, prepared = load_inputs(args.base, features='fit' in stages)
         manifest = manifest_stage(args.base, args.output, store)
     else:
         manifest = json.loads((args.output/'manifest.json').read_text())
     if 'fit' in stages:
         fit_stage(store, prepared, manifest, args.output, args.locks)
+    if 'sk' in stages:
+        from .status import sk_stage
+        sk_stage(store, manifest, args.output, args.locks, DATA)
     if 'score' in stages:
         from .score import score_stage
         score_stage(store, manifest, args.output, args.locks, args.engines, args.rubrics)

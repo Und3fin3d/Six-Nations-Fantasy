@@ -1,0 +1,184 @@
+{
+  "ext_rows": 64584,
+  "ext_matches": 1404,
+  "matched_matches": 1294,
+  "joined_rows": 58351,
+  "by_file": {
+    "challenge_player_stats.csv": {
+      "rows": 4646,
+      "matches": 101,
+      "matched_matches": 101,
+      "joined_rows": 4560
+    },
+    "champs_player_stats.csv": {
+      "rows": 5704,
+      "matches": 124,
+      "matched_matches": 124,
+      "joined_rows": 5629
+    },
+    "japan_player_stats.csv": {
+      "rows": 10120,
+      "matches": 220,
+      "matched_matches": 220,
+      "joined_rows": 9665
+    },
+    "prem_player_stats.csv": {
+      "rows": 8510,
+      "matches": 185,
+      "matched_matches": 185,
+      "joined_rows": 8457
+    },
+    "premcup_player_stats.csv": {
+      "rows": 5060,
+      "matches": 110,
+      "matched_matches": 0,
+      "joined_rows": 0
+    },
+    "top14_player_stats.csv": {
+      "rows": 16744,
+      "matches": 364,
+      "matched_matches": 364,
+      "joined_rows": 16471
+    },
+    "urc_player_stats.csv": {
+      "rows": 13800,
+      "matches": 300,
+      "matched_matches": 300,
+      "joined_rows": 13569
+    }
+  },
+  "agreement": {
+    "metres~metres": {
+      "n": 58351,
+      "corr": 1.0,
+      "exact": 1.0,
+      "mean_ext": 17.421,
+      "mean_ours": 17.421,
+      "ratio_sum": 1.0
+    },
+    "tackles~tackles": {
+      "n": 58351,
+      "corr": 1.0,
+      "exact": 1.0,
+      "mean_ext": 5.748,
+      "mean_ours": 5.748,
+      "ratio_sum": 1.0
+    },
+    "missedTackles~missed_tackles": {
+      "n": 58351,
+      "corr": 0.818,
+      "exact": 0.688,
+      "mean_ext": 1.015,
+      "mean_ours": 0.956,
+      "ratio_sum": 1.062
+    },
+    "turnoverWon~tackle_turnover": {
+      "n": 58351,
+      "corr": 0.418,
+      "exact": 0.797,
+      "mean_ext": 0.29,
+      "mean_ours": 0.096,
+      "ratio_sum": 3.01
+    },
+    "carries~runs": {
+      "n": 58351,
+      "corr": 0.923,
+      "exact": 0.453,
+      "mean_ext": 5.326,
+      "mean_ours": 4.834,
+      "ratio_sum": 1.102
+    },
+    "defendersBeaten~defenders_beaten": {
+      "n": 58351,
+      "corr": 0.9,
+      "exact": 0.738,
+      "mean_ext": 1.016,
+      "mean_ours": 0.951,
+      "ratio_sum": 1.068
+    },
+    "cleanBreaks~clean_breaks": {
+      "n": 58351,
+      "corr": 0.752,
+      "exact": 0.84,
+      "mean_ext": 0.366,
+      "mean_ours": 0.232,
+      "ratio_sum": 1.579
+    },
+    "offload~offload": {
+      "n": 58351,
+      "corr": 1.0,
+      "exact": 1.0,
+      "mean_ext": 0.342,
+      "mean_ours": 0.342,
+      "ratio_sum": 1.0
+    },
+    "passes~passes": {
+      "n": 58351,
+      "corr": 1.0,
+      "exact": 1.0,
+      "mean_ext": 6.379,
+      "mean_ours": 6.379,
+      "ratio_sum": 1.0
+    },
+    "lineoutsWon~lineouts_won": {
+      "n": 58351,
+      "corr": -0.087,
+      "exact": 0.696,
+      "mean_ext": 0.572,
+      "mean_ours": 0.532,
+      "ratio_sum": 1.074
+    },
+    "conversionGoals~conversion_goals": {
+      "n": 58351,
+      "corr": 0.997,
+      "exact": 0.998,
+      "mean_ext": 0.117,
+      "mean_ours": 0.117,
+      "ratio_sum": 0.999
+    },
+    "penaltyGoals~penalty_goals": {
+      "n": 58351,
+      "corr": 0.999,
+      "exact": 1.0,
+      "mean_ext": 0.047,
+      "mean_ours": 0.047,
+      "ratio_sum": 0.999
+    },
+    "tries~tries": {
+      "n": 58351,
+      "corr": 1.0,
+      "exact": 1.0,
+      "mean_ext": 0.159,
+      "mean_ours": 0.159,
+      "ratio_sum": 1.0
+    },
+    "turnoversConceded~turnovers_conceded": {
+      "n": 58351,
+      "corr": 0.846,
+      "exact": 0.818,
+      "mean_ext": 0.602,
+      "mean_ours": 0.581,
+      "ratio_sum": 1.036
+    },
+    "penaltiesConceded~penalties_conceded": {
+      "n": 58351,
+      "corr": 0.823,
+      "exact": 0.853,
+      "mean_ext": 0.445,
+      "mean_ours": 0.44,
+      "ratio_sum": 1.009
+    },
+    "minutesPlayedTotal~minutes": {
+      "n": 58351,
+      "corr": 0.968,
+      "exact": 0.564,
+      "mean_ext": 51.922,
+      "mean_ours": 51.35,
+      "ratio_sum": 1.011
+    }
+  },
+  "feed_only_cols": [
+    "kicksFromHand",
+    "lineoutSteals"
+  ]
+}

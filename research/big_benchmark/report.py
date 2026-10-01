@@ -144,10 +144,28 @@ def differences(frame: pd.DataFrame, metrics, engines, rubrics, scope_columns=SC
     return pd.DataFrame(rows)
 
 
+MIN_CLUSTERS = 8
+
+
+def interval(row) -> tuple[float, float]:
+    """Widest 90% interval among slate-i.i.d. and cluster bootstraps with enough clusters.
+
+    A cluster bootstrap with few clusters understates uncertainty (one block
+    gives a zero-width interval), so block and lock resampling only count with
+    at least ``MIN_CLUSTERS`` clusters.
+    """
+    lows, highs = [row.slate_p05], [row.slate_p95]
+    for kind in ('block', 'lock'):
+        if getattr(row, f'{kind}s') >= MIN_CLUSTERS:
+            lows.append(getattr(row, f'{kind}_p05'))
+            highs.append(getattr(row, f'{kind}_p95'))
+    return float(min(lows)), float(max(highs))
+
+
 def design_effect(row: pd.Series) -> float:
     iid = (row.slate_p95 - row.slate_p05)**2
-    clustered = max((row.block_p95 - row.block_p05)**2, (row.lock_p95 - row.lock_p05)**2)
-    return float(max(clustered/iid, 1.0)) if iid > 0 else np.nan
+    lo, hi = interval(row)
+    return float(max((hi - lo)**2/iid, 1.0)) if iid > 0 else np.nan
 
 
 def official_round_sds(path: Path | None) -> pd.DataFrame:
@@ -320,7 +338,7 @@ def _markdown(frame: pd.DataFrame) -> str:
 
 
 def _interval(row: pd.Series, fmt: str) -> str:
-    lo, hi = min(row.block_p05, row.lock_p05), max(row.block_p95, row.lock_p95)
+    lo, hi = interval(row)
     mark = '**' if (lo > 0 or hi < 0) else ''
     return f"{mark}{fmt.format(row['diff'])}{mark} [{fmt.format(lo)}, {fmt.format(hi)}]"
 
@@ -361,9 +379,31 @@ def render_tables(directory: Path, engines, rubrics) -> str:
                 rows.append(cells)
             if rows:
                 out.append(f'### Paired differences vs robust P3: {scope}, {rubric} rubric\n\n'
-                           'Mean per-slate difference (engine minus reference). Brackets: the wider of the block- '
-                           'and lock-cluster 90% bootstrap intervals; bold when it excludes zero.\n\n'
+                           'Mean per-slate difference (engine minus reference). Brackets: the widest of the slate, '
+                           'block and lock bootstrap 90% intervals (cluster bootstraps only with at least 8 '
+                           'clusters); bold when it excludes zero.\n\n'
                            + _markdown(pd.DataFrame(rows)))
+    competitions = sorted(set(diffs.scope) - {'all', 'international', 'club', 'in_sample', 'out_of_sample'}
+                          - {s for s in diffs.scope if '|' in s})
+    for metric in ('mae', 'mse', 'spearman', 'smoothed'):
+        for rubric in rubrics:
+            block = diffs[(diffs.metric == metric) & (diffs.rubric == rubric)]
+            rows = []
+            for engine in engines:
+                if engine == REFERENCE:
+                    continue
+                cells = {'Engine': ENGINE_LABELS.get(engine, engine)}
+                for scope in competitions:
+                    match = block[(block.engine == engine) & (block.scope == scope)]
+                    if len(match):
+                        r = match.iloc[0]
+                        lo, hi = interval(r)
+                        mark = '**' if (lo > 0 or hi < 0) else ''
+                        cells[f'{scope} ({int(r.slates)})'] = f"{mark}{formats.get(metric, '{:+.1f}').format(r['diff'])}{mark}"
+                rows.append(cells)
+            out.append(f'### Consistency by competition: {metric}, {rubric} rubric\n\n'
+                       'Mean per-slate difference vs robust P3 (slates in brackets); bold when the widest '
+                       'bootstrap 90% interval (as above) excludes zero.\n\n' + _markdown(pd.DataFrame(rows)))
     if len(power):
         keep = power[(power.scope == 'all') & power.metric.isin(['mae', 'smoothed', 'realised', 'smoothed_flat'])]
         columns = [c for c in ('rubric', 'metric', 'engine', 'delta', 'sd_slate_diff', 'design_effect',

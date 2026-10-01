@@ -160,3 +160,28 @@ def test_stats_helpers():
                             'actual': [2, 4, 6, 8, 10, 5, 4, 3, 2, 1]})
     corr = slate_correlations(players, 'predicted', 'actual')
     assert corr.pearson.tolist() == pytest.approx([1.0, -1.0])
+
+
+def test_null_factor_is_reproducible_and_three_percent():
+    from research.big_benchmark.score import null_factor
+    keys = pd.DataFrame({'fixture_id': np.arange(20000).astype(str), 'player_id': '7'})
+    a, b = null_factor(keys, 'null3_a'), null_factor(keys, 'null3_a')
+    assert np.array_equal(a, b)
+    assert np.std(np.log(a)) == pytest.approx(0.03, rel=0.05)
+    assert abs(np.corrcoef(np.log(a), np.log(null_factor(keys, 'null3_b')))[0, 1]) < 0.05
+
+
+def test_block_bootstrap_weights_slates_and_flags_samples():
+    from research.big_benchmark.report import add_sample_flags, interval
+    frame = pd.DataFrame({'slate': ['s1', 's1', 's2', 's2', 's3', 's3'], 'block': ['b1']*4 + ['b2']*2,
+                          'engine': ['a', 'b']*3, 'value': [0, 1, 0, 1, 0, 4], 'family': 'club'})
+    result = paired_bootstrap(frame, 'b', 'a', 'value', cluster='block', unit='slate', n_boot=200)
+    assert result['mean'] == pytest.approx(2.0) and result['clusters'] == 2 and result['n'] == 3
+    manifest = {'slates': [{'slate': 's1', 'coefficients_in_sample': True, 'official_selection_overlap': False},
+                           {'slate': 's2', 'coefficients_in_sample': False, 'official_selection_overlap': True},
+                           {'slate': 's3', 'coefficients_in_sample': False, 'official_selection_overlap': False}]}
+    flagged = add_sample_flags(frame, manifest)
+    assert flagged.drop_duplicates('slate')['sample'].tolist() == ['in_sample', 'in_sample', 'out_of_sample']
+    row = pd.Series({'slate_p05': -1.0, 'slate_p95': 1.0, 'blocks': 2, 'block_p05': 0.5, 'block_p95': 0.6,
+                     'locks': 9, 'lock_p05': -2.0, 'lock_p95': 0.5})
+    assert interval(row) == (-2.0, 1.0)  # two blocks are too few to count

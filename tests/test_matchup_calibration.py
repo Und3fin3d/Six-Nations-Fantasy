@@ -87,3 +87,22 @@ def test_fit_recovers_known_opponent_effect():
     assert coef["tackles"]["opp"] == pytest.approx(0.8, abs=0.05)
     assert coef["tackles"]["edge"] == pytest.approx(0.1, abs=0.05)
     assert coef["tries"] == {"edge": 0.0, "opp": 0.0}
+
+
+def test_round_two_candidate_steps():
+    from model.unified.hillclimb import (MATCHUP_COEFFICIENTS, MATCHUP_MODEL_WEIGHT, adjust_raw_matchup,
+                                         blend_points_matchup)
+    from model.unified.kicking import concentrate_kicking
+    import json
+    assert MATCHUP_MODEL_WEIGHT == 0.7
+    frozen = json.loads(MATCHUP_COEFFICIENTS.read_text())
+    assert {"tries", "metres", "tackles"} <= set(frozen)
+    assert all(set(c) == {"edge", "opp"} for c in frozen.values())
+    assert blend_points_matchup(np.array([10.0]), np.array([20.0]))[0] == pytest.approx(13.0)
+    history = _history()
+    candidates = pd.DataFrame({"fixture_id": ["10"], "player_id": ["A0"], "team": ["A"], "opponent": ["B"],
+                               "home_away": ["home"]})
+    zero = {"tackles": {"edge": 0.0, "opp": 0.0}}
+    raw = [_prediction()]
+    out = adjust_raw_matchup(raw, candidates, history, pd.Timestamp("2024-06-01", tz="UTC"), zero)
+    assert out == concentrate_kicking(raw, 1.5)

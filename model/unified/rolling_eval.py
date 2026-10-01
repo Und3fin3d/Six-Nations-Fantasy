@@ -38,7 +38,7 @@ from .raw_benchmark.blend import EventBlend50, EventWeightedBlend
 from .v4.gbdt import V4GBDT
 from .v4.features import add_v4_base_stats
 from .v3.shadow import ncr_candidates
-from .hillclimb import adjust_raw, blend_points
+from .hillclimb import adjust_raw, adjust_raw_matchup, blend_points, blend_points_matchup
 
 DATA = ROOT / 'data'
 DEFAULT_OUTPUT = DATA / 'unified' / 'rolling_eval'
@@ -315,6 +315,8 @@ def run(output: Path, competitions: tuple[str,...], *, prepare_only: bool=False,
             if hillclimb and name.startswith('p3_robust'):
                 adjusted = expected_points(adjust_raw(raw,candidates,train),slate.competition)
                 results.append(evaluate(slate,'p3_hillclimb_2026_10',blend_points(adjusted,slate.baseline),output))
+                matchup = expected_points(adjust_raw_matchup(raw,candidates,train,slate.cutoff),slate.competition)
+                results.append(evaluate(slate,'p3_hillclimb_2026_10b',blend_points_matchup(matchup,slate.baseline),output))
         key = (slate.competition,slate.season)
         if key not in frozen:
             frozen.clear()  # release the preceding tournament's large frames
@@ -355,7 +357,7 @@ def main() -> None:
     parser.add_argument('--prepare-only',action='store_true')
     parser.add_argument('--native-categories',action='store_true',help='Research-only native categorical tree splits; no promotion')
     parser.add_argument('--round-job',help='Fit one round; season-first jobs also emit every frozen control')
-    parser.add_argument('--hillclimb',action='store_true',help='Also score the October 2026 research candidate; no promotion')
+    parser.add_argument('--hillclimb',action='store_true',help='Also score the October 2026 research candidates; no promotion')
     args = parser.parse_args()
     run(args.output,tuple(args.competitions),prepare_only=args.prepare_only,round_job=args.round_job,native_categories=args.native_categories,hillclimb=args.hillclimb)
 

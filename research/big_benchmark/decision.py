@@ -188,8 +188,8 @@ def decide_stage(manifest: dict, output: Path, engines, rubrics, draws: int) -> 
         name = pd.Timestamp(lock).strftime('%Y-%m')
         players = load_players(output, name)
         if players is None:
-            print(f'decide: lock {name} not scored yet; stopping', flush=True)
-            return
+            print(f'decide: lock {name} not scored yet; skipped', flush=True)
+            continue
         rows = []
         for slate, pool in players.groupby('slate', sort=False):
             if slate not in eligible:

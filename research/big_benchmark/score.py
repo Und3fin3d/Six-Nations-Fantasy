@@ -134,8 +134,8 @@ def score_stage(store: pd.DataFrame, manifest: dict, output: Path, locks, engine
         if path.exists():
             continue
         if not (output/'locks'/name/'fit.json').exists():
-            print(f'score: lock {name} not fitted yet; stopping', flush=True)
-            return
+            print(f'score: lock {name} not fitted yet; skipped', flush=True)
+            continue
         frame = score_lock(store, manifest, output, pd.Timestamp(lock), engines, rubrics)
         write_atomic(path, lambda tmp: frame.to_pickle(tmp, compression=None))
         print(f'score: lock {name}: {len(frame)} rows', flush=True)

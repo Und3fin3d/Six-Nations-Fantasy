@@ -43,9 +43,13 @@ def sha256(path: Path) -> str:
     return digest.hexdigest()
 
 
-def load_inputs(base: Path):
-    from research.context_experiment import load_store
-    store, prepared = load_store(base)
+def load_inputs(base: Path, *, features: bool):
+    from research.context_experiment import KEY
+    store = pd.read_csv(base/'inputs'/'player_match.csv', low_memory=False,
+                        dtype={key: str for key in KEY}, parse_dates=['date', 'match_at'])
+    if not features:
+        return store, None
+    prepared = pd.read_pickle(base/'inputs'/'training_features.pkl')
     if len(store) != len(prepared) or not store.index.equals(prepared.index):
         raise ValueError('training features do not align with the research store')
     return store, prepared
@@ -101,7 +105,7 @@ def main(argv: list[str] | None = None) -> None:
     stages = STAGES if args.stage == 'all' else (args.stage,)
     store = prepared = None
     if {'manifest', 'fit', 'score'} & set(stages):
-        store, prepared = load_inputs(args.base)
+        store, prepared = load_inputs(args.base, features='fit' in stages)
         manifest = manifest_stage(args.base, args.output, store)
     else:
         manifest = json.loads((args.output/'manifest.json').read_text())

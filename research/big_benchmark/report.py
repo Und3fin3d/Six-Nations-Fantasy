@@ -19,6 +19,8 @@ from pathlib import Path
 import numpy as np
 import pandas as pd
 
+from model.unified.data import ROOT
+
 from .rubrics import RUBRICS
 from .score import ENGINES, REFERENCE
 from .stats import (calibration_deciles, calibration_line, detectable, paired_bootstrap, power_slates)
@@ -93,7 +95,26 @@ def pooled_summary(players: pd.DataFrame, slates: pd.DataFrame, engines, rubrics
     return pd.DataFrame(rows)
 
 
-def differences(frame: pd.DataFrame, metrics, engines, rubrics, scope_columns=('family', 'slate_competition'),
+SCOPE_COLUMNS = ('family', 'slate_competition', 'sample', 'family_sample')
+
+
+def add_sample_flags(frame: pd.DataFrame, manifest: dict) -> pd.DataFrame:
+    """Mark slates whose data informed candidate coefficients or selection.
+
+    ``in_sample``: an international slate before 2025 (the team-strength and
+    matchup coefficients and the kicking exponent were fitted on international
+    blocks that ended before 2025) or an official slate (Six Nations 2025/26,
+    NCR 2026) whose results informed candidate selection.
+    """
+    flags = pd.DataFrame(manifest['slates']).set_index('slate')
+    used = flags['coefficients_in_sample'] | flags['official_selection_overlap']
+    out = frame.copy()
+    out['sample'] = np.where(out['slate'].map(used).astype(bool), 'in_sample', 'out_of_sample')
+    out['family_sample'] = out['family'] + '|' + out['sample']
+    return out
+
+
+def differences(frame: pd.DataFrame, metrics, engines, rubrics, scope_columns=SCOPE_COLUMNS,
                 reference: str = REFERENCE) -> pd.DataFrame:
     rows = []
     scopes = [('all', frame)]
@@ -152,7 +173,8 @@ def official_round_sds(path: Path | None) -> pd.DataFrame:
 
 def power_table(diffs: pd.DataFrame, official: pd.DataFrame) -> pd.DataFrame:
     rows = []
-    scope = diffs[diffs.scope.isin(['all', 'international', 'club', 'six_nations'])]
+    scope = diffs[diffs.scope.isin(['all', 'international', 'club', 'six_nations', 'out_of_sample',
+                                    'international|out_of_sample'])]
     for row in scope.itertuples(index=False):
         if row.metric not in DELTAS:
             continue
@@ -181,7 +203,7 @@ def decision_frame(output: Path, manifest: dict) -> pd.DataFrame:
     decisions = pd.read_csv(path)
     info = pd.DataFrame(manifest['slates'])[['slate', 'block', 'family', 'competition']].rename(
         columns={'competition': 'slate_competition'})
-    return decisions.merge(info, on='slate', how='left', validate='many_to_one')
+    return add_sample_flags(decisions.merge(info, on='slate', how='left', validate='many_to_one'), manifest)
 
 
 def events_summary(output: Path) -> pd.DataFrame:
@@ -202,13 +224,36 @@ def events_summary(output: Path) -> pd.DataFrame:
     return pooled.drop(columns=['loss_n', 'mae_n'])
 
 
+def official_validation(players: pd.DataFrame, engines) -> pd.DataFrame:
+    """Computed Six Nations-rubric labels against official points (2025-26 rounds)."""
+    path = ROOT/'data'/'model_targets.csv'
+    if not path.exists():
+        return pd.DataFrame()
+    targets = pd.read_csv(path, dtype={'fixture_id': str, 'player_id': str})
+    targets = targets[targets.official_pts.notna()][['fixture_id', 'player_id', 'team', 'season', 'official_pts']]
+    joined = players.merge(targets, on=['fixture_id', 'player_id', 'team'], how='inner', validate='one_to_one')
+    rows = []
+    for season, group in [('all', joined), *joined.groupby('season')]:
+        actual = group['actual__six_nations']
+        row = {'season': season, 'players': int(len(group)), 'slates': int(group.slate.nunique()),
+               'mean_computed': float(actual.mean()), 'mean_official': float(group.official_pts.mean()),
+               'r_computed_official': float(actual.corr(group.official_pts)),
+               'spearman_computed_official': float(actual.corr(group.official_pts, method='spearman'))}
+        for engine in engines:
+            prediction = group[f'pred__{engine}__six_nations']
+            row[f'r_official__{engine}'] = float(prediction.corr(group.official_pts))
+            row[f'r_computed__{engine}'] = float(prediction.corr(actual))
+        rows.append(row)
+    return pd.DataFrame(rows)
+
+
 def report_stage(manifest: dict, output: Path, engines, rubrics, official_rounds: Path | None = None) -> dict:
     engines = list(engines or ENGINES)
     rubrics = list(rubrics or RUBRICS)
     directory = output/'report'
     directory.mkdir(parents=True, exist_ok=True)
     players = load_all_players(output, manifest)
-    slates = slate_metrics(players, engines, rubrics)
+    slates = add_sample_flags(slate_metrics(players, engines, rubrics), manifest)
     slates.to_csv(directory/'slate_metrics.csv', index=False)
     summary = pooled_summary(players, slates, engines, rubrics)
     summary.to_csv(directory/'accuracy_summary.csv', index=False)
@@ -233,17 +278,98 @@ def report_stage(manifest: dict, output: Path, engines, rubrics, official_rounds
             smoothed_sd=('smoothed_sd', 'mean')).reset_index().to_csv(directory/'decision_summary.csv', index=False)
         decision_diffs = differences(decisions, ('realised', 'smoothed', 'flat', 'smoothed_flat'),
                                      [e for e in engines if e in set(decisions.engine)], rubrics)
-    diffs = pd.concat([accuracy_diffs, decision_diffs], ignore_index=True)
+    # Null pair: two equally informed 3%-noise copies of the reference. Their
+    # difference has expectation zero, so its spread is pure evaluation noise.
+    null = []
+    if {'null3_a', 'null3_b'} <= set(engines):
+        null.append(differences(slates, ('mae', 'mse', 'pearson', 'spearman'), ['null3_a'], rubrics,
+                                reference='null3_b'))
+        if len(decisions):
+            null.append(differences(decisions, ('realised', 'smoothed', 'flat', 'smoothed_flat'), ['null3_a'],
+                                    rubrics, reference='null3_b'))
+    null = [frame.assign(engine='null_pair') for frame in null]
+    diffs = pd.concat([accuracy_diffs, decision_diffs, *null], ignore_index=True)
     diffs.to_csv(directory/'differences.csv', index=False)
     official = official_round_sds(official_rounds)
     official.to_csv(directory/'official_round_sds.csv', index=False)
     power = power_table(diffs, official)
     power.to_csv(directory/'power.csv', index=False)
+    official_validation(players, engines).to_csv(directory/'official_validation.csv', index=False)
     events = events_summary(output)
     events.to_csv(directory/'events_summary.csv', index=False)
     result = {'players': int(len(players)), 'slates': int(players.slate.nunique()),
               'locks_scored': int(players['lock'].nunique()),
               'decision_slates': int(decisions.slate.nunique()) if len(decisions) else 0}
     (directory/'summary.json').write_text(json.dumps(result, indent=1) + '\n')
+    render_tables(directory, engines, rubrics)
     print(json.dumps(result), flush=True)
     return result
+
+
+ENGINE_LABELS = {'p3_robust': 'Robust P3 (reference)', 'empirical_baseline': 'Empirical baseline',
+                 'c2k15': 'C2+K15 (no blend)', 'h1_oct1': '1 Oct candidate (H1)', 'mk': 'MK',
+                 'h2': 'H2', 'null3_a': 'Null copy A (3% noise)', 'null3_b': 'Null copy B (3% noise)'}
+
+
+def _markdown(frame: pd.DataFrame) -> str:
+    columns = list(frame.columns)
+    lines = ['| ' + ' | '.join(map(str, columns)) + ' |',
+             '|' + '|'.join('---' if i == 0 else '---:' for i in range(len(columns))) + '|']
+    lines += ['| ' + ' | '.join(str(v) for v in row) + ' |' for row in frame.itertuples(index=False)]
+    return '\n'.join(lines)
+
+
+def _interval(row: pd.Series, fmt: str) -> str:
+    lo, hi = min(row.block_p05, row.lock_p05), max(row.block_p95, row.lock_p95)
+    mark = '**' if (lo > 0 or hi < 0) else ''
+    return f"{mark}{fmt.format(row['diff'])}{mark} [{fmt.format(lo)}, {fmt.format(hi)}]"
+
+
+def render_tables(directory: Path, engines, rubrics) -> str:
+    """Markdown tables for the written report, from the report CSVs."""
+    accuracy = pd.read_csv(directory/'accuracy_summary.csv')
+    diffs = pd.read_csv(directory/'differences.csv')
+    power = pd.read_csv(directory/'power.csv')
+    out = []
+    for scope in ('all', 'international', 'club', 'six_nations'):
+        for rubric in rubrics:
+            block = accuracy[(accuracy.scope == scope) & (accuracy.rubric == rubric)].set_index('engine')
+            block = block.reindex([e for e in engines if e in block.index])
+            if block.empty:
+                continue
+            table = pd.DataFrame({
+                'Engine': [ENGINE_LABELS.get(e, e) for e in block.index],
+                'Slates': block.slates.astype(int), 'Players': block.players.astype(int),
+                'MAE': block.slate_mae.map('{:.3f}'.format), 'RMSE': block.slate_rmse.map('{:.3f}'.format),
+                'Bias': block.bias.map('{:+.2f}'.format), 'Pearson': block.pearson.map('{:.4f}'.format),
+                'Spearman': block.spearman.map('{:.4f}'.format),
+                'Cal. slope': block.calibration_slope.map('{:.3f}'.format)})
+            out.append(f'### Accuracy: {scope}, {rubric} rubric\n\n' + _markdown(table))
+    formats = {'mae': '{:+.3f}', 'mse': '{:+.2f}', 'pearson': '{:+.4f}', 'spearman': '{:+.4f}'}
+    metrics = ['mae', 'mse', 'pearson', 'spearman', 'smoothed', 'smoothed_flat', 'realised']
+    for scope in ('all', 'out_of_sample', 'international', 'international|out_of_sample', 'club'):
+        for rubric in rubrics:
+            block = diffs[(diffs.scope == scope) & (diffs.rubric == rubric)]
+            rows = []
+            for engine in engines:
+                if engine == REFERENCE:
+                    continue
+                cells = {'Engine': ENGINE_LABELS.get(engine, engine)}
+                for metric in metrics:
+                    match = block[(block.engine == engine) & (block.metric == metric)]
+                    cells[metric] = _interval(match.iloc[0], formats.get(metric, '{:+.1f}')) if len(match) else ''
+                rows.append(cells)
+            if rows:
+                out.append(f'### Paired differences vs robust P3: {scope}, {rubric} rubric\n\n'
+                           'Mean per-slate difference (engine minus reference). Brackets: the wider of the block- '
+                           'and lock-cluster 90% bootstrap intervals; bold when it excludes zero.\n\n'
+                           + _markdown(pd.DataFrame(rows)))
+    if len(power):
+        keep = power[(power.scope == 'all') & power.metric.isin(['mae', 'smoothed', 'realised', 'smoothed_flat'])]
+        columns = [c for c in ('rubric', 'metric', 'engine', 'delta', 'sd_slate_diff', 'design_effect',
+                               'slates_needed', 'slates_available', 'mde_available', 'official_sd_round_diff',
+                               'official_rounds_needed', 'official_mde_13') if c in keep]
+        out.append('### Power analysis (all slates)\n\n' + _markdown(keep[columns].round(4)))
+    text = '\n\n'.join(out) + '\n'
+    (directory/'tables.md').write_text(text)
+    return text

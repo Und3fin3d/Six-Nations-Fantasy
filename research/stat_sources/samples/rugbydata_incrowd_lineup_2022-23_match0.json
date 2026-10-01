@@ -1,0 +1,564 @@
+{
+ "away": {
+  "lineup": {
+   "21": {
+    "name": "Tom Gordon",
+    "on": [
+     74
+    ],
+    "off": [],
+    "reds": [],
+    "yellows": []
+   },
+   "15": {
+    "name": "Cole Forbes",
+    "on": [
+     0
+    ],
+    "off": [],
+    "reds": [],
+    "yellows": []
+   },
+   "2": {
+    "name": "Johnny Matthews",
+    "on": [
+     0
+    ],
+    "off": [
+     45
+    ],
+    "reds": [],
+    "yellows": []
+   },
+   "5": {
+    "name": "Richie Gray",
+    "on": [
+     0
+    ],
+    "off": [],
+    "reds": [],
+    "yellows": []
+   },
+   "8": {
+    "name": "Jack Dempsey",
+    "on": [
+     0
+    ],
+    "off": [],
+    "reds": [],
+    "yellows": []
+   },
+   "22": {
+    "name": "Ali Price",
+    "on": [
+     53
+    ],
+    "off": [],
+    "reds": [],
+    "yellows": []
+   },
+   "20": {
+    "name": "Rory Darge",
+    "on": [
+     57
+    ],
+    "off": [],
+    "reds": [],
+    "yellows": []
+   },
+   "1": {
+    "name": "Jamie Bhatti",
+    "on": [
+     0
+    ],
+    "off": [
+     45
+    ],
+    "reds": [],
+    "yellows": []
+   },
+   "9": {
+    "name": "George Horne",
+    "on": [
+     0
+    ],
+    "off": [
+     53
+    ],
+    "reds": [],
+    "yellows": []
+   },
+   "7": {
+    "name": "Matt Fagerson",
+    "on": [
+     0
+    ],
+    "off": [
+     74
+    ],
+    "reds": [],
+    "yellows": []
+   },
+   "13": {
+    "name": "Sione Tuipulotu",
+    "on": [
+     0
+    ],
+    "off": [],
+    "reds": [],
+    "yellows": []
+   },
+   "10": {
+    "name": "Tom Jordan",
+    "on": [
+     0
+    ],
+    "off": [
+     74
+    ],
+    "reds": [],
+    "yellows": []
+   },
+   "17": {
+    "name": "Oli Kebble",
+    "on": [
+     45
+    ],
+    "off": [],
+    "reds": [],
+    "yellows": []
+   },
+   "14": {
+    "name": "Sebastian Cancelliere",
+    "on": [
+     0
+    ],
+    "off": [],
+    "reds": [],
+    "yellows": []
+   },
+   "12": {
+    "name": "Stafford McDowall",
+    "on": [
+     0
+    ],
+    "off": [],
+    "reds": [],
+    "yellows": []
+   },
+   "19": {
+    "name": "Scott Cummings",
+    "on": [
+     45
+    ],
+    "off": [],
+    "reds": [],
+    "yellows": []
+   },
+   "4": {
+    "name": "Lewis Bean",
+    "on": [
+     0
+    ],
+    "off": [
+     45
+    ],
+    "reds": [],
+    "yellows": []
+   },
+   "11": {
+    "name": "Kyle Steyn",
+    "on": [
+     0
+    ],
+    "off": [],
+    "reds": [],
+    "yellows": []
+   },
+   "3": {
+    "name": "Lucio Sordoni",
+    "on": [
+     0
+    ],
+    "off": [
+     45
+    ],
+    "reds": [],
+    "yellows": []
+   },
+   "6": {
+    "name": "Sintu Manjezi",
+    "on": [
+     0
+    ],
+    "off": [
+     57
+    ],
+    "reds": [],
+    "yellows": []
+   },
+   "16": {
+    "name": "George Turner",
+    "on": [
+     45
+    ],
+    "off": [],
+    "reds": [],
+    "yellows": []
+   },
+   "23": {
+    "name": "Duncan Weir",
+    "on": [
+     74
+    ],
+    "off": [],
+    "reds": [],
+    "yellows": []
+   },
+   "18": {
+    "name": "Zander Fagerson",
+    "on": [
+     45
+    ],
+    "off": [],
+    "reds": [],
+    "yellows": []
+   }
+  },
+  "scores": [
+   {
+    "minute": 16,
+    "type": "Penalty",
+    "player": "George Horne",
+    "value": 3
+   },
+   {
+    "minute": 42,
+    "type": "Penalty",
+    "player": "George Horne",
+    "value": 3
+   },
+   {
+    "minute": 60,
+    "type": "Try",
+    "player": "Zander Fagerson",
+    "value": 5
+   },
+   {
+    "minute": 61,
+    "type": "Missed conversion",
+    "player": "Tom Jordan",
+    "value": 0
+   }
+  ],
+  "conference": null,
+  "score": 11,
+  "team": "Glasgow Warriors"
+ },
+ "home": {
+  "lineup": {
+   "11": {
+    "name": "Ignacio Mendy",
+    "on": [
+     0,
+     57
+    ],
+    "off": [
+     47
+    ],
+    "reds": [],
+    "yellows": []
+   },
+   "9": {
+    "name": "Dewaldt Duvenage",
+    "on": [
+     0
+    ],
+    "off": [
+     66
+    ],
+    "reds": [],
+    "yellows": []
+   },
+   "21": {
+    "name": "Sam Hidalgo-Clyne",
+    "on": [
+     66
+    ],
+    "off": [],
+    "reds": [],
+    "yellows": []
+   },
+   "12": {
+    "name": "Joaquin Riera",
+    "on": [
+     0
+    ],
+    "off": [
+     57
+    ],
+    "reds": [],
+    "yellows": []
+   },
+   "2": {
+    "name": "Gianmarco Lucchesi",
+    "on": [
+     0
+    ],
+    "off": [
+     61
+    ],
+    "reds": [],
+    "yellows": []
+   },
+   "18": {
+    "name": "Tiziano Pasquali",
+    "on": [
+     61
+    ],
+    "off": [],
+    "reds": [],
+    "yellows": []
+   },
+   "6": {
+    "name": "Giovanni Pettinelli",
+    "on": [
+     0
+    ],
+    "off": [],
+    "reds": [],
+    "yellows": []
+   },
+   "19": {
+    "name": "Niccolo Cannone",
+    "on": [
+     61
+    ],
+    "off": [],
+    "reds": [],
+    "yellows": []
+   },
+   "5": {
+    "name": "Federico Ruzza",
+    "on": [
+     0
+    ],
+    "off": [],
+    "reds": [],
+    "yellows": []
+   },
+   "7": {
+    "name": "Manuel Zuliani",
+    "on": [
+     0
+    ],
+    "off": [
+     51
+    ],
+    "reds": [],
+    "yellows": []
+   },
+   "1": {
+    "name": "Ivan Nemer",
+    "on": [
+     0
+    ],
+    "off": [
+     61
+    ],
+    "reds": [],
+    "yellows": []
+   },
+   "22": {
+    "name": "Marco Zanon",
+    "on": [
+     47
+    ],
+    "off": [],
+    "reds": [],
+    "yellows": []
+   },
+   "8": {
+    "name": "Lorenzo Cannone",
+    "on": [
+     0
+    ],
+    "off": [
+     59
+    ],
+    "reds": [],
+    "yellows": []
+   },
+   "16": {
+    "name": "Giacomo Nicotera",
+    "on": [
+     61
+    ],
+    "off": [],
+    "reds": [],
+    "yellows": []
+   },
+   "17": {
+    "name": "Federico Zani",
+    "on": [
+     61
+    ],
+    "off": [],
+    "reds": [],
+    "yellows": []
+   },
+   "13": {
+    "name": "Nacho Brex",
+    "on": [
+     0
+    ],
+    "off": [],
+    "reds": [],
+    "yellows": []
+   },
+   "3": {
+    "name": "Simone Ferrari",
+    "on": [
+     0
+    ],
+    "off": [
+     61
+    ],
+    "reds": [],
+    "yellows": []
+   },
+   "23": {
+    "name": "Toa Halafihi",
+    "on": [
+     59
+    ],
+    "off": [],
+    "reds": [],
+    "yellows": []
+   },
+   "15": {
+    "name": "Rhyno Smith",
+    "on": [
+     0
+    ],
+    "off": [],
+    "reds": [],
+    "yellows": []
+   },
+   "14": {
+    "name": "Edoardo Padovani",
+    "on": [
+     0
+    ],
+    "off": [],
+    "reds": [],
+    "yellows": []
+   },
+   "10": {
+    "name": "Giacomo da Re",
+    "on": [
+     0
+    ],
+    "off": [],
+    "reds": [],
+    "yellows": []
+   },
+   "4": {
+    "name": "Scott Scrafton",
+    "on": [
+     0
+    ],
+    "off": [
+     61
+    ],
+    "reds": [],
+    "yellows": []
+   },
+   "20": {
+    "name": "Michele Lamaro",
+    "on": [
+     51
+    ],
+    "off": [],
+    "reds": [],
+    "yellows": []
+   }
+  },
+  "scores": [
+   {
+    "minute": 12,
+    "type": "Penalty",
+    "player": "Rhyno Smith",
+    "value": 3
+   },
+   {
+    "minute": 21,
+    "type": "Try",
+    "player": "Edoardo Padovani",
+    "value": 5
+   },
+   {
+    "minute": 22,
+    "type": "Missed conversion",
+    "player": "Giacomo da Re",
+    "value": 0
+   },
+   {
+    "minute": 36,
+    "type": "Try",
+    "player": "Gianmarco Lucchesi",
+    "value": 5
+   },
+   {
+    "minute": 38,
+    "type": "Missed conversion",
+    "player": "Rhyno Smith",
+    "value": 0
+   },
+   {
+    "minute": 42,
+    "type": "Try",
+    "player": "Ignacio Mendy",
+    "value": 5
+   },
+   {
+    "minute": 43,
+    "type": "Conversion",
+    "player": "Rhyno Smith",
+    "value": 2
+   },
+   {
+    "minute": 47,
+    "type": "Penalty",
+    "player": "Rhyno Smith",
+    "value": 3
+   },
+   {
+    "minute": 57,
+    "type": "Penalty",
+    "player": "Rhyno Smith",
+    "value": 3
+   },
+   {
+    "minute": 79,
+    "type": "Try",
+    "player": "Ignacio Mendy",
+    "value": 5
+   },
+   {
+    "minute": 80,
+    "type": "Conversion",
+    "player": "Rhyno Smith",
+    "value": 2
+   }
+  ],
+  "conference": null,
+  "score": 33,
+  "team": "Benetton Rugby"
+ },
+ "round": 1,
+ "round_type": "league",
+ "stadium": "Stadio Monigo",
+ "date": "2022-09-16T16:30:00.000Z",
+ "attendance": 1971
+}

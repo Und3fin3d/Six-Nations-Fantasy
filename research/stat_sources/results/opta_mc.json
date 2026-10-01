@@ -1,0 +1,96 @@
+{
+  "rfu_6n_rows": 1342,
+  "rfu_6n_matches": 30,
+  "joined_store": 1273,
+  "joined_official": 572,
+  "official_matches": 14,
+  "vs_official": {
+    "opta_metres~MC": {
+      "n": 572,
+      "corr": 0.881,
+      "exact": 0.154,
+      "mean_ext": 18.295,
+      "mean_ours": 27.1,
+      "ratio_sum": 0.675
+    },
+    "api_metres~MC": {
+      "n": 568,
+      "corr": 0.876,
+      "exact": 0.16,
+      "mean_ext": 18.283,
+      "mean_ours": 27.053,
+      "ratio_sum": 0.676
+    },
+    "opta_tackles~Ta": {
+      "n": 572,
+      "corr": 0.888,
+      "exact": 0.663,
+      "mean_ext": 6.164,
+      "mean_ours": 6.002,
+      "ratio_sum": 1.027
+    },
+    "api_tackles~Ta": {
+      "n": 568,
+      "corr": 0.881,
+      "exact": 0.555,
+      "mean_ext": 6.227,
+      "mean_ours": 6.0,
+      "ratio_sum": 1.038
+    },
+    "opta_turnovers_won~BS": {
+      "n": 572,
+      "corr": 0.747,
+      "exact": 0.885,
+      "mean_ext": 0.236,
+      "mean_ours": 0.133,
+      "ratio_sum": 1.776
+    },
+    "api_tackle_turnover~BS": {
+      "n": 568,
+      "corr": 0.111,
+      "exact": 0.829,
+      "mean_ext": 0.092,
+      "mean_ours": 0.132,
+      "ratio_sum": 0.693
+    },
+    "opta_lineout_steals~LS": {
+      "n": 572,
+      "corr": 0.796,
+      "exact": 0.991,
+      "mean_ext": 0.023,
+      "mean_ours": 0.021,
+      "ratio_sum": 1.083
+    }
+  },
+  "vs_store_all_6n": {
+    "opta_metres~api_metres": {
+      "n": 1273,
+      "corr": 0.997,
+      "exact": 0.866,
+      "mean_ext": 16.836,
+      "mean_ours": 16.965,
+      "ratio_sum": 0.992
+    },
+    "opta_tackles~api_tackles": {
+      "n": 1273,
+      "corr": 0.993,
+      "exact": 0.859,
+      "mean_ext": 5.743,
+      "mean_ours": 5.766,
+      "ratio_sum": 0.996
+    },
+    "opta_turnovers_won~api_tackle_turnover": {
+      "n": 1064,
+      "corr": 0.642,
+      "exact": 0.876,
+      "mean_ext": 0.243,
+      "mean_ours": 0.108,
+      "ratio_sum": 2.252
+    }
+  },
+  "BS_positive_rows": 62,
+  "opta_TW>0_given_BS>0": 0.919,
+  "api_TT>0_given_BS>0": 0.145,
+  "opta_TW>0_given_BS=0": 0.102,
+  "api_TT>0_given_BS=0": 0.076
+}

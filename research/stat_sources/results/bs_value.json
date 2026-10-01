@@ -1,0 +1,26 @@
+{
+  "players": 274,
+  "per_season": {
+    "2025": 141,
+    "2026": 133
+  },
+  "with_rp_prior_season": 265,
+  "common_pearson_tw80~official_bs80": 0.507,
+  "common_pearson_rp_tw80~official_bs80": 0.516,
+  "common_pearson_tt80~official_bs80": 0.069,
+  "common_pearson_mean(tw80,rp_tw80)~official_bs80": 0.576,
+  "pearson_tw80~official_bs80": 0.516,
+  "spearman_tw80~official_bs80": 0.363,
+  "pearson_tt80~official_bs80": 0.085,
+  "spearman_tt80~official_bs80": 0.115,
+  "pearson_tk80~official_bs80": 0.281,
+  "spearman_tk80~official_bs80": 0.287,
+  "forwards_n": 62,
+  "forwards_pearson_tw80~official_bs80": 0.355,
+  "forwards_pearson_tt80~official_bs80": -0.059,
+  "oos2026_mae_tw80": 0.192,
+  "oos2026_mae_const": 0.2393,
+  "oos2026_r_tw80": 0.502,
+  "oos2026_mae_tt80": 0.2364,
+  "oos2026_r_tt80": 0.114
+}

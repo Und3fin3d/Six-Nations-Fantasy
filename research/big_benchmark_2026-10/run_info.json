@@ -1,0 +1,23 @@
+{
+ "code_sha256": {
+  "research/big_benchmark/__init__.py": "9e8fafb3b183d5440fbab064c03dbe927dfd9f145a3bc0faab04b09600781d0c",
+  "research/big_benchmark/__main__.py": "6d8b7d7846a845059d7a3107143f11131f63c5511d669b44085b15ec5e3d2279",
+  "research/big_benchmark/cli.py": "8c9a986c137c8352d06e2dea5fe026ccde8880f99c532c46bbc97e4d19d07580",
+  "research/big_benchmark/decision.py": "1d66ce1997c61d39a50055d4ec8b46aab40724c2958b30e7134170d965b92659",
+  "research/big_benchmark/fit.py": "d7583960b72fc18c85312b000027711df9e4c59bba5782bd756ca1ae8cc8d04b",
+  "research/big_benchmark/report.py": "2301e89ae3afff9bf26a9eeab0e4d17b4310205c36fe749b2c52cc48e48625a2",
+  "research/big_benchmark/rubrics.py": "ef1db0aa38cb721362cdb9d8658a0f774f834c71bf287ce23da055b595c03459",
+  "research/big_benchmark/score.py": "4b098d6566109b011bde917b4638031571ea7151fc3d47eaad9bb4fd0dc9e50c",
+  "research/big_benchmark/slates.py": "4a3cba951ce7cd0a68728ae1fea5f558542a1c01584f9f46b56810c288564696",
+  "research/big_benchmark/stats.py": "9efe901cea89f412aac42f39d78cc4679a5b7ed415bec5bc9e643545b7a66816",
+  "research/big_benchmark/status.py": "4628bc9e32a3c181a6d3376f6ec8f4da0dbbf9ff65d1429e4c45752d6242875b"
+ },
+ "packages": {
+  "lightgbm": "4.6.0",
+  "numpy": "1.24.3",
+  "pandas": "2.1.0",
+  "scikit-learn": "1.3.1",
+  "scipy": "1.11.2"
+ },
+ "python": "3.11.15"
+}

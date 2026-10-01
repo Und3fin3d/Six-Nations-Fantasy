@@ -1,0 +1,18 @@
+===== post weekends 34 mean pool 55.5 same pick share 0.82 median near-ties (within 0.5) 1.0
+random              178.7
+p3_robust_native    343.2
+status_rates        350.3
+top_backrow         315.0
+hindsight           815.3 
+(per 10 weekends)
+status - ref per 10 weekends: 7.1  90% [-52.9, 58.2]
+top back-row - ref per 10: -28.2 [-76.8, 16.8]
+===== pre weekends 69 mean pool 57.0 same pick share 0.87 median near-ties (within 0.5) 1.0
+random              153.7
+p3_robust_native    267.0
+status_rates        263.0
+top_backrow         259.9
+hindsight           773.0 
+(per 10 weekends)
+status - ref per 10 weekends: -3.9  90% [-30.4, 18.3]
+top back-row - ref per 10: -7.1 [-48.8, 37.0]

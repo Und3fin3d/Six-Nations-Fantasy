@@ -173,19 +173,22 @@ def decide_slate(pool: pd.DataFrame, predictions: dict[str, np.ndarray], actual:
     return rows
 
 
-def decide_stage(manifest: dict, output: Path, engines, rubrics, draws: int) -> None:
+def decide_stage(manifest: dict, output: Path, engines, rubrics, draws: int, locks=None) -> None:
     from .score import load_players, ENGINES
     from .rubrics import RUBRICS
     engines = list(engines or ENGINES)
     rubrics = list(rubrics or RUBRICS)
     eligible = {s['slate']: k for k, s in enumerate(manifest['slates']) if s['decision_eligible']}
-    path = output/'decisions.csv'
+    # Parallel workers restricted with ``locks`` write their own part file.
+    path = output/('decisions.csv' if not locks else f'decisions_{min(locks)}_{max(locks)}.csv')
     done = set()
-    if path.exists():
-        existing = pd.read_csv(path)
-        done = set(zip(existing.slate, existing.rubric, existing.engine))
+    for part in sorted(output.glob('decisions*.csv')):
+        existing = pd.read_csv(part)
+        done |= set(zip(existing.slate, existing.rubric, existing.engine))
     for lock in manifest['locks']:
         name = pd.Timestamp(lock).strftime('%Y-%m')
+        if locks and name not in locks:
+            continue
         players = load_players(output, name)
         if players is None:
             print(f'decide: lock {name} not scored yet; skipped', flush=True)

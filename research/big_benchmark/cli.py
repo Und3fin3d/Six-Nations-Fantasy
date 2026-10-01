@@ -119,7 +119,7 @@ def main(argv: list[str] | None = None) -> None:
         score_stage(store, manifest, args.output, args.locks, args.engines, args.rubrics)
     if 'decide' in stages:
         from .decision import decide_stage
-        decide_stage(manifest, args.output, args.engines, args.rubrics, args.draws)
+        decide_stage(manifest, args.output, args.engines, args.rubrics, args.draws, args.locks)
     if 'report' in stages:
         from .report import report_stage
         report_stage(manifest, args.output, args.engines, args.rubrics, args.official_rounds)

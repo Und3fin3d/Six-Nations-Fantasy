@@ -215,10 +215,11 @@ def power_table(diffs: pd.DataFrame, official: pd.DataFrame) -> pd.DataFrame:
 
 
 def decision_frame(output: Path, manifest: dict) -> pd.DataFrame:
-    path = output/'decisions.csv'
-    if not path.exists():
+    parts = sorted(output.glob('decisions*.csv'))
+    if not parts:
         return pd.DataFrame()
-    decisions = pd.read_csv(path)
+    decisions = pd.concat([pd.read_csv(p) for p in parts], ignore_index=True)
+    decisions = decisions.drop_duplicates(['slate', 'rubric', 'engine'], keep='first')
     info = pd.DataFrame(manifest['slates'])[['slate', 'block', 'family', 'competition']].rename(
         columns={'competition': 'slate_competition'})
     return add_sample_flags(decisions.merge(info, on='slate', how='left', validate='many_to_one'), manifest)

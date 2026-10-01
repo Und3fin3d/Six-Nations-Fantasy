@@ -30,6 +30,7 @@ from .ncr_gw_eval import expected_ncr_points
 from .raw_benchmark.coverage import build_corrected_store, sha256
 from .raw_benchmark.empirical import EmpiricalEventModel
 from .raw_benchmark.robust_empirical import RobustEmpiricalEventModel
+from .raw_benchmark.status_rates import ShrunkStatusEmpiricalEventModel, StatusAwareEmpiricalEventModel
 from .raw_benchmark.config import STABLE_EVENTS, EXTENDED_EVENTS
 from .raw_benchmark.features import build_frozen_feature_frames
 from .raw_benchmark.folds import masked_candidates
@@ -224,7 +225,7 @@ def evaluate(slate: Slate, engine: str, points: np.ndarray, output: Path) -> dic
         team_points=team_points(squad,slate.team_actuals),budget_verified=slate.budget_verified,lineup_basis=slate.lineup_basis)
 
 
-def fit_comparison_models(train, features, cutoff, model_dir, config, native_categories):
+def fit_comparison_models(train, features, cutoff, model_dir, config, native_categories, status_rates=False):
     path = model_dir/'p3.pkl'
     if path.exists():
         blend = EventBlend50.load(path)
@@ -239,6 +240,13 @@ def fit_comparison_models(train, features, cutoff, model_dir, config, native_cat
     robust = RobustEmpiricalEventModel(asof=cutoff).fit(train)
     models['p3_robust'] = EventWeightedBlend(robust, blend.v4,
         weight_v4=config['default_weight_v4'], event_weights_v4=config['event_weights_v4'])
+    if status_rates:
+        # Research-only opt-in: bench/starter per-minute rate factors in the
+        # empirical component; same trees and blend weights.
+        for name, empirical in (('p3_status_rates', StatusAwareEmpiricalEventModel),
+                                ('p3_status_shrunk', ShrunkStatusEmpiricalEventModel)):
+            models[name] = EventWeightedBlend(empirical(asof=cutoff).fit(train), blend.v4,
+                weight_v4=config['default_weight_v4'], event_weights_v4=config['event_weights_v4'])
     return blend, models
 
 
@@ -249,7 +257,7 @@ def season_summary(metrics):
         scored_teams=('team_points','count'),rounds=('round','nunique')).reset_index()
 
 
-def run(output: Path, competitions: tuple[str,...], *, prepare_only: bool=False, round_job: str | None=None, native_categories: bool=False, hillclimb: bool=False) -> pd.DataFrame:
+def run(output: Path, competitions: tuple[str,...], *, prepare_only: bool=False, round_job: str | None=None, native_categories: bool=False, hillclimb: bool=False, status_rates: bool=False) -> pd.DataFrame:
     from model_env_preflight import check
     errors = check(ROOT/'requirements-model.txt')
     if errors and not prepare_only:
@@ -262,6 +270,7 @@ def run(output: Path, competitions: tuple[str,...], *, prepare_only: bool=False,
     manifest = {
         'native_categories': bool(native_categories),
         **({'hillclimb_2026_10': True} if hillclimb else {}),
+        **({'status_rates_2026_10': True} if status_rates else {}),
         'source_base_commit': '086b474334a50d4e3d34880a20fdd4e6d573cd85',
         'python': platform.python_version(),
         'packages': {name: version(name) for name in ('numpy','pandas','scipy','scikit-learn','lightgbm','torch')},
@@ -304,7 +313,7 @@ def run(output: Path, competitions: tuple[str,...], *, prepare_only: bool=False,
         results.append(evaluate(slate,'empirical_baseline',slate.baseline,output))
         model_dir = output/'models'/slate.name
         model_dir.mkdir(parents=True,exist_ok=True)
-        blend, models = fit_comparison_models(train, features, slate.cutoff, model_dir, config, native_categories)
+        blend, models = fit_comparison_models(train, features, slate.cutoff, model_dir, config, native_categories, status_rates)
         for name,model in models.items():
             if native_categories:
                 name += "_native"
@@ -358,8 +367,9 @@ def main() -> None:
     parser.add_argument('--native-categories',action='store_true',help='Research-only native categorical tree splits; no promotion')
     parser.add_argument('--round-job',help='Fit one round; season-first jobs also emit every frozen control')
     parser.add_argument('--hillclimb',action='store_true',help='Also score the October 2026 research candidates; no promotion')
+    parser.add_argument('--status-rates',action='store_true',help='Also score robust P3 with status-aware (and shrunk) empirical rates; no promotion')
     args = parser.parse_args()
-    run(args.output,tuple(args.competitions),prepare_only=args.prepare_only,round_job=args.round_job,native_categories=args.native_categories,hillclimb=args.hillclimb)
+    run(args.output,tuple(args.competitions),prepare_only=args.prepare_only,round_job=args.round_job,native_categories=args.native_categories,hillclimb=args.hillclimb,status_rates=args.status_rates)
 
 if __name__ == '__main__':
     main()

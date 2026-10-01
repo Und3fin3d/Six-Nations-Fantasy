@@ -1,0 +1,434 @@
+===== points_reconciliation.py =====
+2023 exact 0.035 corr 0.916 mean gap 12.169
+2025 exact 1.0 corr 1.0 mean gap 0.0
+2026 exact 0.996 corr 1.0 mean gap -0.001
+2023 MC ~ metres+runs {'metres': 0.907, 'runs': 2.318} R2 0.692 | MC~metres {'metres': 1.287} R2 0.609
+    Back-row {'metres': 0.91, 'runs': 2.11}
+    Back-three {'metres': 0.96, 'runs': 1.74}
+    Centre {'metres': 1.03, 'runs': 2.53}
+    Fly-half {'metres': 1.08, 'runs': 1.29}
+    Hooker {'metres': 0.26, 'runs': 2.97}
+    Prop {'metres': 0.51, 'runs': 2.79}
+    Scrum-half {'metres': 0.63, 'runs': 2.91}
+    Second-row {'metres': 1.02, 'runs': 2.81}
+2025 MC ~ metres+runs {'metres': 0.942, 'runs': 2.942} R2 0.941 | MC~metres {'metres': 1.46} R2 0.825
+    Back-row {'metres': 0.89, 'runs': 2.85}
+    Back-three {'metres': 0.95, 'runs': 2.89}
+    Centre {'metres': 0.95, 'runs': 4.13}
+    Fly-half {'metres': 1.02, 'runs': 2.99}
+    Hooker {'metres': 0.67, 'runs': 3.24}
+    Prop {'metres': 0.79, 'runs': 3.32}
+    Scrum-half {'metres': 1.1, 'runs': 0.56}
+    Second-row {'metres': 0.7, 'runs': 2.96}
+2026 MC ~ metres+runs {'metres': 1.059, 'runs': -0.073} R2 0.936 | MC~metres {'metres': 1.045} R2 0.936
+    Back-row {'metres': 0.9, 'runs': 0.14}
+    Back-three {'metres': 0.98, 'runs': 0.76}
+    Centre {'metres': 1.0, 'runs': 0.22}
+    Fly-half {'metres': 0.97, 'runs': 0.84}
+    Hooker {'metres': 0.86, 'runs': -0.01}
+    Prop {'metres': 0.78, 'runs': 0.07}
+    Scrum-half {'metres': 1.05, 'runs': -0.13}
+    Second-row {'metres': 0.97, 'runs': -0.05}
+
+===== definitions.py =====
+=== BS vs API tackle_turnover
+2023 n 543 API tt sum 51.0 off BS sum 75.0 corr 0.027 exact 0.82 tt avail 1.0
+2025 n 679 API tt sum 68.0 off BS sum 86.0 corr 0.081 exact 0.834 tt avail 1.0
+2026 n 671 API tt sum 68.0 off BS sum 77.0 corr 0.105 exact 0.844 tt avail 1.0
+                n                   min                   tt80                 bs80                 corr              
+yr           2023   2025   2026    2023    2025    2026   2023   2025   2026   2023   2025   2026   2023   2025   2026
+position                                                                                                              
+Back-row    107.0  143.0  128.0  5716.0  7293.0  7070.0  0.140  0.186  0.215  0.420  0.538  0.351  0.010  0.196  0.100
+Back-three   86.0  100.0  102.0  5595.0  6771.0  6835.0  0.186  0.177  0.246  0.129  0.012  0.035  0.046 -0.039  0.436
+Centre       61.0   70.0   72.0  3728.0  4614.0  4721.0  0.215  0.156  0.153  0.172  0.173  0.153  0.081 -0.026  0.246
+Fly-half     37.0   43.0   43.0  1972.0  2416.0  2524.0  0.081  0.033  0.158  0.122  0.033  0.032 -0.054 -0.024 -0.046
+Hooker       47.0   60.0   58.0  1845.0  2355.0  2296.0  0.087  0.170  0.070  0.217  0.272  0.174 -0.060 -0.069 -0.058
+Prop         96.0  117.0  118.0  3886.0  4636.0  4668.0  0.062  0.155  0.051  0.103  0.086  0.137 -0.042  0.098 -0.039
+Scrum-half   45.0   58.0   57.0  1920.0  2486.0  2334.0  0.125  0.097  0.171  0.083  0.064  0.103 -0.058 -0.044 -0.056
+Second-row   60.0   88.0   93.0  3536.0  4488.0  4674.0  0.181  0.160  0.068  0.271  0.178  0.291  0.039  0.094  0.093
+Unknown       4.0    NaN    NaN    54.0     NaN     NaN  0.000    NaN    NaN  1.481    NaN    NaN    NaN    NaN    NaN
+=== metres
+2023 ratio 1.66 corr 0.829 spearman 0.779 corr floor pts 0.818
+2025 ratio 1.793 corr 0.935 spearman 0.899 corr floor pts 0.922
+2026 ratio 1.045 corr 0.967 spearman 0.942 corr floor pts 0.956
+yr           2023   2025   2026
+position                       
+Back-row    1.810  1.892  0.976
+Back-three  1.240  1.419  1.109
+Centre      1.818  1.922  1.058
+Fly-half    1.593  1.737  1.144
+Hooker      2.364  2.269  0.878
+Prop        3.051  3.826  0.863
+Scrum-half  1.733  1.232  1.075
+Second-row  2.648  2.681  0.947
+Unknown     1.366    NaN    NaN
+ratio stability 2023 2025 n 18 corr 0.414
+ratio stability 2025 2026 n 16 corr -0.162
+ratio stability 2023 2026 n 16 corr -0.445
+metres residual per-match stability 2023 2025 n 66 corr 0.571
+metres residual per-match stability 2025 2026 n 73 corr -0.224
+metres residual per-match stability 2023 2026 n 59 corr -0.385
+=== POTM
+2023 POTM count 12.0 starters 0.9166666666666666 win team share 1.0
+2025 POTM count 15.0 starters 1.0 win team share 0.9333333333333333
+2026 POTM count 15.0 starters 1.0 win team share 1.0
+POTM rank in match (pts excl potm):
+count    42.000000
+mean      4.714286
+std       5.246535
+min       1.000000
+25%       1.000000
+50%       2.500000
+75%       5.750000
+max      24.000000
+Name: rank_in_match, dtype: float64
+rank_in_match
+1.0     18
+2.0      3
+3.0      1
+4.0      6
+5.0      3
+6.0      1
+8.0      2
+9.0      2
+10.0     1
+13.0     2
+16.0     2
+24.0     1
+Name: count, dtype: int64
+result of POTM team {'W': 41, 'L': 1}
+positions {'Back-three': 12, 'Back-row': 9, 'Centre': 6, 'Fly-half': 5, 'Scrum-half': 5, 'Second-row': 3, 'Hooker': 1, 'Prop': 1}
+{'L': 947, 'W': 946}
+
+===== metres_by_year.py =====
+all internationals
+                    n     m80  runs80    mpr   tt80
+calendar_year                                      
+2019            414.0  20.757   6.131  3.386  0.000
+2020           1064.0  22.267   6.941  3.208  0.000
+2021           3143.0  26.749   6.997  3.823  0.005
+2022           3416.0  25.609   6.695  3.825  0.099
+2023           4094.0  30.908   7.602  4.066  0.174
+2024           4370.0  27.301   7.520  3.631  0.157
+2025           4968.0  26.844   7.606  3.529  0.154
+2026           2208.0  29.391   8.419  3.491  0.161
+6N by year/position: API metres per 80
+calendar_year  2021  2022  2023  2024  2025  2026
+position                                         
+Back-row       25.0  27.5  25.0  23.7  27.7  26.3
+Back-three     52.6  61.4  63.2  54.9  55.0  46.9
+Centre         29.8  24.3  33.9  29.3  31.7  37.2
+Fly-half       23.4  27.2  34.5  31.6  26.6  33.7
+Hooker         16.8  22.6  14.3  18.2  17.4  17.2
+Prop            8.3  11.4   9.7   6.3   7.9   8.8
+Scrum-half     21.9  32.0  28.2  22.7  23.1  23.3
+Second-row      7.5  10.4  10.6   8.6  10.6  13.1
+Unknown        21.2  29.5  60.7  14.5   NaN   NaN
+6N metres per run by year/position
+calendar_year  2021  2022  2023  2024  2025  2026
+position                                         
+Back-row       2.57  3.10  2.69  2.70  2.90  2.58
+Back-three     6.61  7.14  7.30  6.76  6.04  5.75
+Centre         3.67  3.17  3.60  3.73  4.14  4.28
+Fly-half       3.27  4.56  4.45  4.18  4.10  4.81
+Hooker         2.33  2.69  1.88  2.18  2.03  1.70
+Prop           1.13  1.71  1.26  0.85  1.07  1.22
+Scrum-half     4.10  5.20  4.11  4.11  3.95  3.76
+Second-row     1.11  1.60  1.62  1.32  1.48  1.65
+Unknown        2.22  3.02  4.10  0.89   NaN   NaN
+             n    m80   mpr
+ym                         
+2024Q1   690.0  26.60  3.44
+2024Q2   184.0  29.74  4.18
+2024Q3  2208.0  26.59  3.76
+2024Q4  1288.0  28.55  3.46
+2025Q1   736.0  27.60  3.44
+2025Q2   414.0  29.98  4.06
+2025Q3  2162.0  25.88  3.46
+2025Q4  1656.0  26.99  3.52
+2026Q1   736.0  27.09  3.28
+2026Q2   230.0  37.08  4.31
+2026Q3  1242.0  29.34  3.46
+club
+              n    m80   mpr
+ym                          
+2024Q1  11362.0  29.52  3.92
+2024Q2   9706.0  27.86  3.69
+2024Q3   7222.0  29.04  3.89
+2024Q4  10120.0  25.04  3.38
+2025Q1  11776.0  27.06  3.56
+2025Q2  10534.0  28.68  3.69
+2025Q3   6164.0  27.03  3.54
+2025Q4  10350.0  26.16  3.47
+2026Q1  11868.0  28.29  3.66
+2026Q2  10488.0  29.75  3.78
+2026Q3   3542.0  29.39  3.54
+official MC per 80 by year/position
+calendar_year  2023  2025  2026
+position                       
+Back-row       46.7  52.4  25.7
+Back-three     79.5  78.3  52.2
+Centre         65.2  60.9  39.2
+Fly-half       51.9  46.2  38.5
+Hooker         31.0  39.5  15.4
+Prop           30.5  30.4   7.6
+Scrum-half     43.8  28.5  25.1
+Second-row     29.2  28.3  12.1
+Unknown        83.0   NaN   NaN
+
+===== rugbypass_vs_official.py =====
+joined 374 {2025: 183, 2026: 191}
+2025 corr BS vs RP turnovers_won 0.866 sum BS 86.0 sum tw 157 min corr 0.975 MC vs RP metres 0.953 MC/RPm 1.799 MC vs RP carries 0.902
+2026 corr BS vs RP turnovers_won 0.762 sum BS 77.0 sum tw 168 min corr 0.999 MC vs RP metres 0.989 MC/RPm 1.032 MC vs RP carries 0.711
+2023 season-level corr BS vs API tt 0.062  MC vs API metres 0.926
+2025 season-level corr BS vs API tt 0.172  MC vs API metres 0.954
+2026 season-level corr BS vs API tt 0.291  MC vs API metres 0.987
+BS/80 reliability 2023 2025 52 0.448 spearman 0.344
+BS/80 reliability 2025 2026 54 0.364 spearman 0.47
+BS/80 reliability 2023 2026 38 0.351 spearman 0.105
+
+===== bs_an.py =====
+2023 RP coverage (pseudo-dev) 0.9705340699815838
+2023
+             pred    dev    mse  corr  mean_pred  mean_act
+         model_tt 0.6093 0.1533 0.099      0.110     0.137
+              pos 0.5764 0.1622   NaN      0.166     0.137
+              eb3 0.5743 0.1650   NaN      0.155     0.137
+              eb6 0.5700 0.1624   NaN      0.159     0.137
+             eb12 0.5709 0.1618   NaN      0.162     0.137
+       pos*rprel2 0.5546 0.1563   NaN      0.164     0.137
+       pos*rprel5 0.5466 0.1550   NaN      0.165     0.137
+      pos*rprel10 0.5451 0.1546   NaN      0.166     0.137
+      pos*rprel20 0.5482 0.1553   NaN      0.166     0.137
+       eb6*rprel5 0.5468 0.1598   NaN      0.161     0.137
+      eb6*rprel10 0.5441 0.1587   NaN      0.161     0.137
+       ACTMIN pos 0.5637 0.1602   NaN      0.162     0.137
+ACTMIN pos*rprel5 0.5322 0.1524   NaN      0.160     0.137
+2025
+             pred    dev    mse  corr  mean_pred  mean_act
+         model_tt 0.5581 0.1523 0.189      0.117     0.127
+              pos 0.4966 0.1437 0.304      0.147     0.127
+              eb3 0.4846 0.1382 0.357      0.145     0.127
+              eb6 0.4795 0.1375 0.361      0.145     0.127
+             eb12 0.4816 0.1387 0.354      0.146     0.127
+       pos*rprel2 0.4646 0.1339 0.393      0.148     0.127
+       pos*rprel5 0.4639 0.1341 0.393      0.148     0.127
+      pos*rprel10 0.4659 0.1349 0.388      0.148     0.127
+      pos*rprel20 0.4709 0.1365 0.377      0.148     0.127
+       eb6*rprel5 0.4637 0.1326 0.411      0.155     0.127
+      eb6*rprel10 0.4628 0.1323 0.409      0.154     0.127
+       ACTMIN pos 0.4967 0.1420 0.321      0.143     0.127
+ACTMIN pos*rprel5 0.4641 0.1317 0.413      0.145     0.127
+2026
+             pred    dev    mse  corr  mean_pred  mean_act
+         model_tt 0.5157 0.1489 0.203      0.114     0.115
+              pos 0.4984 0.1482 0.231      0.135     0.115
+              eb3 0.4555 0.1394 0.330      0.131     0.115
+              eb6 0.4562 0.1390 0.328      0.132     0.115
+             eb12 0.4634 0.1404 0.313      0.133     0.115
+       pos*rprel2 0.4416 0.1371 0.348      0.135     0.115
+       pos*rprel5 0.4427 0.1369 0.348      0.135     0.115
+      pos*rprel10 0.4452 0.1370 0.347      0.135     0.115
+      pos*rprel20 0.4504 0.1377 0.340      0.135     0.115
+       eb6*rprel5 0.4328 0.1396 0.381      0.148     0.115
+      eb6*rprel10 0.4317 0.1373 0.384      0.146     0.115
+       ACTMIN pos 0.4831 0.1451 0.266      0.134     0.115
+ACTMIN pos*rprel5 0.4268 0.1333 0.379      0.134     0.115
+2023 players 81 corr official BS/80 vs RP shrunk rate 0.461
+2025 players 95 corr official BS/80 vs RP shrunk rate 0.649
+2026 players 101 corr official BS/80 vs RP shrunk rate 0.482
+
+===== bs_dev.py =====
+     krp koff    dev    mse   corr
+       5 none 0.5466 0.1550 0.2776
+       5    3 0.5458 0.1588 0.2503
+       5    6 0.5404 0.1558 0.2695
+       5   12 0.5408 0.1548 0.2769
+       5   24 0.5427 0.1547 0.2785
+      10 none 0.5451 0.1546 0.2765
+      10    3 0.5449 0.1591 0.2436
+      10    6 0.5395 0.1558 0.2649
+      10   12 0.5399 0.1547 0.2740
+      10   24 0.5416 0.1545 0.2766
+      20 none 0.5482 0.1553 0.2671
+      20    3 0.5483 0.1600 0.2315
+      20    6 0.5431 0.1567 0.2535
+      20   12 0.5434 0.1555 0.2637
+      20   24 0.5450 0.1552 0.2668
+   model      0.6171 0.1656 0.1302
+pos only      0.5764 0.1622 0.1874
+
+===== potm_study.py =====
+missing xp 0 missing p_model 0 {}
+fixtures 42 {2023: 12, 2025: 15, 2026: 15}
+POTM starters 0.9761904761904762  on winning team 0.9761904761904762
+POTM xp rank within team starters:
+{'count': 41.0, 'mean': 5.85, 'std': 3.6, 'min': 1.0, '25%': 4.0, '50%': 5.0, '75%': 9.0, 'max': 15.0}
+match rank {'count': 42.0, 'mean': 10.36, 'std': 8.93, 'min': 1.0, '25%': 4.25, '50%': 7.5, '75%': 14.0, 'max': 46.0}
+pwin of POTM team {'count': 42.0, 'mean': 0.686, 'std': 0.222, 'min': 0.238, '25%': 0.554, '50%': 0.755, '75%': 0.856, 'max': 0.959} favourite won share 0.7380952380952381
+                        model  n_matches   mll   auc  brier   corr  mean_p   yr
+                      uniform         12 3.829 0.500 21.267    NaN  0.0217 2023
+           model_potm(renorm)         12 3.626 0.694 21.497  0.063  0.0217 2023
+              model_potm(raw)         12 6.167 0.638 21.727  0.060  0.0159 2023
+           pwin*softmax b=0.0         12 3.372 0.791 20.709  0.164  0.0217 2023
+          pwin*softmax b=0.05         12 3.269 0.834 20.371  0.215  0.0217 2023
+           pwin*softmax b=0.1         12 3.250 0.824 20.193  0.229  0.0217 2023
+          pwin*softmax b=0.15         12 3.308 0.815 20.239  0.220  0.0217 2023
+           pwin*softmax b=0.2         12 3.435 0.804 20.526  0.206  0.0217 2023
+           pwin*softmax b=0.3         12 3.848 0.784 21.580  0.183  0.0217 2023
+               no-pwin b=0.15         12 3.614 0.742 20.773  0.155  0.0217 2023
+ORACLE winner known, xp b=.15         12 2.920 0.885 20.102  0.246  0.0217 2023
+    ORACLE realised pts b=.15         12 3.081 0.937 24.274  0.251  0.0217 2023
+                      uniform         15 3.829 0.500 21.267 -0.000  0.0217 2025
+           model_potm(renorm)         15 4.085 0.638 22.178  0.040  0.0217 2025
+              model_potm(raw)         15 4.222 0.641 22.071  0.038  0.0194 2025
+           pwin*softmax b=0.0         15 3.095 0.824 20.613  0.177  0.0217 2025
+          pwin*softmax b=0.05         15 2.998 0.856 20.489  0.193  0.0217 2025
+           pwin*softmax b=0.1         15 3.000 0.856 20.704  0.168  0.0217 2025
+          pwin*softmax b=0.15         15 3.087 0.850 21.234  0.134  0.0217 2025
+           pwin*softmax b=0.2         15 3.245 0.841 21.961  0.104  0.0217 2025
+           pwin*softmax b=0.3         15 3.706 0.819 23.562  0.062  0.0217 2025
+               no-pwin b=0.15         15 3.419 0.764 21.393  0.085  0.0217 2025
+ORACLE winner known, xp b=.15         15 3.500 0.842 21.514  0.147  0.0217 2025
+    ORACLE realised pts b=.15         15 2.449 0.922 14.923  0.557  0.0217 2025
+                      uniform         15 3.829 0.500 21.267  0.000  0.0217 2026
+           model_potm(renorm)         15 3.864 0.682 21.867  0.043  0.0217 2026
+              model_potm(raw)         15 4.079 0.674 21.655  0.052  0.0180 2026
+           pwin*softmax b=0.0         15 3.310 0.767 20.894  0.133  0.0217 2026
+          pwin*softmax b=0.05         15 3.189 0.790 20.659  0.169  0.0217 2026
+           pwin*softmax b=0.1         15 3.163 0.800 20.703  0.168  0.0217 2026
+          pwin*softmax b=0.15         15 3.218 0.806 21.036  0.151  0.0217 2026
+           pwin*softmax b=0.2         15 3.333 0.807 21.558  0.132  0.0217 2026
+           pwin*softmax b=0.3         15 3.686 0.801 22.823  0.100  0.0217 2026
+               no-pwin b=0.15         15 3.335 0.775 20.996  0.128  0.0217 2026
+ORACLE winner known, xp b=.15         15 2.642 0.896 20.428  0.221  0.0217 2026
+    ORACLE realised pts b=.15         15 1.872 0.960 15.666  0.521  0.0217 2026
+                      uniform         30 3.829 0.500 21.267 -0.000  0.0217 test
+           model_potm(renorm)         30 3.974 0.659 22.023  0.041  0.0217 test
+              model_potm(raw)         30 4.151 0.660 21.863  0.044  0.0187 test
+           pwin*softmax b=0.0         30 3.203 0.800 20.753  0.156  0.0217 test
+          pwin*softmax b=0.05         30 3.094 0.826 20.574  0.181  0.0217 test
+           pwin*softmax b=0.1         30 3.081 0.829 20.704  0.168  0.0217 test
+          pwin*softmax b=0.15         30 3.152 0.829 21.135  0.142  0.0217 test
+           pwin*softmax b=0.2         30 3.289 0.824 21.759  0.118  0.0217 test
+           pwin*softmax b=0.3         30 3.696 0.809 23.193  0.081  0.0217 test
+               no-pwin b=0.15         30 3.377 0.769 21.195  0.106  0.0217 test
+ORACLE winner known, xp b=.15         30 3.071 0.868 20.971  0.183  0.0217 test
+    ORACLE realised pts b=.15         30 2.161 0.941 15.295  0.539  0.0217 test
+
+===== metres_study.py =====
+  yr         pred  mean_pred  mean_act   mae   mse  corr  within_round_corr
+2023         base      1.424     2.890 2.013 9.743 0.548              0.537
+2023 latest_scale      1.630     2.890 1.949 9.048 0.555              0.538
+2023 latest_carry      1.918     2.890 1.914 8.647 0.535              0.534
+2023 pooled_scale      1.630     2.890 1.949 9.048 0.555              0.538
+2023 pooled_carry      1.918     2.890 1.914 8.647 0.535              0.534
+2025         base      1.460     2.775 1.837 8.314 0.646              0.648
+2025 latest_scale      2.167     2.775 1.732 6.782 0.642              0.649
+2025 latest_carry      2.661     2.775 1.710 6.211 0.655              0.662
+2025 pooled_scale      2.031     2.775 1.730 6.871 0.646              0.649
+2025 pooled_carry      2.516     2.775 1.689 6.215 0.659              0.662
+2026         base      1.448     1.516 1.074 2.949 0.683              0.689
+2026 latest_scale      1.668     1.516 1.150 3.196 0.662              0.689
+2026 latest_carry      1.758     1.516 1.235 3.460 0.636              0.683
+2026 pooled_scale      2.015     1.516 1.241 3.443 0.686              0.689
+2026 pooled_carry      2.430     1.516 1.527 4.058 0.670              0.675
+                               coef_latest           coef_pooled
+calendar_year round                                             
+2023          1.0                     None                  None
+              2.0     k=1.01 a=0.58 b=2.13  k=1.01 a=0.58 b=2.13
+              3.0     k=1.20 a=0.81 b=2.19  k=1.20 a=0.81 b=2.19
+              4.0     k=1.25 a=0.87 b=2.26  k=1.25 a=0.87 b=2.26
+2025          1.0     k=1.29 a=0.91 b=2.32  k=1.29 a=0.91 b=2.32
+              2.0     k=1.47 a=1.00 b=2.60  k=1.32 a=0.92 b=2.40
+              3.0     k=1.40 a=0.92 b=2.77  k=1.32 a=0.91 b=2.47
+              4.0     k=1.41 a=0.93 b=2.72  k=1.34 a=0.91 b=2.50
+              5.0     k=1.44 a=0.93 b=2.89  k=1.36 a=0.92 b=2.60
+2026          1.0     k=1.46 a=0.94 b=2.94  k=1.38 a=0.92 b=2.67
+              2.0    k=1.01 a=1.07 b=-0.34  k=1.35 a=0.94 b=2.35
+              3.0    k=1.06 a=1.09 b=-0.14  k=1.32 a=0.96 b=2.14
+              4.0    k=1.06 a=1.07 b=-0.06  k=1.30 a=0.98 b=1.89
+              5.0    k=1.04 a=1.06 b=-0.12  k=1.28 a=0.99 b=1.68
+               base             latest_carry             actual            
+calendar_year  2023  2025  2026         2023  2025  2026   2023  2025  2026
+position                                                                   
+Back-row       1.38  1.32  1.35         2.09  2.77  1.72   2.73  2.93  1.38
+Back-three     3.81  3.98  3.73         4.10  5.58  4.24   6.05  6.23  3.92
+Centre         1.94  2.19  2.15         2.51  3.73  2.56   4.54  4.53  2.76
+Fly-half       1.20  1.52  1.70         1.59  2.60  2.02   3.05  2.74  2.47
+Hooker         0.65  0.69  0.68         1.17  1.67  0.93   1.06  1.47  0.43
+Prop           0.33  0.25  0.27         0.79  1.04  0.43   1.19  1.14  0.12
+Scrum-half     0.88  1.14  1.14         1.18  1.89  1.36   2.02  1.10  0.93
+Second-row     0.53  0.56  0.57         1.13  1.70  0.80   1.80  1.39  0.47
+Unknown        0.23   NaN   NaN         0.45   NaN   NaN   1.00   NaN   NaN
+
+===== ceiling.py =====
+2023 BS rows 543 mean 0.138 var 0.152 max R2 (Poisson, incl. minutes) 0.094
+2025 BS rows 679 mean 0.127 var 0.158 max R2 (Poisson, incl. minutes) 0.198
+2026 BS rows 671 mean 0.115 var 0.155 max R2 (Poisson, incl. minutes) 0.262
+BS/80 split-half (odd vs even rounds 2025-26) players 72 r 0.563 Spearman-Brown 0.72
+2025 if pos*RP forecast were the true mean: expected corr 0.324 (achieved 0.388 )
+2026 if pos*RP forecast were the true mean: expected corr 0.36 (achieved 0.347 )
+POTM: if the frozen p were the truth, expected corr(p, y) = 0.207 +- 0.039  achieved 0.168
+POTM variance in points: Var(15y) = 4.788  explainable by p (225 Var p) = 0.209
+2025 metres: if the API forecast distribution were true, corr(points forecast, outcome) = 0.622  achieved 0.646
+2026 metres: if the API forecast distribution were true, corr(points forecast, outcome) = 0.599  achieved 0.683
+2025 official metres/80 split-half r 0.7 players 43
+2026 official metres/80 split-half r 0.717 players 47
+
+===== setpiece_components.py =====
+scrums overall corr 0.598 by season {2025: {'pred': 1.044, 'act': 1.17}, 2026: {'pred': 1.372, 'act': 1.56}}
+                     pred    act   corr
+pos        started                     
+Back-row   False    1.047  1.441 -0.131
+           True     2.790  3.169  0.021
+Back-three False    0.038  0.000    NaN
+           True     0.039  0.006  0.123
+Centre     False    0.051  0.000    NaN
+           True     0.057  0.009 -0.072
+Fly-half   False    0.039  0.000    NaN
+           True     0.043  0.000    NaN
+Hooker     False    1.148  1.441 -0.163
+           True     2.223  2.407 -0.048
+Prop       False    1.214  1.374 -0.064
+           True     2.234  2.517  0.030
+Scrum-half False    0.039  0.000    NaN
+           True     0.034  0.016  0.001
+Second-row False    1.161  1.077  0.040
+           True     2.739  3.183  0.000
+lineout_steal overall corr 0.151 by season {2025: {'pred': 0.14, 'act': 0.154}, 2026: {'pred': 0.158, 'act': 0.231}}
+                     pred    act   corr
+pos        started                     
+Back-row   False    0.121  0.226 -0.107
+           True     0.293  0.354  0.030
+Back-three False    0.032  0.000    NaN
+           True     0.040  0.000    NaN
+Hooker     False    0.105  0.119 -0.096
+           True     0.201  0.119 -0.116
+Prop       False    0.037  0.000    NaN
+           True     0.054  0.000    NaN
+Scrum-half True     0.010  0.219 -0.108
+Second-row False    0.284  0.431  0.046
+           True     0.652  0.992 -0.076
+kicks_retained overall corr 0.49 by season {2025: {'pred': 0.0, 'act': 0.0}, 2026: {'pred': 0.383, 'act': 0.434}}
+                     pred    act   corr
+pos        started                     
+Back-three False    0.065  0.000    NaN
+           True     0.223  0.227  0.417
+Centre     False    0.085  0.000    NaN
+           True     0.097  0.072  0.099
+Fly-half   False    0.235  0.000    NaN
+           True     0.807  1.333  0.503
+Scrum-half False    0.569  0.655  0.425
+           True     1.678  1.969  0.263
+fifty22 overall corr 0.058 by season {2025: {'pred': 0.056, 'act': 0.051}, 2026: {'pred': 0.038, 'act': 0.031}}
+                     pred    act   corr
+pos        started                     
+Back-three False    0.038  0.000    NaN
+           True     0.135  0.159 -0.020
+Centre     True     0.046  0.063 -0.033
+Fly-half   False    0.064  0.000    NaN
+           True     0.229  0.233  0.031
+Scrum-half False    0.060  0.000    NaN
+           True     0.161  0.109 -0.020
+

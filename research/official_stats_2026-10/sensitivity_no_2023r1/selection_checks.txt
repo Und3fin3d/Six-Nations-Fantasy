@@ -1,0 +1,28 @@
+POTM 2023 R2-4 matches 9
+ beta 0.0 match log-loss 3.102
+ beta 0.05 match log-loss 2.919
+ beta 0.1 match log-loss 2.816
+ beta 0.15 match log-loss 2.786
+ beta 0.2 match log-loss 2.821
+ beta 0.3 match log-loss 3.045
+BS 2023 R3-4 (history R2+):
+     krp koff    dev    mse
+   model      0.6025 0.1557
+pos only      0.5838 0.1579
+       5 none 0.5710 0.1554
+       5    3 0.5696 0.1632
+       5    6 0.5656 0.1584
+       5   12 0.5661 0.1565
+       5   24 0.5677 0.1558
+      10 none 0.5648 0.1539
+      10    3 0.5629 0.1621
+      10    6 0.5592 0.1571
+      10   12 0.5598 0.1551
+      10   24 0.5615 0.1544
+      20 none 0.5638 0.1535
+      20    3 0.5610 0.1615
+      20    6 0.5577 0.1566
+      20   12 0.5586 0.1546
+      20   24 0.5604 0.1539
+2023 all R1-4 MC~metres+runs a=0.91 b=2.32 BS vs API tt corr 0.027 MC vs metres corr 0.829 back-three BS/80 0.129
+2023 R2-4 MC~metres+runs a=0.93 b=2.77 BS vs API tt corr 0.027 MC vs metres corr 0.942 back-three BS/80 0.113

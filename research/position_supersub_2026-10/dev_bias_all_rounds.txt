@@ -1,0 +1,25 @@
+bias
+engine               n  p3_robust_native  status_rates  status_shrunk    MK  status_MK  status_shrunk_MK  empirical_baseline
+status position                                                                                                             
+B      Back-row     89             -3.70         -3.37          -3.37 -3.77      -3.44             -3.45               -3.21
+       Back-three   38             -2.06         -1.55          -1.47 -2.30      -1.80             -1.73               -2.47
+       Centre       28             -3.00         -2.44          -2.41 -3.14      -2.60             -2.57               -3.17
+       Fly-half     34             -0.31          0.05           0.07 -0.95      -0.59             -0.57                0.24
+       Hooker       60             -1.12         -0.71          -0.70 -1.22      -0.82             -0.81               -0.94
+       Prop        120             -1.33         -1.11          -1.10 -1.35      -1.14             -1.13               -1.15
+       Scrum-half   60             -2.23         -1.86          -1.80 -2.40      -2.04             -1.98               -2.19
+       Second-row   51             -3.55         -3.22          -3.21 -3.58      -3.26             -3.25               -4.18
+P      Back-row    180             -3.93         -4.04          -4.12 -4.12      -4.22             -4.30               -3.19
+       Back-three  180             -0.52         -0.60          -0.91 -0.99      -1.07             -1.34                0.97
+       Centre      120             -1.42         -1.58          -1.71 -1.71      -1.87             -1.98               -0.53
+       Fly-half     60             -2.57         -2.69          -2.76 -2.02      -2.14             -2.26               -1.75
+       Hooker       60             -2.03         -2.27          -2.25 -2.27      -2.50             -2.50               -0.06
+       Prop        120             -3.50         -3.63          -3.85 -3.56      -3.69             -3.91               -2.04
+       Scrum-half   60             -0.49         -0.80          -0.84 -0.85      -1.15             -1.20                0.59
+       Second-row  120             -3.88         -3.99          -4.15 -3.98      -4.09             -4.23               -3.56
+         bias                                                                                              mae                                                                                                mse                                                                                          
+engine     MK empirical_baseline p3_robust_native status_MK status_rates status_shrunk status_shrunk_MK     MK empirical_baseline p3_robust_native status_MK status_rates status_shrunk status_shrunk_MK       MK empirical_baseline p3_robust_native status_MK status_rates status_shrunk status_shrunk_MK
+status                                                                                                                                                                                                                                                                                                     
+B      -2.302             -2.080           -2.174    -1.962       -1.826        -1.805           -1.943  4.511              4.605            4.507     4.464        4.465         4.465            4.462   50.204             50.816           49.731    48.762       48.329        48.416           48.839
+P      -2.598             -1.343           -2.402    -2.732       -2.539        -2.691           -2.875  7.569              7.564            7.582     7.583        7.593         7.555            7.548  103.796            101.415          103.531   104.436      104.137       104.285          104.647
+bench pearson {'MK': 0.2269, 'empirical_baseline': 0.1569, 'p3_robust_native': 0.2137, 'status_MK': 0.2248, 'status_rates': 0.2133, 'status_shrunk': 0.2015, 'status_shrunk_MK': 0.2156}

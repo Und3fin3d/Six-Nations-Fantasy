@@ -440,6 +440,19 @@
     },
     {
       "competition": "Gallagher Premiership",
+      "match": "Bristol vs Newcastle",
+      "date": "26 Jan 2025",
+      "opposition": "Bristol",
+      "win": false,
+      "draw": false,
+      "mins": 6,
+      "tries": 0,
+      "yellow_cards": 0,
+      "red_cards": 0,
+      "conversions": 0
+    },
+    {
+      "competition": "Gallagher Premiership",
       "match": "Bristol vs Sale",
       "date": "27 Dec 2024",
       "opposition": "Sale",

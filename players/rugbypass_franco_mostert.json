@@ -274,6 +274,19 @@
   "match_log": [
     {
       "competition": "Internationals",
+      "match": "Australia vs South Africa",
+      "date": "27 Sep 2026",
+      "opposition": "Australia",
+      "win": false,
+      "draw": false,
+      "mins": 54,
+      "tries": 0,
+      "yellow_cards": 0,
+      "red_cards": 0,
+      "conversions": 0
+    },
+    {
+      "competition": "Internationals",
       "match": "Wales vs South Africa",
       "date": "29 Nov 2025",
       "opposition": "Wales",

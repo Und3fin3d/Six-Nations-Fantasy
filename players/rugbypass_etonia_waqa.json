@@ -863,6 +863,19 @@
     },
     {
       "competition": "Pro D2",
+      "match": "Provence Rugby vs Aurillac",
+      "date": "25 Sep 2026",
+      "opposition": "Aurillac",
+      "win": true,
+      "draw": false,
+      "mins": 11,
+      "tries": 0,
+      "yellow_cards": 0,
+      "red_cards": 0,
+      "conversions": 0
+    },
+    {
+      "competition": "Pro D2",
       "match": "Valence Romans vs Provence Rugby",
       "date": "18 Sep 2026",
       "opposition": "Valence Romans",

@@ -10,6 +10,35 @@
   },
   "competition_stats": [
     {
+      "competition": "TOP 14",
+      "season": "2026/2027",
+      "games": 1,
+      "minutes": 21,
+      "tries": 0,
+      "try_assists": 1,
+      "points": 0,
+      "carries": null,
+      "metres": null,
+      "av_gain": null,
+      "post_contact_metres": null,
+      "defenders_beaten": null,
+      "clean_breaks": 0,
+      "offloads": 0,
+      "handling_errors": 1,
+      "passes": 3,
+      "bad_passes": 0,
+      "tackles": 1,
+      "missed_tackles": 1,
+      "tackles_success_pct": 0.5,
+      "dominant_tackles": 0,
+      "turnovers_won": 0,
+      "turnovers_conceded": 1,
+      "kicks_from_hand": 0,
+      "penalties_conceded": 1,
+      "yellow_cards": 0,
+      "red_cards": 0
+    },
+    {
       "competition": "The Rugby Championship",
       "season": "2025",
       "games": 6,
@@ -359,6 +388,19 @@
     }
   ],
   "match_log": [
+    {
+      "competition": "Internationals",
+      "match": "Australia vs South Africa",
+      "date": "27 Sep 2026",
+      "opposition": "South Africa",
+      "win": true,
+      "draw": false,
+      "mins": 39,
+      "tries": 0,
+      "yellow_cards": 0,
+      "red_cards": 0,
+      "conversions": 0
+    },
     {
       "competition": "Internationals",
       "match": "Argentina vs Australia",
@@ -2175,6 +2217,19 @@
       "draw": false,
       "mins": 46,
       "tries": 1,
+      "yellow_cards": 0,
+      "red_cards": 0,
+      "conversions": 0
+    },
+    {
+      "competition": "Top 14",
+      "match": "Racing 92 vs Perpignan",
+      "date": "3 Oct 2026",
+      "opposition": "Perpignan",
+      "win": true,
+      "draw": false,
+      "mins": 21,
+      "tries": 0,
       "yellow_cards": 0,
       "red_cards": 0,
       "conversions": 0

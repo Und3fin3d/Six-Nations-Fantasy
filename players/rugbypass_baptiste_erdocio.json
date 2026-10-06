@@ -63,6 +63,32 @@
     },
     {
       "competition": "Top 14",
+      "match": "Montpellier vs Toulon",
+      "date": "4 Oct 2026",
+      "opposition": "Toulon",
+      "win": true,
+      "draw": false,
+      "mins": 30,
+      "tries": 0,
+      "yellow_cards": 0,
+      "red_cards": 0,
+      "conversions": 0
+    },
+    {
+      "competition": "Top 14",
+      "match": "Montpellier vs Perpignan",
+      "date": "19 Sep 2026",
+      "opposition": "Perpignan",
+      "win": true,
+      "draw": false,
+      "mins": 57,
+      "tries": 0,
+      "yellow_cards": 0,
+      "red_cards": 0,
+      "conversions": 0
+    },
+    {
+      "competition": "Top 14",
       "match": "Vannes vs Montpellier",
       "date": "12 Sep 2026",
       "opposition": "Vannes",

@@ -2,7 +2,7 @@
   "player": "regis-montagne",
   "csv_name": "R. Montagne",
   "bio": {
-    "Age": "25",
+    "Age": "26",
     "Position": "Fullback",
     "Height": "186cm",
     "Weight": "132kg"
@@ -134,6 +134,32 @@
       "win": true,
       "draw": false,
       "mins": 36,
+      "tries": 0,
+      "yellow_cards": 0,
+      "red_cards": 0,
+      "conversions": 0
+    },
+    {
+      "competition": "Top 14",
+      "match": "Clermont vs Castres",
+      "date": "26 Sep 2026",
+      "opposition": "Castres",
+      "win": true,
+      "draw": false,
+      "mins": 52,
+      "tries": 0,
+      "yellow_cards": 0,
+      "red_cards": 0,
+      "conversions": 0
+    },
+    {
+      "competition": "Top 14",
+      "match": "Bayonne vs Clermont",
+      "date": "19 Sep 2026",
+      "opposition": "Bayonne",
+      "win": false,
+      "draw": false,
+      "mins": 49,
       "tries": 0,
       "yellow_cards": 0,
       "red_cards": 0,

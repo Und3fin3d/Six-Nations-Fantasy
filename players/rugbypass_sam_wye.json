@@ -127,6 +127,32 @@
     },
     {
       "competition": "Hilux NPC",
+      "match": "Bay of Plenty vs North Harbour",
+      "date": "4 Oct 2026",
+      "opposition": "Bay of Plenty",
+      "win": false,
+      "draw": false,
+      "mins": 59,
+      "tries": 0,
+      "yellow_cards": 0,
+      "red_cards": 0,
+      "conversions": 0
+    },
+    {
+      "competition": "Hilux NPC",
+      "match": "North Harbour vs Otago",
+      "date": "26 Sep 2026",
+      "opposition": "Otago",
+      "win": true,
+      "draw": false,
+      "mins": 68,
+      "tries": 0,
+      "yellow_cards": 0,
+      "red_cards": 0,
+      "conversions": 0
+    },
+    {
+      "competition": "Hilux NPC",
       "match": "North Harbour vs Auckland",
       "date": "22 Aug 2026",
       "opposition": "North Harbour",

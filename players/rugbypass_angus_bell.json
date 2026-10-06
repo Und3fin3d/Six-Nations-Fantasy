@@ -3,7 +3,7 @@
   "csv_name": "Angus Bell",
   "bio": {
     "Nationality": "Australia",
-    "Age": "25",
+    "Age": "26",
     "Position": "Prop",
     "Height": "194cm",
     "Weight": "127kg"
@@ -388,6 +388,19 @@
     }
   ],
   "match_log": [
+    {
+      "competition": "Internationals",
+      "match": "Australia vs South Africa",
+      "date": "27 Sep 2026",
+      "opposition": "South Africa",
+      "win": true,
+      "draw": false,
+      "mins": 62,
+      "tries": 0,
+      "yellow_cards": 0,
+      "red_cards": 0,
+      "conversions": 0
+    },
     {
       "competition": "Internationals",
       "match": "Argentina vs Australia",

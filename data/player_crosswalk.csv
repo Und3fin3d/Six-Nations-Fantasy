@@ -1,164 +1,316 @@
 key,api_player_id,api_name,rp_slug,rp_name,official_name,nationality,canonical_pos,in_api,in_rp,in_official,key_collision,match_method
+a|aivalu,,,asaeli-ai-valu,Asaeli Ai Valu,,Japan,,False,True,False,False,key
+a|alaalatoa,,,allan-alaalatoa,Allan Alaalatoa,,Australia,,False,True,False,False,key
+a|aumua,,,asafo-aumua,Asafo Aumua,,New Zealand,,False,True,False,False,key
 a|beard,129576,Adam Beard,adam-beard,A. Beard,A. Beard,Wales,Second-row,True,True,True,False,key
-a|bouthier,189918,Anthony Bouthier,,,,,Back-three,True,False,False,False,key
+a|bell,,,angus-bell,Angus Bell,,Australia,,False,True,False,False,key
+a|blyth,,,angus-blyth,Angus Blyth,,Australia,,False,True,False,False,key
+a|bouthier,189918,Anthony Bouthier,anthony-bouthier,Anthony Bouthier,,,Back-three,True,True,False,False,key
 a|capuozzo,207774,Ange Capuozzo,ange-capuozzo,A. Capuozzo,A. Capuozzo,Italy,Back-three,True,True,True,False,key
 a|christie,172434,Andy Christie,andy-christie,Andy Christie,,,Back-row,True,True,False,False,key
 a|clark,,,arthur-clark,A. Clark,,England,,False,True,False,False,key
+a|cocagi,,,adrea-cocagi,Adrea Cocagi,,Fiji,,False,True,False,False,key
 a|coles,198696,Alex Coles,alex-coles,A. Coles,A. Coles,England,Second-row,True,True,True,False,key
-a|conway,67026,Andrew Conway,,,,,Back-three,True,False,False,False,key
+a|conway,67026,Andrew Conway,andrew-conway,Andrew Conway,,Ireland,Back-three,True,True,False,False,key
 a|craig,151758,Alex Craig,alex-craig,A. Craig,A. Craig,Scotland,Second-row,True,True,True,False,key
+a|creevy,,,agustin-creevy,Agustin Creevy,,Argentina,,False,True,False,False,key
 a|cuthbert,116478,Alex Cuthbert,alex-cuthbert,Alex Cuthbert,A. Cuthbert,,Back-three,True,True,True,False,key
-a|dell,119208,Allan Dell,,,,,,True,False,False,False,key
+a|dell,119208,Allan Dell,allan-dell,Allan Dell,,Scotland,,True,True,False,False,key
 a|dombrandt,164178,Alex Dombrandt,alex-dombrandt,Alex Dombrandt,A. Dombrandt,,Back-row,True,True,True,False,key
 a|dupont,135318,Antoine Dupont,antoine-dupont,A. Dupont,A. Dupont,France,Scrum-half,True,True,True,False,key
+a|esterhuizen,,,andre-esterhuizen,Andre Esterhuizen,,South Africa,,False,True,False,False,key
+a|fakatava,,,amato-fakatava,Amato Fakatava,,Japan,,False,True,False,False,key
+a|fassi,,,aphelele-fassi,Aphelele Fassi,,South Africa,,False,True,False,False,key
+a|fischer,,,alexandre-fischer,Alexandre Fischer,,,,False,True,False,False,key
+a|fraga,,,agustin-fraga,Agustin Fraga,,,,False,True,False,False,key
+a|frisch,,,antoine-frisch,Antoine Frisch,,France,,False,True,False,False,key
 a|fusco,180450,Alessandro Fusco,alessandro-fusco,A. Fusco,A. Fusco,Italy,Scrum-half,True,True,True,False,key
 a|garbisi,231774,Alessandro Garbisi,alessandro-garbisi,A. Garbisi,A. Garbisi,Italy,Scrum-half,True,True,True,False,key
+a|grandidiernkanang,,,aaron-grandidier-nkanang,Aaron Grandidier Nkanang,,France,,False,True,False,False,key
 a|griffin,219990,Archie Griffin,archie-griffin,A. Griffin,A. Griffin,Wales,Prop,True,True,True,False,key
 a|hastings,142002,Adam Hastings,adam-hastings,A. Hastings,A. Hastings,Scotland,Fly-half,True,True,True,False,key
+a|hastoy,,,antoine-hastoy,Antoine Hastoy,,France,,False,True,False,False,key
 a|hepburn,117978,Alec Hepburn,alec-hepburn,Alec Hepburn,,Scotland,Prop,True,True,False,False,key
+a|hodgman,,,alex-hodgman,Alex Hodgman,,New Zealand,,False,True,False,False,key
+a|hugoventer,,,andre-hugo-venter,Andre Hugo Venter,,South Africa,,False,True,False,False,key
 a|izekor,218130,Alessandro Izekor,alessandro-izekor,A. Izekor,,Italy,Back-row,True,True,False,False,key
 a|jelonch,139728,Anthony Jelonch,anthony-jelonch,A. Jelonch,A. Jelonch,France,Back-row,True,True,True,False,key
-a|lovotti,110196,Andrea Lovotti,,,,,Prop,True,False,False,False,key
+a|jones,,,,,A. Jones,,,False,False,True,False,key
+a|kellaway,,,andrew-kellaway,Andrew Kellaway,,Australia,,False,True,False,False,key
+a|kendellen,,,alex-kendellen,Alex Kendellen,,Ireland,,False,True,False,False,key
+a|lienertbrown,,,anton-lienert-brown,Anton Lienert Brown,,New Zealand,,False,True,False,False,key
+a|lovotti,110196,Andrea Lovotti,andrea-lovotti,Andrea Lovotti,,,Prop,True,True,False,False,key
 a|mann,232110,Alex Mann,alex-mann,A. Mann,A. Mann,Wales,Back-row,True,True,True,False,key
 a|masibaka,,,alex-masibaka,A. Masibaka,,Australia,,False,True,False,False,key
 a|mitchell,142356,Alex Mitchell,alex-mitchell,A. Mitchell,A. Mitchell,England,Scrum-half,True,True,True,False,key
+a|moyano,,,agustin-moyano,Agustin Moyano,,,,False,True,False,False,key
+a|ntlabakanye,,,asenathi-ntlabakanye,Asenathi Ntlabakanye,,South Africa,,False,True,False,False,key
+a|okui,,,akito-okui,Akito Okui,,Japan,,False,True,False,False,key
+a|ortombina,,,alessandro-ortombina,Alessandro Ortombina,,Italy,,False,True,False,False,key
 a|porter,139806,Andrew Porter,andrew-porter,A. Porter,A. Porter,Ireland,Prop,True,True,True,False,key
 a|price,119892,Ali Price,ali-price,Ali Price,A. Price,Scotland,Scrum-half,True,True,True,False,key
+a|reed,,,arron-reed,Arron Reed,,Scotland,,False,True,False,False,key
+a|ross,,,aidan-ross,Aidan Ross,,New Zealand,,False,True,False,False,key
 a|roumat,146952,Alexandre Roumat,alexandre-roumat,A. Roumat,A. Roumat,France,Second-row,True,True,True,False,key
-a|vincent,176706,Arthur Vincent,,,,,Centre,True,False,False,False,key
+a|sakate,,,atsushi-sakate,Atsushi Sakate,,Japan,,False,True,False,False,key
+a|samuel,,,alex-samuel,Alex Samuel,,Scotland,,False,True,False,False,key
+a|sarelli,,,agustin-sarelli,Agustin Sarelli,,,,False,True,False,False,key
+a|saumaki,,,amanaki-saumaki,Amanaki Saumaki,,Japan,,False,True,False,False,key
+a|savea,,,ardie-savea,Ardie Savea,,New Zealand,,False,True,False,False,key
+a|segner,,,anton-segner,Anton Segner,,Germany,,False,True,False,False,key
+a|smith,,,aaron-smith,Aaron Smith,,New Zealand,,False,True,False,False,key
+a|sokobale,,,atunaisa-sokobale,Atunaisa Sokobale,,,,False,True,False,False,key
+a|tuisue,,,albert-tuisue,Albert Tuisue,,Fiji,,False,True,False,False,key
+a|vincent,176706,Arthur Vincent,arthur-vincent,Arthur Vincent,,,Centre,True,True,False,False,key
+a|vota,,,apisalome-vota,Apisalome Vota,,Fiji,,False,True,False,False,key
 a|wainwright,176652,Aaron Wainwright,aaron-wainwright,Aaron Wainwright,A. Wainwright,Wales,Back-row,True,True,True,False,key
 a|watson,114510,Anthony Watson,anthony-watson,Anthony Watson,A. Watson,England,Back-three,True,True,True,False,key
 a|wynjones,46092,Alun Wyn Jones,alun-wyn-jones,Alun Wyn Jones,,Wales,Second-row,True,True,False,False,key
 a|zambonin,208140,Andrea Zambonin,andrea-zambonin,A. Zambonin,A. Zambonin,Italy,Second-row,True,True,True,False,key
 b|aki,114804,Bundee Aki,bundee-aki,B. Aki,B. Aki,Ireland,Centre,True,True,True,False,key
-b|burns,118098,Billy Burns,,,,,Fly-half,True,False,False,False,key
+b|barrett,,,beauden-barrett,Beauden Barrett,,New Zealand,,False,True,False,False,key
+b|bernasconi,,,bautista-bernasconi,Bautista Bernasconi,,Argentina,,False,True,False,False,key
+b|bohan,,,billy-bohan,Billy Bohan,,,,False,True,False,False,key
+b|burns,118098,Billy Burns,billy-burns,Billy Burns,,England,Fly-half,True,True,False,False,key
 b|carter,219996,Ben Carter,ben-carter,B. Carter,B. Carter,Wales,Second-row,True,True,True,False,key
 b|chalureau,118122,Bastien Chalureau,bastien-chalureau,Bastien Chalureau,,France,Second-row,True,True,False,False,key
+b|coghlan,,,brodie-coghlan,Brodie Coghlan,,Wales,,False,True,False,False,key
 b|couilloud,147576,Baptiste Couilloud,baptiste-couilloud,Baptiste Couilloud,,France,Scrum-half,True,True,False,False,key
 b|curry,155898,Ben Curry,ben-curry,B. Curry,B. Curry,England,Back-row,True,True,True,False,key
-b|dulin,64326,Brice Dulin,,,,,Back-three,True,False,False,False,key
+b|delguy,,,bautista-delguy,Bautista Delguy,,,,False,True,False,False,key
+b|donaldson,,,ben-donaldson,Ben Donaldson,,Australia,,False,True,False,False,key
+b|dulin,64326,Brice Dulin,brice-dulin,Brice Dulin,,France,Back-three,True,True,False,False,key
 b|earl,142404,Ben Earl,ben-earl,B. Earl,B. Earl,England,Back-row,True,True,True,False,key
+b|elizalde,,,benjamin-elizalde,Benjamin Elizalde,,Argentina,,False,True,False,False,key
+b|ennor,,,braydon-ennor,Braydon Ennor,,New Zealand,,False,True,False,False,key
+b|erdocio,,,baptiste-erdocio,Baptiste Erdocio,,,,False,True,False,False,key
+b|grondona,,,benjamin-grondona,Benjamin Grondona,,Argentina,,False,True,False,False,key
+b|gunter,,,ben-gunter,Ben Gunter,,Japan,,False,True,False,False,key
 b|healy,203100,Ben Healy,ben-healy,Ben Healy,,Scotland,Fly-half,True,True,False,False,key
+b|jansevanrensburg,,,benhard-janse-van-rensburg,Benhard Janse Van Rensburg,,South Africa,,False,True,False,False,key
+b|jasondixon,,,ben-jason-dixon,Ben Jason Dixon,,South Africa,,False,True,False,False,key
+b|jauneau,,,baptiste-jauneau,Baptiste Jauneau,,,,False,True,False,False,key
 b|kinghorn,139902,Blair Kinghorn,blair-kinghorn,B. Kinghorn,B. Kinghorn,Scotland,Back-three,True,True,True,False,key
-b|leroux,66894,Bernard Le Roux,,,,,Second-row,True,False,False,False,key
+b|leroux,66894,Bernard Le Roux,willie-le-roux,Willie Le Roux,,South Africa,Second-row,True,True,False,False,surname
+b|massa,,,barnabe-massa,Barnabe Massa,,,,False,True,False,False,key
+b|mcalister,,,brodie-mcalister,Brodie Mcalister,,New Zealand,,False,True,False,False,key
 b|muncaster,230874,Ben Muncaster,ben-muncaster,B. Muncaster,B. Muncaster,Scotland,Back-row,True,True,True,False,key
+b|murphy,,,ben-murphy,Ben Murphy,,,,False,True,False,False,key
 b|murray,197892,Blair Murray,blair-murray-1,B. Murray,B. Murray,Wales,Back-three,True,True,True,False,key
 b|obano,137016,Beno Obano,beno-obano,Beno Obano,,England,Prop,True,True,False,False,key
+b|paengaamosa,,,brandon-paenga-amosa,Brandon Paenga Amosa,,Australia,,False,True,False,False,key
+b|palu,,,boris-palu,Boris Palu,,France,,False,True,False,False,key
+b|pesenti,,,baptiste-pesenti,Baptiste Pesenti,,France,,False,True,False,False,key
+b|pollard,,,billy-pollard,Billy Pollard,,Australia,,False,True,False,False,key
+b|proctor,,,billy-proctor,Billy Proctor,,New Zealand,,False,True,False,False,key
+b|retallick,,,brodie-retallick,Brodie Retallick,,New Zealand,,False,True,False,False,key
 b|roberts,226830,Bradley Roberts,bradley-roberts,Bradley Roberts,B. Roberts,,Hooker,True,True,True,False,key
 b|rodd,198810,Bevan Rodd,bevan-rodd,B. Rodd,B. Rodd,England,Prop,True,True,True,False,key
+b|schoupp,,,blake-schoupp,Blake Schoupp,,Australia,,False,True,False,False,key
+b|sela,,,billy-sela,Billy Sela,,England,,False,True,False,False,key
 b|serin,121830,Baptiste Serin,baptiste-serin,B. Serin,B. Serin,France,Scrum-half,True,True,True,False,key
 b|spencer,116268,Ben Spencer,ben-spencer,B. Spencer,B. Spencer,England,Scrum-half,True,True,True,False,key
-b|steyn,119316,Braam Steyn,,,,,Back-row,True,False,False,False,key
+b|steyn,119316,Braam Steyn,braam-steyn,Braam Steyn,,,Back-row,True,True,False,False,key
 b|thomas,154968,Ben Thomas,ben-thomas,B. Thomas,B. Thomas,Wales,Centre,True,True,True,False,key
-b|thomson,102912,Blade Thomson,,,,,Back-row,True,False,False,False,key
-b|vellacott,125262,Ben Vellacott,,,,,Scrum-half,True,False,False,False,key
-b|vunipola,111618,Billy Vunipola,,,,,Back-row,True,False,False,False,key
+b|thomson,102912,Blade Thomson,blade-thomson,Blade Thomson,,,Back-row,True,True,False,False,key
+b|vellacott,125262,Ben Vellacott,ben-vellacott,Ben Vellacott,,England,Scrum-half,True,True,False,False,key
+b|venter,,,boan-venter,Boan Venter,,South Africa,,False,True,False,False,key
+b|vergnestaillefer,,,bastien-vergnes-taillefer,Bastien Vergnes Taillefer,,France,,False,True,False,False,key
+b|volavola,,,ben-volavola,Ben Volavola,,Fiji,,False,True,False,False,key
+b|vunipola,111618,Billy Vunipola,billy-vunipola,Billy Vunipola,,England,Back-row,True,True,False,False,key
 b|ward,,,bryn-ward,B. Ward,,,,False,True,False,False,key
+b|warren,,,ben-warren,Ben Warren,,Wales,,False,True,False,False,key
+b|wenger,,,boris-wenger,Boris Wenger,,,,False,True,False,False,key
 b|white,142476,Ben White,ben-white,B. White,B. White,Scotland,Scrum-half,True,True,True,False,key
 b|youngs,54876,Ben Youngs,ben-youngs,Ben Youngs,B. Youngs,England,Scrum-half,True,True,True,False,key
+c|ambadiang,,,christian-ambadiang,Christian Ambadiang,,,,False,True,False,False,key
+c|atkinson,,,charlie-atkinson,Charlie Atkinson,,England,,False,True,False,False,key
 c|baille,121938,Cyril Baille,cyril-baille,C. Baille,C. Baille,France,Prop,True,True,True,False,key
 c|blade,,,caolin-blade,C. Blade,,Ireland,,False,True,False,False,key
-c|braley,122700,Callum Braley,,,,,Scrum-half,True,False,False,False,key
-c|canna,134250,Carlo Canna,,,,,Centre,True,False,False,False,key
+c|braley,122700,Callum Braley,callum-braley,Callum Braley,,Italy,Scrum-half,True,True,False,False,key
+c|cale,,,charlie-cale,Charlie Cale,,Australia,,False,True,False,False,key
+c|canna,134250,Carlo Canna,carlo-canna,Carlo Canna,,,Centre,True,True,False,False,key
 c|casey,203124,Craig Casey,craig-casey,C. Casey,C. Casey,Ireland,Scrum-half,True,True,True,False,key
-c|cazeaux,136902,Cyril Cazeaux,,,,,Second-row,True,False,False,False,key
-c|chat,129480,Camille Chat,,,,,Hooker,True,False,False,False,key
+c|cazeaux,136902,Cyril Cazeaux,cyril-cazeaux,Cyril Cazeaux,,France,Second-row,True,True,False,False,key
+c|chat,129480,Camille Chat,camille-chat,Camille Chat,,France,Hooker,True,True,False,False,key
+c|clarke,,,caleb-clarke,Caleb Clarke,,New Zealand,,False,True,False,False,key
+c|coleman,,,chris-coleman,Chris Coleman,,Wales,,False,True,False,False,key
 c|cunninghamsouth,264444,Chandler Cunningham-South,chandler-cunningham-south,C. Cunningham-South,C. Cunningham-South,England,Back-row,True,True,True,False,key
 c|domachowski,144486,Corey Domachowski,corey-domachowski,Corey Domachowski,,Wales,Prop,True,True,False,False,key
 c|doris,148680,Caelan Doris,caelan-doris,C. Doris,C. Doris,Ireland,Back-row,True,True,True,False,key
 c|evans,177552,Cai Evans,cai-evans,Cai Evans,,Wales,Back-three,True,True,False,False,key
-c|ewels,127014,Charlie Ewels,,,,,Second-row,True,False,False,False,key
+c|ewels,127014,Charlie Ewels,charlie-ewels,Charlie Ewels,,England,Second-row,True,True,False,False,key
 c|frawley,148890,Ciaran Frawley,ciaran-frawley,C. Frawley,C. Frawley,Ireland,Back-three,True,True,True,False,key
+c|gordon,,,carter-gordon,Carter Gordon,,Australia,,False,True,False,False,key
+c|hanekom,,,cameron-hanekom,Cameron Hanekom,,South Africa,,False,True,False,False,key
 c|harris,125406,Chris Harris,chris-harris,Chris Harris,C. Harris,,Centre,True,True,True,False,key
 c|healy,56550,Cian Healy,cian-healy,C. Healy,C. Healy,Ireland,Prop,True,True,True,False,key
-c|hill,111162,Cory Hill,,,,,Second-row,True,False,False,False,key
+c|henderson,,,cameron-henderson,Cameron Henderson,,Scotland,,False,True,False,False,key
+c|hill,111162,Cory Hill,cory-hill,Cory Hill,,,Second-row,True,True,False,False,key
 c|izuchukwu,208038,Cormac Izuchukwu,cormac-izuchukwu,C. Izuchukwu,C. Izuchukwu,Ireland,Back-row,True,True,True,False,key
+c|kolbe,,,cheslin-kolbe,Cheslin Kolbe,,South Africa,,False,True,False,False,key
+c|langdon,,,curtis-langdon,Curtis Langdon,,England,,False,True,False,False,key
 c|lawes,58824,Courtney Lawes,courtney-lawes,Courtney Lawes,C. Lawes,England,Back-row,True,True,True,False,key
+c|lawrence,,,charlie-lawrence,Charlie Lawrence,,New Zealand,,False,True,False,False,key
+c|liowillie,,,christian-lio-willie,Christian Lio Willie,,New Zealand,,False,True,False,False,key
+c|millar,,,craig-millar,Craig Millar,,Japan,,False,True,False,False,key
+c|moodie,,,canan-moodie,Canan Moodie,,South Africa,,False,True,False,False,key
+c|muntz,,,caleb-muntz,Caleb Muntz,,Fiji,,False,True,False,False,key
 c|murley,172428,Cadan Murley,cadan-murley,C. Murley,C. Murley,England,Back-three,True,True,True,False,key
 c|murray,61860,Conor Murray,conor-murray,C. Murray,C. Murray,Ireland,Scrum-half,True,True,True,False,key
 c|nash,148836,Calvin Nash,calvin-nash,C. Nash,C. Nash,Ireland,Back-three,True,True,True,False,key
 c|ollivon,123504,Charles Ollivon,charles-ollivon,C. Ollivon,C. Ollivon,France,Back-row,True,True,True,False,key
 c|prendergast,201978,Cian Prendergast,cian-prendergast,C. Prendergast,C. Prendergast,Ireland,Back-row,True,True,True,False,key
+c|ratima,,,cortez-ratima,Cortez Ratima,,New Zealand,,False,True,False,False,key
 c|redpath,177348,Cameron Redpath,cameron-redpath,Cameron Redpath,,,Centre,True,True,False,False,key
-c|sheedy,136470,Callum Sheedy,,,,,Fly-half,True,False,False,False,key
-c|stander,102660,CJ Stander,,,,,Back-row,True,False,False,False,key
-c|traore,123420,Cherif Traore,,,,,Prop,True,False,False,False,key
+c|roigard,,,cam-roigard,Cam Roigard,,New Zealand,,False,True,False,False,key
+c|sheedy,136470,Callum Sheedy,callum-sheedy,Callum Sheedy,,Wales,Fly-half,True,True,False,False,key
+c|stander,102660,CJ Stander,cj-stander,Cj Stander,,,Back-row,True,True,False,False,key
+c|taylor,,,codie-taylor,Codie Taylor,,New Zealand,,False,True,False,False,key
+c|tizzano,,,carlo-tizzano,Carlo Tizzano,,Australia,,False,True,False,False,key
+c|toole,,,corey-toole,Corey Toole,,Australia,,False,True,False,False,key
+c|traore,123420,Cherif Traore,cherif-traore,Cherif Traore,,,Prop,True,True,False,False,key
 c|tshiunza,232116,Christ Tshiunza,christ-tshiunza,C. Tshiunza,C. Tshiunza,,Back-row,True,True,True,False,key
+c|wiese,,,cobus-wiese,Cobus Wiese,,South Africa,,False,True,False,False,key
 c|winnett,243378,Cameron Winnett,cam-winnett,Cam Winnett,,Wales,Back-three,True,True,False,False,key
 c|woki,165864,Cameron Woki,cameron-woki,C. Woki,,France,Second-row,True,True,False,False,key
+d|akiyama,,,daichi-akiyama,Daichi Akiyama,,Japan,,False,True,False,False,key
 d|aldegheri,127122,Dorian Aldegheri,dorian-aldegheri,Dorian Aldegheri,D. Aldegheri,France,Prop,True,True,True,False,key
 d|bamba,178656,Demba Bamba,demba-bamba,D. Bamba,D. Bamba,France,Prop,True,True,True,False,key
 d|biggar,58554,Dan Biggar,dan-biggar,Dan Biggar,D. Biggar,Wales,Fly-half,True,True,True,False,key
 d|care,45822,Danny Care,danny-care,Danny Care,,England,Scrum-half,True,True,False,False,key
 d|cherry,111864,David Cherry,david-cherry,D. Cherry,D. Cherry,Scotland,Hooker,True,True,True,False,key
 d|cole,54336,Dan Cole,dan-cole,Dan Cole,D. Cole,England,Prop,True,True,True,False,key
+d|coles,,,dane-coles,Dane Coles,,New Zealand,,False,True,False,False,key
 d|cretin,162138,Dylan Cretin,dylan-cretin,D. Cretin,,France,Back-row,True,True,False,False,key
+d|deallende,,,damian-de-allende,Damian De Allende,,South Africa,,False,True,False,False,key
 d|edwards,263442,Dan Edwards,daniel-edwards,D. Edwards,D. Edwards,Wales,Fly-half,True,True,True,False,key
 d|fischetti,164232,Danilo Fischetti,danilo-fischetti,D. Fischetti,D. Fischetti,Italy,Prop,True,True,True,False,key
+d|fourie,,,deon-fourie,Deon Fourie,,South Africa,,False,True,False,False,key
 d|graham,146754,Darcy Graham,darcy-graham,D. Graham,D. Graham,Scotland,Back-three,True,True,True,False,key
 d|jenkins,232104,Dafydd Jenkins,dafydd-jenkins,Dafydd Jenkins,D. Jenkins,,Second-row,True,True,True,False,key
 d|kilcoyne,66174,Dave Kilcoyne,dave-kilcoyne,Dave Kilcoyne,D. Kilcoyne,Ireland,Prop,True,True,True,False,key
+d|kirifi,,,duplessis-kirifi,Duplessis Kirifi,,New Zealand,,False,True,False,False,key
 d|lake,178848,Dewi Lake,dewi-lake,Dewi Lake,D. Lake,Wales,Hooker,True,True,True,False,key
 d|lamb,142434,Dino Lamb,dino-lamb,D. Lamb,D. Lamb,,Second-row,True,True,True,False,key
+d|lancaster,,,darby-lancaster,Darby Lancaster,,Australia,,False,True,False,False,key
 d|lewis,135306,Dillon Lewis,dillon-lewis,Dillon Lewis,D. Lewis,Wales,Prop,True,True,True,False,key
-d|lydiate,54948,Dan Lydiate,,,,,Back-row,True,False,False,False,key
+d|lydiate,54948,Dan Lydiate,dan-lydiate,Dan Lydiate,,,Back-row,True,True,False,False,key
 d|mazza,,,damiano-mazza,D. Mazza,,Italy,,False,True,False,False,key
+d|mckenzie,,,damian-mckenzie,Damian Mckenzie,,New Zealand,,False,True,False,False,key
+d|mcleod,,,dallas-mcleod,Dallas Mcleod,,New Zealand,,False,True,False,False,key
+d|meredith,,,declan-meredith,Declan Meredith,,Australia,,False,True,False,False,key
 d|murray,231906,Darragh Murray,darragh-murray,Darragh Murray,D. Murray,Ireland,Second-row,True,True,True,False,key
 d|odiase,263016,David Odiase,david-odiase,D. Odiase,D. Odiase,,Back-row,True,True,True,False,key
+d|papalii,,,dalton-papalii,Dalton Papalii,,New Zealand,,False,True,False,False,key
 d|penaud,139668,Damian Penaud,damian-penaud,D. Penaud,D. Penaud,France,Back-three,True,True,True,False,key
+d|pietsch,,,dylan-pietsch,Dylan Pietsch,,Australia,,False,True,False,False,key
+d|porecki,,,dave-porecki,Dave Porecki,,Australia,,False,True,False,False,key
 d|priso,,,dany-priso,D. Priso,,France,,False,True,False,False,key
 d|rae,122784,D'Arcy Rae,darcy-rae,D. Rae,D. Rae,Scotland,Prop,True,True,True,False,key
 d|ribbans,147654,David Ribbans,david-ribbans,David Ribbans,D. Ribbans,England,Second-row,True,True,True,False,key
-d|rimpelli,147348,Daniele Rimpelli,,,,,Prop,True,False,False,False,key
-d|robson,111306,Dan Robson,,,,,Scrum-half,True,False,False,False,key
+d|richardson,,,dylan-richardson,Dylan Richardson,,,,False,True,False,False,key
+d|riley,,,dylan-riley,Dylan Riley,,Japan,,False,True,False,False,key
+d|rimpelli,147348,Daniele Rimpelli,daniele-rimpelli,Daniele Rimpelli,,,Prop,True,True,False,False,key
+d|robson,111306,Dan Robson,dan-robson,Dan Robson,,England,Scrum-half,True,True,False,False,key
 d|sheehan,186096,Dan Sheehan,dan-sheehan,D. Sheehan,D. Sheehan,,Hooker,True,True,True,False,key
-d|sisi,111144,David Sisi,,,,,Second-row,True,False,False,False,key
+d|sisi,111144,David Sisi,david-sisi,David Sisi,,Italy,Second-row,True,True,False,False,key
+d|southworth,,,danny-southworth,Danny Southworth,,England,,False,True,False,False,key
 d|vandermerwe,131400,Duhan van der Merwe,duhan-van-der-merwe,D. van der Merwe,D. van der Merwe,Scotland,Back-three,True,True,True,False,key
+d|vermeulen,,,duane-vermeulen,Duane Vermeulen,,South Africa,,False,True,False,False,key
+d|willemse,,,damian-willemse,Damian Willemse,,South Africa,,False,True,False,False,key
 e|abadie,184068,Esteban Abadie,esteban-abadie,Esteban Abadie,,France,Back-row,True,True,False,False,key
 e|ashman,187422,Ewan Ashman,ewan-ashman,E. Ashman,E. Ashman,Scotland,Hooker,True,True,True,False,key
+e|bello,,,eduardo-bello,Eduardo Bello,,Argentina,,False,True,False,False,key
 e|bevan,,,ellis-bevan,E. Bevan,,Wales,,False,True,False,False,key
-e|byrne,124530,Ed Byrne,,,,,Prop,True,False,False,False,key
+e|blackadder,,,ethan-blackadder,Ethan Blackadder,,New Zealand,,False,True,False,False,key
+e|boffelli,,,emiliano-boffelli,Emiliano Boffelli,,Argentina,,False,True,False,False,key
+e|byrne,124530,Ed Byrne,ed-byrne,Ed Byrne,,Ireland,Prop,True,True,False,False,key
+e|canakaivata,,,elia-canakaivata,Elia Canakaivata,,Fiji,,False,True,False,False,key
+e|capilla,,,esteban-capilla,Esteban Capilla,,France,,False,True,False,False,key
 e|daly,111072,Elliot Daly,elliot-daly,E. Daly,E. Daly,England,Back-three,True,True,True,False,key
 e|dee,122628,Elliot Dee,elliott-dee,E. Dee,E. Dee,Wales,Hooker,True,True,True,False,key
+e|degroot,,,ethan-de-groot,Ethan De Groot,,New Zealand,,False,True,False,False,key
 e|dumortier,202800,Ethan Dumortier,ethan-dumortier,Ethan Dumortier,E. Dumortier,France,Back-three,True,True,True,False,key
 e|edogbo,243480,Edwin Edogbo,edwin-edogbo,E. Edogbo,E. Edogbo,Ireland,Second-row,True,True,True,False,key
+e|elias,,,efrain-elias,Efrain Elias,,Argentina,,False,True,False,False,key
+e|etzebeth,,,eben-etzebeth,Eben Etzebeth,,South Africa,,False,True,False,False,key
 e|gailleton,231696,Emilien Gailleton,emilien-gailleton,E. Gailleton,E. Gailleton,France,Centre,True,True,True,False,key
 e|genge,136680,Ellis Genge,ellis-genge,E. Genge,E. Genge,England,Prop,True,True,True,False,key
+e|haangana,,,esei-haangana,Esei Haangana,,Australia,,False,True,False,False,key
+e|hooker,,,ethan-hooker,Ethan Hooker,,South Africa,,False,True,False,False,key
 e|iachizzi,164208,Edoardo Iachizzi,edoardo-iachizzi,Edoardo Iachizzi,E. Iachizzi,Italy,Second-row,True,True,True,False,key
 e|iyogun,,,emmanuel-iyogun,E. Iyogun,,England,,False,True,False,False,key
 e|james,232158,Eddie James,eddie-james,Eddie James,E. James,Wales,Centre,True,True,True,False,key
-e|jenkins,116688,Ellis Jenkins,,,,,Back-row,True,False,False,False,key
+e|jenkins,116688,Ellis Jenkins,ellis-jenkins,Ellis Jenkins,,,Back-row,True,True,False,False,key
 e|johnson,179322,Ewan Johnson,ewan-johnson,E. Johnson,E. Johnson,,Second-row,True,True,True,False,key
+e|kuwano,,,eishin-kuwano,Eishin Kuwano,,Japan,,False,True,False,False,key
 e|lloyd,232134,Evan Lloyd,evan-lloyd,E. Lloyd,E. Lloyd,,Hooker,True,True,True,False,key
+e|louw,,,elrigh-louw,Elrigh Louw,,South Africa,,False,True,False,False,key
+e|mawi,,,eroni-mawi,Eroni Mawi,,Fiji,,False,True,False,False,key
 e|meafou,166476,Emmanuel Meafou,emmanuel-meafou,E. Meafou,E. Meafou,France,Second-row,True,True,True,False,key
 e|mee,363636,Ellis Mee,ellis-mee,E. Mee,E. Mee,England,Back-three,True,True,True,False,key
 e|millarmills,178038,Elliot Millar-Mills,elliot-millar-mills,E. Millar-Mills,E. Millar-Mills,Scotland,Prop,True,True,True,False,key
+e|momo,,,epeli-momo,Epeli Momo,,Fiji,,False,True,False,False,key
+e|narawa,,,emoni-narawa,Emoni Narawa,,New Zealand,,False,True,False,False,key
+e|opokugyamfi,,,enoch-opoku-gyamfi,Enoch Opoku Gyamfi,,,,False,True,False,False,key
 e|padovani,112584,Edoardo Padovani,edoardo-padovani,Edoardo Padovani,E. Padovani,,Back-three,True,True,True,False,key
+e|papier,,,embrose-papier,Embrose Papier,,South Africa,,False,True,False,False,key
+e|roos,,,evan-roos,Evan Roos,,South Africa,,False,True,False,False,key
 e|roots,209640,Ethan Roots,ethan-roots,Ethan Roots,,England,Back-row,True,True,False,False,key
-f|alongi,202968,Filippo Alongi,,,,,Prop,True,False,False,False,key
+e|setiano,,,emerick-setiano,Emerick Setiano,,France,,False,True,False,False,key
+e|todaro,,,edoardo-todaro,Edoardo Todaro,,,,False,True,False,False,key
+e|uluiviti,,,epineri-uluiviti,Epineri Uluiviti,,Japan,,False,True,False,False,key
+e|vandermerwe,,,edwill-van-der-merwe,Edwill Van Der Merwe,,South Africa,,False,True,False,False,key
+e|waqa,,,etonia-waqa,Etonia Waqa,,Fiji,,False,True,False,False,key
+f|alongi,202968,Filippo Alongi,filippo-alongi,Filippo Alongi,,,Prop,True,True,False,False,key
 f|baxter,226920,Fin Baxter,fin-baxter,F. Baxter,F. Baxter,England,Prop,True,True,True,False,key
 f|bealham,112068,Finlay Bealham,finlay-bealham,F. Bealham,F. Bealham,Ireland,Prop,True,True,True,False,key
 f|brauboirie,354888,Fabien Brau-Boirie,fabien-brau-boirie,Fabien Brau Boirie,F. Brau-Boirie,France,Centre,True,True,True,False,key
 f|brown,60816,Fraser Brown,fraser-brown,Fraser Brown,F. Brown,,Hooker,True,True,True,False,key
 f|burke,,,fergus-burke,F. Burke,,New Zealand,,False,True,False,False,key
+f|christie,,,finlay-christie,Finlay Christie,,New Zealand,,False,True,False,False,key
+f|coria,,,francisco-coria,Francisco Coria,,Argentina,,False,True,False,False,key
 f|cros,123366,Francois Cros,francois-cros,F. Cros,F. Cros,France,Back-row,True,True,True,False,key
+f|daugunu,,,filipo-daugunu,Filipo Daugunu,,Australia,,False,True,False,False,key
+f|deklerk,,,francois-de-klerk,Francois De Klerk,,South Africa,,False,True,False,False,key
 f|dingwall,156030,Fraser Dingwall,fraser-dingwall,F. Dingwall,F. Dingwall,England,Centre,True,True,True,False,key
 f|douglas,366438,Freddy Douglas,freddie-douglas,F. Douglas,F. Douglas,Scotland,Back-row,True,True,True,False,key
+f|fineanganofo,,,fehi-fineanganofo,Fehi Fineanganofo,,New Zealand,,False,True,False,False,key
+f|gomezkodela,,,francisco-gomez-kodela,Francisco Gomez Kodela,,Argentina,,False,True,False,False,key
+f|holland,,,fabian-holland,Fabian Holland,,Netherlands,,False,True,False,False,key
+f|isa,,,facundo-isa,Facundo Isa,,Argentina,,False,True,False,False,key
+f|lomani,,,frank-lomani,Frank Lomani,,Fiji,,False,True,False,False,key
+f|malherbe,,,frans-malherbe,Frans Malherbe,,South Africa,,False,True,False,False,key
+f|mcreight,,,fraser-mcreight,Fraser Mcreight,,Australia,,False,True,False,False,key
+f|molina,,,franco-molina,Franco Molina,,Argentina,,False,True,False,False,key
 f|mori,202962,Federico Mori,federico-mori,Federico Mori,,Italy,Centre,True,True,False,False,key
+f|mostert,,,franco-mostert,Franco Mostert,,South Africa,,False,True,False,False,key
+f|newell,,,fletcher-newell,Fletcher Newell,,New Zealand,,False,True,False,False,key
+f|richardson,,,finlay-richardson,Finlay Richardson,,Scotland,,False,True,False,False,key
 f|russell,117894,Finn Russell,finn-russell,F. Russell,F. Russell,Scotland,Fly-half,True,True,True,False,key
 f|ruzza,129234,Federico Ruzza,federico-ruzza,F. Ruzza,F. Ruzza,Italy,Second-row,True,True,True,False,key
+f|sanchezvalarolo,,,faustino-sanchez-valarolo,Faustino Sanchez Valarolo,,,,False,True,False,False,key
+f|smith,227772,Fin Smith,fin-smith,Fin Smith,F. Smith,England,Fly-half,True,True,True,False,key
 f|smith,227772,Fin Smith,finlay-smith,F. Smith,F. Smith,England,Fly-half,True,True,True,False,key
 f|steward,203496,Freddie Steward,freddie-steward,F. Steward,F. Steward,England,Back-three,True,True,True,False,key
 f|thomas,226926,Freddie Thomas,freddie-thomas,F. Thomas,F. Thomas,England,Second-row,True,True,True,False,key
+f|vanverberghe,,,florent-vanverberghe,Florent Vanverberghe,,France,,False,True,False,False,key
+f|verhaeghe,,,florian-verhaeghe,Florian Verhaeghe,,,,False,True,False,False,key
 f|zani,140904,Federico Zani,federico-zani,Federico Zani,F. Zani,Italy,Prop,True,True,True,False,key
 g|alldritt,176748,Gregory Alldritt,gregory-alldritt,G. Alldritt,G. Alldritt,France,Back-row,True,True,True,False,key
 g|anscombe,109668,Gareth Anscombe,gareth-anscombe,G. Anscombe,G. Anscombe,,Fly-half,True,True,True,False,key
 g|arfeuil,,,gregoire-arfeuil,G. Arfeuil,,France,,False,True,False,False,key
 g|barlot,196806,Gaetan Barlot,gaeton-barlot,Gaeton Barlot,G. Barlot,France,Hooker,True,True,True,False,key
+g|bell,,,george-bell,George Bell,,New Zealand,,False,True,False,False,key
+g|beria,,,giorgi-beria,Giorgi Beria,,France,,False,True,False,False,key
 g|bertaccini,,,giulio-bertaccini,G. Bertaccini,,Italy,,False,True,False,False,key
+g|bertranou,,,gonzalo-bertranou,Gonzalo Bertranou,,Argentina,,False,True,False,False,key
+g|bower,,,george-bower,George Bower,,New Zealand,,False,True,False,False,key
 g|brown,220296,Gregor Brown,gregor-brown,G. Brown,G. Brown,Scotland,Second-row,True,True,True,False,key
 g|colombe,165192,Georges-Henri Colombe,georges-henri-colombe,G. Colombe,G. Colombe,France,Prop,True,True,True,False,key
 g|coombes,,,gavin-coombes,G. Coombes,,Ireland,,False,True,False,False,key
+g|cramont,,,guillaume-cramont,Guillaume Cramont,,France,,False,True,False,False,key
 g|dare,202974,Giacomo Da Re,giacomo-da-re,G. da Re,,Italy,Fly-half,True,True,False,False,key
 g|davies,60942,Gareth Davies,gareth-davies,Gareth Davies,,Wales,Scrum-half,True,True,False,False,key
 g|drean,242484,Gael Drean,gael-drean,G. Drean,G. Drean,France,Back-three,True,True,True,False,key
@@ -166,8 +318,9 @@ g|fickou,119154,Gael Fickou,gael-fickou,G. Fickou,G. Fickou,France,Centre,True,T
 g|fisilau,,,greg-fisilau,G. Fisilau,,England,,False,True,False,False,key
 g|ford,66258,George Ford,george-ford,G. Ford,G. Ford,England,Fly-half,True,True,True,False,key
 g|furbank,155724,George Furbank,george-furbank,G. Furbank,,England,Back-three,True,True,False,False,key
+g|garcia,,,gonzalo-garcia,Gonzalo Garcia,,Argentina,,False,True,False,False,key
 g|gilchrist,102762,Grant Gilchrist,grant-gilchrist,G. Gilchrist,G. Gilchrist,Scotland,Second-row,True,True,True,False,key
-g|graham,119028,Gary Graham,,,,,Back-row,True,False,False,False,key
+g|graham,119028,Gary Graham,gary-graham,Gary Graham,,,Back-row,True,True,False,False,key
 g|hamerwebb,213756,Gabriel Hamer-Webb,gabriel-hamer-webb,G. Hamer-Webb,G. Hamer-Webb,England,Back-three,True,True,True,False,key
 g|hiddleston,,,gregor-hiddleston,G. Hiddleston,,Scotland,,False,True,False,False,key
 g|horne,129792,George Horne,george-horne,G. Horne,G. Horne,Scotland,Scrum-half,True,True,True,False,key
@@ -177,221 +330,463 @@ g|martin,213798,George Martin,george-martin,G. Martin,G. Martin,England,Second-r
 g|mccarthy,350502,Gus McCarthy,gus-mccarthy,G. McCarthy,G. McCarthy,Ireland,Hooker,True,True,True,False,key
 g|nicotera,226836,Giacomo Nicotera,giacomo-nicotera,G. Nicotera,G. Nicotera,Italy,Hooker,True,True,True,False,key
 g|north,109650,George North,george-north,George North,G. North,Wales,Centre,True,True,True,False,key
-g|palazzani,112212,Guglielmo Palazzani,,,,,,True,False,False,False,key
+g|oghre,,,gabriel-oghre,Gabriel Oghre,,England,,False,True,False,False,key
+g|palazzani,112212,Guglielmo Palazzani,guglielmo-palazzani,Guglielmo Palazzani,,,,True,True,False,False,key
 g|pepper,239076,Guy Pepper,guy-pepper,G. Pepper,G. Pepper,England,Back-row,True,True,True,False,key
 g|pettinelli,147378,Giovanni Pettinelli,giovanni-pettinelli,Giovanni Pettinelli,G. Pettinelli,Italy,Back-row,True,True,True,False,key
+g|porter,,,guy-porter,Guy Porter,,England,,False,True,False,False,key
+g|prisciantelli,,,geronimo-prisciantelli,Geronimo Prisciantelli,,Argentina,,False,True,False,False,key
 g|ringrose,129372,Garry Ringrose,garry-ringrose,G. Ringrose,G. Ringrose,Ireland,Centre,True,True,True,False,key
+g|steenekamp,,,gerhard-steenekamp,Gerhard Steenekamp,,South Africa,,False,True,False,False,key
 g|thomas,119118,Gareth Thomas,gareth-thomas,G. Thomas,G. Thomas,Wales,Prop,True,True,True,False,key
 g|turner,117864,George Turner,george-turner,G. Turner,G. Turner,Scotland,Hooker,True,True,True,False,key
 g|villiere,181440,Gabin Villiere,gabin-villiere,G. Villiere,,France,Back-three,True,True,False,False,key
 g|warr,,,gus-warr,G. Warr,,Scotland,,False,True,False,False,key
+g|williams,,,grant-williams,Grant Williams,,,,False,True,False,False,key
+g|young,,,glen-young,Glen Young,,Scotland,,False,True,False,False,key
 g|zilocchi,147354,Giosue Zilocchi,giosue-zilocchi,G. Zilocchi,G. Zilocchi,Italy,Prop,True,True,True,False,key
-h|amos,116790,Hallam Amos,,,,,Back-three,True,False,False,False,key
+h|amos,116790,Hallam Amos,hallam-amos,Hallam Amos,,,Back-three,True,True,False,False,key
 h|arundell,238830,Henry Arundell,henry-arundell,H. Arundell,H. Arundell,England,Back-three,True,True,True,False,key
 h|auradou,238278,Hugo Auradou,hugo-auradou,H. Auradou,H. Auradou,France,Second-row,True,True,True,False,key
 h|byrne,179142,Harry Byrne,harry-byrne,H. Byrne,,Ireland,Fly-half,True,True,False,False,key
 h|deaves,232122,Harri Deaves,harri-deaves,H. Deaves,H. Deaves,Wales,Back-row,True,True,True,False,key
-h|faiva,124578,Hame Faiva,,,,,Hooker,True,False,False,False,key
+h|era,,,hayate-era,Hayate Era,,Japan,,False,True,False,False,key
+h|faiva,124578,Hame Faiva,epalahame-faiva,Hame Faiva,,Italy,Hooker,True,True,False,False,key
+h|gavin,,,hugh-gavin,Hugh Gavin,,Ireland,,False,True,False,False,key
+h|hetet,,,haereiti-hetet,Haereiti Hetet,,Fiji,,False,True,False,False,key
+h|hockings,,,harry-hockings,Harry Hockings,,Australia,,False,True,False,False,key
 h|jones,136776,Huw Jones,huw-jones,H. Jones,H. Jones,Scotland,Centre,True,True,True,False,key
+h|keddie,,,harrison-keddie,Harrison Keddie,,Wales,,False,True,False,False,key
 h|keenan,143496,Hugo Keenan,hugo-keenan,H. Keenan,H. Keenan,Ireland,Back-three,True,True,True,False,key
-h|kolingar,169650,Hassane Kolingar,,,,,Prop,True,False,False,False,key
+h|kida,,,haruto-kida,Haruto Kida,,Japan,,False,True,False,False,key
+h|kolingar,169650,Hassane Kolingar,hassane-kolingar,Hassane Kolingar,,France,Prop,True,True,False,False,key
+h|morris,,,harri-morris,Harri Morris,,Scotland,,False,True,False,False,key
 h|oconnor,220068,Harri O'Connor,harri-oconnor,Harri Oconnor,,Wales,Prop,True,True,False,False,key
+h|paisami,,,hunter-paisami,Hunter Paisami,,Australia,,False,True,False,False,key
 h|paterson,220776,Harry Paterson,harry-paterson,Harry Paterson,,Scotland,Back-three,True,True,False,False,key
+h|plummer,,,harry-plummer,Harry Plummer,,New Zealand,,False,True,False,False,key
+h|pollard,,,handre-pollard,Handre Pollard,,South Africa,,False,True,False,False,key
 h|pollock,342324,Henry Pollock,henry-pollock,H. Pollock,H. Pollock,England,Back-row,True,True,True,False,key
+h|potter,,,harry-potter,Harry Potter,,Australia,,False,True,False,False,key
 h|randall,148404,Harry Randall,harry-randall,H. Randall,H. Randall,England,Scrum-half,True,True,True,False,key
 h|reus,,,hugo-reus,H. Reus,,France,,False,True,False,False,key
 h|slade,114534,Henry Slade,henry-slade,H. Slade,H. Slade,England,Centre,True,True,True,False,key
+h|stewart,,,hamish-stewart,Hamish Stewart,,Australia,,False,True,False,False,key
+h|tatekawa,,,harumichi-tatekawa,Harumichi Tatekawa,,Japan,,False,True,False,False,key
 h|thomas,110982,Henry Thomas,harry-thomas,H. Thomas,H. Thomas,Wales,Prop,True,True,True,False,key
+h|thomas,110982,Henry Thomas,henry-thomas,Henry Thomas,H. Thomas,Wales,Prop,True,True,True,False,key
+h|vailea,,,halatoa-vailea,Halatoa Vailea,,Japan,,False,True,False,False,key
+h|watanabe,,,haruto-watanabe,Haruto Watanabe,,,,False,True,False,False,key
 h|watson,111852,Hamish Watson,hamish-watson,Hamish Watson,H. Watson,Scotland,Back-row,True,True,True,False,key
-h|williams,122682,Harry Williams,,,,,Prop,True,False,False,False,key
+h|williams,122682,Harry Williams,harry-williams,Harry Williams,,England,Prop,True,True,False,False,key
+h|wilson,,,harry-wilson,Harry Wilson,,England,,False,True,False,False,key
+i|aedokailea,,,isaac-aedo-kailea,Isaac Aedo Kailea,,Australia,,False,True,False,False,key
+i|burua,,,inoke-burua,Inoke Burua,,Fiji,,False,True,False,False,key
+i|calles,,,ignacio-calles,Ignacio Calles,,Argentina,,False,True,False,False,key
+i|diallo,,,ibrahim-diallo,Ibrahim Diallo,,France,,False,True,False,False,key
+i|droasese,,,ilaisa-droasese,Ilaisa Droasese,,Fiji,,False,True,False,False,key
 i|feyiwaboso,230898,Immanuel Feyi-Waboso,immanuel-feyi-waboso,Immanuel Feyi Waboso,,England,Back-three,True,True,False,False,key
+i|finesleleiwasa,,,issak-fines-leleiwasa,Issak Fines Leleiwasa,,Australia,,False,True,False,False,key
 i|henderson,112074,Iain Henderson,iain-henderson,I. Henderson,I. Henderson,Northern Ireland,Second-row,True,True,True,False,key
+i|kamimura,,,itsuki-kamimura,Itsuki Kamimura,,Japan,,False,True,False,False,key
 i|lloyd,187314,Ioan Lloyd,ioan-lloyd,Ioan Lloyd,,Wales,Fly-half,True,True,False,False,key
-i|nemer,223302,Ivan Nemer,,,,,Prop,True,False,False,False,key
+i|mapusua,,,isaiah-mapusua,Isaiah Mapusua,,New Zealand,,False,True,False,False,key
+i|masi,,,iosefo-masi,Iosefo Masi,,Fiji,,False,True,False,False,key
+i|mendy,,,ignacio-mendy,Ignacio Mendy,,Argentina,,False,True,False,False,key
+i|nakakusu,,,ichigo-nakakusu,Ichigo Nakakusu,,Japan,,False,True,False,False,key
+i|nasilasila,,,isoa-nasilasila,Isoa Nasilasila,,Fiji,,False,True,False,False,key
+i|neculai,,,ion-neculai,Ion Neculai,,Italy,,False,True,False,False,key
+i|nemer,223302,Ivan Nemer,ivan-nemer,Ivan Nemer,,Italy,Prop,True,True,False,False,key
+i|perese,,,izaia-perese,Izaia Perese,,Australia,,False,True,False,False,key
+i|ruiz,,,ignacio-ruiz,Ignacio Ruiz,,Argentina,,False,True,False,False,key
+i|sword1,,,izi-sword-1,Izi Sword 1,,Australia,,False,True,False,False,key
+i|tabuavou,,,inia-tabuavou,Inia Tabuavou,,Fiji,,False,True,False,False,key
 j|adams,129096,Josh Adams,josh-adams,Josh Adams,J. Adams,,Back-three,True,True,True,False,key
-j|ball,120942,Jake Ball,,,,,Second-row,True,False,False,False,key
+j|aukusosuaalii,,,joseph-aukuso-suaalii,Joseph Aukuso Suaalii,,Australia,,False,True,False,False,key
+j|aungier,,,jack-aungier,Jack Aungier,,Ireland,,False,True,False,False,key
+j|ball,120942,Jake Ball,jake-ball,Jake Ball,,,Second-row,True,True,False,False,key
+j|barrett,,,jordie-barrett,Jordie Barrett,,New Zealand,,False,True,False,False,key
+j|bautistapedemonte,,,juan-bautista-pedemonte,Juan Bautista Pedemonte,,Argentina,,False,True,False,False,key
 j|bayliss,141990,Josh Bayliss,josh-bayliss,J. Bayliss,J. Bayliss,Scotland,Back-row,True,True,True,False,key
+j|beetham,,,jacob-beetham,Jacob Beetham,,Wales,,False,True,False,False,key
 j|bhatti,117870,Jamie Bhatti,jamie-bhattie,J. Bhatti,J. Bhatti,Scotland,Prop,True,True,True,False,key
-j|blamire,163776,Jamie Blamire,,,,,Hooker,True,False,False,False,key
+j|blamire,163776,Jamie Blamire,jamie-blamire,Jamie Blamire,,,Hooker,True,True,False,False,key
 j|botham,154938,James Botham,james-botham,James Botham,J. Botham,Wales,Back-row,True,True,True,False,key
 j|boyle,231864,Jack Boyle,jack-boyle,J. Boyle,J. Boyle,Ireland,Prop,True,True,True,False,key
 j|brennan,219924,Joshua Brennan,joshua-brennan,J. Brennan,J. Brennan,France,Second-row,True,True,True,False,key
-j|carbery,136860,Joey Carbery,,,,,Fly-half,True,False,False,False,key
-j|carty,118536,Jack Carty,,,,,Fly-half,True,False,False,False,key
+j|campbell,,,jock-campbell,Jock Campbell,,Australia,,False,True,False,False,key
+j|cancoriet,,,judicael-cancoriet,Judicael Cancoriet,,France,,False,True,False,False,key
+j|canham,,,josh-canham,Josh Canham,,Australia,,False,True,False,False,key
+j|carbery,136860,Joey Carbery,joey-carbery,Joey Carbery,,Ireland,Fly-half,True,True,False,False,key
+j|carpenter,,,joseph-carpenter,Joseph Carpenter,,England,,False,True,False,False,key
+j|carty,118536,Jack Carty,jack-carty,Jack Carty,,Ireland,Fly-half,True,True,False,False,key
+j|cokanasiga,,,joe-cokanasiga,Joe Cokanasiga,,England,,False,True,False,False,key
 j|conan,117936,Jack Conan,jack-conan,J. Conan,J. Conan,Ireland,Back-row,True,True,True,False,key
+j|cornelsen,,,jack-cornelsen,Jack Cornelsen,,Japan,,False,True,False,False,key
 j|crowley,201696,Jack Crowley,jack-crowley,J. Crowley,J. Crowley,Ireland,Fly-half,True,True,True,False,key
+j|cruzmallia,,,juan-cruz-mallia,Juan Cruz Mallia,,Argentina,,False,True,False,False,key
 j|danty,116418,Jonathan Danty,jonathan-danty,Jonathan Danty,J. Danty,France,Centre,True,True,True,False,key
-j|davies,96978,Jonathan Davies,,,,,Centre,True,False,False,False,key
+j|davies,96978,Jonathan Davies,jonathan-davies,Jonathan Davies,,Wales,Centre,True,True,False,False,key
+j|delafuente,,,jeronimo-de-la-fuente,Jeronimo De La Fuente,,Argentina,,False,True,False,False,key
 j|dempsey,124308,Jack Dempsey,jack-dempsey,J. Dempsey,J. Dempsey,Scotland,Back-row,True,True,True,False,key
 j|dobie,214146,Jamie Dobie,jamie-dobie,J. Dobie,J. Dobie,Scotland,Back-three,True,True,True,False,key
 j|evans,139716,Jarrod Evans,jarrod-evans,J. Evans,J. Evans,Wales,Fly-half,True,True,True,False,key
+j|favre,,,jules-favre,Jules Favre,,France,,False,True,False,False,key
+j|flook,,,josh-flook,Josh Flook,,Australia,,False,True,False,False,key
 j|george,61134,Jamie George,jamie-george,J. George,J. George,England,Hooker,True,True,True,False,key
 j|gibsonpark,120504,Jamison Gibson-Park,jamison-gibson-park,J. Gibson-Park,J. Gibson-Park,,Scrum-half,True,True,True,False,key
+j|gordon,,,jake-gordon,Jake Gordon,,Australia,,False,True,False,False,key
 j|gray,117852,Jonny Gray,jonny-gray,J. Gray,J. Gray,Scotland,Second-row,True,True,True,False,key
+j|grobbelaar,,,johan-grobbelaar,Johan Grobbelaar,,South Africa,,False,True,False,False,key
 j|gros,178704,Jean-Baptiste Gros,jean-baptiste-gros,J. Gros,J. Gros,France,Prop,True,True,True,False,key
+j|hamano,,,junta-hamano,Junta Hamano,,Japan,,False,True,False,False,key
+j|hannah1,,,jamie-hannah-1,Jamie Hannah 1,,New Zealand,,False,True,False,False,key
 j|hathaway,263466,Josh Hathaway,josh-hathaway,J. Hathaway,J. Hathaway,Wales,Back-three,True,True,True,False,key
 j|hawkins,220962,Joe Hawkins,joe-hawkins,J. Hawkins,J. Hawkins,Wales,Centre,True,True,True,False,key
+j|hendrikse,,,jaden-hendrikse,Jaden Hendrikse,,South Africa,,False,True,False,False,key
+j|hendrikse,,,jordan-hendrikse,Jordan Hendrikse,,South Africa,,False,True,False,False,key
+j|hendrikwessels,,,jan-hendrik-wessels,Jan Hendrik Wessels,,South Africa,,False,True,False,False,key
 j|heyes,178806,Joe Heyes,joe-heyes,J. Heyes,J. Heyes,England,Prop,True,True,True,False,key
-j|hill,125916,Jonny Hill,,,,,Second-row,True,False,False,False,key
-j|hodgson,179364,Jamie Hodgson,,,,,Second-row,True,False,False,False,key
-j|hume,148710,James Hume,,,,,Centre,True,False,False,False,key
+j|hill,125916,Jonny Hill,jonny-hill,Jonny Hill,,England,Second-row,True,True,False,False,key
+j|hodgson,179364,Jamie Hodgson,jamie-hodgson,Jamie Hodgson,,Scotland,Second-row,True,True,False,False,key
+j|hume,148710,James Hume,james-hume,James Hume,,Northern Ireland,Centre,True,True,False,False,key
 j|ignaciobrex,118614,Juan Ignacio Brex,juan-ignacio-brex,N. Brex,J. Brex,Italy,Centre,True,True,True,False,surname
+j|joseph,,,jordan-joseph,Jordan Joseph,,France,,False,True,False,False,key
+j|jurand,,,joris-jurand,Joris Jurand,,France,,False,True,False,False,key
 j|kenningham,,,jack-kenningham,J. Kenningham,,England,,False,True,False,False,key
-j|lang,155748,James Lang,,,,,Centre,True,False,False,False,key
+j|kleyn,,,jean-kleyn,Jean Kleyn,,,,False,True,False,False,key
+j|koroiduadua,,,jone-koroiduadua,Jone Koroiduadua,,Fiji,,False,True,False,False,key
+j|kriel,,,jesse-kriel,Jesse Kriel,,South Africa,,False,True,False,False,key
+j|lang,155748,James Lang,james-lang,James Lang,,Scotland,Centre,True,True,False,False,key
 j|larmour,148896,Jordan Larmour,jordan-larmour,Jordan Larmour,,Ireland,Back-three,True,True,False,False,key
-j|launchbury,111438,Joe Launchbury,,,,,Second-row,True,False,False,False,key
+j|launchbury,111438,Joe Launchbury,joe-launchbury,Joe Launchbury,,England,Second-row,True,True,False,False,key
+j|lord,,,josh-lord,Josh Lord,,New Zealand,,False,True,False,False,key
 j|loughman,136854,Jeremy Loughman,jeremy-loughman,J. Loughman,J. Loughman,Ireland,Prop,True,True,True,False,key
 j|lowe,120468,James Lowe,james-lowe,J. Lowe,J. Lowe,New Zealand,Back-three,True,True,True,False,key
+j|lucdupreez,,,jean-luc-du-preez,Jean Luc Du Preez,,South Africa,,False,True,False,False,key
 j|macleod,150126,Josh MacLeod,josh-macleod,J. Macleod,J. Macleod,Wales,Back-row,True,True,True,False,key
 j|mann,,,jack-mann,J. Mann,,Scotland,,False,True,False,False,key
 j|marchand,135138,Julien Marchand,julien-marchand,J. Marchand,J. Marchand,France,Hooker,True,True,True,False,key
 j|marchant,132354,Joe Marchant,joe-marchant,Joe Marchant,J. Marchant,England,Centre,True,True,True,False,key
 j|marler,97614,Joe Marler,joe-marler,Joe Marler,,England,Prop,True,True,False,False,key
-j|may,101802,Jonny May,,,,,Back-three,True,False,False,False,key
+j|martingonzalez,,,juan-martin-gonzalez,Juan Martin Gonzalez,,Argentina,,False,True,False,False,key
+j|matthews,,,johnny-matthews,Johnny Matthews,,Scotland,,False,True,False,False,key
+j|maximin,,,jimi-maximin,Jimi Maximin,,France,,False,True,False,False,key
+j|may,101802,Jonny May,jonny-may,Jonny May,,England,Back-three,True,True,False,False,key
 j|mccarthy,220194,Joe McCarthy,joe-mccarthy,J. McCarthy,J. McCarthy,,Second-row,True,True,True,False,key
-j|mcnicholl,115062,Johnny McNicholl,,,,,Back-three,True,False,False,False,key
-j|meyer,128844,Johan Meyer,,,,,Back-row,True,False,False,False,key
+j|mcnicholl,115062,Johnny McNicholl,johnny-mcnicholl,Johnny Mcnicholl,,Wales,Back-three,True,True,False,False,key
+j|meyer,128844,Johan Meyer,johan-meyer,Johan Meyer,,,Back-row,True,True,False,False,key
+j|montoya,,,julian-montoya,Julian Montoya,,Argentina,,False,True,False,False,key
+j|moore,,,james-moore,James Moore,,Japan,,False,True,False,False,key
 j|morgan,203070,Jac Morgan,jac-morgan,J. Morgan,J. Morgan,Wales,Back-row,True,True,True,False,key
-j|navidi,61008,Josh Navidi,,,,,Back-row,True,False,False,False,key
-j|nowell,114528,Jack Nowell,,,,,Back-three,True,False,False,False,key
+j|moro,,,joaquin-moro,Joaquin Moro,,Argentina,,False,True,False,False,key
+j|naikabula,,,jone-naikabula,Jone Naikabula,,Japan,,False,True,False,False,key
+j|nasova,,,joji-nasova,Joji Nasova,,,,False,True,False,False,key
+j|nasser,,,josh-nasser,Josh Nasser,,Australia,,False,True,False,False,key
+j|navidi,61008,Josh Navidi,josh-navidi,Josh Navidi,,,Back-row,True,True,False,False,key
+j|nowell,114528,Jack Nowell,jack-nowell,Jack Nowell,,England,Back-three,True,True,False,False,key
 j|obrien,143514,Jimmy O'Brien,jimmy-obrien,J. O'Brien,J. O'Brien,,Back-three,True,True,True,False,key
+j|oconnor,,,james-oconnor,James Oconnor,,Australia,,False,True,False,False,key
 j|osborne,227658,Jamie Osborne,jamie-osborne,J. Osborne,J. Osborne,Ireland,Back-three,True,True,True,False,key
+j|oviedo,,,joaquin-oviedo,Joaquin Oviedo,,Argentina,,False,True,False,False,key
+j|penoucos,,,juan-penoucos,Juan Penoucos,,,,False,True,False,False,key
+j|petaia,,,jordan-petaia,Jordan Petaia,,Australia,,False,True,False,False,key
+j|piccardo,,,justo-piccardo,Justo Piccardo,,,,False,True,False,False,key
+j|poirot,,,jefferson-poirot,Jefferson Poirot,,France,,False,True,False,False,key
 j|polledri,136740,Jake Polledri,jake-polledri,Jake Polledri,J. Polledri,,Back-row,True,True,True,False,key
 j|postlethwaite,,,jude-postlethwaite,J. Postlethwaite,,Northern Ireland,,False,True,False,False,key
+j|ratti,,,james-ratti,James Ratti,,Wales,,False,True,False,False,key
+j|reinach,,,jacobus-reinach,Jacobus Reinach,,South Africa,,False,True,False,False,key
 j|ritchie,130536,Jamie Ritchie,jamie-ritchie,J. Ritchie,J. Ritchie,Scotland,Back-row,True,True,True,False,key
 j|roberts,203736,Joe Roberts,joe-roberts,J. Roberts,J. Roberts,Wales,Back-three,True,True,True,False,key
 j|ryan,143604,James Ryan,james-ryan,J. Ryan,J. Ryan,,Second-row,True,True,True,False,key
+j|sclavi,,,joel-sclavi,Joel Sclavi,,Argentina,,False,True,False,False,key
 j|sebastian,135522,Javan Sebastian,javan-sebastian,Javan Sebastian,,Scotland,Prop,True,True,False,False,key
+j|segonds,,,joris-segonds,Joris Segonds,,France,,False,True,False,False,key
 j|sexton,90342,Johnny Sexton,johnny-sexton,Johnny Sexton,J. Sexton,Ireland,Fly-half,True,True,True,False,key
+j|slipper,,,james-slipper,James Slipper,,Australia,,False,True,False,False,key
 j|stockdale,136848,Jacob Stockdale,jacob-stockdale,J. Stockdale,J. Stockdale,Northern Ireland,Back-three,True,True,True,False,key
+j|tamani,,,joseva-tamani,Joseva Tamani,,Fiji,,False,True,False,False,key
+j|tarrit,,,janick-tarrit,Janick Tarrit,,France,,False,True,False,False,key
 j|tipuric,78726,Justin Tipuric,justin-tipuric,Justin Tipuric,J. Tipuric,Wales,Back-row,True,True,True,False,key
 j|trulla,202992,Jacopo Trulla,jacopo-trulla,J. Trulla,J. Trulla,Italy,Back-three,True,True,True,False,key
+j|tuisova,,,josua-tuisova,Josua Tuisova,,Fiji,,False,True,False,False,key
 j|vanderflier,118518,Josh van der Flier,josh-van-der-flier,J. van der Flier,J. van der Flier,,Back-row,True,True,True,False,key
-j|vanderwalt,132576,Jaco van der Walt,,,,,Fly-half,True,False,False,False,key
+j|vanderwalt,132576,Jaco van der Walt,jaco-van-der-walt,Jaco Van Der Walt,,,Fly-half,True,True,False,False,key
 j|vanpoortvliet,213786,Jack van Poortvliet,jack-van-poortvliet,J. van Poortvliet,J. van Poortvliet,England,Scrum-half,True,True,True,False,key
+j|vantonder,,,jacobus-van-tonder,Jacobus Van Tonder,,South Africa,,False,True,False,False,key
+j|wainiqolo,,,jiuta-wainiqolo,Jiuta Wainiqolo,,Fiji,,False,True,False,False,key
 j|walker,129720,Jack Walker,jack-walker,Jack Walker,J. Walker,England,Hooker,True,True,True,False,key
-j|williams,132228,Johnny Williams,,,,,Centre,True,False,False,False,key
+j|wiese,,,jasper-wiese,Jasper Wiese,,South Africa,,False,True,False,False,key
+j|williams,132228,Johnny Williams,jaco-williams,Jaco Williams,,South Africa,Centre,True,True,False,False,key
+j|williams,132228,Johnny Williams,jeremy-williams,Jeremy Williams,,Australia,Centre,True,True,False,False,key
+j|williams,132228,Johnny Williams,johnny-williams,Johnny Williams,,Wales,Centre,True,True,False,False,key
 j|willis,147546,Jack Willis,jack-willis,Jack Willis,J. Willis,England,Back-row,True,True,True,False,key
 k|assiratti,144480,Keiron Assiratti,kieron-assiratti,K. Assiratti,K. Assiratti,Wales,Prop,True,True,True,False,key
-k|earls,54846,Keith Earls,,,,,Back-three,True,False,False,False,key
+k|earls,54846,Keith Earls,keith-earls,Keith Earls,,,Back-three,True,True,False,False,key
+k|fukuda,,,kenta-fukuda,Kenta Fukuda,,Japan,,False,True,False,False,key
+k|giles,,,keelan-giles,Keelan Giles,,Wales,,False,True,False,False,key
 k|gourgues,344334,Kalvin Gourgues,kalvin-gourgues,K. Gourgues,K. Gourgues,France,Centre,True,True,True,False,key
 k|hardy,135900,Kieran Hardy,kieran-hardy,K. Hardy,K. Hardy,Wales,Scrum-half,True,True,True,False,key
+k|himeno,,,kazuki-himeno,Kazuki Himeno,,Japan,,False,True,False,False,key
+k|inagaki,,,keita-inagaki,Keita Inagaki,,Japan,,False,True,False,False,key
+k|ishida,,,kippei-ishida,Kippei Ishida,,Japan,,False,True,False,False,key
+k|james,,,kane-james,Kane James,,England,,False,True,False,False,key
+k|kamikamica,,,kitione-kamikamica,Kitione Kamikamica,,Fiji,,False,True,False,False,key
+k|kobayashi1,,,kenta-kobayashi-1,Kenta Kobayashi 1,,Japan,,False,True,False,False,key
+k|leearendse,,,kurt-lee-arendse,Kurt Lee Arendse,,South Africa,,False,True,False,False,key
 k|mathias,178866,Kemsley Mathias,kemsley-mathias,Kemsley Mathias,,Wales,Prop,True,True,False,False,key
+k|matsuoka,,,kenta-matsuoka,Kenta Matsuoka,,Japan,,False,True,False,False,key
+k|matsushima,,,kotaro-matsushima,Kotaro Matsushima,,Japan,,False,True,False,False,key
+k|nezuka,,,koga-nezuka,Koga Nezuka,,Japan,,False,True,False,False,key
 k|owens,50484,Ken Owens,ken-owens,Ken Owens,K. Owens,,Hooker,True,True,True,False,key
+k|preston,,,kyle-preston,Kyle Preston,,New Zealand,,False,True,False,False,key
+k|ravouvou,,,kalaveti-ravouvou,Kalaveti Ravouvou,,Fiji,,False,True,False,False,key
 k|rowe,179370,Kyle Rowe,kyle-rowe,K. Rowe,K. Rowe,Scotland,Back-three,True,True,True,False,key
+k|salawa,,,kitione-salawa,Kitione Salawa,,,,False,True,False,False,key
+k|sato,,,kenji-sato,Kenji Sato,,Japan,,False,True,False,False,key
+k|shimokawa1,,,kanji-shimokawa-1,Kanji Shimokawa 1,,Japan,,False,True,False,False,key
 k|sinckler,116532,Kyle Sinckler,kyle-sinckler,Kyle Sinckler,K. Sinckler,England,Prop,True,True,True,False,key
+k|smith,,,kwagga-smith,Kwagga Smith,,South Africa,,False,True,False,False,key
 k|steyn,171582,Kyle Steyn,kyle-steyn,K. Steyn,K. Steyn,Scotland,Back-three,True,True,True,False,key
+k|tagivetaua,,,kavaia-tagivetaua,Kavaia Tagivetaua,,,,False,True,False,False,key
+k|tamefusa,,,keijiro-tamefusa,Keijiro Tamefusa,,Japan,,False,True,False,False,key
+k|tixeront,,,killian-tixeront,Killian Tixeront,,France,,False,True,False,False,key
 k|treadwell,129558,Kieran Treadwell,kieran-treadwell,Kieran Treadwell,,Ireland,Second-row,True,True,False,False,key
+k|ueda,,,kazuma-ueda,Kazuma Ueda,,Japan,,False,True,False,False,key
+k|valetini,,,kemu-valetini,Kemu Valetini,,Fiji,,False,True,False,False,key
+k|williams,,,kieran-williams,Kieran Williams,,Wales,,False,True,False,False,key
+k|yamamoto,,,kai-yamamoto,Kai Yamamoto,,Japan,,False,True,False,False,key
+l|am,,,lukhanyo-am,Lukhanyo Am,,South Africa,,False,True,False,False,key
 l|barre,224724,Leo Barre,leo-barre,L. Barre,L. Barre,France,Back-three,True,True,True,False,key
+l|bazanvelez,,,lautaro-bazan-velez,Lautaro Bazan Velez,,Argentina,,False,True,False,False,key
 l|belcher,136062,Liam Belcher,liam-belcher,L. Belcher,L. Belcher,Wales,Hooker,True,True,True,False,key
+l|berdeu,,,leo-berdeu,Leo Berdeu,,France,,False,True,False,False,key
 l|biellebiarrey,231684,Louis Bielle-Biarrey,louis-bielle-biarrey,L. Bielle-Biarrey,L. Bielle-Biarrey,France,Back-three,True,True,True,False,key
 l|bigi,128046,Luca Bigi,luca-bigi,Luca Bigi,L. Bigi,Italy,Hooker,True,True,True,False,key
+l|botia,,,levani-botia,Levani Botia,,Fiji,,False,True,False,False,key
 l|brown,139644,Leon Brown,leon-brown,Leon Brown,L. Brown,Wales,Prop,True,True,True,False,key
 l|cannone,220140,Lorenzo Cannone,lorenzo-cannone,L. Cannone,L. Cannone,Italy,Back-row,True,True,True,False,key
-l|carbonel,176586,Louis Carbonel,,,,,Fly-half,True,False,False,False,key
+l|carbonel,176586,Louis Carbonel,louis-carbonel,Louis Carbonel,,France,Fly-half,True,True,False,False,key
+l|carter,,,leroy-carter,Leroy Carter,,New Zealand,,False,True,False,False,key
+l|cinti,,,lucio-cinti,Lucio Cinti,,Argentina,,False,True,False,False,key
 l|cowandickie,115452,Luke Cowan-Dickie,luke-cowan-dickie,L. Cowan-Dickie,L. Cowan-Dickie,England,Hooker,True,True,True,False,key
 l|crosbie,146766,Luke Crosbie,luke-crosbie,Luke Crosbie,L. Crosbie,Scotland,Back-row,True,True,True,False,key
+l|darricarrere,,,leon-darricarrere,Leon Darricarrere,,France,,False,True,False,False,key
+l|dejager,,,lodewyk-de-jager,Lodewyk De Jager,,South Africa,,False,True,False,False,key
+l|dejager,,,lood-de-jager,Lood De Jager,,,,False,True,False,False,key
+l|dubois,,,lucas-dubois,Lucas Dubois,,France,,False,True,False,False,key
+l|etien,,,lester-etien,Lester Etien,,France,,False,True,False,False,key
+l|faingaanuku,,,leicester-faingaanuku,Leicester Faingaanuku,,New Zealand,,False,True,False,False,key
+l|foketi,,,lalakai-foketi,Lalakai Foketi,,Australia,,False,True,False,False,key
+l|gleeson,,,langi-gleeson,Langi Gleeson,,Australia,,False,True,False,False,key
 l|halfpenny,97650,Leigh Halfpenny,leigh-halfpenny,Leigh Halfpenny,L. Halfpenny,Wales,Back-three,True,True,True,False,key
 l|hennessey,339492,Louie Hennessey,louie-hennessey,L. Hennessey,L. Hennessey,Wales,Centre,True,True,True,False,key
+l|ikitau,,,len-ikitau,Len Ikitau,,Australia,,False,True,False,False,key
+l|jacobson,,,luke-jacobson,Luke Jacobson,,New Zealand,,False,True,False,False,key
+l|lebrun,,,louis-le-brun,Louis Le Brun,,France,,False,True,False,False,key
 l|ludlam,132330,Lewis Ludlam,lewis-ludlam,Lewis Ludlam,L. Ludlam,England,Back-row,True,True,True,False,key
 l|lynagh,213750,Louis Lynagh,louis-lynagh,L. Lynagh,L. Lynagh,Italy,Back-three,True,True,True,False,key
 l|marin,231834,Leonardo Marin,leonardo-marin,L. Marin,L. Marin,Italy,Centre,True,True,True,False,key
+l|martin,,,lucas-martin,Lucas Martin,,France,,False,True,False,False,key
+l|mcconnell,,,liam-mcconnell,Liam Mcconnell,,Scotland,,False,True,False,False,key
 l|morisi,112206,Luca Morisi,luca-morisi,Luca Morisi,L. Morisi,Italy,Centre,True,True,True,False,key
+l|natave,,,livai-natave,Livai Natave,,Fiji,,False,True,False,False,key
+l|northmore,,,luke-northmore,Luke Northmore,,England,,False,True,False,False,key
 l|nouchi,238116,Lenni Nouchi,lenni-nouchi,L. Nouchi,L. Nouchi,France,Back-row,True,True,True,False,key
+l|oviedo,,,leonel-oviedo,Leonel Oviedo,,,,False,True,False,False,key
 l|pani,231744,Lorenzo Pani,lorenzo-pani,L. Pani,L. Pani,Italy,Back-three,True,True,True,False,key
+l|paulos,,,lucas-paulos,Lucas Paulos,,Argentina,,False,True,False,False,key
 l|reeszammit,187290,Louis Rees-Zammit,louis-rees-zammit,Louis Rees Zammit,L. Rees-Zammit,Wales,Back-three,True,True,True,False,key
+l|reimer,,,luke-reimer,Luke Reimer,,Australia,,False,True,False,False,key
 l|rizzoli,231762,Luca Rizzoli,luca-rizzoli,Luca Rizzoli,L. Rizzoli,Italy,Prop,True,True,True,False,key
-l|sperandio,136758,Luca Sperandio,,,,,Back-three,True,False,False,False,key
+l|shaw,,,lachlan-shaw,Lachlan Shaw,,Australia,,False,True,False,False,key
+l|sordoni,,,lucio-sordoni,Lucio Sordoni,,Argentina,,False,True,False,False,key
+l|sperandio,136758,Luca Sperandio,luca-sperandio,Luca Sperandio,,,Back-three,True,True,False,False,key
+l|tagi,,,luke-tagi,Luke Tagi,,Fiji,,False,True,False,False,key
+l|tagitagivalu,,,lekima-tagitagivalu,Lekima Tagitagivalu,,Fiji,,False,True,False,False,key
 l|williams,88506,Lloyd Williams,liam-williams,Liam Williams,L. Williams,Wales,Scrum-half,True,True,True,True,key
 l|williams,111690,Liam Williams,liam-williams,Liam Williams,L. Williams,Wales,Back-three,True,True,True,True,key
-m|bellini,129156,Mattia Bellini,,,,,Back-three,True,False,False,False,key
-m|bennett,111762,Mark Bennett,,,,,Centre,True,False,False,False,key
+l|wright,,,liam-wright,Liam Wright,,Australia,,False,True,False,False,key
+l|zarantonello,,,loris-zarantonello,Loris Zarantonello,,Italy,,False,True,False,False,key
+m|alemanno,,,matias-alemanno,Matias Alemanno,,Argentina,,False,True,False,False,key
+m|aloemile,,,moses-alo-emile,Moses Alo Emile,,Australia,,False,True,False,False,key
+m|amatosero,,,miles-amatosero,Miles Amatosero,,Australia,,False,True,False,False,key
+m|bellini,129156,Mattia Bellini,mattia-bellini,Mattia Bellini,,,Back-three,True,True,False,False,key
+m|belloni,,,mirko-belloni,Mirko Belloni,,,,False,True,False,False,key
+m|bennett,111762,Mark Bennett,mark-bennett,Mark Bennett,,Scotland,Centre,True,True,False,False,key
+m|bogado,,,martin-bogado,Martin Bogado,,Argentina,,False,True,False,False,key
 m|bradbury,129396,Magnus Bradbury,magnus-bradbury,M. Bradbury,M. Bradbury,Scotland,Back-row,True,True,True,False,key
 m|canali,178944,Matteo Canali,matteo-canali,Matteo Canali,,Italy,Second-row,True,True,False,False,key
+m|carreras,,,mateo-carreras,Mateo Carreras,,Argentina,,False,True,False,False,key
 m|currie,,,matt-currie,M. Currie,,Scotland,,False,True,False,False,key
+m|deegan,,,max-deegan,Max Deegan,,Ireland,,False,True,False,False,key
+m|doge,,,mesake-doge,Mesake Doge,,Fiji,,False,True,False,False,key
+m|dolokoto,,,mesulame-dolokoto,Mesulame Dolokoto,,Fiji,,False,True,False,False,key
 m|domon,,,marius-domon,M. Domon,,France,,False,True,False,False,key
+m|faessler,,,matt-faessler,Matt Faessler,,Australia,,False,True,False,False,key
 m|fagerson,161856,Matt Fagerson,matt-fagerson,M. Fagerson,M. Fagerson,Scotland,Back-row,True,True,True,False,key
-m|fuser,112224,Marco Fuser,,,,,Second-row,True,False,False,False,key
+m|faissal,,,malik-faissal,Malik Faissal,,,,False,True,False,False,key
+m|ferte,,,mathis-ferte,Mathis Ferte,,France,,False,True,False,False,key
+m|fuser,112224,Marco Fuser,marco-fuser,Marco Fuser,,,Second-row,True,True,False,False,key
 m|gallagher,135870,Matt Gallagher,matt-gallagher,M. Gallagher,M. Gallagher,Italy,Back-three,True,True,True,False,key
 m|gazzotti,,,marko-gazzotti,M. Gazzotti,,France,,False,True,False,False,key
 m|grady,220956,Mason Grady,mason-grady,M. Grady,M. Grady,Wales,Centre,True,True,True,False,key
 m|guillard,219930,Mickael Guillard,mickael-guillard,M. Guillard,M. Guillard,France,Second-row,True,True,True,False,key
+m|halagahu,,,matthias-halagahu,Matthias Halagahu,,France,,False,True,False,False,key
 m|hansen,166674,Mack Hansen,mackenzie-hansen,M. Hansen,M. Hansen,Ireland,Back-three,True,True,True,False,key
 m|haouas,143010,Mohammed Haouas,mohammed-haouas,Mohammed Haouas,M. Haouas,,Prop,True,True,True,False,key
+m|harada,,,mamoru-harada,Mamoru Harada,,Japan,,False,True,False,False,key
 m|hasa,220782,Muhamed Hasa,muhamed-hasa,M. Hasa,M. Hasa,Italy,Prop,True,True,True,False,key
 m|ioane,134016,Monty Ioane,monty-ioane,M. Ioane,M. Ioane,Italy,Back-three,True,True,True,False,key
 m|itoje,122652,Maro Itoje,maro-itoje,M. Itoje,M. Itoje,England,Second-row,True,True,True,False,key
 m|jalibert,169662,Matthieu Jalibert,matthieu-jalibert,M. Jalibert,M. Jalibert,France,Fly-half,True,True,True,False,key
 m|jaminet,221094,Melvyn Jaminet,melvyn-jaminet,Melvyn Jaminet,M. Jaminet,France,Back-three,True,True,True,False,key
+m|jorgensen,,,max-jorgensen,Max Jorgensen,,Australia,,False,True,False,False,key
+m|koroibete,,,marika-koroibete,Marika Koroibete,,Australia,,False,True,False,False,key
+m|kremer,,,marcos-kremer,Marcos Kremer,,Argentina,,False,True,False,False,key
 m|lamaro,164220,Michele Lamaro,michele-lamaro,M. Lamaro,M. Lamaro,Italy,Back-row,True,True,True,False,key
 m|lamothe,178824,Maxime Lamothe,maxime-lamothe,M. Lamothe,M. Lamothe,France,Hooker,True,True,True,False,key
-m|lazzaroni,128016,Marco Lazzaroni,,,,,Second-row,True,False,False,False,key
+m|lazzaroni,128016,Marco Lazzaroni,marco-lazzaroni,Marco Lazzaroni,,,Second-row,True,True,False,False,key
 m|lebel,178986,Matthis Lebel,matthis-lebel,Matthis Lebel,,France,Back-three,True,True,False,False,key
+m|leitch,,,michael-leitch,Michael Leitch,,Japan,,False,True,False,False,key
+m|libbok,,,manie-libbok,Manie Libbok,,South Africa,,False,True,False,False,key
 m|llewellyn,177912,Max Llewellyn,max-llewellyn,M. Llewellyn,M. Llewellyn,Wales,Centre,True,True,True,False,key
-m|lowry,186402,Michael Lowry,,,,,Back-three,True,False,False,False,key
+m|lowry,186402,Michael Lowry,michael-lowry,Michael Lowry,,Northern Ireland,Back-three,True,True,False,False,key
 m|lucu,186162,Maxime Lucu,maxime-lucu,M. Lucu,M. Lucu,France,Scrum-half,True,True,True,False,key
 m|malins,132510,Max Malins,max-malins,Max Malins,M. Malins,England,Back-three,True,True,True,False,key
 m|manfredi,147360,Marco Manfredi,marco-manfredi,Marco Manfredi,,Italy,Hooker,True,True,False,False,key
+m|mapimpi,,,makazole-mapimpi,Makazole Mapimpi,,,,False,True,False,False,key
 m|martin,337560,Mackenzie Martin,mackenzie-martin,Mackenzie Martin,,Wales,Back-row,True,True,False,False,key
-m|mbanda,122892,Maxime Mbanda,,,,,,True,False,False,False,key
+m|marx,,,malcolm-marx,Malcolm Marx,,South Africa,,False,True,False,False,key
+m|mbanda,122892,Maxime Mbanda,maxime-mbanda,Maxime Mbanda,,,,True,True,False,False,key
 m|milne,148770,Michael Milne,michael-milne,M. Milne,M. Milne,Ireland,Prop,True,True,True,False,key
+m|moroni,,,matias-moroni,Matias Moroni,,Argentina,,False,True,False,False,key
+m|morse,,,morgan-morse,Morgan Morse,,Wales,,False,True,False,False,key
+m|nawaqanitawase,,,mark-nawaqanitawase,Mark Nawaqanitawase,,Australia,,False,True,False,False,key
 m|ojomoh,,,max-ojomoh,Max Ojomoh,,England,,False,True,False,False,key
+m|orie,,,marvin-orie,Marvin Orie,,South Africa,,False,True,False,False,key
+m|orlando,,,matias-orlando,Matias Orlando,,Argentina,,False,True,False,False,key
 m|pagerelo,223740,Martin Page-Relo,martin-page-relo,M. Page-Relo,M. Page-Relo,Italy,Scrum-half,True,True,True,False,key
+m|philip,,,matt-philip,Matt Philip,,Australia,,False,True,False,False,key
 m|riccioni,144684,Marco Riccioni,marco-riccioni,M. Riccioni,M. Riccioni,Italy,Prop,True,True,True,False,key
+m|screech,,,matthew-screech,Matthew Screech,,Wales,,False,True,False,False,key
 m|smith,156288,Marcus Smith,marcus-smith,M. Smith,M. Smith,England,Fly-half,True,True,True,False,key
+m|soler,,,mateo-soler,Mateo Soler,,,,False,True,False,False,key
+m|sorovi,,,moses-sorovi,Moses Sorovi,,Fiji,,False,True,False,False,key
 m|spagnolo,231804,Mirco Spagnolo,mirco-spagnolo,M. Spagnolo,M. Spagnolo,Italy,Prop,True,True,True,False,key
+m|spring,,,max-spring,Max Spring,,France,,False,True,False,False,key
 m|sykes,181308,Marshall Sykes,marshall-sykes,M. Sykes,M. Sykes,Scotland,Second-row,True,True,True,False,key
+m|telea,,,mark-telea,Mark Telea,,New Zealand,,False,True,False,False,key
 m|tuilagi,66192,Manu Tuilagi,manu-tuilagi,Manu Tuilagi,,England,Centre,True,True,False,False,key
-m|violi,119196,Marcello Violi,,,,,,True,False,False,False,key
+m|tuitama,,,malo-tuitama,Malo Tuitama,,Japan,,False,True,False,False,key
+m|tuni,,,meli-tuni,Meli Tuni,,Fiji,,False,True,False,False,key
+m|vandenberg,,,morne-van-den-berg,Morne Van Den Berg,,South Africa,,False,True,False,False,key
+m|vandermerwe,,,marnus-van-der-merwe,Marnus Van Der Merwe,,South Africa,,False,True,False,False,key
+m|vanstaden,,,marco-van-staden,Marco Van Staden,,South Africa,,False,True,False,False,key
+m|violi,119196,Marcello Violi,marcello-violi,Marcello Violi,,,,True,True,False,False,key
+m|vivas,,,mayco-vivas,Mayco Vivas,,Argentina,,False,True,False,False,key
+m|vocevoce,,,mesake-vocevoce,Mesake Vocevoce,,Fiji,,False,True,False,False,key
 m|vunipola,102996,Mako Vunipola,mako-vunipola,Mako Vunipola,M. Vunipola,England,Prop,True,True,True,False,key
 m|walker,,,murphy-walker,M. Walker,,Scotland,,False,True,False,False,key
 m|williamson,231570,Max Williamson,max-williamson,M. Williamson,M. Williamson,Scotland,Second-row,True,True,True,False,key
-m|wilson,66204,Mark Wilson,,,,,Back-row,True,False,False,False,key
+m|wilson,66204,Mark Wilson,mark-wilson,Mark Wilson,,,Back-row,True,True,False,False,key
 m|zanon,148110,Marco Zanon,marco-zanon,M. Zanon,,Italy,Centre,True,True,False,False,key
 m|zuliani,204054,Manuel Zuliani,manuelzuliani,M. Zuliani,M. Zuliani,Italy,Back-row,True,True,True,False,key
+n|caluori,,,noah-caluori,Noah Caluori,,England,,False,True,False,False,key
 n|cannone,167196,Niccolo Cannone,niccolo-cannone,N. Cannone,N. Cannone,Italy,Second-row,True,True,True,False,key
+n|championdecrespigny,,,nick-champion-de-crespigny,Nick Champion De Crespigny,,Australia,,False,True,False,False,key
+n|damorim,,,nicolas-damorim,Nicolas Damorim,,,,False,True,False,False,key
 n|depoortere,262248,Nicolas Depoortere,nicolas-depoortere,N. Depoortere,N. Depoortere,France,Centre,True,True,True,False,key
 n|doak,201750,Nathan Doak,nathan-doak,N. Doak,N. Doak,Northern Ireland,Scrum-half,True,True,True,False,key
-n|dolly,172296,Nic Dolly,,,,,,True,False,False,False,key
-n|haining,124830,Nick Haining,,,,,Back-row,True,False,False,False,key
+n|dolly,172296,Nic Dolly,nic-dolly,Nic Dolly,,England,,True,True,False,False,key
+n|fouche,,,neethling-fouche,Neethling Fouche,,South Africa,,False,True,False,False,key
+n|frost,,,nick-frost,Nick Frost,,Australia,,False,True,False,False,key
+n|haining,124830,Nick Haining,nick-haining,Nick Haining,,,Back-row,True,True,False,False,key
+n|hotham,,,noah-hotham,Noah Hotham,,New Zealand,,False,True,False,False,key
+n|hulleu,,,nathanael-hulleu,Nathanael Hulleu,,France,,False,True,False,False,key
 n|isiekwe,162726,Nick Isiekwe,nick-isiekwe,Nick Isiekwe,N. Isiekwe,England,Second-row,True,True,True,False,key
+n|laulala,,,nepo-laulala,Nepo Laulala,,New Zealand,,False,True,False,False,key
 n|legarrec,219972,Nolann Le Garrec,nolann-le-garrec,N. le Garrec,N. Le Garrec,France,Scrum-half,True,True,True,False,key
+n|lolesio,,,noah-lolesio,Noah Lolesio,,Australia,,False,True,False,False,key
 n|mcbeth,179394,Nathan McBeth,nathan-mcbeth,N. McBeth,N. McBeth,Scotland,Prop,True,True,True,False,key
-n|nene,341154,Noah Nene,,,,,Centre,True,False,False,False,key
+n|mccurran,,,nik-mccurran,Nik Mccurran,,Japan,,False,True,False,False,key
+n|mchunu,,,ntuthuko-mchunu,Ntuthuko Mchunu,,South Africa,,False,True,False,False,key
+n|nene,341154,Noah Nene,noah-tisie-nene,Noah Nene,,France,Centre,True,True,False,False,key
+n|roger,,,nicolas-roger,Nicolas Roger,,,,False,True,False,False,key
+n|saito,,,naoto-saito,Naoto Saito,,Japan,,False,True,False,False,key
+n|sanchez,,,nicolas-sanchez,Nicolas Sanchez,,Argentina,,False,True,False,False,key
 n|smith,121974,Nicky Smith,nicky-smith,Nicky Smith,N. Smith,,Prop,True,True,True,False,key
+n|tetazchaparro,,,nahuel-tetaz-chaparro,Nahuel Tetaz Chaparro,,Argentina,,False,True,False,False,key
 n|timoney,136878,Nick Timoney,nick-timoney,N. Timoney,N. Timoney,Ireland,Back-row,True,True,True,False,key
 n|tompkins,120162,Nick Tompkins,nick-tompkins,N. Tompkins,N. Tompkins,,Centre,True,True,True,False,key
+n|white,,,nic-white,Nic White,,Australia,,False,True,False,False,key
 o|beard,,,oscar-beard,O. Beard,,England,,False,True,False,False,key
 o|chessum,218742,Ollie Chessum,oliver-chessum,O. Chessum,O. Chessum,England,Second-row,True,True,True,False,key
 o|cracknell,129894,Olly Cracknell,olly-cracknell,O. Cracknell,O. Cracknell,Wales,Back-row,True,True,True,False,key
-o|fabiani,133836,Oliviero Fabiani,,,,,,True,False,False,False,key
+o|fabiani,133836,Oliviero Fabiani,oliviero-fabiani,Oliviero Fabiani,,,,True,True,False,False,key
 o|farrell,59640,Owen Farrell,owen-farrell,Owen Farrell,O. Farrell,England,Centre,True,True,True,False,key
 o|hassellcollins,172362,Ollie Hassell-Collins,ollie-hassell-collins,Ollie Hassell Collins,O. Hassell-Collins,England,Back-three,True,True,True,False,key
+o|helu,,,opeti-helu,Opeti Helu,,Japan,,False,True,False,False,key
 o|jager,147540,Oli Jager,oli-jager,Oli Jager,,Ireland,Prop,True,True,False,False,key
 o|jegou,242478,Oscar Jegou,oscar-jegou,O. Jegou,O. Jegou,France,Back-row,True,True,True,False,key
-o|kebble,119262,Oli Kebble,,,,,Prop,True,False,False,False,key
+o|kebble,119262,Oli Kebble,oliver-kebble,Oli Kebble,,,Prop,True,True,False,False,key
 o|lawrence,177378,Ollie Lawrence,ollie-lawrence,O. Lawrence,O. Lawrence,England,Centre,True,True,True,False,key
+o|nche,,,ox-nche,Ox Nche,,South Africa,,False,True,False,False,key
+o|norris,,,ollie-norris,Ollie Norris,,New Zealand,,False,True,False,False,key
 o|sleightholme,172416,Ollie Sleightholme,ollie-sleightholme,O. Sleightholme,O. Sleightholme,England,Back-three,True,True,True,False,key
 o|smith,202194,Ollie Smith,ollie-smith,O. Smith,,Scotland,Back-three,True,True,False,False,key
+o|tuungafasi,,,ofa-tuungafasi,Ofa Tuungafasi,,New Zealand,,False,True,False,False,key
 o|watkin,136476,Owen Watkin,owen-watkin,O. Watkin,,Wales,Centre,True,True,False,False,key
 o|williams,111624,Owen Williams,owen-williams,Owen Williams,O. Williams,Wales,Fly-half,True,True,True,False,key
 p|barassi,162150,Pierre-Louis Barassi,pierre-louis-barassi,P. Barassi,P. Barassi,France,Centre,True,True,True,False,key
+p|bochaton,,,pierre-bochaton,Pierre Bochaton,,France,,False,True,False,False,key
+p|boudehent,198624,Paul Boudehent,paul-boudehent,Paul Boudehent,P. Boudehent,France,Back-row,True,True,True,False,key
 p|boudehent,198624,Paul Boudehent,pierre-boudehent,P. Boudehent,P. Boudehent,France,Back-row,True,True,True,False,key
 p|bourgarit,147570,Pierre Bourgarit,pierre-bourgarit,P. Bourgarit,,France,Hooker,True,True,False,False,key
 p|bruno,136626,Pierre Bruno,pierre-bruno,Pierre Bruno,P. Bruno,Italy,Back-three,True,True,True,False,key
+p|buonfiglio,,,paolo-buonfiglio,Paolo Buonfiglio,,Italy,,False,True,False,False,key
+p|buthelezi,,,phendulani-buthelezi,Phendulani Buthelezi,,South Africa,,False,True,False,False,key
 p|ceccarelli,118062,Pietro Ceccarelli,pietro-ceccarelli,Pietro Ceccarelli,P. Ceccarelli,Italy,Prop,True,True,True,False,key
+p|dakuwaqa,,,peniasi-dakuwaqa,Peniasi Dakuwaqa,,Fiji,,False,True,False,False,key
+p|delgado,,,pedro-delgado,Pedro Delgado,,Argentina,,False,True,False,False,key
+p|devilliers,,,paul-de-villiers,Paul De Villiers,,South Africa,,False,True,False,False,key
 p|dimcheff,207198,Pablo Dimcheff,pablo-dimcheff,P. Dimcheff,P. Dimcheff,Argentina,Hooker,True,True,True,False,key
 p|gabrillagues,133476,Paul Gabrillagues,paul-gabrillagues,Paul Gabrillagues,,France,Second-row,True,True,False,False,key
 p|garbisi,203034,Paolo Garbisi,paolo-garbisi,P. Garbisi,P. Garbisi,Italy,Fly-half,True,True,True,False,key
 p|harrison,,,patrick-harrison,P. Harrison,,Scotland,,False,True,False,False,key
+p|henriazagoh,,,pierre-henri-azagoh,Pierre Henri Azagoh,,France,,False,True,False,False,key
+p|labuschagne,,,pieter-labuschagne,Pieter Labuschagne,,Japan,,False,True,False,False,key
+p|lakai,,,peter-lakai,Peter Lakai,,New Zealand,,False,True,False,False,key
+p|loganimasi,,,ponipate-loganimasi,Ponipate Loganimasi,,Fiji,,False,True,False,False,key
+p|mallez,,,paul-mallez,Paul Mallez,,France,,False,True,False,False,key
+p|matawalu,,,peni-matawalu,Peni Matawalu,,Fiji,,False,True,False,False,key
+p|matera,,,pablo-matera,Pablo Matera,,Argentina,,False,True,False,False,key
 p|mauvaka,147480,Peato Mauvaka,peato-mauvaka,P. Mauvaka,P. Mauvaka,France,Hooker,True,True,True,False,key
+p|mccarthy,,,paddy-mccarthy,Paddy Mccarthy,,Ireland,,False,True,False,False,key
 p|odogwu,142488,Paolo Odogwu,paolo-odogwu,P. Odogwu,P. Odogwu,Italy,Back-three,True,True,True,False,key
 p|omahony,61620,Peter O'Mahony,peter-omahony,P. O'Mahony,P. O'Mahony,Ireland,Back-row,True,True,True,False,key
+p|ravai,,,peni-ravai,Peni Ravai,,Fiji,,False,True,False,False,key
+p|rubiolo,,,pedro-rubiolo,Pedro Rubiolo,,Argentina,,False,True,False,False,key
+p|samu,,,peter-samu,Peter Samu,,Australia,,False,True,False,False,key
 p|schoeman,130290,Pierre Schoeman,pierre-schoeman,P. Schoeman,P. Schoeman,Scotland,Prop,True,True,True,False,key
+p|sowakula,,,pita-sowakula,Pita Sowakula,,,,False,True,False,False,key
+p|stephdutoit,,,pieter-steph-du-toit,Pieter Steph Du Toit,,South Africa,,False,True,False,False,key
+p|tosi,,,pasilio-tosi,Pasilio Tosi,,,,False,True,False,False,key
 p|tuilagi,238206,Posolo Tuilagi,posolo-tuilagi,Posolo Tuilagi,,France,Second-row,True,True,False,False,key
+p|tuipulotu,,,patrick-tuipulotu,Patrick Tuipulotu,,New Zealand,,False,True,False,False,key
 p|willemse,118416,Paul Willemse,paul-willemse,Paul Willemse,P. Willemse,France,Second-row,True,True,True,False,key
+p|yato,,,peceli-yato,Peceli Yato,,,,False,True,False,False,key
+q|cooper,,,quade-cooper,Quade Cooper,,,,False,True,False,False,key
+q|horn,,,quan-horn,Quan Horn,,South Africa,,False,True,False,False,key
+q|tupaea,,,quinn-tupaea,Quinn Tupaea,,New Zealand,,False,True,False,False,key
+r|arnold,,,richie-arnold,Richie Arnold,,Australia,,False,True,False,False,key
 r|baird,203190,Ryan Baird,ryan-baird,R. Baird,R. Baird,Ireland,Back-row,True,True,True,False,key
 r|baloucoune,186198,Robert Baloucoune,robert-baloucoune,R. Baloucoune,R. Baloucoune,Northern Ireland,Back-three,True,True,True,False,key
+r|barratt,,,rhys-barratt,Rhys Barratt,,Wales,,False,True,False,False,key
+r|briatte,,,romain-briatte,Romain Briatte,,France,,False,True,False,False,key
+r|bruni,,,rodrigo-bruni,Rodrigo Bruni,,Argentina,,False,True,False,False,key
+r|buros,,,romain-buros,Romain Buros,,France,,False,True,False,False,key
 r|byrne,129288,Ross Byrne,ross-byrne,Ross Byrne,R. Byrne,Ireland,Fly-half,True,True,True,False,key
 r|carre,162870,Rhys Carré,rhys-carre,R. Carre,R. Carre,Wales,Prop,True,True,True,False,key
 r|darge,180222,Rory Darge,rory-darge,R. Darge,R. Darge,Scotland,Back-row,True,True,True,False,key
@@ -403,101 +798,261 @@ r|gray,97512,Richie Gray,richie-gray,Richie Gray,R. Gray,Scotland,Second-row,Tru
 r|henshaw,120702,Robbie Henshaw,robbie-henshaw,R. Henshaw,R. Henshaw,,Centre,True,True,True,False,key
 r|herring,102312,Rob Herring,rob-herring,Rob Herring,R. Herring,Ireland,Hooker,True,True,True,False,key
 r|hutchinson,,,rory-hutchinson,R. Hutchinson,,Scotland,,False,True,False,False,key
-r|jones,111030,Rhodri Jones,,,A. Jones,,Prop,True,False,True,False,surname
+r|ioane,,,rieko-ioane,Rieko Ioane,,New Zealand,,False,True,False,False,key
+r|isgro,,,rodrigo-isgro,Rodrigo Isgro,,Argentina,,False,True,False,False,key
+r|ito,,,ryunosuke-ito,Ryunosuke Ito,,,,False,True,False,False,key
+r|iwaihara,,,ryosuke-iwaihara,Ryosuke Iwaihara,,Japan,,False,True,False,False,key
+r|jones,111030,Rhodri Jones,rhodri-jones,Rhodri Jones,,Wales,Prop,True,True,False,False,key
 r|kelleher,148644,Ronan Kelleher,ronan-kelleher,R. Kelleher,R. Kelleher,,Hooker,True,True,True,False,key
+r|leota,,,robert-leota,Robert Leota,,Australia,,False,True,False,False,key
+r|lonergan,,,ryan-lonergan,Ryan Lonergan,,Australia,,False,True,False,False,key
+r|love,,,ruben-love,Ruben Love,,New Zealand,,False,True,False,False,key
+r|matsuda,,,rikiya-matsuda,Rikiya Matsuda,,Japan,,False,True,False,False,key
+r|mccann,,,ross-mccann,Ross Mccann,,Scotland,,False,True,False,False,key
+r|meliderenalagi,,,ratu-meli-derenalagi,Ratu Meli Derenalagi,,Fiji,,False,True,False,False,key
 r|montagne,207432,Regis Montagne,regis-montagne,R. Montagne,,,Prop,True,True,False,False,key
 r|morganwilliams,,,reuben-morgan-williams,R. Morgan-Williams,,Wales,,False,True,False,False,key
-r|moriarty,120084,Ross Moriarty,,,,,Back-row,True,False,False,False,key
+r|moriarty,120084,Ross Moriarty,ross-moriarty,Ross Moriarty,,Wales,Back-row,True,True,False,False,key
+r|mounga,,,richie-mounga,Richie Mounga,,New Zealand,,False,True,False,False,key
+r|nakamura,,,ryoto-nakamura,Ryoto Nakamura,,Japan,,False,True,False,False,key
 r|neti,133488,Rodrigue Neti,rodrigue-neti,R. Neti,R. Neti,France,Prop,True,True,True,False,key
+r|nortje,,,ruan-nortje,Ruan Nortje,,South Africa,,False,True,False,False,key
+r|norton,,,riley-norton,Riley Norton,,,,False,True,False,False,key
 r|ntamack,165180,Romain Ntamack,romain-ntamack,R. Ntamack,R. Ntamack,France,Fly-half,True,True,True,False,key
 r|patchell,116490,Rhys Patchell,rhys-patchell,Rhys Patchell,R. Patchell,Wales,Fly-half,True,True,True,False,key
 r|quirke,,,rafi-quirke,R. Quirke,,England,,False,True,False,False,key
-r|ruddock,61608,Rhys Ruddock,,,,,Back-row,True,False,False,False,key
+r|rotuisolia,,,ratu-rotuisolia,Ratu Rotuisolia,,Fiji,,False,True,False,False,key
+r|ruddock,61608,Rhys Ruddock,rhys-ruddock,Rhys Ruddock,,,Back-row,True,True,False,False,key
+r|slimani,,,rabah-slimani,Rabah Slimani,,France,,False,True,False,False,key
+r|smith,,,robbie-smith,Robbie Smith,,Scotland,,False,True,False,False,key
+r|snyman,,,rg-snyman,Rg Snyman,,South Africa,,False,True,False,False,key
 r|sutherland,134172,Rory Sutherland,rory-sutherland,R. Sutherland,R. Sutherland,Scotland,Prop,True,True,True,False,key
 r|taofifenua,58998,Romain Taofifenua,romain-taofifenua,R. Taofifenua,R. Taofifenua,France,Second-row,True,True,True,False,key
+r|thompson,,,ross-thompson,Ross Thompson,,Scotland,,False,True,False,False,key
+r|valetini,,,rob-valetini,Rob Valetini,,Australia,,False,True,False,False,key
+r|vanheerden,,,ruben-van-heerden,Ruben Van Heerden,,South Africa,,False,True,False,False,key
+r|venter,,,ruan-venter,Ruan Venter,,South Africa,,False,True,False,False,key
 r|vintcent,231840,Ross Vintcent,ross-vintcent,R. Vintcent,R. Vintcent,Italy,Back-row,True,True,True,False,key
 r|wardi,189984,Reda Wardi,reda-wardi,R. Wardi,R. Wardi,France,Prop,True,True,True,False,key
 r|webb,58584,Rhys Webb,rhys-webb,Rhys Webb,R. Webb,,Scrum-half,True,True,True,False,key
 r|williams,116400,Rhodri Williams,rhodri-williams,R. Williams,R. Williams,Wales,Scrum-half,True,True,True,False,key
-r|wilson,109572,Ryan Wilson,,,,,Back-row,True,False,False,False,key
+r|wilson,109572,Ryan Wilson,ryan-wilson,Ryan Wilson,,,Back-row,True,True,False,False,key
 r|woodman,,,ryan-woodman,R. Woodman,,Wales,,False,True,False,False,key
+r|yamanaka,,,ryohei-yamanaka,Ryohei Yamanaka,,Japan,,False,True,False,False,key
 s|atkinson,232032,Seb Atkinson,sebastien-atkinson,S. Atkinson,S. Atkinson,England,Centre,True,True,True,False,key
 s|baldwin,60708,Scott Baldwin,scott-baldwin,Scott Baldwin,S. Baldwin,,Hooker,True,True,True,False,key
+s|barrett,,,scott-barrett,Scott Barrett,,New Zealand,,False,True,False,False,key
+s|benitezcruz,,,simon-benitez-cruz,Simon Benitez Cruz,,,,False,True,False,False,key
 s|berghan,130044,Simon Berghan,simon-berghan,Simon Berghan,S. Berghan,,Prop,True,True,True,False,key
+s|bolton,,,shayne-bolton,Shayne Bolton,,South Africa,,False,True,False,False,key
+s|cane,,,sam-cane,Sam Cane,,New Zealand,,False,True,False,False,key
+s|carreras,,,santiago-carreras,Santiago Carreras,,Argentina,,False,True,False,False,key
+s|chocobares,,,santiago-chocobares,Santiago Chocobares,,Argentina,,False,True,False,False,key
+s|cordero,,,santiago-cordero,Santiago Cordero,,Argentina,,False,True,False,False,key
 s|costelow,203076,Sam Costelow,sam-costelow,S. Costelow,S. Costelow,Wales,Fly-half,True,True,True,False,key
 s|cummings,136596,Scott Cummings,scott-cummings,S. Cummings,S. Cummings,Scotland,Second-row,True,True,True,False,key
-s|davies,132096,Seb Davies,,,,,Back-row,True,False,False,False,key
+s|darry,,,sam-darry,Sam Darry,,New Zealand,,False,True,False,False,key
+s|davies,132096,Seb Davies,seb-davies,Seb Davies,,Wales,Back-row,True,True,False,False,key
 s|falatea,178248,Sipili Falatea,sipili-falatea,Sipili Falatea,S. Falatea,France,Prop,True,True,True,False,key
 s|ferrari,123210,Simone Ferrari,simone-ferrari,S. Ferrari,S. Ferrari,Italy,Prop,True,True,True,False,key
+s|fifita,,,siosaia-fifita,Siosaia Fifita,,Japan,,False,True,False,False,key
+s|finau,,,samipeni-finau,Samipeni Finau,,New Zealand,,False,True,False,False,key
+s|fujiwara,,,shinobu-fujiwara,Shinobu Fujiwara,,Japan,,False,True,False,False,key
+s|fukui,,,shota-fukui,Shota Fukui,,Japan,,False,True,False,False,key
+s|furuhata,,,sho-furuhata,Sho Furuhata,,Japan,,False,True,False,False,key
 s|gesi,231810,Simone Gesi,simone-gesi,S. Gesi,S. Gesi,Italy,Back-three,True,True,True,False,key
+s|greene,,,sam-greene,Sam Greene,,Australia,,False,True,False,False,key
+s|grondona,,,santiago-grondona,Santiago Grondona,,Argentina,,False,True,False,False,key
 s|hogg,111744,Stuart Hogg,stuart-hogg,Stuart Hogg,S. Hogg,Scotland,Back-three,True,True,True,False,key
-s|johnson,131922,Sam Johnson,,,,,Centre,True,False,False,False,key
+s|horie,,,shota-horie,Shota Horie,,,,False,True,False,False,key
+s|illo,,,sam-illo,Sam Illo,,Ireland,,False,True,False,False,key
+s|jansen,,,sean-jansen,Sean Jansen,,New Zealand,,False,True,False,False,key
+s|johnson,131922,Sam Johnson,sam-johnson,Sam Johnson,,Scotland,Centre,True,True,False,False,key
+s|kakinaga,,,shinnosuke-kakinaga,Shinnosuke Kakinaga,,Japan,,False,True,False,False,key
+s|kerevi,,,samu-kerevi,Samu Kerevi,,Australia,,False,True,False,False,key
+s|kimura,,,sena-kimura,Sena Kimura,,Japan,,False,True,False,False,key
+s|kitamura,,,shuntaro-kitamura,Shuntaro Kitamura,,Japan,,False,True,False,False,key
+s|kitshoff,,,steven-kitshoff,Steven Kitshoff,,South Africa,,False,True,False,False,key
+s|kolisi,,,siya-kolisi,Siya Kolisi,,South Africa,,False,True,False,False,key
+s|komura,,,shinya-komura,Shinya Komura,,Japan,,False,True,False,False,key
+s|kuruvoli,,,simione-kuruvoli,Simione Kuruvoli,,Fiji,,False,True,False,False,key
+s|lee,,,seunghyok-lee,Seunghyok Lee,,Japan,,False,True,False,False,key
+s|lee,,,seungsin-lee,Seungsin Lee,,Japan,,False,True,False,False,key
 s|locatelli,,,samuele-locatelli,S. Locatelli,,Italy,,False,True,False,False,key
 s|macalou,136914,Sekou Macalou,sekou-macalou,Sekou Macalou,S. Macalou,France,Back-row,True,True,True,False,key
-s|maitland,57942,Sean Maitland,,,,,Back-three,True,False,False,False,key
+s|maitland,57942,Sean Maitland,sean-maitland,Sean Maitland,,Scotland,Back-three,True,True,False,False,key
+s|maqala,,,sireli-maqala,Sireli Maqala,,Fiji,,False,True,False,False,key
+s|masirewa,,,semisi-masirewa,Semisi Masirewa,,,,False,True,False,False,key
+s|matavesi,,,samuel-matavesi,Samuel Matavesi,,Fiji,,False,True,False,False,key
 s|mccloskey,129840,Stuart McCloskey,stuart-mccloskey,S. McCloskey,S. McCloskey,Northern Ireland,Centre,True,True,True,False,key
 s|mcdowall,163866,Stafford McDowall,stafford-mcdowall,S. McDowall,S. McDowall,Scotland,Centre,True,True,True,False,key
-s|mcinally,101598,Stuart McInally,,,,,Hooker,True,False,False,False,key
+s|mcinally,101598,Stuart McInally,stuart-mcinally,Stuart Mcinally,,,Hooker,True,True,False,False,key
+s|miura,,,shogo-miura,Shogo Miura,,Japan,,False,True,False,False,key
+s|mngomezulu,,,sacha-mngomezulu,Sacha Mngomezulu,,South Africa,,False,True,False,False,key
+s|moerat,,,salmaan-moerat,Salmaan Moerat,,South Africa,,False,True,False,False,key
+s|nakano,,,shogo-nakano,Shogo Nakano,,Japan,,False,True,False,False,key
+s|negri,129216,Sebastian Negri,sebastian-negri,Sebastian Negri,S. Negri,,Back-row,True,True,True,False,key
 s|negri,129216,Sebastian Negri,sebastian-negri-da-ollegio,S. Negri,S. Negri,Italy,Back-row,True,True,True,False,key
+s|parker,,,simon-parker,Simon Parker,,New Zealand,,False,True,False,False,key
+s|parry,,,sam-parry,Sam Parry,,Wales,,False,True,False,False,key
+s|pernas,,,santiago-pernas,Santiago Pernas,,,,False,True,False,False,key
+s|perofeta,,,stephen-perofeta,Stephen Perofeta,,New Zealand,,False,True,False,False,key
 s|prendergast,337638,Sam Prendergast,sam-prendergast,S. Prendergast,S. Prendergast,Ireland,Fly-half,True,True,True,False,key
-s|rebbadj,163572,Swan Rebbadj,,,,,Second-row,True,False,False,False,key
-s|simmonds,122046,Sam Simmonds,,,,,Back-row,True,False,False,False,key
+s|radradra,,,semi-radradra,Semi Radradra,,Fiji,,False,True,False,False,key
+s|ravutaumada,,,selestino-ravutaumada,Selestino Ravutaumada,,Fiji,,False,True,False,False,key
+s|rayasi,,,salesi-rayasi,Salesi Rayasi,,France,,False,True,False,False,key
+s|rebbadj,163572,Swan Rebbadj,swan-rebbadj,Swan Rebbadj,,France,Second-row,True,True,False,False,key
+s|reece,,,sevu-reece,Sevu Reece,,New Zealand,,False,True,False,False,key
+s|simmonds,122046,Sam Simmonds,sam-simmonds,Sam Simmonds,,,Back-row,True,True,False,False,key
 s|skinner,135774,Sam Skinner,sam-skinner,S. Skinner,S. Skinner,,Second-row,True,True,True,False,key
-s|steele,115302,Scott Steele,,,,,Scrum-half,True,False,False,False,key
+s|steele,115302,Scott Steele,scott-steele,Scott Steele,,,Scrum-half,True,True,False,False,key
 s|stephen,,,seb-stephen,S. Stephen,,,,False,True,False,False,key
+s|stevenson,,,shaun-stevenson,Shaun Stevenson,,New Zealand,,False,True,False,False,key
+s|takeuchi1,,,shuhei-takeuchi-1,Shuhei Takeuchi 1,,Japan,,False,True,False,False,key
+s|tamanivalu,,,seta-tamanivalu,Seta Tamanivalu,,Fiji,,False,True,False,False,key
 s|taofifenua,88518,Sebastien Taofifenua,sebastien-taofifenua,Sebastien Taofifenua,,France,Prop,True,True,False,False,key
+s|taukeiaho,,,samisoni-taukeiaho,Samisoni Taukeiaho,,New Zealand,,False,True,False,False,key
+s|tawake,,,samuela-tawake,Samuela Tawake,,Fiji,,False,True,False,False,key
+s|tua,,,samisoni-tua,Samisoni Tua,,Japan,,False,True,False,False,key
+s|tuicuvu,,,setariki-tuicuvu,Setariki Tuicuvu,,Fiji,,False,True,False,False,key
 s|tuipulotu,139998,Sione Tuipulotu,sione-tuipulotu,S. Tuipulotu,S. Tuipulotu,Scotland,Centre,True,True,True,False,key
+s|turagacoke,,,setareki-turagacoke,Setareki Turagacoke,,Fiji,,False,True,False,False,key
+s|uluinakauvadra,,,saimoni-uluinakauvadra,Saimoni Uluinakauvadra,,,,False,True,False,False,key
 s|underhill,129660,Sam Underhill,sam-underhill,S. Underhill,S. Underhill,England,Back-row,True,True,True,False,key
+s|uru,,,seru-uru,Seru Uru,,Australia,,False,True,False,False,key
 s|varney,213144,Stephen Varney,stephen-varney,S. Varney,S. Varney,Italy,Scrum-half,True,True,True,False,key
+s|vunivalu,,,suliasi-vunivalu,Suliasi Vunivalu,,Australia,,False,True,False,False,key
 s|wainwright,,,sam-wainwright,S. Wainwright,,Wales,,False,True,False,False,key
+s|waqa,,,sanaila-waqa,Sanaila Waqa,,Japan,,False,True,False,False,key
+s|whitelock,,,samuel-whitelock,Samuel Whitelock,,New Zealand,,False,True,False,False,key
+s|wye,,,sam-wye,Sam Wye,,,,False,True,False,False,key
+s|yamamoto,,,shu-yamamoto,Shu Yamamoto,,Japan,,False,True,False,False,key
+t|ahern,,,thomas-ahern,Thomas Ahern,,Ireland,,False,True,False,False,key
+t|ahiwarucirikidaveta,,,te-ahiwaru-cirikidaveta,Te Ahiwaru Cirikidaveta,,Fiji,,False,True,False,False,key
+t|albornoz,,,tomas-albornoz,Tomas Albornoz,,Argentina,,False,True,False,False,key
 t|allan,117834,Tommaso Allan,tommaso-allan,T. Allan,T. Allan,Italy,Back-three,True,True,True,False,key
 t|attissogbe,339450,Theo Attissogbe,theo-attissogbe,T. Attissogbe,T. Attissogbe,France,Back-three,True,True,True,False,key
 t|basham,178746,Taine Basham,taine-basham,Taine Basham,,Wales,Back-row,True,True,False,False,key
+t|baubigny,,,teddy-baubigny,Teddy Baubigny,,France,,False,True,False,False,key
 t|beirne,117954,Tadhg Beirne,tadgh-beirne,T. Beirne,T. Beirne,Ireland,Second-row,True,True,True,False,key
 t|clarkson,203208,Thomas Clarkson,tom-clarkson,T. Clarkson,T. Clarkson,Ireland,Prop,True,True,True,False,key
+t|costley,,,tiennan-costley,Tiennan Costley,,Japan,,False,True,False,False,key
+t|cubelli,,,tomas-cubelli,Tomas Cubelli,,Argentina,,False,True,False,False,key
 t|curry,155892,Tom Curry,tom-curry,T. Curry,T. Curry,England,Back-row,True,True,True,False,key
 t|dan,218844,Theo Dan,theo-dan,T. Dan,T. Dan,England,Hooker,True,True,True,False,key
+t|daubagna,,,thibault-daubagna,Thibault Daubagna,,France,,False,True,False,False,key
 t|davison,175890,Trevor Davison,trevor-davison,T. Davison,T. Davison,England,Prop,True,True,True,False,key
 t|dibartolomeo,231714,Tommaso Di Bartolomeo,tommaso-di-bartolomeo,T. di Bartolomeo,T. di Bartolomeo,Italy,Hooker,True,True,True,False,key
+t|duguid,,,tyler-duguid,Tyler Duguid,,,,False,True,False,False,key
+t|dutoit,,,thomas-du-toit,Thomas Du Toit,,South Africa,,False,True,False,False,key
+t|edmed,,,tane-edmed,Tane Edmed,,Australia,,False,True,False,False,key
 t|faletau,66186,Taulupe Faletau,taulupe-faletau,T. Faletau,T. Faletau,Wales,Back-row,True,True,True,False,key
 t|farrell,124548,Tom Farrell,thomas-farrell,T. Farrell,T. Farrell,Ireland,Centre,True,True,True,False,key
 t|flament,213072,Thibaud Flament,thibaud-flament,T. Flament,T. Flament,France,Second-row,True,True,True,False,key
+t|forner,,,theo-forner,Theo Forner,,France,,False,True,False,False,key
 t|francis,131898,Tomas Francis,tomas-francis,T. Francis,T. Francis,Wales,Prop,True,True,True,False,key
 t|freeman,213192,Tommy Freeman,tommy-freeman,T. Freeman,T. Freeman,England,Back-three,True,True,True,False,key
 t|furlong,112374,Tadhg Furlong,tadhg-furlong,T. Furlong,T. Furlong,Ireland,Prop,True,True,True,False,key
-t|halafihi,132732,Toa Halafihi,,,,,Back-row,True,False,False,False,key
+t|gallo,,,thomas-gallo,Thomas Gallo,,Argentina,,False,True,False,False,key
+t|halafihi,132732,Toa Halafihi,toa-halafihi,Toa Halafihi,,Italy,Back-row,True,True,False,False,key
+t|hill,155868,Ted Hill,ted-hill,Ted Hill,T. Hill,England,Back-row,True,True,True,False,key
 t|hill,155868,Ted Hill,tom-hill,T. Hill,T. Hill,,Back-row,True,True,True,False,key
+t|hojo,,,takuro-hojo,Takuro Hojo,,Japan,,False,True,False,False,key
+t|hooper,,,tom-hooper,Tom Hooper,,Australia,,False,True,False,False,key
+t|hoyt,,,tim-hoyt,Tim Hoyt,,England,,False,True,False,False,key
+t|ikanivere,,,tevita-ikanivere,Tevita Ikanivere,,Fiji,,False,True,False,False,key
 t|jordan,242766,Tom Jordan,tom-jordan,T. Jordan,T. Jordan,Scotland,Centre,True,True,True,False,key
+t|koyama,,,taiki-koyama,Taiki Koyama,,Japan,,False,True,False,False,key
 t|laclayat,,,thomas-laclayat,T. Laclayat,,France,,False,True,False,False,key
+t|lavanini,,,tomas-lavanini,Tomas Lavanini,,Argentina,,False,True,False,False,key
 t|lavault,178980,Thomas Lavault,thomas-lavault,Thomas Lavault,,France,Second-row,True,True,False,False,key
+t|lomax,,,tyrel-lomax,Tyrel Lomax,,New Zealand,,False,True,False,False,key
+t|lynagh,,,tom-lynagh,Tom Lynagh,,Australia,,False,True,False,False,key
 t|matiu,342990,Temo Matiu,temo-matiu,T. Matiu,T. Matiu,France,Back-row,True,True,True,False,key
+t|matsunaga,,,takuro-matsunaga,Takuro Matsunaga,,Japan,,False,True,False,False,key
+t|mayanavanua,,,temo-mayanavanua,Temo Mayanavanua,,Fiji,,False,True,False,False,key
+t|mcdermott,,,tate-mcdermott,Tate Mcdermott,,Australia,,False,True,False,False,key
 t|menoncello,226818,Tommaso Menoncello,tommaso-menoncello,T. Menoncello,T. Menoncello,Italy,Centre,True,True,True,False,key
 t|millet,,,theo-millet,T. Millet,,France,,False,True,False,False,key
+t|mohara,,,takayoshi-mohara,Takayoshi Mohara,,Japan,,False,True,False,False,key
+t|nyakane,,,trevor-nyakane,Trevor Nyakane,,South Africa,,False,True,False,False,key
 t|obrien,148758,Tommy O'Brien,tommy-obrien,Tommy Obrien,T. O'Brien,Ireland,Back-three,True,True,True,False,key
+t|okabe,,,takato-okabe,Takato Okabe,,Japan,,False,True,False,False,key
+t|osada1,,,tomoki-osada-1,Tomoki Osada 1,,Japan,,False,True,False,False,key
 t|otoole,148650,Tom O'Toole,tom-otoole,T. O'Toole,T. O'Toole,Ireland,Prop,True,True,True,False,key
-t|pasquali,122910,Tiziano Pasquali,,,,,Prop,True,False,False,False,key
+t|pasquali,122910,Tiziano Pasquali,tiziano-pasquali,Tiziano Pasquali,,Italy,Prop,True,True,False,False,key
+t|paul,,,tyler-paul,Tyler Paul,,South Africa,,False,True,False,False,key
+t|pearson,,,tom-pearson,Tom Pearson,,England,,False,True,False,False,key
+t|perenara,,,tj-perenara,Tj Perenara,,New Zealand,,False,True,False,False,key
 t|plumtree,206706,Taine Plumtree,taine-plumtree,T. Plumtree,,Wales,Back-row,True,True,False,False,key
+t|rakuro,,,taniela-rakuro,Taniela Rakuro,,Fiji,,False,True,False,False,key
 t|ramos,129822,Thomas Ramos,thomas-ramos,T. Ramos,T. Ramos,France,Back-three,True,True,True,False,key
+t|rapetti,,,tomas-rapetti,Tomas Rapetti,,,,False,True,False,False,key
+t|ratuva,,,tevita-ratuva,Tevita Ratuva,,Fiji,,False,True,False,False,key
 t|reffell,155826,Tommy Reffell,tommy-reffell,T. Reffell,T. Reffell,Wales,Back-row,True,True,True,False,key
+t|robertson,,,tom-robertson,Tom Robertson,,Australia,,False,True,False,False,key
 t|roebuck,187458,Tom Roebuck,tom-roebuck,Tom Roebuck,T. Roebuck,England,Back-three,True,True,True,False,key
 t|rogers,177600,Tom Rogers,tom-rogers,T. Rogers,T. Rogers,Wales,Back-three,True,True,True,False,key
+t|samusamuvodre,,,tuidraki-samusamuvodre,Tuidraki Samusamuvodre,,Fiji,,False,True,False,False,key
+t|spring,,,tom-spring,Tom Spring,,France,,False,True,False,False,key
 t|staniforth,,,tom-staniforth,Tom Staniforth,,Australia,,False,True,False,False,key
 t|stewart,201792,Tom Stewart,tom-stewart,T. Stewart,T. Stewart,Northern Ireland,Hooker,True,True,True,False,key
-t|thomas,121614,Teddy Thomas,,,,,Back-three,True,False,False,False,key
+t|takahashi,,,taichi-takahashi,Taichi Takahashi,,Japan,,False,True,False,False,key
+t|tatafu,,,tevita-tatafu,Tevita Tatafu,,Japan,,False,True,False,False,key
+t|tavatavanawai,,,timoci-tavatavanawai,Timoci Tavatavanawai,,Fiji,,False,True,False,False,key
+t|tela,,,teti-tela,Teti Tela,,Fiji,,False,True,False,False,key
+t|thomas,121614,Teddy Thomas,kalani-thomas,Kalani Thomas,,Australia,Back-three,True,True,False,False,surname
+t|tupou,,,taniela-tupou,Taniela Tupou,,Australia,,False,True,False,False,key
+t|vaai,,,tupou-vaai,Tupou Vaai,,New Zealand,,False,True,False,False,key
+t|williams,128628,Tomos Williams,tamaiti-williams,Tamaiti Williams,T. Williams,New Zealand,Scrum-half,True,True,True,True,key
+t|williams,128628,Tomos Williams,teddy-williams,Teddy Williams,T. Williams,Wales,Scrum-half,True,True,True,True,key
 t|williams,128628,Tomos Williams,tomos-williams,Tomos Williams,T. Williams,,Scrum-half,True,True,True,True,key
+t|williams,203082,Teddy Williams,tamaiti-williams,Tamaiti Williams,T. Williams,New Zealand,Second-row,True,True,True,True,key
+t|williams,203082,Teddy Williams,teddy-williams,Teddy Williams,T. Williams,Wales,Second-row,True,True,True,True,key
 t|williams,203082,Teddy Williams,tomos-williams,Tomos Williams,T. Williams,,Second-row,True,True,True,True,key
 t|willis,164394,Tom Willis,tom-willis,Tom Willis,T. Willis,England,Back-row,True,True,True,False,key
+t|wright,,,tom-wright,Tom Wright,,Australia,,False,True,False,False,key
+t|yamasawa,,,takuya-yamasawa,Takuya Yamasawa,,Japan,,False,True,False,False,key
 u|atonio,133446,Uini Atonio,uini-atonio,U. Atonio,U. Atonio,France,Prop,True,True,True,False,key
-u|dillane,136290,Ultan Dillane,,,,,Second-row,True,False,False,False,key
+u|dillane,136290,Ultan Dillane,ultan-dillane,Ultan Dillane,,Ireland,Second-row,True,True,False,False,key
+u|helu,,,uwe-helu,Uwe Helu,,Japan,,False,True,False,False,key
 u|seunes,,,ugo-seunes,U. Seunes,,,,False,True,False,False,key
-v|vakatawa,110028,Virimi Vakatawa,,,,,Centre,True,False,False,False,key
-w|connors,143568,Will Connors,,,,,Back-row,True,False,False,False,key
-w|halaholo,125622,Willis Halaholo,,,,,Centre,True,False,False,False,key
+v|botitu,,,vilimoni-botitu,Vilimoni Botitu,,Fiji,,False,True,False,False,key
+v|habosi,,,vinaya-habosi,Vinaya Habosi,,Fiji,,False,True,False,False,key
+v|karawalevu,,,vuate-karawalevu,Vuate Karawalevu,,Fiji,,False,True,False,False,key
+v|koch,,,vincent-koch,Vincent Koch,,South Africa,,False,True,False,False,key
+v|mata,,,viliame-mata,Viliame Mata,,Fiji,,False,True,False,False,key
+v|miramira,,,vilive-miramira,Vilive Miramira,,Fiji,,False,True,False,False,key
+v|tshituka,,,vincent-tshituka,Vincent Tshituka,,Democratic Republic Of The Congo,,False,True,False,False,key
+v|vakatawa,110028,Virimi Vakatawa,virimi-vakatawa,Virimi Vakatawa,,,Centre,True,True,False,False,key
+w|connors,143568,Will Connors,will-connors,Will Connors,,Ireland,Back-row,True,True,False,False,key
+w|dearns,,,warner-dearns,Warner Dearns,,Japan,,False,True,False,False,key
+w|halaholo,125622,Willis Halaholo,willis-halaholo,Willis Halaholo,,,Centre,True,True,False,False,key
 w|hurd,203400,Will Hurd,will-hurd,W. Hurd,W. Hurd,Scotland,Prop,True,True,True,False,key
 w|john,111564,WillGriff John,will-john,W. John,W. John,Wales,Prop,True,True,True,False,key
 w|jones,128142,Wyn Jones,wyn-jones,Wyn Jones,W. Jones,,Prop,True,True,True,False,key
+w|jordan,,,will-jordan,Will Jordan,,New Zealand,,False,True,False,False,key
+w|louw,,,wilco-louw,Wilco Louw,,South Africa,,False,True,False,False,key
+w|muir,,,will-muir,Will Muir,,England,,False,True,False,False,key
+w|nayacalevu,,,waisea-nayacalevu,Waisea Nayacalevu,,Fiji,,False,True,False,False,key
 w|nel,61812,WP Nel,wp-nel,Wp Nel,W. Nel,,Prop,True,True,True,False,key
 w|rowlands,122568,Will Rowlands,will-rowlands,W. Rowlands,W. Rowlands,Wales,Second-row,True,True,True,False,key
+w|sititi,,,wallace-sititi,Wallace Sititi,,New Zealand,,False,True,False,False,key
+w|skelton,,,will-skelton,Will Skelton,,Australia,,False,True,False,False,key
 w|stuart,144738,Will Stuart,will-stuart,W. Stuart,W. Stuart,England,Prop,True,True,True,False,key
+x|numia,,,xavier-numia,Xavier Numia,,New Zealand,,False,True,False,False,key
+y|hirose,,,yuya-hirose,Yuya Hirose,,Japan,,False,True,False,False,key
+y|ikeda,,,yuki-ikeda,Yuki Ikeda,,Japan,,False,True,False,False,key
+y|kajimura,,,yusuke-kajimura,Yusuke Kajimura,,Japan,,False,True,False,False,key
+y|kamimori,,,yota-kamimori,Yota Kamimori,,Japan,,False,True,False,False,key
 y|moefana,196152,Yoram Moefana,yoram-moefana,Y. Moefana,Y. Moefana,France,Centre,True,True,True,False,key
+y|morikawa,,,yukio-morikawa,Yukio Morikawa,,Japan,,False,True,False,False,key
+y|nagare,,,yutaka-nagare,Yutaka Nagare,,Japan,,False,True,False,False,key
+y|peysson,,,yann-peysson,Yann Peysson,,France,,False,True,False,False,key
+y|tanga,,,yoan-tanga,Yoan Tanga,,France,,False,True,False,False,key
+y|yazaki,,,yoshitaka-yazaki,Yoshitaka Yazaki,,Japan,,False,True,False,False,key
 z|fagerson,130530,Zander Fagerson,zander-fagerson,Z. Fagerson,Z. Fagerson,Scotland,Prop,True,True,True,False,key
+z|nonggorr,,,zane-nonggorr,Zane Nonggorr,,Australia,,False,True,False,False,key
+z|porthen,,,zachary-porthen,Zachary Porthen,,South Africa,,False,True,False,False,key
+z|togiatama,,,zuriel-togiatama,Zuriel Togiatama,,Fiji,,False,True,False,False,key
+z|ward,,,zac-ward,Zac Ward,,Northern Ireland,,False,True,False,False,key

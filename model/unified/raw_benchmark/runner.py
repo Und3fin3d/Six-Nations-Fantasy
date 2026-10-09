@@ -1,4 +1,4 @@
-"""Train every raw candidate on immutable historical tournament folds."""
+"""Train P3 and its two components on immutable historical tournament folds."""
 
 from __future__ import annotations
 
@@ -10,13 +10,7 @@ import numpy as np
 import pandas as pd
 
 from ..contracts import RawPrediction
-from ..gbdt import UniversalGBDT
-from ..neural import NeuralTrainingConfig, UniversalNeuralModel
-from ..v3.config import BaselineConfig, GBDTV3Config
-from ..v3.gbdt import ExposureRateGBDT
 from ..v4.gbdt import V4GBDT
-from ..v5.config import V5Config
-from ..v5.model import ShrunkFormGBDT
 from .blend import EventBlend50
 from .config import CORE_ENGINE_ORDER, ENGINE_ORDER, EXTENDED_EVENTS, OUT, STABLE_EVENTS
 from .coverage import sha256
@@ -29,61 +23,10 @@ from .features import build_frozen_feature_frames
 from .metrics import NaiveComparator, event_metrics, ranking_metrics
 
 
-def _load_configs() -> tuple[BaselineConfig, GBDTV3Config]:
-    search = OUT.parents[1] / "v3" / "search"
-    baseline_path = search / "best_baseline.json"
-    gbdt_path = search / "best_gbdt.json"
-    baseline = (
-        BaselineConfig.from_dict(json.loads(baseline_path.read_text()))
-        if baseline_path.exists() else BaselineConfig()
-    )
-    gbdt = (
-        GBDTV3Config.from_dict(json.loads(gbdt_path.read_text()))
-        if gbdt_path.exists() else GBDTV3Config(context_blocks=())
-    )
-    # Historical v1 contract has no external context features.
-    gbdt.context_blocks = ()
-    return baseline, gbdt
-
-
 def _fit_engine(
     engine: str, train: pd.DataFrame, fold: HistoricalFold,
     prepared_train: pd.DataFrame | None = None,
 ):
-    baseline_config, gbdt_config = _load_configs()
-    if engine == "v1":
-        features = prepared_train if prepared_train is not None else build_frozen_feature_frames(
-            train, train.iloc[0:0], v4=False,
-        )[0]
-        return UniversalGBDT(
-            events=(*STABLE_EVENTS, *EXTENDED_EVENTS),
-            random_state=baseline_config.seed, weighting=baseline_config.weighting,
-            time_half_life_days=baseline_config.time_half_life_days,
-            n_estimators=baseline_config.n_estimators, num_leaves=baseline_config.num_leaves,
-        ).fit(features)
-    if engine == "gbdt_v3":
-        features = prepared_train if prepared_train is not None else build_frozen_feature_frames(
-            train, train.iloc[0:0], v4=False,
-        )[0]
-        return ExposureRateGBDT(
-            config=gbdt_config, events=(*STABLE_EVENTS, *EXTENDED_EVENTS),
-        ).fit(features)
-    if engine == "v1_neural":
-        features = prepared_train if prepared_train is not None else build_frozen_feature_frames(
-            train, train.iloc[0:0], v4=False,
-        )[0]
-        dates = pd.to_datetime(features["date"], errors="coerce")
-        unique_dates = sorted(dates.dropna().unique())
-        if len(unique_dates) < 2:
-            fit, validation = features, None
-        else:
-            validation_start = unique_dates[max(1, int(len(unique_dates) * 0.85)) - 1]
-            fit = features[dates.lt(validation_start)].copy()
-            validation = features[dates.ge(validation_start)].copy()
-        return UniversalNeuralModel(
-            events=(*STABLE_EVENTS, *EXTENDED_EVENTS),
-            config=NeuralTrainingConfig(),
-        ).fit(fit, validation)
     if engine == "v4":
         features = prepared_train if prepared_train is not None else build_frozen_feature_frames(
             train, train.iloc[0:0], v4=True,
@@ -92,15 +35,6 @@ def _fit_engine(
             events=(*STABLE_EVENTS, *EXTENDED_EVENTS), weighting="natural",
             pool_player_id=True, player_effects=True,
         ).fit(features)
-    if engine == "v5_t":
-        config = V5Config(
-            use_eb_features=False, use_slot_minutes=False,
-            mask_attribution_corrupted=True, attribution_events=("lineouts_won",),
-        )
-        model = ShrunkFormGBDT(
-            config=config, events=(*STABLE_EVENTS, *EXTENDED_EVENTS),
-        )
-        return model.fit(train)
     if engine == "empirical_event":
         return EmpiricalEventModel(asof=fold.cutoff).fit(train)
     raise ValueError(engine)
@@ -111,12 +45,6 @@ def _save_model(model, path: Path) -> None:
 
 
 def _load_model(engine: str, path: Path):
-    if engine == "v1":
-        return UniversalGBDT.load(path)
-    if engine == "gbdt_v3":
-        return ExposureRateGBDT.load(path)
-    if engine == "v1_neural":
-        return UniversalNeuralModel.load(path)
     if engine == "v4":
         with path.open("rb") as handle:
             import pickle
@@ -124,8 +52,6 @@ def _load_model(engine: str, path: Path):
         if not isinstance(model, V4GBDT):
             raise TypeError(path)
         return model
-    if engine == "v5_t":
-        return ShrunkFormGBDT.load(path)
     if engine == "empirical_event":
         return EmpiricalEventModel.load(path)
     if engine == "p3_event_50":
@@ -138,24 +64,17 @@ def _predict_fixturewise(
     prepared_evaluation: pd.DataFrame | None = None,
 ) -> list[RawPrediction]:
     if prepared_evaluation is not None:
-        if engine == "v5_t":
-            return model.predict_features(prepared_evaluation)
-        if engine in {"v1", "v1_neural", "gbdt_v3", "v4", "p3_event_50"}:
+        if engine in {"v4", "p3_event_50"}:
             return model.predict_frame(prepared_evaluation)
         return model.predict_frame(masked_candidates(evaluation))
     output: dict[int, RawPrediction] = {}
     for fixture_id, block in evaluation.groupby("fixture_id", sort=False):
         candidates = masked_candidates(block)
-        if engine in {"v1", "v1_neural", "gbdt_v3", "v4", "p3_event_50"}:
+        if engine in {"v4", "p3_event_50"}:
             _, candidate_features = build_frozen_feature_frames(
-                train, candidates, v4=engine in {"v4", "p3_event_50"},
+                train, candidates, v4=True,
             )
             predicted = model.predict_frame(candidate_features)
-        elif engine == "v5_t":
-            train_features, candidate_features = build_frozen_feature_frames(
-                train, candidates, v4=False,
-            )
-            predicted = model.predict_features(candidate_features)
         else:
             predicted = model.predict_frame(candidates)
         by_key = {
@@ -243,11 +162,7 @@ def run_benchmark(
                 or (force_blend_dependencies and name in {"empirical_event", "v4"})
             )
 
-        base_train = base_evaluation = v4_train = v4_evaluation = None
-        if any(needs_model_work(name) for name in set(requested) & {"v1", "v1_neural", "gbdt_v3", "v5_t"}):
-            base_train, base_evaluation = build_frozen_feature_frames(
-                train, candidates, v4=False,
-            )
+        v4_train = v4_evaluation = None
         if any(needs_model_work(name) for name in set(requested) & {"v4", "p3_event_50"}):
             v4_train, v4_evaluation = build_frozen_feature_frames(
                 train, candidates, v4=True,
@@ -265,11 +180,7 @@ def run_benchmark(
                 _save_model(model, artifact)
             else:
                 print(f"[{fold.label}] fitting {engine} on {len(train):,} rows", flush=True)
-                prepared_train = (
-                    v4_train if engine in {"v4", "p3_event_50"}
-                    else base_train if engine in {"v1", "v1_neural", "gbdt_v3"}
-                    else None
-                )
+                prepared_train = v4_train if engine == "v4" else None
                 model = _fit_engine(engine, train, fold, prepared_train=prepared_train)
                 _save_model(model, artifact)
             if model is not None:
@@ -280,9 +191,7 @@ def run_benchmark(
                 if model is None:
                     raise RuntimeError(f"{engine}/{fold.label}: prediction missing without model")
                 prepared_evaluation = (
-                    v4_evaluation if engine in {"v4", "p3_event_50"}
-                    else base_evaluation if engine in {"v1", "v1_neural", "gbdt_v3", "v5_t"}
-                    else None
+                    v4_evaluation if engine in {"v4", "p3_event_50"} else None
                 )
                 predictions = _predict_fixturewise(
                     model, engine, train, evaluation,

@@ -3,7 +3,7 @@ import json
 import pytest
 from datetime import datetime, timezone
 
-import ncr_snapshot as snapshot
+import pipeline.ncr.ncr_snapshot as snapshot
 
 
 def test_current_fixture_gameday_selects_matching_player_feed():

@@ -3,7 +3,7 @@ import numpy as np
 import pandas as pd
 import pytest
 
-from model.ncr_project import ATT, DEF, DISC, player_profiles
+from model.ncr.project import ATT, DEF, DISC, player_profiles
 from model.unified.features import build_pit_features
 from model.unified.schema import EVENTS
 

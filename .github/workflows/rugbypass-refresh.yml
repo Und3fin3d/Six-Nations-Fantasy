@@ -48,18 +48,18 @@ jobs:
 
       - name: Refresh unmatched RugbyPass players
         if: inputs.refresh_scope != 'full'
-        run: python -u rugbypass_backfill.py --delay 0.6
+        run: python -u -m pipeline.sources.rugbypass_backfill --delay 0.6
 
       - name: Refresh all stored RugbyPass players
         if: inputs.refresh_scope == 'full'
-        run: python -u rugbypass_backfill.py --refresh-existing --delay 0.8
+        run: python -u -m pipeline.sources.rugbypass_backfill --refresh-existing --delay 0.8
 
       - name: Rebuild RugbyPass tables
-        run: python build_rugbypass_tables.py
+        run: python -m pipeline.sources.build_rugbypass_tables
 
       - name: Validate RugbyPass outputs
         run: |
-          python -m py_compile rugbypass_backfill.py rugbypass_batch.py build_rugbypass_tables.py
+          python -m py_compile pipeline/sources/rugbypass_backfill.py pipeline/sources/rugbypass_batch.py pipeline/sources/build_rugbypass_tables.py
           PYTEST_DISABLE_PLUGIN_AUTOLOAD=1 python -m pytest -q tests/test_rugbypass_parsers.py
           python - <<'PY'
           from pathlib import Path

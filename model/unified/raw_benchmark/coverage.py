@@ -10,9 +10,9 @@ from pathlib import Path
 import numpy as np
 import pandas as pd
 
-from official_labels import match_official
+from pipeline.sixn.official_labels import match_official
 
-from ingest_6n import derive_minutes, player_minutes
+from pipeline.sixn.ingest_6n import derive_minutes, player_minutes
 
 from ..data import _stable_id
 from ..schema import EVENTS

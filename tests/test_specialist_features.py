@@ -2,8 +2,8 @@ from __future__ import annotations
 
 import pandas as pd
 
-from build_features import matchup_features, team_bench_slot_features
-from model import data as model_data
+from pipeline.sixn.build_features import matchup_features, team_bench_slot_features
+from model.sixn import data as model_data
 
 
 def test_specialist_feature_families_are_opt_in() -> None:

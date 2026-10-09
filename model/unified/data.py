@@ -9,7 +9,7 @@ from typing import Iterable
 import numpy as np
 import pandas as pd
 
-from official_labels import match_official
+from pipeline.sixn.official_labels import match_official
 
 from .schema import EVENTS, FORWARD_POSITIONS, KEY_COLUMNS, POSITION_BY_JERSEY
 

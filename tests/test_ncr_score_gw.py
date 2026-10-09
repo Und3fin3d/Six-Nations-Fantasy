@@ -1,4 +1,4 @@
-from model import ncr_score_gw as scorer
+from model.ncr import score_gw as scorer
 
 
 def test_gw2_official_feed_scores_all_three_saved_teams():

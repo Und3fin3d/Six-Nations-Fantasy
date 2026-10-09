@@ -9,9 +9,9 @@ import pytest
 
 from model.unified.features import build_pit_features
 from model.unified.schema import EVENTS
-from model.unified.v3.harness import write_once
+from model.unified.shadow.harness import write_once
 from model.unified.raw_benchmark.blend import EventBlend50
-from model.unified.v3.shadow import _load_model, validate_shadow_write
+from model.unified.shadow.shadow import _load_model, validate_shadow_write
 
 
 def _frame(rows: int = 72) -> pd.DataFrame:

@@ -48,11 +48,8 @@ TOP_NS = (10, 25, 50, 100)
 NORTH = {"England", "France", "Ireland", "Italy", "Scotland", "Wales"}
 SOUTH = {"Argentina", "Australia", "Fiji", "Japan", "New Zealand", "South Africa"}
 
-CORE_ENGINE_ORDER = (
-    "v1", "gbdt_v3", "v4", "v5_t", "empirical_event", "p3_event_50",
-)
-CHALLENGER_ENGINE_ORDER = ("v1_neural",)
-ENGINE_ORDER = (*CORE_ENGINE_ORDER, *CHALLENGER_ENGINE_ORDER)
+CORE_ENGINE_ORDER = ("v4", "empirical_event", "p3_event_50")
+ENGINE_ORDER = CORE_ENGINE_ORDER
 
 
 def output_path(*parts: str) -> Path:

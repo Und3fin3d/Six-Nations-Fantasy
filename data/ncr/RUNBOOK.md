@@ -37,13 +37,13 @@ PY_DATA="$HOME/.venvs/main/bin/python"
 | For | Interpreter |
 |---|---|
 | Data scripts (pandas + urllib only) | `$PY_DATA` |
-| Anything under `model/` (sklearn, lightgbm, xgboost) | `/tmp/6n-model-pinned/bin/python` |
+| Anything under `model/` (sklearn, lightgbm, xgboost) | `$HOME/.venvs/6n-model/bin/python` |
 
-The pinned venv lives in `/tmp` and **gets wiped periodically**. Rebuild it with:
+The model environment uses the main Python 3.12 installation. Rebuild it with:
 
 ```bash
-~/.local/bin/python3.11 -m venv /tmp/6n-model-pinned
-/tmp/6n-model-pinned/bin/pip install -r requirements-model.txt
+$HOME/.venvs/main/bin/python -m venv $HOME/.venvs/6n-model
+$HOME/.venvs/6n-model/bin/pip install -r requirements-model.txt
 ```
 
 ---
@@ -98,8 +98,8 @@ into `wr_rankings.csv` rather than replacing it.
 ### 4. Pick the team
 
 ```bash
-/tmp/6n-model-pinned/bin/python -m model.ncr_project
-/tmp/6n-model-pinned/bin/python -m model.ncr_project --exclude "New Zealand" "Italy"
+$HOME/.venvs/6n-model/bin/python -m model.ncr_project
+$HOME/.venvs/6n-model/bin/python -m model.ncr_project --exclude "New Zealand" "Italy"
 ```
 
 `--exclude` drops teams whose match has already kicked off. Writes

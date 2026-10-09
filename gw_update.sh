@@ -11,15 +11,15 @@
 #
 # Handles the two footguns that keep biting us:
 #   * the data interpreter must contain pandas
-#   * the pinned model venv lives in /tmp and gets wiped → rebuilt automatically
+#   * the model venv uses the main Python 3.12 interpreter
 #
 set -euo pipefail
 cd "$(dirname "${BASH_SOURCE[0]}")"
 
 PY_DATA=${PY_DATA:-"$HOME/.venvs/main/bin/python"}
-PINNED_MODEL_VENV=/tmp/6n-model-pinned
+PINNED_MODEL_VENV="$HOME/.venvs/6n-model"
 PY_MODEL=${PY_MODEL:-"$PINNED_MODEL_VENV/bin/python"}
-VENV_BASE=${VENV_BASE:-"$HOME/.local/bin/python3.11"}
+VENV_BASE=${VENV_BASE:-"$HOME/.venvs/main/bin/python"}
 
 GAME=""; DRY=0; NO_FETCH=0; PREDICT_ONLY=0; REBUILD_FEATURES=0; EXCLUDE=()
 
@@ -54,11 +54,13 @@ note "data interpreter: $PY_DATA"
 if [[ ! -x "$PY_MODEL" ]] || ! "$PY_MODEL" model_env_preflight.py --quiet 2>/dev/null; then
   note "pinned model environment is missing or incompatible — rebuilding"
   if (( DRY )); then
-    note "would create Python 3.11 environment and install requirements-model.txt"
+    note "would create Python 3.12 environment and install requirements-model.txt"
   else
     [[ "$PY_MODEL" == "$PINNED_MODEL_VENV/bin/python" ]] || \
-      die "custom PY_MODEL failed preflight; refusing to replace a non-temporary environment"
-    [[ -x "$VENV_BASE" ]] || die "need python3.11 at $VENV_BASE to rebuild the model environment"
+      die "custom PY_MODEL failed preflight; refusing to replace a custom environment"
+    [[ -x "$VENV_BASE" ]] || die "need Python 3.12 at $VENV_BASE to rebuild the model environment"
+    "$VENV_BASE" -c 'import sys; sys.exit(sys.version_info[:2] != (3, 12))' || \
+      die "VENV_BASE must use Python 3.12"
     "$VENV_BASE" -m venv --clear "$PINNED_MODEL_VENV"
     "$PINNED_MODEL_VENV/bin/pip" install -q -r requirements-model.txt
     "$PY_MODEL" model_env_preflight.py --quiet || die "rebuilt model environment failed preflight"

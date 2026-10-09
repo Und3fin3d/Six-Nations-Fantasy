@@ -33,7 +33,9 @@ def actual_points(frame: pd.DataFrame, scorer: CompetitionScorer) -> np.ndarray:
             event: np.array([float(getattr(row, event))])
             for event in EVENTS if hasattr(row, event) and pd.notna(getattr(row, event))
         }
-        rows.append(float(scorer.score_samples(events, is_forward=bool(row.is_forward))[0]))
+        rows.append(float(scorer.score_samples(
+            events, is_forward=bool(row.is_forward), position=getattr(row, "position", None),
+        )[0]))
     return np.asarray(rows)
 
 

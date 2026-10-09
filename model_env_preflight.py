@@ -20,9 +20,9 @@ def check(
 ) -> list[str]:
     errors = []
     current_python = sys.version_info[:2] if python_version is None else python_version
-    if current_python != (3, 11):
+    if current_python != (3, 12):
         errors.append(
-            f"Python 3.11 is required; found {current_python[0]}.{current_python[1]}"
+            f"Python 3.12 is required; found {current_python[0]}.{current_python[1]}"
         )
     for line in requirements.read_text().splitlines():
         match = PIN.match(line.strip())

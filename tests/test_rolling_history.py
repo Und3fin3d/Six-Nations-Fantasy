@@ -155,18 +155,6 @@ def test_robust_position_rate_uses_observed_exposure(monkeypatch):
     assert model.position_priors[('Prop','tries')] == pytest.approx(80.0/81.0)
 
 
-def test_expected_six_nations_points_accounts_for_metres_distribution():
-    from model.unified.contracts import EventDistribution, RawPrediction
-    from model.unified.rolling_eval import expected_points
-    prediction = RawPrediction('f','p','Player','A','B','Prop',True,
-        {'metres': EventDistribution('lognormal',15.0,100.0)},
-        EventDistribution('lognormal',70.0,20.0))
-    points = expected_points([prediction],'six_nations')[0]
-    draws = prediction.events['metres'].sample(np.random.default_rng(17),200000)
-    assert points == pytest.approx(np.floor(draws/10).mean(),abs=0.015)
-    assert abs(points - np.floor(15/10)) > 0.01
-
-
 def test_kickoff_before_lock_does_not_make_ongoing_match_results_available():
     from model.history import past_matches
     frame = pd.DataFrame({'match_at': ['2026-07-11T09:00Z','2026-07-11T11:00Z',

@@ -8,11 +8,10 @@ from pathlib import Path
 
 import numpy as np
 import pandas as pd
+from scipy.stats import spearmanr
 
-from ..benchmark_v2 import _group_metrics
 from ..data import ROOT
-from ..features import build_pit_features
-from ..gbdt import UniversalGBDT
+from ..evaluation import tie_aware_top_n
 from ..labels import build_fantasy_labels
 from ..schema import EVENTS, FORWARD_POSITIONS
 from ..scoring import scorer_for
@@ -20,11 +19,9 @@ from ..raw_benchmark.blend import EventBlend50
 from ..raw_benchmark.config import OUT as RAW_BENCHMARK_OUT
 from ..raw_benchmark.features import build_frozen_feature_frames
 from ..raw_benchmark.folds import build_folds, strict_training_frame
-from .blend import EventBlendModel
-from .context import augment_context
-from .gbdt import ExposureRateGBDT
-from .harness import OUT, attach_match_timestamps, sha256, write_once
-from .neural import ExposureRateNeural
+from .harness import OUT, sha256, write_once
+
+CUTOFFS = (10, 25, 50, 100)
 
 DATA = ROOT / "data"
 
@@ -41,6 +38,28 @@ BENCH_JERSEY = {
     "Prop": 17, "Hooker": 16, "Lock": 19, "Loose Forward": 20,
     "Scrum Half": 21, "Fly Half": 22, "Centre": 23, "Back Three": 23,
 }
+
+
+def _group_metrics(cohort: pd.DataFrame, rank_col: str, mae_col: str | None = None,
+                   actual_col: str = "official_pts") -> dict:
+    """Ranking + error metrics within one round, tie-aware.
+
+    ``rank_col`` orders players (ranking metrics); ``mae_col`` (defaults to
+    ``rank_col``) supplies the points forecast for MAE.
+    """
+    mae_col = mae_col or rank_col
+    rank = cohort[rank_col].reset_index(drop=True)
+    points = cohort[mae_col].reset_index(drop=True)
+    actual = cohort[actual_col].reset_index(drop=True)
+    row = {"n": len(cohort),
+           "mae": float(np.mean(np.abs(points - actual))),
+           "spearman": float(spearmanr(rank, actual).statistic) if len(cohort) > 2 else np.nan}
+    for n in CUTOFFS:
+        if len(cohort) >= n:
+            overlap, capture = tie_aware_top_n(rank, actual, n)
+            row[f"top_{n}_overlap"] = overlap
+            row[f"top_{n}_capture"] = capture
+    return row
 
 
 def ncr_candidates(gw: int, projection: pd.DataFrame | None = None) -> pd.DataFrame:
@@ -102,23 +121,12 @@ def ncr_candidates(gw: int, projection: pd.DataFrame | None = None) -> pd.DataFr
 
 
 def _load_model(engine: str, path: Path):
-    if engine == "p3_event_50":
-        model = EventBlend50.load(path)
-        if model.weight_v4 != 0.5:
-            raise ValueError("P3 artifact does not use the fixed 50/50 blend")
-        return model
-    if engine == "baseline":
-        return UniversalGBDT.load(path)
-    if engine == "gbdt_v4":
-        from ..v4.gbdt import V4GBDT
-        return V4GBDT.load(path)
-    if engine == "gbdt_v3":
-        return ExposureRateGBDT.load(path)
-    if engine == "neural_v3":
-        return ExposureRateNeural.load(path)
-    if engine == "blend_v3":
-        return EventBlendModel.load(path)
-    raise ValueError(engine)
+    if engine != "p3_event_50":
+        raise ValueError(engine)
+    model = EventBlend50.load(path)
+    if model.weight_v4 != 0.5:
+        raise ValueError("P3 artifact does not use the fixed 50/50 blend")
+    return model
 
 
 def _p3_features(candidate: pd.DataFrame) -> pd.DataFrame:
@@ -162,37 +170,7 @@ def freeze_shadow(gw: int, engine: str, model_path: Path,
     validate_shadow_write(csv_path, manifest_path, lock_at)
     candidate = ncr_candidates(gw)
     model = _load_model(engine, model_path)
-    if engine == "p3_event_50":
-        future = _p3_features(candidate)
-    else:
-        raw = pd.read_csv(
-            DATA / "unified" / "player_match.csv", low_memory=False, parse_dates=["date"]
-        )
-        # The store must contain no rows from the lock day or later: a same-day row
-        # can only be a post-lock result, so its presence means hindsight leakage.
-        latest = pd.to_datetime(raw["date"], errors="coerce").max()
-        if pd.Timestamp(latest).date() >= lock_at.date():
-            raise RuntimeError(
-                f"store contains rows dated {latest.date()} on/after the GW{gw} lock "
-                f"({lock_at.date()}); refusing shadow freeze"
-            )
-        combined = pd.concat([raw, candidate], ignore_index=True, sort=False)
-        timed = attach_match_timestamps(combined)
-        blocks = ()
-        if engine == "blend_v3":
-            blocks = tuple(dict.fromkeys(
-                (*model.gbdt.config.context_blocks, *model.neural.config.context_blocks)
-            ))
-        elif engine not in ("baseline", "gbdt_v4"):
-            blocks = tuple(model.config.context_blocks)
-        features = build_pit_features(augment_context(timed, blocks))
-        if engine == "gbdt_v4":
-            from ..v4.features import add_v4_base_stats, apply_eb_features
-            features = add_v4_base_stats(features)
-            k_by_event = getattr(model, "k_by_event", None)
-            if k_by_event:
-                features = apply_eb_features(features, k_by_event)
-        future = features[features["source"].eq("v3_shadow_candidate")].copy()
+    future = _p3_features(candidate)
     scorer = scorer_for("ncr")
     predictions = model.predict_frame(future)
     candidate_grain = candidate[["fixture_id", "player_id", "team"]].astype(str)
@@ -232,8 +210,7 @@ def freeze_shadow(gw: int, engine: str, model_path: Path,
         "model_sha256": sha256(model_path), "prediction_sha256": sha256(csv_path),
         "rows": len(rows), "immutable": True,
     }
-    if engine == "p3_event_50":
-        manifest["blend_weight_v4"] = model.weight_v4
+    manifest["blend_weight_v4"] = model.weight_v4
     write_once(manifest_path, json.dumps(manifest, indent=2, sort_keys=True) + "\n")
     return csv_path
 

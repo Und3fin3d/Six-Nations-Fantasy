@@ -18,15 +18,15 @@ def test_model_environment_preflight_requires_every_exact_pin(tmp_path: Path):
 
     assert check(
         requirements,
-        python_version=(3, 11),
+        python_version=(3, 12),
         installed_version={"scikit-learn": "1.3.1", "pandas": "2.1.0"}.__getitem__,
     ) == []
     assert check(
         requirements,
-        python_version=(3, 12),
+        python_version=(3, 11),
         installed_version={"scikit-learn": "1.8.0", "pandas": "2.1.0"}.__getitem__,
     ) == [
-        "Python 3.11 is required; found 3.12",
+        "Python 3.12 is required; found 3.11",
         "scikit-learn==1.3.1 is required; found 1.8.0",
     ]
 

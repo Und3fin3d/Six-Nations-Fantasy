@@ -19,11 +19,12 @@ Keys differ by competition and are kept verbatim for the feature stage:
 
 from __future__ import annotations
 
+import json
+
 from pathlib import Path
 
 import pandas as pd
 
-from model.ncr_rank_eval import load_actuals
 
 from .data import ROOT
 
@@ -41,6 +42,19 @@ NCR_ROUNDS = {
     3: "feeds/players_gw3.json",
 }
 
+
+
+def load_actuals(path: Path) -> pd.DataFrame:
+    players = json.loads(path.read_text())["Data"]["Value"]["Players"]
+    return pd.DataFrame([
+        {
+            "id": int(float(player["id"])),
+            "actual_name": player.get("full_name") or player.get("display_name"),
+            "actual": float(player.get("cur_gd_points") or 0),
+            "actual_status": player.get("player_status") or "",
+        }
+        for player in players
+    ])
 
 def _percentile(frame: pd.DataFrame) -> pd.Series:
     """Within-group percentile of official points (ties share the mean rank)."""

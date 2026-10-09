@@ -110,18 +110,13 @@ if len(cur):
     hist = pd.read_csv("data/ncr/ncr_player_match.csv")
     official = Path(f"data/ncr/feeds/players_gw{gw}.json")
     potm = pd.read_csv("data/ncr/ncr_potm.csv") if Path("data/ncr/ncr_potm.csv").exists() else pd.DataFrame()
-    squads = [
-        Path(f"data/ncr/ncr_gw{gw}_squad.csv"),
-        Path(f"data/ncr/ncr_gw{gw}_squad_champion.csv"),
-        Path(f"data/ncr/ncr_gw{gw}_squad_blend.csv"),
-    ]
     reconstruction_ready = (
         len(date)
         and hist[hist["date"].astype(str).eq(date.iloc[0])]["fixture_id"].nunique() == 6
         and len(potm)
         and potm[potm["date"].astype(str).eq(date.iloc[0])]["fixture_id"].nunique() == 6
     )
-    if gw > 0 and all(p.exists() for p in squads) and (official.exists() or reconstruction_ready):
+    if gw > 0 and Path(f"data/ncr/ncr_gw{gw}_squad.csv").exists() and (official.exists() or reconstruction_ready):
         print(gw)
 PY
 )

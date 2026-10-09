@@ -90,11 +90,11 @@ fi
 ncr_pipeline() {
   if (( ! PREDICT_ONLY )); then
     step "1/6  snapshot fantasy feed  (free — prices, injuries, TEAM SHEETS)"
-    run "$PY_DATA" ncr_snapshot.py
+    run "$PY_DATA" -m pipeline.ncr.ncr_snapshot
 
     step "2/6  ingest results → history tables"
-    if (( NO_FETCH )); then run "$PY_DATA" ncr_ingest.py --rebuild
-    else                    run "$PY_DATA" ncr_ingest.py --floor 50; fi
+    if (( NO_FETCH )); then run "$PY_DATA" -m pipeline.ncr.ncr_ingest --rebuild
+    else                    run "$PY_DATA" -m pipeline.ncr.ncr_ingest --floor 50; fi
 
     step "3/6  score the completed gameweek's saved model teams"
     local score_gw
@@ -121,7 +121,7 @@ if len(cur):
 PY
 )
     if [[ -n "$score_gw" ]]; then
-      run "$PY_MODEL" -m model.ncr_score_gw --gw "$score_gw" --update-markdown
+      run "$PY_MODEL" -m model.ncr.score_gw --gw "$score_gw" --update-markdown
     else
       note "results or verified POTM data are not complete yet — skipping"
     fi
@@ -135,12 +135,12 @@ cur = fx[fx.get("iscurrent", 0) == 1]
 print(pd.to_datetime(cur["game_date"]).min().date() if len(cur) else "")
 PY
 )
-    [[ -n "$d" ]] && run "$PY_DATA" build_wr.py --dates "$d" || note "no current gameday — skipping"
+    [[ -n "$d" ]] && run "$PY_DATA" -m pipeline.sources.build_wr --dates "$d" || note "no current gameday — skipping"
   fi
 
   step "5/6  pick the team"
-  if (( ${#EXCLUDE[@]} )); then run "$PY_MODEL" -m model.ncr_project --exclude "${EXCLUDE[@]}"
-  else                          run "$PY_MODEL" -m model.ncr_project; fi
+  if (( ${#EXCLUDE[@]} )); then run "$PY_MODEL" -m model.ncr.project --exclude "${EXCLUDE[@]}"
+  else                          run "$PY_MODEL" -m model.ncr.project; fi
 
   step "6/6  freeze configured unified shadow prediction"
   local shadow_config="data/unified/v3/shadow_active.json"
@@ -176,7 +176,7 @@ PY
         if [[ -f "data/unified/v3/shadow/ncr_gw${shadow_gw}_${shadow_engine}.csv" ]]; then
           note "immutable GW${shadow_gw} ${shadow_engine} shadow already exists — keeping it"
         else
-          run "$PY_MODEL" -m model.unified.v3.cli shadow \
+          run "$PY_MODEL" -m model.unified.shadow.cli shadow \
             --gw "$shadow_gw" --engine "$shadow_engine" --model "$shadow_model"
         fi
       done <<< "$shadow_spec"
@@ -191,24 +191,24 @@ SIXN_COMPS=(1266 1218 1230 1236 1464 1470)
 sixn_pipeline() {
   if (( ! PREDICT_ONLY )); then
     step "1/4  snapshot fantasy catalogue  (free — prices, ownership)"
-    run "$PY_DATA" snapshot_fantasy_market.py --game m6n --allow-unavailable
+    run "$PY_DATA" -m pipeline.sources.snapshot_fantasy_market --game m6n --allow-unavailable
 
     step "2/4  ingest matches → api_player_match / api_team_match"
     note "this REWRITES both stores from the cache (club comps are Oct→Feb windowed)"
     if (( NO_FETCH )); then note "--no-fetch: re-parsing cache only, no new /match calls"; fi
-    run "$PY_DATA" ingest_6n.py --comps "${SIXN_COMPS[@]}"
-    run "$PY_DATA" ingest_6n.py --comps "${SIXN_COMPS[@]}" --team
+    run "$PY_DATA" -m pipeline.sixn.ingest_6n --comps "${SIXN_COMPS[@]}"
+    run "$PY_DATA" -m pipeline.sixn.ingest_6n --comps "${SIXN_COMPS[@]}" --team
 
     step "3/4  refresh World Rugby ratings  (free, merges)"
-    run "$PY_DATA" build_wr.py
+    run "$PY_DATA" -m pipeline.sources.build_wr
 
     if (( REBUILD_FEATURES )); then
-      step "3b/4  rebuild model stores  ⚠  model/data.py asserts exactly 2760 rows"
+      step "3b/4  rebuild model stores  ⚠  model/sixn/data.py asserts exactly 2760 rows"
       note "if the row count moves, load() fails — that assertion is the tripwire, not a bug"
-      run "$PY_DATA" build_crosswalk.py
-      run "$PY_DATA" build_team_form.py
-      run "$PY_DATA" build_features.py
-      run "$PY_DATA" build_targets.py
+      run "$PY_DATA" -m pipeline.sixn.build_crosswalk
+      run "$PY_DATA" -m pipeline.sixn.build_team_form
+      run "$PY_DATA" -m pipeline.sixn.build_features
+      run "$PY_DATA" -m pipeline.sixn.build_targets
     elif (( ! DRY )) && [[ data/model_player_match.csv -ot data/api_player_match.csv ]]; then
       note "⚠  model_player_match.csv is now OLDER than api_player_match.csv —"
       note "   the feature store is stale. Re-run with --rebuild-features."
@@ -218,7 +218,7 @@ sixn_pipeline() {
   fi
 
   step "4/4  predictions  (backtest + promoted config)"
-  run "$PY_MODEL" -m model.run
+  run "$PY_MODEL" -m model.sixn.run
 }
 
 case "$GAME" in

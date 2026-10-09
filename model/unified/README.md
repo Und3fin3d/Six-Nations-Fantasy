@@ -21,7 +21,7 @@ Each serialized P3 artifact contains both fitted components.
 | `contracts.py`, `scoring.py`, `evaluation.py` | Prediction contract and fantasy scoring |
 | `raw_benchmark/` | Leak-free historical folds, P3 fitting and raw-event metrics |
 | `v4/` | v4 GBDT component |
-| `v3/` | Write-once NCR shadow predictions at the fantasy lock |
+| `shadow/` | Write-once NCR shadow predictions at the fantasy lock |
 
 ## Commands
 
@@ -35,11 +35,11 @@ $PY -m model.unified.raw_benchmark.cli audit
 $PY -m model.unified.raw_benchmark.cli run
 
 # Freeze a write-once NCR prediction before lock (normally run by gw_update.sh).
-$PY -m model.unified.v3.cli shadow --gw 4 --engine p3_event_50 \
+$PY -m model.unified.shadow.cli shadow --gw 4 --engine p3_event_50 \
   --model data/unified/raw_benchmark/v1/models/p3_event_50/nations_championship_2026.pkl
 
 # After GW7 labels arrive, apply the prospective gates.
-$PY -m model.unified.v3.cli shadow-evaluate --engine p3_event_50
+$PY -m model.unified.shadow.cli shadow-evaluate --engine p3_event_50
 ```
 
 Do not retune the 0.5 blend weight on NCR GW4–7. Those rounds are the

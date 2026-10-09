@@ -9,7 +9,7 @@ from pathlib import Path
 import numpy as np
 import pandas as pd
 
-from model.rp_rates import _norm, _season_end_year
+from model.ncr.rp_rates import _norm, _season_end_year
 from model.history import past_matches, past_seasons
 
 from ..contracts import EventDistribution, RawPrediction

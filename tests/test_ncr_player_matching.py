@@ -1,6 +1,6 @@
 import pandas as pd
 
-from model.ncr_project import match_players
+from model.ncr.project import match_players
 
 
 def _history(*names):

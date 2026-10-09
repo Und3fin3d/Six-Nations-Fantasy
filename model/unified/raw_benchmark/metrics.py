@@ -179,8 +179,13 @@ def _score_rows(
             event: np.asarray([float(predictions[index].events[event].mean)]) for event in allowed
         }
         is_forward = bool(frame.iloc[index]["is_forward"])
-        actual.append(float(scorer.score_samples(actual_events, is_forward=is_forward)[0]))
-        predicted.append(float(scorer.score_samples(predicted_events, is_forward=is_forward)[0]))
+        position = frame.iloc[index].get("position")
+        actual.append(float(scorer.score_samples(
+            actual_events, is_forward=is_forward, position=position,
+        )[0]))
+        predicted.append(float(scorer.score_samples(
+            predicted_events, is_forward=is_forward, position=position,
+        )[0]))
     return indices, np.asarray(actual), np.asarray(predicted)
 
 
@@ -208,6 +213,8 @@ def ranking_metrics(
             local_indices = slate.index.to_numpy()
             local_predictions = [predictions[int(index)] for index in local_indices]
             local = slate.reset_index(drop=True)
+            if rubric == "six_nations":
+                scorer = SixNationsScorer(int(local.iloc[0]["season"]))
             for tier, allowed in (("stable", stable), ("extended_observable", stable + extended_candidates)):
                 indices, actual, predicted = _score_rows(local, local_predictions, scorer, allowed)
                 if tier == "extended_observable":

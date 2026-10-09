@@ -1,26 +1,3 @@
-#!/usr/bin/env python3
-"""
-RugbyPass JSON  →  three tidy CSV tables  (0 API spend, pure local)
-===================================================================
-Walks every players/rugbypass_*.json (≈314 files) and emits:
-
-    data/rp_bio.csv        one row / player   (key, slug, nationality, age,
-                           position, height_cm, weight_kg)
-    data/rp_compstats.csv  one row / (player, competition, season) — the rich
-                           season aggregate (CLASS feature source)
-    data/rp_matchlog.csv   one row / match_log entry — the thin per-match line
-                           (mins/tries/conv/cards), date parsed to ISO
-
-Every row is keyed by `norm_key` (column "key") and keeps the RugbyPass slug,
-so it can be joined back to the official / API tables. Numerics are coerced;
-missing → 0.
-
-Reuses: slug_key / SLUG_TO_NAME (compare_three_way), norm_key
-(compare_api_official). No network.
-
-Usage:  python -m pipeline.sources.build_rugbypass_tables
-"""
-
 from __future__ import annotations
 
 import glob
@@ -29,12 +6,11 @@ from pathlib import Path
 
 import pandas as pd
 
-from pipeline.sixn.compare_api_official import norm_key            # noqa: F401 (re-export)
-from pipeline.sources.compare_three_way import SLUG_TO_NAME, slug_key  # noqa: F401
+from pipeline.sixn.compare_api_official import norm_key
+from pipeline.sources.compare_three_way import SLUG_TO_NAME, slug_key
 
 BASE = Path(__file__).resolve().parents[2]
 
-# numeric competition_stats fields to carry through (missing -> 0)
 COMP_NUM_FIELDS = [
     "games", "minutes", "tries", "try_assists", "points",
     "carries", "metres", "av_gain", "post_contact_metres",
@@ -45,13 +21,11 @@ COMP_NUM_FIELDS = [
     "yellow_cards", "red_cards",
 ]
 
-# match_log fields (besides the joined keys / parsed date)
 LOG_NUM_FIELDS = ["mins", "tries", "conversions", "yellow_cards", "red_cards"]
 LOG_BOOL_FIELDS = ["win", "draw"]
 
 
 def _num(v):
-    """Coerce to int/float; None/blank/non-numeric -> 0."""
     if v is None:
         return 0
     try:
@@ -62,7 +36,6 @@ def _num(v):
 
 
 def _parse_height_cm(v) -> int:
-    """'188cm' -> 188 ; missing -> 0."""
     if not isinstance(v, str):
         return _num(v)
     digits = "".join(ch for ch in v if ch.isdigit())
@@ -70,7 +43,6 @@ def _parse_height_cm(v) -> int:
 
 
 def _parse_weight_kg(v) -> int:
-    """'106kg' -> 106 ; missing -> 0."""
     if not isinstance(v, str):
         return _num(v)
     digits = "".join(ch for ch in v if ch.isdigit())
@@ -147,7 +119,6 @@ def build_matchlog(records) -> pd.DataFrame:
             rows.append(rec)
     df = pd.DataFrame(rows)
     if not df.empty:
-        # "29 Nov 2025" -> ISO "2025-11-29"; unparseable -> "" (kept, not dropped)
         iso = pd.to_datetime(df["date"], format="%d %b %Y", errors="coerce")
         df["date"] = iso.dt.strftime("%Y-%m-%d").where(iso.notna(), "")
     return df
@@ -157,7 +128,6 @@ def main():
     out_dir = BASE / "data"
     out_dir.mkdir(exist_ok=True)
 
-    # materialize once; the generator is consumed three times
     records = list(load_json_files())
     print(f"loaded {len(records)} RugbyPass JSON files")
 

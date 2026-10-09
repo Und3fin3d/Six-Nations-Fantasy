@@ -1,5 +1,3 @@
-"""CLI for the P3 NCR shadow predictions."""
-
 from __future__ import annotations
 
 import argparse
@@ -24,7 +22,7 @@ def shadow_evaluate_command(args):
 
 
 def parser() -> argparse.ArgumentParser:
-    ap = argparse.ArgumentParser(description=__doc__)
+    ap = argparse.ArgumentParser()
     sub = ap.add_subparsers(required=True)
     p = sub.add_parser("shadow", help="freeze a write-once NCR shadow prediction")
     p.add_argument("--gw", type=int, required=True)

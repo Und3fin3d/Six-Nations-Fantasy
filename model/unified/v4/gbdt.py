@@ -1,18 +1,3 @@
-"""v4 GBDT: the v1 direct-totals architecture plus flag-gated structural fixes.
-
-Flags off => behaviour is bit-identical to ``UniversalGBDT`` (regression-
-guarded in tests). The three additive components:
-
-- extended encoder that admits the v4 PIT feature columns (EB shrunk rates,
-  level-split form, intl/club history counts);
-- ``pool_player_id`` + ``player_effects``: fit without a player identity
-  feature, then apply empirical-Bayes multiplicative per-player effects
-  estimated from the training frame only (variant b);
-- ``hurdle_events``: P(>=1) classifier x positive-count Poisson regressor,
-  moment-matched into the existing negative_binomial ``EventDistribution`` so
-  ``contracts.py``/``scoring.py`` are untouched (P2).
-"""
-
 from __future__ import annotations
 
 import numpy as np
@@ -28,8 +13,6 @@ EFFECT_BOUNDS = (0.25, 4.0)
 
 
 class V4FeatureEncoder(FeatureEncoder):
-    """Parent encoder plus the v4 numeric columns present in the frame."""
-
     def fit(self, frame: pd.DataFrame) -> "V4FeatureEncoder":
         super().fit(frame)
         extra = [c for c in V4_BASE_NUMERIC if c in frame] + [
@@ -106,7 +89,6 @@ class V4GBDT(UniversalGBDT):
         return self
 
     def _fit_effects(self, frame: pd.DataFrame) -> None:
-        """EB multiplicative per-player effects from the training frame only."""
         from .features import fit_shrinkage_k
 
         pooled = self._frame(frame)
@@ -130,8 +112,6 @@ class V4GBDT(UniversalGBDT):
             players = frame.loc[valid, "player_id"].astype(str).to_numpy()
             table = pd.DataFrame({"player": players, "actual": actual, "pred": predicted})
             agg = table.groupby("player").sum()
-            # Prior mass = expected events over K moment-matched minutes at the
-            # pooled rate (same K machinery as the feature variant; not pinned).
             pooled_rate = float(actual.sum() / max(minutes[valid].sum(), 1.0)) * 80.0
             alpha = max(k_by_event.get(event, 220.0) * pooled_rate / 80.0, 0.5)
             effect = (alpha + agg["actual"]) / (alpha + agg["pred"])

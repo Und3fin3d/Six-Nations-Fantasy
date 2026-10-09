@@ -1,5 +1,3 @@
-"""Deterministic competition scoring adapters."""
-
 from __future__ import annotations
 
 from dataclasses import dataclass
@@ -22,8 +20,6 @@ class ScoreSummary:
 
 
 class CompetitionScorer:
-    """Interface implemented by each competition's rules adapter."""
-
     name = "base"
 
     def score_samples(

@@ -1,5 +1,3 @@
-"""Frozen contracts for historical raw benchmark v1."""
-
 from __future__ import annotations
 
 from pathlib import Path

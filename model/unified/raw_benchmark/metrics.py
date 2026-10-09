@@ -1,5 +1,3 @@
-"""Balanced raw-event and reconstructed-rubric benchmark metrics."""
-
 from __future__ import annotations
 
 from dataclasses import dataclass, field
@@ -41,8 +39,6 @@ def target_loss(target: str, actual: np.ndarray, predicted: np.ndarray) -> float
 
 @dataclass
 class NaiveComparator:
-    """Training-only position/status/level target means with safe fallbacks."""
-
     group_means: dict[str, pd.Series] = field(default_factory=dict)
     position_means: dict[str, pd.Series] = field(default_factory=dict)
     global_means: dict[str, float] = field(default_factory=dict)
@@ -190,10 +186,6 @@ def _score_rows(
 
 
 def _scorer_events(scorer, events: tuple[str, ...]) -> tuple[str, ...]:
-    # Tries and forward scrum wins are handled outside the flat weight mapping.
-    # Metres are a Six Nations-only scoring term and must not leak into the NCR
-    # observable-event label, even though supplying it to the NCR adapter would
-    # happen to leave the numerical score unchanged.
     scored = set(scorer.weights) | {"tries", "scrums_won"}
     if isinstance(scorer, SixNationsScorer):
         scored.add("metres")

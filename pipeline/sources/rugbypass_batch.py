@@ -1,22 +1,3 @@
-#!/usr/bin/env python3
-"""
-RugbyPass Batch Scraper
-=======================
-Reads all unique players from the Six Nations fantasy CSVs, resolves each to a
-RugbyPass URL slug, scrapes their stats in a single browser session, and saves:
-
-  • rugbypass_{slug}.json        — individual player file (same format as rugbypass.py)
-  • rugbypass_stats_6n.csv       — Six Nations rows from every player's comp_stats
-  • rugbypass_unknown_players.txt — players whose slug could not be resolved
-
-Usage:
-    python -m pipeline.sources.rugbypass_batch
-    python -m pipeline.sources.rugbypass_batch --years 2025 2026
-    python -m pipeline.sources.rugbypass_batch --dry-run
-    python -m pipeline.sources.rugbypass_batch --debug      # visible browser
-    python -m pipeline.sources.rugbypass_batch --delay 5    # seconds between pages
-"""
-
 from __future__ import annotations
 
 import argparse
@@ -29,16 +10,11 @@ from pathlib import Path
 import pandas as pd
 from bs4 import BeautifulSoup
 
-# ---------------------------------------------------------------------------
-# Player name → RugbyPass slug mapping
-# Key format: "Initial. Surname" exactly as it appears in the CSV
-# ---------------------------------------------------------------------------
 NAME_TO_SLUG: dict[str, str] = {
     "Hame Faiva":         "epalahame-faiva",
     "Oli Kebble":          "oliver-kebble",
     "Noah Nene":           "noah-tisie-nene",
 
-    # ── France ──────────────────────────────────────────────────────────────
     "A. Dupont":           "antoine-dupont",
     "T. Ramos":            "thomas-ramos",
     "M. Jalibert":         "matthieu-jalibert",
@@ -101,7 +77,6 @@ NAME_TO_SLUG: dict[str, str] = {
     "U. Seunes":           "ugo-seunes",
     "M. Lamothe":          "maxime-lamothe",
 
-    # ── Ireland ─────────────────────────────────────────────────────────────
     "J. Gibson-Park":      "jamison-gibson-park",
     "J. Conan":            "jack-conan",
     "J. van der Flier":    "josh-van-der-flier",
@@ -160,7 +135,6 @@ NAME_TO_SLUG: dict[str, str] = {
     "J. Stockdale":        "jacob-stockdale",
     "H. Byrne":            "harry-byrne",
 
-    # ── England ─────────────────────────────────────────────────────────────
     "G. Ford":             "george-ford",
     "B. Earl":             "ben-earl",
     "O. Lawrence":         "ollie-lawrence",
@@ -218,7 +192,6 @@ NAME_TO_SLUG: dict[str, str] = {
     "J. Roberts":          "joe-roberts",
     "G. Furbank":          "george-furbank",
 
-    # ── Scotland ────────────────────────────────────────────────────────────
     "F. Russell":          "finn-russell",
     "R. Darge":            "rory-darge",
     "K. Steyn":            "kyle-steyn",
@@ -273,7 +246,6 @@ NAME_TO_SLUG: dict[str, str] = {
     "J. Dobie":            "jamie-dobie",
     "J. Gray":             "jonny-gray",
 
-    # ── Wales ───────────────────────────────────────────────────────────────
     "E. Mee":              "ellis-mee",
     "J. Evans":            "jarrod-evans",
     "T. Faletau":          "taulupe-faletau",
@@ -326,7 +298,6 @@ NAME_TO_SLUG: dict[str, str] = {
     "E. Johnson":          "ewan-johnson",
     "M. Currie":           "matt-currie",
 
-    # ── Italy ───────────────────────────────────────────────────────────────
     "L. Cannone":          "lorenzo-cannone",
     "M. Zuliani":          "manuelzuliani",
     "T. Menoncello":       "tommaso-menoncello",
@@ -379,10 +350,6 @@ NAME_TO_SLUG: dict[str, str] = {
 
 SIX_NATIONS_KEYWORDS = {"six nations", "six-nations", "6 nations"}
 
-
-# ---------------------------------------------------------------------------
-# Helpers (mirror rugbypass.py without importing it to keep this self-contained)
-# ---------------------------------------------------------------------------
 
 def make_driver(debug=False):
     from selenium import webdriver
@@ -499,10 +466,6 @@ def extract_match_log(soup):
     return games
 
 
-# ---------------------------------------------------------------------------
-# CSV helpers
-# ---------------------------------------------------------------------------
-
 def get_unique_players(csv_paths: list[Path]) -> list[str]:
     names: set[str] = set()
     for path in csv_paths:
@@ -521,10 +484,6 @@ def is_six_nations(comp_name: str | None) -> bool:
     return any(kw in comp_name.lower() for kw in SIX_NATIONS_KEYWORDS)
 
 
-# ---------------------------------------------------------------------------
-# Main
-# ---------------------------------------------------------------------------
-
 def main():
     parser = argparse.ArgumentParser(description="Batch-scrape RugbyPass for Six Nations players")
     parser.add_argument("--years", nargs="+", default=["2025", "2026"],
@@ -539,10 +498,9 @@ def main():
     args = parser.parse_args()
 
     base = Path(__file__).resolve().parents[2]
-    out_dir = base / "players"          # per-player JSONs live here
+    out_dir = base / "players"
     out_dir.mkdir(exist_ok=True)
 
-    # ── Collect CSV paths ───────────────────────────────────────────────────
     csv_paths: list[Path] = []
     for year in args.years:
         p = base / year / "players.csv"
@@ -553,10 +511,9 @@ def main():
             print(f"  ⚠️  Not found: {p}")
 
     if not csv_paths:
-        print("No CSVs found — exiting.")
+        print("No CSVs found, exiting.")
         sys.exit(1)
 
-    # ── Build player list ───────────────────────────────────────────────────
     all_names = get_unique_players(csv_paths)
     print(f"\n  {len(all_names)} unique player names found across CSVs.\n")
 
@@ -572,7 +529,6 @@ def main():
 
     print(f"  ✅  {len(known)} mapped   ❓  {len(unknown)} unknown\n")
 
-    # Save unknown list
     unknown_path = base / "rugbypass_unknown_players.txt"
     unknown_path.write_text("\n".join(unknown) + "\n")
     if unknown:
@@ -582,14 +538,13 @@ def main():
         print()
 
     if args.dry_run:
-        print("── Dry run — would scrape ──")
+        print("── Dry run: would scrape ──")
         for name, slug in known:
             json_path = out_dir / f"rugbypass_{slug.replace('-', '_')}.json"
             status = "EXISTS" if json_path.exists() else "new"
             print(f"  {name:35s}  {slug:45s}  [{status}]")
         return
 
-    # ── Determine which players still need scraping ─────────────────────────
     to_scrape: list[tuple[str, str]] = []
     for name, slug in known:
         stem = slug.replace("-", "_")
@@ -605,7 +560,6 @@ def main():
 
     print(f"\n  🏉  Scraping {len(to_scrape)} players...\n")
 
-    # ── Single browser session ──────────────────────────────────────────────
     driver = make_driver(debug=args.debug)
     six_nations_rows: list[dict] = []
     failed: list[str] = []
@@ -624,7 +578,7 @@ def main():
 
                 title = driver.title
                 if "404" in title or "not found" in title.lower():
-                    print(f"           ⚠️  404 — slug may be wrong for '{name}'")
+                    print(f"           ⚠️  404, slug may be wrong for '{name}'")
                     failed.append(f"{name} ({slug})")
                     continue
 
@@ -635,7 +589,6 @@ def main():
                 comp_stats = extract_comp_stats(soup)
                 match_log = extract_match_log(soup)
 
-                # Save individual JSON
                 out = {
                     "player": slug,
                     "csv_name": name,
@@ -645,7 +598,6 @@ def main():
                 }
                 json_path.write_text(json.dumps(out, indent=2))
 
-                # Collect Six Nations rows for combined CSV
                 for row in comp_stats:
                     if is_six_nations(row.get("competition")):
                         six_nations_rows.append({"player": name, "slug": slug, **row})
@@ -662,7 +614,6 @@ def main():
     finally:
         driver.quit()
 
-    # ── Write combined Six Nations CSV ──────────────────────────────────────
     if six_nations_rows:
         out_csv = base / "rugbypass_stats_6n.csv"
         pd.DataFrame(six_nations_rows).to_csv(out_csv, index=False)
@@ -670,7 +621,6 @@ def main():
     else:
         print("\n  ⚠️  No Six Nations competition rows found in scraped data.")
 
-    # ── Also rebuild from existing JSONs (catches previously scraped players) ─
     all_6n: list[dict] = []
     for json_file in sorted(out_dir.glob("rugbypass_*.json")):
         if json_file.name in ("rugbypass_stats_6n.json",):
@@ -689,7 +639,6 @@ def main():
         pd.DataFrame(all_6n).to_csv(out_all, index=False)
         print(f"  💾  All Six Nations stats (incl. existing JSONs) → {out_all}  ({len(all_6n)} rows)")
 
-    # ── Summary ─────────────────────────────────────────────────────────────
     print(f"\n  Done.  Scraped: {len(to_scrape) - len(failed)}  Failed: {len(failed)}")
     if failed:
         print("\n  Failed players (slug may need correcting in NAME_TO_SLUG):")

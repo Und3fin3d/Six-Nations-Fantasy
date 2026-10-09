@@ -1,29 +1,3 @@
-#!/usr/bin/env python3
-"""
-pipeline/ncr/ncr_snapshot.py — snapshot the live Nations Championship fantasy feeds.
-======================================================================
-Free (no RapidAPI quota). Pulls the game's own Sportz Interactive feeds and
-refreshes the model's view of the pool: prices, positions, hemispheres, injury
-flags and — the only genuinely blocking input each week — the confirmed team
-sheets (`player_status`: P = starts, B = bench, blank/NIS = not involved).
-
-The last number in the player-feed filename is the gameweek. The script derives
-the current catalogue and latest fully completed round from the fixtures feed,
-validates both returned payloads, and only then promotes the completed round as
-``players_latest.json``. It archives every response as well.
-
-Outputs:
-  data/ncr/ncr_players.csv   445-player pool (id, price, position, hemisphere, status)
-  data/ncr/ncr_fixtures.csv  42 fixtures with gameday, lock time, iscurrent
-  data/ncr/feeds/players_<UTC>.json   raw archive (labels + prices, point-in-time)
-  data/ncr/feeds/players_gw<N>.json   most recently fetched payload for that GW
-  data/ncr/feeds/players_latest.json  canonical latest-completed-GW results
-
-Usage:
-    python -m pipeline.ncr.ncr_snapshot                 # refresh both CSVs + archive the raw feed
-    python -m pipeline.ncr.ncr_snapshot --label post_gw2  # archive under a memorable name
-    python -m pipeline.ncr.ncr_snapshot --gameday 2       # explicit historical/diagnostic override
-"""
 from __future__ import annotations
 
 import argparse
@@ -40,7 +14,7 @@ os.chdir(Path(__file__).resolve().parents[2])
 BASE = "https://fantasy.nationschampionshiprugby.com/fantasy/feeds"
 HEADERS = {"User-Agent": "Mozilla/5.0", "Accept": "application/json",
            "Cache-Control": "no-cache", "Pragma": "no-cache",
-           "Entity": "ed0t4n$3!"}          # gameworld auth header from the site bundle
+           "Entity": "ed0t4n$3!"}
 FEEDS = Path("data/ncr/feeds")
 PLAYER_COLS = ["id", "display_name", "full_name", "team_name", "team_id", "team_short_code",
                "hemisphere", "skill", "skill_desc", "value", "sel_percentage",
@@ -55,7 +29,6 @@ def get(path: str) -> bytes:
 
 
 def current_gameday(fixtures: list[dict]) -> int:
-    """Return the one gameweek marked current by the fixtures source of truth."""
     current = {
         int(float(f["gameday"]))
         for f in fixtures
@@ -67,16 +40,10 @@ def current_gameday(fixtures: list[dict]) -> int:
 
 
 def player_feed_path(gameday: int) -> str:
-    """Sportz player feeds are versioned by gameweek in the final path segment."""
     return f"/players/players_1_en_{int(gameday)}.json"
 
 
 def latest_completed_gameday(fixtures: list[dict], now: datetime | None = None) -> int:
-    """Latest round whose fixture date is strictly before today (UTC).
-
-    The fixture source assigns one tournament date to all six matches. Waiting
-    until the following UTC day avoids promoting a partially played round.
-    """
     now = now or datetime.now(timezone.utc)
     today = now.astimezone(timezone.utc).date()
     completed = set()
@@ -90,7 +57,6 @@ def latest_completed_gameday(fixtures: list[dict], now: datetime | None = None) 
 
 
 def validate_player_gameday(players: list[dict], requested_gw: int) -> None:
-    """Prevent a stale/misaddressed response from replacing the current files."""
     payload_gws = {
         int(float(p["gameday_id"]))
         for p in players
@@ -106,7 +72,6 @@ def validate_player_gameday(players: list[dict], requested_gw: int) -> None:
 def carryover_gameday(
     players: list[dict], requested_gw: int, feeds_dir: Path = FEEDS,
 ) -> int | None:
-    """Identify an exact old P/B lineup relabelled as a new gameweek."""
     signature = {
         int(float(player["id"])): str(player.get("player_status"))
         for player in players if player.get("player_status") in ("P", "B")
@@ -131,8 +96,7 @@ def carryover_gameday(
 
 
 def main() -> int:
-    ap = argparse.ArgumentParser(description=__doc__,
-                                 formatter_class=argparse.RawDescriptionHelpFormatter)
+    ap = argparse.ArgumentParser()
     ap.add_argument("--label", default=None,
                     help="archive suffix (default: UTC timestamp), e.g. 'post_gw2'")
     ap.add_argument("--gameday", type=int, default=None,
@@ -165,11 +129,8 @@ def main() -> int:
     archive.write_bytes(raw_players)
     (FEEDS / f"players_gw{requested_gw}.json").write_bytes(raw_players)
     (FEEDS / f"players_gw{results_gw}.json").write_bytes(raw_results)
-    # "latest" means latest completed results; it retains that GW's P/B status
-    # so captain and super-sub multipliers can be evaluated correctly.
     (FEEDS / "players_latest.json").write_bytes(raw_results)
     (FEEDS / "players_latest_results.json").write_bytes(raw_results)
-    # Compatibility name: the catalogue for the currently upcoming round.
     (FEEDS / "players_cur.json").write_bytes(raw_players)
 
     with open("data/ncr/ncr_players.csv", "w", newline="") as fh:

@@ -1,30 +1,3 @@
-#!/usr/bin/env python3
-"""
-Official fantasy labels  →  data/official_player_match.csv  (0 API spend)
-========================================================================
-Consolidates the manual official xlsx files into one long, model-ready label
-table — one row per (season, round, team, player) — carrying the official
-fantasy `Pts` label, the fantasy-only categories the API can't see
-(50-22, KR, LS, POTM, SW) and the directly comparable components.
-
-Seasons:
-  • 2025, 2026 — reuse parse_official() from compare_api_official (dynamic
-    Min+Pts header detection over stacked per-team blocks).
-  • 2023      — DIFFERENT layout: 'Round N Data' (raw components incl. the
-    Game Total = Pts) + 'Round N Points' (per-category points) split sheets,
-    Rounds 1-4 ONLY (no R5). Handled by parse_official_2023() below, which
-    reads the 'Round N Data' sheet (header on row index 8), assigns each
-    player's team via the 'Player List' sheet, and maps the 2023 column labels
-    onto the same names parse_official produces.
-
-Output columns (superset; absent ones are simply missing per season):
-    season, round, team, name, key,
-    Min, T, As, C, Pen, DG, MC, Ta, OF, DB, CPen, BS, YC, RC, Pts,
-    50-22, KR, LS, POTM, SW
-
-Usage:  python -m pipeline.sixn.build_official
-"""
-
 from __future__ import annotations
 
 from pathlib import Path
@@ -36,9 +9,6 @@ from pipeline.sixn.compare_api_official import (API_BLIND, OFFICIAL, STAT_MAP, n
 
 BASE = Path(__file__).resolve().parents[2]
 
-# 2023 'Round N Data' header label  ->  canonical parse_official column name.
-# Anything not listed (Nation, Win/Loss, Dominant Tackles, Line Breaks, MoM,
-# Game Total, Total Points) is handled separately or dropped.
 COL_MAP_2023 = {
     "Time Played":    "Min",
     "Tackles":        "Ta",
@@ -55,12 +25,10 @@ COL_MAP_2023 = {
     "Red Card":       "RC",
     "Game Total":     "Pts",
 }
-# numeric columns to coerce (blank official cell = 0 events)
 NUMERIC_OUT = sorted(set(STAT_MAP) | set(API_BLIND) | {"Pts"})
 
 
 def _player_nation_map(xl: pd.ExcelFile) -> dict:
-    """Build {norm_key(name): nation} from the 2023 'Player List' sheet."""
     pl = pd.read_excel(xl, sheet_name="Player List", header=None)
     pl = pl.dropna(subset=[0])
     out = {}
@@ -73,13 +41,6 @@ def _player_nation_map(xl: pd.ExcelFile) -> dict:
 
 
 def parse_official_2023(path: Path, season: int = 2023) -> pd.DataFrame:
-    """Parse the 2023 split-sheet layout (Rounds 1-4) -> tidy long frame.
-
-    Reads each 'Round N Data' sheet (the component counts + Game Total = Pts),
-    finds the header row dynamically (the one whose first cell == 'Name'),
-    assigns team via the 'Player List' name->nation map, and renames the 2023
-    labels to the parse_official column names.
-    """
     xl = pd.ExcelFile(path)
     nation = _player_nation_map(xl)
     out = []
@@ -88,7 +49,6 @@ def parse_official_2023(path: Path, season: int = 2023) -> pd.DataFrame:
         if sheet not in xl.sheet_names:
             continue
         raw = pd.read_excel(xl, sheet_name=sheet, header=None)
-        # locate header row: first cell == 'Name'
         hdr_idx = None
         for i in range(len(raw)):
             if str(raw.iloc[i, 0]).strip() == "Name":
@@ -110,7 +70,6 @@ def parse_official_2023(path: Path, season: int = 2023) -> pd.DataFrame:
                 col = COL_MAP_2023.get(lab)
                 if col:
                     rec[col] = v
-            # MoM column (man of the match) -> POTM blind-spot category
             if "MoM" in labels:
                 mom = vals[labels.index("MoM")]
                 rec["POTM"] = mom
@@ -126,14 +85,14 @@ def build() -> pd.DataFrame:
     frames = []
     for season, path in sorted(OFFICIAL.items()):
         if not path.exists():
-            print(f"⚠️  missing {path} (season {season}) — skipped")
+            print(f"⚠️  missing {path} (season {season}), skipped")
             continue
         if season == 2023:
             df = parse_official_2023(path, season)
         else:
             df = parse_official(path, season)
         if df.empty:
-            print(f"⚠️  season {season} parsed 0 rows — skipped")
+            print(f"⚠️  season {season} parsed 0 rows, skipped")
             continue
         print(f"season {season}: {len(df)} rows, "
               f"rounds={sorted(int(x) for x in df['round'].unique())}, "

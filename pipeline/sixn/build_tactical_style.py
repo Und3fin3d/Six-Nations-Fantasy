@@ -1,13 +1,3 @@
-#!/usr/bin/env python3
-"""Build optional PIT tactical-style features for Six Nations fixtures.
-
-Output: data/external_team_style.csv
-
-This layer summarizes how each named national side has recently played before a
-fixture: tempo, kicking volume, attacking edge, tackle demand, discipline risk,
-and set-piece strength.  It is intentionally feature-only and remains gated off
-unless a research candidate enables `style_` features.
-"""
 from __future__ import annotations
 
 import argparse

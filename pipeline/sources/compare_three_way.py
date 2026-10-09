@@ -1,21 +1,3 @@
-#!/usr/bin/env python3
-"""
-Three-way comparison: official fantasy  vs  RapidAPI  vs  RugbyPass
-==================================================================
-RugbyPass only exposes a rich stat line at the *competition-season* level
-(competition_stats), and a thin per-match line (mins/tries/conv/cards) in
-match_log. So the three-way is done at the Six Nations *season-aggregate*
-level, where all three sources can be compared on the stats that matter:
-minutes, tries, assists, metres, defenders beaten, tackles, offloads,
-penalties conceded, and the breakdown-steal family (official BS vs API
-tackle_turnover vs RugbyPass turnovers_won).
-
-Official & API are summed per player per season from their per-match tables;
-RugbyPass is read straight from its season aggregate.
-
-Usage:  python -m pipeline.sources.compare_three_way [seasons...]   (default 2025)
-"""
-
 from __future__ import annotations
 
 import glob
@@ -33,7 +15,6 @@ from pipeline.sources.rugbypass_batch import NAME_TO_SLUG
 BASE = Path(__file__).resolve().parents[2]
 SLUG_TO_NAME = {v: k for k, v in NAME_TO_SLUG.items()}
 
-# stat  ->  (official col, api col, rugbypass col)   None = source lacks it
 TRIPLE = {
     "minutes":      ("Min",  "minutes",            "minutes"),
     "tries":        ("T",    "tries",              "tries"),
@@ -51,7 +32,7 @@ def slug_key(slug: str) -> str:
     name = SLUG_TO_NAME.get(slug)
     if name:
         return norm_key(name)
-    parts = slug.split("-")                      # fallback: first|rest
+    parts = slug.split("-")
     return f"{parts[0][0]}|{''.join(parts[1:])}" if len(parts) > 1 else slug
 
 
@@ -124,7 +105,6 @@ def main():
     print(f"  official-only players: {len(off)}   api: {len(api)}   rugbypass: {len(rp)}")
     print("=" * 78)
 
-    # ---- per-stat three-way table -------------------------------------------
     hdr = (f"{'stat':<12}{'OFF tot':>9}{'API tot':>9}{'RP tot':>9}"
            f"{'API/OFF':>9}{'RP/OFF':>9}{'r(O,A)':>8}{'r(O,RP)':>9}{'r(A,RP)':>9}")
     print("\nSIX NATIONS SEASON TOTALS & AGREEMENT  (players present in all 3)")
@@ -140,29 +120,26 @@ def main():
     print("-" * len(hdr))
     print("ratios vs official total (1.00 = same volume); r = correlation across players")
 
-    # ---- metres adjudication -------------------------------------------------
     o = pd.to_numeric(j["off_MC"], errors="coerce").fillna(0)
     a = pd.to_numeric(j["api_metres"], errors="coerce").fillna(0)
     r = pd.to_numeric(j["rp_metres"], errors="coerce").fillna(0)
     m = (o > 0) & (a > 0) & (r > 0)
-    print("\nMETRES — who matches official? (players with all>0, median ratio to OFFICIAL)")
+    print("\nMETRES: who matches official? (players with all>0, median ratio to OFFICIAL)")
     print(f"  API/official = {(a[m]/o[m]).median():.2f}    "
           f"RugbyPass/official = {(r[m]/o[m]).median():.2f}    "
           f"API/RugbyPass = {(a[m]/r[m]).median():.2f}")
 
-    # ---- breakdown-steal adjudication ---------------------------------------
     o = pd.to_numeric(j["off_BS"], errors="coerce").fillna(0)
     a = pd.to_numeric(j["api_tackle_turnover"], errors="coerce").fillna(0)
     r = pd.to_numeric(j["rp_turnovers_won"], errors="coerce").fillna(0)
-    print("\nBREAKDOWN STEAL — which external stat tracks official BS best?")
+    print("\nBREAKDOWN STEAL: which external stat tracks official BS best?")
     print(f"  official total={o.sum():.0f}  API tackle_turnover={a.sum():.0f} "
           f"(corr {corr(o,a):.2f})   RugbyPass turnovers_won={r.sum():.0f} "
           f"(corr {corr(o,r):.2f})")
 
-    # ---- top metre-getters side by side -------------------------------------
     j["_m"] = pd.to_numeric(j["off_MC"], errors="coerce").fillna(0)
     top = j.sort_values("_m", ascending=False).head(10)
-    print("\nTOP METRE-MAKERS — official / API / RugbyPass (season metres):")
+    print("\nTOP METRE-MAKERS: official / API / RugbyPass (season metres):")
     for _, x in top.iterrows():
         print(f"  {str(x['name']):<22} {int(x.season)}  "
               f"OFF={int(x.off_MC):>4}  API={int(x.api_metres):>4}  "

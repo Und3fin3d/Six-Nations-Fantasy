@@ -1,5 +1,3 @@
-"""Point-in-time features shared by every universal model adapter."""
-
 from __future__ import annotations
 
 from dataclasses import dataclass
@@ -19,11 +17,6 @@ BASE_NUMERIC_FEATURES = (
 
 
 def grouped_ewm(values: pd.Series, groups: pd.Series, *, shifted: bool = False, **kwargs) -> pd.Series:
-    """Pandas' grouped EWM without one Python callback per player.
-
-    Positional indexing also supports callers with repeated index labels.
-    The optional shift always happens within the same player group.
-    """
     if values.empty:
         return pd.Series(index=values.index, dtype=float)
     value = pd.Series(values.to_numpy())
@@ -36,7 +29,6 @@ def grouped_ewm(values: pd.Series, groups: pd.Series, *, shifted: bool = False, 
 
 
 def team_margin_form(frame: pd.DataFrame, *, shifted: bool) -> pd.Series:
-    """One observation per team/fixture, never one per player in that match."""
     fixtures = frame.drop_duplicates(["fixture_id", "team"]).sort_values(
         ["date", "fixture_id", "team"]
     ).copy()
@@ -52,8 +44,6 @@ def team_margin_form(frame: pd.DataFrame, *, shifted: bool) -> pd.Series:
 
 
 def build_pit_features(frame: pd.DataFrame) -> pd.DataFrame:
-    """Build prior-match-only features; every rolling statistic is shifted."""
-
     df = frame.sort_values(["date", "fixture_id", "team", "player_id"]).copy()
     df["team_margin"] = pd.to_numeric(df.get("team_score"), errors="coerce") - pd.to_numeric(
         df.get("opp_score"), errors="coerce")
@@ -81,8 +71,6 @@ def numeric_feature_columns(frame: pd.DataFrame) -> list[str]:
 
 @dataclass
 class FeatureEncoder:
-    """Train-only category vocabularies and numeric normalization."""
-
     categories: dict[str, dict[str, int]] | None = None
     numeric_columns: list[str] | None = None
     means: np.ndarray | None = None

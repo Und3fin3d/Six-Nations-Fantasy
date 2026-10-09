@@ -1,5 +1,3 @@
-"""Train P3 and its two components on immutable historical tournament folds."""
-
 from __future__ import annotations
 
 import json

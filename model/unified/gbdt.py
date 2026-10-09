@@ -1,5 +1,3 @@
-"""Universal per-event GBDT control using the shared canonical feature seam."""
-
 from __future__ import annotations
 
 import pickle
@@ -23,12 +21,6 @@ class _ConstantProbability:
 
 
 class UniversalGBDT:
-    """One control model over every competition and every raw event.
-
-    Heads vary by event because their labels and distributions vary; there is no
-    competition-specific head or fantasy-points target.
-    """
-
     def __init__(
         self, events: tuple[str, ...] = EVENTS, random_state: int = 17,
         weighting: str = "level_balanced",
@@ -53,9 +45,6 @@ class UniversalGBDT:
         self.encoder.fit(frame)
         cat, numeric = self.encoder.transform(frame)
         X = np.column_stack([cat, numeric])
-        # NumPy matrices have no category dtype. "auto" otherwise treats these
-        # train-only identity codes as ordered numeric quantities. Keep the
-        # historical default unchanged until the challenger clears its gates.
         fit_kwargs = ({"categorical_feature": list(range(cat.shape[1]))}
                       if self.native_categories else {})
         level = frame["competition_level"].fillna("unknown").astype(str)

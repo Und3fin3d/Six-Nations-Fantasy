@@ -1,13 +1,3 @@
-"""v4 point-in-time feature augmentation: EB shrinkage stats and level splits.
-
-Every column here is computed from strictly-prior rows (`shift(1)` before any
-cumulative/rolling aggregation), matching the discipline of
-``model.unified.features.build_pit_features``. The empirical-Bayes shrinkage
-constant K is NOT a feature input: it is fitted per fold from the training
-frame only (`fit_shrinkage_k`) and applied to the K-independent cumulative
-stats (`add_v4_base_stats`) via `apply_eb_features`.
-"""
-
 from __future__ import annotations
 
 import numpy as np
@@ -16,7 +6,6 @@ import pandas as pd
 from ..schema import COUNT_EVENTS, SCORING_EVENTS
 from ..features import grouped_ewm
 
-# Count events that enter either competition's scoring — the tail that matters.
 EB_EVENTS = tuple(e for e in SCORING_EVENTS if e in COUNT_EVENTS and e != "potm")
 THIN_INTL_MATCHES = 5
 K_DEFAULT = 220.0
@@ -24,7 +13,6 @@ K_BOUNDS = (40.0, 4000.0)
 
 
 def add_v4_base_stats(store: pd.DataFrame) -> pd.DataFrame:
-    """K-independent PIT stats: intl history, level-split form, EB cumulatives."""
     df = store.copy()
     player = df.groupby("player_id", sort=False)
     is_intl = df["competition_level"].eq("international").astype(float)
@@ -39,17 +27,14 @@ def add_v4_base_stats(store: pd.DataFrame) -> pd.DataFrame:
         mins = minutes.where(valid)
         per80 = count / mins * 80.0
 
-        # Level-split recent form (club vs international), same halflife as base.
         for level, mask in (("intl", is_intl.astype(bool)), ("club", ~is_intl.astype(bool))):
             level_per80 = per80.where(mask)
             df[f"form_per80_{level}__{event}"] = grouped_ewm(
                 level_per80, df["player_id"], shifted=True, halflife=4)
 
-        # EB cumulatives: prior event count and prior observed minutes.
         df[f"cum_count__{event}"] = count.fillna(0).groupby(df["player_id"]).cumsum() - count.fillna(0)
         df[f"cum_min__{event}"] = mins.fillna(0).groupby(df["player_id"]).cumsum() - mins.fillna(0)
 
-        # Expanding position-by-level prior per-80 rate from strictly-prior rows.
         group = [df["position"].fillna("unknown"), df["competition_level"].fillna("unknown")]
         df[f"prior_per80__{event}"] = per80.groupby(group).transform(
             lambda x: x.shift(1).expanding(min_periods=5).mean()
@@ -58,16 +43,10 @@ def add_v4_base_stats(store: pd.DataFrame) -> pd.DataFrame:
             lambda x: x.shift(1).expanding(min_periods=1).mean()
         )
         df[f"prior_per80__{event}"] = df[f"prior_per80__{event}"].fillna(overall).fillna(0.0)
-    return df.copy()  # defragment after the many column inserts
+    return df.copy()
 
 
 def fit_shrinkage_k(train: pd.DataFrame) -> dict[str, float]:
-    """Per-event K (minutes) by variance moment-matching on the training frame.
-
-    Model: player true per-80 rate ~ (mu, tau^2); an M-minute observed rate has
-    Poisson sampling variance ~ 80*mu/M. Weighted between-player variance minus
-    expected sampling variance estimates tau^2; K = 80*mu/tau^2.
-    """
     minutes = pd.to_numeric(train["minutes"], errors="coerce")
     out: dict[str, float] = {}
     for event in EB_EVENTS:
@@ -100,7 +79,6 @@ def fit_shrinkage_k(train: pd.DataFrame) -> dict[str, float]:
 
 
 def apply_eb_features(store: pd.DataFrame, k_by_event: dict[str, float]) -> pd.DataFrame:
-    """eb_rate__event = (80*cum_count + K*prior) / (cum_min + K); PIT by inputs."""
     df = store.copy()
     for event in EB_EVENTS:
         k = float(k_by_event.get(event, K_DEFAULT))

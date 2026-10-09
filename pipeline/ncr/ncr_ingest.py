@@ -1,27 +1,3 @@
-#!/usr/bin/env python3
-"""
-pipeline/ncr/ncr_ingest.py — fetch new Nations Championship results and rebuild the history tables.
-=====================================================================================
-Two jobs, separable:
-
-  --fetch    pull completed matches not yet on disk (~6-7 API calls per gameweek)
-  --rebuild  re-assemble the history CSVs from the permanent cache (0 API calls)
-
-Outputs:
-  data/ncr/ncr_player_match.csv    internationals for the 12 nations (+ Lions/tour sides)
-  data/ncr/ncr_team_match.csv      international team statistics for the same fixtures
-  data/ncr/club_player_match.csv   club form: URC / Prem / Top 14 / Euro Cups /
-                                   Super Rugby Pacific / Japan League One /
-                                   NPC / Currie Cup
-
-Both feed the model: internationals drive FORM + minutes, club drives the calibrated
-club-form blend in model/ncr/project.py.
-
-Usage:
-    python -m pipeline.ncr.ncr_ingest                    # fetch new results, then rebuild both tables
-    python -m pipeline.ncr.ncr_ingest --rebuild          # cache-only re-assembly (e.g. after a backfill)
-    python -m pipeline.ncr.ncr_ingest --fetch --floor 50
-"""
 from __future__ import annotations
 
 import argparse
@@ -50,24 +26,21 @@ NATIONS = {"New Zealand", "Australia", "South Africa", "Argentina", "Fiji", "Jap
            "England", "France", "Ireland", "Italy", "Scotland", "Wales"}
 TEAM_IDS = {2567, 317, 2717, 2417, 2879, 9017, 1667, 1967, 1817, 2873, 2117, 1517}
 
-# (comp_id, season) sweeps. Internationals keep only the 12 nations' sides, EXCEPT
-# Lions/Tour matches where pool players wear Lions/Barbarians/A-team shirts.
-INTL_PLAN = ([(1266, s) for s in range(2021, 2027)]          # Six Nations
-             + [(1296, s) for s in range(2021, 2027)]        # The Rugby Championship
-             + [(1326, s) for s in (2020, 2022, 2025, 2026)]  # Pacific Nations Cup
-             + [(30, s) for s in range(2021, 2027)]          # July/Nov internationals
+INTL_PLAN = ([(1266, s) for s in range(2021, 2027)]
+             + [(1296, s) for s in range(2021, 2027)]
+             + [(1326, s) for s in (2020, 2022, 2025, 2026)]
+             + [(30, s) for s in range(2021, 2027)]
              + [(1272, 2024), (2208, 2021), (2202, 2021), (696, 2026)])
-OPEN_PLAN = [(1338, 2025), (18, 2023), (18, 2025), (18, 2026)]  # Lions and tour matches
+OPEN_PLAN = [(1338, 2025), (18, 2023), (18, 2025), (18, 2026)]
 CLUB_PLAN = ([(c, s) for c in (1236, 1230, 1218, 1464, 1470) for s in (2023, 2024, 2025, 2026, 2027)]
-             + [(1242, s) for s in range(2022, 2028)]        # Super Rugby Pacific
-             + [(2538, 2024), (2538, 2025), (2538, 2026)]    # Japan League One D1
-             + [(1260, 2024), (1260, 2025), (1260, 2026), (1260, 2027)]  # NPC: calendar 2023-26
-             + [(1254, 2023), (1254, 2024), (1254, 2025)])   # Currie Cup: calendar 2023-25
-LIVE_COMP = 696                                              # Nations Championship itself
+             + [(1242, s) for s in range(2022, 2028)]
+             + [(2538, 2024), (2538, 2025), (2538, 2026)]
+             + [(1260, 2024), (1260, 2025), (1260, 2026), (1260, 2027)]
+             + [(1254, 2023), (1254, 2024), (1254, 2025)])
+LIVE_COMP = 696
 
 
 def parse_match(m: dict, keep) -> list[dict]:
-    """One row per player per side, for sides passing `keep(team_name)`."""
     match = m.get("match", {})
     home, away = m.get("home", {}), m.get("away", {})
     if not (home.get("teamsheet") and away.get("teamsheet")):
@@ -104,7 +77,6 @@ def parse_match(m: dict, keep) -> list[dict]:
 
 
 def parse_team_match(m: dict, keep) -> list[dict]:
-    """One team-statistics row per side passing `keep(team_name)`."""
     match = m.get("match", {})
     rows = []
     for side in ("home", "away"):
@@ -149,7 +121,6 @@ def parse_team_match(m: dict, keep) -> list[dict]:
 
 
 def sweep(api: RugbyAPI, plan, keep, id_filter=None) -> list[dict]:
-    """Parse every CACHED completed match in `plan` (never spends quota)."""
     rows = []
     for comp, season in plan:
         try:
@@ -168,7 +139,6 @@ def sweep(api: RugbyAPI, plan, keep, id_filter=None) -> list[dict]:
 
 
 def sweep_team(api: RugbyAPI, plan, keep) -> list[dict]:
-    """Parse every cached completed match in `plan` into team-statistics rows."""
     rows = []
     for comp, season in plan:
         try:
@@ -186,7 +156,6 @@ def sweep_team(api: RugbyAPI, plan, keep) -> list[dict]:
 
 
 def fetch_new_results(api: RugbyAPI, floor: int) -> int:
-    """Pull completed Nations Championship matches not yet cached."""
     fixtures = api.get(f"/fixtures/{LIVE_COMP}/2026", refresh=True).get("results", [])
     todo = [f for f in fixtures
             if f.get("status") in DONE and not api._cache_path(f"/match/{f['id']}").exists()]
@@ -209,7 +178,7 @@ def fetch_new_results(api: RugbyAPI, floor: int) -> int:
 def rebuild(api: RugbyAPI) -> None:
     ncr_teams = NATIONS.__contains__
     rows = sweep(api, INTL_PLAN, ncr_teams)
-    rows += sweep(api, OPEN_PLAN, lambda t: True)             # Lions / Barbarians / A sides
+    rows += sweep(api, OPEN_PLAN, lambda t: True)
     intl = (pd.DataFrame(rows).drop_duplicates(["fixture_id", "player_id", "team"]))
     intl["date"] = pd.to_datetime(intl["date"])
     intl = intl.sort_values("date")
@@ -240,13 +209,12 @@ def rebuild(api: RugbyAPI) -> None:
 
 
 def main() -> int:
-    ap = argparse.ArgumentParser(description=__doc__,
-                                 formatter_class=argparse.RawDescriptionHelpFormatter)
+    ap = argparse.ArgumentParser()
     ap.add_argument("--fetch", action="store_true", help="pull new NCR results (spends quota)")
     ap.add_argument("--rebuild", action="store_true", help="re-assemble tables from cache (free)")
     ap.add_argument("--floor", type=int, default=50, help="stop fetching at this quota")
     args = ap.parse_args()
-    if not args.fetch and not args.rebuild:                   # default: do both
+    if not args.fetch and not args.rebuild:
         args.fetch = args.rebuild = True
 
     api = RugbyAPI(verbose=False, min_interval=0.7)

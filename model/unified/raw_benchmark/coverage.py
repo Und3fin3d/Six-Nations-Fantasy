@@ -1,5 +1,3 @@
-"""Rebuild event truth and availability from permanent match JSON caches."""
-
 from __future__ import annotations
 
 import collections
@@ -48,7 +46,6 @@ def _hemisphere(team: object) -> str:
 
 
 def parse_cache_fixture(path: Path) -> tuple[dict, list[dict], list[dict]]:
-    """Return fixture metadata, player truth rows and fixture-event coverage."""
     payload = json.loads(path.read_text()).get("results", {})
     match = payload.get("match") or {}
     fixture_id = str(match.get("id") or path.stem.removeprefix("match_"))
@@ -253,7 +250,6 @@ def build_corrected_store(legacy_path: Path = LEGACY_STORE, *, complete_asof=Non
         "fixture_id", "match_at", "competition_id_cache", "competition_cache",
         "calendar_year", "source_season", "source_game_week", "source_round",
     ]
-    # Metadata already arrived through cache_players; remove duplicate cache identity helpers.
     drop_helpers = [
         "player_name_cache", "team_cache", "opponent_cache", "jersey_cache", "started_cache",
         "date_cache",

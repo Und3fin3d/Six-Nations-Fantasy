@@ -1,5 +1,3 @@
-"""Stable contracts at the prediction/scoring seam."""
-
 from __future__ import annotations
 
 from dataclasses import asdict, dataclass, field
@@ -10,13 +8,6 @@ import numpy as np
 
 @dataclass(frozen=True)
 class EventDistribution:
-    """Distribution parameters for one non-negative raw match event.
-
-    Supported families intentionally match rugby data: ``poisson`` and
-    ``negative_binomial`` for counts, ``lognormal`` for metres/minutes-like
-    quantities, and ``bernoulli`` for rare binary events.
-    """
-
     family: str
     mean: float
     dispersion: float = 1.0
@@ -36,7 +27,6 @@ class EventDistribution:
         if self.family == "poisson":
             return rng.poisson(mean, size=size).astype(float)
         if self.family == "negative_binomial":
-            # Var = mean + mean^2 / dispersion.
             if mean == 0:
                 return np.zeros(size)
             shape = self.dispersion
@@ -53,8 +43,6 @@ class EventDistribution:
 
 @dataclass(frozen=True)
 class RawPrediction:
-    """One player's competition-independent match forecast."""
-
     fixture_id: str
     player_id: str
     player_name: str

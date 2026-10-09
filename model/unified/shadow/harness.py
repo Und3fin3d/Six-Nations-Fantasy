@@ -1,5 +1,3 @@
-"""Write-once outputs and hashes for the P3 shadow."""
-
 from __future__ import annotations
 
 import hashlib
@@ -20,7 +18,6 @@ def sha256(path: Path) -> str:
 
 
 def write_once(path: Path, content: str | bytes) -> None:
-    """Create an immutable artifact; refuse silent retrospective regeneration."""
     if path.exists():
         raise FileExistsError(f"immutable artifact already exists: {path}")
     path.parent.mkdir(parents=True, exist_ok=True)

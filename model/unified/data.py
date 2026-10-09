@@ -1,5 +1,3 @@
-"""Canonical data module for all club and international player-match sources."""
-
 from __future__ import annotations
 
 import hashlib
@@ -124,13 +122,6 @@ def build_canonical_store(
     sources: Iterable[tuple[Path, str, int, str]] = DEFAULT_SOURCES,
     *, asof: str | pd.Timestamp | None = None,
 ) -> pd.DataFrame:
-    """Return one canonical row per ``(fixture_id, player_id, team)``.
-
-    Duplicate rows caused by overlapping historical downloads are resolved by
-    source priority, then merged column-by-column so a lower-priority source may
-    fill only values absent from the chosen row.  It can never overwrite them.
-    """
-
     frames = [_normalise_source(Path(p), name, priority, level)
               for p, name, priority, level in sources if Path(p).exists()]
     if not frames:
@@ -147,9 +138,6 @@ def build_canonical_store(
     keys = list(KEY_COLUMNS)
     nonkeys = [c for c in all_rows.columns if c not in keys]
     grouped = all_rows.groupby(keys, sort=False)
-    # The sort puts the authoritative source first. bfill supplies only null
-    # cells from lower-priority rows, then drop_duplicates selects that filled
-    # first row. This is vectorized across ~200k rows.
     filled = all_rows.copy()
     filled[nonkeys] = grouped[nonkeys].bfill()
     availability = [c for c in nonkeys if c.startswith("available__")]

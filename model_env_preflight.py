@@ -1,6 +1,3 @@
-#!/usr/bin/env python3
-"""Reject model predictions outside the exact pinned Python environment."""
-
 from __future__ import annotations
 
 import argparse
@@ -40,7 +37,7 @@ def check(
 
 
 def main() -> int:
-    parser = argparse.ArgumentParser(description=__doc__)
+    parser = argparse.ArgumentParser()
     parser.add_argument("--quiet", action="store_true")
     args = parser.parse_args()
     errors = check()

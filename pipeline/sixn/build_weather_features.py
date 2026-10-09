@@ -1,11 +1,3 @@
-#!/usr/bin/env python3
-"""Build optional Six Nations fixture weather features from Open-Meteo.
-
-Output: data/external_fixture_weather.csv
-
-The player model does not use these features by default.  Enable them with the
-`external_weather_features_on` research candidate after this file has been built.
-"""
 from __future__ import annotations
 
 import argparse
@@ -22,7 +14,7 @@ import pandas as pd
 
 try:
     import certifi
-except ImportError:  # pragma: no cover - only used on minimal Python installs
+except ImportError:
     certifi = None
 
 BASE = Path(__file__).resolve().parents[2]

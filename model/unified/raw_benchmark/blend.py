@@ -1,5 +1,3 @@
-"""Fixed global event-distribution blend for empirical and v4."""
-
 from __future__ import annotations
 
 import pickle
@@ -148,8 +146,6 @@ def _predict_weighted(
 
 @dataclass
 class EventWeightedBlend:
-    """Competition-independent P3 blend with optional per-event weights."""
-
     empirical: object
     v4: object
     weight_v4: float = 0.5

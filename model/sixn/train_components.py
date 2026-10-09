@@ -1,24 +1,3 @@
-#!/usr/bin/env python3
-"""model/sixn/train_components.py  —  component model + minutes (Phase 4).
-
-Per-component objective map, baseline-GATED LightGBM, and a component registry.
-
-Selection rule (no test peeking): for each SCORED component we measure
-GroupKFold(5) OOF per-80 MAE **on the component-training years only** (2023+2024
-for the 2025 backtest).  LightGBM / blend are promoted only when they strictly
-beat the best of {naive, ridge, glm}; ties prefer the simpler engine.  The same
-selected ensemble is then used for both the 2025 backtest and the 2026
-deployment — 2025 is never used to choose components.
-
-Per-component families (COMP_KIND):
-  rare  (drop_goals_converted, red_cards) -> zero_prior
-  card  (yellow_cards)                     -> position/discipline base rate (naive)
-  kick  (conversion_goals, penalty_goals)  -> naive form, gated to likely kickers
-  count (tries, try_assists, defenders_beaten, offload, tackle_turnover,
-         penalties_conceded)               -> Poisson family + gated LightGBM
-  continuous (metres)                       -> Tweedie/L1 + gated LightGBM
-  rate  (tackles)                           -> L2/L1 + gated LightGBM
-"""
 from __future__ import annotations
 
 import warnings
@@ -38,23 +17,15 @@ from model.sixn.data import DATA, feature_view
 from model.sixn.splits import group_kfold_indices
 
 RNG = 0
-# LightGBM/blend must beat the best baseline by at least this RELATIVE margin to
-# be promoted. Small data (30 train fixtures): sub-margin OOF wins are noise and
-# the plan's whole stance is "simplest model that beats naive" -> demote them.
 LGBM_MARGIN = 0.02
-# convex blend weight on the LightGBM leg of the "blend" candidate (1-w on glm).
-# Default 0.5 reproduces the frozen behaviour; tuned by model.sixn.picker.
 BLEND_WEIGHT = 0.5
-# components for which a LightGBM candidate is even considered
 LGBM_COMPS = {
     "tackles", "metres", "tries", "try_assists", "defenders_beaten",
     "offload", "tackle_turnover", "penalties_conceded",
 }
-# always-zero / always-prior components (never fit a flexible model)
 ZERO_PRIOR = {"drop_goals_converted", "red_cards"}
 KICK_COMPS = {"conversion_goals", "penalty_goals"}
 
-# conservative, heavily-regularized fixed config (small-data: 30 train fixtures)
 _LGBM_BASE = dict(
     n_estimators=400, learning_rate=0.05, num_leaves=15,
     min_child_samples=50, reg_lambda=5.0, colsample_bytree=0.8,
@@ -67,15 +38,12 @@ def _lgbm_objective(comp: str) -> dict:
         return dict(objective="tweedie", tweedie_variance_power=1.3)
     if comp == "tackles":
         return dict(objective="regression_l1")
-    return dict(objective="poisson")          # counts
+    return dict(objective="poisson")
 
 
 def _lgbm_frame(df: pd.DataFrame, mode: str) -> pd.DataFrame:
-    """LightGBM design frame: raw feature view (native NaN, bio_position as
-    category).  No imputation, no scaling, no fillna(0)."""
     cols = feature_view(df, mode)
     X = df[cols].copy()
-    # bio_position already category from data.load(); leave NaN as-is elsewhere
     return X
 
 
@@ -83,7 +51,6 @@ def _fit_lgbm_component(
     df: pd.DataFrame, tr_idx: np.ndarray, va_idx: np.ndarray | None,
     comp: str, mode: str,
 ):
-    """Fit one LightGBM rate model; early-stops on va_idx if provided."""
     keep = (df.iloc[tr_idx]["minutes"] >= MIN_MINUTES).to_numpy()
     use = tr_idx[keep]
     X = _lgbm_frame(df, mode)
@@ -114,22 +81,16 @@ def _lgbm_predict(model, df: pd.DataFrame, idx: np.ndarray, mode: str) -> np.nda
 
 
 def _kick_gate(df: pd.DataFrame, idx: np.ndarray) -> np.ndarray:
-    """1.0 for plausible goal-kickers, else 0.0 (concentrates kicking mass)."""
     r = df.iloc[idx]["role_goal_kicker_rate"].fillna(0.0).to_numpy(float)
     return (r > 0.0).astype(float)
 
 
-# ---------------------------------------------------------------------------
-# OOF candidate scoring on the train years (no test peeking)
-# ---------------------------------------------------------------------------
 def _oof_candidate_mae(
     df: pd.DataFrame, train_mask: np.ndarray, mode: str
 ) -> dict[str, dict[str, float]]:
-    """Pooled GroupKFold OOF per-80 MAE for each (component, engine) candidate."""
     train_pos = np.where(train_mask)[0]
     dft = df.iloc[train_pos].reset_index(drop=True)
 
-    # accumulate abs errors per (comp, engine)
     err: dict[str, dict[str, list]] = {c: {} for c in SCORED}
 
     def add(comp, engine, y_true, y_pred):
@@ -142,12 +103,10 @@ def _oof_candidate_mae(
         vu = va_idx[vmask]
         if len(vu) == 0:
             continue
-        # baseline engines (full 13-col frames, sliced per comp)
         frames = {
             e: predict_rates(df, tr_idx, vu, mode, e)
             for e in ("naive", "ridge", "glm")
         }
-        # lgbm per eligible component
         for comp in SCORED:
             ytrue = _rate_target(df.iloc[vu], comp)
             ytrue = np.nan_to_num(ytrue, nan=0.0, posinf=0.0, neginf=0.0)
@@ -157,7 +116,6 @@ def _oof_candidate_mae(
                 m = _fit_lgbm_component(df, tr_idx, va_idx, comp, mode)
                 yl = _lgbm_predict(m, df, vu, mode)
                 add(comp, "lgbm", ytrue, yl)
-                # blend candidate: w*lgbm + (1-w)*glm
                 yb = BLEND_WEIGHT * yl + (1.0 - BLEND_WEIGHT) * frames["glm"][comp].to_numpy(float)
                 add(comp, "blend", ytrue, yb)
 
@@ -170,7 +128,6 @@ def _oof_candidate_mae(
 def select_components(
     df: pd.DataFrame, train_mask: np.ndarray, mode: str
 ) -> pd.DataFrame:
-    """Build the per-component registry via OOF MAE with baseline-gated LightGBM."""
     maes = _oof_candidate_mae(df, train_mask, mode)
     rows = []
     for comp in SCORED:
@@ -187,8 +144,6 @@ def select_components(
             best_simple = min(simple, key=simple.get)
             best_simple_mae = simple[best_simple]
             choice, reason = best_simple, f"best baseline (OOF {best_simple_mae:.3f})"
-            # gate: promote lgbm/blend only if it beats the best baseline by a
-            # meaningful relative margin (epsilon wins on 30 fixtures are noise).
             threshold = best_simple_mae * (1.0 - LGBM_MARGIN)
             best_adv, best_adv_mae = None, threshold
             for adv in ("lgbm", "blend"):
@@ -208,18 +163,14 @@ def select_components(
     return pd.DataFrame(rows)
 
 
-# ---------------------------------------------------------------------------
-# prediction with selected engines (retrained on full train years)
-# ---------------------------------------------------------------------------
 def predict_rates_registry(
     df: pd.DataFrame, train_idx: np.ndarray, test_idx: np.ndarray,
     mode: str, registry: pd.DataFrame,
 ) -> pd.DataFrame:
-    """Per-80 rate predictions for the chosen-engine ensemble."""
     eng = dict(zip(registry["component"], registry["engine"]))
     need_base = {e for e in eng.values() if e in ("naive", "ridge", "glm")}
     need_base |= {"glm"} if "blend" in eng.values() else set()
-    need_base |= {"naive"}  # kicking fallback always available
+    need_base |= {"naive"}
     base = {e: predict_rates(df, train_idx, test_idx, mode, e) for e in need_base}
 
     te = df.iloc[test_idx]
@@ -238,7 +189,6 @@ def predict_rates_registry(
             m = _fit_lgbm_component(df, train_idx, None, comp, mode)
             yl = _lgbm_predict(m, df, test_idx, mode)
             out[comp] = BLEND_WEIGHT * yl + (1.0 - BLEND_WEIGHT) * base["glm"][comp].to_numpy(float)
-        # gate kicking to plausible kickers
         if comp in KICK_COMPS:
             out[comp] = out[comp].to_numpy(float) * gate
     return out.clip(lower=0.0)
@@ -247,8 +197,6 @@ def predict_rates_registry(
 def predict_rates_lgbm_only(
     df: pd.DataFrame, train_idx: np.ndarray, test_idx: np.ndarray, mode: str
 ) -> pd.DataFrame:
-    """Every trainable component via LightGBM (rare/degenerate -> zero/naive).
-    Used for the LightGBM-only comparison column."""
     naive = predict_rates(df, train_idx, test_idx, mode, "naive")
     te = df.iloc[test_idx]
     out = pd.DataFrame(index=te.index, columns=SCORED, dtype=float)
@@ -259,7 +207,7 @@ def predict_rates_lgbm_only(
         elif comp in LGBM_COMPS:
             m = _fit_lgbm_component(df, train_idx, None, comp, mode)
             out[comp] = _lgbm_predict(m, df, test_idx, mode)
-        else:                                  # cards/kick: naive prior
+        else:
             out[comp] = naive[comp].to_numpy(float)
         if comp in KICK_COMPS:
             out[comp] = out[comp].to_numpy(float) * gate
@@ -296,7 +244,6 @@ def _selfcheck() -> None:
     off = lab["official_pts"].to_numpy(float)
     print(f"\nensemble recon-only pts MAE (2025) = "
           f"{np.abs(off[lab_mask]-recon[lab_mask]).mean():.3f}")
-    # kicking concentrates on kickers: rows gated to 0 (rate==0/NaN) must be exactly 0
     gate0 = _kick_gate(df, test_idx) == 0.0
     kmass_gated = (rates['penalty_goals'] + rates['conversion_goals']).to_numpy()[gate0]
     occ = lab["role_goal_kicker_rate"].fillna(0).to_numpy() < 0.05

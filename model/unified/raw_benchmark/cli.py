@@ -1,5 +1,3 @@
-"""Command-line interface for fitting and reporting P3 on historical folds."""
-
 from __future__ import annotations
 
 import argparse
@@ -11,7 +9,7 @@ from .coverage import run_audit
 
 
 def parser() -> argparse.ArgumentParser:
-    ap = argparse.ArgumentParser(description=__doc__)
+    ap = argparse.ArgumentParser()
     sub = ap.add_subparsers(required=True)
     audit = sub.add_parser("audit", help="build immutable corrected store and coverage ledger")
     audit.add_argument("--output", type=Path, default=OUT)

@@ -1,5 +1,3 @@
-"""Frozen-history features: held-out tournament rows never update one another."""
-
 from __future__ import annotations
 
 import warnings
@@ -21,7 +19,6 @@ def build_frozen_feature_frames(
     train: pd.DataFrame, candidates: pd.DataFrame, *, v4: bool = False,
     prepared_train: pd.DataFrame | None = None,
 ) -> tuple[pd.DataFrame, pd.DataFrame]:
-    """Build train features and candidate features using training history only."""
     ordered = train.sort_values(["date", "fixture_id", "team", "player_id"]).copy()
     ordered["date"] = pd.to_datetime(ordered["date"], errors="coerce")
     if prepared_train is None:

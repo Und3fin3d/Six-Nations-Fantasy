@@ -1,39 +1,3 @@
-#!/usr/bin/env python3
-"""
-Fixture difficulty  —  point-in-time opponent permissiveness
-============================================================
-Turns data/api_team_match.csv (one row per match-team) into a per-fixture
-"how favourable is this opponent" feature vector, for the player model.
-
-A row in the team table describes what `team` did *to* `opponent`. So an
-opponent Y's difficulty profile is read two ways, strictly from matches that
-finished BEFORE the fixture in question (no leakage), exponentially decayed
-toward the fixture date (≈90-day half-life):
-
-  • CONCEDED (what attacks do to Y)  — rows where opponent_id == Y:
-      tries_for, carries_metres, defenders_beaten, clean_breaks, offload,
-      passes  → how much attacking output Y leaks.
-  • OWN     (what Y itself does)     — rows where team_id == Y:
-      turnovers_conceded (ball Y coughs up → breakdown-steal chances for us),
-      missed_tackles (Y's tackle frailty), runs/carries (Y's carry volume →
-      tackle chances for us), tackles, possession, penalties_conceded.
-
-National-team profiles are built from **internationals only** (per the design
-decision); pass --comps to widen the international pool (6N is the default and
-is fully cached → runs free). Club-form difficulty is a separate later build
-off the same table with the club competitions.
-
-Cold start (opponent unseen before the fixture) → NaN feature + n_prior=0, so
-the modelling layer can shrink to a position×competition baseline.
-
-Output: data/fixture_difficulty.csv, keyed (fixture_id, team_id) — left-join it
-onto data/6n_player_match.csv on those two columns.
-
-Usage:
-    python -m pipeline.sixn.build_team_form                     # default 90-day half-life, 6N
-    python -m pipeline.sixn.build_team_form --half-life 120 --comps 1266
-"""
-
 from __future__ import annotations
 
 import argparse
@@ -44,8 +8,6 @@ import pandas as pd
 
 BASE = Path(__file__).resolve().parents[2]
 
-# opponent CONCEDED signals — read from rows where opponent_id == Y
-#   team-table column            -> output feature suffix
 CONCEDE_COLS = {
     "tries_for":         "tries",
     "carries_metres":    "metres",
@@ -53,41 +15,24 @@ CONCEDE_COLS = {
     "clean_breaks":      "breaks",
     "offload":           "offloads",
     "passes":            "passes",
-    # set-piece MISMATCH signals — how much the opponent leaks at their own
-    # set piece (steals made *against* Y, scrums won *against* Y). Team-stable
-    # (Italy ~1.2 steals conceded/match vs Ireland ~0.5) → an expected-value
-    # tilt for our jumpers/pack, though any single match is low-count noise.
     "lineout_won_steal": "lineout_steal",
     "scrums_won":        "scrums",
 }
-# opponent OWN signals — read from rows where team_id == Y
 OWN_COLS = {
-    "turnovers_conceded": "turnovers_conceded",   # → breakdown-steal chances for us
-    "missed_tackles":     "missed_tackles",        # tackle frailty
-    "runs":               "runs",                  # carry volume → tackle chances
+    "turnovers_conceded": "turnovers_conceded",
+    "missed_tackles":     "missed_tackles",
+    "runs":               "runs",
     "tackles":            "tackles",
     "possession":         "possession",
     "penalties_conceded": "pens_conceded",
-    # set-piece permissiveness — feeds the SW / LS latent prediction:
-    "scrums_success":     "scrum_success",         # Y's scrum strength (↓ → SW for us)
+    "scrums_success":     "scrum_success",
     "scrums_won":         "scrums_won",
-    "lineout_success":    "lineout_success",       # Y's lineout security (↓ → LS for us)
-    "lineout_won_steal":  "lineout_steal",         # Y's own steal threat
+    "lineout_success":    "lineout_success",
+    "lineout_won_steal":  "lineout_steal",
 }
 
 
 def _load_h2h_meetings(team_df: pd.DataFrame) -> pd.DataFrame:
-    """Prior-meetings pool for head-to-head, UNIONing the rich
-    api_team_match rows (already in `team_df`) with the free Pulselive
-    international results (data/intl_results.csv).
-
-    This only ever deepens H2H (autumn/summer meetings now count); it does NOT
-    feed the permissiveness vector, which stays sourced from `team_df`.
-
-    Columns returned: team, opponent, date (datetime64), margin, _src.
-    Dedup is by (date, team, opponent) preferring the api_team_match row (_src
-    'api') over the Pulselive row ('intl'). No-op if intl_results.csv absent.
-    Join is by team/opponent NAME — Pulselive ids are a different id-space."""
     base = team_df[["team", "opponent", "date", "margin"]].copy()
     base["_src"] = "api"
 
@@ -102,7 +47,6 @@ def _load_h2h_meetings(team_df: pd.DataFrame) -> pd.DataFrame:
     intl["_src"] = "intl"
 
     pool = pd.concat([base, intl], ignore_index=True)
-    # prefer 'api' over 'intl' on the same (date, team, opponent)
     pool["_pref"] = (pool["_src"] == "api").astype(int)
     pool = (pool.sort_values("_pref", ascending=False)
                 .drop_duplicates(subset=["date", "team", "opponent"], keep="first")
@@ -111,7 +55,6 @@ def _load_h2h_meetings(team_df: pd.DataFrame) -> pd.DataFrame:
 
 
 def _decayed_mean(values: pd.Series, days_ago: pd.Series, half_life: float) -> float:
-    """Exponentially weighted mean, weight = 0.5 ** (days_ago / half_life)."""
     if len(values) == 0:
         return np.nan
     w = np.power(0.5, days_ago.to_numpy(dtype=float) / half_life)
@@ -126,17 +69,15 @@ def build(team_csv: Path, comps: list[int], half_life: float) -> pd.DataFrame:
     df["date"] = pd.to_datetime(df["date"], errors="coerce")
     df = df.dropna(subset=["date", "team_id", "opponent_id"])
 
-    # H2H prior-meetings pool: api_team_match ∪ intl_results (by name+date).
-    # Permissiveness vector below still reads only from `df` (rich rugby-live-data).
     h2h_pool = _load_h2h_meetings(df)
 
     out_rows = []
     for r in df.itertuples(index=False):
         asof = r.date
-        y = r.opponent_id                       # the opponent we want a read on
+        y = r.opponent_id
 
-        against_y = df[(df.opponent_id == y) & (df.date < asof)]   # attacks vs Y
-        y_own = df[(df.team_id == y) & (df.date < asof)]           # Y's own lines
+        against_y = df[(df.opponent_id == y) & (df.date < asof)]
+        y_own = df[(df.team_id == y) & (df.date < asof)]
 
         rec = {
             "fixture_id": r.fixture_id,
@@ -147,9 +88,6 @@ def build(team_csv: Path, comps: list[int], half_life: float) -> pd.DataFrame:
             "date": asof.date().isoformat(),
             "opp_n_prior": int(len(against_y)),
         }
-        # ---- head-to-head: last 3 meetings of THIS team vs THIS opponent ----
-        # Match by NAME against the widened pool (api ∪ intl); Pulselive ids
-        # are a different id-space so name is the only safe join key here.
         h2h = (h2h_pool[(h2h_pool.team == r.team)
                         & (h2h_pool.opponent == r.opponent)
                         & (h2h_pool.date < asof)]
@@ -174,8 +112,6 @@ def build(team_csv: Path, comps: list[int], half_life: float) -> pd.DataFrame:
 
 
 def _merge_wr(fd: pd.DataFrame) -> pd.DataFrame:
-    """PIT-join World Rugby strength (data/wr_rankings.csv) by (date, team) and
-    (date, opponent); add own/opp pts+pos and the gaps. No-op if file absent."""
     wr_path = BASE / "data" / "wr_rankings.csv"
     if not wr_path.exists() or fd.empty:
         return fd
@@ -186,8 +122,8 @@ def _merge_wr(fd: pd.DataFrame) -> pd.DataFrame:
                              "wr_pos": "opp_wr_pos", "wr_pts": "opp_wr_pts"})
     fd = fd.merge(own, on=["date", "team"], how="left")
     fd = fd.merge(opp, on=["date", "opponent"], how="left")
-    fd["wr_pts_gap"] = fd.team_wr_pts - fd.opp_wr_pts          # +ve = we're stronger
-    fd["wr_rank_gap"] = fd.opp_wr_pos - fd.team_wr_pos         # +ve = we're ranked higher
+    fd["wr_pts_gap"] = fd.team_wr_pts - fd.opp_wr_pts
+    fd["wr_rank_gap"] = fd.opp_wr_pos - fd.team_wr_pos
     return fd
 
 

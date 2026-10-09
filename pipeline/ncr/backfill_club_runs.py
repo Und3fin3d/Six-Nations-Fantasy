@@ -1,19 +1,3 @@
-#!/usr/bin/env python3
-"""
-Resumable club run-in backfill (URC / Premiership / Top 14 / Euro Cups).
-=======================================================================
-The 6N pipeline only ever cached the Oct→Feb form window, so the club *run-ins*
-(Mar–Jun) were never fetched. This pulls them, newest season first, skipping
-anything already on disk. Every match is cached permanently, so re-running only
-pays for what is missing — run it after each quota reset until it says ALL DONE.
-
-Serial by design: concurrent fetchers trip the API's per-minute rate cap.
-
-Usage:
-    python -m pipeline.ncr.backfill_club_runs --dry-run              # what's missing, 0 match calls
-    python -m pipeline.ncr.backfill_club_runs                        # everything, floor 60
-    python -m pipeline.ncr.backfill_club_runs --comps 1218 --seasons 2026 --floor 12
-"""
 from __future__ import annotations
 
 import argparse
@@ -25,16 +9,13 @@ import os
 os.chdir(Path(__file__).resolve().parents[2])
 from pipeline.sources.rugby_api import RugbyAPI
 
-# NB comp ids verified against data/cache/competitions.json — 1218 is the ENGLISH
-# Premiership and 1230 is TOP 14 (they are easy to transpose; do not guess).
 COMPS = {1236: "URC", 1218: "Prem", 1230: "Top14", 1464: "ChampCup", 1470: "ChalCup"}
 DONE = ("Result", "Full Time")
 LOG_PATH = Path("data/ncr/club_backfill_log.txt")
 
 
 def main() -> int:
-    ap = argparse.ArgumentParser(description=__doc__,
-                                 formatter_class=argparse.RawDescriptionHelpFormatter)
+    ap = argparse.ArgumentParser()
     ap.add_argument("--comps", nargs="*", type=int, default=list(COMPS),
                     help=f"competition ids (default all): {COMPS}")
     ap.add_argument("--seasons", nargs="*", type=int, default=[2026, 2025, 2024, 2023],
@@ -63,7 +44,7 @@ def main() -> int:
             label = COMPS.get(comp, str(comp))
             try:
                 fixtures = api.fixtures(comp, season)
-            except Exception as exc:                       # comp/season not in catalogue
+            except Exception as exc:
                 log(f"{label} s{season}: fixtures unavailable ({exc})")
                 continue
             todo = [f for f in fixtures
@@ -87,7 +68,7 @@ def main() -> int:
                 try:
                     api.match(f["id"]); got += 1; total += 1
                 except RuntimeError as exc:
-                    if "429" in str(exc):                  # rate cap: back off, match stays uncached
+                    if "429" in str(exc):
                         time.sleep(8)
                     else:
                         log(f"  ERR {f['id']}: {str(exc)[:80]}")

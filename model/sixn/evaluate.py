@@ -1,26 +1,9 @@
-#!/usr/bin/env python3
-"""model/sixn/evaluate.py  —  evaluation on SELECTION quality, not just MAE (Phase 6).
-
-The objective is picking a good XV, so MAE is necessary but not sufficient.  A
-lower-MAE model that picks worse XVs is not the winner.
-
-Metrics (all on modern-labelled rows):
-  points_mae            MAE(official_pts, target_pts_hat), overall + by position
-  value_of_xv           sum(actual pts of model's chosen XV) / hindsight-optimal XV,
-                        respecting the positional quota, averaged over rounds
-  value_of_team         fantasy-team value: XV + model captain + model supersub,
-                        divided by hindsight XV + captain + supersub
-  captain_hit_rates     model's #1 pick lands inside actual top-N
-  topn_overlap          fraction of model's top-N that are in the actual top-N
-  spearman_within_pos   within-position rank correlation of prediction vs actual
-"""
 from __future__ import annotations
 
 import numpy as np
 import pandas as pd
 from scipy.stats import spearmanr
 
-# fantasy XV positional quota (sums to 15) over canonical positions.
 XV_QUOTA = {
     "Prop": 2, "Hooker": 1, "Second-row": 2, "Back-row": 3,
     "Scrum-half": 1, "Fly-half": 1, "Centre": 2, "Back-three": 3,
@@ -90,12 +73,6 @@ def value_of_team(
     captain_score_col: str | None = None,
     supersub_score_col: str | None = None,
 ) -> tuple[float, list]:
-    """Fantasy-team value with multiplier roles.
-
-    The XV is picked by `score_col`.  The captain is picked from that XV by
-    `captain_score_col` (default same score).  The supersub is picked from
-    non-starters outside the XV by `supersub_score_col` (default same score).
-    """
     lab = _labelled(pred)
     captain_score_col = captain_score_col or score_col
     supersub_score_col = supersub_score_col or score_col
@@ -176,8 +153,6 @@ def spearman_within_pos(pred: pd.DataFrame, score_col: str = "target_pts_hat") -
 
 
 def evaluate(pred: pd.DataFrame, score_col: str = "target_pts_hat", *, points: bool = True) -> dict:
-    """All metrics for one prediction frame.  `points=False` for ordering-only
-    overlays (e.g. the rank head) where the score is not a calibrated point."""
     vx, _ = value_of_xv(pred, score_col)
     vt, _ = value_of_team(
         pred,

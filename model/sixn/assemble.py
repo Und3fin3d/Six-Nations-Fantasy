@@ -1,23 +1,3 @@
-#!/usr/bin/env python3
-"""model/sixn/assemble.py  —  assemble points + forward-chained latent (Phase 5).
-
-  target_pts_hat = recon_pts_hat + latent_hat
-
-recon_pts_hat = score_components(predicted component dict) via the frozen scorer.
-
-latent_hat is rebuilt round-by-round, forward-chained:
-  for each test round R, fit `_fit_latent` on modern-labelled matches with
-  date < R's date, then apply
-     a * sw_drive_hat + b * ls_drive_hat + other_const[pos] + 15 * P(POTM)
-  where the SW/LS drives at INFERENCE use the PIT EXPECTED team set-piece
-  (`ownteam_scrums_won`/`ownteam_lineout_steal`) x role x minutes_hat/80 — never
-  the realised `team_scrums_won`/`team_lineout_steal`/`potm_winner` (label-only).
-  POTM is an expected value: a within-match softmax of predicted points blended
-  with the `role_potm_rate` prior, x 15.
-
-2025 R1 has no prior modern labels -> cold-start latent_hat = 0 (the only
-no-leak choice; there is genuinely no modern data to calibrate on yet).
-"""
 from __future__ import annotations
 
 import warnings
@@ -34,18 +14,14 @@ from model.sixn.baselines import (
 )
 from model.sixn.splits import latent_calib_rows, round_iter
 
-# --- tunable knobs (defaults reproduce the frozen `main` behaviour exactly) ---
-# Set by model.sixn.picker via apply_config(); never changes the deployed defaults.
-POTM_PP_WEIGHT = 0.5     # weight on the softmax-of-points term vs the role prior
-POTM_TAU_FLOOR = 1.0     # softmax temperature floor (points scale)
-LATENT_SHRINK = 1.0      # shrink set-piece latent a*sw + b*ls toward 0 (fallback step 4)
-OTHER_CONST_SHRINK = 1.0  # shrink position/global latent constants toward 0
+POTM_PP_WEIGHT = 0.5
+POTM_TAU_FLOOR = 1.0
+LATENT_SHRINK = 1.0
+OTHER_CONST_SHRINK = 1.0
 ZERO_BACK_SETPIECE = False
 
 
 def fit_latent_asof(df: pd.DataFrame, asof) -> dict | None:
-    """Fit the latent decomposition on the forward-chained modern subset
-    (date < asof).  Returns None at cold-start (no prior modern labels)."""
     mask = latent_calib_rows(df, asof)
     if mask.sum() == 0:
         return None
@@ -60,7 +36,6 @@ def fit_latent_asof(df: pd.DataFrame, asof) -> dict | None:
 def _expected_drives(
     df: pd.DataFrame, idx: np.ndarray, minutes_hat_local: np.ndarray
 ) -> tuple[np.ndarray, np.ndarray]:
-    """PIT expected SW / LS drives (NO realised team counts)."""
     sub = df.iloc[idx]
     msf = minutes_hat_local / 80.0
     sw = (sub["is_forward"].astype(float).to_numpy()
@@ -73,9 +48,6 @@ def _expected_drives(
 def _expected_potm(
     df: pd.DataFrame, idx: np.ndarray, recon_local: np.ndarray
 ) -> np.ndarray:
-    """Expected POTM points = 15 * P(POTM), where P is a per-match blend of a
-    softmax over predicted points and the `role_potm_rate` prior (sums to 1 per
-    match -> exactly one expected POTM)."""
     sub = df.iloc[idx]
     fixtures = sub["fixture_id"].to_numpy()
     prior = sub["role_potm_rate"].fillna(0.0).to_numpy(float)
@@ -96,11 +68,6 @@ def assemble_predictions(
     df: pd.DataFrame, train_idx: np.ndarray, test_season: int, mode: str,
     rate_predictor, *, minutes_hat: np.ndarray | None = None,
 ) -> tuple[pd.DataFrame, pd.DataFrame]:
-    """Full Strategy-C assembly for one season.
-
-    rate_predictor(df, train_idx, test_idx, mode) -> per-80 rate DataFrame.
-    Returns (predictions, latent_diag).
-    """
     test_idx = np.where((df["season"] == test_season).to_numpy())[0]
     if minutes_hat is None:
         minutes_hat = expected_minutes(df, train_idx, test_idx, mode)
@@ -114,10 +81,10 @@ def assemble_predictions(
     diag = []
     for r, asof, ridx in round_iter(df, test_season):
         local = np.searchsorted(test_idx, ridx)
-        assert np.array_equal(test_idx[local], ridx)            # ridx ⊂ test_idx
+        assert np.array_equal(test_idx[local], ridx)
         fit = fit_latent_asof(df, asof)
         n_calib = int(latent_calib_rows(df, asof).sum())
-        if fit is None:                                          # cold-start
+        if fit is None:
             diag.append(dict(round=r, asof=asof, n_calib=0, a=0.0, b=0.0))
             continue
         sw, ls = _expected_drives(df, ridx, minutes_hat[local])
@@ -155,18 +122,9 @@ def assemble_predictions(
     return pred, pd.DataFrame(diag)
 
 
-# ---------------------------------------------------------------------------
-# optional selection-rank head (LightGBM lambdarank) — comparison overlay
-# ---------------------------------------------------------------------------
 def rank_scores(
     df: pd.DataFrame, train_idx: np.ndarray, test_idx: np.ndarray, mode: str
 ) -> np.ndarray:
-    """Within-match LightGBM lambdarank score for the test rows.
-
-    Trained to rank players by realised modern-scale `recon_pts` within each
-    training fixture (a label available for every season, no leakage), grouped
-    by fixture.  A pure ordering overlay — not a calibrated point forecast.
-    """
     import lightgbm as lgb
 
     from model.sixn.train_components import _lgbm_frame
@@ -176,7 +134,6 @@ def rank_scores(
     order = np.argsort(tr["fixture_id"].to_numpy(), kind="stable")
     tr_idx_sorted = train_idx[order]
     grp = tr.iloc[order].groupby("fixture_id", sort=False).size().to_numpy()
-    # relevance grade 0..4 by within-fixture realised recon_pts rank
     grade = (tr.iloc[order].groupby("fixture_id")["recon_pts"]
              .rank(pct=True).mul(4.999).astype(int).to_numpy())
     ranker = lgb.LGBMRanker(
@@ -208,8 +165,6 @@ def _selfcheck() -> None:
     pred, diag = assemble_predictions(df, train_idx, 2025, mode, ens)
     print(diag.to_string(index=False))
 
-    # forward-chain assertion already enforced inside latent_calib_rows;
-    # additionally: round 1 must be cold-start (a=b=0, n_calib=0)
     assert diag.iloc[0]["n_calib"] == 0 and diag.iloc[0]["a"] == 0.0
     assert not pred["target_pts_hat"].isna().any()
 
@@ -221,7 +176,6 @@ def _selfcheck() -> None:
           f"(fwd {pred[pred.is_forward].latent_hat.mean():.2f} / "
           f"back {pred[~pred.is_forward].latent_hat.mean():.2f})")
 
-    # naive comparison through the same assembly
     pred_n, _ = assemble_predictions(
         df, train_idx, 2025, mode,
         lambda d, ti, te, mo: predict_rates(d, ti, te, mo, "naive"))

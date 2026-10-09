@@ -1,21 +1,3 @@
-#!/usr/bin/env python3
-"""
-model/ncr/evaluate.py — one standard scorer for NCR projections vs realised results.
-================================================================================
-Every NCR model comparison should route through `evaluate()` so the metric bundle
-is consistent and ALWAYS includes MAE (raw + calibrated). Historically these
-numbers were computed ad-hoc per experiment and MAE was easy to forget; this
-closes that.
-
-Metrics (over players who actually took the field, min_in_game>0):
-  mae            mean |starter_exp − actual_pts|           (calibration-sensitive)
-  cal_mae        MAE after a 2-param least-squares rescale  (scale-free ranking-ish)
-  rho            Spearman(starter_exp, actual) — ranking quality
-  team           fantasy team points incl. captain 2× and super-sub 3×/0.5×/0×
-  xv             the optimiser's XV actual points, NO multipliers (pure selection)
-  top15          overlap of model top-15 with hindsight top-15
-  captain        (name, actual_pts) of the optimiser's captain pick
-"""
 from __future__ import annotations
 import json
 from pathlib import Path
@@ -29,7 +11,6 @@ FEED = ROOT / "data" / "ncr" / "feeds" / "players_latest.json"
 
 
 def load_actuals(feed_path: Path = FEED) -> dict:
-    """{player_id(str): (points, minutes_played_flag, status)} from a results feed."""
     players = json.loads(Path(feed_path).read_text())["Data"]["Value"]["Players"]
     out = {}
     for p in players:
@@ -59,9 +40,6 @@ def team_points(squad: pd.DataFrame, actuals: dict) -> float:
 
 
 def evaluate(proj: pd.DataFrame, actuals: dict, squad: pd.DataFrame | None = None) -> dict:
-    """proj needs columns id, name, starter_exp, status (+ pos/team/value/hemi if
-    `squad` not supplied, so this can optimise one). `squad` is an optimiser result
-    (in_squad/is_sub/is_capt) if already computed."""
     d = proj.copy()
     d["k"] = d["id"].map(_key)
     d["actual"] = d["k"].map(lambda k: actuals.get(k, (np.nan, 0, None))[0])

@@ -1,20 +1,3 @@
-#!/usr/bin/env python3
-"""
-pipeline/sixn/build_team_play.py — PIT team edge and fixture-shape predictions
-================================================================
-
-Builds one row per Six Nations match-team with predicted game-script features:
-win probability, expected margin, expected points, possession, attacking volume,
-defensive tackle demand, and kicking opportunity.
-
-This is intentionally an intermediate layer.  The player component models should
-condition on "what kind of game do we expect?" rather than trying to infer match
-shape only from scattered raw opponent/own-team features.
-
-Leakage rule: for each fixture-team row, the model is trained only on rows with
-date < fixture date.  Prior feature summaries are also computed only from rows
-before that fixture.
-"""
 from __future__ import annotations
 
 import argparse
@@ -187,13 +170,6 @@ def _safe_div(num: pd.Series, den: float) -> pd.Series:
 
 
 def _add_aspects(out: pd.DataFrame) -> pd.DataFrame:
-    """Add interpretable match-shape aspect features from own-vs-opponent predictions.
-
-    The raw predictions answer "what do we expect this team to do?".  These
-    aspects answer the next question the player model cares about: is this side
-    expected to own possession/territory, play on the front foot, defend a lot,
-    or create goal-kicking chances?
-    """
     pred_cols = [c for c in out.columns if c.startswith("teamplay_") and c.endswith("_hat")]
     opp = out[["fixture_id", "team_id", *pred_cols]].copy()
     opp = opp.rename(columns={"team_id": "_opp_team_id", **{c: f"_opp_{c}" for c in pred_cols}})

@@ -1,23 +1,3 @@
-#!/usr/bin/env python3
-"""model/sixn/run.py  —  run harness (Phase 6).
-
-Backtest (train 2023+2024 -> 2025) and deployment (train 2023+2024+2025 -> 2026),
-printing a comparison table across all engines and both feature-view modes:
-  ensemble | lgbm_only | glm | ridge | naive | b3_direct | rank_head
-
-2026 is sealed: it is evaluated exactly once here, after the 2025 backtest
-result is accepted, and is never used to choose components or tune anything.
-
-Selection policy:
-  pick the best deployable point engine on the 2025 backtest, requiring it to
-  beat naive on both MAE and XV value.  Rank candidates by XV value first, then
-  MAE.  This keeps b3_direct/rank_head as diagnostics while allowing lgbm_only
-  to win if it proves better at the assembled picker objective.
-
-Usage:
-  python -m model.sixn.run                # backtest + deployment, post-team-sheet headline
-  python -m model.sixn.run --no-2026      # backtest only (keep 2026 sealed)
-"""
 from __future__ import annotations
 
 import argparse
@@ -56,11 +36,6 @@ def build_predictors(registry: pd.DataFrame):
 
 
 def direct_points_frame(df: pd.DataFrame, test_season: int, mode: str) -> pd.DataFrame:
-    """B3 cross-check frame: predicted modern `official_pts` directly.
-
-    Trains on prior modern-labelled seasons when they exist (2026 deployment);
-    otherwise honest in-season GroupKFold OOF (2025 backtest, no prior modern).
-    """
     sub = df[df["season"] == test_season]
     prior = df[(df["season"] < test_season) & df["is_modern"] & df["has_label"]]
     yhat = pd.Series(np.nan, index=sub.index, dtype=float)
@@ -92,9 +67,7 @@ def run_season(df, train_idx, test_season, mode, predictors, registry):
         pred, diag = assemble_predictions(df, train_idx, test_season, mode, predictors[name])
         results[name] = evaluate(pred)
         preds[name] = (pred, diag)
-    # B3 direct-points cross-check
     results["b3_direct"] = evaluate(direct_points_frame(df, test_season, mode))
-    # optional rank head (ordering overlay on the ensemble frame)
     test_idx = np.where((df["season"] == test_season).to_numpy())[0]
     rk = preds["ensemble"][0].copy()
     rk["rank_score"] = rank_scores(df, train_idx, test_idx, mode)
@@ -111,7 +84,6 @@ def main():
 
     df = load()
 
-    # ---- component selection on the BACKTEST train years (no 2025/2026 peek) ----
     bt_train_mask = component_train(df, 2025)
     print("Selecting components on 2023+2024 OOF (post_team_sheet) ...")
     registry = select_components(df, bt_train_mask, args.mode)
@@ -121,11 +93,9 @@ def main():
     predictors = build_predictors(registry)
     bt_train_idx = np.where(bt_train_mask)[0]
 
-    # ---- 2025 backtest ----
     res25, preds25 = run_season(df, bt_train_idx, 2025, args.mode, predictors, registry)
     print(format_table(res25, f"2025 BACKTEST  (train 2023+2024, mode={args.mode})"))
 
-    # mode comparison for the two anchor engines
     if args.mode == "post_team_sheet":
         alt = {}
         for name in ("naive", "ensemble"):
@@ -139,7 +109,6 @@ def main():
     _accept_and_persist(df, bt_train_idx, 2025, args.mode, predictors,
                         selected_engine)
 
-    # ---- 2026 deployment (sealed; evaluated once) ----
     if not args.no_2026:
         dep_train_idx = np.where(component_train(df, 2026))[0]
         res26, _ = run_season(df, dep_train_idx, 2026, args.mode, predictors, registry)
@@ -154,12 +123,6 @@ def main():
 
 
 def select_deployable_engine(results: dict[str, dict]) -> str:
-    """Choose the best deployable point model from the 2025 validation table.
-
-    `b3_direct` is diagnostic and `rank_head` is not a calibrated point forecast,
-    so neither is eligible.  Candidates must beat naive on both target metrics;
-    if none do, fall back to naive.
-    """
     naive = results["naive"]
     candidates = []
     for name in DEPLOYABLE_ENGINES:
@@ -182,11 +145,6 @@ def _accept_and_persist(df, train_idx, season, mode, predictors, engine):
 
 
 def _persist_promoted_research_config(df, seasons: list[int]) -> None:
-    """If the research loop has a promotion decision, make it the final artifact.
-
-    `model.sixn.run` still prints the full diagnostic table, but the branch's deployable
-    config may include research-only assembly/selection knobs such as `sel_score`.
-    """
     from model.sixn.picker import PROMOTED_CONFIG, _predict_config, config_from_dict
 
     if not PROMOTED_CONFIG.exists():

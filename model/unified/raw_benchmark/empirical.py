@@ -1,5 +1,3 @@
-"""Competition-independent empirical event-rate model."""
-
 from __future__ import annotations
 
 import pickle
@@ -61,8 +59,6 @@ def _matchup_group(event: str) -> str:
 
 @dataclass
 class EmpiricalEventModel:
-    """Recency, club and player-prior model operating only on raw events."""
-
     asof: str | pd.Timestamp
     events: tuple[str, ...] = (*STABLE_EVENTS, *EXTENDED_EVENTS)
     profiles: dict[tuple[str, str], tuple[float, float]] = field(default_factory=dict)
@@ -130,7 +126,6 @@ class EmpiricalEventModel:
                 rate = float((group.loc[valid, "_weight"] * values[valid]).sum() / weighted_minutes * 80)
                 by_name[(_norm(str(slug).replace("-", " ")), event)] = (rate, weighted_minutes)
 
-        # Event-specific calibration against established international players.
         factor: dict[str, float] = {}
         for event in self.events:
             ratios = []

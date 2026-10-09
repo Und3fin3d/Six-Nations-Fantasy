@@ -1,18 +1,3 @@
-#!/usr/bin/env python3
-"""Build team-sheet-relative role-certainty features.
-
-Input:  data/model_player_match.csv
-Output: data/external_player_roles.csv
-
-This is not player hardcoding.  It converts PIT role history plus the named
-team-sheet context into probabilities such as "likely primary kicker within this
-23" and "lineout role certainty within this pack".
-
-Run order:
-1. pipeline/sixn/build_features.py          # creates base PIT role/form features
-2. pipeline/sixn/build_role_certainty.py    # derives rolecert_* from the base feature store
-3. pipeline/sixn/build_features.py          # merges rolecert_* back into model_player_match
-"""
 from __future__ import annotations
 
 import argparse
@@ -41,7 +26,6 @@ def _normalise_positive(x: pd.Series) -> pd.Series:
 
 
 def _position_kick_prior(pos: pd.Series, jersey: pd.Series) -> pd.Series:
-    # Very small role prior used only when historical kick evidence is thin.
     p = pd.Series(0.02, index=pos.index, dtype=float)
     p = p.mask(pos.eq("Fly-half"), 0.40)
     p = p.mask(pos.eq("Back-three"), 0.12)
@@ -77,8 +61,6 @@ def _within_team_roles(g: pd.DataFrame) -> pd.DataFrame:
         * (1.0 + np.log1p(_safe_num(g["role_kick_attempts"], 0.0)))
     )
     kick_signal = kick_history + 0.15 * _position_kick_prior(pos, jersey)
-    # Being named to start is evidence the historic kicker role can be used for
-    # most of the match.  Bench history is still signal, but lower certainty.
     kick_signal = kick_signal * np.where(started, 1.0, 0.45)
     kick_prob = _normalise_positive(kick_signal)
     top_kick = float(kick_prob.max()) if len(kick_prob) else 0.0

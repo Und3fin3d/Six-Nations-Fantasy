@@ -1,5 +1,3 @@
-"""Canonical player-match schema and target taxonomy."""
-
 from __future__ import annotations
 
 COUNT_EVENTS = (

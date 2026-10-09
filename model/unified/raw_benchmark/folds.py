@@ -1,5 +1,3 @@
-"""Exact-kickoff tournament holdouts for historical raw benchmarking."""
-
 from __future__ import annotations
 
 import json
@@ -109,12 +107,6 @@ def build_folds(store: pd.DataFrame, min_fixtures: int = MIN_FIXTURES) -> list[H
 def rolling_folds(
     store: pd.DataFrame, folds: list[HistoricalFold] | None = None,
 ) -> list[HistoricalFold]:
-    """Split tournament blocks into round locks; prior rounds become history.
-
-    Each round shares the earliest kickoff as its historical lock proxy.
-    Production callers must use an earlier published fantasy lock when known.
-    The old tournament folds remain unchanged and explicitly reproducible.
-    """
     output = []
     for fold in build_folds(store) if folds is None else folds:
         evaluation = evaluation_frame(store, fold)

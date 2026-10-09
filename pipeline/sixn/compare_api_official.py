@@ -1,19 +1,3 @@
-#!/usr/bin/env python3
-"""
-Deep comparison: RapidAPI per-player stats vs official Six Nations fantasy data
-==============================================================================
-Joins the API long table (data/6n_player_match.csv) to the official xlsx
-per-round sheets at the player-match level and compares EVERY overlapping stat
-column — not just the final fantasy score. For each stat it reports coverage,
-correlation, exact-match rate, totals ratio and signed bias, plus the worst
-disagreements. Also breaks the points-reconstruction gap down by position.
-
-Official sheets are parsed dynamically from their own header rows, so the same
-code handles 2025 (has Pos, no KR) and 2026 (no Pos, has KR).
-
-Usage:  python -m pipeline.sixn.compare_api_official
-"""
-
 from __future__ import annotations
 
 import re
@@ -26,16 +10,12 @@ import pandas as pd
 
 BASE = Path(__file__).resolve().parents[2]
 
-# official xlsx per season  (2025/26 = 5 sheets, rounds 1..5; 2023 has a
-# different split-sheet layout — Rounds 1-4 only — handled by
-# build_official.parse_official_2023, NOT parse_official below)
 OFFICIAL = {
     2023: BASE / "data" / "official" / "2023" / "Six_Nations_Data_2023.xlsx",
     2025: BASE / "data" / "official" / "2025" / "sixnationsmatch.xlsx",
     2026: BASE / "data" / "official" / "2026" / "sixnationmatch.xlsx",
 }
 
-# official label  ->  API column   (only directly comparable fields)
 STAT_MAP = {
     "Min":  "minutes",
     "T":    "tries",
@@ -50,14 +30,12 @@ STAT_MAP = {
     "OF":   "offload",
     "YC":   "yellow_cards",
     "RC":   "red_cards",
-    "BS":   "tackle_turnover",   # API proxy for breakdown steal
+    "BS":   "tackle_turnover",
 }
-# official-only (no API equivalent) — reported as "blind spots"
 API_BLIND = ["50-22", "KR", "LS", "POTM", "SW"]
 
 
 def norm_key(name: str) -> str:
-    """'T. Bielle-Biarrey' / 'Louis Bielle-Biarrey' -> 't|biellebiarrey'."""
     if not isinstance(name, str):
         return ""
     s = unicodedata.normalize("NFKD", name).encode("ascii", "ignore").decode()
@@ -72,7 +50,6 @@ def norm_key(name: str) -> str:
 
 
 def parse_official(path: Path, season: int) -> pd.DataFrame:
-    """Walk the stacked per-team blocks in every sheet -> tidy long frame."""
     xl = pd.ExcelFile(path)
     out = []
     for r_idx, sheet in enumerate(xl.sheet_names, start=1):
@@ -83,19 +60,18 @@ def parse_official(path: Path, season: int) -> pd.DataFrame:
             vals = list(row.values)
             cell0 = vals[0]
             rowset = {str(v) for v in vals if isinstance(v, str)}
-            if "Min" in rowset and "Pts" in rowset:        # header row
+            if "Min" in rowset and "Pts" in rowset:
                 labels = [str(v) for v in vals]
                 team = str(cell0).strip()
                 continue
             if labels is None or not isinstance(cell0, str) or not cell0.strip():
-                continue                                    # blank / pre-header
+                continue
             rec = {"season": season, "round": r_idx, "team": team,
                    "name": cell0.strip(), "key": norm_key(cell0)}
             for lab, v in zip(labels[1:], vals[1:]):
                 rec[lab] = v
             out.append(rec)
     df = pd.DataFrame(out)
-    # numeric coercion; blank official cell = 0 events
     for lab in set(STAT_MAP) | set(API_BLIND) | {"Pts"}:
         if lab in df.columns:
             df[lab] = pd.to_numeric(df[lab], errors="coerce").fillna(0)
@@ -113,7 +89,6 @@ def compare():
     off = pd.concat([parse_official(p, s) for s, p in OFFICIAL.items()
                      if p.exists()], ignore_index=True)
 
-    # ---- join on season+round+team+key --------------------------------------
     keys4 = ["season", "round", "team", "key"]
     api_u = api.drop_duplicates(keys4)
     j = off.merge(api_u, on=keys4, how="inner", suffixes=("_off", "_api"))
@@ -128,7 +103,6 @@ def compare():
         print(f"      | e.g. {unmatched.name.head(10).tolist()}")
     print("=" * 74)
 
-    # ---- per-stat agreement -------------------------------------------------
     hdr = f"{'stat':<14}{'n':>5}{'corr':>7}{'exact%':>8}{'off→api ratio':>15}{'mean Δ(o-a)':>13}{'MAE':>7}"
     print("\nPER-STAT AGREEMENT  (official vs API, matched player-matches)")
     print("-" * len(hdr))
@@ -156,7 +130,6 @@ def compare():
     print("ratio  = API total / official total  (1.00 = identical volume)")
     print("mean Δ = official minus API per player-match (+ = API undercounts)")
 
-    # ---- metres: the known systematic gap, quantified -----------------------
     o = pd.to_numeric(j["MC"], errors="coerce").fillna(0)
     a = pd.to_numeric(j["metres"], errors="coerce").fillna(0)
     nz = (o > 0) & (a > 0)
@@ -164,7 +137,6 @@ def compare():
           f"median ratio API/official = {(a[nz]/o[nz]).median():.3f}, "
           f"official is {100*(o[nz].sum()/a[nz].sum()-1):.1f}% higher in total")
 
-    # ---- final fantasy score: label vs recon, overall + by position ---------
     print("\nFANTASY POINTS  official Pts  vs  fantasy_pts_recon")
     o = j["Pts"].astype(float)
     a = j["fantasy_pts_recon"].astype(float)
@@ -179,7 +151,6 @@ def compare():
             .sort_values("gap_mean", ascending=False))
     print(by.round(2).to_string())
 
-    # ---- biggest single-match point gaps ------------------------------------
     j["_gap"] = (j["Pts"].astype(float) - j["fantasy_pts_recon"].astype(float))
     worst = j.reindex(j["_gap"].abs().sort_values(ascending=False).index).head(12)
     print("\nLARGEST per-match point gaps (official − recon):")
@@ -194,7 +165,6 @@ def compare():
               f"recon={int(r['fantasy_pts_recon']):>3} gap={int(r['_gap']):>4}"
               f"   {' '.join(extras)}")
 
-    # ---- where do the official-only events live? ----------------------------
     print("\nAPI BLIND SPOTS (official-only events, total over matched rows):")
     for lab in API_BLIND:
         if lab in j.columns:

@@ -1,5 +1,3 @@
-#!/usr/bin/env python3
-"""Six Nations picker pipeline for one saved assembly config (`model/sixn/promoted_config.json`)."""
 from __future__ import annotations
 
 import contextlib
@@ -39,10 +37,6 @@ DATA = ROOT / "data"
 MODE = "post_team_sheet"
 PROMOTED_CONFIG = Path(__file__).resolve().parent / "promoted_config.json"
 XGB_MAX_POINT_WEIGHT = 0.20
-# The 0.20 XGB cap above guards DECISION scores (selection-XGB > 0.20 hurts value).
-# The post-selector forecast path is MAE-only with frozen decisions, so it carries no
-# value risk and gets its own higher cap: starters-forecast XGB improves MAE
-# monotonically on both 2025 and 2026 well past 0.20.
 POST_TARGET_XGB_MAX_WEIGHT = 1.0
 XGB_MAX_COMBINER_WEIGHT = 0.15
 BAYES_MAX_COMBINER_WEIGHT = 0.15
@@ -56,141 +50,114 @@ XGB_GRAFT_GROUPS = {
     "sparse_counts": {"offload", "tackle_turnover", "penalties_conceded"},
 }
 
-# ---------------------------------------------------------------------------
-# config
-# ---------------------------------------------------------------------------
 @dataclass(frozen=True)
 class Config:
-    """All knobs.  Defaults reproduce the current cdx deployable behaviour."""
     name: str = "baseline"
     note: str = "current cdx selected deployable engine"
-    deploy_engine: str = "lgbm_only"       # lgbm_only | registry
-    # component layer (validated on 2023+2024 OOF)
+    deploy_engine: str = "lgbm_only"
     lgbm_margin: float = 0.02
     blend_weight: float = 0.5
-    # minutes model
-    minutes_model: str = "ridge"        # ridge | ridge_interact | poisson
+    minutes_model: str = "ridge"
     minutes_alpha: float = 10.0
-    # latent / POTM
     potm_pp_weight: float = 0.5
     potm_tau_floor: float = 1.0
     latent_shrink: float = 1.0
     other_const_shrink: float = 1.0
     zero_back_setpiece: bool = False
-    # post-hoc
-    recon_calib: str = "none"           # none | linear (forward-chained per round)
-    target_prior_blend: float = 0.0     # blend points toward prior position mean
-    target_prior_scope: str = "all"     # all | prop | hooker | frontrow | tight5 | forwards | backs
-    extra_prior_blend: float = 0.0      # optional second scoped blend after the primary
+    recon_calib: str = "none"
+    target_prior_blend: float = 0.0
+    target_prior_scope: str = "all"
+    extra_prior_blend: float = 0.0
     extra_prior_scope: str = "all"
-    selector_tilt: float = 0.0          # blend rank head into the XV pick only
-    selector_point_source: str = "target"  # target | pre_calib
-    # specialist signals (bounded so LGBM remains the champion)
-    xgb_point_weight: float = 0.0       # minority blend into target_pts_hat, max 0.20
-    xgb_rank_weight: float = 0.0        # minority blend into sel_score
-    bayes_point_weight: float = 0.0     # global Bayesian point shrinkage
-    bayes_cold_weight: float = 0.0      # Bayesian pull only for low-prior rows
-    bayes_disagreement_weight: float = 0.0  # Bayesian pull only where specialists disagree
+    selector_tilt: float = 0.0
+    selector_point_source: str = "target"
+    xgb_point_weight: float = 0.0
+    xgb_rank_weight: float = 0.0
+    bayes_point_weight: float = 0.0
+    bayes_cold_weight: float = 0.0
+    bayes_disagreement_weight: float = 0.0
     bayes_position_residual_weight: float = 0.0
-    xgb_graft_group: str = "none"       # none | metres | tackles | tries_assists_db | sparse_counts | oof_winners
-    xgb_graft_weight: float = 0.0       # 1.0 replace, 0.2 minority graft
-    teamplay_graft_mode: str = "off"    # off | raw | aspects
-    teamplay_graft_group: str = "none"  # none | all | attack | defense | metres | tackles | oof_winners
+    xgb_graft_group: str = "none"
+    xgb_graft_weight: float = 0.0
+    teamplay_graft_mode: str = "off"
+    teamplay_graft_group: str = "none"
     teamplay_graft_weight: float = 0.0
     teamplay_graft_min_gain: float = 0.02
-    combiner_lgbm_weight: float = 1.0   # fixed convex final combiner
+    combiner_lgbm_weight: float = 1.0
     combiner_xgb_weight: float = 0.0
     combiner_bayes_weight: float = 0.0
-    # MAE-only target adjustments applied after selector/captain/supersub scores
-    # are built.  These test whether a better calibrated point forecast can coexist
-    # with the promoted decision stack without letting the new target perturb XV,
-    # captain, or supersub choices.
     post_target_xgb_weight: float = 0.0
     post_target_bayes_weight: float = 0.0
     post_target_teamplay_weight: float = 0.0
-    post_target_teamplay_mode: str = "raw"  # raw | aspects
+    post_target_teamplay_mode: str = "raw"
     post_target_teamplay_component_features: str = "off"
     post_target_matchup_features: bool = False
     post_target_teamplay_graft_mode: str = "off"
     post_target_teamplay_graft_group: str = "none"
     post_target_teamplay_graft_weight: float = 0.0
     post_target_latent_shrink: float = -1.0
-    post_target_scope: str = "all"      # all | starters | bench | forwards | backs | starters_forwards | starters_backs | backrow | starters_backrow | backs_backrow | starters_backs_backrow
-    post_target_filter: str = "all"     # all | xgb_agree50 | xgb_agree75 | xgb_agree90
+    post_target_scope: str = "all"
+    post_target_filter: str = "all"
     post_target_residual_weight: float = 0.0
-    post_target_residual_group: str = "none"  # none | global | forward_back | position | position_started | team | team_position
+    post_target_residual_group: str = "none"
     post_target_residual_scope: str = "inherit"
     post_target_residual_min_n: int = 20
     post_target_residual_group_min_n: int = 4
     post_target_residual_clip: float = 6.0
     post_target_selector_delta_weight: float = 0.0
-    post_target_selector_xgb_weight: float = -1.0  # <0 inherits MAE target; >=0 builds a separate selector signal
+    post_target_selector_xgb_weight: float = -1.0
     post_target_selector_matchup_features: bool | None = None
     post_target_selector_delta_min_prior_n: int = 0
     post_target_selector_delta_scope: str = "all"
     post_target_selector_delta_clip: float = 0.0
     post_target_refresh_captain: bool = False
     post_target_refresh_selector: bool = False
-    teamplay_features: str = "off"      # off | on/raw | aspects (global, including rank)
-    teamplay_component_features: str = "off"  # off | raw | aspects (rate models only)
-    teamplay_aspect_adjust: str = "none"      # none | attack | defense | kicking | pressure | multi
+    teamplay_features: str = "off"
+    teamplay_component_features: str = "off"
+    teamplay_aspect_adjust: str = "none"
     teamplay_aspect_weight: float = 0.0
     teamplay_aspect_clip: float = 0.20
     weather_features: bool = False
     rolecert_features: bool = False
-    style_features: str | bool = "off"   # off | raw/True | aspects
+    style_features: str | bool = "off"
     matchup_features: bool = False
-    weather_aspect_adjust: str = "none"       # none | attack_suppress | kicking_suppress | tackle_boost | multi
+    weather_aspect_adjust: str = "none"
     weather_aspect_weight: float = 0.0
     weather_aspect_clip: float = 0.15
     rolecert_kick_realloc_weight: float = 0.0
-    rolecert_kick_realloc_scope: str = "all"  # all | starters | bench
+    rolecert_kick_realloc_scope: str = "all"
     rolecert_bench_kick_shrink: float = 0.0
     rolecert_supersub_uncertainty_weight: float = 0.0
-    # learned bench/supersub layer
-    bench_model: str = "none"           # none | ridge | lgbm | two_stage_ridge | two_stage_lgbm
-    bench_context_features: str | bool = "off"  # off | slot | team | all
-    bench_supersub_context_features: str | bool = "off"  # supersub-only context
-    bench_replacement_features: bool = False  # named-starter coverage context
+    bench_model: str = "none"
+    bench_context_features: str | bool = "off"
+    bench_supersub_context_features: str | bool = "off"
+    bench_replacement_features: bool = False
     bench_supersub_replacement_features: bool = False
-    bench_history_features: bool = False  # player's PIT replacement history
+    bench_history_features: bool = False
     bench_supersub_history_features: bool = False
-    bench_team_history_features: bool = False  # PIT team-by-jersey usage
+    bench_team_history_features: bool = False
     bench_supersub_team_history_features: bool = False
-    bench_points_weight: float = 0.0    # blend bench target points toward learned bench head
-    bench_supersub_weight: float = 0.0  # blend supersub selector toward learned bench head
+    bench_points_weight: float = 0.0
+    bench_supersub_weight: float = 0.0
     bench_alpha: float = 20.0
     bench_uncertainty_weight: float = 0.0
     bench_high_minutes_threshold: float = 30.0
     bench_high_minutes_weight: float = 0.0
     bench_low_minutes_penalty_weight: float = 0.0
-    bench_kick_model: str = "none"      # none | shrink | ridge | lgbm
+    bench_kick_model: str = "none"
     bench_kick_shrink: float = 0.0
-    # decoupled set-piece latent for the supersub head only.  -1.0 disables
-    # (supersub uses the same latent_shrink as the rest of the model); any value
-    # in [0, 1] gives the bench/supersub head its own set-piece latent treatment
-    # so a regularised point/XV/captain path can coexist with a supersub head that
-    # keeps the full set-piece signal impact bench forwards rely on.
     supersub_latent_shrink: float = -1.0
-    # Ceiling tilt for the 3x supersub pick (mirror of the captain ceiling bet).
-    # Tested 0.10-1.50 on the captain_upside_full base: it hurts 2025 team value
-    # (>=0.50 makes 2025 rounds worse) for no robust 2026 gain. Unlike the captain (a
-    # ~80' starter with real ceiling), the supersub is a ~20' impact sub whose ceiling
-    # is minutes-capped, so its two-stage expected-minutes mean is the right signal.
-    # Kept as infrastructure but left at 0.0; do not re-test without a new rationale.
     supersub_upside_weight: float = 0.0
-    # selector/captain specialist heads
     upside_scope: str = "all"
     selector_upside_weight: float = 0.0
-    captain_head: str = "none"          # none | mean
+    captain_head: str = "none"
     captain_upside_weight: float = 0.0
     captain_rank_weight: float = 0.0
-    captain_kicker_weight: float = 0.0  # positive = floor boost, negative = floor penalty
-    # Role-certainty / fixture-shape frontier experiments.
+    captain_kicker_weight: float = 0.0
     kicking_realloc_weight: float = 0.0
-    kicking_realloc_scope: str = "all"  # all | starters | bench
+    kicking_realloc_scope: str = "all"
     kicking_realloc_min_share: float = 0.0
-    post_target_forward_combiner: str = "none"  # none | conservative_grid
+    post_target_forward_combiner: str = "none"
     post_target_combiner_scope: str = "all"
 
     def delta(self, **kw) -> "Config":
@@ -199,7 +166,6 @@ class Config:
 
 @contextlib.contextmanager
 def apply_config(cfg: Config):
-    """Thread cfg into the module globals that the pipeline reads, then restore."""
     saved = (
         TC.LGBM_MARGIN, TC.BLEND_WEIGHT,
         A.POTM_PP_WEIGHT, A.POTM_TAU_FLOOR, A.LATENT_SHRINK,
@@ -258,9 +224,6 @@ def _teamplay_mode(mode: str):
         MD.TEAMPLAY_ENABLED, MD.TEAMPLAY_MODE = saved
 
 
-# ---------------------------------------------------------------------------
-# minutes variants (default `ridge`+alpha=10 mirrors baselines.expected_minutes)
-# ---------------------------------------------------------------------------
 def build_minutes(df, train_idx, test_idx, cfg: Config) -> np.ndarray:
     tr = df.iloc[train_idx]
     pos_mean = tr.loc[tr["minutes"] >= MIN_MINUTES].groupby("canonical_pos")["minutes"].mean()
@@ -294,13 +257,7 @@ def build_minutes(df, train_idx, test_idx, cfg: Config) -> np.ndarray:
     return np.clip(reg.predict(Xte), 0, 80)
 
 
-# ---------------------------------------------------------------------------
-# post-hoc transforms
-# ---------------------------------------------------------------------------
 def _forward_linear_calib(pred: pd.DataFrame) -> np.ndarray:
-    """Per-round linear recalibration of recon_pts_hat -> official_pts, fit only on
-    labelled rows from EARLIER rounds (forward-chained, no leakage).  Round 1 and
-    thin-history rounds fall back to identity."""
     out = pred["recon_pts_hat"].to_numpy(float).copy()
     lab = (pred["has_label"].astype(bool) & pred["is_modern"].astype(bool)).to_numpy()
     rnd = pred["round"].to_numpy()
@@ -319,12 +276,6 @@ def _forward_posmean_blend(
     df: pd.DataFrame, test_idx: np.ndarray, pred: pd.DataFrame, season: int,
     weight: float, scope: str = "all", *, min_n: int = 40,
 ) -> np.ndarray:
-    """Blend point forecasts toward prior modern-labelled position means.
-
-    This is intentionally gentler than linear calibration: it only adds a small
-    prior-pull once enough earlier modern labels exist, and it never uses rows
-    dated on/after the round being predicted.
-    """
     out = pred["target_pts_hat"].to_numpy(float).copy()
     base = out.copy()
     scope_positions = _scope_positions(scope)
@@ -549,7 +500,6 @@ def _add_selector_score(
     df: pd.DataFrame, train_idx: np.ndarray, test_idx: np.ndarray,
     pred: pd.DataFrame, cfg: Config,
 ) -> tuple[pd.DataFrame, str]:
-    """Attach the optional XV-selection score used by selector_tilt candidates."""
     out = pred.copy()
     if cfg.selector_tilt <= 0 and cfg.xgb_rank_weight <= 0 and cfg.selector_upside_weight <= 0:
         sel_col = "target_pts_hat"
@@ -647,9 +597,6 @@ def _add_selector_score(
     return out, sel_col
 
 
-# ---------------------------------------------------------------------------
-# evaluation of one config on the dev season
-# ---------------------------------------------------------------------------
 _REG_CACHE: dict = {}
 
 
@@ -790,12 +737,6 @@ def _teamplay_oof_winners(
     feature_mode: str,
     min_gain: float,
 ) -> tuple[set[str], dict[str, dict[str, float]]]:
-    """Component OOF gate for the team-play specialist layer.
-
-    Compare base LGBM component rates with the same LGBM component rates fitted
-    with raw/aspect team-play features.  Only components clearing the relative
-    gain threshold are eligible for grafting.
-    """
     feature_mode = _normalise_teamplay_mode(feature_mode)
     key = (int(train_mask.sum()), MODE, feature_mode, round(float(min_gain), 5))
     if key in _TEAMPLAY_OOF_CACHE:
@@ -946,12 +887,6 @@ def _apply_teamplay_aspect_adjustments(
     pred: pd.DataFrame,
     cfg: Config,
 ) -> pd.DataFrame:
-    """Component-specific fixture-shape nudges from the team-play aspect layer.
-
-    This is intentionally separate from `teamplay_features_on`: the adjustment
-    treats match shape as multiple channels and only applies each channel to the
-    components where the rugby logic is coherent.
-    """
     if cfg.teamplay_aspect_adjust == "none" or cfg.teamplay_aspect_weight <= 0:
         return pred
     te = df.iloc[test_idx]
@@ -1045,12 +980,6 @@ def _apply_weather_aspect_adjustments(
     pred: pd.DataFrame,
     cfg: Config,
 ) -> pd.DataFrame:
-    """Component-specific weather nudges.
-
-    Weather failed as a blanket feature family, so this keeps it small and rugby-
-    shaped: wet/windy/cold conditions suppress open attacking and kicking outputs,
-    while optionally lifting tackle/pressure components.
-    """
     if cfg.weather_aspect_adjust == "none" or cfg.weather_aspect_weight <= 0:
         return pred
     te = df.iloc[test_idx]
@@ -1101,11 +1030,6 @@ def _apply_kicking_reallocation(
     pred: pd.DataFrame,
     cfg: Config,
 ) -> pd.DataFrame:
-    """Concentrate team kicking components onto the learned likely kicker.
-
-    This is a role-certainty experiment, not player hardcoding.  The share comes
-    from PIT goal-kicker rate and kick-attempt history within each fixture-team.
-    """
     if cfg.kicking_realloc_weight <= 0:
         return pred
     out = pred.copy()
@@ -1174,7 +1098,6 @@ def _apply_rolecert_kicking_adjustments(
     pred: pd.DataFrame,
     cfg: Config,
 ) -> pd.DataFrame:
-    """Use team-sheet-relative role certainty only in the kicking component path."""
     if (
         cfg.rolecert_kick_realloc_weight <= 0
         and cfg.rolecert_bench_kick_shrink <= 0
@@ -1349,7 +1272,6 @@ def _apply_post_selection_target(
     teamplay_pred: pd.DataFrame | None,
     cfg: Config,
 ) -> pd.DataFrame:
-    """Apply MAE-only target tweaks after selector role scores are frozen."""
     if (
         cfg.post_target_xgb_weight <= 0
         and cfg.post_target_bayes_weight <= 0
@@ -1397,12 +1319,6 @@ def _apply_post_target_forward_combiner(
     teamplay_pred: pd.DataFrame | None,
     cfg: Config,
 ) -> pd.DataFrame:
-    """Forward-chained conservative stacker over specialist point forecasts.
-
-    The grid is chosen using only earlier labelled rounds from the same season.
-    It is deliberately post-selection: captain/XV/supersub decisions stay frozen
-    unless a separate candidate explicitly refreshes them.
-    """
     if cfg.post_target_forward_combiner == "none":
         return pred
     if cfg.post_target_forward_combiner != "conservative_grid":
@@ -1485,7 +1401,6 @@ def _post_target_residual_keys(pred: pd.DataFrame, group: str) -> np.ndarray:
 
 
 def _apply_post_target_residual(pred: pd.DataFrame, cfg: Config) -> pd.DataFrame:
-    """Forward-chain residual correction after specialist target forecasts land."""
     if cfg.post_target_residual_weight <= 0 or cfg.post_target_residual_group == "none":
         return pred
     out = pred.copy()
@@ -1537,7 +1452,6 @@ def _apply_post_target_pipeline(
     teamplay_pred: pd.DataFrame | None,
     cfg: Config,
 ) -> pd.DataFrame:
-    """Apply the complete forecast-only stack to one target signal."""
     out = _apply_post_selection_target(pred, xgb_pred, bayes_pred, teamplay_pred, cfg)
     out = _apply_post_target_forward_combiner(
         out, xgb_pred, bayes_pred, teamplay_pred, cfg
@@ -1611,12 +1525,6 @@ def _selector_delta_prior_mask(pred: pd.DataFrame, min_prior_n: int) -> np.ndarr
 
 
 def _refresh_post_target_role_scores(pred: pd.DataFrame, cfg: Config) -> tuple[pd.DataFrame, str]:
-    """Optionally let role heads see post-selector forecast improvements.
-
-    The default promoted path freezes all decisions before post-target forecast
-    calibration.  These opt-in experiments test whether the better target should
-    affect captain or XV selection, while keeping supersub_score untouched.
-    """
     out = pred.copy()
     sel_col = "sel_score" if "sel_score" in out.columns else "target_pts_hat"
     if cfg.post_target_refresh_selector:
@@ -2154,12 +2062,6 @@ def _apply_upside_head(
 
 
 def config_from_dict(d: dict) -> "Config":
-    """Build a Config, dropping keys it no longer knows about.
-
-    Archived promoted_config.prev_*.json files still carry the removed betting-market
-    knobs (market_features, post_target_market_features, captain_market_weight). They
-    are historical records; loading one must not explode.
-    """
     known = {f.name for f in dataclasses.fields(Config)}
     dropped = sorted(set(d) - known)
     if dropped:
@@ -2171,12 +2073,6 @@ def _predict_config(
     df: pd.DataFrame, cfg: Config, season: int,
     train_mask: np.ndarray | None = None,
 ) -> tuple[pd.DataFrame, str, pd.DataFrame | None]:
-    """Build predictions for a fixed config/season without evaluating acceptance.
-
-    `train_mask` overrides the default `season < test_season` component-training
-    set.  Used by the enhanced validation harness (validate.py) for the
-    2026-OOF / cross-year views; production paths pass None and keep the
-    forward-chained split.  The override must never include the test season."""
     if train_mask is None:
         train_mask = component_train(df, season)
     else:
@@ -2313,12 +2209,9 @@ def _predict_config(
         and not np.isclose(cfg.supersub_latent_shrink, cfg.latent_shrink)
         and "supersub_score" in pred.columns
     ):
-        # Rebuild the supersub head from a separately-shrunk set-piece latent.
-        # The inner config disables further decoupling to avoid recursion.
         ss_cfg = cfg.delta(
             latent_shrink=cfg.supersub_latent_shrink, supersub_latent_shrink=-1.0)
         ss_pred, _, _ = _predict_config(df, ss_cfg, season, train_mask=train_mask)
-        # Same season -> identical test_idx ordering, so positional assignment aligns.
         pred = pred.copy()
         pred["supersub_score"] = ss_pred["supersub_score"].to_numpy(float)
 

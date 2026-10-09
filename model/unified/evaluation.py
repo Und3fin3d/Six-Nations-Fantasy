@@ -1,5 +1,3 @@
-"""Competition-normalized evaluation and strict promotion gates."""
-
 from __future__ import annotations
 
 from dataclasses import asdict, dataclass
@@ -13,7 +11,6 @@ from .scoring import CompetitionScorer
 
 
 def tie_aware_top_n(predicted: pd.Series, actual: pd.Series, n: int) -> tuple[float, float]:
-    """Return fractional top-N overlap and actual-point capture."""
     n = min(n, len(actual))
     selected = set(predicted.nlargest(n).index)
     cutoff = actual.nlargest(n).iloc[-1]
@@ -81,7 +78,6 @@ def promotion_gate(
     candidate: dict[str, dict[str, float]], incumbent: dict[str, dict[str, float]],
     *, noninferiority_margin: float = .02, required_capture_gain: float = .03,
 ) -> PromotionDecision:
-    """Require non-inferiority in every competition and aggregate rank gain."""
     reasons = []
     gains = []
     for competition in sorted(incumbent):

@@ -1,26 +1,3 @@
-#!/usr/bin/env python3
-"""
-RugbyPass backfill scraper  — close the API→RugbyPass coverage gap
-==================================================================
-The CSV-driven `pipeline/sources/rugbypass_batch.py` only sees players in 2025/2026
-`players.csv`, so it never scraped the ~100 pre-2025 (retired / dropped) 6N
-players that still appear in the API per-match table. This script targets
-exactly those: it reads the *current* crosswalk to find every API player not
-yet linked to RugbyPass, resolves each to a RugbyPass slug by probing
-candidate URLs, scrapes the (server-rendered) player page with `requests`, and
-writes `players/rugbypass_<slug>.json` in the same schema as
-`pipeline/sources/rugbypass_batch.py` so `pipeline/sources/build_rugbypass_tables.py` picks them up unchanged.
-
-No Selenium: the RugbyPass player page embeds its stats JSON directly in the
-HTML (`#app-comp-stats`, `#app-competitions`, `.player-details`), so a plain
-HTTP GET is enough and far faster.
-
-Usage:
-    python -m pipeline.sources.rugbypass_backfill            # resolve + scrape all unmatched
-    python -m pipeline.sources.rugbypass_backfill --dry-run  # resolve slugs only, no scrape
-    python -m pipeline.sources.rugbypass_backfill --force    # re-scrape even if JSON exists
-"""
-
 from __future__ import annotations
 
 import argparse
@@ -34,7 +11,6 @@ from pathlib import Path
 import requests
 from bs4 import BeautifulSoup
 
-# Reuse the exact parsers the batch scraper uses — do NOT reinvent.
 from pipeline.sources.rugbypass_batch import (
     extract_bio,
     extract_comp_stats,
@@ -48,17 +24,13 @@ OUT_DIR = BASE / "players"
 UA = ("Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) "
       "AppleWebKit/537.36 (KHTML, like Gecko) Chrome/122.0.0.0 Safari/537.36")
 
-# Hand-verified slugs for players whose RugbyPass URL is not the naive
-# "first-last" of their API name (nicknames, concatenations, -N collisions).
-# Filled in after the first probe pass; key = API player_name.
 SLUG_OVERRIDES: dict[str, str] = {
-    "Cameron Winnett": "cam-winnett",        # RugbyPass shortens Cameron -> Cam
-    "Hame Faiva": "epalahame-faiva",         # RugbyPass uses his full first name
-    "Oli Kebble": "oliver-kebble",            # RugbyPass uses Oliver, not Oli
-    "Noah Nene": "noah-tisie-nene",           # RugbyPass includes his middle name
-    "Mohamed Haouas":  "mohammed-haouas",    # RugbyPass spells it with double-m
-    "Gaetan Barlot":   "gaeton-barlot",      # RugbyPass misspells Gaëtan -> Gaeton
-    # discovered in the 2026 NCR backfill sweep (see data/ncr/rp_backfill_log.txt)
+    "Cameron Winnett": "cam-winnett",
+    "Hame Faiva": "epalahame-faiva",
+    "Oli Kebble": "oliver-kebble",
+    "Noah Nene": "noah-tisie-nene",
+    "Mohamed Haouas":  "mohammed-haouas",
+    "Gaetan Barlot":   "gaeton-barlot",
     "Andy Onyeama-Christie": "andy-christie",
     "Cobus Reinach": "jacobus-reinach",
     "Faf de Klerk": "francois-de-klerk",
@@ -74,39 +46,31 @@ SLUG_OVERRIDES: dict[str, str] = {
     "Rob Leota": "robert-leota",
     "Isaac Kailea": "isaac-aedo-kailea",
     "Phepsi Buthelezi": "phendulani-buthelezi",
-    "Lood de Jager": "lodewyk-de-jager",     # base slug is a bio-only stub page
+    "Lood de Jager": "lodewyk-de-jager",
     "Sebastian Negri": "sebastian-negri-da-ollegio",
-    "Tadhg Beirne": "tadgh-beirne",          # RugbyPass misspells Tadhg
+    "Tadhg Beirne": "tadgh-beirne",
     "Ollie Chessum": "oliver-chessum",
     "Mack Hansen": "mackenzie-hansen",
 }
 
-# API players confirmed to have no RugbyPass page.
-# key = API player_name, value = short note. Skipped without probing.
 KNOWN_ABSENT: dict[str, str] = {}
 
 
 def fold(s: str) -> str:
-    """ASCII-fold + lowercase: 'Sébastien' -> 'sebastien'."""
     s = unicodedata.normalize("NFKD", s).encode("ascii", "ignore").decode()
     return s.lower()
 
 
 def slug_candidates(name: str) -> list[str]:
-    """Ordered RugbyPass slug guesses for an API player name."""
     base = fold(name).replace("'", "").replace(".", "")
     base = re.sub(r"[^a-z0-9\- ]", " ", base)
     base = re.sub(r"\s+", " ", base).strip()
     hyphen = base.replace(" ", "-")
     cands = [hyphen]
-    # collision suffixes RugbyPass uses when a name is taken (e.g. blair-murray-1)
     cands += [f"{hyphen}-1", f"{hyphen}-2"]
-    # fully concatenated surname variant (RugbyPass occasionally does this,
-    # e.g. manuelzuliani, gianmarcolucchesi)
     toks = base.split(" ")
     if len(toks) >= 2:
         cands.append("".join(toks))
-    # de-duplicate, preserve order
     seen: set[str] = set()
     out = []
     for c in cands:
@@ -117,7 +81,6 @@ def slug_candidates(name: str) -> list[str]:
 
 
 def unmatched_api_players() -> list[dict]:
-    """API players present in the crosswalk but not linked to RugbyPass."""
     import pipeline.sixn.build_crosswalk as bc
     cw = bc.build()
     api = cw[cw["in_api"] & ~cw["in_rp"]]
@@ -127,7 +90,6 @@ def unmatched_api_players() -> list[dict]:
 
 
 def fetch(session: requests.Session, slug: str):
-    """Return (status_code, html_or_None) for a RugbyPass player slug."""
     url = f"https://www.rugbypass.com/players/{slug}/"
     try:
         r = session.get(url, timeout=25)
@@ -141,7 +103,7 @@ def resolve_and_scrape(records, *, dry_run: bool, force: bool, delay: float):
     session = requests.Session()
     session.headers.update({"User-Agent": UA})
 
-    resolved: list[tuple[str, str, str]] = []   # (name, slug, nationality)
+    resolved: list[tuple[str, str, str]] = []
     unresolved: list[str] = []
     absent: list[str] = []
 
@@ -150,9 +112,9 @@ def resolve_and_scrape(records, *, dry_run: bool, force: bool, delay: float):
         key = rec["key"]
 
         if name in KNOWN_ABSENT:
-            print(f"  [{i:>3}/{len(records)}]  {name:<26} — KNOWN ABSENT "
+            print(f"  [{i:>3}/{len(records)}]  {name:<26} KNOWN ABSENT "
                   f"({KNOWN_ABSENT[name]})")
-            absent.append(f"{name} — {KNOWN_ABSENT[name]}")
+            absent.append(f"{name}: {KNOWN_ABSENT[name]}")
             continue
 
         cands = ([SLUG_OVERRIDES[name]] if name in SLUG_OVERRIDES
@@ -164,7 +126,7 @@ def resolve_and_scrape(records, *, dry_run: bool, force: bool, delay: float):
             json_path = OUT_DIR / f"rugbypass_{stem}.json"
             if json_path.exists() and not force and not dry_run:
                 hit_slug = slug
-                hit_html = None  # already have it
+                hit_html = None
                 print(f"  [{i:>3}/{len(records)}]  {name:<26} ⏭  have {json_path.name}")
                 break
             status, html = fetch(session, slug)
@@ -179,9 +141,7 @@ def resolve_and_scrape(records, *, dry_run: bool, force: bool, delay: float):
             unresolved.append(f"{name} ({key})  tried: {', '.join(cands)}")
             continue
 
-        # parse (or note we already had it)
         if hit_html is None and hit_slug:
-            # already scraped earlier; read nationality back for the report
             try:
                 d = json.loads((OUT_DIR /
                                 f"rugbypass_{hit_slug.replace('-', '_')}.json").read_text())
@@ -213,7 +173,6 @@ def resolve_and_scrape(records, *, dry_run: bool, force: bool, delay: float):
                 json.dumps(out, indent=2))
         resolved.append((name, hit_slug, nat))
 
-    # ── summary ──────────────────────────────────────────────────────────────
     print("\n" + "=" * 74)
     print(f"RESOLVED {len(resolved)} / {len(records)}   "
           f"unresolved {len(unresolved)}   known-absent {len(absent)}")
@@ -230,7 +189,6 @@ def resolve_and_scrape(records, *, dry_run: bool, force: bool, delay: float):
 
 
 def refresh_existing(*, delay: float):
-    """Refresh every stored profile without replacing useful data with blanks."""
     session = requests.Session()
     session.headers.update({"User-Agent": UA})
     paths = sorted(OUT_DIR.glob("rugbypass_*.json"))

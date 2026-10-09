@@ -1,32 +1,3 @@
-#!/usr/bin/env python3
-"""
-Six Nations ingester  →  one tidy player-per-match table
-========================================================
-Pulls Six Nations seasons (default 2021-2026) from the Rugby Live Data API via
-the cached RugbyAPI client and flattens every completed match into a long table:
-one row per player per match, with raw per-player stats, derived minutes,
-discipline, canonical fantasy position, and a (partial) reconstructed fantasy
-score.
-
-Outputs:
-    data/6n_player_match.csv   — the long table (the foundation dataset)
-    data/6n_players.csv        — player reference (id, name, modal position)
-
-Notes / known gaps:
-  • match_stats has NO minutes — minutes are derived from substitution events
-    (starter = 80 unless subbed off; bench = 80 − on-time).
-  • fantasy_pts_recon is PARTIAL: the API per-player feed lacks 50-22,
-    kick-retained, POTM and a true lineout-steal (it has lineouts_won = own
-    ball). tackle_turnover is used as a proxy for breakdown steal. So recon
-    undercounts those rare, high-value events. Use official xlsx Pts as labels
-    where they exist; recon is for feature/back-fill use only.
-  • metres run ~3-6% below the official feed (definitional) — left raw here.
-
-Usage:
-    python -m pipeline.sixn.ingest_6n                 # 2021-2026
-    python -m pipeline.sixn.ingest_6n --seasons 2024 2025 2026
-"""
-
 from __future__ import annotations
 
 import argparse
@@ -39,27 +10,18 @@ from pipeline.sources.rugby_api import RugbyAPI
 
 SIX_NATIONS = 1266
 
-# Point-in-time FORM windows. Non-6N (club) competitions contribute only the
-# matches between 1 Oct of the prior year and that season's Six Nations kickoff —
-# the pre-tournament window whose form can inform a 6N fixture WITHOUT leakage.
-# The Six Nations itself is never windowed. A season with no entry here is left
-# unwindowed (keeps every completed match).
 SIXN_START = {
     2023: "2023-02-04", 2024: "2024-02-02",
     2025: "2025-01-31", 2026: "2026-02-05",
 }
-QUOTA_FLOOR = 50   # hard-stop the paid backfill if live quota drops below this
+QUOTA_FLOOR = 50
 
 
 class QuotaExhausted(RuntimeError):
-    """Raised to stop a backfill cleanly when api.remaining < QUOTA_FLOOR."""
+    pass
 
 
 def _in_form_window(date_str: str, comp: int, season: int) -> bool:
-    """6N keeps every match (all cached seasons are free PIT history). A club comp
-    keeps only matches in [Oct-1(prev yr), 6N start); a club season with no 6N
-    window defined (no SIXN_START entry, e.g. 2021/22) is excluded outright — there
-    is nothing for it to inform, and its fixtures aren't even cached."""
     if comp == SIX_NATIONS:
         return True
     if season not in SIXN_START:
@@ -68,21 +30,16 @@ def _in_form_window(date_str: str, comp: int, season: int) -> bool:
 
 
 def _skip_comp_season(comp: int, season: int) -> bool:
-    """True when a (comp, season) has no eligible matches and must not even be
-    fetched — club comps outside the defined 6N windows. Avoids a wasted (and
-    uncached → paid) /fixtures call on 2021/22 club seasons."""
     return comp != SIX_NATIONS and season not in SIXN_START
 
 
 def _quota_guard(api) -> None:
-    """Stop *before* the next quota-spending /match once we near the cap."""
     if api.remaining is not None and api.remaining < QUOTA_FLOOR:
         raise QuotaExhausted(
-            f"live quota {api.remaining} < floor {QUOTA_FLOOR} — stopping before "
+            f"live quota {api.remaining} < floor {QUOTA_FLOOR}; stopping before "
             f"the next /match to avoid overage")
 
 
-# jersey (1-15) → fantasy position group used by the official game
 JERSEY_GROUP = {
     1: "Prop", 2: "Hooker", 3: "Prop",
     4: "Second-row", 5: "Second-row",
@@ -92,7 +49,6 @@ JERSEY_GROUP = {
 }
 FORWARD_GROUPS = {"Prop", "Hooker", "Second-row", "Back-row"}
 
-# raw per-player stat fields to carry through (order = output column order)
 STAT_FIELDS = [
     "tries", "try_assists", "conversion_goals", "penalty_goals", "drop_goals_converted",
     "metres", "defenders_beaten", "clean_breaks", "offload", "runs",
@@ -114,17 +70,16 @@ def _num(v):
 
 
 def derive_minutes(events: list[dict]) -> tuple[dict, dict, dict]:
-    """Return (off_time_by_pid, on_time_by_pid, cards_by_pid) from events."""
     off, on = {}, {}
     cards = collections.defaultdict(lambda: {"yellow_cards": 0, "red_cards": 0})
     for e in events:
         t = (e.get("type") or "").lower()
         pid1 = e.get("player_1_id")
         if e.get("type") == "Substitution":
-            if pid1:                       # player_1 goes off
+            if pid1:
                 off[pid1] = min(off.get(pid1, 99), _num(e.get("time")))
             pid2 = e.get("player_2_id")
-            if pid2:                       # player_2 comes on
+            if pid2:
                 on[pid2] = min(on.get(pid2, 99), _num(e.get("time")))
         elif "yellow" in t:
             cards[pid1]["yellow_cards"] += 1
@@ -143,12 +98,6 @@ def player_minutes(pid, started, off, on) -> int:
 
 
 def ingest(seasons: list[int], comps: list[int] | None = None) -> pd.DataFrame:
-    """Build the long player-per-match table for the given comps × seasons.
-
-    `comps` defaults to [SIX_NATIONS] so the historical no-arg behaviour is
-    preserved exactly. Runs entirely on the RugbyAPI disk cache; any uncached
-    /match would spend quota, so only pass comp×season pairs already cached.
-    """
     if comps is None:
         comps = [SIX_NATIONS]
     api = RugbyAPI()
@@ -224,17 +173,6 @@ def ingest(seasons: list[int], comps: list[int] | None = None) -> pd.DataFrame:
     return df
 
 
-# ---------------------------------------------------------------------------
-# Team-level stat extraction  →  data/api_team_match.csv
-# ---------------------------------------------------------------------------
-# team_stats is a dict of 8 groups (attack/defence/discipline/kicking/breakdown/
-# lineouts/scrums/possession); each group is a list of {stat, value}. The stat
-# names are unique across groups, so we flatten flat (raw Opta names) and only
-# fall back to a {group}_{stat} key on the rare collision. Every field is kept —
-# they ride along free inside each /match, so trimming saves nothing and a
-# re-derive would mean re-reading the JSON cache.
-
-# identity / outcome columns emitted before the (sorted) flattened stat columns
 TEAM_ID_COLS = [
     "season", "comp_id", "comp_name", "round", "fixture_id", "date",
     "team", "team_id", "opponent", "opponent_id", "home_away",
@@ -245,7 +183,6 @@ TEAM_ID_COLS = [
 
 
 def _flatten_one_team_stats(ts) -> dict:
-    """team_stats dict (or list) -> {stat: numeric}, group-prefixed on collision."""
     out: dict = {}
     seen: dict = {}
     groups = ts.items() if isinstance(ts, dict) else []
@@ -263,9 +200,6 @@ def _flatten_one_team_stats(ts) -> dict:
 
 
 def flatten_team_stats(comp_season_pairs: list[tuple[int, int]]) -> pd.DataFrame:
-    """One row per (completed match, team): identity + for/against outcome +
-    that team's full team_stats line. Runs on the cache; uncached /match pulls
-    spend quota."""
     api = RugbyAPI()
     rows: list[dict] = []
     skipped = 0
@@ -327,8 +261,6 @@ def flatten_team_stats(comp_season_pairs: list[tuple[int, int]]) -> pd.DataFrame
 
 
 def add_position_and_recon(df: pd.DataFrame) -> tuple[pd.DataFrame, pd.DataFrame]:
-    """Derive each player's canonical fantasy position (modal start jersey),
-    then compute the partial fantasy-point reconstruction."""
     starts = df[df.started & df.jersey.between(1, 15)]
     canon = {}
     for pid, grp in starts.groupby("player_id"):
@@ -336,7 +268,6 @@ def add_position_and_recon(df: pd.DataFrame) -> tuple[pd.DataFrame, pd.DataFrame
         j = int(jersey_mode.iloc[0]) if len(jersey_mode) else None
         canon[pid] = JERSEY_GROUP.get(j)
     df["canonical_pos"] = df.player_id.map(canon)
-    # bench-only players with no start: fall back to jersey group if 1-15 else None
     df.loc[df.canonical_pos.isna() & df.jersey.between(1, 15), "canonical_pos"] = \
         df.jersey.map(JERSEY_GROUP)
     df["is_forward"] = df.canonical_pos.isin(FORWARD_GROUPS)
@@ -352,12 +283,10 @@ def add_position_and_recon(df: pd.DataFrame) -> tuple[pd.DataFrame, pd.DataFrame
         + 2 * df.defenders_beaten
         + 1 * df.tackles
         + 2 * df.offload
-        + 5 * df.tackle_turnover        # proxy for breakdown steal
+        + 5 * df.tackle_turnover
         - 1 * df.penalties_conceded
         - 5 * df.yellow_cards
         - 10 * df.red_cards
-        # MISSING (not in API per-player feed): 50-22, kick-retained, POTM,
-        # true lineout steal, SW.
     ).astype(int)
 
     players = (df.groupby(["player_id", "player_name"])
@@ -384,7 +313,6 @@ def main():
                          "of the player table")
     args = ap.parse_args()
 
-    # --comps absent => historical Six-Nations-only default (and 6N output files)
     comps_given = args.comps is not None
     comps = args.comps if comps_given else [SIX_NATIONS]
 
@@ -406,8 +334,6 @@ def main():
     df = ingest(args.seasons, comps)
     df, players = add_position_and_recon(df)
 
-    # default (no --comps) reproduces the 6N foundation files exactly;
-    # any explicit --comps writes the generalized api_player_match.csv.
     if comps_given:
         pm_path = out_dir / "api_player_match.csv"
         df.to_csv(pm_path, index=False)

@@ -1,12 +1,3 @@
-#!/usr/bin/env python3
-"""Score saved NCR squads from the ingested match-stat history.
-
-The official fantasy player feed has not reliably rolled from one completed
-gameday to the next. This scorer therefore reconstructs the categories exposed
-by the match API and joins the separately verified player-of-the-match awards.
-Categories that cannot be assigned to an individual from the API are called out
-in the generated Markdown rather than estimated silently.
-"""
 from __future__ import annotations
 
 import argparse
@@ -32,7 +23,6 @@ TEAM_FILES = {
 
 
 def load_official_actuals(gw: int) -> dict[int, dict]:
-    """Load platform points/status from the feed explicitly versioned for ``gw``."""
     path = DATA / "feeds" / f"players_gw{gw}.json"
     players = json.loads(path.read_text())["Data"]["Value"]["Players"]
     payload_gws = {
@@ -56,7 +46,6 @@ def load_official_actuals(gw: int) -> dict[int, dict]:
 
 
 def score_squad_official(path: Path, actuals: dict[int, dict]) -> tuple[pd.DataFrame, float]:
-    """Score a saved squad using exact platform points and that GW's P/B status."""
     squad = pd.read_csv(path)
     rows = []
     for player in squad.itertuples(index=False):

@@ -1,5 +1,3 @@
-"""Immutable NCR shadow predictions at the published fantasy lock."""
-
 from __future__ import annotations
 
 import json
@@ -42,11 +40,6 @@ BENCH_JERSEY = {
 
 def _group_metrics(cohort: pd.DataFrame, rank_col: str, mae_col: str | None = None,
                    actual_col: str = "official_pts") -> dict:
-    """Ranking + error metrics within one round, tie-aware.
-
-    ``rank_col`` orders players (ranking metrics); ``mae_col`` (defaults to
-    ``rank_col``) supplies the points forecast for MAE.
-    """
     mae_col = mae_col or rank_col
     rank = cohort[rank_col].reset_index(drop=True)
     points = cohort[mae_col].reset_index(drop=True)
@@ -70,8 +63,6 @@ def ncr_candidates(gw: int, projection: pd.DataFrame | None = None) -> pd.DataFr
         if projection_path.exists():
             projection = pd.read_csv(projection_path)
         else:
-            # An --exclude incumbent run writes only its tagged projection. Build
-            # the full shadow cohort in memory from the same current team sheets.
             from model.ncr.project import build_projection
             projection = build_projection(gameday=gw)
             if projection.empty:
@@ -130,7 +121,6 @@ def _load_model(engine: str, path: Path):
 
 
 def _p3_features(candidate: pd.DataFrame) -> pd.DataFrame:
-    """Build the saved P3 artifact's frozen-history NCR candidate features."""
     store = pd.read_csv(
         RAW_BENCHMARK_OUT / "player_match.csv",
         low_memory=False,
@@ -149,7 +139,6 @@ def validate_shadow_write(
     csv_path: Path, manifest_path: Path, lock_at: pd.Timestamp,
     *, now: pd.Timestamp | None = None,
 ) -> None:
-    """Enforce both the lock cutoff and write-once shadow contract."""
     if csv_path.exists() or manifest_path.exists():
         raise FileExistsError(f"shadow snapshot already frozen: {csv_path.stem}")
     current = pd.Timestamp.now(tz="UTC") if now is None else pd.Timestamp(now)
@@ -219,7 +208,6 @@ def evaluate_prospective_shadows(
     engine: str, *, rounds: tuple[int, ...] = (4, 5, 6, 7),
     shadow_dir: Path = OUT / "shadow", output_dir: Path = OUT / "prospective",
 ) -> dict:
-    """Apply the frozen NCR non-inferiority gates after all four shadow rounds."""
     labels = build_fantasy_labels()
     labels = labels[
         labels["competition"].eq("ncr") & labels["round"].isin(rounds)

@@ -1,10 +1,3 @@
-#!/usr/bin/env python3
-"""Snapshot the public Six Nations fantasy player catalogue.
-
-The fantasy API only exposes the current catalogue. Run this after team sheets
-and before each lock so price, ownership, availability, and any new public
-fields are preserved point-in-time for future model research.
-"""
 from __future__ import annotations
 
 import argparse
@@ -188,7 +181,7 @@ def write_snapshot(
 
 
 def main() -> int:
-    parser = argparse.ArgumentParser(description=__doc__)
+    parser = argparse.ArgumentParser()
     parser.add_argument("--game", choices=["m6n", "w6n"], default="m6n")
     parser.add_argument("--language", default="en")
     parser.add_argument("--output-dir", type=Path, default=DEFAULT_OUTPUT)

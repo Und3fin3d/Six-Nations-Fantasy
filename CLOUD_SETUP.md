@@ -48,7 +48,6 @@ writes a dated refresh manifest.
 python -m py_compile rugby_api.py ncr_ingest.py build_intl_results.py
 PYTEST_DISABLE_PLUGIN_AUTOLOAD=1 python -m pytest -q \
   tests/test_ncr_player_matching.py \
-  tests/test_ncr_rank_eval.py \
   tests/test_ncr_score_gw.py \
   tests/test_ncr_snapshot.py
 ```

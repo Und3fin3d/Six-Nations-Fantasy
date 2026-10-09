@@ -1,6 +1,0 @@
-# Base model stack.
--r requirements-model.txt
-
-# Primary shared multi-task model. Pin separately so the existing historical
-# numerical environment remains reproducible.
-torch==2.7.1

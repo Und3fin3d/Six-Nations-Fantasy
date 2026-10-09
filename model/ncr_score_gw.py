@@ -238,19 +238,21 @@ def main() -> None:
     args = parser.parse_args()
 
     date = gameweek_date(args.gw)
+    squads = {
+        label: DATA / template.format(gw=args.gw) for label, template in TEAM_FILES.items()
+        if (DATA / template.format(gw=args.gw)).exists()
+    }
     scored: dict[str, pd.DataFrame] = {}
     totals: dict[str, float] = {}
     try:
         official_actuals = load_official_actuals(args.gw)
         source = "official"
-        for label, template in TEAM_FILES.items():
-            csv_path = DATA / template.format(gw=args.gw)
+        for label, csv_path in squads.items():
             scored[label], totals[label] = score_squad_official(csv_path, official_actuals)
     except FileNotFoundError:
         played, _ = actual_player_points(args.gw)
         source = "reconstructed"
-        for label, template in TEAM_FILES.items():
-            csv_path = DATA / template.format(gw=args.gw)
+        for label, csv_path in squads.items():
             scored[label], totals[label] = score_squad(csv_path, played)
 
     print(f"GW{args.gw} ({date}) [{source}]")
@@ -258,12 +260,8 @@ def main() -> None:
         print(f"  {label:<23} {number(total)}")
 
     if args.update_markdown:
-        markdowns = {
-            "Bayes / NCR empirical": DATA / f"ncr_gw{args.gw}_squad.md",
-            "6N champion": DATA / f"ncr_gw{args.gw}_squad_champion.md",
-            "Blend": DATA / f"ncr_gw{args.gw}_squad_blend.md",
-        }
-        for label, path in markdowns.items():
+        for label, csv_path in squads.items():
+            path = csv_path.with_suffix(".md")
             update_markdown(
                 path, result_section(args.gw, date, label, scored[label], totals, source)
             )

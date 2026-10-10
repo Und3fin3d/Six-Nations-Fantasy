@@ -12,20 +12,13 @@ from pipeline.sixn.official_labels import match_official
 from .schema import EVENTS, FORWARD_POSITIONS, KEY_COLUMNS, POSITION_BY_JERSEY
 
 DEFAULT_SOURCES = (
-    ("data/ncr/ncr_player_match.csv", "ncr_international", 30, "international"),
-    ("data/ncr/club_player_match.csv", "ncr_club", 20, "club"),
+    ("data/ncr/ncr_player_match.csv", "ncr_international", 30, "international"), ("data/ncr/club_player_match.csv", "ncr_club", 20, "club"),
     ("data/api_player_match.csv", "sixn_api", 10, "international"),
 )
 
-ALIASES = {
-    "comp_name": "competition", "comp_id": "competition_id",
-    "canonical_pos": "position",
-}
+ALIASES = {"comp_name": "competition", "comp_id": "competition_id", "canonical_pos": "position"}
 
-OFFICIAL_EVENT_COLUMNS = {
-    "50-22": "fifty_22", "LS": "lineout_steals", "SW": "scrums_won",
-    "KR": "kicks_retained", "POTM": "potm",
-}
+OFFICIAL_EVENT_COLUMNS = {"50-22": "fifty_22", "LS": "lineout_steals", "SW": "scrums_won", "KR": "kicks_retained", "POTM": "potm"}
 
 
 def _attach_official_labels(frame: pd.DataFrame) -> pd.DataFrame:
@@ -54,9 +47,7 @@ def _stable_id(value: object, name: object, team: object) -> str:
     return "anon_" + hashlib.sha1(raw).hexdigest()[:14]
 
 
-def _normalise_source(
-    path: str, source: str, priority: int, level: str,
-) -> pd.DataFrame:
+def _normalise_source(path: str, source: str, priority: int, level: str) -> pd.DataFrame:
     frame = pd.read_csv(path, low_memory=False).rename(columns=ALIASES)
     original = set(frame.columns)
     frame["date"] = pd.to_datetime(frame["date"], errors="coerce")
@@ -75,19 +66,14 @@ def _normalise_source(
         frame[col] = pd.to_numeric(frame.get(col), errors="coerce")
     if "started" not in frame:
         frame["started"] = frame["jersey"].between(1, 15)
-    frame["started"] = frame["started"].map(
-        lambda x: x if isinstance(x, bool) else str(x).strip().lower() in {"1", "true", "t", "yes"}
-    )
+    frame["started"] = frame["started"].map(lambda x: x if isinstance(x, bool) else str(x).strip().lower() in {"1", "true", "t", "yes"})
     inferred = frame["jersey"].map(POSITION_BY_JERSEY)
     if "position" not in frame:
         frame["position"] = inferred
     else:
         frame["position"] = frame["position"].fillna(inferred)
     frame["is_forward"] = frame["position"].isin(FORWARD_POSITIONS)
-    frame["player_id"] = [
-        _stable_id(pid, name, team)
-        for pid, name, team in zip(frame.get("player_id"), frame.get("player_name"), frame.get("team"))
-    ]
+    frame["player_id"] = [_stable_id(pid, name, team) for pid, name, team in zip(frame.get("player_id"), frame.get("player_name"), frame.get("team"))]
     frame["fixture_id"] = frame["fixture_id"].astype(str)
     for event in EVENTS:
         available = event in original
@@ -96,17 +82,13 @@ def _normalise_source(
         frame[event] = pd.to_numeric(frame[event], errors="coerce")
         mask = f"available__{event}"
         if mask in original:
-            explicit = frame[mask].map(
-                lambda value: value if isinstance(value, bool)
-                else str(value).strip().lower() in {"1", "true", "t", "yes"}
-            )
+            explicit = frame[mask].map(lambda value: value if isinstance(value, bool) else str(value).strip().lower() in {"1", "true", "t", "yes"})
             frame[mask] = explicit.astype(bool) & frame[event].notna()
         else:
             frame[mask] = bool(available) & frame[event].notna()
     if "available__minutes" in original:
         explicit_minutes = frame["available__minutes"].map(
-            lambda value: value if isinstance(value, bool)
-            else str(value).strip().lower() in {"1", "true", "t", "yes"}
+            lambda value: value if isinstance(value, bool) else str(value).strip().lower() in {"1", "true", "t", "yes"}
         )
         frame["available__minutes"] = explicit_minutes.astype(bool) & frame["minutes"].notna()
     else:
@@ -114,20 +96,14 @@ def _normalise_source(
     return frame
 
 
-def build_canonical_store(
-    sources: Iterable[tuple[str, str, int, str]] = DEFAULT_SOURCES,
-    *, asof: str | pd.Timestamp | None = None,
-) -> pd.DataFrame:
-    frames = [_normalise_source(p, name, priority, level)
-              for p, name, priority, level in sources]
+def build_canonical_store(sources: Iterable[tuple[str, str, int, str]] = DEFAULT_SOURCES, *, asof: str | pd.Timestamp | None = None) -> pd.DataFrame:
+    frames = [_normalise_source(p, name, priority, level) for p, name, priority, level in sources]
     all_rows = pd.concat(frames, ignore_index=True, sort=False)
     all_rows = all_rows.dropna(subset=["date", "fixture_id", "player_id", "team"])
     if asof is not None:
         cutoff = pd.Timestamp(asof)
         all_rows = all_rows[all_rows["date"] < cutoff]
-    all_rows = all_rows.sort_values(
-        [*KEY_COLUMNS, "source_priority"], ascending=[True, True, True, False], kind="stable"
-    )
+    all_rows = all_rows.sort_values([*KEY_COLUMNS, "source_priority"], ascending=[True, True, True, False], kind="stable")
 
     keys = list(KEY_COLUMNS)
     nonkeys = [c for c in all_rows.columns if c not in keys]

@@ -11,9 +11,8 @@ STYLE_FEATURES_MODE = "off"
 MATCHUP_FEATURES_ENABLED = False
 
 META_COLS = [
-    "season", "comp_id", "round", "fixture_id", "date", "team", "team_id",
-    "opponent", "opponent_id", "home_away", "player_id", "player_name",
-    "canonical_pos", "is_forward",
+    "season", "comp_id", "round", "fixture_id", "date", "team", "team_id", "opponent", "opponent_id", "home_away", "player_id", "player_name", "canonical_pos",
+    "is_forward",
 ]
 LINEUP_COLS = ["started", "jersey"]
 REALISED_LINEUP = ["minutes"]
@@ -21,29 +20,16 @@ FLAG_COLS = ["has_class", "has_form", "has_bio"]
 
 CATEGORICAL_COLS = ["bio_position"]
 
-_FEATURE_PREFIXES = (
-    "class", "form", "role", "ownteam", "bio",
-    "opp_", "h2h_", "team_wr", "wr_", "teamplay_",
-    "weather_", "rolecert_", "style_",
-    "matchup_",
-)
+_FEATURE_PREFIXES = ("class", "form", "role", "ownteam", "bio", "opp_", "h2h_", "team_wr", "wr_", "teamplay_", "weather_", "rolecert_", "style_", "matchup_")
 
 LEAKAGE_DENYLIST = [
-    "recon_pts", "official_pts", "target_pts", "latent_total",
-    "lat_sw", "lat_ls", "lat_potm", "lat_other",
-    "team_scrums_won", "team_lineout_steal", "potm_winner", "min_share",
-    "has_label", "is_modern", "is_jumper",
-    "minutes",
+    "recon_pts", "official_pts", "target_pts", "latent_total", "lat_sw", "lat_ls", "lat_potm", "lat_other", "team_scrums_won", "team_lineout_steal",
+    "potm_winner", "min_share", "has_label", "is_modern", "is_jumper", "minutes",
 ]
 
 
 def _feature_cols(columns: list[str]) -> list[str]:
-    cols = [
-        c for c in columns
-        if c.startswith(_FEATURE_PREFIXES)
-        and c not in FLAG_COLS
-        and not c.startswith("y_")
-    ]
+    cols = [c for c in columns if c.startswith(_FEATURE_PREFIXES) and c not in FLAG_COLS and not c.startswith("y_")]
     return cols
 
 
@@ -63,9 +49,7 @@ def load() -> pd.DataFrame:
     return df
 
 
-FEATURE_COLS: list[str] = _feature_cols(
-    list(pd.read_csv("data/model_player_match.csv", nrows=0).columns)
-)
+FEATURE_COLS: list[str] = _feature_cols(list(pd.read_csv("data/model_player_match.csv", nrows=0).columns))
 
 
 def feature_view(df: pd.DataFrame, mode: str) -> list[str]:
@@ -75,15 +59,11 @@ def feature_view(df: pd.DataFrame, mode: str) -> list[str]:
         teamplay_mode = "raw"
     if teamplay_mode != "off":
         if teamplay_mode == "aspects":
-            cols = [
-                c for c in cols
-                if not c.startswith("teamplay_") or c.startswith("teamplay_aspect_")
-            ]
+            cols = [c for c in cols if not c.startswith("teamplay_") or c.startswith("teamplay_aspect_")]
     else:
         cols = [c for c in cols if not c.startswith("teamplay_")]
     optional_families = [
-        ("WEATHER_FEATURES_ENABLED", WEATHER_FEATURES_ENABLED, "weather_"),
-        ("ROLECERT_FEATURES_ENABLED", ROLECERT_FEATURES_ENABLED, "rolecert_"),
+        ("WEATHER_FEATURES_ENABLED", WEATHER_FEATURES_ENABLED, "weather_"), ("ROLECERT_FEATURES_ENABLED", ROLECERT_FEATURES_ENABLED, "rolecert_"),
         ("MATCHUP_FEATURES_ENABLED", MATCHUP_FEATURES_ENABLED, "matchup_"),
     ]
     for label, enabled, prefix in optional_families:
@@ -97,10 +77,7 @@ def feature_view(df: pd.DataFrame, mode: str) -> list[str]:
     if style_mode == "off" or not style_cols:
         cols = [c for c in cols if not c.startswith("style_")]
     elif style_mode == "aspects":
-        cols = [
-            c for c in cols
-            if not c.startswith("style_") or c.startswith("style_aspect_")
-        ]
+        cols = [c for c in cols if not c.startswith("style_") or c.startswith("style_aspect_")]
     cols = cols + list(FLAG_COLS)
     if mode == "post_team_sheet":
         cols = cols + [c for c in LINEUP_COLS if c in df.columns]

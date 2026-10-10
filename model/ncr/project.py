@@ -25,17 +25,18 @@ ASOF = _current_asof()
 CUR_GD = _current_gameday()
 HALFLIFE_DAYS = 420.0
 
-ATT = {"tries": 12, "try_assists": 5, "conversion_goals": 2, "missed_conversion_goals": -1,
-       "penalty_goals": 3, "missed_penalty_goals": -1, "drop_goals_converted": 5,
-       "defenders_beaten": 2, "offload": 2, "clean_breaks": 3}
+ATT = {
+    "tries": 12, "try_assists": 5, "conversion_goals": 2, "missed_conversion_goals": -1, "penalty_goals": 3, "missed_penalty_goals": -1,
+    "drop_goals_converted": 5, "defenders_beaten": 2, "offload": 2, "clean_breaks": 3,
+}
 DEF = {"tackles": 1, "missed_tackles": -1, "tackle_turnover": 4}
 DISC = {"turnovers_conceded": -1, "penalties_conceded": -1, "yellow_cards": -5, "red_cards": -10}
 
-REQUIRED = {"Prop": 2, "Hooker": 1, "Lock": 2, "Loose Forward": 3,
-            "Scrum Half": 1, "Fly Half": 1, "Centre": 2, "Back Three": 3}
-SKILL2POS = {"PROP": "Prop", "HOOKER": "Hooker", "LOCK": "Lock", "LOOSE FORWARD": "Loose Forward",
-             "SCRUM-HALF": "Scrum Half", "FLY-HALF": "Fly Half", "CENTRE": "Centre",
-             "BACK THREE": "Back Three"}
+REQUIRED = {"Prop": 2, "Hooker": 1, "Lock": 2, "Loose Forward": 3, "Scrum Half": 1, "Fly Half": 1, "Centre": 2, "Back Three": 3}
+SKILL2POS = {
+    "PROP": "Prop", "HOOKER": "Hooker", "LOCK": "Lock", "LOOSE FORWARD": "Loose Forward", "SCRUM-HALF": "Scrum Half", "FLY-HALF": "Fly Half",
+    "CENTRE": "Centre", "BACK THREE": "Back Three",
+}
 FRONT_ROW = {"Prop", "Hooker"}
 BUDGET, SQUAD, MAX_NATION, MAX_HEMI = 100.0, 16, 3, 10
 
@@ -50,15 +51,11 @@ def surkey(s):
     return t[-1] if t else ""
 
 
-PLAYER_NAME_ALIASES = {
-    "nacho brex": "juan ignacio brex",
-    "peni ravai kovekalou": "peni ravai",
-}
+PLAYER_NAME_ALIASES = {"nacho brex": "juan ignacio brex", "peni ravai kovekalou": "peni ravai"}
 
 
 def match_players(pool, hist):
-    hp = (hist.groupby(["player_id", "player_name", "team"])
-              .agg(matches=("fixture_id", "nunique")).reset_index())
+    hp = hist.groupby(["player_id", "player_name", "team"]).agg(matches=("fixture_id", "nunique")).reset_index()
     out = {}
     for _, pl in pool.iterrows():
         cand = hp[hp.team == pl.team_name]
@@ -129,18 +126,16 @@ def player_profiles(hist, club=None, *, asof=None):
         bench = g[~g.started]
         p_start = (starts.w.sum()) / g.w.sum()
         start_min = (starts.w * starts.minutes).sum() / starts.w.sum() if len(starts) and starts.w.sum() > 0 else 72
-        bench_min = ((bench.w * bench.minutes).sum() / bench.w.sum()
-                     if len(bench) and bench.w.sum() > 0 else np.nan)
-        prof[pid] = dict(att=att, dfn=dfn, dsc=dsc, wmin=wm, p_start=p_start,
-                         start_min=min(80, start_min),
-                         bench_min=min(35, max(8, bench_min)) if bench_min == bench_min else np.nan,
-                         n=g.fixture_id.nunique())
+        bench_min = (bench.w * bench.minutes).sum() / bench.w.sum() if len(bench) and bench.w.sum() > 0 else np.nan
+        prof[pid] = dict(
+            att=att, dfn=dfn, dsc=dsc, wmin=wm, p_start=p_start, start_min=min(80, start_min),
+            bench_min=min(35, max(8, bench_min)) if bench_min == bench_min else np.nan, n=g.fixture_id.nunique(),
+        )
     return prof
 
 
 def price_minutes(v):
-    return float(np.interp(v, [2, 3, 3.5, 4, 4.5, 5, 6, 7, 8.5],
-                              [10, 16, 24, 32, 42, 54, 66, 72, 76]))
+    return float(np.interp(v, [2, 3, 3.5, 4, 4.5, 5, 6, 7, 8.5], [10, 16, 24, 32, 42, 54, 66, 72, 76]))
 
 
 def recent_appearance_share(hist, last_n=6):
@@ -148,10 +143,9 @@ def recent_appearance_share(hist, last_n=6):
     hist["date"] = pd.to_datetime(hist["date"])
     share = {}
     for team, g in hist.groupby("team"):
-        fixtures = (g.drop_duplicates("fixture_id").sort_values("date").tail(last_n))
+        fixtures = g.drop_duplicates("fixture_id").sort_values("date").tail(last_n)
         fids = fixtures.fixture_id.tolist()
-        fw = {r.fixture_id: 0.85 ** i for i, (_, r) in
-              enumerate(fixtures.sort_values("date", ascending=False).iterrows())}
+        fw = {r.fixture_id: 0.85**i for i, (_, r) in enumerate(fixtures.sort_values("date", ascending=False).iterrows())}
         tot = sum(fw.values())
         gg = g[g.fixture_id.isin(fids) & (g.minutes >= 20)]
         for pid, pg in gg.groupby("player_id"):
@@ -160,42 +154,29 @@ def recent_appearance_share(hist, last_n=6):
 
 
 def build_projection(
-    exclude_teams=(), override_rates=None, *, pool_override=None,
-    asof=None, gameday=None, history_override=None, club_override=None,
-    use_weather=True,
+    exclude_teams=(), override_rates=None, *, pool_override=None, asof=None, gameday=None, history_override=None, club_override=None, use_weather=True
 ):
-    ov = ({int(r.fantasy_id): (r.att, r.dfn, r.dsc) for r in override_rates.itertuples()}
-          if override_rates is not None else {})
+    ov = {int(r.fantasy_id): (r.att, r.dfn, r.dsc) for r in override_rates.itertuples()} if override_rates is not None else {}
     prediction_asof = utc_cutoff(asof if asof is not None else ASOF).tz_convert(None)
-    pool = (
-        pool_override.copy() if pool_override is not None
-        else pd.read_csv(f"{NCR}/ncr_players.csv")
-    )
+    pool = pool_override.copy() if pool_override is not None else pd.read_csv(f"{NCR}/ncr_players.csv")
     if exclude_teams:
         pool = pool[~pool.team_name.isin(exclude_teams)]
-    hist = past_matches(
-        history_override if history_override is not None
-        else pd.read_csv(f"{NCR}/ncr_player_match.csv"), prediction_asof,
-    )
+    hist = past_matches(history_override if history_override is not None else pd.read_csv(f"{NCR}/ncr_player_match.csv"), prediction_asof)
     teams = pd.read_csv(f"{NCR}/ncr_teams.csv")
     fx = pd.read_csv(f"{NCR}/ncr_fixtures.csv")
     wr = pd.read_csv("data/wr_rankings.csv")
     wr["snapshot_date"] = pd.to_datetime(wr["snapshot_date"])
     point_in_time_wr = wr[wr["snapshot_date"].lt(prediction_asof)]
-    wr = point_in_time_wr[
-        point_in_time_wr.snapshot_date == point_in_time_wr.snapshot_date.max()
-    ].set_index("team")["wr_pts"].to_dict()
+    wr = point_in_time_wr[point_in_time_wr.snapshot_date == point_in_time_wr.snapshot_date.max()].set_index("team")["wr_pts"].to_dict()
 
-    cur_gd = (
-        int(gameday) if gameday is not None else
-        int(fx.loc[fx.iscurrent == 1, "gameday"].min())
-        if (fx.iscurrent == 1).any() else 1
-    )
+    cur_gd = int(gameday) if gameday is not None else int(fx.loc[fx.iscurrent == 1, "gameday"].min()) if (fx.iscurrent == 1).any() else 1
     gwc = fx[fx.gameday == cur_gd]
     opp, home = {}, {}
     for _, r in gwc.iterrows():
-        opp[r.home] = r.away; opp[r.away] = r.home
-        home[r.home] = True; home[r.away] = False
+        opp[r.home] = r.away
+        opp[r.away] = r.home
+        home[r.home] = True
+        home[r.away] = False
 
     wx = {}
     wx_path = f"{NCR}/ncr_fixture_weather.csv"
@@ -216,8 +197,7 @@ def build_projection(
         club = pd.read_csv(club_path)
     prof = player_profiles(hist, club, asof=prediction_asof)
 
-    BENCH_J2POS = {16: "Hooker", 17: "Prop", 18: "Prop", 19: "Lock", 20: "Loose Forward",
-                   21: "Scrum Half", 22: "Fly Half", 23: "Back Three"}
+    BENCH_J2POS = {16: "Hooker", 17: "Prop", 18: "Prop", 19: "Lock", 20: "Loose Forward", 21: "Scrum Half", 22: "Fly Half", 23: "Back Three"}
     _h = hist.copy()
     _h["jersey"] = pd.to_numeric(_h["jersey"], errors="coerce")
     _b = _h[(~_h["started"].astype(bool)) & _h["jersey"].between(16, 23)]
@@ -228,19 +208,20 @@ def build_projection(
     rp_by_key = {}
     if not ov:
         from model.ncr import rp_rates as RP
+
         pid2name = hist.groupby("player_id")["player_name"].first().to_dict()
-        api_players = pd.DataFrame([
-            {"name_key": RP._norm(pid2name.get(pid, "")), "att": p["att"], "dfn": p["dfn"]}
-            for pid, p in prof.items() if p["wmin"] > 300])
+        api_players = pd.DataFrame(
+            [{"name_key": RP._norm(pid2name.get(pid, "")), "att": p["att"], "dfn": p["dfn"]} for pid, p in prof.items() if p["wmin"] > 300]
+        )
         rp = RP.rp_rates(asof=prediction_asof)
         rp, fac = RP.calibrate(rp, api_players)
         rp_by_key = rp.set_index("name_key")[["att", "dfn", "dsc", "rp_min"]].to_dict("index")
         print(f"RugbyPass prior: {len(rp_by_key)} players, calibration {fac}")
 
     def rp_lookup(full_name):
-        return rp_by_key.get(re.sub(r"\s+", " ", re.sub(r"[^a-z ]", " ",
-               unicodedata.normalize("NFKD", str(full_name)).encode("ascii", "ignore")
-               .decode().lower())).strip())
+        return rp_by_key.get(
+            re.sub(r"\s+", " ", re.sub(r"[^a-z ]", " ", unicodedata.normalize("NFKD", str(full_name)).encode("ascii", "ignore").decode().lower())).strip()
+        )
 
     rows = []
     for _, pl in pool.iterrows():
@@ -280,8 +261,7 @@ def build_projection(
             dfn = (W * p["dfn"] + K * prior["dfn"]) / (W + K)
             dsc = (W * p["dsc"] + K * prior["dsc"]) / (W + K)
             start_min = p["start_min"] if p["start_min"] > 20 else 72
-            bench_min = (p["bench_min"] if p["bench_min"] == p["bench_min"]
-                         else bench_pos_prior.get(pos, 24.0))
+            bench_min = p["bench_min"] if p["bench_min"] == p["bench_min"] else bench_pos_prior.get(pos, 24.0)
             n = p["n"]
         else:
             att, dfn, dsc = prior["att"], prior["dfn"], prior["dsc"]
@@ -292,8 +272,7 @@ def build_projection(
         if pos in FRONT_ROW:
             dfn += 2.0
 
-        margin = 2.0 * (wr.get(team, 80) - wr.get(opp.get(team), 80)
-                        + (3 if home.get(team) else -3))
+        margin = 2.0 * (wr.get(team, 80) - wr.get(opp.get(team), 80) + (3 if home.get(team) else -3))
         att_mult = float(np.clip(1 + margin / 60.0, 0.72, 1.35))
         def_mult = float(np.clip(1 - margin / 90.0, 0.80, 1.28))
         weather_att = wx.get(team, 1.0)
@@ -312,13 +291,13 @@ def build_projection(
             starter_exp = base_pts + potm
             supersub_exp = per80 * (bench_min / 80) * 3.0
 
-        recs.append(dict(id=pl.id, name=pl.full_name, team=team, hemi=pl.hemisphere,
-                         pos=pos, value=pl.value, sel=pl.sel_percentage, status=status,
-                         opp=opp.get(team), home=home.get(team), n_hist=n, rp_min=int(rp_min),
-                         wr_margin=round(margin, 1),
-                         weather_att=round(wx.get(team, 1.0), 3),
-                         per80=round(per80, 2), exp_min=round(exp_min, 1),
-                         starter_exp=round(starter_exp, 2), supersub_exp=round(supersub_exp, 2)))
+        recs.append(
+            dict(
+                id=pl.id, name=pl.full_name, team=team, hemi=pl.hemisphere, pos=pos, value=pl.value, sel=pl.sel_percentage, status=status, opp=opp.get(team),
+                home=home.get(team), n_hist=n, rp_min=int(rp_min), wr_margin=round(margin, 1), weather_att=round(wx.get(team, 1.0), 3), per80=round(per80, 2),
+                exp_min=round(exp_min, 1), starter_exp=round(starter_exp, 2), supersub_exp=round(supersub_exp, 2),
+            )
+        )
     return pd.DataFrame(recs)
 
 
@@ -341,7 +320,7 @@ def optimise(df, *, budget=BUDGET, max_nation=MAX_NATION, max_hemi=MAX_HEMI):
     for t in df.team.unique():
         m = (df.team == t).values.astype(float)
         cons.append(LinearConstraint(np.concatenate([m, Z(), Z()]), -np.inf, max_nation))
-    for h in (() if max_hemi is None else (1, 2)):
+    for h in () if max_hemi is None else (1, 2):
         m = (df.hemi == h).values.astype(float)
         cons.append(LinearConstraint(np.concatenate([m, Z(), Z()]), -np.inf, max_hemi))
     for pos, req in REQUIRED.items():
@@ -352,11 +331,12 @@ def optimise(df, *, budget=BUDGET, max_nation=MAX_NATION, max_hemi=MAX_HEMI):
     notB = (df.status != "B").values.astype(float)
     cons.append(LinearConstraint(np.concatenate([Z(), notB, Z()]), 0, 0))
 
-    res = milp(c=c, constraints=cons, integrality=np.ones(3 * n),
-               bounds=Bounds(0, 1))
+    res = milp(c=c, constraints=cons, integrality=np.ones(3 * n), bounds=Bounds(0, 1))
     if not res.success:
         raise RuntimeError("MILP failed: " + res.message)
-    x = res.x[:n] > 0.5; s = res.x[n:2 * n] > 0.5; cap = res.x[2 * n:] > 0.5
+    x = res.x[:n] > 0.5
+    s = res.x[n : 2 * n] > 0.5
+    cap = res.x[2 * n :] > 0.5
     df = df.copy()
     df["in_squad"], df["is_sub"], df["is_capt"] = x, s, cap
     return df[df.in_squad].copy(), obj, res
@@ -367,12 +347,15 @@ def write_markdown(squad, tot_cost, tot_proj, topcaps, path, exclude_teams):
     if exclude_teams:
         L.append(f"> Excludes players from already-started matches: **{', '.join(exclude_teams)}**.")
         L.append("")
-    L += [f"**Budget:** £{tot_cost:.1f}M / {BUDGET:.0f}M  ·  "
-          f"**North {int((squad.hemi==1).sum())} / South {int((squad.hemi==2).sum())}**  ·  "
-          f"**{squad.team.nunique()} nations**  ·  "
-          f"**Projected: {tot_proj:.1f} pts** (captain 2x, super sub 3x off bench)", "",
-          "| Pos | Player | Nation | £ | xMin | xPts | Role |",
-          "|---|---|---|---:|---:|---:|---|"]
+    L += [
+        f"**Budget:** £{tot_cost:.1f}M / {BUDGET:.0f}M  ·  "
+        f"**North {int((squad.hemi == 1).sum())} / South {int((squad.hemi == 2).sum())}**  ·  "
+        f"**{squad.team.nunique()} nations**  ·  "
+        f"**Projected: {tot_proj:.1f} pts** (captain 2x, super sub 3x off bench)",
+        "",
+        "| Pos | Player | Nation | £ | xMin | xPts | Role |",
+        "|---|---|---|---:|---:|---:|---|",
+    ]
     for _, r in squad.iterrows():
         nm = f"**{r['name']}**" if r.role != "Starter" else r['name']
         if r.role == "CAPTAIN":
@@ -381,16 +364,17 @@ def write_markdown(squad, tot_cost, tot_proj, topcaps, path, exclude_teams):
             role = f"**SUPER SUB** 3x off bench → {r.proj:.1f}"
         else:
             role = ""
-        L.append(f"| {r.pos} | {nm} | {r.team} | {r.value:.1f} | "
-                 f"{r.exp_min:.0f} | {r.starter_exp:.1f} | {role} |")
+        L.append(f"| {r.pos} | {nm} | {r.team} | {r.value:.1f} | {r.exp_min:.0f} | {r.starter_exp:.1f} | {role} |")
 
     capt = squad.loc[squad.is_capt, "name"]
     if len(capt):
         L += ["", f"**Captain:** {capt.iloc[0]}"]
         top_name = topcaps.iloc[0]["name"] if len(topcaps) else None
         if top_name and top_name != capt.iloc[0]:
-            L.append(f"> Note: not the highest xPts starter ({top_name}) — the armband was set "
-                     f"by a dedicated captain head, which ranks captaincy rather than raw points.")
+            L.append(
+                f"> Note: not the highest xPts starter ({top_name}) — the armband was set "
+                f"by a dedicated captain head, which ranks captaincy rather than raw points."
+            )
     L += ["", "**Captaincy options (highest xPts among confirmed starters, 1x):**"]
     for _, r in topcaps.iterrows():
         L.append(f"- {r['name']} ({r.team}, {r.pos}) — {r.starter_exp:.1f} xPts  ·  £{r.value}")
@@ -400,16 +384,13 @@ def write_markdown(squad, tot_cost, tot_proj, topcaps, path, exclude_teams):
 
 def render(df, squad, tag, exclude, title="empirical projection"):
     squad = squad.copy()
-    squad["role"] = np.where(squad.is_sub, "SUPER SUB",
-                     np.where(squad.is_capt, "CAPTAIN", "Starter"))
-    squad["proj"] = np.where(squad.is_sub, squad.supersub_exp,
-                    np.where(squad.is_capt, 2 * squad.starter_exp, squad.starter_exp))
-    order = {"Prop": 0, "Hooker": 1, "Lock": 2, "Loose Forward": 3, "Scrum Half": 4,
-             "Fly Half": 5, "Centre": 6, "Back Three": 7}
+    squad["role"] = np.where(squad.is_sub, "SUPER SUB", np.where(squad.is_capt, "CAPTAIN", "Starter"))
+    squad["proj"] = np.where(squad.is_sub, squad.supersub_exp, np.where(squad.is_capt, 2 * squad.starter_exp, squad.starter_exp))
+    order = {"Prop": 0, "Hooker": 1, "Lock": 2, "Loose Forward": 3, "Scrum Half": 4, "Fly Half": 5, "Centre": 6, "Back Three": 7}
     squad["po"] = squad.pos.map(order)
     squad = squad.sort_values(["is_sub", "po", "starter_exp"], ascending=[True, True, False])
 
-    print(f"\n{'='*78}\nNCR OPTIMAL GW{CUR_GD} SQUAD  ({title})\n{'='*78}")
+    print(f"\n{'=' * 78}\nNCR OPTIMAL GW{CUR_GD} SQUAD  ({title})\n{'=' * 78}")
     print(f"{'Pos':<13}{'Player':<24}{'Nation':<13}{'£':>5}{'xMin':>6}{'Proj':>7}  Role")
     print("-" * 78)
     for _, r in squad.iterrows():
@@ -417,9 +398,11 @@ def render(df, squad, tag, exclude, title="empirical projection"):
         print(f"{r.pos:<13}{r['name'][:23]:<24}{r.team:<13}{r.value:>5.1f}{r.exp_min:>6.0f}{r.proj:>7.1f}{mark}")
     tot_cost, tot_proj = squad.value.sum(), squad.proj.sum()
     print("-" * 78)
-    print(f"squad cost: £{tot_cost:.1f}M / {BUDGET:.0f}M   projected: {tot_proj:.1f} pts   "
-          f"N{int((squad.hemi==1).sum())}/S{int((squad.hemi==2).sum())}  "
-          f"nations {squad.team.nunique()}")
+    print(
+        f"squad cost: £{tot_cost:.1f}M / {BUDGET:.0f}M   projected: {tot_proj:.1f} pts   "
+        f"N{int((squad.hemi == 1).sum())}/S{int((squad.hemi == 2).sum())}  "
+        f"nations {squad.team.nunique()}"
+    )
     topcaps = df[df.status == "P"].sort_values("starter_exp", ascending=False).head(6)
     print("Top captaincy options:", ", ".join(f"{r['name']} {r.starter_exp:.1f}" for _, r in topcaps.iterrows()))
     squad.to_csv(f"{NCR}/ncr_gw{CUR_GD}_squad{tag}.csv", index=False)
@@ -430,6 +413,7 @@ def render(df, squad, tag, exclude, title="empirical projection"):
 
 def main():
     import argparse
+
     ap = argparse.ArgumentParser()
     ap.add_argument("--exclude", nargs="*", default=[], help="team names to drop (matches started)")
     ap.add_argument("--tag", default="", help="output filename suffix")

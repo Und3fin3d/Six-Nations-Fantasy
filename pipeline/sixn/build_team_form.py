@@ -6,26 +6,13 @@ import pandas as pd
 
 
 CONCEDE_COLS = {
-    "tries_for":         "tries",
-    "carries_metres":    "metres",
-    "defenders_beaten":  "db",
-    "clean_breaks":      "breaks",
-    "offload":           "offloads",
-    "passes":            "passes",
-    "lineout_won_steal": "lineout_steal",
-    "scrums_won":        "scrums",
+    "tries_for": "tries", "carries_metres": "metres", "defenders_beaten": "db", "clean_breaks": "breaks", "offload": "offloads", "passes": "passes",
+    "lineout_won_steal": "lineout_steal", "scrums_won": "scrums",
 }
 OWN_COLS = {
-    "turnovers_conceded": "turnovers_conceded",
-    "missed_tackles":     "missed_tackles",
-    "runs":               "runs",
-    "tackles":            "tackles",
-    "possession":         "possession",
-    "penalties_conceded": "pens_conceded",
-    "scrums_success":     "scrum_success",
-    "scrums_won":         "scrums_won",
-    "lineout_success":    "lineout_success",
-    "lineout_won_steal":  "lineout_steal",
+    "turnovers_conceded": "turnovers_conceded", "missed_tackles": "missed_tackles", "runs": "runs", "tackles": "tackles", "possession": "possession",
+    "penalties_conceded": "pens_conceded", "scrums_success": "scrum_success", "scrums_won": "scrums_won", "lineout_success": "lineout_success",
+    "lineout_won_steal": "lineout_steal",
 }
 
 
@@ -41,9 +28,7 @@ def _load_h2h_meetings(team_df: pd.DataFrame) -> pd.DataFrame:
 
     pool = pd.concat([base, intl], ignore_index=True)
     pool["_pref"] = (pool["_src"] == "api").astype(int)
-    pool = (pool.sort_values("_pref", ascending=False)
-                .drop_duplicates(subset=["date", "team", "opponent"], keep="first")
-                .drop(columns="_pref"))
+    pool = pool.sort_values("_pref", ascending=False).drop_duplicates(subset=["date", "team", "opponent"], keep="first").drop(columns="_pref")
     return pool
 
 
@@ -73,31 +58,19 @@ def build(team_csv: str, comps: list[int], half_life: float) -> pd.DataFrame:
         y_own = df[(df.team_id == y) & (df.date < asof)]
 
         rec = {
-            "fixture_id": r.fixture_id,
-            "team_id": r.team_id,
-            "team": r.team,
-            "opponent_id": y,
-            "opponent": r.opponent,
-            "date": asof.date().isoformat(),
+            "fixture_id": r.fixture_id, "team_id": r.team_id, "team": r.team, "opponent_id": y, "opponent": r.opponent, "date": asof.date().isoformat(),
             "opp_n_prior": int(len(against_y)),
         }
-        h2h = (h2h_pool[(h2h_pool.team == r.team)
-                        & (h2h_pool.opponent == r.opponent)
-                        & (h2h_pool.date < asof)]
-               .sort_values("date").tail(3))
+        h2h = h2h_pool[(h2h_pool.team == r.team) & (h2h_pool.opponent == r.opponent) & (h2h_pool.date < asof)].sort_values("date").tail(3)
         rec["h2h_n_prior"] = int(len(h2h))
         rec["h2h_last3_winrate"] = float((h2h.margin > 0).mean()) if len(h2h) else np.nan
         rec["h2h_last3_margin"] = float(h2h.margin.mean()) if len(h2h) else np.nan
         ad = (asof - against_y.date).dt.days if len(against_y) else None
         for col, suf in CONCEDE_COLS.items():
-            rec[f"opp_concede_{suf}"] = (
-                _decayed_mean(against_y[col], ad, half_life) if len(against_y) else np.nan
-            )
+            rec[f"opp_concede_{suf}"] = _decayed_mean(against_y[col], ad, half_life) if len(against_y) else np.nan
         od = (asof - y_own.date).dt.days if len(y_own) else None
         for col, suf in OWN_COLS.items():
-            rec[f"opp_{suf}"] = (
-                _decayed_mean(y_own[col], od, half_life) if len(y_own) else np.nan
-            )
+            rec[f"opp_{suf}"] = _decayed_mean(y_own[col], od, half_life) if len(y_own) else np.nan
         out_rows.append(rec)
 
     fd = pd.DataFrame(out_rows)
@@ -108,8 +81,7 @@ def _merge_wr(fd: pd.DataFrame) -> pd.DataFrame:
     wr = pd.read_csv("data/wr_rankings.csv")[["snapshot_date", "team", "wr_pos", "wr_pts"]]
     wr = wr.rename(columns={"snapshot_date": "date"})
     own = wr.rename(columns={"wr_pos": "team_wr_pos", "wr_pts": "team_wr_pts"})
-    opp = wr.rename(columns={"team": "opponent",
-                             "wr_pos": "opp_wr_pos", "wr_pts": "opp_wr_pts"})
+    opp = wr.rename(columns={"team": "opponent", "wr_pos": "opp_wr_pos", "wr_pts": "opp_wr_pts"})
     fd = fd.merge(own, on=["date", "team"], how="left")
     fd = fd.merge(opp, on=["date", "opponent"], how="left")
     fd["wr_pts_gap"] = fd.team_wr_pts - fd.opp_wr_pts
@@ -120,10 +92,8 @@ def _merge_wr(fd: pd.DataFrame) -> pd.DataFrame:
 def main():
     ap = argparse.ArgumentParser()
     ap.add_argument("--team-csv", default="data/api_team_match.csv")
-    ap.add_argument("--comps", nargs="+", type=int, default=[1266],
-                    help="competition ids forming the international pool (default 6N)")
-    ap.add_argument("--half-life", type=float, default=90.0,
-                    help="decay half-life in days (default 90)")
+    ap.add_argument("--comps", nargs="+", type=int, default=[1266], help="competition ids forming the international pool (default 6N)")
+    ap.add_argument("--half-life", type=float, default=90.0, help="decay half-life in days (default 90)")
     args = ap.parse_args()
 
     fd = build(args.team_csv, args.comps, args.half_life)
@@ -134,11 +104,8 @@ def main():
     idcols = {"fixture_id", "team_id", "team", "opponent_id", "opponent", "date"}
     feats = [c for c in fd.columns if c not in idcols]
     wr_cov = (100 * fd["wr_pts_gap"].notna().mean()) if "wr_pts_gap" in fd else 0
-    print(f"✅  {len(fd)} (fixture, team) rows; "
-          f"{fd.fixture_id.nunique()} matches; comps {args.comps}; "
-          f"half-life {args.half_life:g}d")
-    print(f"    cold-start (no prior on opponent): {cold} rows "
-          f"({100*cold/len(fd):.0f}%) → NaN, shrink later")
+    print(f"✅  {len(fd)} (fixture, team) rows; {fd.fixture_id.nunique()} matches; comps {args.comps}; half-life {args.half_life:g}d")
+    print(f"    cold-start (no prior on opponent): {cold} rows ({100 * cold / len(fd):.0f}%) → NaN, shrink later")
     print(f"    WR coverage: {wr_cov:.0f}% of rows have wr_pts_gap")
     print(f"    {len(feats)} features: {feats}")
     print(f"💾  {out}")

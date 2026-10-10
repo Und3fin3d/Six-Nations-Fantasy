@@ -15,9 +15,7 @@ EFFECT_BOUNDS = (0.25, 4.0)
 class V4FeatureEncoder(FeatureEncoder):
     def fit(self, frame: pd.DataFrame) -> "V4FeatureEncoder":
         super().fit(frame)
-        extra = [c for c in V4_BASE_NUMERIC if c in frame] + [
-            c for c in frame.columns if c.startswith(V4_FEATURE_PREFIXES)
-        ]
+        extra = [c for c in V4_BASE_NUMERIC if c in frame] + [c for c in frame.columns if c.startswith(V4_FEATURE_PREFIXES)]
         base = numeric_feature_columns(frame)
         self.numeric_columns = base + [c for c in extra if c not in base]
         numeric_frame = frame[self.numeric_columns].astype(float)
@@ -30,9 +28,9 @@ class V4FeatureEncoder(FeatureEncoder):
 
 
 class V4GBDT(UniversalGBDT):
-    def __init__(self, *, pool_player_id: bool = False, player_effects: bool = False,
-                 hurdle_events: tuple[str, ...] = (), effect_min_rows: int = 500,
-                 **kwargs):
+    def __init__(
+        self, *, pool_player_id: bool = False, player_effects: bool = False, hurdle_events: tuple[str, ...] = (), effect_min_rows: int = 500, **kwargs
+    ):
         super().__init__(**kwargs)
         self.encoder = V4FeatureEncoder()
         self.pool_player_id = pool_player_id
@@ -54,18 +52,13 @@ class V4GBDT(UniversalGBDT):
         if self.hurdle_events:
             cat, numeric = self.encoder.transform(self._frame(frame))
             X = np.column_stack([cat, numeric])
-            fit_kwargs = ({"categorical_feature": list(range(cat.shape[1]))}
-                          if self.native_categories else {})
+            fit_kwargs = {"categorical_feature": list(range(cat.shape[1]))} if self.native_categories else {}
             kwargs = dict(
-                n_estimators=self.n_estimators, learning_rate=.045,
-                num_leaves=self.num_leaves, min_child_samples=35, reg_lambda=4.0,
-                subsample=.85, subsample_freq=1, colsample_bytree=.8,
-                random_state=self.random_state, n_jobs=-1, verbosity=-1,
-                deterministic=True, force_col_wise=True,
+                n_estimators=self.n_estimators, learning_rate=0.045, num_leaves=self.num_leaves, min_child_samples=35, reg_lambda=4.0, subsample=0.85,
+                subsample_freq=1, colsample_bytree=0.8, random_state=self.random_state, n_jobs=-1, verbosity=-1, deterministic=True, force_col_wise=True,
             )
             for event in self.hurdle_events:
-                valid = (frame[f"available__{event}"].fillna(False).to_numpy(bool)
-                         & frame[event].notna().to_numpy())
+                valid = frame[f"available__{event}"].fillna(False).to_numpy(bool) & frame[event].notna().to_numpy()
                 if valid.sum() < 200:
                     continue
                 y = np.clip(frame.loc[valid, event].to_numpy(float), 0, None)
@@ -95,8 +88,7 @@ class V4GBDT(UniversalGBDT):
             model = self.models.get(event)
             if model is None or distribution_family(event) == "bernoulli":
                 continue
-            valid = (frame[f"available__{event}"].fillna(False).to_numpy(bool)
-                     & frame[event].notna().to_numpy() & minutes.gt(0).to_numpy())
+            valid = frame[f"available__{event}"].fillna(False).to_numpy(bool) & frame[event].notna().to_numpy() & minutes.gt(0).to_numpy()
             if valid.sum() < self.effect_min_rows:
                 continue
             actual = np.clip(frame.loc[valid, event].to_numpy(float), 0, None)
@@ -120,7 +112,7 @@ class V4GBDT(UniversalGBDT):
         m_pos = np.clip(reg.predict(X), 1e-6, None)
         mean = p * m_pos
         var_pos = m_pos + resid_var_pos
-        var = np.clip(p * (var_pos + m_pos ** 2) - mean ** 2, 1e-6, None)
+        var = np.clip(p * (var_pos + m_pos**2) - mean**2, 1e-6, None)
         return mean, var
 
     def predict_frame(self, frame: pd.DataFrame) -> list[RawPrediction]:
@@ -141,9 +133,7 @@ class V4GBDT(UniversalGBDT):
             for event in set(e for e, _ in self.effects):
                 if event not in means:
                     continue
-                factor = np.array([
-                    self.effects.get((event, player), 1.0) for player in players
-                ])
+                factor = np.array([self.effects.get((event, player), 1.0) for player in players])
                 means[event] = means[event] * factor
         output = []
         for i, row in enumerate(frame.itertuples(index=False)):
@@ -161,17 +151,17 @@ class V4GBDT(UniversalGBDT):
                         var = max(float(variances[event][i]), mean + 1e-6)
                     else:
                         var = max(self.dispersion[event], mean + 1e-6)
-                    dispersion = max(mean * mean / max(var - mean, 1e-6), .05)
+                    dispersion = max(mean * mean / max(var - mean, 1e-6), 0.05)
                 else:
                     dispersion = self.dispersion[event]
                 events[event] = EventDistribution(family, mean, dispersion)
             mmean = min(float(means["minutes"][i]), 80.0)
             return_minutes = EventDistribution("lognormal", mmean, self.dispersion["minutes"])
-            output.append(RawPrediction(
-                fixture_id=str(row.fixture_id), player_id=str(row.player_id),
-                player_name=str(row.player_name), team=str(row.team),
-                opponent=str(row.opponent), position=str(row.position),
-                is_forward=bool(row.is_forward), events=events, minutes=return_minutes,
-                metadata={"model": "v4_gbdt", "competition_level": row.competition_level},
-            ))
+            output.append(
+                RawPrediction(
+                    fixture_id=str(row.fixture_id), player_id=str(row.player_id), player_name=str(row.player_name), team=str(row.team),
+                    opponent=str(row.opponent), position=str(row.position), is_forward=bool(row.is_forward), events=events, minutes=return_minutes,
+                    metadata={"model": "v4_gbdt", "competition_level": row.competition_level},
+                )
+            )
         return output

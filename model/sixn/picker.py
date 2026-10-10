@@ -13,23 +13,10 @@ from model.sixn import assemble as A
 from model.sixn import data as MD
 from model.sixn import train_components as TC
 from model.sixn.assemble import assemble_predictions, rank_scores
-from model.sixn.baselines import (
-    MIN_MINUTES,
-    SCORED,
-    _rate_target,
-    predict_rates,
-    score_recon,
-)
+from model.sixn.baselines import MIN_MINUTES, SCORED, _rate_target, predict_rates, score_recon
 from model.sixn.data import CATEGORICAL_COLS, feature_view
 from model.sixn.splits import component_train, round_iter
-from model.sixn.train_components import (
-    LGBM_COMPS,
-    KICK_COMPS,
-    ZERO_PRIOR,
-    predict_rates_lgbm_only,
-    predict_rates_registry,
-    select_components,
-)
+from model.sixn.train_components import LGBM_COMPS, KICK_COMPS, ZERO_PRIOR, predict_rates_lgbm_only, predict_rates_registry, select_components
 
 MODE = "post_team_sheet"
 PROMOTED_CONFIG = "model/sixn/promoted_config.json"
@@ -41,11 +28,10 @@ BAYES_MAX_SHRINK_WEIGHT = 0.20
 LGBM_MIN_COMBINER_WEIGHT = 0.75
 
 XGB_GRAFT_GROUPS = {
-    "metres": {"metres"},
-    "tackles": {"tackles"},
-    "tries_assists_db": {"tries", "try_assists", "defenders_beaten"},
+    "metres": {"metres"}, "tackles": {"tackles"}, "tries_assists_db": {"tries", "try_assists", "defenders_beaten"},
     "sparse_counts": {"offload", "tackle_turnover", "penalties_conceded"},
 }
+
 
 @dataclass(frozen=True)
 class Config:
@@ -164,12 +150,8 @@ class Config:
 @contextlib.contextmanager
 def apply_config(cfg: Config):
     saved = (
-        TC.LGBM_MARGIN, TC.BLEND_WEIGHT,
-        A.POTM_PP_WEIGHT, A.POTM_TAU_FLOOR, A.LATENT_SHRINK,
-        A.OTHER_CONST_SHRINK, A.ZERO_BACK_SETPIECE,
-        MD.TEAMPLAY_ENABLED, MD.TEAMPLAY_MODE,
-        MD.ROLECERT_FEATURES_ENABLED, MD.STYLE_FEATURES_ENABLED,
-        MD.STYLE_FEATURES_MODE, MD.MATCHUP_FEATURES_ENABLED,
+        TC.LGBM_MARGIN, TC.BLEND_WEIGHT, A.POTM_PP_WEIGHT, A.POTM_TAU_FLOOR, A.LATENT_SHRINK, A.OTHER_CONST_SHRINK, A.ZERO_BACK_SETPIECE, MD.TEAMPLAY_ENABLED,
+        MD.TEAMPLAY_MODE, MD.ROLECERT_FEATURES_ENABLED, MD.STYLE_FEATURES_ENABLED, MD.STYLE_FEATURES_MODE, MD.MATCHUP_FEATURES_ENABLED,
     )
     TC.LGBM_MARGIN = cfg.lgbm_margin
     TC.BLEND_WEIGHT = cfg.blend_weight
@@ -194,12 +176,10 @@ def apply_config(cfg: Config):
     try:
         yield
     finally:
-        (TC.LGBM_MARGIN, TC.BLEND_WEIGHT,
-         A.POTM_PP_WEIGHT, A.POTM_TAU_FLOOR, A.LATENT_SHRINK,
-         A.OTHER_CONST_SHRINK, A.ZERO_BACK_SETPIECE,
-         MD.TEAMPLAY_ENABLED, MD.TEAMPLAY_MODE,
-         MD.ROLECERT_FEATURES_ENABLED, MD.STYLE_FEATURES_ENABLED,
-         MD.STYLE_FEATURES_MODE, MD.MATCHUP_FEATURES_ENABLED) = saved
+        (
+            TC.LGBM_MARGIN, TC.BLEND_WEIGHT, A.POTM_PP_WEIGHT, A.POTM_TAU_FLOOR, A.LATENT_SHRINK, A.OTHER_CONST_SHRINK, A.ZERO_BACK_SETPIECE,
+            MD.TEAMPLAY_ENABLED, MD.TEAMPLAY_MODE, MD.ROLECERT_FEATURES_ENABLED, MD.STYLE_FEATURES_ENABLED, MD.STYLE_FEATURES_MODE, MD.MATCHUP_FEATURES_ENABLED,
+        ) = saved
 
 
 def _normalise_teamplay_mode(mode: str) -> str:
@@ -247,8 +227,7 @@ def build_minutes(df, train_idx, test_idx, cfg: Config) -> np.ndarray:
     with warnings.catch_warnings():
         warnings.simplefilter("ignore")
         if cfg.minutes_model == "poisson":
-            reg = PoissonRegressor(alpha=cfg.minutes_alpha, max_iter=500).fit(
-                Xtr, np.clip(ytr, 0, None))
+            reg = PoissonRegressor(alpha=cfg.minutes_alpha, max_iter=500).fit(Xtr, np.clip(ytr, 0, None))
         else:
             reg = Ridge(alpha=cfg.minutes_alpha).fit(Xtr, ytr)
     return np.clip(reg.predict(Xte), 0, 80)
@@ -270,18 +249,13 @@ def _forward_linear_calib(pred: pd.DataFrame) -> np.ndarray:
 
 
 def _forward_posmean_blend(
-    df: pd.DataFrame, test_idx: np.ndarray, pred: pd.DataFrame, season: int,
-    weight: float, scope: str = "all", *, min_n: int = 40,
+    df: pd.DataFrame, test_idx: np.ndarray, pred: pd.DataFrame, season: int, weight: float, scope: str = "all", *, min_n: int = 40
 ) -> np.ndarray:
     out = pred["target_pts_hat"].to_numpy(float).copy()
     base = out.copy()
     scope_positions = _scope_positions(scope)
     for _, asof, ridx in round_iter(df, season):
-        hist_mask = (
-            df["is_modern"].to_numpy()
-            & df["has_label"].to_numpy()
-            & (df["date"] < asof).to_numpy()
-        )
+        hist_mask = df["is_modern"].to_numpy() & df["has_label"].to_numpy() & (df["date"] < asof).to_numpy()
         if hist_mask.sum() < min_n:
             continue
         local = np.searchsorted(test_idx, ridx)
@@ -293,27 +267,17 @@ def _forward_posmean_blend(
         eligible = np.ones(len(ridx), dtype=bool)
         if scope_positions is not None:
             eligible = df.iloc[ridx]["canonical_pos"].isin(scope_positions).to_numpy()
-        out[local[eligible]] = ((1.0 - weight) * base[local[eligible]]
-                                + weight * prior[eligible])
+        out[local[eligible]] = (1.0 - weight) * base[local[eligible]] + weight * prior[eligible]
     return np.clip(out, 0.0, None)
 
 
 def _scope_positions(scope: str) -> set[str] | None:
     scopes = {
-        "all": None,
-        "prop": {"Prop"},
-        "hooker": {"Hooker"},
-        "frontrow": {"Prop", "Hooker"},
-        "tight5": {"Prop", "Hooker", "Second-row"},
-        "forwards": {"Prop", "Hooker", "Second-row", "Back-row"},
-        "backs": {"Scrum-half", "Fly-half", "Centre", "Back-three"},
-        "back5": {"Back-row", "Scrum-half", "Fly-half", "Centre", "Back-three"},
-        "backthree": {"Back-three"},
-        "backrow_backs": {"Back-row", "Centre", "Back-three"},
-        "halfbacks_backs": {"Scrum-half", "Fly-half", "Centre", "Back-three"},
-        "outside_backs": {"Centre", "Back-three"},
-        "non_frontrow": {"Second-row", "Back-row", "Scrum-half", "Fly-half",
-                         "Centre", "Back-three"},
+        "all": None, "prop": {"Prop"}, "hooker": {"Hooker"}, "frontrow": {"Prop", "Hooker"}, "tight5": {"Prop", "Hooker", "Second-row"},
+        "forwards": {"Prop", "Hooker", "Second-row", "Back-row"}, "backs": {"Scrum-half", "Fly-half", "Centre", "Back-three"},
+        "back5": {"Back-row", "Scrum-half", "Fly-half", "Centre", "Back-three"}, "backthree": {"Back-three"},
+        "backrow_backs": {"Back-row", "Centre", "Back-three"}, "halfbacks_backs": {"Scrum-half", "Fly-half", "Centre", "Back-three"},
+        "outside_backs": {"Centre", "Back-three"}, "non_frontrow": {"Second-row", "Back-row", "Scrum-half", "Fly-half", "Centre", "Back-three"},
     }
     if scope not in scopes:
         raise ValueError(f"unknown target_prior_scope {scope!r}")
@@ -325,15 +289,10 @@ def _zscore(x: np.ndarray) -> np.ndarray:
     return (x - x.mean()) / s if s > 1e-9 else np.zeros_like(x)
 
 
-XGB_COMPS = {
-    "tackles", "metres", "tries", "try_assists", "defenders_beaten",
-    "offload", "tackle_turnover", "penalties_conceded",
-}
+XGB_COMPS = {"tackles", "metres", "tries", "try_assists", "defenders_beaten", "offload", "tackle_turnover", "penalties_conceded"}
 _XGB_BASE = dict(
-    n_estimators=200, learning_rate=0.05, max_depth=3,
-    min_child_weight=10.0, reg_lambda=5.0, colsample_bytree=0.8,
-    subsample=0.9, random_state=0, n_jobs=1, verbosity=0,
-    tree_method="hist", max_bin=64,
+    n_estimators=200, learning_rate=0.05, max_depth=3, min_child_weight=10.0, reg_lambda=5.0, colsample_bytree=0.8, subsample=0.9, random_state=0, n_jobs=1,
+    verbosity=0, tree_method="hist", max_bin=64,
 )
 _XGB_OOF_WINNERS_CACHE: dict = {}
 
@@ -364,10 +323,7 @@ def _xgb_frame(df: pd.DataFrame, mode: str) -> pd.DataFrame:
     return X
 
 
-def _fit_xgb_component(
-    df: pd.DataFrame, tr_idx: np.ndarray, va_idx: np.ndarray | None,
-    comp: str, mode: str,
-):
+def _fit_xgb_component(df: pd.DataFrame, tr_idx: np.ndarray, va_idx: np.ndarray | None, comp: str, mode: str):
     import xgboost as xgb
 
     keep = (df.iloc[tr_idx]["minutes"] >= MIN_MINUTES).to_numpy()
@@ -375,8 +331,7 @@ def _fit_xgb_component(
     X = _xgb_frame(df, mode)
     if len(use) == 0:
         return _ConstantRateModel(0.0)
-    y = np.clip(np.nan_to_num(_rate_target(df.iloc[use], comp), nan=0.0,
-                              posinf=0.0, neginf=0.0), 0.0, None)
+    y = np.clip(np.nan_to_num(_rate_target(df.iloc[use], comp), nan=0.0, posinf=0.0, neginf=0.0), 0.0, None)
     if np.allclose(y, 0.0):
         return _ConstantRateModel(0.0)
     params = {**_XGB_BASE, **_xgb_objective(comp)}
@@ -385,8 +340,7 @@ def _fit_xgb_component(
         vkeep = (df.iloc[va_idx]["minutes"] >= MIN_MINUTES).to_numpy()
         vu = va_idx[vkeep]
         if len(vu):
-            yv = np.clip(np.nan_to_num(_rate_target(df.iloc[vu], comp), nan=0.0,
-                                       posinf=0.0, neginf=0.0), 0.0, None)
+            yv = np.clip(np.nan_to_num(_rate_target(df.iloc[vu], comp), nan=0.0, posinf=0.0, neginf=0.0), 0.0, None)
             params["early_stopping_rounds"] = 50
             fit_kw = dict(eval_set=[(X.iloc[vu], yv)], verbose=False)
     model = xgb.XGBRegressor(**params)
@@ -400,9 +354,7 @@ def _xgb_predict(model, df: pd.DataFrame, idx: np.ndarray, mode: str) -> np.ndar
     return np.clip(model.predict(_xgb_frame(df, mode).iloc[idx]), 0.0, None)
 
 
-def _predict_rates_xgb_only(
-    df: pd.DataFrame, train_idx: np.ndarray, test_idx: np.ndarray, mode: str
-) -> pd.DataFrame:
+def _predict_rates_xgb_only(df: pd.DataFrame, train_idx: np.ndarray, test_idx: np.ndarray, mode: str) -> pd.DataFrame:
     naive = predict_rates(df, train_idx, test_idx, mode, "naive")
     out = pd.DataFrame(index=df.iloc[test_idx].index, columns=SCORED, dtype=float)
     gate = _kick_gate(df, test_idx)
@@ -419,9 +371,7 @@ def _predict_rates_xgb_only(
     return out.clip(lower=0.0)
 
 
-def _predict_rates_bayesian(
-    df: pd.DataFrame, train_idx: np.ndarray, test_idx: np.ndarray, mode: str
-) -> pd.DataFrame:
+def _predict_rates_bayesian(df: pd.DataFrame, train_idx: np.ndarray, test_idx: np.ndarray, mode: str) -> pd.DataFrame:
     return predict_rates(df, train_idx, test_idx, mode, "bayesian")
 
 
@@ -430,9 +380,7 @@ def _kick_gate(df: pd.DataFrame, idx: np.ndarray) -> np.ndarray:
     return (r > 0.0).astype(float)
 
 
-def _xgb_rank_scores(
-    df: pd.DataFrame, train_idx: np.ndarray, test_idx: np.ndarray, mode: str
-) -> np.ndarray:
+def _xgb_rank_scores(df: pd.DataFrame, train_idx: np.ndarray, test_idx: np.ndarray, mode: str) -> np.ndarray:
     import xgboost as xgb
 
     X = _xgb_frame(df, mode)
@@ -440,12 +388,9 @@ def _xgb_rank_scores(
     order = np.argsort(tr["fixture_id"].to_numpy(), kind="stable")
     tr_idx_sorted = train_idx[order]
     grp = tr.iloc[order].groupby("fixture_id", sort=False).size().to_numpy()
-    grade = (tr.iloc[order].groupby("fixture_id")["recon_pts"]
-             .rank(pct=True).mul(4.999).astype(int).to_numpy())
+    grade = tr.iloc[order].groupby("fixture_id")["recon_pts"].rank(pct=True).mul(4.999).astype(int).to_numpy()
     ranker = xgb.XGBRanker(
-        objective="rank:ndcg", n_estimators=300, learning_rate=0.05,
-        max_depth=3, min_child_weight=10.0, reg_lambda=5.0,
-        random_state=0, n_jobs=1, verbosity=0,
+        objective="rank:ndcg", n_estimators=300, learning_rate=0.05, max_depth=3, min_child_weight=10.0, reg_lambda=5.0, random_state=0, n_jobs=1, verbosity=0,
         tree_method="hist", max_bin=64,
     )
     with warnings.catch_warnings():
@@ -469,8 +414,7 @@ def _xgb_oof_winners(df: pd.DataFrame, train_mask: np.ndarray, mode: str) -> set
         if len(vu) == 0:
             continue
         for comp in XGB_COMPS:
-            ytrue = np.nan_to_num(_rate_target(df.iloc[vu], comp), nan=0.0,
-                                  posinf=0.0, neginf=0.0)
+            ytrue = np.nan_to_num(_rate_target(df.iloc[vu], comp), nan=0.0, posinf=0.0, neginf=0.0)
             lm = TC._fit_lgbm_component(df, tr_idx, va_idx, comp, mode)
             xm = _fit_xgb_component(df, tr_idx, va_idx, comp, mode)
             err[comp]["lgbm"].append(np.abs(ytrue - TC._lgbm_predict(lm, df, vu, mode)))
@@ -493,10 +437,7 @@ def component_group_kfold(dft: pd.DataFrame):
     yield from group_kfold_indices(dft, 5)
 
 
-def _add_selector_score(
-    df: pd.DataFrame, train_idx: np.ndarray, test_idx: np.ndarray,
-    pred: pd.DataFrame, cfg: Config,
-) -> tuple[pd.DataFrame, str]:
+def _add_selector_score(df: pd.DataFrame, train_idx: np.ndarray, test_idx: np.ndarray, pred: pd.DataFrame, cfg: Config) -> tuple[pd.DataFrame, str]:
     out = pred.copy()
     if cfg.selector_tilt <= 0 and cfg.xgb_rank_weight <= 0 and cfg.selector_upside_weight <= 0:
         sel_col = "target_pts_hat"
@@ -536,35 +477,24 @@ def _add_selector_score(
         if cfg.bench_supersub_weight > 0:
             if "bench_pts_hat" not in out.columns:
                 raise ValueError("bench_supersub_weight requires bench_pts_hat")
-            bench_col = (
-                "supersub_bench_pts_hat"
-                if "supersub_bench_pts_hat" in out.columns
-                else "bench_pts_hat"
-            )
-            base = base + cfg.bench_supersub_weight * _zscore(
-                out[bench_col].to_numpy(float))
+            bench_col = "supersub_bench_pts_hat" if "supersub_bench_pts_hat" in out.columns else "bench_pts_hat"
+            base = base + cfg.bench_supersub_weight * _zscore(out[bench_col].to_numpy(float))
         if cfg.bench_high_minutes_weight > 0:
             if "bench_high_minutes_prob" not in out.columns:
                 raise ValueError("bench_high_minutes_weight requires bench_high_minutes_prob")
-            base = base + cfg.bench_high_minutes_weight * _zscore(
-                out["bench_high_minutes_prob"].to_numpy(float))
+            base = base + cfg.bench_high_minutes_weight * _zscore(out["bench_high_minutes_prob"].to_numpy(float))
         if cfg.bench_low_minutes_penalty_weight > 0:
             if "bench_low_minutes_prob" not in out.columns:
                 raise ValueError("bench_low_minutes_penalty_weight requires bench_low_minutes_prob")
-            base = base - cfg.bench_low_minutes_penalty_weight * _zscore(
-                out["bench_low_minutes_prob"].to_numpy(float))
+            base = base - cfg.bench_low_minutes_penalty_weight * _zscore(out["bench_low_minutes_prob"].to_numpy(float))
         if cfg.bench_uncertainty_weight > 0:
             if "bench_minutes_uncertainty" not in out.columns:
                 raise ValueError("bench_uncertainty_weight requires bench_minutes_uncertainty")
-            base = base - cfg.bench_uncertainty_weight * _zscore(
-                out["bench_minutes_uncertainty"].to_numpy(float))
+            base = base - cfg.bench_uncertainty_weight * _zscore(out["bench_minutes_uncertainty"].to_numpy(float))
         if cfg.rolecert_supersub_uncertainty_weight > 0:
             if "rolecert_replacement_role_uncertainty" not in out.columns:
-                raise ValueError(
-                    "rolecert_supersub_uncertainty_weight requires rolecert_replacement_role_uncertainty"
-                )
-            base = base - cfg.rolecert_supersub_uncertainty_weight * _zscore(
-                out["rolecert_replacement_role_uncertainty"].to_numpy(float))
+                raise ValueError("rolecert_supersub_uncertainty_weight requires rolecert_replacement_role_uncertainty")
+            base = base - cfg.rolecert_supersub_uncertainty_weight * _zscore(out["rolecert_replacement_role_uncertainty"].to_numpy(float))
         if cfg.supersub_upside_weight > 0:
             if "upside_score" not in out.columns:
                 raise ValueError("supersub_upside_weight requires upside_score")
@@ -582,13 +512,9 @@ def _add_selector_score(
         if cfg.captain_rank_weight > 0:
             if "lgbm_rank_score" not in out.columns:
                 out["lgbm_rank_score"] = rank_scores(df, train_idx, test_idx, MODE)
-            cap = cap + cfg.captain_rank_weight * _zscore(
-                out["lgbm_rank_score"].to_numpy(float))
+            cap = cap + cfg.captain_rank_weight * _zscore(out["lgbm_rank_score"].to_numpy(float))
         if not np.isclose(cfg.captain_kicker_weight, 0.0):
-            kick = (
-                2.0 * out["hat_conversion_goals"].to_numpy(float)
-                + 3.0 * out["hat_penalty_goals"].to_numpy(float)
-            )
+            kick = 2.0 * out["hat_conversion_goals"].to_numpy(float) + 3.0 * out["hat_penalty_goals"].to_numpy(float)
             cap = cap + cfg.captain_kicker_weight * _zscore(kick)
         out["captain_score"] = cap
     return out, sel_col
@@ -605,16 +531,12 @@ def _registry_for(df, train_mask, cfg: Config) -> pd.DataFrame:
     return _REG_CACHE[key]
 
 
-def _apply_target_priors(
-    df: pd.DataFrame, test_idx: np.ndarray, pred: pd.DataFrame, season: int, cfg: Config
-) -> pd.DataFrame:
+def _apply_target_priors(df: pd.DataFrame, test_idx: np.ndarray, pred: pd.DataFrame, season: int, cfg: Config) -> pd.DataFrame:
     out = pred.copy()
     if cfg.target_prior_blend > 0:
-        out["target_pts_hat"] = _forward_posmean_blend(
-            df, test_idx, out, season, cfg.target_prior_blend, cfg.target_prior_scope)
+        out["target_pts_hat"] = _forward_posmean_blend(df, test_idx, out, season, cfg.target_prior_blend, cfg.target_prior_scope)
     if cfg.extra_prior_blend > 0:
-        out["target_pts_hat"] = _forward_posmean_blend(
-            df, test_idx, out, season, cfg.extra_prior_blend, cfg.extra_prior_scope)
+        out["target_pts_hat"] = _forward_posmean_blend(df, test_idx, out, season, cfg.extra_prior_blend, cfg.extra_prior_scope)
     return out
 
 
@@ -640,20 +562,12 @@ def _needs_bayes_points(cfg: Config) -> bool:
     )
 
 
-def _specialist_prediction(
-    df: pd.DataFrame,
-    train_idx: np.ndarray,
-    season: int,
-    minutes_hat: np.ndarray,
-    predictor,
-) -> pd.DataFrame:
+def _specialist_prediction(df: pd.DataFrame, train_idx: np.ndarray, season: int, minutes_hat: np.ndarray, predictor) -> pd.DataFrame:
     pred, _ = assemble_predictions(df, train_idx, season, MODE, predictor, minutes_hat=minutes_hat)
     return pred
 
 
-def _resolve_xgb_graft_components(
-    df: pd.DataFrame, train_mask: np.ndarray, cfg: Config,
-) -> tuple[set[str], set[str], set[str]]:
+def _resolve_xgb_graft_components(df: pd.DataFrame, train_mask: np.ndarray, cfg: Config) -> tuple[set[str], set[str], set[str]]:
     if cfg.xgb_graft_group == "none" or cfg.xgb_graft_weight <= 0:
         return set(), set(), set()
     winners = _xgb_oof_winners(df, train_mask, MODE)
@@ -680,8 +594,7 @@ def _graft_components(
     if cfg.xgb_graft_group == "none" or cfg.xgb_graft_weight <= 0:
         return pred
     if eligible_components is None:
-        eligible_components, requested_components, oof_winners = _resolve_xgb_graft_components(
-            df, train_mask, cfg)
+        eligible_components, requested_components, oof_winners = _resolve_xgb_graft_components(df, train_mask, cfg)
     comps = set(eligible_components)
     out = pred.copy()
     out["xgb_graft_requested_components"] = ",".join(sorted(requested_components or []))
@@ -708,19 +621,14 @@ def _graft_components(
 
 
 TEAMPLAY_GRAFT_GROUPS = {
-    "all": set(LGBM_COMPS),
-    "attack": {"tries", "try_assists", "defenders_beaten", "offload", "metres"} & set(LGBM_COMPS),
-    "defense": {"tackles", "tackle_turnover"} & set(LGBM_COMPS),
-    "metres": {"metres"},
-    "tackles": {"tackles"},
+    "all": set(LGBM_COMPS), "attack": {"tries", "try_assists", "defenders_beaten", "offload", "metres"} & set(LGBM_COMPS),
+    "defense": {"tackles", "tackle_turnover"} & set(LGBM_COMPS), "metres": {"metres"}, "tackles": {"tackles"},
     "sparse_attack": {"tries", "try_assists", "defenders_beaten"} & set(LGBM_COMPS),
 }
 _TEAMPLAY_OOF_CACHE: dict = {}
 
 
-def _predict_rates_lgbm_teamplay(
-    feature_mode: str,
-):
+def _predict_rates_lgbm_teamplay(feature_mode: str):
     def predict(df: pd.DataFrame, train_idx: np.ndarray, test_idx: np.ndarray, mode: str) -> pd.DataFrame:
         with _teamplay_mode(feature_mode):
             return predict_rates_lgbm_only(df, train_idx, test_idx, mode)
@@ -728,21 +636,14 @@ def _predict_rates_lgbm_teamplay(
     return predict
 
 
-def _teamplay_oof_winners(
-    df: pd.DataFrame,
-    train_mask: np.ndarray,
-    feature_mode: str,
-    min_gain: float,
-) -> tuple[set[str], dict[str, dict[str, float]]]:
+def _teamplay_oof_winners(df: pd.DataFrame, train_mask: np.ndarray, feature_mode: str, min_gain: float) -> tuple[set[str], dict[str, dict[str, float]]]:
     feature_mode = _normalise_teamplay_mode(feature_mode)
     key = (int(train_mask.sum()), MODE, feature_mode, round(float(min_gain), 5))
     if key in _TEAMPLAY_OOF_CACHE:
         return _TEAMPLAY_OOF_CACHE[key]
     train_pos = np.where(train_mask)[0]
     dft = df.iloc[train_pos].reset_index(drop=True)
-    err: dict[str, dict[str, list[np.ndarray]]] = {
-        c: {"base": [], "teamplay": []} for c in LGBM_COMPS
-    }
+    err: dict[str, dict[str, list[np.ndarray]]] = {c: {"base": [], "teamplay": []} for c in LGBM_COMPS}
     for tr_local, va_local in component_group_kfold(dft):
         tr_idx = train_pos[tr_local]
         va_idx = train_pos[va_local]
@@ -751,12 +652,7 @@ def _teamplay_oof_winners(
         if len(vu) == 0:
             continue
         for comp in LGBM_COMPS:
-            ytrue = np.nan_to_num(
-                _rate_target(df.iloc[vu], comp),
-                nan=0.0,
-                posinf=0.0,
-                neginf=0.0,
-            )
+            ytrue = np.nan_to_num(_rate_target(df.iloc[vu], comp), nan=0.0, posinf=0.0, neginf=0.0)
             with _teamplay_mode("off"):
                 base_model = TC._fit_lgbm_component(df, tr_idx, va_idx, comp, MODE)
                 base_pred = TC._lgbm_predict(base_model, df, vu, MODE)
@@ -774,12 +670,7 @@ def _teamplay_oof_winners(
         base_mae = float(np.concatenate(vals["base"]).mean())
         tp_mae = float(np.concatenate(vals["teamplay"]).mean())
         gain = 1.0 - tp_mae / base_mae if base_mae > 0 else 0.0
-        diagnostics[comp] = {
-            "base_oof_mae": base_mae,
-            "teamplay_oof_mae": tp_mae,
-            "relative_gain": gain,
-            "accepted": bool(gain >= min_gain),
-        }
+        diagnostics[comp] = {"base_oof_mae": base_mae, "teamplay_oof_mae": tp_mae, "relative_gain": gain, "accepted": bool(gain >= min_gain)}
         if gain >= min_gain:
             winners.add(comp)
     _TEAMPLAY_OOF_CACHE[key] = (winners, diagnostics)
@@ -787,18 +678,11 @@ def _teamplay_oof_winners(
 
 
 def _resolve_teamplay_graft_components(
-    df: pd.DataFrame,
-    train_mask: np.ndarray,
-    cfg: Config,
+    df: pd.DataFrame, train_mask: np.ndarray, cfg: Config
 ) -> tuple[set[str], set[str], set[str], dict[str, dict[str, float]]]:
-    if (
-        cfg.teamplay_graft_group == "none"
-        or cfg.teamplay_graft_weight <= 0
-        or cfg.teamplay_graft_mode == "off"
-    ):
+    if cfg.teamplay_graft_group == "none" or cfg.teamplay_graft_weight <= 0 or cfg.teamplay_graft_mode == "off":
         return set(), set(), set(), {}
-    winners, diagnostics = _teamplay_oof_winners(
-        df, train_mask, cfg.teamplay_graft_mode, cfg.teamplay_graft_min_gain)
+    winners, diagnostics = _teamplay_oof_winners(df, train_mask, cfg.teamplay_graft_mode, cfg.teamplay_graft_min_gain)
     if cfg.teamplay_graft_group == "oof_winners":
         requested = set(winners)
     else:
@@ -810,13 +694,7 @@ def _resolve_teamplay_graft_components(
 
 
 def _graft_teamplay_components(
-    df: pd.DataFrame,
-    train_mask: np.ndarray,
-    train_idx: np.ndarray,
-    season: int,
-    minutes_hat: np.ndarray,
-    pred: pd.DataFrame,
-    cfg: Config,
+    df: pd.DataFrame, train_mask: np.ndarray, train_idx: np.ndarray, season: int, minutes_hat: np.ndarray, pred: pd.DataFrame, cfg: Config
 ) -> pd.DataFrame:
     comps, requested, winners, diagnostics = _resolve_teamplay_graft_components(df, train_mask, cfg)
     if cfg.teamplay_graft_group == "none" or cfg.teamplay_graft_weight <= 0:
@@ -825,18 +703,10 @@ def _graft_teamplay_components(
     out["teamplay_graft_requested_components"] = ",".join(sorted(requested))
     out["teamplay_graft_oof_winners"] = ",".join(sorted(winners))
     out["teamplay_graft_components"] = ",".join(sorted(comps))
-    out["teamplay_graft_oof_summary"] = ";".join(
-        f"{comp}:{vals['relative_gain']:.3f}" for comp, vals in sorted(diagnostics.items())
-    )
+    out["teamplay_graft_oof_summary"] = ";".join(f"{comp}:{vals['relative_gain']:.3f}" for comp, vals in sorted(diagnostics.items()))
     if not comps:
         return out
-    tp_pred = _specialist_prediction(
-        df,
-        train_idx,
-        season,
-        minutes_hat,
-        _predict_rates_lgbm_teamplay(cfg.teamplay_graft_mode),
-    )
+    tp_pred = _specialist_prediction(df, train_idx, season, minutes_hat, _predict_rates_lgbm_teamplay(cfg.teamplay_graft_mode))
     weight = float(np.clip(cfg.teamplay_graft_weight, 0.0, 1.0))
     comp_frame = pd.DataFrame(index=out.index)
     for comp in SCORED:
@@ -878,53 +748,30 @@ def _teamplay_factor(signal: np.ndarray, weight: float, clip: float) -> np.ndarr
     return np.clip(raw, 1.0 - float(clip), 1.0 + float(clip))
 
 
-def _apply_teamplay_aspect_adjustments(
-    df: pd.DataFrame,
-    test_idx: np.ndarray,
-    pred: pd.DataFrame,
-    cfg: Config,
-) -> pd.DataFrame:
+def _apply_teamplay_aspect_adjustments(df: pd.DataFrame, test_idx: np.ndarray, pred: pd.DataFrame, cfg: Config) -> pd.DataFrame:
     if cfg.teamplay_aspect_adjust == "none" or cfg.teamplay_aspect_weight <= 0:
         return pred
     te = df.iloc[test_idx]
     out = pred.copy()
     w = float(cfg.teamplay_aspect_weight)
     clip = float(cfg.teamplay_aspect_clip)
-    attack = _mean_zscore(te, [
-        "teamplay_aspect_attack_balance_hat",
-        "teamplay_aspect_attack_volume_hat",
-        "teamplay_aspect_points_edge_hat",
-        "teamplay_aspect_possession_edge_hat",
-    ])
-    defense = _mean_zscore(te, [
-        "teamplay_aspect_defensive_load_hat",
-        "teamplay_aspect_tackle_load_edge_hat",
-        "teamplay_aspect_pressure_hat",
-    ])
-    kicking = _mean_zscore(te, [
-        "teamplay_aspect_kicking_opportunity_hat",
-        "teamplay_points_for_hat",
-        "teamplay_aspect_points_edge_hat",
-    ])
-    strength = _mean_zscore(te, [
-        "teamplay_points_for_hat",
-        "teamplay_margin_hat",
-        "teamplay_win_prob_hat",
-        "teamplay_dominance_prob_hat",
-        "teamplay_aspect_points_edge_hat",
-        "teamplay_aspect_dominance_edge_hat",
-    ])
-    tempo = _mean_zscore(te, [
-        "teamplay_total_points_hat",
-        "teamplay_aspect_open_game_hat",
-        "teamplay_aspect_attack_volume_hat",
-        "teamplay_runs_hat",
-        "teamplay_metres_hat",
-    ])
-    pressure = _mean_zscore(te, [
-        "teamplay_aspect_pressure_hat",
-        "teamplay_aspect_defensive_load_hat",
-    ])
+    attack = _mean_zscore(
+        te,
+        ["teamplay_aspect_attack_balance_hat", "teamplay_aspect_attack_volume_hat", "teamplay_aspect_points_edge_hat", "teamplay_aspect_possession_edge_hat"],
+    )
+    defense = _mean_zscore(te, ["teamplay_aspect_defensive_load_hat", "teamplay_aspect_tackle_load_edge_hat", "teamplay_aspect_pressure_hat"])
+    kicking = _mean_zscore(te, ["teamplay_aspect_kicking_opportunity_hat", "teamplay_points_for_hat", "teamplay_aspect_points_edge_hat"])
+    strength = _mean_zscore(
+        te,
+        [
+            "teamplay_points_for_hat", "teamplay_margin_hat", "teamplay_win_prob_hat", "teamplay_dominance_prob_hat", "teamplay_aspect_points_edge_hat",
+            "teamplay_aspect_dominance_edge_hat",
+        ],
+    )
+    tempo = _mean_zscore(
+        te, ["teamplay_total_points_hat", "teamplay_aspect_open_game_hat", "teamplay_aspect_attack_volume_hat", "teamplay_runs_hat", "teamplay_metres_hat"]
+    )
+    pressure = _mean_zscore(te, ["teamplay_aspect_pressure_hat", "teamplay_aspect_defensive_load_hat"])
     groups: dict[str, tuple[set[str], np.ndarray, float]] = {}
     kind = cfg.teamplay_aspect_adjust
     if kind in {"attack", "multi"}:
@@ -971,12 +818,7 @@ WEATHER_TACKLE_COMPS = {"tackles", "tackle_turnover"}
 WEATHER_PRESSURE_COMPS = {"penalties_conceded", "yellow_cards"}
 
 
-def _apply_weather_aspect_adjustments(
-    df: pd.DataFrame,
-    test_idx: np.ndarray,
-    pred: pd.DataFrame,
-    cfg: Config,
-) -> pd.DataFrame:
+def _apply_weather_aspect_adjustments(df: pd.DataFrame, test_idx: np.ndarray, pred: pd.DataFrame, cfg: Config) -> pd.DataFrame:
     if cfg.weather_aspect_adjust == "none" or cfg.weather_aspect_weight <= 0:
         return pred
     te = df.iloc[test_idx]
@@ -1021,12 +863,7 @@ def _apply_weather_aspect_adjustments(
     return out
 
 
-def _apply_kicking_reallocation(
-    df: pd.DataFrame,
-    test_idx: np.ndarray,
-    pred: pd.DataFrame,
-    cfg: Config,
-) -> pd.DataFrame:
+def _apply_kicking_reallocation(df: pd.DataFrame, test_idx: np.ndarray, pred: pd.DataFrame, cfg: Config) -> pd.DataFrame:
     if cfg.kicking_realloc_weight <= 0:
         return pred
     out = pred.copy()
@@ -1048,10 +885,7 @@ def _apply_kicking_reallocation(
 
     applied = np.zeros(len(te), dtype=float)
     max_share = np.zeros(len(te), dtype=float)
-    keys = pd.DataFrame({
-        "fixture_id": te["fixture_id"].to_numpy(),
-        "team_id": te["team_id"].to_numpy(),
-    })
+    keys = pd.DataFrame({"fixture_id": te["fixture_id"].to_numpy(), "team_id": te["team_id"].to_numpy()})
     for _, ix in keys.groupby(["fixture_id", "team_id"], sort=False).groups.items():
         loc = np.asarray(list(ix), dtype=int)
         elig = loc[scope[loc]]
@@ -1089,16 +923,8 @@ def _apply_kicking_reallocation(
     return out
 
 
-def _apply_rolecert_kicking_adjustments(
-    df: pd.DataFrame,
-    test_idx: np.ndarray,
-    pred: pd.DataFrame,
-    cfg: Config,
-) -> pd.DataFrame:
-    if (
-        cfg.rolecert_kick_realloc_weight <= 0
-        and cfg.rolecert_bench_kick_shrink <= 0
-    ):
+def _apply_rolecert_kicking_adjustments(df: pd.DataFrame, test_idx: np.ndarray, pred: pd.DataFrame, cfg: Config) -> pd.DataFrame:
+    if cfg.rolecert_kick_realloc_weight <= 0 and cfg.rolecert_bench_kick_shrink <= 0:
         return pred
     te = df.iloc[test_idx].reset_index(drop=True)
     required = {"rolecert_goal_kicker_prob", "rolecert_team_kicker_confidence", "started"}
@@ -1140,12 +966,7 @@ def _apply_rolecert_kicking_adjustments(
 
         if cfg.rolecert_bench_kick_shrink > 0:
             weight = float(np.clip(cfg.rolecert_bench_kick_shrink, 0.0, 1.0))
-            relative = np.divide(
-                prob,
-                np.maximum(conf, 1e-6),
-                out=np.zeros_like(prob),
-                where=np.isfinite(conf),
-            )
+            relative = np.divide(prob, np.maximum(conf, 1e-6), out=np.zeros_like(prob), where=np.isfinite(conf))
             uncertainty = np.clip(1.0 - relative, 0.0, 1.0)
             shrink = 1.0 - weight * (~started).astype(float) * uncertainty
             vals = vals * np.clip(shrink, 0.0, 1.0)
@@ -1182,12 +1003,7 @@ def _forward_position_residual(pred: pd.DataFrame, weight: float) -> np.ndarray:
 
 
 def _apply_specialist_points(
-    df: pd.DataFrame,
-    test_idx: np.ndarray,
-    pred: pd.DataFrame,
-    xgb_pred: pd.DataFrame | None,
-    bayes_pred: pd.DataFrame | None,
-    cfg: Config,
+    df: pd.DataFrame, test_idx: np.ndarray, pred: pd.DataFrame, xgb_pred: pd.DataFrame | None, bayes_pred: pd.DataFrame | None, cfg: Config
 ) -> pd.DataFrame:
     out = pred.copy()
     lgbm = out["target_pts_hat"].to_numpy(float)
@@ -1206,9 +1022,7 @@ def _apply_specialist_points(
         diff = np.abs(lgbm - xgb_pred["target_pts_hat"].to_numpy(float))
         cutoff = float(np.nanquantile(diff, 0.75)) if np.isfinite(diff).any() else np.inf
         disagreement = diff >= cutoff
-    out["uncertainty_proxy"] = (
-        cold.astype(float) + low_minutes_history.astype(float) + disagreement.astype(float)
-    )
+    out["uncertainty_proxy"] = cold.astype(float) + low_minutes_history.astype(float) + disagreement.astype(float)
 
     target = lgbm.copy()
     if cfg.xgb_point_weight > 0:
@@ -1263,25 +1077,13 @@ def _apply_specialist_points(
 
 
 def _apply_post_selection_target(
-    pred: pd.DataFrame,
-    xgb_pred: pd.DataFrame | None,
-    bayes_pred: pd.DataFrame | None,
-    teamplay_pred: pd.DataFrame | None,
-    cfg: Config,
+    pred: pd.DataFrame, xgb_pred: pd.DataFrame | None, bayes_pred: pd.DataFrame | None, teamplay_pred: pd.DataFrame | None, cfg: Config
 ) -> pd.DataFrame:
-    if (
-        cfg.post_target_xgb_weight <= 0
-        and cfg.post_target_bayes_weight <= 0
-        and cfg.post_target_teamplay_weight <= 0
-        and cfg.post_target_latent_shrink < 0
-    ):
+    if cfg.post_target_xgb_weight <= 0 and cfg.post_target_bayes_weight <= 0 and cfg.post_target_teamplay_weight <= 0 and cfg.post_target_latent_shrink < 0:
         return pred
     out = pred.copy()
     target = out["target_pts_hat"].to_numpy(float).copy()
-    mask = (
-        _post_target_mask(out, cfg.post_target_scope)
-        & _post_target_filter_mask(out, cfg.post_target_filter)
-    )
+    mask = _post_target_mask(out, cfg.post_target_scope) & _post_target_filter_mask(out, cfg.post_target_filter)
     if not mask.any():
         return out
     if cfg.post_target_latent_shrink >= 0:
@@ -1310,11 +1112,7 @@ def _apply_post_selection_target(
 
 
 def _apply_post_target_forward_combiner(
-    pred: pd.DataFrame,
-    xgb_pred: pd.DataFrame | None,
-    bayes_pred: pd.DataFrame | None,
-    teamplay_pred: pd.DataFrame | None,
-    cfg: Config,
+    pred: pd.DataFrame, xgb_pred: pd.DataFrame | None, bayes_pred: pd.DataFrame | None, teamplay_pred: pd.DataFrame | None, cfg: Config
 ) -> pd.DataFrame:
     if cfg.post_target_forward_combiner == "none":
         return pred
@@ -1326,19 +1124,13 @@ def _apply_post_target_forward_combiner(
     out = pred.copy()
     base = out["target_pts_hat"].to_numpy(float)
     sources = {
-        "lgbm": base,
-        "xgb": xgb_pred["target_pts_hat"].to_numpy(float),
-        "bayes": bayes_pred["target_pts_hat"].to_numpy(float),
+        "lgbm": base, "xgb": xgb_pred["target_pts_hat"].to_numpy(float), "bayes": bayes_pred["target_pts_hat"].to_numpy(float),
         "teamplay": teamplay_pred["target_pts_hat"].to_numpy(float),
     }
     grid = [
-        ("lgbm100", (1.00, 0.00, 0.00, 0.00)),
-        ("lgbm90_xgb05_bayes05", (0.90, 0.05, 0.05, 0.00)),
-        ("lgbm85_xgb10_bayes05", (0.85, 0.10, 0.05, 0.00)),
-        ("lgbm85_xgb05_bayes05_tp05", (0.85, 0.05, 0.05, 0.05)),
-        ("lgbm80_xgb10_bayes05_tp05", (0.80, 0.10, 0.05, 0.05)),
-        ("lgbm80_xgb05_bayes05_tp10", (0.80, 0.05, 0.05, 0.10)),
-        ("lgbm75_xgb10_bayes05_tp10", (0.75, 0.10, 0.05, 0.10)),
+        ("lgbm100", (1.00, 0.00, 0.00, 0.00)), ("lgbm90_xgb05_bayes05", (0.90, 0.05, 0.05, 0.00)), ("lgbm85_xgb10_bayes05", (0.85, 0.10, 0.05, 0.00)),
+        ("lgbm85_xgb05_bayes05_tp05", (0.85, 0.05, 0.05, 0.05)), ("lgbm80_xgb10_bayes05_tp05", (0.80, 0.10, 0.05, 0.05)),
+        ("lgbm80_xgb05_bayes05_tp10", (0.80, 0.05, 0.05, 0.10)), ("lgbm75_xgb10_bayes05_tp10", (0.75, 0.10, 0.05, 0.10)),
         ("lgbm75_xgb05_bayes10_tp10", (0.75, 0.05, 0.10, 0.10)),
     ]
     rounds = out["round"].to_numpy()
@@ -1350,12 +1142,7 @@ def _apply_post_target_forward_combiner(
 
     def blend(weights: tuple[float, float, float, float]) -> np.ndarray:
         lw, xw, bw, tw = weights
-        return (
-            lw * sources["lgbm"]
-            + xw * sources["xgb"]
-            + bw * sources["bayes"]
-            + tw * sources["teamplay"]
-        )
+        return lw * sources["lgbm"] + xw * sources["xgb"] + bw * sources["bayes"] + tw * sources["teamplay"]
 
     blended = {name: blend(weights) for name, weights in grid}
     for r in np.unique(rounds):
@@ -1425,11 +1212,7 @@ def _apply_post_target_residual(pred: pd.DataFrame, cfg: Config) -> pd.DataFrame
         if group == "global":
             adj = np.repeat(global_resid, cur.sum())
         else:
-            stats = (
-                pd.DataFrame({"key": keys[prev], "resid": residual[prev]})
-                .groupby("key")["resid"]
-                .agg(["mean", "count"])
-            )
+            stats = pd.DataFrame({"key": keys[prev], "resid": residual[prev]}).groupby("key")["resid"].agg(["mean", "count"])
             valid = stats[stats["count"] >= group_min_n]["mean"]
             adj = pd.Series(keys[cur]).map(valid).fillna(global_resid).to_numpy(float)
         if clip > 0:
@@ -1443,16 +1226,10 @@ def _apply_post_target_residual(pred: pd.DataFrame, cfg: Config) -> pd.DataFrame
 
 
 def _apply_post_target_pipeline(
-    pred: pd.DataFrame,
-    xgb_pred: pd.DataFrame | None,
-    bayes_pred: pd.DataFrame | None,
-    teamplay_pred: pd.DataFrame | None,
-    cfg: Config,
+    pred: pd.DataFrame, xgb_pred: pd.DataFrame | None, bayes_pred: pd.DataFrame | None, teamplay_pred: pd.DataFrame | None, cfg: Config
 ) -> pd.DataFrame:
     out = _apply_post_selection_target(pred, xgb_pred, bayes_pred, teamplay_pred, cfg)
-    out = _apply_post_target_forward_combiner(
-        out, xgb_pred, bayes_pred, teamplay_pred, cfg
-    )
+    out = _apply_post_target_forward_combiner(out, xgb_pred, bayes_pred, teamplay_pred, cfg)
     return _apply_post_target_residual(out, cfg)
 
 
@@ -1501,10 +1278,7 @@ def _post_target_filter_mask(pred: pd.DataFrame, filt: str) -> np.ndarray:
         raise ValueError(f"unknown post_target_filter {filt!r}") from exc
     if pct <= 0 or pct > 1:
         raise ValueError(f"unknown post_target_filter {filt!r}")
-    diff = np.abs(
-        pred["lgbm_target_pts_hat"].to_numpy(float)
-        - pred["xgb_component_pts_hat"].to_numpy(float)
-    )
+    diff = np.abs(pred["lgbm_target_pts_hat"].to_numpy(float) - pred["xgb_component_pts_hat"].to_numpy(float))
     cutoff = float(np.nanquantile(diff, pct))
     return diff <= cutoff
 
@@ -1531,9 +1305,7 @@ def _refresh_post_target_role_scores(pred: pd.DataFrame, cfg: Config) -> tuple[p
         else:
             if "lgbm_rank_score" not in out.columns:
                 raise ValueError("post_target_refresh_selector requires lgbm_rank_score")
-            score = _zscore(point_base) + cfg.selector_tilt * _zscore(
-                out["lgbm_rank_score"].to_numpy(float)
-            )
+            score = _zscore(point_base) + cfg.selector_tilt * _zscore(out["lgbm_rank_score"].to_numpy(float))
             if cfg.selector_upside_weight > 0:
                 if "upside_score" not in out.columns:
                     raise ValueError("post_target_refresh_selector requires upside_score")
@@ -1541,9 +1313,7 @@ def _refresh_post_target_role_scores(pred: pd.DataFrame, cfg: Config) -> tuple[p
             if cfg.xgb_rank_weight > 0:
                 if "xgb_rank_score" not in out.columns:
                     raise ValueError("post_target_refresh_selector requires xgb_rank_score")
-                score = score + cfg.xgb_rank_weight * _zscore(
-                    out["xgb_rank_score"].to_numpy(float)
-                )
+                score = score + cfg.xgb_rank_weight * _zscore(out["xgb_rank_score"].to_numpy(float))
             out["sel_score"] = score
             sel_col = "sel_score"
 
@@ -1551,16 +1321,9 @@ def _refresh_post_target_role_scores(pred: pd.DataFrame, cfg: Config) -> tuple[p
         if "selector_pts_hat" not in out.columns:
             raise ValueError("post_target_selector_delta_weight requires selector_pts_hat")
         base = out[sel_col].to_numpy(float) if sel_col in out.columns else out["target_pts_hat"].to_numpy(float)
-        signal_col = (
-            "post_target_selector_signal_hat"
-            if "post_target_selector_signal_hat" in out.columns
-            else "target_pts_hat"
-        )
+        signal_col = "post_target_selector_signal_hat" if "post_target_selector_signal_hat" in out.columns else "target_pts_hat"
         delta = out[signal_col].to_numpy(float) - out["selector_pts_hat"].to_numpy(float)
-        mask = (
-            _post_target_mask(out, cfg.post_target_selector_delta_scope)
-            & _selector_delta_prior_mask(out, cfg.post_target_selector_delta_min_prior_n)
-        )
+        mask = _post_target_mask(out, cfg.post_target_selector_delta_scope) & _selector_delta_prior_mask(out, cfg.post_target_selector_delta_min_prior_n)
         score = base.copy()
         if mask.any():
             adj = np.zeros(len(out), dtype=float)
@@ -1582,14 +1345,9 @@ def _refresh_post_target_role_scores(pred: pd.DataFrame, cfg: Config) -> tuple[p
         if cfg.captain_rank_weight > 0:
             if "lgbm_rank_score" not in out.columns:
                 raise ValueError("post_target_refresh_captain requires lgbm_rank_score")
-            cap = cap + cfg.captain_rank_weight * _zscore(
-                out["lgbm_rank_score"].to_numpy(float)
-            )
+            cap = cap + cfg.captain_rank_weight * _zscore(out["lgbm_rank_score"].to_numpy(float))
         if not np.isclose(cfg.captain_kicker_weight, 0.0):
-            kick = (
-                2.0 * out["hat_conversion_goals"].to_numpy(float)
-                + 3.0 * out["hat_penalty_goals"].to_numpy(float)
-            )
+            kick = 2.0 * out["hat_conversion_goals"].to_numpy(float) + 3.0 * out["hat_penalty_goals"].to_numpy(float)
             cap = cap + cfg.captain_kicker_weight * _zscore(kick)
         out["captain_score"] = cap
     return out, sel_col
@@ -1597,44 +1355,30 @@ def _refresh_post_target_role_scores(pred: pd.DataFrame, cfg: Config) -> tuple[p
 
 def _needs_bench_head(cfg: Config) -> bool:
     return (
-        (cfg.bench_model != "none"
-         and (cfg.bench_points_weight > 0
-              or cfg.bench_supersub_weight > 0
-              or cfg.bench_supersub_context_features != "off"
-              or cfg.bench_supersub_replacement_features
-              or cfg.bench_supersub_history_features
-              or cfg.bench_supersub_team_history_features
-              or cfg.bench_uncertainty_weight > 0
-              or cfg.bench_high_minutes_weight > 0
-              or cfg.bench_low_minutes_penalty_weight > 0))
-        or cfg.bench_kick_model != "none"
-    )
+        cfg.bench_model != "none"
+        and (
+            cfg.bench_points_weight > 0
+            or cfg.bench_supersub_weight > 0
+            or cfg.bench_supersub_context_features != "off"
+            or cfg.bench_supersub_replacement_features
+            or cfg.bench_supersub_history_features
+            or cfg.bench_supersub_team_history_features
+            or cfg.bench_uncertainty_weight > 0
+            or cfg.bench_high_minutes_weight > 0
+            or cfg.bench_low_minutes_penalty_weight > 0
+        )
+    ) or cfg.bench_kick_model != "none"
 
 
 BENCH_COVER_FEATURES = [
-    "bench_cover_starter_count",
-    "bench_cover_form_minutes_mean",
-    "bench_cover_form_minutes_max",
-    "bench_cover_start_rate_mean",
-    "bench_cover_form_n_mean",
-    "bench_cover_same_role_count",
-    "bench_cover_minutes_gap",
+    "bench_cover_starter_count", "bench_cover_form_minutes_mean", "bench_cover_form_minutes_max", "bench_cover_start_rate_mean", "bench_cover_form_n_mean",
+    "bench_cover_same_role_count", "bench_cover_minutes_gap",
 ]
 
-BENCH_HISTORY_FEATURES = [
-    "benchhist_n_prior",
-    "benchhist_minutes_recent",
-    "benchhist_play10_rate",
-    "benchhist_high30_rate",
-    "benchhist_days_since_last",
-]
+BENCH_HISTORY_FEATURES = ["benchhist_n_prior", "benchhist_minutes_recent", "benchhist_play10_rate", "benchhist_high30_rate", "benchhist_days_since_last"]
 
 BENCH_TEAM_HISTORY_FEATURES = [
-    "benchteam_slot_n_prior",
-    "benchteam_slot_minutes_recent",
-    "benchteam_slot_play10_rate",
-    "benchteam_slot_high30_rate",
-    "benchteam_slot_days_since_last",
+    "benchteam_slot_n_prior", "benchteam_slot_minutes_recent", "benchteam_slot_play10_rate", "benchteam_slot_high30_rate", "benchteam_slot_days_since_last",
 ]
 
 
@@ -1653,14 +1397,10 @@ def _bench_context_frame(df: pd.DataFrame, cfg: Config) -> pd.DataFrame:
         return exact.fillna(fallback)
 
     starter_flag = started.astype(float)
-    exact_count = starter_flag.groupby(
-        [out[key] for key in position_keys]
-    ).transform("sum")
+    exact_count = starter_flag.groupby([out[key] for key in position_keys]).transform("sum")
     role_count = starter_flag.groupby([out[key] for key in role_keys]).transform("sum")
     bench_flag = (~started).astype(float)
-    same_role_bench = bench_flag.groupby(
-        [out[key] for key in position_keys]
-    ).transform("sum")
+    same_role_bench = bench_flag.groupby([out[key] for key in position_keys]).transform("sum")
 
     out["bench_cover_starter_count"] = exact_count.where(exact_count > 0, role_count)
     out["bench_cover_form_minutes_mean"] = starter_stat("form_minutes_recent", "mean")
@@ -1668,10 +1408,7 @@ def _bench_context_frame(df: pd.DataFrame, cfg: Config) -> pd.DataFrame:
     out["bench_cover_start_rate_mean"] = starter_stat("form_start_rate", "mean")
     out["bench_cover_form_n_mean"] = starter_stat("form_n_prior", "mean")
     out["bench_cover_same_role_count"] = same_role_bench
-    out["bench_cover_minutes_gap"] = (
-        pd.to_numeric(out["form_minutes_recent"], errors="coerce")
-        - out["bench_cover_form_minutes_mean"]
-    )
+    out["bench_cover_minutes_gap"] = pd.to_numeric(out["form_minutes_recent"], errors="coerce") - out["bench_cover_form_minutes_mean"]
     return out
 
 
@@ -1682,46 +1419,23 @@ def _bench_design(rows: pd.DataFrame, cfg: Config) -> pd.DataFrame:
     blocks = [X.reset_index(drop=True), pos.reset_index(drop=True)]
     cover_cols = [col for col in BENCH_COVER_FEATURES if col in rows.columns]
     if cover_cols:
-        blocks.append(
-            rows[cover_cols].apply(pd.to_numeric, errors="coerce").reset_index(drop=True)
-        )
+        blocks.append(rows[cover_cols].apply(pd.to_numeric, errors="coerce").reset_index(drop=True))
     if cfg.bench_history_features:
         history_cols = [col for col in BENCH_HISTORY_FEATURES if col in rows.columns]
         if len(history_cols) != len(BENCH_HISTORY_FEATURES):
             missing = sorted(set(BENCH_HISTORY_FEATURES) - set(history_cols))
-            raise ValueError(
-                "bench history features require a rebuilt feature store; missing "
-                + ", ".join(missing)
-            )
-        blocks.append(
-            rows[history_cols].apply(pd.to_numeric, errors="coerce").reset_index(drop=True)
-        )
+            raise ValueError("bench history features require a rebuilt feature store; missing " + ", ".join(missing))
+        blocks.append(rows[history_cols].apply(pd.to_numeric, errors="coerce").reset_index(drop=True))
     if cfg.bench_team_history_features:
-        team_history_cols = [
-            col for col in BENCH_TEAM_HISTORY_FEATURES if col in rows.columns
-        ]
+        team_history_cols = [col for col in BENCH_TEAM_HISTORY_FEATURES if col in rows.columns]
         if len(team_history_cols) != len(BENCH_TEAM_HISTORY_FEATURES):
-            missing = sorted(
-                set(BENCH_TEAM_HISTORY_FEATURES) - set(team_history_cols)
-            )
-            raise ValueError(
-                "bench team history features require a rebuilt feature store; missing "
-                + ", ".join(missing)
-            )
-        blocks.append(
-            rows[team_history_cols]
-            .apply(pd.to_numeric, errors="coerce")
-            .reset_index(drop=True)
-        )
+            missing = sorted(set(BENCH_TEAM_HISTORY_FEATURES) - set(team_history_cols))
+            raise ValueError("bench team history features require a rebuilt feature store; missing " + ", ".join(missing))
+        blocks.append(rows[team_history_cols].apply(pd.to_numeric, errors="coerce").reset_index(drop=True))
     context_mode = "all" if cfg.bench_context_features is True else str(cfg.bench_context_features)
     if context_mode != "off":
         team = rows["team_id"].astype(str)
-        slot = (
-            pd.to_numeric(rows["jersey"], errors="coerce")
-            .fillna(-1)
-            .astype(int)
-            .astype(str)
-        )
+        slot = pd.to_numeric(rows["jersey"], errors="coerce").fillna(-1).astype(int).astype(str)
         position = rows["canonical_pos"].astype(str)
         context_values: dict[str, pd.Series] = {}
         if context_mode in {"slot", "all"}:
@@ -1735,20 +1449,11 @@ def _bench_design(rows: pd.DataFrame, cfg: Config) -> pd.DataFrame:
         if not context_values:
             raise ValueError(f"unknown bench_context_features {context_mode!r}")
         context = pd.DataFrame(context_values)
-        blocks.append(
-            pd.get_dummies(
-                context,
-                dtype=float,
-            ).reset_index(drop=True)
-        )
+        blocks.append(pd.get_dummies(context, dtype=float).reset_index(drop=True))
     return pd.concat(blocks, axis=1)
 
 
-def _align_design(
-    train_rows: pd.DataFrame,
-    test_rows: pd.DataFrame,
-    cfg: Config,
-) -> tuple[pd.DataFrame, pd.DataFrame]:
+def _align_design(train_rows: pd.DataFrame, test_rows: pd.DataFrame, cfg: Config) -> tuple[pd.DataFrame, pd.DataFrame]:
     Xtr = _bench_design(train_rows, cfg)
     Xte = _bench_design(test_rows, cfg).reindex(columns=Xtr.columns, fill_value=0.0)
     means = Xtr.mean(numeric_only=True)
@@ -1767,14 +1472,7 @@ def _lgbm_reg_predict(Xtr: pd.DataFrame, y: np.ndarray, Xte: pd.DataFrame) -> np
     import lightgbm as lgb
 
     model = lgb.LGBMRegressor(
-        objective="regression",
-        n_estimators=120,
-        learning_rate=0.04,
-        num_leaves=7,
-        min_child_samples=30,
-        reg_lambda=10.0,
-        random_state=0,
-        n_jobs=1,
+        objective="regression", n_estimators=120, learning_rate=0.04, num_leaves=7, min_child_samples=30, reg_lambda=10.0, random_state=0, n_jobs=1,
         verbosity=-1,
     )
     with warnings.catch_warnings():
@@ -1783,9 +1481,7 @@ def _lgbm_reg_predict(Xtr: pd.DataFrame, y: np.ndarray, Xte: pd.DataFrame) -> np
     return model.predict(Xte)
 
 
-def _bench_model_predict(
-    cfg: Config, Xtr: pd.DataFrame, y: np.ndarray, Xte: pd.DataFrame
-) -> np.ndarray:
+def _bench_model_predict(cfg: Config, Xtr: pd.DataFrame, y: np.ndarray, Xte: pd.DataFrame) -> np.ndarray:
     if len(y) == 0 or np.allclose(y, y[0]):
         return np.full(len(Xte), float(y[0]) if len(y) else 0.0)
     family = cfg.bench_model.removeprefix("two_stage_")
@@ -1803,22 +1499,13 @@ def _bench_target_points(rows: pd.DataFrame) -> np.ndarray:
     return np.where(modern_label.to_numpy() & np.isfinite(official), official, fallback)
 
 
-def _bench_train_rows(
-    df: pd.DataFrame,
-    train_idx: np.ndarray,
-    cfg: Config,
-) -> pd.DataFrame:
+def _bench_train_rows(df: pd.DataFrame, train_idx: np.ndarray, cfg: Config) -> pd.DataFrame:
     train = _bench_context_frame(df, cfg).iloc[train_idx].copy()
     train = train[~train["started"].astype(bool)].copy()
     return train
 
 
-def _bench_minutes_signals(
-    df: pd.DataFrame,
-    train_idx: np.ndarray,
-    test_idx: np.ndarray,
-    cfg: Config,
-) -> dict[str, np.ndarray]:
+def _bench_minutes_signals(df: pd.DataFrame, train_idx: np.ndarray, test_idx: np.ndarray, cfg: Config) -> dict[str, np.ndarray]:
     context_df = _bench_context_frame(df, cfg)
     train = context_df.iloc[train_idx].copy()
     train = train[~train["started"].astype(bool)].copy()
@@ -1826,12 +1513,8 @@ def _bench_minutes_signals(
     zeros = np.zeros(len(test_idx), dtype=float)
     if train.empty or cfg.bench_model == "none":
         return {
-            "bench_play_prob": zeros,
-            "bench_high_minutes_prob": zeros,
-            "bench_low_minutes_prob": np.ones(len(test_idx), dtype=float),
-            "bench_minutes_if_on": zeros,
-            "bench_expected_minutes": zeros,
-            "bench_minutes_uncertainty": np.ones(len(test_idx), dtype=float),
+            "bench_play_prob": zeros, "bench_high_minutes_prob": zeros, "bench_low_minutes_prob": np.ones(len(test_idx), dtype=float),
+            "bench_minutes_if_on": zeros, "bench_expected_minutes": zeros, "bench_minutes_uncertainty": np.ones(len(test_idx), dtype=float),
         }
     Xtr, Xte = _align_design(train, test, cfg)
     play_y = (train["minutes"].to_numpy(float) >= 10.0).astype(float)
@@ -1845,8 +1528,7 @@ def _bench_minutes_signals(
     if on.sum() >= 20:
         Xon, Xte_on = _align_design(train.loc[on], test, cfg)
         minutes_if_on_y = train.loc[on, "minutes"].to_numpy(float)
-        minutes_if_on = np.clip(
-            _bench_model_predict(cfg, Xon, minutes_if_on_y, Xte_on), 0.0, 80.0)
+        minutes_if_on = np.clip(_bench_model_predict(cfg, Xon, minutes_if_on_y, Xte_on), 0.0, 80.0)
     else:
         minutes_if_on = np.full(len(test_idx), float(train["minutes"].mean()))
     expected_minutes = np.clip(play_prob * minutes_if_on, 0.0, 80.0)
@@ -1857,19 +1539,13 @@ def _bench_minutes_signals(
         "bench_minutes_if_on": minutes_if_on,
         "bench_expected_minutes": expected_minutes,
         "bench_minutes_uncertainty": (
-            play_prob * (1.0 - play_prob)
-            + np.abs(expected_minutes - df.iloc[test_idx]["form_minutes_recent"].fillna(0).to_numpy(float)) / 80.0
+            play_prob * (1.0 - play_prob) + np.abs(expected_minutes - df.iloc[test_idx]["form_minutes_recent"].fillna(0).to_numpy(float)) / 80.0
         ),
     }
 
 
 def _learned_bench_points(
-    df: pd.DataFrame,
-    train_idx: np.ndarray,
-    test_idx: np.ndarray,
-    pred: pd.DataFrame,
-    cfg: Config,
-    minutes_signals: dict[str, np.ndarray],
+    df: pd.DataFrame, train_idx: np.ndarray, test_idx: np.ndarray, pred: pd.DataFrame, cfg: Config, minutes_signals: dict[str, np.ndarray]
 ) -> np.ndarray:
     if cfg.bench_model == "none":
         return pred["target_pts_hat"].to_numpy(float).copy()
@@ -1879,12 +1555,7 @@ def _learned_bench_points(
         return pred["target_pts_hat"].to_numpy(float).copy()
     if cfg.bench_model.startswith("two_stage_"):
         minutes_hat = np.maximum(pred["minutes_hat"].to_numpy(float), 1.0)
-        return np.clip(
-            pred["target_pts_hat"].to_numpy(float)
-            * minutes_signals["bench_expected_minutes"] / minutes_hat,
-            0.0,
-            None,
-        )
+        return np.clip(pred["target_pts_hat"].to_numpy(float) * minutes_signals["bench_expected_minutes"] / minutes_hat, 0.0, None)
 
     y = _bench_target_points(train)
     keep = np.isfinite(y)
@@ -1896,17 +1567,12 @@ def _learned_bench_points(
     return np.clip(_bench_model_predict(cfg, Xtr, y, Xte), 0.0, None)
 
 
-def _learned_bench_kick_points(
-    df: pd.DataFrame, train_idx: np.ndarray, test_idx: np.ndarray, cfg: Config
-) -> np.ndarray:
+def _learned_bench_kick_points(df: pd.DataFrame, train_idx: np.ndarray, test_idx: np.ndarray, cfg: Config) -> np.ndarray:
     context_df = _bench_context_frame(df, cfg)
     train = _bench_train_rows(df, train_idx, cfg)
     if train.empty:
         return np.zeros(len(test_idx), dtype=float)
-    y = (
-        2.0 * train["y_conversion_goals"].fillna(0).to_numpy(float)
-        + 3.0 * train["y_penalty_goals"].fillna(0).to_numpy(float)
-    )
+    y = 2.0 * train["y_conversion_goals"].fillna(0).to_numpy(float) + 3.0 * train["y_penalty_goals"].fillna(0).to_numpy(float)
     if np.allclose(y, 0.0):
         return np.zeros(len(test_idx), dtype=float)
     Xtr, Xte = _align_design(train, context_df.iloc[test_idx], cfg)
@@ -1919,13 +1585,7 @@ def _learned_bench_kick_points(
     return np.clip(pred, 0.0, None)
 
 
-def _apply_bench_head(
-    df: pd.DataFrame,
-    train_idx: np.ndarray,
-    test_idx: np.ndarray,
-    pred: pd.DataFrame,
-    cfg: Config,
-) -> pd.DataFrame:
+def _apply_bench_head(df: pd.DataFrame, train_idx: np.ndarray, test_idx: np.ndarray, pred: pd.DataFrame, cfg: Config) -> pd.DataFrame:
     if not _needs_bench_head(cfg):
         return pred
     out = pred.copy()
@@ -1933,20 +1593,12 @@ def _apply_bench_head(
     for col, vals in minutes_signals.items():
         out[col] = vals
     bench_hat = _learned_bench_points(df, train_idx, test_idx, out, cfg, minutes_signals)
-    current_kick = (
-        2.0 * out.get("hat_conversion_goals", 0.0)
-        + 3.0 * out.get("hat_penalty_goals", 0.0)
-    )
+    current_kick = 2.0 * out.get("hat_conversion_goals", 0.0) + 3.0 * out.get("hat_penalty_goals", 0.0)
     current_kick = np.asarray(current_kick, dtype=float)
     if cfg.bench_kick_model == "shrink":
-        out["bench_kick_pts_hat"] = np.clip(
-            current_kick * (1.0 - np.clip(cfg.bench_kick_shrink, 0.0, 1.0)),
-            0.0,
-            None,
-        )
+        out["bench_kick_pts_hat"] = np.clip(current_kick * (1.0 - np.clip(cfg.bench_kick_shrink, 0.0, 1.0)), 0.0, None)
     elif cfg.bench_kick_model in {"ridge", "lgbm"}:
-        out["bench_kick_pts_hat"] = _learned_bench_kick_points(
-            df, train_idx, test_idx, cfg)
+        out["bench_kick_pts_hat"] = _learned_bench_kick_points(df, train_idx, test_idx, cfg)
     else:
         out["bench_kick_pts_hat"] = current_kick
     if cfg.bench_kick_model != "none":
@@ -1959,45 +1611,27 @@ def _apply_bench_head(
         or cfg.bench_supersub_team_history_features
     ):
         supersub_cfg = cfg.delta(
-            bench_context_features=cfg.bench_supersub_context_features,
-            bench_supersub_context_features="off",
-            bench_replacement_features=cfg.bench_supersub_replacement_features,
-            bench_supersub_replacement_features=False,
-            bench_history_features=cfg.bench_supersub_history_features,
-            bench_supersub_history_features=False,
-            bench_team_history_features=cfg.bench_supersub_team_history_features,
-            bench_supersub_team_history_features=False,
+            bench_context_features=cfg.bench_supersub_context_features, bench_supersub_context_features="off",
+            bench_replacement_features=cfg.bench_supersub_replacement_features, bench_supersub_replacement_features=False,
+            bench_history_features=cfg.bench_supersub_history_features, bench_supersub_history_features=False,
+            bench_team_history_features=cfg.bench_supersub_team_history_features, bench_supersub_team_history_features=False,
         )
-        supersub_minutes = _bench_minutes_signals(
-            df, train_idx, test_idx, supersub_cfg
-        )
-        out["supersub_bench_pts_hat"] = _learned_bench_points(
-            df,
-            train_idx,
-            test_idx,
-            out,
-            supersub_cfg,
-            supersub_minutes,
-        )
+        supersub_minutes = _bench_minutes_signals(df, train_idx, test_idx, supersub_cfg)
+        out["supersub_bench_pts_hat"] = _learned_bench_points(df, train_idx, test_idx, out, supersub_cfg, supersub_minutes)
     if cfg.bench_points_weight > 0:
         w = float(np.clip(cfg.bench_points_weight, 0.0, 1.0))
         bench_mask = ~df.iloc[test_idx]["started"].astype(bool).to_numpy()
         target = out["target_pts_hat"].to_numpy(float).copy()
-        target[bench_mask] = (
-            (1.0 - w) * target[bench_mask] + w * bench_hat[bench_mask]
-        )
+        target[bench_mask] = (1.0 - w) * target[bench_mask] + w * bench_hat[bench_mask]
         out["target_pts_hat"] = np.clip(target, 0.0, None)
     return out
 
 
 def _needs_upside(cfg: Config) -> bool:
-    return (cfg.selector_upside_weight > 0 or cfg.captain_upside_weight > 0
-            or cfg.supersub_upside_weight > 0)
+    return cfg.selector_upside_weight > 0 or cfg.captain_upside_weight > 0 or cfg.supersub_upside_weight > 0
 
 
-def _prior_player_variance(
-    df: pd.DataFrame, train_idx: np.ndarray, test_idx: np.ndarray
-) -> tuple[np.ndarray, np.ndarray]:
+def _prior_player_variance(df: pd.DataFrame, train_idx: np.ndarray, test_idx: np.ndarray) -> tuple[np.ndarray, np.ndarray]:
     train = df.iloc[train_idx].copy()
     target = _bench_target_points(train)
     train = train.assign(_target_for_var=target)
@@ -2005,10 +1639,7 @@ def _prior_player_variance(
     player_n = train.groupby("player_id")["_target_for_var"].size()
     player_std = player_std.where(player_n >= 3)
     pos_std = train.groupby("canonical_pos")["_target_for_var"].std()
-    pos_ceiling = (
-        train.groupby("canonical_pos")["_target_for_var"].quantile(0.80)
-        - train.groupby("canonical_pos")["_target_for_var"].mean()
-    )
+    pos_ceiling = train.groupby("canonical_pos")["_target_for_var"].quantile(0.80) - train.groupby("canonical_pos")["_target_for_var"].mean()
     te = df.iloc[test_idx]
     std = te["player_id"].map(player_std)
     std = std.fillna(te["canonical_pos"].map(pos_std)).fillna(float(np.nanstd(target)))
@@ -2016,13 +1647,7 @@ def _prior_player_variance(
     return std.to_numpy(float), ceiling.to_numpy(float)
 
 
-def _apply_upside_head(
-    df: pd.DataFrame,
-    train_idx: np.ndarray,
-    test_idx: np.ndarray,
-    pred: pd.DataFrame,
-    cfg: Config,
-) -> pd.DataFrame:
+def _apply_upside_head(df: pd.DataFrame, train_idx: np.ndarray, test_idx: np.ndarray, pred: pd.DataFrame, cfg: Config) -> pd.DataFrame:
     if not _needs_upside(cfg):
         return pred
     out = pred.copy()
@@ -2036,17 +1661,9 @@ def _apply_upside_head(
     )
     disagreement = np.zeros(len(out), dtype=float)
     if "lgbm_target_pts_hat" in out.columns and "xgb_component_pts_hat" in out.columns:
-        disagreement = np.abs(
-            out["lgbm_target_pts_hat"].to_numpy(float)
-            - out["xgb_component_pts_hat"].to_numpy(float)
-        )
+        disagreement = np.abs(out["lgbm_target_pts_hat"].to_numpy(float) - out["xgb_component_pts_hat"].to_numpy(float))
     player_std, pos_ceiling = _prior_player_variance(df, train_idx, test_idx)
-    raw = (
-        _zscore(attack)
-        + 0.50 * _zscore(disagreement)
-        + 0.50 * _zscore(player_std)
-        + 0.25 * _zscore(pos_ceiling)
-    )
+    raw = _zscore(attack) + 0.50 * _zscore(disagreement) + 0.50 * _zscore(player_std) + 0.25 * _zscore(pos_ceiling)
     eligible = np.ones(len(out), dtype=bool)
     positions = _scope_positions(cfg.upside_scope)
     if positions is not None:
@@ -2066,10 +1683,7 @@ def config_from_dict(d: dict) -> "Config":
     return Config(**{k: v for k, v in d.items() if k in known})
 
 
-def _predict_config(
-    df: pd.DataFrame, cfg: Config, season: int,
-    train_mask: np.ndarray | None = None,
-) -> tuple[pd.DataFrame, str, pd.DataFrame | None]:
+def _predict_config(df: pd.DataFrame, cfg: Config, season: int, train_mask: np.ndarray | None = None) -> tuple[pd.DataFrame, str, pd.DataFrame | None]:
     if train_mask is None:
         train_mask = component_train(df, season)
     else:
@@ -2089,41 +1703,29 @@ def _predict_config(
                     return predict_rates_lgbm_only(d, ti, te, mo)
                 return predict_rates_registry(d, ti, te, mo, registry)
 
-        pred, diag = assemble_predictions(
-            df, train_idx, season, MODE, predictor, minutes_hat=minutes_hat)
+        pred, diag = assemble_predictions(df, train_idx, season, MODE, predictor, minutes_hat=minutes_hat)
         sub = df.iloc[test_idx]
         for meta_col in (
-            "team", "opponent", "started", "jersey",
-            "rolecert_goal_kicker_prob",
-            "rolecert_team_kicker_confidence",
-            "rolecert_bench_fh_kick_share",
-            "rolecert_bench_kick_takeover_risk",
-            "rolecert_replacement_role_uncertainty",
+            "team", "opponent", "started", "jersey", "rolecert_goal_kicker_prob", "rolecert_team_kicker_confidence", "rolecert_bench_fh_kick_share",
+            "rolecert_bench_kick_takeover_risk", "rolecert_replacement_role_uncertainty",
         ):
             if meta_col in sub.columns:
                 pred[meta_col] = sub[meta_col].to_numpy()
         pred = _apply_teamplay_aspect_adjustments(df, test_idx, pred, cfg)
         pred = _apply_weather_aspect_adjustments(df, test_idx, pred, cfg)
-        pred = _graft_teamplay_components(
-            df, train_mask, train_idx, season, minutes_hat, pred, cfg)
+        pred = _graft_teamplay_components(df, train_mask, train_idx, season, minutes_hat, pred, cfg)
         xgb_pred = None
         bayes_pred = None
         graft_components: set[str] = set()
         requested_graft_components: set[str] = set()
         oof_graft_winners: set[str] = set()
         if cfg.xgb_graft_group != "none" and cfg.xgb_graft_weight > 0:
-            graft_components, requested_graft_components, oof_graft_winners = (
-                _resolve_xgb_graft_components(df, train_mask, cfg)
-            )
+            graft_components, requested_graft_components, oof_graft_winners = _resolve_xgb_graft_components(df, train_mask, cfg)
         if _needs_xgb_points(cfg) or graft_components:
-            xgb_pred = _specialist_prediction(
-                df, train_idx, season, minutes_hat, _predict_rates_xgb_only)
+            xgb_pred = _specialist_prediction(df, train_idx, season, minutes_hat, _predict_rates_xgb_only)
         if _needs_bayes_points(cfg):
-            bayes_pred = _specialist_prediction(
-                df, train_idx, season, minutes_hat, _predict_rates_bayesian)
-        pred = _graft_components(
-            df, train_mask, pred, xgb_pred, cfg,
-            graft_components, requested_graft_components, oof_graft_winners)
+            bayes_pred = _specialist_prediction(df, train_idx, season, minutes_hat, _predict_rates_bayesian)
+        pred = _graft_components(df, train_mask, pred, xgb_pred, cfg, graft_components, requested_graft_components, oof_graft_winners)
         pred = _apply_kicking_reallocation(df, test_idx, pred, cfg)
         pred = _apply_rolecert_kicking_adjustments(df, test_idx, pred, cfg)
 
@@ -2154,60 +1756,34 @@ def _predict_config(
         teamplay_pred = None
         if cfg.post_target_teamplay_weight > 0 or cfg.post_target_forward_combiner != "none":
             inner_cfg = cfg.delta(
-                teamplay_features=cfg.post_target_teamplay_mode,
-                teamplay_component_features=cfg.post_target_teamplay_component_features,
-                matchup_features=(
-                    cfg.post_target_matchup_features or cfg.matchup_features
-                ),
-                teamplay_graft_mode=cfg.post_target_teamplay_graft_mode,
-                teamplay_graft_group=cfg.post_target_teamplay_graft_group,
-                teamplay_graft_weight=cfg.post_target_teamplay_graft_weight,
-                post_target_teamplay_weight=0.0,
-                post_target_residual_weight=0.0,
-                post_target_residual_group="none",
-                post_target_selector_delta_weight=0.0,
-                post_target_selector_xgb_weight=-1.0,
-                post_target_selector_delta_min_prior_n=0,
-                post_target_forward_combiner="none",
+                teamplay_features=cfg.post_target_teamplay_mode, teamplay_component_features=cfg.post_target_teamplay_component_features,
+                matchup_features=(cfg.post_target_matchup_features or cfg.matchup_features), teamplay_graft_mode=cfg.post_target_teamplay_graft_mode,
+                teamplay_graft_group=cfg.post_target_teamplay_graft_group, teamplay_graft_weight=cfg.post_target_teamplay_graft_weight,
+                post_target_teamplay_weight=0.0, post_target_residual_weight=0.0, post_target_residual_group="none", post_target_selector_delta_weight=0.0,
+                post_target_selector_xgb_weight=-1.0, post_target_selector_delta_min_prior_n=0, post_target_forward_combiner="none",
             )
             teamplay_pred, _, _ = _predict_config(df, inner_cfg, season, train_mask=train_mask)
         selector_signal = None
         if cfg.post_target_selector_xgb_weight >= 0:
             selector_cfg = cfg.delta(
-                post_target_xgb_weight=cfg.post_target_selector_xgb_weight,
-                post_target_selector_xgb_weight=-1.0,
-                post_target_selector_delta_weight=0.0,
+                post_target_xgb_weight=cfg.post_target_selector_xgb_weight, post_target_selector_xgb_weight=-1.0, post_target_selector_delta_weight=0.0
             )
             selector_pred, _, _ = _predict_config(df, selector_cfg, season, train_mask=train_mask)
             selector_signal = selector_pred["target_pts_hat"].to_numpy(float)
         if cfg.post_target_selector_matchup_features is not None:
             if selector_signal is not None:
-                raise ValueError(
-                    "only one alternate post-target selector signal may be configured"
-                )
-            selector_cfg = cfg.delta(
-                post_target_matchup_features=bool(
-                    cfg.post_target_selector_matchup_features
-                ),
-                post_target_selector_matchup_features=None,
-            )
+                raise ValueError("only one alternate post-target selector signal may be configured")
+            selector_cfg = cfg.delta(post_target_matchup_features=bool(cfg.post_target_selector_matchup_features), post_target_selector_matchup_features=None)
             selector_pred, _, _ = _predict_config(df, selector_cfg, season, train_mask=train_mask)
             selector_signal = selector_pred["target_pts_hat"].to_numpy(float)
         post_target_input = pred
-        pred = _apply_post_target_pipeline(
-            post_target_input, xgb_pred, bayes_pred, teamplay_pred, cfg
-        )
+        pred = _apply_post_target_pipeline(post_target_input, xgb_pred, bayes_pred, teamplay_pred, cfg)
         if selector_signal is not None:
             pred["post_target_selector_signal_hat"] = selector_signal
         pred, sel_col = _refresh_post_target_role_scores(pred, cfg)
 
-    if (
-        cfg.supersub_latent_shrink >= 0.0
-        and not np.isclose(cfg.supersub_latent_shrink, cfg.latent_shrink)
-        and "supersub_score" in pred.columns
-    ):
-        ss_cfg = cfg.delta(
-            latent_shrink=cfg.supersub_latent_shrink, supersub_latent_shrink=-1.0)
+    if cfg.supersub_latent_shrink >= 0.0 and not np.isclose(cfg.supersub_latent_shrink, cfg.latent_shrink) and "supersub_score" in pred.columns:
+        ss_cfg = cfg.delta(latent_shrink=cfg.supersub_latent_shrink, supersub_latent_shrink=-1.0)
         ss_pred, _, _ = _predict_config(df, ss_cfg, season, train_mask=train_mask)
         pred = pred.copy()
         pred["supersub_score"] = ss_pred["supersub_score"].to_numpy(float)

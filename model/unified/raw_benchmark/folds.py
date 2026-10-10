@@ -11,11 +11,7 @@ from .config import EVALUATION_START, MIN_FIXTURES
 from .coverage import sha256
 
 NAMED_COMPETITIONS = {
-    1266: "six_nations",
-    1296: "rugby_championship",
-    1272: "rugby_world_cup",
-    1326: "pacific_nations_cup",
-    1338: "british_irish_lions",
+    1266: "six_nations", 1296: "rugby_championship", 1272: "rugby_world_cup", 1326: "pacific_nations_cup", 1338: "british_irish_lions",
     696: "nations_championship",
 }
 
@@ -59,12 +55,7 @@ def _fixture_slate(row: pd.Series, tournament: str, year: int, *, use_source_rou
 
 
 def build_folds(store: pd.DataFrame, min_fixtures: int = MIN_FIXTURES) -> list[HistoricalFold]:
-    fixtures = (
-        store[store["competition_level"].eq("international")]
-        .sort_values("match_at")
-        .drop_duplicates("fixture_id")
-        .copy()
-    )
+    fixtures = store[store["competition_level"].eq("international")].sort_values("match_at").drop_duplicates("fixture_id").copy()
     fixtures["match_at"] = pd.to_datetime(fixtures["match_at"], utc=True)
     fixtures = fixtures[fixtures["match_at"].ge(pd.Timestamp(EVALUATION_START))]
     fixtures["tournament"] = fixtures.apply(_block_name, axis=1)
@@ -78,46 +69,37 @@ def build_folds(store: pd.DataFrame, min_fixtures: int = MIN_FIXTURES) -> list[H
         source_rounds = pd.to_numeric(block["source_game_week"], errors="coerce")
         if source_rounds.nunique() <= 1:
             source_rounds = pd.to_numeric(block["source_round"], errors="coerce")
-        use_source_round = bool(
-            source_rounds.nunique() > 1
-            or (block["match_at"].max() - block["match_at"].min()) <= pd.Timedelta(days=7)
-        )
+        use_source_round = bool(source_rounds.nunique() > 1 or (block["match_at"].max() - block["match_at"].min()) <= pd.Timedelta(days=7))
         slate_by_fixture = {
-            str(row.fixture_id): _fixture_slate(
-                row._asdict(), str(tournament), int(year), use_source_round=use_source_round,
-            )
+            str(row.fixture_id): _fixture_slate(row._asdict(), str(tournament), int(year), use_source_round=use_source_round)
             for row in block.itertuples(index=False)
         }
         teams = store[store["fixture_id"].astype(str).isin(block["fixture_id"].astype(str))]
         hemispheres = set(teams["hemisphere"].dropna().astype(str)) - {"other"}
         hemisphere = next(iter(hemispheres)) if len(hemispheres) == 1 else "mixed"
         fixture_ids = tuple(block["fixture_id"].astype(str))
-        folds.append(HistoricalFold(
-            label=f"{tournament}_{int(year)}",
-            tournament=str(tournament), calendar_year=int(year),
-            cutoff=block["match_at"].min().isoformat(), fixture_ids=fixture_ids,
-            slate_ids=tuple(slate_by_fixture[fixture] for fixture in fixture_ids),
-            hemisphere=hemisphere,
-        ))
+        folds.append(
+            HistoricalFold(
+                label=f"{tournament}_{int(year)}", tournament=str(tournament), calendar_year=int(year), cutoff=block["match_at"].min().isoformat(),
+                fixture_ids=fixture_ids, slate_ids=tuple(slate_by_fixture[fixture] for fixture in fixture_ids), hemisphere=hemisphere,
+            )
+        )
     return sorted(folds, key=lambda fold: (fold.cutoff_timestamp, fold.label))
 
 
-def rolling_folds(
-    store: pd.DataFrame, folds: list[HistoricalFold] | None = None,
-) -> list[HistoricalFold]:
+def rolling_folds(store: pd.DataFrame, folds: list[HistoricalFold] | None = None) -> list[HistoricalFold]:
     output = []
     for fold in build_folds(store) if folds is None else folds:
         evaluation = evaluation_frame(store, fold)
         for slate_id, rows in evaluation.groupby("slate_id", sort=False):
             times = pd.to_datetime(rows["match_at"], utc=True)
             fixture_ids = tuple(rows["fixture_id"].astype(str).drop_duplicates())
-            output.append(HistoricalFold(
-                label=str(slate_id), tournament=fold.tournament,
-                calendar_year=fold.calendar_year, cutoff=times.min().isoformat(),
-                fixture_ids=fixture_ids,
-                slate_ids=tuple(str(slate_id) for _ in fixture_ids),
-                hemisphere=fold.hemisphere,
-            ))
+            output.append(
+                HistoricalFold(
+                    label=str(slate_id), tournament=fold.tournament, calendar_year=fold.calendar_year, cutoff=times.min().isoformat(), fixture_ids=fixture_ids,
+                    slate_ids=tuple(str(slate_id) for _ in fixture_ids), hemisphere=fold.hemisphere,
+                )
+            )
     return sorted(output, key=lambda fold: (fold.cutoff_timestamp, fold.label))
 
 
@@ -146,8 +128,7 @@ def masked_candidates(evaluation: pd.DataFrame) -> pd.DataFrame:
 
 
 def write_fold_manifest(
-    path: str, fold: HistoricalFold, train: pd.DataFrame, evaluation: pd.DataFrame,
-    *, store_path: str, artifact_paths: tuple[str, ...] = (), engine: str,
+    path: str, fold: HistoricalFold, train: pd.DataFrame, evaluation: pd.DataFrame, *, store_path: str, artifact_paths: tuple[str, ...] = (), engine: str
 ) -> dict:
     payload = {
         "schema_version": 1,
@@ -157,9 +138,7 @@ def write_fold_manifest(
         "evaluation_rows": int(len(evaluation)),
         "training_fixture_ids": sorted(train["fixture_id"].astype(str).unique().tolist()),
         "evaluation_fixture_ids": sorted(evaluation["fixture_id"].astype(str).unique().tolist()),
-        "training_match_at_max": (
-            pd.to_datetime(train["match_at"], utc=True).max().isoformat() if len(train) else None
-        ),
+        "training_match_at_max": (pd.to_datetime(train["match_at"], utc=True).max().isoformat() if len(train) else None),
         "store": str(store_path),
         "store_sha256": sha256(store_path),
         "artifact_sha256": {str(p): sha256(p) for p in artifact_paths if os.path.exists(p)},

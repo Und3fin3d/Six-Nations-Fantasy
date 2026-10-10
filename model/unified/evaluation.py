@@ -26,22 +26,15 @@ def tie_aware_top_n(predicted: pd.Series, actual: pd.Series, n: int) -> tuple[fl
 def actual_points(frame: pd.DataFrame, scorer: CompetitionScorer) -> np.ndarray:
     rows = []
     for row in frame.itertuples(index=False):
-        events = {
-            event: np.array([float(getattr(row, event))])
-            for event in EVENTS if hasattr(row, event) and pd.notna(getattr(row, event))
-        }
-        rows.append(float(scorer.score_samples(
-            events, is_forward=bool(row.is_forward), position=getattr(row, "position", None),
-        )[0]))
+        events = {event: np.array([float(getattr(row, event))]) for event in EVENTS if hasattr(row, event) and pd.notna(getattr(row, event))}
+        rows.append(float(scorer.score_samples(events, is_forward=bool(row.is_forward), position=getattr(row, "position", None))[0]))
     return np.asarray(rows)
 
 
 def evaluate_predictions(
-    frame: pd.DataFrame, predictions: list[RawPrediction], scorer: CompetitionScorer,
-    top_ns: tuple[int, ...] = (10, 25, 50, 100),
+    frame: pd.DataFrame, predictions: list[RawPrediction], scorer: CompetitionScorer, top_ns: tuple[int, ...] = (10, 25, 50, 100)
 ) -> dict[str, float]:
-    predicted = np.array([scorer.score_prediction(p, n=1200, seed=31 + i).mean
-                          for i, p in enumerate(predictions)])
+    predicted = np.array([scorer.score_prediction(p, n=1200, seed=31 + i).mean for i, p in enumerate(predictions)])
     actual = actual_points(frame, scorer)
     metrics: dict[str, float] = {
         "n": float(len(frame)), "points_mae": float(np.mean(np.abs(predicted - actual))),
@@ -58,8 +51,7 @@ def evaluate_predictions(
         predicted_event = np.array([p.events[event].mean if event in p.events else np.nan for p in predictions])
         valid = available.to_numpy() & np.isfinite(predicted_event)
         if valid.any():
-            metrics[f"event_mae__{event}"] = float(np.mean(np.abs(
-                predicted_event[valid] - frame.loc[valid, event].to_numpy(float))))
+            metrics[f"event_mae__{event}"] = float(np.mean(np.abs(predicted_event[valid] - frame.loc[valid, event].to_numpy(float))))
     minutes = np.array([p.minutes.mean for p in predictions])
     valid_min = frame["available__minutes"].astype(bool).to_numpy()
     metrics["minutes_mae"] = float(np.mean(np.abs(minutes[valid_min] - frame.loc[valid_min, "minutes"])))
@@ -73,8 +65,7 @@ class PromotionDecision:
 
 
 def promotion_gate(
-    candidate: dict[str, dict[str, float]], incumbent: dict[str, dict[str, float]],
-    *, noninferiority_margin: float = .02, required_capture_gain: float = .03,
+    candidate: dict[str, dict[str, float]], incumbent: dict[str, dict[str, float]], *, noninferiority_margin: float = 0.02, required_capture_gain: float = 0.03
 ) -> PromotionDecision:
     reasons = []
     gains = []

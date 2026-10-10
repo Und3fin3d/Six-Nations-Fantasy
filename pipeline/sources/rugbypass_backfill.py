@@ -12,45 +12,21 @@ from datetime import datetime, timezone
 import requests
 from bs4 import BeautifulSoup
 
-from pipeline.sources.rugbypass_batch import (
-    extract_bio,
-    extract_comp_stats,
-    extract_match_log,
-    is_six_nations,
-)
+from pipeline.sources.rugbypass_batch import extract_bio, extract_comp_stats, extract_match_log, is_six_nations
 
 BASE = "."
 OUT_DIR = "players"
 
-UA = ("Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) "
-      "AppleWebKit/537.36 (KHTML, like Gecko) Chrome/122.0.0.0 Safari/537.36")
+UA = "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/122.0.0.0 Safari/537.36"
 
 SLUG_OVERRIDES: dict[str, str] = {
-    "Cameron Winnett": "cam-winnett",
-    "Hame Faiva": "epalahame-faiva",
-    "Oli Kebble": "oliver-kebble",
-    "Noah Nene": "noah-tisie-nene",
-    "Mohamed Haouas":  "mohammed-haouas",
-    "Gaetan Barlot":   "gaeton-barlot",
-    "Andy Onyeama-Christie": "andy-christie",
-    "Cobus Reinach": "jacobus-reinach",
-    "Faf de Klerk": "francois-de-klerk",
-    "Francisco Coria Marchetti": "francisco-coria",
-    "Joe Carpenter": "joseph-carpenter",
-    "Keiran Williams": "kieran-williams",
-    "Nicholas Champion de Crespigny": "nick-champion-de-crespigny",
-    "Pete Samu": "peter-samu",
-    "Pita-Gus Sowakula": "pita-sowakula",
-    "Sacha Feinberg-Mngomezulu": "sacha-mngomezulu",
-    "Sam Whitelock": "samuel-whitelock",
-    "Sam Matavesi": "samuel-matavesi",
-    "Rob Leota": "robert-leota",
-    "Isaac Kailea": "isaac-aedo-kailea",
-    "Phepsi Buthelezi": "phendulani-buthelezi",
-    "Lood de Jager": "lodewyk-de-jager",
-    "Sebastian Negri": "sebastian-negri-da-ollegio",
-    "Tadhg Beirne": "tadgh-beirne",
-    "Ollie Chessum": "oliver-chessum",
+    "Cameron Winnett": "cam-winnett", "Hame Faiva": "epalahame-faiva", "Oli Kebble": "oliver-kebble", "Noah Nene": "noah-tisie-nene",
+    "Mohamed Haouas": "mohammed-haouas", "Gaetan Barlot": "gaeton-barlot", "Andy Onyeama-Christie": "andy-christie", "Cobus Reinach": "jacobus-reinach",
+    "Faf de Klerk": "francois-de-klerk", "Francisco Coria Marchetti": "francisco-coria", "Joe Carpenter": "joseph-carpenter",
+    "Keiran Williams": "kieran-williams", "Nicholas Champion de Crespigny": "nick-champion-de-crespigny", "Pete Samu": "peter-samu",
+    "Pita-Gus Sowakula": "pita-sowakula", "Sacha Feinberg-Mngomezulu": "sacha-mngomezulu", "Sam Whitelock": "samuel-whitelock",
+    "Sam Matavesi": "samuel-matavesi", "Rob Leota": "robert-leota", "Isaac Kailea": "isaac-aedo-kailea", "Phepsi Buthelezi": "phendulani-buthelezi",
+    "Lood de Jager": "lodewyk-de-jager", "Sebastian Negri": "sebastian-negri-da-ollegio", "Tadhg Beirne": "tadgh-beirne", "Ollie Chessum": "oliver-chessum",
     "Mack Hansen": "mackenzie-hansen",
 }
 
@@ -83,11 +59,10 @@ def slug_candidates(name: str) -> list[str]:
 
 def unmatched_api_players() -> list[dict]:
     import pipeline.sixn.build_crosswalk as bc
+
     cw = bc.build()
     api = cw[cw["in_api"] & ~cw["in_rp"]]
-    return (api[["api_name", "key", "canonical_pos"]]
-            .sort_values("api_name")
-            .to_dict("records"))
+    return api[["api_name", "key", "canonical_pos"]].sort_values("api_name").to_dict("records")
 
 
 def fetch(session: requests.Session, slug: str):
@@ -112,13 +87,11 @@ def resolve_and_scrape(records, *, dry_run: bool, force: bool, delay: float):
         key = rec["key"]
 
         if name in KNOWN_ABSENT:
-            print(f"  [{i:>3}/{len(records)}]  {name:<26} KNOWN ABSENT "
-                  f"({KNOWN_ABSENT[name]})")
+            print(f"  [{i:>3}/{len(records)}]  {name:<26} KNOWN ABSENT ({KNOWN_ABSENT[name]})")
             absent.append(f"{name}: {KNOWN_ABSENT[name]}")
             continue
 
-        cands = ([SLUG_OVERRIDES[name]] if name in SLUG_OVERRIDES
-                 else slug_candidates(name))
+        cands = [SLUG_OVERRIDES[name]] if name in SLUG_OVERRIDES else slug_candidates(name)
 
         hit_slug = hit_html = None
         for slug in cands:
@@ -136,8 +109,7 @@ def resolve_and_scrape(records, *, dry_run: bool, force: bool, delay: float):
                 break
 
         if hit_slug is None:
-            print(f"  [{i:>3}/{len(records)}]  {name:<26} ❌  no page "
-                  f"(tried {', '.join(cands)})")
+            print(f"  [{i:>3}/{len(records)}]  {name:<26} ❌  no page (tried {', '.join(cands)})")
             unresolved.append(f"{name} ({key})  tried: {', '.join(cands)}")
             continue
 
@@ -154,23 +126,15 @@ def resolve_and_scrape(records, *, dry_run: bool, force: bool, delay: float):
         nat = bio.get("Nationality", "?")
         sn = sum(1 for r in comp_stats if is_six_nations(r.get("competition")))
 
-        print(f"  [{i:>3}/{len(records)}]  {name:<26} ✅  {hit_slug:<28} "
-              f"nat={nat:<10} comp_rows={len(comp_stats)} 6n={sn}")
+        print(f"  [{i:>3}/{len(records)}]  {name:<26} ✅  {hit_slug:<28} nat={nat:<10} comp_rows={len(comp_stats)} 6n={sn}")
 
         if not dry_run:
-            out = {
-                "player": hit_slug,
-                "csv_name": name,
-                "bio": bio,
-                "competition_stats": comp_stats,
-                "match_log": match_log,
-            }
+            out = {"player": hit_slug, "csv_name": name, "bio": bio, "competition_stats": comp_stats, "match_log": match_log}
             open(f"{OUT_DIR}/rugbypass_{hit_slug.replace('-', '_')}.json", "w").write(json.dumps(out, indent=2))
         resolved.append((name, hit_slug, nat))
 
     print("\n" + "=" * 74)
-    print(f"RESOLVED {len(resolved)} / {len(records)}   "
-          f"unresolved {len(unresolved)}   known-absent {len(absent)}")
+    print(f"RESOLVED {len(resolved)} / {len(records)}   unresolved {len(unresolved)}   known-absent {len(absent)}")
     print("=" * 74)
     if unresolved:
         print("\nUNRESOLVED (need a manual slug in SLUG_OVERRIDES, or truly absent):")
@@ -205,10 +169,7 @@ def refresh_existing(*, delay: float):
 
         soup = BeautifulSoup(html, "html.parser")
         fresh = {
-            "player": slug,
-            "csv_name": old.get("csv_name") or slug,
-            "bio": extract_bio(soup),
-            "competition_stats": extract_comp_stats(soup),
+            "player": slug, "csv_name": old.get("csv_name") or slug, "bio": extract_bio(soup), "competition_stats": extract_comp_stats(soup),
             "match_log": extract_match_log(soup),
         }
         retained_fields = []
@@ -218,14 +179,8 @@ def refresh_existing(*, delay: float):
                 retained[field] += 1
                 retained_fields.append(field)
 
-        competition_keys = {
-            (row.get("competition"), row.get("season"))
-            for row in fresh["competition_stats"]
-        }
-        historical_rows = [
-            row for row in old.get("competition_stats", [])
-            if (row.get("competition"), row.get("season")) not in competition_keys
-        ]
+        competition_keys = {(row.get("competition"), row.get("season")) for row in fresh["competition_stats"]}
+        historical_rows = [row for row in old.get("competition_stats", []) if (row.get("competition"), row.get("season")) not in competition_keys]
         fresh["competition_stats"].extend(historical_rows)
         retained_historical_competition_rows += len(historical_rows)
 
@@ -236,27 +191,18 @@ def refresh_existing(*, delay: float):
         else:
             unchanged += 1
             outcome = "unchanged"
-        results.append({"slug": slug, "status": outcome,
-                        "retained_fields": retained_fields})
+        results.append({"slug": slug, "status": outcome, "retained_fields": retained_fields})
         print(f"  [{i:>4}/{len(paths)}] {slug:<35} {outcome.upper()}")
 
     manifest = {
-        "created_at_utc": datetime.now(timezone.utc).isoformat(),
-        "source": "RugbyPass player profiles",
-        "mode": "full_existing_profile_refresh",
-        "total_profiles": len(paths),
-        "changed_profiles": changed,
-        "unchanged_profiles": unchanged,
-        "failed_profiles_kept": failed,
-        "retained_nonempty_sections": retained,
-        "retained_historical_competition_rows": retained_historical_competition_rows,
-        "results": results,
+        "created_at_utc": datetime.now(timezone.utc).isoformat(), "source": "RugbyPass player profiles", "mode": "full_existing_profile_refresh",
+        "total_profiles": len(paths), "changed_profiles": changed, "unchanged_profiles": unchanged, "failed_profiles_kept": failed,
+        "retained_nonempty_sections": retained, "retained_historical_competition_rows": retained_historical_competition_rows, "results": results,
     }
     manifest_path = f"{BASE}/data/rugbypass_refresh_{datetime.now(timezone.utc).date()}.json"
     os.makedirs(os.path.dirname(manifest_path), exist_ok=True)
     open(manifest_path, "w").write(json.dumps(manifest, indent=2))
-    print(f"FULL REFRESH profiles={len(paths)} changed={changed} unchanged={unchanged} "
-          f"failed_kept={failed} manifest={manifest_path}")
+    print(f"FULL REFRESH profiles={len(paths)} changed={changed} unchanged={unchanged} failed_kept={failed} manifest={manifest_path}")
     return manifest
 
 
@@ -264,8 +210,7 @@ def main():
     ap = argparse.ArgumentParser(description="Backfill RugbyPass for unmatched API players")
     ap.add_argument("--dry-run", action="store_true", help="resolve slugs only, no JSON written")
     ap.add_argument("--force", action="store_true", help="re-scrape even if JSON exists")
-    ap.add_argument("--refresh-existing", action="store_true",
-                    help="refresh every stored RugbyPass profile with degradation guards")
+    ap.add_argument("--refresh-existing", action="store_true", help="refresh every stored RugbyPass profile with degradation guards")
     ap.add_argument("--delay", type=float, default=0.4, help="seconds between requests")
     args = ap.parse_args()
 

@@ -9,13 +9,9 @@ import pandas as pd
 from pipeline.sources.compare_three_way import slug_key
 
 COMP_NUM_FIELDS = [
-    "games", "minutes", "tries", "try_assists", "points",
-    "carries", "metres", "av_gain", "post_contact_metres",
-    "defenders_beaten", "clean_breaks", "offloads", "handling_errors",
-    "passes", "bad_passes", "tackles", "missed_tackles",
-    "tackles_success_pct", "dominant_tackles", "turnovers_won",
-    "turnovers_conceded", "kicks_from_hand", "penalties_conceded",
-    "yellow_cards", "red_cards",
+    "games", "minutes", "tries", "try_assists", "points", "carries", "metres", "av_gain", "post_contact_metres", "defenders_beaten", "clean_breaks", "offloads",
+    "handling_errors", "passes", "bad_passes", "tackles", "missed_tackles", "tackles_success_pct", "dominant_tackles", "turnovers_won", "turnovers_conceded",
+    "kicks_from_hand", "penalties_conceded", "yellow_cards", "red_cards",
 ]
 
 LOG_NUM_FIELDS = ["mins", "tries", "conversions", "yellow_cards", "red_cards"]
@@ -61,79 +57,32 @@ def load_json_files():
 
 
 def build_bio(records) -> pd.DataFrame:
-    rows = []
-    for slug, d in records:
-        bio = d.get("bio") or {}
-        rows.append({
-            "key": slug_key(slug),
-            "slug": slug,
-            "nationality": bio.get("Nationality") or "",
-            "age": _parse_age(bio.get("Age")),
-            "position": bio.get("Position") or "",
-            "height_cm": _parse_height_cm(bio.get("Height")),
-            "weight_kg": _parse_weight_kg(bio.get("Weight")),
-        })
-    return pd.DataFrame(rows)
+    return pd.DataFrame([{"key": slug_key(slug), "slug": slug, "nationality": bio.get("Nationality") or "", "age": _parse_age(bio.get("Age")),
+                          "position": bio.get("Position") or "", "height_cm": _parse_height_cm(bio.get("Height")), "weight_kg": _parse_weight_kg(bio.get("Weight"))}
+                         for slug, bio in ((slug, d.get("bio") or {}) for slug, d in records)])
 
 
 def build_compstats(records) -> pd.DataFrame:
-    rows = []
-    for slug, d in records:
-        key = slug_key(slug)
-        for e in d.get("competition_stats", []):
-            rec = {
-                "key": key,
-                "slug": slug,
-                "competition": e.get("competition") or "",
-                "season": e.get("season") or "",
-            }
-            for c in COMP_NUM_FIELDS:
-                rec[c] = _num(e.get(c, 0))
-            rows.append(rec)
-    return pd.DataFrame(rows)
+    return pd.DataFrame([{"key": slug_key(slug), "slug": slug, "competition": e.get("competition") or "", "season": e.get("season") or "", **{c: _num(e.get(c, 0)) for c in COMP_NUM_FIELDS}}
+                         for slug, d in records for e in d.get("competition_stats", [])])
 
 
 def build_matchlog(records) -> pd.DataFrame:
-    rows = []
-    for slug, d in records:
-        key = slug_key(slug)
-        for e in d.get("match_log", []):
-            rec = {
-                "key": key,
-                "slug": slug,
-                "competition": e.get("competition") or "",
-                "match": e.get("match") or "",
-                "date": e.get("date") or "",
-                "opposition": e.get("opposition") or "",
-            }
-            for c in LOG_NUM_FIELDS:
-                rec[c] = _num(e.get(c, 0))
-            for c in LOG_BOOL_FIELDS:
-                rec[c] = bool(e.get(c, False))
-            rows.append(rec)
-    df = pd.DataFrame(rows)
-    if not df.empty:
-        iso = pd.to_datetime(df["date"], format="%d %b %Y", errors="coerce")
-        df["date"] = iso.dt.strftime("%Y-%m-%d").where(iso.notna(), "")
+    df = pd.DataFrame([{"key": slug_key(slug), "slug": slug, **{c: e.get(c) or "" for c in ("competition", "match", "date", "opposition")},
+                        **{c: _num(e.get(c, 0)) for c in LOG_NUM_FIELDS}, **{c: bool(e.get(c, False)) for c in LOG_BOOL_FIELDS}}
+                       for slug, d in records for e in d.get("match_log", [])])
+    iso = pd.to_datetime(df["date"], format="%d %b %Y", errors="coerce")
+    df["date"] = iso.dt.strftime("%Y-%m-%d").where(iso.notna(), "")
     return df
 
 
 def main():
     records = list(load_json_files())
     print(f"loaded {len(records)} RugbyPass JSON files")
-
-    bio = build_bio(records)
     comp = build_compstats(records)
-    log = build_matchlog(records)
-
-    for name, df in (("rp_bio", bio), ("rp_compstats", comp),
-                     ("rp_matchlog", log)):
-        path = f"data/{name}.csv"
-        df.to_csv(path, index=False)
-        key_nonnull = 100.0 * df["key"].notna().mean() if len(df) else 0.0
-        key_nonblank = 100.0 * (df["key"].astype(str).str.len() > 0).mean() if len(df) else 0.0
-        print(f"💾  {path}  rows={len(df)}  "
-              f"key non-null={key_nonnull:.1f}%  non-blank={key_nonblank:.1f}%")
+    for name, df in (("rp_bio", build_bio(records)), ("rp_compstats", comp), ("rp_matchlog", build_matchlog(records))):
+        df.to_csv(f"data/{name}.csv", index=False)
+        print(f"💾  data/{name}.csv  rows={len(df)}  key non-null={100.0 * df['key'].notna().mean():.1f}%  non-blank={100.0 * (df['key'].astype(str).str.len() > 0).mean():.1f}%")
 
     print("\nrp_compstats sample (3 rows):")
     print(comp.head(3).to_string())

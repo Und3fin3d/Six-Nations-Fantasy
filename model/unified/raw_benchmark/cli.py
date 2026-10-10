@@ -27,10 +27,8 @@ def main() -> None:
         print(json.dumps(run_audit(args.output), indent=2, sort_keys=True))
     elif args.command == "run":
         from .runner import run_benchmark
-        events, rankings = run_benchmark(
-            output_dir=args.output, engines=tuple(args.engines),
-            fold_labels=tuple(args.folds) if args.folds else None,
-        )
+
+        events, rankings = run_benchmark(output_dir=args.output, engines=tuple(args.engines), fold_labels=tuple(args.folds) if args.folds else None)
         print(f"wrote {len(events):,} event metric rows and {len(rankings):,} ranking rows")
 
 

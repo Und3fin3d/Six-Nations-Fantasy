@@ -34,12 +34,7 @@ class HttpResult:
         return json.loads(self.text)
 
 
-def _get(
-    url: str,
-    *,
-    headers: dict[str, str] | None = None,
-    params: dict[str, str] | None = None,
-) -> HttpResult:
+def _get(url: str, *, headers: dict[str, str] | None = None, params: dict[str, str] | None = None) -> HttpResult:
     if params:
         url = f"{url}?{urlencode(params)}"
     request_headers = {"User-Agent": "6n-fantasy-research/1.0"}
@@ -82,24 +77,12 @@ def discover_game(game: str) -> dict[str, Any]:
     return config
 
 
-def fetch_catalogue(
-    config: dict[str, Any],
-    language: str,
-) -> tuple[dict[str, Any], HttpResult]:
+def fetch_catalogue(config: dict[str, Any], language: str) -> tuple[dict[str, Any], HttpResult]:
     identity = str(config["identity"])
     version = str(config["version"])
     api_url = str(config["api_url"]).rstrip("/")
-    headers = {
-        "Accept": "application/json",
-        "Origin": BASE_URL,
-        "Referer": str(config["game_url"]),
-        "X-Access-Key": f"{identity}@{version}@",
-    }
-    response = _get(
-        f"{api_url}/public/sportifs",
-        params={"lg": language},
-        headers=headers,
-    )
+    headers = {"Accept": "application/json", "Origin": BASE_URL, "Referer": str(config["game_url"]), "X-Access-Key": f"{identity}@{version}@"}
+    response = _get(f"{api_url}/public/sportifs", params={"lg": language}, headers=headers)
     if response.status_code >= 400:
         return {}, response
     payload = response.json()
@@ -112,25 +95,9 @@ def _scalar(value: Any) -> bool:
     return value is None or isinstance(value, (str, int, float, bool))
 
 
-def _csv_rows(
-    players: list[dict[str, Any]],
-    metadata: dict[str, Any],
-) -> tuple[list[str], list[dict[str, Any]]]:
-    scalar_fields = sorted(
-        {
-            key
-            for player in players
-            for key, value in player.items()
-            if _scalar(value)
-        }
-    )
-    metadata_fields = [
-        "snapshot_utc",
-        "game",
-        "api_identity",
-        "api_version",
-        "site_active",
-    ]
+def _csv_rows(players: list[dict[str, Any]], metadata: dict[str, Any]) -> tuple[list[str], list[dict[str, Any]]]:
+    scalar_fields = sorted({key for player in players for key, value in player.items() if _scalar(value)})
+    metadata_fields = ["snapshot_utc", "game", "api_identity", "api_version", "site_active"]
     rows = []
     for player in players:
         row = {key: metadata[key] for key in metadata_fields}
@@ -139,12 +106,7 @@ def _csv_rows(
     return metadata_fields + scalar_fields, rows
 
 
-def write_snapshot(
-    output_dir: str,
-    game: str,
-    config: dict[str, Any],
-    payload: dict[str, Any],
-) -> tuple[str, str | None, int]:
+def write_snapshot(output_dir: str, game: str, config: dict[str, Any], payload: dict[str, Any]) -> tuple[str, str | None, int]:
     now = datetime.now(timezone.utc)
     stamp = now.strftime("%Y%m%dT%H%M%SZ")
     os.makedirs(output_dir, exist_ok=True)
@@ -154,20 +116,12 @@ def write_snapshot(
         raise RuntimeError("fantasy API payload has no list-valued 'sportifs' field")
 
     metadata = {
-        "snapshot_utc": now.isoformat(),
-        "game": game,
-        "api_identity": str(config["identity"]),
-        "api_version": str(config["version"]),
-        "site_active": bool(config.get("site_actif", False)),
-        "game_url": str(config["game_url"]),
-        "card_url": str(config["card_url"]),
+        "snapshot_utc": now.isoformat(), "game": game, "api_identity": str(config["identity"]), "api_version": str(config["version"]),
+        "site_active": bool(config.get("site_actif", False)), "game_url": str(config["game_url"]), "card_url": str(config["card_url"]),
         "player_count": len(players),
     }
     raw_path = f"{base}.json"
-    open(raw_path, "w").write(
-        json.dumps({"metadata": metadata, "response": payload}, indent=2, sort_keys=True)
-        + "\n"
-    )
+    open(raw_path, "w").write(json.dumps({"metadata": metadata, "response": payload}, indent=2, sort_keys=True) + "\n")
 
     csv_path = None
     if players:
@@ -185,11 +139,7 @@ def main() -> int:
     parser.add_argument("--game", choices=["m6n", "w6n"], default="m6n")
     parser.add_argument("--language", default="en")
     parser.add_argument("--output-dir", default=DEFAULT_OUTPUT)
-    parser.add_argument(
-        "--allow-unavailable",
-        action="store_true",
-        help="Return success when the closed-season API is unavailable or empty.",
-    )
+    parser.add_argument("--allow-unavailable", action="store_true", help="Return success when the closed-season API is unavailable or empty.")
     args = parser.parse_args()
 
     try:
@@ -200,25 +150,16 @@ def main() -> int:
         return 1
 
     if response.status_code >= 400:
-        print(
-            f"catalogue unavailable: HTTP {response.status_code}; "
-            f"site_active={bool(config.get('site_actif', False))}",
-            file=sys.stderr,
-        )
+        print(f"catalogue unavailable: HTTP {response.status_code}; site_active={bool(config.get('site_actif', False))}", file=sys.stderr)
         return 0 if args.allow_unavailable else 2
 
-    raw_path, csv_path, count = write_snapshot(
-        args.output_dir, args.game, config, payload
-    )
+    raw_path, csv_path, count = write_snapshot(args.output_dir, args.game, config, payload)
     print(f"saved raw snapshot: {raw_path}")
     if csv_path:
         print(f"saved player table: {csv_path}")
     print(f"players: {count}; site_active={bool(config.get('site_actif', False))}")
     if count == 0 and not args.allow_unavailable:
-        print(
-            "catalogue is empty; snapshots must be collected while the game is active",
-            file=sys.stderr,
-        )
+        print("catalogue is empty; snapshots must be collected while the game is active", file=sys.stderr)
         return 2
     return 0
 

@@ -15,31 +15,19 @@ DATA = Path("data/ncr")
 SCORE_WEIGHTS = {**NP.ATT, **NP.DEF, **NP.DISC}
 RESULT_START = "<!-- GW_RESULT_START -->"
 RESULT_END = "<!-- GW_RESULT_END -->"
-TEAM_FILES = {
-    "Bayes / NCR empirical": "ncr_gw{gw}_squad.csv",
-    "6N champion": "ncr_gw{gw}_squad_champion.csv",
-    "Blend": "ncr_gw{gw}_squad_blend.csv",
-}
+TEAM_FILES = {"Bayes / NCR empirical": "ncr_gw{gw}_squad.csv", "6N champion": "ncr_gw{gw}_squad_champion.csv", "Blend": "ncr_gw{gw}_squad_blend.csv"}
 
 
 def load_official_actuals(gw: int) -> dict[int, dict]:
     path = f"{DATA}/feeds/players_gw{gw}.json"
     players = json.load(open(path))["Data"]["Value"]["Players"]
-    payload_gws = {
-        int(float(p["gameday_id"]))
-        for p in players
-        if p.get("gameday_id") not in (None, "")
-    }
+    payload_gws = {int(float(p["gameday_id"])) for p in players if p.get("gameday_id") not in (None, "")}
     if payload_gws != {int(gw)}:
-        raise ValueError(
-            f"players_gw{gw}.json contains gameday_id {sorted(payload_gws)}, expected GW{gw}"
-        )
+        raise ValueError(f"players_gw{gw}.json contains gameday_id {sorted(payload_gws)}, expected GW{gw}")
     return {
         int(float(p["id"])): {
-            "points": float(p.get("cur_gd_points") or 0),
-            "status": p.get("player_status") or "",
-            "name": p.get("full_name") or p.get("display_name") or str(p["id"]),
-            "team": p.get("team_name") or "",
+            "points": float(p.get("cur_gd_points") or 0), "status": p.get("player_status") or "",
+            "name": p.get("full_name") or p.get("display_name") or str(p["id"]), "team": p.get("team_name") or "",
         }
         for p in players
     }
@@ -65,15 +53,12 @@ def score_squad_official(path: str, actuals: dict[int, dict]) -> tuple[pd.DataFr
                 multiplier, role = 0.0, "Super sub (did not play)"
         else:
             multiplier, role = 1.0, ""
-        rows.append({
-            "Player": player.name,
-            "Team": player.team,
-            "Base": points,
-            "Multiplier": multiplier,
-            "Contribution": points * multiplier,
-            "Role": role,
-            "POTM": False,
-        })
+        rows.append(
+            {
+                "Player": player.name, "Team": player.team, "Base": points, "Multiplier": multiplier, "Contribution": points * multiplier, "Role": role,
+                "POTM": False,
+            }
+        )
     result = pd.DataFrame(rows)
     return result, float(result["Contribution"].sum())
 
@@ -94,27 +79,16 @@ def actual_player_points(gw: int) -> tuple[pd.DataFrame, str]:
     hist = pd.read_csv(f"{DATA}/ncr_player_match.csv")
     played = hist[hist["date"].astype(str).eq(date)].copy()
     if played["fixture_id"].nunique() != 6 or len(played) != 276:
-        raise ValueError(
-            f"GW{gw} history is incomplete: {len(played)} rows, "
-            f"{played['fixture_id'].nunique()} fixtures (expected 276 and 6)"
-        )
+        raise ValueError(f"GW{gw} history is incomplete: {len(played)} rows, {played['fixture_id'].nunique()} fixtures (expected 276 and 6)")
     for column in SCORE_WEIGHTS:
         played[column] = pd.to_numeric(played[column], errors="coerce").fillna(0)
-    played["actual_points"] = sum(
-        played[column] * weight for column, weight in SCORE_WEIGHTS.items()
-    )
+    played["actual_points"] = sum(played[column] * weight for column, weight in SCORE_WEIGHTS.items())
 
     potm = pd.read_csv(f"{DATA}/ncr_potm.csv")
     potm_for_date = potm[potm["date"].astype(str).eq(date)]
     if potm_for_date["fixture_id"].nunique() != 6:
-        raise ValueError(
-            f"GW{gw} POTM data is incomplete: "
-            f"{potm_for_date['fixture_id'].nunique()} fixtures (expected 6)"
-        )
-    potm_ids = set(
-        pd.to_numeric(potm_for_date["player_id"], errors="coerce")
-        .dropna().astype(int)
-    )
+        raise ValueError(f"GW{gw} POTM data is incomplete: {potm_for_date['fixture_id'].nunique()} fixtures (expected 6)")
+    potm_ids = set(pd.to_numeric(potm_for_date["player_id"], errors="coerce").dropna().astype(int))
     played["potm"] = played["player_id"].astype(int).isin(potm_ids)
     played["actual_points"] += 15 * played["potm"].astype(int)
     return played, date
@@ -144,15 +118,12 @@ def score_squad(path: str, played: pd.DataFrame) -> tuple[pd.DataFrame, float]:
             role = "Super sub (bench)" if multiplier == 3 else "Super sub (started)"
         else:
             multiplier, role = 1.0, ""
-        rows.append({
-            "Player": player.name,
-            "Team": player.team,
-            "Base": points,
-            "Multiplier": multiplier,
-            "Contribution": points * multiplier,
-            "Role": role,
-            "POTM": bool(actual["potm"]),
-        })
+        rows.append(
+            {
+                "Player": player.name, "Team": player.team, "Base": points, "Multiplier": multiplier, "Contribution": points * multiplier, "Role": role,
+                "POTM": bool(actual["potm"]),
+            }
+        )
     result = pd.DataFrame(rows)
     return result, float(result["Contribution"].sum())
 
@@ -161,44 +132,25 @@ def number(value: float) -> str:
     return str(int(value)) if float(value).is_integer() else f"{value:.1f}"
 
 
-def result_section(
-    gw: int,
-    date: str,
-    selected_label: str,
-    selected: pd.DataFrame,
-    totals: dict[str, float],
-    source: str,
-) -> str:
+def result_section(gw: int, date: str, selected_label: str, selected: pd.DataFrame, totals: dict[str, float], source: str) -> str:
     lines = [
-        RESULT_START,
-        f"## GW{gw} scored result",
-        "",
-        f"**{selected_label}: {number(totals[selected_label])} points**",
-        "",
-        "| Model team | Points |",
+        RESULT_START, f"## GW{gw} scored result", "", f"**{selected_label}: {number(totals[selected_label])} points**", "", "| Model team | Points |",
         "|---|---:|",
     ]
     lines.extend(f"| {label} | **{number(total)}** |" for label, total in totals.items())
-    lines.extend([
-        "",
-        f"### {selected_label} player contributions",
-        "",
-        "| Player | Nation | Base points | Multiplier | Contribution | Role |",
-        "|---|---|---:|---:|---:|---|",
-    ])
+    lines.extend(
+        [
+            "", f"### {selected_label} player contributions", "", "| Player | Nation | Base points | Multiplier | Contribution | Role |",
+            "|---|---|---:|---:|---:|---|",
+        ]
+    )
     for row in selected.itertuples(index=False):
         potm = " + POTM" if row.POTM else ""
         role = f"{row.Role}{potm}".strip()
-        lines.append(
-            f"| {row.Player} | {row.Team} | {number(row.Base)} | "
-            f"{number(row.Multiplier)}x | **{number(row.Contribution)}** | {role} |"
-        )
+        lines.append(f"| {row.Player} | {row.Team} | {number(row.Base)} | {number(row.Multiplier)}x | **{number(row.Contribution)}** | {role} |")
     lines.append("")
     if source == "official":
-        lines.append(
-            f"Platform-confirmed result from the gameweek-versioned official GW{gw} "
-            f"fantasy feed, covering the fixtures on {date}."
-        )
+        lines.append(f"Platform-confirmed result from the gameweek-versioned official GW{gw} fantasy feed, covering the fixtures on {date}.")
     else:
         lines.append(
             f"Scored from the six ingested fixtures on {date}. This is an "
@@ -212,9 +164,7 @@ def result_section(
 
 def update_markdown(path: str, section: str) -> None:
     text = open(path).read()
-    pattern = re.compile(
-        rf"\n*{re.escape(RESULT_START)}.*?{re.escape(RESULT_END)}\n?", re.DOTALL
-    )
+    pattern = re.compile(rf"\n*{re.escape(RESULT_START)}.*?{re.escape(RESULT_END)}\n?", re.DOTALL)
     text = pattern.sub("\n", text).rstrip() + "\n\n" + section + "\n"
     open(path, "w").write(text)
 
@@ -227,8 +177,7 @@ def main() -> None:
 
     date = gameweek_date(args.gw)
     squads = {
-        label: f"{DATA}/{template.format(gw=args.gw)}" for label, template in TEAM_FILES.items()
-        if os.path.exists(f"{DATA}/{template.format(gw=args.gw)}")
+        label: f"{DATA}/{template.format(gw=args.gw)}" for label, template in TEAM_FILES.items() if os.path.exists(f"{DATA}/{template.format(gw=args.gw)}")
     }
     scored: dict[str, pd.DataFrame] = {}
     totals: dict[str, float] = {}
@@ -250,9 +199,7 @@ def main() -> None:
     if args.update_markdown:
         for label, csv_path in squads.items():
             path = csv_path.removesuffix(".csv") + ".md"
-            update_markdown(
-                path, result_section(args.gw, date, label, scored[label], totals, source)
-            )
+            update_markdown(path, result_section(args.gw, date, label, scored[label], totals, source))
             print(f"  updated {path}")
 
 

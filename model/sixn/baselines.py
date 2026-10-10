@@ -12,20 +12,17 @@ from model.sixn.data import CATEGORICAL_COLS, feature_view
 from model.sixn.splits import group_kfold_indices
 
 SCORED = [
-    "tries", "tackles", "metres", "try_assists", "conversion_goals",
-    "penalty_goals", "drop_goals_converted", "defenders_beaten", "offload",
-    "tackle_turnover", "penalties_conceded", "yellow_cards", "red_cards",
+    "tries", "tackles", "metres", "try_assists", "conversion_goals", "penalty_goals", "drop_goals_converted", "defenders_beaten", "offload", "tackle_turnover",
+    "penalties_conceded", "yellow_cards", "red_cards",
 ]
 FORM_COL = {c: f"form_per80_{c}" for c in SCORED}
 FORM_COL["yellow_cards"] = None
 FORM_COL["red_cards"] = None
 
 COMP_KIND = {
-    "tackles": "rate", "metres": "continuous",
-    "tries": "count", "try_assists": "count", "defenders_beaten": "count",
-    "offload": "count", "tackle_turnover": "count", "penalties_conceded": "count",
-    "conversion_goals": "kick", "penalty_goals": "kick",
-    "drop_goals_converted": "rare", "red_cards": "rare", "yellow_cards": "card",
+    "tackles": "rate", "metres": "continuous", "tries": "count", "try_assists": "count", "defenders_beaten": "count", "offload": "count",
+    "tackle_turnover": "count", "penalties_conceded": "count", "conversion_goals": "kick", "penalty_goals": "kick", "drop_goals_converted": "rare",
+    "red_cards": "rare", "yellow_cards": "card",
 }
 
 MIN_MINUTES = 10
@@ -48,9 +45,7 @@ def numeric_cols(df: pd.DataFrame, mode: str) -> list[str]:
     return [c for c in feature_view(df, mode) if c not in CATEGORICAL_COLS]
 
 
-def build_matrix(
-    df: pd.DataFrame, train_idx: np.ndarray, test_idx: np.ndarray, mode: str
-) -> tuple[np.ndarray, np.ndarray, list[str]]:
+def build_matrix(df: pd.DataFrame, train_idx: np.ndarray, test_idx: np.ndarray, mode: str) -> tuple[np.ndarray, np.ndarray, list[str]]:
     cols = numeric_cols(df, mode)
     Xtr = df.iloc[train_idx][cols].astype(float)
     Xte = df.iloc[test_idx][cols].astype(float)
@@ -61,9 +56,7 @@ def build_matrix(
     return sc.transform(Xtr.to_numpy()), sc.transform(Xte.to_numpy()), cols
 
 
-def expected_minutes(
-    df: pd.DataFrame, train_idx: np.ndarray, test_idx: np.ndarray, mode: str
-) -> np.ndarray:
+def expected_minutes(df: pd.DataFrame, train_idx: np.ndarray, test_idx: np.ndarray, mode: str) -> np.ndarray:
     tr = df.iloc[train_idx]
     pos_mean = tr.loc[tr["minutes"] >= MIN_MINUTES].groupby("canonical_pos")["minutes"].mean()
     glob = float(tr.loc[tr["minutes"] >= MIN_MINUTES, "minutes"].mean())
@@ -86,32 +79,24 @@ def expected_minutes(
 
 
 def _rate_target(df: pd.DataFrame, comp: str) -> np.ndarray:
-    ms = (df["minutes"].to_numpy(float) / 80.0)
+    ms = df["minutes"].to_numpy(float) / 80.0
     with np.errstate(divide="ignore", invalid="ignore"):
         r = df[f"y_{comp}"].to_numpy(float) / ms
     return r
 
 
-def rates_to_components(
-    rates: pd.DataFrame, minutes_hat: np.ndarray
-) -> pd.DataFrame:
-    factor = (minutes_hat / 80.0)
+def rates_to_components(rates: pd.DataFrame, minutes_hat: np.ndarray) -> pd.DataFrame:
+    factor = minutes_hat / 80.0
     comp = rates.clip(lower=0.0).multiply(factor, axis=0)
     return comp
 
 
 def score_recon(comp: pd.DataFrame, is_forward: np.ndarray) -> np.ndarray:
     recs = comp[SCORED].to_dict("records")
-    return np.array(
-        [score_components(c, bool(f)) for c, f in zip(recs, is_forward)],
-        dtype=float,
-    )
+    return np.array([score_components(c, bool(f)) for c, f in zip(recs, is_forward)], dtype=float)
 
 
-def predict_rates(
-    df: pd.DataFrame, train_idx: np.ndarray, test_idx: np.ndarray,
-    mode: str, engine: str,
-) -> pd.DataFrame:
+def predict_rates(df: pd.DataFrame, train_idx: np.ndarray, test_idx: np.ndarray, mode: str, engine: str) -> pd.DataFrame:
     if engine == "naive":
         return _rates_naive(df, train_idx, test_idx)
     return _rates_linear(df, train_idx, test_idx, mode, engine)
@@ -141,9 +126,7 @@ def _rates_naive(df: pd.DataFrame, train_idx: np.ndarray, test_idx: np.ndarray) 
     return out.clip(lower=0.0)
 
 
-def _rates_linear(
-    df: pd.DataFrame, train_idx: np.ndarray, test_idx: np.ndarray, mode: str, engine: str
-) -> pd.DataFrame:
+def _rates_linear(df: pd.DataFrame, train_idx: np.ndarray, test_idx: np.ndarray, mode: str, engine: str) -> pd.DataFrame:
     tr_full = df.iloc[train_idx]
     keep = (tr_full["minutes"] >= MIN_MINUTES).to_numpy()
     use_train_idx = train_idx[keep]
@@ -162,8 +145,7 @@ def _rates_linear(
                 mdl = RidgeCV(alphas=(1.0, 10.0, 100.0)).fit(Xtr, y)
                 pred = mdl.predict(Xte)
             elif engine == "bayesian":
-                pred = _bayesian_component_predict(
-                    df, use_train_idx, test_idx, Xtr, Xte, y, comp)
+                pred = _bayesian_component_predict(df, use_train_idx, test_idx, Xtr, Xte, y, comp)
             else:
                 if comp == "metres":
                     mdl = TweedieRegressor(power=1.3, alpha=1.0, max_iter=400)
@@ -176,13 +158,7 @@ def _rates_linear(
 
 
 def _bayesian_component_predict(
-    df: pd.DataFrame,
-    train_idx: np.ndarray,
-    test_idx: np.ndarray,
-    Xtr: np.ndarray,
-    Xte: np.ndarray,
-    y: np.ndarray,
-    comp: str,
+    df: pd.DataFrame, train_idx: np.ndarray, test_idx: np.ndarray, Xtr: np.ndarray, Xte: np.ndarray, y: np.ndarray, comp: str
 ) -> np.ndarray:
     te = df.iloc[test_idx]
     by_pos, glob = _position_rate_prior(df, train_idx, comp)
@@ -208,7 +184,7 @@ def _bayesian_component_predict(
     a_inv_xte = np.linalg.solve(a, Xte_aug.T)
     mean = Xte_aug @ coef
     resid = y_fit - Xtr_aug @ coef
-    sigma2 = float(np.mean(resid ** 2))
+    sigma2 = float(np.mean(resid**2))
     if not np.isfinite(sigma2) or sigma2 < 1e-6:
         sigma2 = float(np.var(y_fit) + 1e-6)
     leverage = np.sum(Xte_aug * a_inv_xte.T, axis=1)

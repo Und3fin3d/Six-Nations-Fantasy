@@ -17,7 +17,7 @@ def add_v4_base_stats(store: pd.DataFrame) -> pd.DataFrame:
     player = df.groupby("player_id", sort=False)
     is_intl = df["competition_level"].eq("international").astype(float)
     df["intl_prior_matches"] = is_intl.groupby(df["player_id"]).cumsum() - is_intl
-    df["club_prior_matches"] = (1.0-is_intl).groupby(df["player_id"]).cumsum() - (1.0-is_intl)
+    df["club_prior_matches"] = (1.0 - is_intl).groupby(df["player_id"]).cumsum() - (1.0 - is_intl)
 
     minutes = pd.to_numeric(df["minutes"], errors="coerce")
     for event in EB_EVENTS:
@@ -29,19 +29,14 @@ def add_v4_base_stats(store: pd.DataFrame) -> pd.DataFrame:
 
         for level, mask in (("intl", is_intl.astype(bool)), ("club", ~is_intl.astype(bool))):
             level_per80 = per80.where(mask)
-            df[f"form_per80_{level}__{event}"] = grouped_ewm(
-                level_per80, df["player_id"], shifted=True, halflife=4)
+            df[f"form_per80_{level}__{event}"] = grouped_ewm(level_per80, df["player_id"], shifted=True, halflife=4)
 
         df[f"cum_count__{event}"] = count.fillna(0).groupby(df["player_id"]).cumsum() - count.fillna(0)
         df[f"cum_min__{event}"] = mins.fillna(0).groupby(df["player_id"]).cumsum() - mins.fillna(0)
 
         group = [df["position"].fillna("unknown"), df["competition_level"].fillna("unknown")]
-        df[f"prior_per80__{event}"] = per80.groupby(group).transform(
-            lambda x: x.shift(1).expanding(min_periods=5).mean()
-        )
-        overall = per80.groupby(df["competition_level"].fillna("unknown")).transform(
-            lambda x: x.shift(1).expanding(min_periods=1).mean()
-        )
+        df[f"prior_per80__{event}"] = per80.groupby(group).transform(lambda x: x.shift(1).expanding(min_periods=5).mean())
+        overall = per80.groupby(df["competition_level"].fillna("unknown")).transform(lambda x: x.shift(1).expanding(min_periods=1).mean())
         df[f"prior_per80__{event}"] = df[f"prior_per80__{event}"].fillna(overall).fillna(0.0)
     return df.copy()
 
@@ -57,10 +52,7 @@ def fit_shrinkage_k(train: pd.DataFrame) -> dict[str, float]:
             continue
         mins = pd.to_numeric(sub["minutes"], errors="coerce")
         counts = pd.to_numeric(sub[event], errors="coerce").clip(lower=0)
-        agg = pd.DataFrame({
-            "count": counts.groupby(sub["player_id"]).sum(),
-            "mins": mins.groupby(sub["player_id"]).sum(),
-        })
+        agg = pd.DataFrame({"count": counts.groupby(sub["player_id"]).sum(), "mins": mins.groupby(sub["player_id"]).sum()})
         agg = agg[agg["mins"] >= 80.0]
         if len(agg) < 50:
             out[event] = K_DEFAULT

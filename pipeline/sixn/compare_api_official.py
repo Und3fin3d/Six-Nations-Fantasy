@@ -6,26 +6,13 @@ import pandas as pd
 
 
 OFFICIAL = {
-    2023: "data/official/2023/Six_Nations_Data_2023.xlsx",
-    2025: "data/official/2025/sixnationsmatch.xlsx",
-    2026: "data/official/2026/sixnationmatch.xlsx",
+    2023: "data/official/2023/Six_Nations_Data_2023.xlsx", 2025: "data/official/2025/sixnationsmatch.xlsx", 2026: "data/official/2026/sixnationmatch.xlsx",
 }
 
 STAT_MAP = {
-    "Min":  "minutes",
-    "T":    "tries",
-    "As":   "try_assists",
-    "C":    "conversion_goals",
-    "Pen":  "penalty_goals",
-    "MC":   "metres",
-    "DB":   "defenders_beaten",
-    "Ta":   "tackles",
-    "CPen": "penalties_conceded",
-    "DG":   "drop_goals_converted",
-    "OF":   "offload",
-    "YC":   "yellow_cards",
-    "RC":   "red_cards",
-    "BS":   "tackle_turnover",
+    "Min": "minutes", "T": "tries", "As": "try_assists", "C": "conversion_goals", "Pen": "penalty_goals", "MC": "metres", "DB": "defenders_beaten",
+    "Ta": "tackles", "CPen": "penalties_conceded", "DG": "drop_goals_converted", "OF": "offload", "YC": "yellow_cards", "RC": "red_cards",
+    "BS": "tackle_turnover",
 }
 API_BLIND = ["50-22", "KR", "LS", "POTM", "SW"]
 
@@ -61,8 +48,7 @@ def parse_official(path: str, season: int) -> pd.DataFrame:
                 continue
             if labels is None or not isinstance(cell0, str) or not cell0.strip():
                 continue
-            rec = {"season": season, "round": r_idx, "team": team,
-                   "name": cell0.strip(), "key": norm_key(cell0)}
+            rec = {"season": season, "round": r_idx, "team": team, "name": cell0.strip(), "key": norm_key(cell0)}
             for lab, v in zip(labels[1:], vals[1:]):
                 rec[lab] = v
             out.append(rec)
@@ -89,8 +75,7 @@ def compare():
     chk = off.merge(api_u[keys4].assign(_hit=1), on=keys4, how="left")
     unmatched = chk[chk["_hit"].isna()]
     print("=" * 74)
-    print(f"JOIN  | official rows: {len(off)}   matched: {len(j)} "
-          f"({100*len(j)/len(off):.0f}%)   unmatched: {len(unmatched)}")
+    print(f"JOIN  | official rows: {len(off)}   matched: {len(j)} ({100 * len(j) / len(off):.0f}%)   unmatched: {len(unmatched)}")
     if len(unmatched):
         ex = unmatched.groupby("season").size().to_dict()
         print(f"      | unmatched by season: {ex}")
@@ -118,8 +103,7 @@ def compare():
         meand = (o - a).mean()
         mae = (o - a).abs().mean()
         rows_report.append((lab, apicol, n, corr, exact, ratio, meand, mae))
-        print(f"{lab:<14}{n:>5}{corr:>7.3f}{exact:>7.0f}%"
-              f"{ratio:>14.2f}x{meand:>13.2f}{mae:>7.2f}")
+        print(f"{lab:<14}{n:>5}{corr:>7.3f}{exact:>7.0f}%{ratio:>14.2f}x{meand:>13.2f}{mae:>7.2f}")
     print("-" * len(hdr))
     print("ratio  = API total / official total  (1.00 = identical volume)")
     print("mean Δ = official minus API per player-match (+ = API undercounts)")
@@ -127,25 +111,25 @@ def compare():
     o = pd.to_numeric(j["MC"], errors="coerce").fillna(0)
     a = pd.to_numeric(j["metres"], errors="coerce").fillna(0)
     nz = (o > 0) & (a > 0)
-    print("\nMETRES detail (rows where both > 0): "
-          f"median ratio API/official = {(a[nz]/o[nz]).median():.3f}, "
-          f"official is {100*(o[nz].sum()/a[nz].sum()-1):.1f}% higher in total")
+    print(
+        "\nMETRES detail (rows where both > 0): "
+        f"median ratio API/official = {(a[nz] / o[nz]).median():.3f}, "
+        f"official is {100 * (o[nz].sum() / a[nz].sum() - 1):.1f}% higher in total"
+    )
 
     print("\nFANTASY POINTS  official Pts  vs  fantasy_pts_recon")
     o = j["Pts"].astype(float)
     a = j["fantasy_pts_recon"].astype(float)
-    print(f"  overall   n={len(j)}  corr={o.corr(a):.3f}  "
-          f"recon captures {100*a.sum()/o.sum():.0f}% of total points  "
-          f"mean gap(o-a)={ (o-a).mean():.1f}")
-    by = (j.assign(off=o, rec=a, gap=o - a)
-            .groupby("canonical_pos")
-            .agg(n=("gap", "size"), corr=("off", lambda s: s.corr(a.loc[s.index])),
-                 off_mean=("off", "mean"), rec_mean=("rec", "mean"),
-                 gap_mean=("gap", "mean"))
-            .sort_values("gap_mean", ascending=False))
+    print(f"  overall   n={len(j)}  corr={o.corr(a):.3f}  recon captures {100 * a.sum() / o.sum():.0f}% of total points  mean gap(o-a)={(o - a).mean():.1f}")
+    by = (
+        j.assign(off=o, rec=a, gap=o - a)
+        .groupby("canonical_pos")
+        .agg(n=("gap", "size"), corr=("off", lambda s: s.corr(a.loc[s.index])), off_mean=("off", "mean"), rec_mean=("rec", "mean"), gap_mean=("gap", "mean"))
+        .sort_values("gap_mean", ascending=False)
+    )
     print(by.round(2).to_string())
 
-    j["_gap"] = (j["Pts"].astype(float) - j["fantasy_pts_recon"].astype(float))
+    j["_gap"] = j["Pts"].astype(float) - j["fantasy_pts_recon"].astype(float)
     worst = j.reindex(j["_gap"].abs().sort_values(ascending=False).index).head(12)
     print("\nLARGEST per-match point gaps (official − recon):")
     for _, r in worst.iterrows():
@@ -154,10 +138,12 @@ def compare():
             v = r.get(lab, 0)
             if lab in j.columns and pd.notna(v) and v:
                 extras.append(f"{lab}={int(v)}")
-        print(f"  {r['name']:<22} {int(r['season'])} R{int(r['round'])} "
-              f"{r['canonical_pos'] or '?':<11} off={int(r['Pts']):>3} "
-              f"recon={int(r['fantasy_pts_recon']):>3} gap={int(r['_gap']):>4}"
-              f"   {' '.join(extras)}")
+        print(
+            f"  {r['name']:<22} {int(r['season'])} R{int(r['round'])} "
+            f"{r['canonical_pos'] or '?':<11} off={int(r['Pts']):>3} "
+            f"recon={int(r['fantasy_pts_recon']):>3} gap={int(r['_gap']):>4}"
+            f"   {' '.join(extras)}"
+        )
 
     print("\nAPI BLIND SPOTS (official-only events, total over matched rows):")
     for lab in API_BLIND:

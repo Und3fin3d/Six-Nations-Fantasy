@@ -11,26 +11,15 @@ from ..v4.gbdt import V4GBDT
 from .blend import EventBlend50
 from .config import CORE_ENGINE_ORDER, ENGINE_ORDER, EXTENDED_EVENTS, OUT, STABLE_EVENTS
 from .empirical import EmpiricalEventModel
-from .folds import (
-    HistoricalFold, build_folds, evaluation_frame, masked_candidates,
-    strict_training_frame, write_fold_manifest,
-)
+from .folds import HistoricalFold, build_folds, evaluation_frame, masked_candidates, strict_training_frame, write_fold_manifest
 from .features import build_frozen_feature_frames
 from .metrics import NaiveComparator, event_metrics, ranking_metrics
 
 
-def _fit_engine(
-    engine: str, train: pd.DataFrame, fold: HistoricalFold,
-    prepared_train: pd.DataFrame | None = None,
-):
+def _fit_engine(engine: str, train: pd.DataFrame, fold: HistoricalFold, prepared_train: pd.DataFrame | None = None):
     if engine == "v4":
-        features = prepared_train if prepared_train is not None else build_frozen_feature_frames(
-            train, train.iloc[0:0], v4=True,
-        )[0]
-        return V4GBDT(
-            events=(*STABLE_EVENTS, *EXTENDED_EVENTS), weighting="natural",
-            pool_player_id=True, player_effects=True,
-        ).fit(features)
+        features = prepared_train if prepared_train is not None else build_frozen_feature_frames(train, train.iloc[0:0], v4=True)[0]
+        return V4GBDT(events=(*STABLE_EVENTS, *EXTENDED_EVENTS), weighting="natural", pool_player_id=True, player_effects=True).fit(features)
     return EmpiricalEventModel(asof=fold.cutoff).fit(train)
 
 
@@ -47,8 +36,7 @@ def _load_model(engine: str, path: str):
 
 
 def _predict_fixturewise(
-    model, engine: str, train: pd.DataFrame, evaluation: pd.DataFrame,
-    prepared_evaluation: pd.DataFrame | None = None,
+    model, engine: str, train: pd.DataFrame, evaluation: pd.DataFrame, prepared_evaluation: pd.DataFrame | None = None
 ) -> list[RawPrediction]:
     if prepared_evaluation is not None:
         if engine in {"v4", "p3_event_50"}:
@@ -58,16 +46,11 @@ def _predict_fixturewise(
     for fixture_id, block in evaluation.groupby("fixture_id", sort=False):
         candidates = masked_candidates(block)
         if engine in {"v4", "p3_event_50"}:
-            _, candidate_features = build_frozen_feature_frames(
-                train, candidates, v4=True,
-            )
+            _, candidate_features = build_frozen_feature_frames(train, candidates, v4=True)
             predicted = model.predict_frame(candidate_features)
         else:
             predicted = model.predict_frame(candidates)
-        by_key = {
-            (prediction.fixture_id, prediction.player_id, prediction.team): prediction
-            for prediction in predicted
-        }
+        by_key = {(prediction.fixture_id, prediction.player_id, prediction.team): prediction for prediction in predicted}
         for row in block.itertuples(index=False):
             key = (str(row.fixture_id), str(row.player_id), str(row.team))
             output[int(row.benchmark_row_id)] = by_key[key]
@@ -103,8 +86,7 @@ def _write_table(path: str, frame: pd.DataFrame) -> None:
 
 
 def run_benchmark(
-    *, output_dir: str = OUT, engines: tuple[str, ...] = ENGINE_ORDER,
-    fold_labels: tuple[str, ...] | None = None,
+    *, output_dir: str = OUT, engines: tuple[str, ...] = ENGINE_ORDER, fold_labels: tuple[str, ...] | None = None
 ) -> tuple[pd.DataFrame, pd.DataFrame]:
     store_path = f"{output_dir}/player_match.csv"
     if not os.path.exists(store_path):
@@ -135,17 +117,11 @@ def run_benchmark(
         def needs_model_work(name: str) -> bool:
             artifact_path = f"{output_dir}/models/{name}/{fold.label}.pkl"
             prediction_path = _prediction_path(output_dir, name, fold)
-            return (
-                not os.path.exists(artifact_path)
-                or not os.path.exists(prediction_path)
-                or (force_blend_dependencies and name in {"empirical_event", "v4"})
-            )
+            return not os.path.exists(artifact_path) or not os.path.exists(prediction_path) or (force_blend_dependencies and name in {"empirical_event", "v4"})
 
         v4_train = v4_evaluation = None
         if any(needs_model_work(name) for name in set(requested) & {"v4", "p3_event_50"}):
-            v4_train, v4_evaluation = build_frozen_feature_frames(
-                train, candidates, v4=True,
-            )
+            v4_train, v4_evaluation = build_frozen_feature_frames(train, candidates, v4=True)
         for engine in requested:
             artifact = f"{output_dir}/models/{engine}/{fold.label}.pkl"
             manifest = f"{output_dir}/manifests/{engine}/{fold.label}.json"
@@ -167,18 +143,10 @@ def run_benchmark(
             if os.path.exists(prediction_path):
                 predictions = _read_predictions(prediction_path)
             else:
-                prepared_evaluation = (
-                    v4_evaluation if engine in {"v4", "p3_event_50"} else None
-                )
-                predictions = _predict_fixturewise(
-                    model, engine, train, evaluation,
-                    prepared_evaluation=prepared_evaluation,
-                )
+                prepared_evaluation = v4_evaluation if engine in {"v4", "p3_event_50"} else None
+                predictions = _predict_fixturewise(model, engine, train, evaluation, prepared_evaluation=prepared_evaluation)
                 _write_predictions(prediction_path, predictions)
-            write_fold_manifest(
-                manifest, fold, train, evaluation, store_path=store_path,
-                artifact_paths=(artifact, prediction_path), engine=engine,
-            )
+            write_fold_manifest(manifest, fold, train, evaluation, store_path=store_path, artifact_paths=(artifact, prediction_path), engine=engine)
             if engine not in engines:
                 continue
             event_metric_path = f"{output_dir}/metrics/events/{engine}/{fold.label}.csv"
@@ -187,18 +155,16 @@ def run_benchmark(
                 fold_events = pd.read_csv(event_metric_path)
             else:
                 print(f"[{fold.label}] metrics {engine}", flush=True)
-                fold_events = event_metrics(
-                    evaluation, predictions, naive, engine=engine, fold=fold.label,
-                ).assign(tournament=fold.tournament, calendar_year=fold.calendar_year,
-                         fold_hemisphere=fold.hemisphere)
+                fold_events = event_metrics(evaluation, predictions, naive, engine=engine, fold=fold.label).assign(
+                    tournament=fold.tournament, calendar_year=fold.calendar_year, fold_hemisphere=fold.hemisphere
+                )
                 _write_table(event_metric_path, fold_events)
             if os.path.exists(ranking_metric_path):
                 fold_rankings = pd.read_csv(ranking_metric_path)
             else:
-                fold_rankings = ranking_metrics(
-                    evaluation, predictions, engine=engine, fold=fold.label,
-                ).assign(tournament=fold.tournament, calendar_year=fold.calendar_year,
-                         fold_hemisphere=fold.hemisphere)
+                fold_rankings = ranking_metrics(evaluation, predictions, engine=engine, fold=fold.label).assign(
+                    tournament=fold.tournament, calendar_year=fold.calendar_year, fold_hemisphere=fold.hemisphere
+                )
                 _write_table(ranking_metric_path, fold_rankings)
             event_frames.append(fold_events)
             ranking_frames.append(fold_rankings)
@@ -206,10 +172,7 @@ def run_benchmark(
     events = pd.concat(event_frames, ignore_index=True, sort=False) if event_frames else pd.DataFrame()
     rankings = pd.concat(ranking_frames, ignore_index=True, sort=False) if ranking_frames else pd.DataFrame()
     if fold_labels or tuple(engines) != tuple(CORE_ENGINE_ORDER):
-        partial_key = json.dumps({
-            "folds": sorted(fold_labels or (fold.label for fold in folds)),
-            "engines": list(engines),
-        }, sort_keys=True).encode()
+        partial_key = json.dumps({"folds": sorted(fold_labels or (fold.label for fold in folds)), "engines": list(engines)}, sort_keys=True).encode()
         suffix = "_partial_" + hashlib.sha256(partial_key).hexdigest()[:16]
     else:
         suffix = ""

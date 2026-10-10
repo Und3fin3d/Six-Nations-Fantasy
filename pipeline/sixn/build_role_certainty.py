@@ -43,19 +43,13 @@ def _position_lineout_prior(pos: pd.Series) -> pd.Series:
 
 
 def _within_team_roles(g: pd.DataFrame) -> pd.DataFrame:
-    out = g[[
-        "season", "round", "fixture_id", "team_id", "team",
-        "player_id", "player_name",
-    ]].copy()
+    out = g[["season", "round", "fixture_id", "team_id", "team", "player_id", "player_name"]].copy()
     started = g["started"].astype(bool)
     jersey = _safe_num(g["jersey"], 0)
     pos = g["canonical_pos"].astype(str)
     bench = ~started
 
-    kick_history = (
-        _safe_num(g["role_goal_kicker_rate"], 0.0)
-        * (1.0 + np.log1p(_safe_num(g["role_kick_attempts"], 0.0)))
-    )
+    kick_history = _safe_num(g["role_goal_kicker_rate"], 0.0) * (1.0 + np.log1p(_safe_num(g["role_kick_attempts"], 0.0)))
     kick_signal = kick_history + 0.15 * _position_kick_prior(pos, jersey)
     kick_signal = kick_signal * np.where(started, 1.0, 0.45)
     kick_prob = _normalise_positive(kick_signal)
@@ -66,41 +60,24 @@ def _within_team_roles(g: pd.DataFrame) -> pd.DataFrame:
     out["rolecert_kicking_ambiguity"] = 1.0 - top_kick
 
     bench_creator = bench & (pos.isin(BACK_POSITIONS) | jersey.isin(BENCH_CREATOR_JERSEYS))
-    out["rolecert_bench_fh_kick_share"] = np.where(
-        bench_creator,
-        kick_prob.to_numpy(float),
-        0.0,
-    )
-    out["rolecert_bench_kick_takeover_risk"] = np.where(
-        bench_creator,
-        kick_prob.to_numpy(float) * top_kick,
-        0.0,
-    )
+    out["rolecert_bench_fh_kick_share"] = np.where(bench_creator, kick_prob.to_numpy(float), 0.0)
+    out["rolecert_bench_kick_takeover_risk"] = np.where(bench_creator, kick_prob.to_numpy(float) * top_kick, 0.0)
 
-    lineout_signal = (
-        _safe_num(g["role_lineout_per80"], 0.0)
-        + _position_lineout_prior(pos)
-    ) * np.where(started, 1.0, 0.35)
+    lineout_signal = (_safe_num(g["role_lineout_per80"], 0.0) + _position_lineout_prior(pos)) * np.where(started, 1.0, 0.35)
     lineout_prob = _normalise_positive(lineout_signal)
     top_lineout = float(lineout_prob.max()) if len(lineout_prob) else 0.0
     out["rolecert_lineout_role_prob"] = lineout_prob.to_numpy(float)
     out["rolecert_primary_lineout_role"] = (lineout_prob >= top_lineout - 1e-12).astype(float)
     out["rolecert_team_lineout_confidence"] = top_lineout
 
-    potm_signal = (
-        _safe_num(g["role_potm_rate"], 0.0)
-        + 0.02 * _safe_num(g["role_potm_n_label"], 0.0)
-        + 0.01 * started.astype(float)
-    )
+    potm_signal = _safe_num(g["role_potm_rate"], 0.0) + 0.02 * _safe_num(g["role_potm_n_label"], 0.0) + 0.01 * started.astype(float)
     out["rolecert_potm_role_prob"] = _normalise_positive(potm_signal).to_numpy(float)
 
     form_start = _safe_num(g["form_start_rate"], 0.0).clip(0.0, 1.0)
     recent_minutes = _safe_num(g["form_minutes_recent"], 0.0).clip(0.0, 80.0) / 80.0
     bench_back = bench & pos.isin(BACK_POSITIONS)
     out["rolecert_replacement_role_uncertainty"] = np.where(
-        bench,
-        (0.55 + 0.25 * bench_back.astype(float)) * (1.0 - 0.5 * form_start) * (1.0 - 0.25 * recent_minutes),
-        0.0,
+        bench, (0.55 + 0.25 * bench_back.astype(float)) * (1.0 - 0.5 * form_start) * (1.0 - 0.25 * recent_minutes), 0.0
     )
     return out
 
@@ -108,11 +85,7 @@ def _within_team_roles(g: pd.DataFrame) -> pd.DataFrame:
 def build(feature_csv: str) -> pd.DataFrame:
     feat = pd.read_csv(feature_csv)
     feat = feat[feat["season"].isin([2023, 2024, 2025, 2026])].copy()
-    out = (
-        feat.groupby(["fixture_id", "team_id"], sort=False, group_keys=False)
-        .apply(_within_team_roles)
-        .reset_index(drop=True)
-    )
+    out = feat.groupby(["fixture_id", "team_id"], sort=False, group_keys=False).apply(_within_team_roles).reset_index(drop=True)
     return out
 
 
@@ -127,8 +100,7 @@ def main() -> None:
     out.to_csv(path, index=False)
     print(f"OK {len(out)} player-role rows -> {path}")
     cols = [
-        "season", "round", "team", "player_name", "rolecert_goal_kicker_prob",
-        "rolecert_bench_fh_kick_share", "rolecert_lineout_role_prob",
+        "season", "round", "team", "player_name", "rolecert_goal_kicker_prob", "rolecert_bench_fh_kick_share", "rolecert_lineout_role_prob",
         "rolecert_replacement_role_uncertainty",
     ]
     print(out[cols].head(20).to_string(index=False))

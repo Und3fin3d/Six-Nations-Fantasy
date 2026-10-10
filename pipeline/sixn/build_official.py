@@ -2,25 +2,12 @@ from __future__ import annotations
 
 import pandas as pd
 
-from pipeline.sixn.compare_api_official import (API_BLIND, OFFICIAL, STAT_MAP, norm_key,
-                                  parse_official)
+from pipeline.sixn.compare_api_official import API_BLIND, OFFICIAL, STAT_MAP, norm_key, parse_official
 
 
 COL_MAP_2023 = {
-    "Time Played":    "Min",
-    "Tackles":        "Ta",
-    "Metres Carried": "MC",
-    "50-22":          "50-22",
-    "Lineout Steal":  "LS",
-    "Breakdown Steal": "BS",
-    "Try":            "T",
-    "Assists":        "As",
-    "Conversion":     "C",
-    "Penalty":        "Pen",
-    "Drop Goal":      "DG",
-    "Yellow Card":    "YC",
-    "Red Card":       "RC",
-    "Game Total":     "Pts",
+    "Time Played": "Min", "Tackles": "Ta", "Metres Carried": "MC", "50-22": "50-22", "Lineout Steal": "LS", "Breakdown Steal": "BS", "Try": "T",
+    "Assists": "As", "Conversion": "C", "Penalty": "Pen", "Drop Goal": "DG", "Yellow Card": "YC", "Red Card": "RC", "Game Total": "Pts",
 }
 NUMERIC_OUT = sorted(set(STAT_MAP) | set(API_BLIND) | {"Pts"})
 
@@ -61,8 +48,7 @@ def parse_official_2023(path: str, season: int = 2023) -> pd.DataFrame:
                 continue
             name = cell0.strip()
             key = norm_key(name)
-            rec = {"season": season, "round": r, "team": nation.get(key, ""),
-                   "name": name, "key": key}
+            rec = {"season": season, "round": r, "team": nation.get(key, ""), "name": name, "key": key}
             for lab, v in zip(labels, vals):
                 col = COL_MAP_2023.get(lab)
                 if col:
@@ -85,9 +71,7 @@ def build() -> pd.DataFrame:
             df = parse_official_2023(path, season)
         else:
             df = parse_official(path, season)
-        print(f"season {season}: {len(df)} rows, "
-              f"rounds={sorted(int(x) for x in df['round'].unique())}, "
-              f"teams={df['team'].nunique()}")
+        print(f"season {season}: {len(df)} rows, rounds={sorted(int(x) for x in df['round'].unique())}, teams={df['team'].nunique()}")
         frames.append(df)
     out = pd.concat(frames, ignore_index=True, sort=False)
     return out
@@ -102,8 +86,7 @@ def main():
     print(f"   seasons present: {sorted(df['season'].unique())}")
     for s in sorted(df["season"].unique()):
         sub = df[df["season"] == s]
-        print(f"     {int(s)}: rows={len(sub)}  "
-              f"rounds={sorted(int(x) for x in sub['round'].unique())}")
+        print(f"     {int(s)}: rows={len(sub)}  rounds={sorted(int(x) for x in sub['round'].unique())}")
     miss = 100.0 * df["key"].astype(str).eq("").mean()
     print(f"   blank key: {miss:.2f}%")
 

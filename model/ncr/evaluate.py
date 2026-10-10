@@ -6,15 +6,12 @@ import pandas as pd
 from scipy.stats import spearmanr
 
 
-
 def load_actuals(feed_path: str = "data/ncr/feeds/players_latest.json") -> dict:
     players = json.load(open(feed_path))["Data"]["Value"]["Players"]
     out = {}
     for p in players:
         k = str(int(float(p["id"])))
-        out[k] = (float(p.get("cur_gd_points") or 0),
-                  float(p.get("min_in_game") or 0),
-                  p.get("player_status"))
+        out[k] = (float(p.get("cur_gd_points") or 0), float(p.get("min_in_game") or 0), p.get("player_status"))
     return out
 
 
@@ -55,14 +52,13 @@ def evaluate(proj: pd.DataFrame, actuals: dict, squad: pd.DataFrame | None = Non
     rho = spearmanr(p, y).correlation if len(live) >= 5 else np.nan
 
     top15 = set(d.nlargest(15, "starter_exp")["k"])
-    opt15 = {k for k, _ in sorted(((k, actuals.get(k, (0,))[0]) for k in d["k"]),
-                                  key=lambda x: -x[1])[:15]}
+    opt15 = {k for k, _ in sorted(((k, actuals.get(k, (0,))[0]) for k in d["k"]), key=lambda x: -x[1])[:15]}
     overlap = len(top15 & opt15)
 
-    out = {"mae": mae, "cal_mae": cal_mae, "rho": rho, "n": len(live),
-           "top15": overlap}
+    out = {"mae": mae, "cal_mae": cal_mae, "rho": rho, "n": len(live), "top15": overlap}
     if squad is None and {"pos", "team", "value", "hemi"}.issubset(proj.columns):
         import model.ncr.project as NP
+
         squad, _, _ = NP.optimise(proj)
     if squad is not None:
         xv = squad[~squad.is_sub]

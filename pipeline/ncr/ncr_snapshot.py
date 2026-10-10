@@ -10,14 +10,12 @@ import urllib.request
 from datetime import datetime, timezone
 
 BASE = "https://fantasy.nationschampionshiprugby.com/fantasy/feeds"
-HEADERS = {"User-Agent": "Mozilla/5.0", "Accept": "application/json",
-           "Cache-Control": "no-cache", "Pragma": "no-cache",
-           "Entity": "ed0t4n$3!"}
+HEADERS = {"User-Agent": "Mozilla/5.0", "Accept": "application/json", "Cache-Control": "no-cache", "Pragma": "no-cache", "Entity": "ed0t4n$3!"}
 FEEDS = "data/ncr/feeds"
-PLAYER_COLS = ["id", "display_name", "full_name", "team_name", "team_id", "team_short_code",
-               "hemisphere", "skill", "skill_desc", "value", "sel_percentage",
-               "sel_cap_percentage", "is_active", "available_status", "injury_status",
-               "player_status", "cur_gd_points", "min_in_game"]
+PLAYER_COLS = [
+    "id", "display_name", "full_name", "team_name", "team_id", "team_short_code", "hemisphere", "skill", "skill_desc", "value", "sel_percentage",
+    "sel_cap_percentage", "is_active", "available_status", "injury_status", "player_status", "cur_gd_points", "min_in_game",
+]
 
 
 def get(path: str) -> bytes:
@@ -27,11 +25,7 @@ def get(path: str) -> bytes:
 
 
 def current_gameday(fixtures: list[dict]) -> int:
-    current = {
-        int(float(f["gameday"]))
-        for f in fixtures
-        if int(float(f.get("iscurrent") or 0)) == 1
-    }
+    current = {int(float(f["gameday"])) for f in fixtures if int(float(f.get("iscurrent") or 0)) == 1}
     if len(current) != 1:
         raise ValueError(f"fixtures must identify exactly one current gameday; got {sorted(current)}")
     return current.pop()
@@ -55,25 +49,13 @@ def latest_completed_gameday(fixtures: list[dict], now: datetime | None = None) 
 
 
 def validate_player_gameday(players: list[dict], requested_gw: int) -> None:
-    payload_gws = {
-        int(float(p["gameday_id"]))
-        for p in players
-        if p.get("gameday_id") not in (None, "")
-    }
+    payload_gws = {int(float(p["gameday_id"])) for p in players if p.get("gameday_id") not in (None, "")}
     if payload_gws != {int(requested_gw)}:
-        raise ValueError(
-            f"requested GW{requested_gw} player feed but payload contains "
-            f"gameday_id {sorted(payload_gws)}; refusing to promote stale data"
-        )
+        raise ValueError(f"requested GW{requested_gw} player feed but payload contains gameday_id {sorted(payload_gws)}; refusing to promote stale data")
 
 
-def carryover_gameday(
-    players: list[dict], requested_gw: int, feeds_dir: str = FEEDS,
-) -> int | None:
-    signature = {
-        int(float(player["id"])): str(player.get("player_status"))
-        for player in players if player.get("player_status") in ("P", "B")
-    }
+def carryover_gameday(players: list[dict], requested_gw: int, feeds_dir: str = FEEDS) -> int | None:
+    signature = {int(float(player["id"])): str(player.get("player_status")) for player in players if player.get("player_status") in ("P", "B")}
     if len(signature) < 250:
         return None
     for path in sorted(glob.glob(f"{feeds_dir}/players_gw*.json")):
@@ -81,10 +63,7 @@ def carryover_gameday(
         if not match or int(match.group(1)) == int(requested_gw):
             continue
         prior = json.load(open(path))["Data"]["Value"]["Players"]
-        prior_signature = {
-            int(float(player["id"])): str(player.get("player_status"))
-            for player in prior if player.get("player_status") in ("P", "B")
-        }
+        prior_signature = {int(float(player["id"])): str(player.get("player_status")) for player in prior if player.get("player_status") in ("P", "B")}
         if signature == prior_signature:
             return int(match.group(1))
     return None
@@ -92,10 +71,8 @@ def carryover_gameday(
 
 def main() -> int:
     ap = argparse.ArgumentParser()
-    ap.add_argument("--label", default=None,
-                    help="archive suffix (default: UTC timestamp), e.g. 'post_gw2'")
-    ap.add_argument("--gameday", type=int, default=None,
-                    help="override the current gameweek derived from fixtures")
+    ap.add_argument("--label", default=None, help="archive suffix (default: UTC timestamp), e.g. 'post_gw2'")
+    ap.add_argument("--gameday", type=int, default=None, help="override the current gameweek derived from fixtures")
     args = ap.parse_args()
 
     raw_fixtures = get("/fixtures/fixtures_1_en.json")
@@ -107,10 +84,7 @@ def main() -> int:
     validate_player_gameday(players, requested_gw)
     carryover = carryover_gameday(players, requested_gw)
     if carryover is not None:
-        raise ValueError(
-            f"GW{requested_gw} exposes the exact GW{carryover} P/B lineup; "
-            "refusing to promote carryover team sheets"
-        )
+        raise ValueError(f"GW{requested_gw} exposes the exact GW{carryover} P/B lineup; refusing to promote carryover team sheets")
     if results_gw == requested_gw:
         raw_results, result_players = raw_players, players
     else:
@@ -120,8 +94,10 @@ def main() -> int:
 
     stamp = args.label or datetime.now(timezone.utc).strftime("%Y%m%dT%H%M%SZ")
     archive = f"{FEEDS}/players_{stamp}.json"
-    for name, raw in ((f"players_{stamp}", raw_players), (f"players_gw{requested_gw}", raw_players), (f"players_gw{results_gw}", raw_results),
-                      ("players_latest", raw_results), ("players_latest_results", raw_results), ("players_cur", raw_players)):
+    for name, raw in (
+        (f"players_{stamp}", raw_players), (f"players_gw{requested_gw}", raw_players), (f"players_gw{results_gw}", raw_results),
+        ("players_latest", raw_results), ("players_latest_results", raw_results), ("players_cur", raw_players),
+    ):
         open(f"{FEEDS}/{name}.json", "wb").write(raw)
 
     with open("data/ncr/ncr_players.csv", "w", newline="") as fh:
@@ -133,14 +109,16 @@ def main() -> int:
     rows = []
     for f in fixtures:
         a, b = f["participants"]
-        rows.append({"match_id": f["match_id"], "gameday": f["gameday"],
-                     "game_date": f["game_date"], "lock_date": f["start_date"],
-                     "home": a["name"], "home_id": a["id"],
-                     "away": b["name"], "away_id": b["id"],
-                     "iscurrent": f["iscurrent"]})
+        rows.append(
+            {
+                "match_id": f["match_id"], "gameday": f["gameday"], "game_date": f["game_date"], "lock_date": f["start_date"], "home": a["name"],
+                "home_id": a["id"], "away": b["name"], "away_id": b["id"], "iscurrent": f["iscurrent"],
+            }
+        )
     with open("data/ncr/ncr_fixtures.csv", "w", newline="") as fh:
         w = csv.DictWriter(fh, fieldnames=list(rows[0]))
-        w.writeheader(); w.writerows(rows)
+        w.writeheader()
+        w.writerows(rows)
 
     cur = sorted({r["gameday"] for r in rows if int(float(r["iscurrent"])) == 1})
     named = sum(1 for p in players if p.get("player_status") in ("P", "B"))
@@ -148,11 +126,7 @@ def main() -> int:
     gd_id = {str(int(float(p["gameday_id"]))) for p in players}
     print(f"players: {len(players)}   fixtures: {len(rows)}   current gameday: {cur}")
     print(f"team sheets: {starters} starters + {named - starters} bench = {named} named")
-    sheet_state = (
-        "NOT POSTED" if named == 0 else
-        "PARTIAL" if named < 250 else
-        "POSTED"
-    )
+    sheet_state = "NOT POSTED" if named == 0 else "PARTIAL" if named < 250 else "POSTED"
     print(f"current player catalogue: GW{requested_gw}   gameday_id: {sorted(gd_id)}")
     print(f"GW{requested_gw} team sheets: {sheet_state}")
     print(f"latest completed fantasy points: GW{results_gw} → {FEEDS}/players_latest.json")

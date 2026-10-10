@@ -10,9 +10,7 @@ import urllib.request
 import pandas as pd
 
 CACHE = "data/cache"
-URL = ("https://api.wr-rims-prod.pulselive.com/rugby/v3/match"
-       "?startDate={start}&endDate={end}&sort=asc&pageSize=100&page={page}"
-       "&states=C&language=en")
+URL = "https://api.wr-rims-prod.pulselive.com/rugby/v3/match?startDate={start}&endDate={end}&sort=asc&pageSize=100&page={page}&states=C&language=en"
 HEADERS = {"User-Agent": "Mozilla/5.0", "Accept": "application/json"}
 
 SIX = {"England", "France", "Ireland", "Italy", "Scotland", "Wales"}
@@ -57,11 +55,7 @@ def month_chunks(start: dt.date, end: dt.date) -> list[tuple[str, str]]:
     return chunks
 
 
-def rows_from_match(
-    m: dict,
-    target_teams: set[str] = SIX,
-    pair_field: str = "is_six_nations_pair",
-) -> list[dict]:
+def rows_from_match(m: dict, target_teams: set[str] = SIX, pair_field: str = "is_six_nations_pair") -> list[dict]:
     if m.get("sport") != SENIOR_MENS:
         return []
     teams = m.get("teams", [])
@@ -84,20 +78,12 @@ def rows_from_match(
         ts, os_ = scores[i], scores[j]
         margin = ts - os_
         result = "W" if margin > 0 else ("L" if margin < 0 else "D")
-        out.append({
-            "date": date,
-            "comp": comp,
-            "team": names[i],
-            "team_id": teams[i].get("id"),
-            "opponent": names[j],
-            "opponent_id": teams[j].get("id"),
-            "team_score": ts,
-            "opp_score": os_,
-            "margin": margin,
-            "result": result,
-            "rankings_weight": rw,
-            pair_field: is_pair,
-        })
+        out.append(
+            {
+                "date": date, "comp": comp, "team": names[i], "team_id": teams[i].get("id"), "opponent": names[j], "opponent_id": teams[j].get("id"),
+                "team_score": ts, "opp_score": os_, "margin": margin, "result": result, "rankings_weight": rw, pair_field: is_pair,
+            }
+        )
     return out
 
 
@@ -134,15 +120,12 @@ def main():
 
     ncr_df = pd.DataFrame(ncr_rows)
     if not ncr_df.empty:
-        ncr_df = (ncr_df.drop_duplicates(subset=["date", "team", "opponent"])
-                         .sort_values(["date", "team"])
-                         .reset_index(drop=True))
+        ncr_df = ncr_df.drop_duplicates(subset=["date", "team", "opponent"]).sort_values(["date", "team"]).reset_index(drop=True)
     ncr_out = "data/ncr/ncr_intl_results.csv"
     ncr_df.to_csv(ncr_out, index=False)
 
     n_matches = df["is_six_nations_pair"].notna().sum()
-    distinct_matches = df.drop_duplicates(
-        subset=["date", "team", "opponent"]).shape[0] if not df.empty else 0
+    distinct_matches = df.drop_duplicates(subset=["date", "team", "opponent"]).shape[0] if not df.empty else 0
     n_unique_fixtures = 0
     seen = set()
     for r in df.itertuples(index=False):
@@ -152,13 +135,13 @@ def main():
             n_unique_fixtures += 1
 
     df["_season"] = df["date"].map(_season)
-    per_season = df.drop_duplicates(
-        subset=["date", "team", "opponent"]).groupby("_season").apply(
-        lambda g: len({tuple(sorted([t, o])) + (d,)
-                       for t, o, d in zip(g.team, g.opponent, g.date)}))
+    per_season = (
+        df.drop_duplicates(subset=["date", "team", "opponent"])
+        .groupby("_season")
+        .apply(lambda g: len({tuple(sorted([t, o])) + (d,) for t, o, d in zip(g.team, g.opponent, g.date)}))
+    )
     seen_nations = sorted(SIX & set(df["team"].unique()))
-    n_pair = df[df.is_six_nations_pair].drop_duplicates(
-        subset=["date", "team", "opponent"]).shape[0] // 2
+    n_pair = df[df.is_six_nations_pair].drop_duplicates(subset=["date", "team", "opponent"]).shape[0] // 2
 
     print(f"\n✅  {len(df)} team-side rows  ({n_unique_fixtures} distinct intl fixtures kept)")
     print(f"    seasons covered: {sorted(df['_season'].unique().tolist())}")
@@ -166,8 +149,7 @@ def main():
     for ssn, cnt in per_season.items():
         print(f"      {ssn}: {cnt}")
     print(f"    six-nations-pair fixtures (autumn/summer 6N vs 6N): {n_pair}")
-    print(f"    6 nations present as `team`: {seen_nations} "
-          f"({'ALL 6' if len(seen_nations) == 6 else 'MISSING ' + str(sorted(SIX - set(seen_nations)))})")
+    print(f"    6 nations present as `team`: {seen_nations} ({'ALL 6' if len(seen_nations) == 6 else 'MISSING ' + str(sorted(SIX - set(seen_nations)))})")
     print(f"💾  {out}")
     print(f"💾  {ncr_out}  ({len(ncr_df)} team-side rows, all 12 NCR nations)")
 

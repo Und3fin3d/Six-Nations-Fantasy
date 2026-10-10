@@ -9,17 +9,11 @@ from importlib.metadata import PackageNotFoundError, version
 PIN = re.compile(r"^([A-Za-z0-9_.-]+)==([^\s#]+)$")
 
 
-def check(
-    requirements: str = "requirements-model.txt",
-    *, python_version: tuple[int, int] | None = None,
-    installed_version=version,
-) -> list[str]:
+def check(requirements: str = "requirements-model.txt", *, python_version: tuple[int, int] | None = None, installed_version=version) -> list[str]:
     errors = []
     current_python = sys.version_info[:2] if python_version is None else python_version
     if current_python != (3, 12):
-        errors.append(
-            f"Python 3.12 is required; found {current_python[0]}.{current_python[1]}"
-        )
+        errors.append(f"Python 3.12 is required; found {current_python[0]}.{current_python[1]}")
     for line in open(requirements).read().splitlines():
         match = PIN.match(line.strip())
         if not match:

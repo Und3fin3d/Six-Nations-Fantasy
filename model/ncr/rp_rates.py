@@ -27,7 +27,8 @@ def rp_rates(asof_year=2026, min_minutes=120, *, asof=None):
     if cs["slug"].nunique() < 600:
         raise RuntimeError(
             f"rp_compstats.csv looks stale ({cs['slug'].nunique()} slugs < 600); "
-            "rerun `python -m pipeline.sources.build_rugbypass_tables` to restore the NCR backfill")
+            "rerun `python -m pipeline.sources.build_rugbypass_tables` to restore the NCR backfill"
+        )
     if asof is not None:
         cs = past_seasons(cs, asof)
         asof_year = utc_cutoff(asof).year
@@ -39,11 +40,12 @@ def rp_rates(asof_year=2026, min_minutes=120, *, asof=None):
         if wm < min_minutes:
             continue
         r = {e: (g.w * g[e]).sum() / wm * 80 for e in {**ATT, **DEF, **DISC}}
-        rows.append(dict(slug=slug,
-                         att=sum(r[e] * v for e, v in ATT.items()),
-                         dfn=sum(r[e] * v for e, v in DEF.items()),
-                         dsc=sum(r[e] * v for e, v in DISC.items()),
-                         rp_min=wm))
+        rows.append(
+            dict(
+                slug=slug, att=sum(r[e] * v for e, v in ATT.items()), dfn=sum(r[e] * v for e, v in DEF.items()), dsc=sum(r[e] * v for e, v in DISC.items()),
+                rp_min=wm,
+            )
+        )
     out = pd.DataFrame(rows, columns=["slug", "att", "dfn", "dsc", "rp_min"])
     out["name_key"] = out.slug.str.replace("-", " ").map(_norm)
     return out

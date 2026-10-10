@@ -7,29 +7,20 @@ import numpy as np
 import pandas as pd
 
 from model.sixn import baselines as B
-from model.sixn.baselines import (
-    MIN_MINUTES,
-    SCORED,
-    _rate_target,
-    predict_rates,
-)
+from model.sixn.baselines import MIN_MINUTES, SCORED, _rate_target, predict_rates
 from model.sixn.data import feature_view
 from model.sixn.splits import group_kfold_indices
 
 RNG = 0
 LGBM_MARGIN = 0.02
 BLEND_WEIGHT = 0.5
-LGBM_COMPS = {
-    "tackles", "metres", "tries", "try_assists", "defenders_beaten",
-    "offload", "tackle_turnover", "penalties_conceded",
-}
+LGBM_COMPS = {"tackles", "metres", "tries", "try_assists", "defenders_beaten", "offload", "tackle_turnover", "penalties_conceded"}
 ZERO_PRIOR = {"drop_goals_converted", "red_cards"}
 KICK_COMPS = {"conversion_goals", "penalty_goals"}
 
 _LGBM_BASE = dict(
-    n_estimators=400, learning_rate=0.05, num_leaves=15,
-    min_child_samples=50, reg_lambda=5.0, colsample_bytree=0.8,
-    subsample=0.9, subsample_freq=1, random_state=RNG, n_jobs=1, verbosity=-1,
+    n_estimators=400, learning_rate=0.05, num_leaves=15, min_child_samples=50, reg_lambda=5.0, colsample_bytree=0.8, subsample=0.9, subsample_freq=1,
+    random_state=RNG, n_jobs=1, verbosity=-1,
 )
 
 
@@ -47,28 +38,19 @@ def _lgbm_frame(df: pd.DataFrame, mode: str) -> pd.DataFrame:
     return X
 
 
-def _fit_lgbm_component(
-    df: pd.DataFrame, tr_idx: np.ndarray, va_idx: np.ndarray | None,
-    comp: str, mode: str,
-):
+def _fit_lgbm_component(df: pd.DataFrame, tr_idx: np.ndarray, va_idx: np.ndarray | None, comp: str, mode: str):
     keep = (df.iloc[tr_idx]["minutes"] >= MIN_MINUTES).to_numpy()
     use = tr_idx[keep]
     X = _lgbm_frame(df, mode)
-    y = np.clip(np.nan_to_num(_rate_target(df.iloc[use], comp), nan=0.0,
-                              posinf=0.0, neginf=0.0), 0.0, None)
+    y = np.clip(np.nan_to_num(_rate_target(df.iloc[use], comp), nan=0.0, posinf=0.0, neginf=0.0), 0.0, None)
     params = {**_LGBM_BASE, **_lgbm_objective(comp)}
     model = lgb.LGBMRegressor(**params)
     fit_kw = {}
     if va_idx is not None:
         vkeep = (df.iloc[va_idx]["minutes"] >= MIN_MINUTES).to_numpy()
         vu = va_idx[vkeep]
-        yv = np.clip(np.nan_to_num(_rate_target(df.iloc[vu], comp), nan=0.0,
-                                   posinf=0.0, neginf=0.0), 0.0, None)
-        fit_kw = dict(
-            eval_set=[(X.iloc[vu], yv)],
-            callbacks=[lgb.early_stopping(50, verbose=False),
-                       lgb.log_evaluation(0)],
-        )
+        yv = np.clip(np.nan_to_num(_rate_target(df.iloc[vu], comp), nan=0.0, posinf=0.0, neginf=0.0), 0.0, None)
+        fit_kw = dict(eval_set=[(X.iloc[vu], yv)], callbacks=[lgb.early_stopping(50, verbose=False), lgb.log_evaluation(0)])
     with warnings.catch_warnings():
         warnings.simplefilter("ignore")
         model.fit(X.iloc[use], y, **fit_kw)
@@ -85,9 +67,7 @@ def _kick_gate(df: pd.DataFrame, idx: np.ndarray) -> np.ndarray:
     return (r > 0.0).astype(float)
 
 
-def _oof_candidate_mae(
-    df: pd.DataFrame, train_mask: np.ndarray, mode: str
-) -> dict[str, dict[str, float]]:
+def _oof_candidate_mae(df: pd.DataFrame, train_mask: np.ndarray, mode: str) -> dict[str, dict[str, float]]:
     train_pos = np.where(train_mask)[0]
     dft = df.iloc[train_pos].reset_index(drop=True)
 
@@ -103,10 +83,7 @@ def _oof_candidate_mae(
         vu = va_idx[vmask]
         if len(vu) == 0:
             continue
-        frames = {
-            e: predict_rates(df, tr_idx, vu, mode, e)
-            for e in ("naive", "ridge", "glm")
-        }
+        frames = {e: predict_rates(df, tr_idx, vu, mode, e) for e in ("naive", "ridge", "glm")}
         for comp in SCORED:
             ytrue = _rate_target(df.iloc[vu], comp)
             ytrue = np.nan_to_num(ytrue, nan=0.0, posinf=0.0, neginf=0.0)
@@ -125,9 +102,7 @@ def _oof_candidate_mae(
     return out
 
 
-def select_components(
-    df: pd.DataFrame, train_mask: np.ndarray, mode: str
-) -> pd.DataFrame:
+def select_components(df: pd.DataFrame, train_mask: np.ndarray, mode: str) -> pd.DataFrame:
     maes = _oof_candidate_mae(df, train_mask, mode)
     rows = []
     for comp in SCORED:
@@ -152,21 +127,17 @@ def select_components(
             if best_adv is not None:
                 gain = 100.0 * (1.0 - m[best_adv] / best_simple_mae)
                 choice = best_adv
-                reason = (f"{best_adv} beats {best_simple} OOF by {gain:.1f}% "
-                          f"({m[best_adv]:.3f} < {best_simple_mae:.3f})")
-        rows.append(dict(
-            component=comp, kind=kind, engine=choice,
-            oof_naive=m.get("naive", np.nan), oof_ridge=m.get("ridge", np.nan),
-            oof_glm=m.get("glm", np.nan), oof_lgbm=m.get("lgbm", np.nan),
-            oof_blend=m.get("blend", np.nan), reason=reason,
-        ))
+                reason = f"{best_adv} beats {best_simple} OOF by {gain:.1f}% ({m[best_adv]:.3f} < {best_simple_mae:.3f})"
+        rows.append(
+            dict(
+                component=comp, kind=kind, engine=choice, oof_naive=m.get("naive", np.nan), oof_ridge=m.get("ridge", np.nan), oof_glm=m.get("glm", np.nan),
+                oof_lgbm=m.get("lgbm", np.nan), oof_blend=m.get("blend", np.nan), reason=reason,
+            )
+        )
     return pd.DataFrame(rows)
 
 
-def predict_rates_registry(
-    df: pd.DataFrame, train_idx: np.ndarray, test_idx: np.ndarray,
-    mode: str, registry: pd.DataFrame,
-) -> pd.DataFrame:
+def predict_rates_registry(df: pd.DataFrame, train_idx: np.ndarray, test_idx: np.ndarray, mode: str, registry: pd.DataFrame) -> pd.DataFrame:
     eng = dict(zip(registry["component"], registry["engine"]))
     need_base = {e for e in eng.values() if e in ("naive", "ridge", "glm")}
     need_base |= {"glm"} if "blend" in eng.values() else set()
@@ -194,9 +165,7 @@ def predict_rates_registry(
     return out.clip(lower=0.0)
 
 
-def predict_rates_lgbm_only(
-    df: pd.DataFrame, train_idx: np.ndarray, test_idx: np.ndarray, mode: str
-) -> pd.DataFrame:
+def predict_rates_lgbm_only(df: pd.DataFrame, train_idx: np.ndarray, test_idx: np.ndarray, mode: str) -> pd.DataFrame:
     naive = predict_rates(df, train_idx, test_idx, mode, "naive")
     te = df.iloc[test_idx]
     out = pd.DataFrame(index=te.index, columns=SCORED, dtype=float)

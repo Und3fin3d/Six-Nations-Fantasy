@@ -11,19 +11,14 @@ import urllib.error
 HOST = "rugby-live-data.p.rapidapi.com"
 BASE = f"https://{HOST}"
 CACHE_DIR = "data/cache"
-USER_AGENT = (
-    "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) "
-    "AppleWebKit/537.36 (KHTML, like Gecko) Chrome/124 Safari/537.36"
-)
+USER_AGENT = "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/124 Safari/537.36"
+
 
 class RugbyAPI:
-    def __init__(self, key: str | None = None, cache_dir: str = CACHE_DIR,
-                 min_interval: float = 0.4, verbose: bool = True):
+    def __init__(self, key: str | None = None, cache_dir: str = CACHE_DIR, min_interval: float = 0.4, verbose: bool = True):
         self.key = key or os.environ.get("RUGBY_API_KEY")
         if not self.key:
-            raise RuntimeError(
-                "RUGBY_API_KEY is not set. Export the RapidAPI key before running this command."
-            )
+            raise RuntimeError("RUGBY_API_KEY is not set. Export the RapidAPI key before running this command.")
         self.cache_dir = cache_dir
         os.makedirs(cache_dir, exist_ok=True)
         self.min_interval = min_interval
@@ -45,12 +40,9 @@ class RugbyAPI:
             time.sleep(wait)
 
         url = BASE + path
-        req = urllib.request.Request(url, headers={
-            "x-rapidapi-host": HOST,
-            "x-rapidapi-key": self.key,
-            "Content-Type": "application/json",
-            "User-Agent": USER_AGENT,
-        })
+        req = urllib.request.Request(
+            url, headers={"x-rapidapi-host": HOST, "x-rapidapi-key": self.key, "Content-Type": "application/json", "User-Agent": USER_AGENT}
+        )
         try:
             with urllib.request.urlopen(req, timeout=30) as resp:
                 raw = resp.read().decode("utf-8")
@@ -90,6 +82,5 @@ if __name__ == "__main__":
     api = RugbyAPI()
     comps = api.competitions()
     sixn = [c for c in comps if c["name"] == "Six Nations"]
-    print(f"competitions: {len(comps)}  | Six Nations seasons: "
-          f"{sorted({c['season'] for c in sixn})[:8]}...")
+    print(f"competitions: {len(comps)}  | Six Nations seasons: {sorted({c['season'] for c in sixn})[:8]}...")
     print(f"quota remaining: {api.remaining}")

@@ -15,8 +15,17 @@ from pipeline.sixn.ingest_6n import derive_minutes, player_minutes
 from ..data import _stable_id
 from ..schema import EVENTS
 from .config import (
-    CACHE, DENSE_THRESHOLD, DERIVED_EVENTS, DIAGNOSTIC_ONLY_EVENTS, DIRECT_EVENTS,
-    EXTENDED_EVENTS, LEGACY_STORE, OFFICIAL, OFFICIAL_COLUMNS, OUT, STABLE_EVENTS,
+    CACHE,
+    DENSE_THRESHOLD,
+    DERIVED_EVENTS,
+    DIAGNOSTIC_ONLY_EVENTS,
+    DIRECT_EVENTS,
+    EXTENDED_EVENTS,
+    LEGACY_STORE,
+    OFFICIAL,
+    OFFICIAL_COLUMNS,
+    OUT,
+    STABLE_EVENTS,
     UNOBSERVED_RUBRIC_EVENTS,
 )
 
@@ -38,6 +47,7 @@ def _number(value: object) -> float:
 
 def _hemisphere(team: object) -> str:
     from .config import NORTH, SOUTH
+
     if str(team) in NORTH:
         return "north"
     if str(team) in SOUTH:
@@ -51,16 +61,10 @@ def parse_cache_fixture(path: str) -> tuple[dict, list[dict], list[dict]]:
     fixture_id = str(match.get("id") or os.path.basename(path).removesuffix(".json").removeprefix("match_"))
     match_at = pd.to_datetime(match.get("date"), errors="coerce", utc=True)
     metadata = {
-        "fixture_id": fixture_id,
-        "match_at": match_at,
-        "date": match_at.tz_convert(None).normalize() if pd.notna(match_at) else pd.NaT,
-        "competition_id_cache": match.get("comp_id"),
-        "competition_cache": match.get("comp_name"),
-        "calendar_year": int(match_at.year) if pd.notna(match_at) else None,
-        "source_season": match.get("season"),
-        "source_game_week": match.get("game_week"),
-        "source_round": match.get("round_id"),
-        "match_status": match.get("status"),
+        "fixture_id": fixture_id, "match_at": match_at, "date": match_at.tz_convert(None).normalize() if pd.notna(match_at) else pd.NaT,
+        "competition_id_cache": match.get("comp_id"), "competition_cache": match.get("comp_name"),
+        "calendar_year": int(match_at.year) if pd.notna(match_at) else None, "source_season": match.get("season"), "source_game_week": match.get("game_week"),
+        "source_round": match.get("round_id"), "match_status": match.get("status"),
     }
     off, on, cards = derive_minutes(payload.get("events") or [])
     players: list[dict] = []
@@ -112,21 +116,30 @@ def parse_cache_fixture(path: str) -> tuple[dict, list[dict], list[dict]]:
     for event in DIRECT_EVENTS:
         present = sum(event in (player.get("match_stats") or {}) for player in teamsheet_players)
         fraction = present / n_stats if n_stats else 0.0
-        status = (
-            "recorded" if fraction >= DENSE_THRESHOLD
-            else "unobserved" if present == 0 else "ambiguous"
+        status = "recorded" if fraction >= DENSE_THRESHOLD else "unobserved" if present == 0 else "ambiguous"
+        coverage.append(
+            {
+                **metadata,
+                "event": event,
+                "status": status,
+                "source_kind": "match_stats",
+                "players_total": n_stats,
+                "players_with_key": present,
+                "coverage_fraction": fraction,
+            }
         )
-        coverage.append({
-            **metadata, "event": event, "status": status, "source_kind": "match_stats",
-            "players_total": n_stats, "players_with_key": present,
-            "coverage_fraction": fraction,
-        })
     for event in DERIVED_EVENTS:
-        coverage.append({
-            **metadata, "event": event, "status": "derived", "source_kind": "event_log",
-            "players_total": len(players), "players_with_key": len(players),
-            "coverage_fraction": 1.0,
-        })
+        coverage.append(
+            {
+                **metadata,
+                "event": event,
+                "status": "derived",
+                "source_kind": "event_log",
+                "players_total": len(players),
+                "players_with_key": len(players),
+                "coverage_fraction": 1.0,
+            }
+        )
     return metadata, players, coverage
 
 
@@ -168,8 +181,7 @@ def complete_cache_population(legacy, metadata, players, asof):
     keys = ["fixture_id", "player_id", "team"]
     inventory = metadata.copy()
     inventory['cached_players'] = inventory.fixture_id.map(players.groupby('fixture_id').size()).fillna(0).astype(int)
-    inventory['included'] = (inventory.match_status.eq('Result')
-        & inventory.match_at.lt(pd.Timestamp(asof, tz='UTC')) & inventory.cached_players.gt(0))
+    inventory['included'] = inventory.match_status.eq('Result') & inventory.match_at.lt(pd.Timestamp(asof, tz='UTC')) & inventory.cached_players.gt(0)
     included = inventory.loc[inventory.included, 'fixture_id']
     if not set(legacy.fixture_id).issubset(set(included)):
         raise ValueError('Canonical fixtures lack completed cached teamsheets before the research cutoff')
@@ -177,8 +189,7 @@ def complete_cache_population(legacy, metadata, players, asof):
     extra = players.merge(legacy[keys], on=keys, how='left', indicator=True)
     extra = extra[extra._merge.eq('left_only')].copy()
     fields = ('player_name', 'opponent', 'team_id', 'opponent_id', 'team_score', 'opp_score', 'jersey', 'started')
-    additions = extra[keys + [f'{name}_cache' for name in fields]].rename(
-        columns={f'{name}_cache': name for name in fields})
+    additions = extra[keys + [f'{name}_cache' for name in fields]].rename(columns={f'{name}_cache': name for name in fields})
     additions['date'] = extra.match_at.dt.tz_convert(None).dt.normalize()
     additions['competition_id'] = extra.competition_id_cache
     additions['competition'] = extra.competition_cache
@@ -196,9 +207,10 @@ def complete_cache_population(legacy, metadata, players, asof):
     complete = pd.concat([legacy, additions], ignore_index=True, sort=False)
     if set(map(tuple, complete[keys].to_numpy())) != set(map(tuple, players[keys].to_numpy())):
         raise ValueError('Research population differs from completed cached teamsheets')
-    report = {'asof_exclusive': asof, 'cached_player_rows_added': len(additions),
-              'cached_fixtures_added': len(set(included) - set(legacy.fixture_id)),
-              'inventory': json.loads(inventory.to_json(orient='records', date_format='iso'))}
+    report = {
+        'asof_exclusive': asof, 'cached_player_rows_added': len(additions), 'cached_fixtures_added': len(set(included) - set(legacy.fixture_id)),
+        'inventory': json.loads(inventory.to_json(orient='records', date_format='iso')),
+    }
     return complete, players, report
 
 
@@ -206,8 +218,7 @@ def build_corrected_store(legacy_path: str = LEGACY_STORE, *, complete_asof=None
     legacy = pd.read_csv(legacy_path, low_memory=False)
     legacy["fixture_id"] = legacy["fixture_id"].astype(str)
     legacy["player_id"] = legacy["player_id"].astype(str)
-    fixture_ids = (set(os.path.basename(path)[6:-5] for path in glob.glob(f'{CACHE}/match_*.json'))
-                   if complete_asof else set(legacy["fixture_id"]))
+    fixture_ids = set(os.path.basename(path)[6:-5] for path in glob.glob(f'{CACHE}/match_*.json')) if complete_asof else set(legacy["fixture_id"])
     metadata, cache_players, coverage = build_cache_tables(fixture_ids)
     population_report = {}
     canonical_ids = set(legacy.fixture_id)
@@ -223,21 +234,15 @@ def build_corrected_store(legacy_path: str = LEGACY_STORE, *, complete_asof=None
         mask_col = f"available__{target}_cache"
         out[target] = pd.to_numeric(out[value_col], errors="coerce")
         out[f"available__{target}"] = out[mask_col].fillna(False).astype(bool)
-        out[f"provenance__{target}"] = np.where(
-            out[f"available__{target}"],
-            "event_log" if target in DERIVED_EVENTS else "match_stats_key",
-            "unobserved",
-        )
+        out[f"provenance__{target}"] = np.where(out[f"available__{target}"], "event_log" if target in DERIVED_EVENTS else "match_stats_key", "unobserved")
         out = out.drop(columns=[value_col, mask_col])
 
     metadata_columns = [
-        "fixture_id", "match_at", "competition_id_cache", "competition_cache",
-        "calendar_year", "source_season", "source_game_week", "source_round",
+        "fixture_id", "match_at", "competition_id_cache", "competition_cache", "calendar_year", "source_season", "source_game_week", "source_round",
     ]
     drop_helpers = [
-        "player_name_cache", "team_cache", "opponent_cache", "jersey_cache", "started_cache",
-        "date_cache",
-        "team_id_cache", "opponent_id_cache", "team_score_cache", "opp_score_cache",
+        "player_name_cache", "team_cache", "opponent_cache", "jersey_cache", "started_cache", "date_cache", "team_id_cache", "opponent_id_cache",
+        "team_score_cache", "opp_score_cache",
     ]
     out = out.drop(columns=[c for c in drop_helpers if c in out], errors="ignore")
     out["match_at"] = pd.to_datetime(out["match_at"], utc=True)
@@ -258,15 +263,10 @@ def build_corrected_store(legacy_path: str = LEGACY_STORE, *, complete_asof=None
     legacy_ids = set(legacy["fixture_id"])
     international = out[out["competition_level"].eq("international")]
     report = {
-        "canonical_fixtures": len(canonical_ids),
-        "cached_fixtures": int(metadata["fixture_id"].nunique()),
-        "international_fixtures": int(international["fixture_id"].nunique()),
-        "official": official_report,
-        "legacy_store": str(legacy_path),
-        "legacy_store_sha256": sha256(legacy_path),
-        "unobserved_rubric_events": list(UNOBSERVED_RUBRIC_EVENTS),
-        "diagnostic_only_events": list(DIAGNOSTIC_ONLY_EVENTS),
-        "population": population_report,
+        "canonical_fixtures": len(canonical_ids), "cached_fixtures": int(metadata["fixture_id"].nunique()),
+        "international_fixtures": int(international["fixture_id"].nunique()), "official": official_report, "legacy_store": str(legacy_path),
+        "legacy_store_sha256": sha256(legacy_path), "unobserved_rubric_events": list(UNOBSERVED_RUBRIC_EVENTS),
+        "diagnostic_only_events": list(DIAGNOSTIC_ONLY_EVENTS), "population": population_report,
     }
     return out.sort_values(["match_at", "fixture_id", "team", "player_id"]), coverage, report
 
@@ -277,32 +277,24 @@ def _event_catalog(store: pd.DataFrame, coverage: pd.DataFrame) -> pd.DataFrame:
     for event in (*STABLE_EVENTS, *EXTENDED_EVENTS, *DIAGNOSTIC_ONLY_EVENTS):
         mask = intl[f"available__{event}"].fillna(False).astype(bool)
         fixture_mask = intl.assign(_available=mask).groupby("fixture_id")["_available"].any()
-        rows.append({
-            "event": event,
-            "tier": (
-                "stable" if event in STABLE_EVENTS else
-                "extended" if event in EXTENDED_EVENTS else "diagnostic_only"
-            ),
-            "player_rows": int(mask.sum()),
-            "player_coverage": float(mask.mean()),
-            "fixtures": int(fixture_mask.sum()),
-            "fixture_coverage": float(fixture_mask.mean()),
-            "first_year": (
-                int(intl.loc[mask, "calendar_year"].min()) if mask.any() else None
-            ),
-            "last_year": (
-                int(intl.loc[mask, "calendar_year"].max()) if mask.any() else None
-            ),
-        })
+        rows.append(
+            {
+                "event": event,
+                "tier": ("stable" if event in STABLE_EVENTS else "extended" if event in EXTENDED_EVENTS else "diagnostic_only"),
+                "player_rows": int(mask.sum()),
+                "player_coverage": float(mask.mean()),
+                "fixtures": int(fixture_mask.sum()),
+                "fixture_coverage": float(fixture_mask.mean()),
+                "first_year": (int(intl.loc[mask, "calendar_year"].min()) if mask.any() else None),
+                "last_year": (int(intl.loc[mask, "calendar_year"].max()) if mask.any() else None),
+            }
+        )
     return pd.DataFrame(rows)
 
 
 def run_audit(output_dir: str = OUT) -> dict:
     store, coverage, report = build_corrected_store()
-    eligible = store[
-        store["competition_level"].eq("international")
-        & store["match_at"].ge(pd.Timestamp("2022-01-01", tz="UTC"))
-    ]
+    eligible = store[store["competition_level"].eq("international") & store["match_at"].ge(pd.Timestamp("2022-01-01", tz="UTC"))]
     failures = []
     if report["canonical_fixtures"] != 3327 or report["cached_fixtures"] != 3327:
         failures.append("expected 3,327/3,327 cached canonical fixtures")
@@ -313,10 +305,7 @@ def run_audit(output_dir: str = OUT) -> dict:
     for event in STABLE_EVENTS:
         supported = eligible_coverage[eligible_coverage["event"].eq(event)]
         expected_status = "derived" if event in DERIVED_EVENTS else "recorded"
-        if (
-            supported["fixture_id"].nunique() != len(eligible_fixtures)
-            or not supported["status"].eq(expected_status).all()
-        ):
+        if supported["fixture_id"].nunique() != len(eligible_fixtures) or not supported["status"].eq(expected_status).all():
             failures.append(f"stable event lacks complete eligible fixture coverage: {event}")
     catalog = _event_catalog(store, coverage)
     report["stable_events"] = list(STABLE_EVENTS)
@@ -339,8 +328,6 @@ def run_audit(output_dir: str = OUT) -> dict:
     store.to_csv(store_path, index=False)
     coverage.to_csv(coverage_path, index=False)
     catalog.to_csv(catalog_path, index=False)
-    report["artifacts"] = {
-        "store": str(store_path), "coverage": str(coverage_path), "catalog": str(catalog_path),
-    }
+    report["artifacts"] = {"store": str(store_path), "coverage": str(coverage_path), "catalog": str(catalog_path)}
     open(audit_path, "w").write(json.dumps(report, indent=2, sort_keys=True) + "\n")
     return report

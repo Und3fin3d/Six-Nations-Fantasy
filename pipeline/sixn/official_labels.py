@@ -23,9 +23,7 @@ def match_official(players, official):
     ambiguous = pairs.ambiguous_player | pairs.ambiguous_official
     minutes_match = (pd.to_numeric(pairs.minutes) - pd.to_numeric(pairs.get('Min', pd.Series(np.nan, index=pairs.index)))).abs().le(2)
     pairs = pairs[~ambiguous | minutes_match].copy()
-    pairs['label_source'] = np.where(
-        pairs.ambiguous_player | pairs.ambiguous_official,
-        'official_workbook_minutes_identity', 'official_workbook_name_identity')
+    pairs['label_source'] = np.where(pairs.ambiguous_player | pairs.ambiguous_official, 'official_workbook_minutes_identity', 'official_workbook_name_identity')
     columns = list(official.columns) + ['label_source']
     result = pairs.set_index('player_row')[columns].reindex(range(len(players)))
     result.index = players.index

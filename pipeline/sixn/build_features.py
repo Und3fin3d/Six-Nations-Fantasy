@@ -14,26 +14,19 @@ REFERENCE_DATE = pd.Timestamp("2026-06-15")
 FORWARD_GROUPS = {"Prop", "Hooker", "Second-row", "Back-row"}
 
 FORM_STATS = [
-    "tries", "try_assists", "conversion_goals", "penalty_goals",
-    "drop_goals_converted", "metres", "defenders_beaten", "clean_breaks",
-    "offload", "runs", "tackles", "missed_tackles", "tackle_turnover",
-    "passes", "turnovers_conceded", "penalties_conceded", "lineouts_won",
+    "tries", "try_assists", "conversion_goals", "penalty_goals", "drop_goals_converted", "metres", "defenders_beaten", "clean_breaks", "offload", "runs",
+    "tackles", "missed_tackles", "tackle_turnover", "passes", "turnovers_conceded", "penalties_conceded", "lineouts_won",
 ]
 MATCHUP_STATS = [
-    "tries", "try_assists", "conversion_goals", "penalty_goals",
-    "metres", "defenders_beaten", "offload", "tackles",
-    "tackle_turnover", "penalties_conceded",
+    "tries", "try_assists", "conversion_goals", "penalty_goals", "metres", "defenders_beaten", "offload", "tackles", "tackle_turnover", "penalties_conceded",
 ]
 CLASS_STATS = [
-    "tries", "try_assists", "metres", "post_contact_metres", "defenders_beaten",
-    "clean_breaks", "offloads", "passes", "tackles", "missed_tackles",
+    "tries", "try_assists", "metres", "post_contact_metres", "defenders_beaten", "clean_breaks", "offloads", "passes", "tackles", "missed_tackles",
     "turnovers_won", "turnovers_conceded", "penalties_conceded",
 ]
 OWNTEAM_STATS = {
-    "carries_metres": "ownteam_metres", "tries_for": "ownteam_tries",
-    "clean_breaks": "ownteam_breaks", "defenders_beaten": "ownteam_db",
-    "offload": "ownteam_offloads", "possession": "ownteam_possession",
-    "scrums_won": "ownteam_scrums_won", "scrums_success": "ownteam_scrum_success",
+    "carries_metres": "ownteam_metres", "tries_for": "ownteam_tries", "clean_breaks": "ownteam_breaks", "defenders_beaten": "ownteam_db",
+    "offload": "ownteam_offloads", "possession": "ownteam_possession", "scrums_won": "ownteam_scrums_won", "scrums_success": "ownteam_scrum_success",
     "lineout_won_steal": "ownteam_lineout_steal", "lineout_success": "ownteam_lineout_success",
 }
 
@@ -41,36 +34,21 @@ JUMPER_GROUPS = {"Second-row", "Back-row"}
 FRONT_ROW_GROUPS = {"Prop", "Hooker"}
 
 ID_COLS = [
-    "season", "comp_id", "round", "fixture_id", "date", "team", "team_id",
-    "opponent", "opponent_id", "home_away", "player_id", "player_name",
-    "jersey", "started", "minutes", "canonical_pos", "is_forward",
+    "season", "comp_id", "round", "fixture_id", "date", "team", "team_id", "opponent", "opponent_id", "home_away", "player_id", "player_name", "jersey",
+    "started", "minutes", "canonical_pos", "is_forward",
 ]
 
 OPTIONAL_EXTERNAL_FILES = {
-    "weather": "data/external_fixture_weather.csv",
-    "rolecert": "data/external_player_roles.csv",
-    "style": "data/external_team_style.csv",
+    "weather": "data/external_fixture_weather.csv", "rolecert": "data/external_player_roles.csv", "style": "data/external_team_style.csv",
 }
 
-FIXTURE_JOIN_KEYS = [
-    ["fixture_id", "team_id"],
-    ["fixture_id", "team"],
-    ["season", "round", "team_id"],
-    ["season", "round", "team"],
-]
+FIXTURE_JOIN_KEYS = [["fixture_id", "team_id"], ["fixture_id", "team"], ["season", "round", "team_id"], ["season", "round", "team"]]
 
-WEATHER_JOIN_KEYS = [
-    ["fixture_id"],
-    ["season", "round"],
-]
+WEATHER_JOIN_KEYS = [["fixture_id"], ["season", "round"]]
 
 ROLECERT_JOIN_KEYS = [
-    ["fixture_id", "player_id"],
-    ["fixture_id", "team_id", "_player_key"],
-    ["fixture_id", "team", "_player_key"],
-    ["season", "round", "player_id"],
-    ["season", "round", "team_id", "_player_key"],
-    ["season", "round", "team", "_player_key"],
+    ["fixture_id", "player_id"], ["fixture_id", "team_id", "_player_key"], ["fixture_id", "team", "_player_key"], ["season", "round", "player_id"],
+    ["season", "round", "team_id", "_player_key"], ["season", "round", "team", "_player_key"],
 ]
 
 
@@ -100,13 +78,7 @@ def _join_keys(raw: pd.DataFrame, feat: pd.DataFrame, candidates: list[list[str]
 
 
 def _merge_external(
-    feat: pd.DataFrame,
-    raw: pd.DataFrame,
-    *,
-    source: str,
-    prefix: str,
-    join_candidates: list[list[str]],
-    timestamp_col: str | None = None,
+    feat: pd.DataFrame, raw: pd.DataFrame, *, source: str, prefix: str, join_candidates: list[list[str]], timestamp_col: str | None = None
 ) -> pd.DataFrame:
     if raw.empty:
         return feat
@@ -145,33 +117,20 @@ def _merge_external_weather(feat: pd.DataFrame) -> pd.DataFrame:
     path = OPTIONAL_EXTERNAL_FILES["weather"]
     raw = pd.read_csv(path)
     if {"weather_rain_mm", "weather_precip_probability"}.issubset(raw.columns):
-        raw["weather_wet_index"] = (
-            np.log1p(pd.to_numeric(raw["weather_rain_mm"], errors="coerce"))
-            + pd.to_numeric(raw["weather_precip_probability"], errors="coerce")
+        raw["weather_wet_index"] = np.log1p(pd.to_numeric(raw["weather_rain_mm"], errors="coerce")) + pd.to_numeric(
+            raw["weather_precip_probability"], errors="coerce"
         )
     elif "weather_rain_mm" in raw.columns:
-        raw["weather_wet_index"] = np.log1p(
-            pd.to_numeric(raw["weather_rain_mm"], errors="coerce")
-        )
+        raw["weather_wet_index"] = np.log1p(pd.to_numeric(raw["weather_rain_mm"], errors="coerce"))
     if {"weather_wind_kph", "weather_wind_gust_kph"}.issubset(raw.columns):
         raw["weather_wind_index"] = (
-            pd.to_numeric(raw["weather_wind_kph"], errors="coerce")
-            + 0.5 * pd.to_numeric(raw["weather_wind_gust_kph"], errors="coerce")
+            pd.to_numeric(raw["weather_wind_kph"], errors="coerce") + 0.5 * pd.to_numeric(raw["weather_wind_gust_kph"], errors="coerce")
         ) / 40.0
     elif "weather_wind_kph" in raw.columns:
-        raw["weather_wind_index"] = (
-            pd.to_numeric(raw["weather_wind_kph"], errors="coerce") / 30.0
-        )
+        raw["weather_wind_index"] = pd.to_numeric(raw["weather_wind_kph"], errors="coerce") / 30.0
     if "weather_temp_c" in raw.columns:
-        raw["weather_cold_index"] = np.clip(
-            (10.0 - pd.to_numeric(raw["weather_temp_c"], errors="coerce")) / 10.0,
-            0.0,
-            None,
-        )
-    return _merge_external(
-        feat, raw, source=str(path), prefix="weather_", join_candidates=WEATHER_JOIN_KEYS,
-        timestamp_col=None,
-    )
+        raw["weather_cold_index"] = np.clip((10.0 - pd.to_numeric(raw["weather_temp_c"], errors="coerce")) / 10.0, 0.0, None)
+    return _merge_external(feat, raw, source=str(path), prefix="weather_", join_candidates=WEATHER_JOIN_KEYS, timestamp_col=None)
 
 
 def _merge_external_roles(feat: pd.DataFrame) -> pd.DataFrame:
@@ -185,10 +144,7 @@ def _merge_external_roles(feat: pd.DataFrame) -> pd.DataFrame:
     elif "player_name" in raw.columns:
         raw["_player_key"] = raw["player_name"].map(norm_key)
         feat_in["_player_key"] = feat_in["player_name"].map(norm_key)
-    out = _merge_external(
-        feat_in, raw, source=str(path), prefix="rolecert_",
-        join_candidates=ROLECERT_JOIN_KEYS, timestamp_col="rolecert_source_timestamp",
-    )
+    out = _merge_external(feat_in, raw, source=str(path), prefix="rolecert_", join_candidates=ROLECERT_JOIN_KEYS, timestamp_col="rolecert_source_timestamp")
     if "_player_key" in out.columns:
         out = out.drop(columns=["_player_key"])
     return out
@@ -197,10 +153,7 @@ def _merge_external_roles(feat: pd.DataFrame) -> pd.DataFrame:
 def _merge_external_style(feat: pd.DataFrame) -> pd.DataFrame:
     path = OPTIONAL_EXTERNAL_FILES["style"]
     raw = pd.read_csv(path)
-    return _merge_external(
-        feat, raw, source=str(path), prefix="style_", join_candidates=FIXTURE_JOIN_KEYS,
-        timestamp_col=None,
-    )
+    return _merge_external(feat, raw, source=str(path), prefix="style_", join_candidates=FIXTURE_JOIN_KEYS, timestamp_col=None)
 
 
 def _season_end_year(season) -> int:
@@ -210,9 +163,9 @@ def _season_end_year(season) -> int:
 
 def class_features(slug: str, fixture_season: int, cs_by_slug: dict) -> dict:
     out = {f"class_per80_{s}": np.nan for s in CLASS_STATS}
-    out.update({"class_games_prior": 0, "class_minutes_prior": 0.0,
-                "class6n_per80_metres": np.nan, "class6n_per80_tries": np.nan,
-                "class6n_minutes_prior": 0.0})
+    out.update(
+        {"class_games_prior": 0, "class_minutes_prior": 0.0, "class6n_per80_metres": np.nan, "class6n_per80_tries": np.nan, "class6n_minutes_prior": 0.0}
+    )
     rows = cs_by_slug.get(slug)
     if rows is None:
         return out
@@ -237,19 +190,14 @@ def class_features(slug: str, fixture_season: int, cs_by_slug: dict) -> dict:
 
 def form_role_features(hist: pd.DataFrame, asof: pd.Timestamp, hl: float) -> dict:
     out = {f"form_per80_{s}": np.nan for s in FORM_STATS}
-    out.update({
-        "form_n_prior": 0, "form_minutes_recent": np.nan,
-        "form_start_rate": np.nan, "form_days_since_last": np.nan,
-        "form_hot_metres": np.nan, "form_hot_tries": np.nan,
-        "benchhist_n_prior": 0,
-        "benchhist_minutes_recent": np.nan,
-        "benchhist_play10_rate": np.nan,
-        "benchhist_high30_rate": np.nan,
-        "benchhist_days_since_last": np.nan,
-        "role_goal_kicker_rate": np.nan, "role_kick_attempts": np.nan,
-        "role_lineout_per80": np.nan,
-        "role_potm_rate": np.nan, "role_potm_n_label": 0,
-    })
+    out.update(
+        {
+            "form_n_prior": 0, "form_minutes_recent": np.nan, "form_start_rate": np.nan, "form_days_since_last": np.nan, "form_hot_metres": np.nan,
+            "form_hot_tries": np.nan, "benchhist_n_prior": 0, "benchhist_minutes_recent": np.nan, "benchhist_play10_rate": np.nan,
+            "benchhist_high30_rate": np.nan, "benchhist_days_since_last": np.nan, "role_goal_kicker_rate": np.nan, "role_kick_attempts": np.nan,
+            "role_lineout_per80": np.nan, "role_potm_rate": np.nan, "role_potm_n_label": 0,
+        }
+    )
     if hist.empty:
         return out
     out["form_n_prior"] = int(len(hist))
@@ -261,8 +209,7 @@ def form_role_features(hist: pd.DataFrame, asof: pd.Timestamp, hl: float) -> dic
             wl = w[lblm]
             out["role_potm_n_label"] = int(lblm.sum())
             if wl.sum() > 0:
-                out["role_potm_rate"] = float(
-                    (wl * hist["potm"].to_numpy(float)[lblm]).sum() / wl.sum())
+                out["role_potm_rate"] = float((wl * hist["potm"].to_numpy(float)[lblm]).sum() / wl.sum())
     mins = hist["minutes"].to_numpy(dtype=float)
     wm = w * mins
     swm = wm.sum()
@@ -279,21 +226,14 @@ def form_role_features(hist: pd.DataFrame, asof: pd.Timestamp, hl: float) -> dic
         out["benchhist_n_prior"] = int(len(bench))
         out["benchhist_days_since_last"] = float((asof - bench["date"].max()).days)
         if bench_sw > 0:
-            out["benchhist_minutes_recent"] = float(
-                (bench_w * bench_minutes).sum() / bench_sw
-            )
-            out["benchhist_play10_rate"] = float(
-                (bench_w * (bench_minutes >= 10.0)).sum() / bench_sw
-            )
-            out["benchhist_high30_rate"] = float(
-                (bench_w * (bench_minutes >= 30.0)).sum() / bench_sw
-            )
+            out["benchhist_minutes_recent"] = float((bench_w * bench_minutes).sum() / bench_sw)
+            out["benchhist_play10_rate"] = float((bench_w * (bench_minutes >= 10.0)).sum() / bench_sw)
+            out["benchhist_high30_rate"] = float((bench_w * (bench_minutes >= 30.0)).sum() / bench_sw)
 
     if swm > 0:
         for s in FORM_STATS:
             out[f"form_per80_{s}"] = float((w * hist[s].to_numpy(float)).sum() / swm * 80)
-        attempts = (hist["conversion_goals"] + hist["penalty_goals"]
-                    + hist["missed_conversion_goals"] + hist["missed_penalty_goals"]).to_numpy(float)
+        attempts = (hist["conversion_goals"] + hist["penalty_goals"] + hist["missed_conversion_goals"] + hist["missed_penalty_goals"]).to_numpy(float)
         out["role_goal_kicker_rate"] = float((w * (attempts > 0)).sum() / sw) if sw > 0 else np.nan
         out["role_kick_attempts"] = float((w * attempts).sum() / sw) if sw > 0 else np.nan
         out["role_lineout_per80"] = out["form_per80_lineouts_won"]
@@ -314,20 +254,9 @@ def ownteam_features(hist: pd.DataFrame, asof: pd.Timestamp, hl: float) -> dict:
     return out
 
 
-def matchup_features(
-    hist: pd.DataFrame,
-    asof: pd.Timestamp,
-    canonical_pos: str | None,
-    is_forward: bool,
-    hl: float,
-) -> dict:
+def matchup_features(hist: pd.DataFrame, asof: pd.Timestamp, canonical_pos: str | None, is_forward: bool, hl: float) -> dict:
     out = {f"matchup_per80_{s}": np.nan for s in MATCHUP_STATS}
-    out.update({
-        "matchup_n_prior": 0,
-        "matchup_fixture_n_prior": 0,
-        "matchup_minutes_prior": 0.0,
-        "matchup_exact_position": 0.0,
-    })
+    out.update({"matchup_n_prior": 0, "matchup_fixture_n_prior": 0, "matchup_minutes_prior": 0.0, "matchup_exact_position": 0.0})
     if hist.empty:
         return out
     exact = hist[hist["_matchup_pos"] == canonical_pos]
@@ -352,47 +281,26 @@ def matchup_features(
     return out
 
 
-def team_bench_slot_features(
-    hist: pd.DataFrame,
-    asof: pd.Timestamp,
-    jersey: float | int | None,
-    hl: float,
-) -> dict:
+def team_bench_slot_features(hist: pd.DataFrame, asof: pd.Timestamp, jersey: float | int | None, hl: float) -> dict:
     out = {
-        "benchteam_slot_n_prior": 0,
-        "benchteam_slot_minutes_recent": np.nan,
-        "benchteam_slot_play10_rate": np.nan,
-        "benchteam_slot_high30_rate": np.nan,
+        "benchteam_slot_n_prior": 0, "benchteam_slot_minutes_recent": np.nan, "benchteam_slot_play10_rate": np.nan, "benchteam_slot_high30_rate": np.nan,
         "benchteam_slot_days_since_last": np.nan,
     }
     slot = pd.to_numeric(pd.Series([jersey]), errors="coerce").iloc[0]
     if hist.empty or pd.isna(slot):
         return out
-    bench = hist.loc[
-        (~_bool(hist["started"]))
-        & pd.to_numeric(hist["jersey"], errors="coerce").eq(float(slot))
-    ]
+    bench = hist.loc[(~_bool(hist["started"])) & pd.to_numeric(hist["jersey"], errors="coerce").eq(float(slot))]
     if bench.empty:
         return out
     weights = _decay_weights(asof, bench["date"], max(float(hl), 365.0))
     sw = weights.sum()
-    minutes = pd.to_numeric(
-        bench["minutes"], errors="coerce"
-    ).fillna(0.0).to_numpy(float)
+    minutes = pd.to_numeric(bench["minutes"], errors="coerce").fillna(0.0).to_numpy(float)
     out["benchteam_slot_n_prior"] = int(len(bench))
-    out["benchteam_slot_days_since_last"] = float(
-        (asof - bench["date"].max()).days
-    )
+    out["benchteam_slot_days_since_last"] = float((asof - bench["date"].max()).days)
     if sw > 0:
-        out["benchteam_slot_minutes_recent"] = float(
-            (weights * minutes).sum() / sw
-        )
-        out["benchteam_slot_play10_rate"] = float(
-            (weights * (minutes >= 10.0)).sum() / sw
-        )
-        out["benchteam_slot_high30_rate"] = float(
-            (weights * (minutes >= 30.0)).sum() / sw
-        )
+        out["benchteam_slot_minutes_recent"] = float((weights * minutes).sum() / sw)
+        out["benchteam_slot_play10_rate"] = float((weights * (minutes >= 10.0)).sum() / sw)
+        out["benchteam_slot_high30_rate"] = float((weights * (minutes >= 30.0)).sum() / sw)
     return out
 
 
@@ -418,9 +326,7 @@ def build(half_life: float) -> pd.DataFrame:
 
     pl = pd.read_csv("data/6n_players.csv")
     pos_6n = dict(zip(pl.player_id, pl.canonical_pos))
-    pos_api = (ap.dropna(subset=["canonical_pos"])
-                 .drop_duplicates("player_id")
-                 .set_index("player_id")["canonical_pos"].to_dict())
+    pos_api = ap.dropna(subset=["canonical_pos"]).drop_duplicates("player_id").set_index("player_id")["canonical_pos"].to_dict()
 
     def canon_pos(pid: int):
         p = pos_6n.get(pid)
@@ -440,17 +346,12 @@ def build(half_life: float) -> pd.DataFrame:
     bio = pd.read_csv("data/rp_bio.csv").set_index("slug")
 
     fd = pd.read_csv("data/fixture_difficulty.csv")
-    fd_feats = [c for c in fd.columns
-                if c not in {"team", "opponent", "opponent_id", "date"}]
+    fd_feats = [c for c in fd.columns if c not in {"team", "opponent", "opponent_id", "date"}]
 
     hist_by_pid = {pid: g.sort_values("date") for pid, g in ap.groupby("player_id")}
     hist_by_team = {tid: g.sort_values("date") for tid, g in tm.groupby("team_id")}
-    player_hist_by_team = {
-        tid: g.sort_values("date") for tid, g in ap.groupby("team_id")
-    }
-    hist_by_opponent = {
-        tid: g.sort_values("date") for tid, g in ap.groupby("opponent_id")
-    }
+    player_hist_by_team = {tid: g.sort_values("date") for tid, g in ap.groupby("team_id")}
+    hist_by_opponent = {tid: g.sort_values("date") for tid, g in ap.groupby("opponent_id")}
 
     base = ap[(ap.comp_id == SIX_NATIONS) & (ap.season.isin(TARGET_SEASONS))].copy()
     base = base.sort_values(["season", "date", "fixture_id", "team_id", "jersey"])
@@ -474,9 +375,7 @@ def build(half_life: float) -> pd.DataFrame:
         rec.update(form_role_features(ph, asof, half_life))
         pth = player_hist_by_team.get(int(r.team_id))
         pth = pth[pth["date"] < asof] if pth is not None else ap.iloc[0:0]
-        rec.update(team_bench_slot_features(
-            pth, asof, getattr(r, "jersey", None), half_life
-        ))
+        rec.update(team_bench_slot_features(pth, asof, getattr(r, "jersey", None), half_life))
 
         if pd.notna(rec.get("form_per80_metres")) and pd.notna(rec.get("class_per80_metres")):
             rec["form_hot_metres"] = rec["form_per80_metres"] - rec["class_per80_metres"]
@@ -489,28 +388,19 @@ def build(half_life: float) -> pd.DataFrame:
 
         oh = hist_by_opponent.get(int(r.opponent_id))
         oh = oh[oh["date"] < asof] if oh is not None else ap.iloc[0:0]
-        rec.update(matchup_features(
-            oh,
-            asof,
-            rec["canonical_pos"],
-            bool(rec["is_forward"]),
-            half_life,
-        ))
+        rec.update(matchup_features(oh, asof, rec["canonical_pos"], bool(rec["is_forward"]), half_life))
 
         if slug in bio.index:
             b = bio.loc[slug]
             age = pd.to_numeric(b.get("age"), errors="coerce")
             if pd.notna(age) and age <= 0:
                 age = np.nan
-            rec["bio_age_at_fixture"] = (
-                float(age - (REFERENCE_DATE - asof).days / 365.25)
-                if pd.notna(age) else np.nan)
+            rec["bio_age_at_fixture"] = float(age - (REFERENCE_DATE - asof).days / 365.25) if pd.notna(age) else np.nan
             rec["bio_height_cm"] = pd.to_numeric(b.get("height_cm"), errors="coerce")
             rec["bio_weight_kg"] = pd.to_numeric(b.get("weight_kg"), errors="coerce")
             rec["bio_position"] = b.get("position")
         else:
-            rec.update({"bio_age_at_fixture": np.nan, "bio_height_cm": np.nan,
-                        "bio_weight_kg": np.nan, "bio_position": None})
+            rec.update({"bio_age_at_fixture": np.nan, "bio_height_cm": np.nan, "bio_weight_kg": np.nan, "bio_position": None})
 
         rec["has_class"] = rec["class_minutes_prior"] > 0
         rec["has_form"] = rec["form_n_prior"] > 0
@@ -522,10 +412,7 @@ def build(half_life: float) -> pd.DataFrame:
     feat = feat.merge(fd[fd_feats], on=["fixture_id", "team_id"], how="left")
 
     tp = pd.read_csv("data/team_play_predictions.csv")
-    tp_feats = [
-        c for c in tp.columns
-        if c not in {"season", "round", "team", "opponent", "opponent_id", "date"}
-    ]
+    tp_feats = [c for c in tp.columns if c not in {"season", "round", "team", "opponent", "opponent_id", "date"}]
     feat = feat.merge(tp[tp_feats], on=["fixture_id", "team_id"], how="left")
     feat = _merge_external_weather(feat)
     feat = _merge_external_roles(feat)
@@ -543,26 +430,19 @@ def main():
     feat.to_csv(out, index=False)
 
     fam = {
-        "CLASS": [c for c in feat if c.startswith("class")],
-        "FORM": [c for c in feat if c.startswith("form")],
-        "ROLE": [c for c in feat if c.startswith("role") and not c.startswith("rolecert_")],
-        "OWN-TEAM": [c for c in feat if c.startswith("ownteam")],
-        "BIO": [c for c in feat if c.startswith("bio")],
-        "FIXTURE": [c for c in feat if c.startswith(("opp_", "h2h_", "team_wr", "wr_"))],
-        "TEAMPLAY": [c for c in feat if c.startswith("teamplay_")],
-        "WEATHER": [c for c in feat if c.startswith("weather_")],
-        "ROLECERT": [c for c in feat if c.startswith("rolecert_")],
-        "STYLE": [c for c in feat if c.startswith("style_")],
+        "CLASS": [c for c in feat if c.startswith("class")], "FORM": [c for c in feat if c.startswith("form")],
+        "ROLE": [c for c in feat if c.startswith("role") and not c.startswith("rolecert_")], "OWN-TEAM": [c for c in feat if c.startswith("ownteam")],
+        "BIO": [c for c in feat if c.startswith("bio")], "FIXTURE": [c for c in feat if c.startswith(("opp_", "h2h_", "team_wr", "wr_"))],
+        "TEAMPLAY": [c for c in feat if c.startswith("teamplay_")], "WEATHER": [c for c in feat if c.startswith("weather_")],
+        "ROLECERT": [c for c in feat if c.startswith("rolecert_")], "STYLE": [c for c in feat if c.startswith("style_")],
     }
-    print(f"✅  {len(feat)} rows, {feat.fixture_id.nunique()} matches, "
-          f"seasons {sorted(feat.season.unique())}")
+    print(f"✅  {len(feat)} rows, {feat.fixture_id.nunique()} matches, seasons {sorted(feat.season.unique())}")
     for name, cols in fam.items():
         if not cols:
             continue
         cov = 100 * feat[cols].notna().any(axis=1).mean()
         print(f"    {name:9s} {len(cols):2d} cols, {cov:5.1f}% rows non-null")
-    print(f"    cold-start: CLASS {100*(~feat.has_class).mean():.0f}%, "
-          f"FORM {100*(~feat.has_form).mean():.0f}%, BIO {100*(~feat.has_bio).mean():.0f}%")
+    print(f"    cold-start: CLASS {100 * (~feat.has_class).mean():.0f}%, FORM {100 * (~feat.has_form).mean():.0f}%, BIO {100 * (~feat.has_bio).mean():.0f}%")
     print(f"💾  {out}")
 
 

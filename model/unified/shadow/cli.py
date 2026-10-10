@@ -13,10 +13,7 @@ def shadow_command(args):
 
 
 def shadow_evaluate_command(args):
-    payload = evaluate_prospective_shadows(
-        args.engine, rounds=tuple(args.rounds), shadow_dir=args.shadow_dir,
-        output_dir=args.output,
-    )
+    payload = evaluate_prospective_shadows(args.engine, rounds=tuple(args.rounds), shadow_dir=args.shadow_dir, output_dir=args.output)
     print(json.dumps(payload, indent=2, sort_keys=True))
 
 
@@ -25,18 +22,12 @@ def parser() -> argparse.ArgumentParser:
     sub = ap.add_subparsers(required=True)
     p = sub.add_parser("shadow", help="freeze a write-once NCR shadow prediction")
     p.add_argument("--gw", type=int, required=True)
-    p.add_argument(
-        "--engine", choices=("p3_event_50",), required=True,
-    )
+    p.add_argument("--engine", choices=("p3_event_50",), required=True)
     p.add_argument("--model", required=True)
     p.add_argument("--output", default=f"{OUT}/shadow")
     p.set_defaults(func=shadow_command)
-    p = sub.add_parser(
-        "shadow-evaluate", help="apply the combined NCR GW4-GW7 promotion gates",
-    )
-    p.add_argument(
-        "--engine", choices=("p3_event_50",), required=True,
-    )
+    p = sub.add_parser("shadow-evaluate", help="apply the combined NCR GW4-GW7 promotion gates")
+    p.add_argument("--engine", choices=("p3_event_50",), required=True)
     p.add_argument("--rounds", type=int, nargs="+", default=(4, 5, 6, 7))
     p.add_argument("--shadow-dir", default=f"{OUT}/shadow")
     p.add_argument("--output", default=f"{OUT}/prospective")

@@ -7,13 +7,8 @@ import pandas as pd
 
 from .schema import EVENTS
 
-CATEGORICAL_FEATURES = (
-    "player_id", "position", "team", "opponent", "competition_level",
-)
-BASE_NUMERIC_FEATURES = (
-    "is_forward", "started", "jersey", "days_since_last", "career_matches",
-    "recent_minutes", "recent_start_rate", "team_recent_margin",
-)
+CATEGORICAL_FEATURES = ("player_id", "position", "team", "opponent", "competition_level")
+BASE_NUMERIC_FEATURES = ("is_forward", "started", "jersey", "days_since_last", "career_matches", "recent_minutes", "recent_start_rate", "team_recent_margin")
 
 
 def grouped_ewm(values: pd.Series, groups: pd.Series, *, shifted: bool = False, **kwargs) -> pd.Series:
@@ -29,9 +24,7 @@ def grouped_ewm(values: pd.Series, groups: pd.Series, *, shifted: bool = False, 
 
 
 def team_margin_form(frame: pd.DataFrame, *, shifted: bool) -> pd.Series:
-    fixtures = frame.drop_duplicates(["fixture_id", "team"]).sort_values(
-        ["date", "fixture_id", "team"]
-    ).copy()
+    fixtures = frame.drop_duplicates(["fixture_id", "team"]).sort_values(["date", "fixture_id", "team"]).copy()
     score = pd.to_numeric(fixtures.get("team_score", pd.Series(np.nan, index=fixtures.index)), errors="coerce")
     opponent = pd.to_numeric(fixtures.get("opp_score", pd.Series(np.nan, index=fixtures.index)), errors="coerce")
     fixtures["_margin"] = score - opponent
@@ -45,8 +38,7 @@ def team_margin_form(frame: pd.DataFrame, *, shifted: bool) -> pd.Series:
 
 def build_pit_features(frame: pd.DataFrame) -> pd.DataFrame:
     df = frame.sort_values(["date", "fixture_id", "team", "player_id"]).copy()
-    df["team_margin"] = pd.to_numeric(df.get("team_score"), errors="coerce") - pd.to_numeric(
-        df.get("opp_score"), errors="coerce")
+    df["team_margin"] = pd.to_numeric(df.get("team_score"), errors="coerce") - pd.to_numeric(df.get("opp_score"), errors="coerce")
     player_groups = df.groupby("player_id", sort=False)
     df["previous_date"] = player_groups["date"].shift(1)
     df["days_since_last"] = (df["date"] - df["previous_date"]).dt.days.clip(0, 1000)
@@ -64,9 +56,7 @@ def build_pit_features(frame: pd.DataFrame) -> pd.DataFrame:
 
 
 def numeric_feature_columns(frame: pd.DataFrame) -> list[str]:
-    return [c for c in BASE_NUMERIC_FEATURES if c in frame] + [
-        c for c in frame if c.startswith(("form_per80__", "history_count__"))
-    ]
+    return [c for c in BASE_NUMERIC_FEATURES if c in frame] + [c for c in frame if c.startswith(("form_per80__", "history_count__"))]
 
 
 @dataclass
@@ -91,11 +81,12 @@ class FeatureEncoder:
         return self
 
     def transform(self, frame: pd.DataFrame) -> tuple[np.ndarray, np.ndarray]:
-        cat = np.column_stack([
-            frame.get(col, pd.Series("unknown", index=frame.index)).fillna("unknown").astype(str)
-            .map(mapping).fillna(0).astype(int).to_numpy()
-            for col, mapping in self.categories.items()
-        ])
+        cat = np.column_stack(
+            [
+                frame.get(col, pd.Series("unknown", index=frame.index)).fillna("unknown").astype(str).map(mapping).fillna(0).astype(int).to_numpy()
+                for col, mapping in self.categories.items()
+            ]
+        )
         matrix = frame.reindex(columns=self.numeric_columns).astype(float).to_numpy()
         filled = np.where(np.isnan(matrix), self.means, matrix)
         return cat, (filled - self.means) / self.scales

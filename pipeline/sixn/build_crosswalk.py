@@ -18,6 +18,7 @@ def surname_of(key: str) -> str:
 def last_token(name: str) -> str:
     import re
     import unicodedata
+
     if not isinstance(name, str) or not name.strip():
         return ""
     s = unicodedata.normalize("NFKD", name).encode("ascii", "ignore").decode()
@@ -32,37 +33,31 @@ def load_api() -> pd.DataFrame:
     pm["key"] = pm["player_name"].map(norm_key)
 
     six_n = pm[pm["comp_name"].str.contains("Six Nations", case=False, na=False)]
-    api = (six_n[["player_id", "player_name", "key"]]
-           .dropna(subset=["player_id"])
-           .drop_duplicates(subset=["player_id"]))
+    api = six_n[["player_id", "player_name", "key"]].dropna(subset=["player_id"]).drop_duplicates(subset=["player_id"])
     api["player_id"] = api["player_id"].astype("Int64")
 
     ref = pd.read_csv("data/6n_players.csv")
-    pos_6n = {int(p): c for p, c in zip(ref["player_id"], ref["canonical_pos"])
-              if pd.notna(p)}
-    pos_api = {int(p): c for p, c in
-               (pm.dropna(subset=["canonical_pos"])
-                  .drop_duplicates("player_id")[["player_id", "canonical_pos"]]
-                  .itertuples(index=False, name=None))
-               if pd.notna(p)}
+    pos_6n = {int(p): c for p, c in zip(ref["player_id"], ref["canonical_pos"]) if pd.notna(p)}
+    pos_api = {
+        int(p): c
+        for p, c in (pm.dropna(subset=["canonical_pos"]).drop_duplicates("player_id")[["player_id", "canonical_pos"]].itertuples(index=False, name=None))
+        if pd.notna(p)
+    }
 
     def canon_pos(pid):
         p = pos_6n.get(pid)
         return p if isinstance(p, str) and p else pos_api.get(pid)
 
-    api["canonical_pos"] = api["player_id"].map(
-        lambda x: canon_pos(int(x)) if pd.notna(x) else None)
+    api["canonical_pos"] = api["player_id"].map(lambda x: canon_pos(int(x)) if pd.notna(x) else None)
 
-    api = api.rename(columns={"player_name": "api_name",
-                              "player_id": "api_player_id"})
+    api = api.rename(columns={"player_name": "api_name", "player_id": "api_player_id"})
     return api[["key", "api_player_id", "api_name", "canonical_pos"]]
 
 
 def load_rp() -> pd.DataFrame:
     rp = pd.read_csv("data/rp_bio.csv")
     rp = rp.dropna(subset=["key"]).drop_duplicates(subset=["slug"])
-    rp["rp_name"] = rp["slug"].map(
-        lambda s: SLUG_TO_NAME.get(s, s.replace("-", " ").title()))
+    rp["rp_name"] = rp["slug"].map(lambda s: SLUG_TO_NAME.get(s, s.replace("-", " ").title()))
     rp = rp.rename(columns={"slug": "rp_slug"})
     return rp[["key", "rp_slug", "rp_name", "nationality", "position"]]
 
@@ -70,10 +65,7 @@ def load_rp() -> pd.DataFrame:
 def load_official() -> pd.DataFrame:
     off = pd.read_csv("data/official_player_match.csv")
     off = off.dropna(subset=["key"])
-    off = (off.groupby("key")
-              .agg(official_name=("name", lambda s: s.mode().iat[0]),
-                   official_team=("team", lambda s: s.mode().iat[0]))
-              .reset_index())
+    off = off.groupby("key").agg(official_name=("name", lambda s: s.mode().iat[0]), official_team=("team", lambda s: s.mode().iat[0])).reset_index()
     return off
 
 
@@ -95,9 +87,10 @@ def build() -> pd.DataFrame:
 
     cw = _surname_pass(cw)
 
-    cols = ["key", "api_player_id", "api_name", "rp_slug", "rp_name",
-            "official_name", "nationality", "canonical_pos",
-            "in_api", "in_rp", "in_official", "key_collision", "match_method"]
+    cols = [
+        "key", "api_player_id", "api_name", "rp_slug", "rp_name", "official_name", "nationality", "canonical_pos", "in_api", "in_rp", "in_official",
+        "key_collision", "match_method",
+    ]
     cw = cw[cols].sort_values(["key", "api_player_id"]).reset_index(drop=True)
     return cw
 
@@ -124,9 +117,7 @@ def _surname_candidates(row) -> set:
     if s:
         cands.add(s)
     src = _row_source(row)
-    name = {"api": row.get("api_name"),
-            "rp": row.get("rp_slug"),
-            "official": row.get("official_name")}[src]
+    name = {"api": row.get("api_name"), "rp": row.get("rp_slug"), "official": row.get("official_name")}[src]
     lt = last_token(name)
     if lt:
         cands.add(lt)
@@ -143,10 +134,7 @@ def _surname_pass(cw: pd.DataFrame) -> pd.DataFrame:
     for idx, row in lonely.iterrows():
         src = _row_source(row)
         by_src[src].append(idx)
-        info[idx] = (src,
-                     _surname_candidates(row),
-                     row.get("nationality"),
-                     row.get("official_team"))
+        info[idx] = (src, _surname_candidates(row), row.get("nationality"), row.get("official_team"))
 
     drop_idx: set = set()
     merged = 0
@@ -187,8 +175,7 @@ def _surname_pass(cw: pd.DataFrame) -> pd.DataFrame:
 
 
 def _consolidate_name_variants(cw: pd.DataFrame, drop_idx: set) -> int:
-    incomplete = cw[(cw[["in_api", "in_rp", "in_official"]].sum(axis=1) < 3)
-                    & cw["in_official"]]
+    incomplete = cw[(cw[["in_api", "in_rp", "in_official"]].sum(axis=1) < 3) & cw["in_official"]]
     by_ln: dict = {}
     for idx, row in incomplete.iterrows():
         ln = last_token(row.get("official_name"))
@@ -207,10 +194,8 @@ def _consolidate_name_variants(cw: pd.DataFrame, drop_idx: set) -> int:
             continue
         if bool(ri["in_rp"]) and bool(rj["in_rp"]):
             continue
-        nat = ri.get("nationality") if isinstance(ri.get("nationality"), str) \
-            else rj.get("nationality")
-        team = ri.get("official_team") if isinstance(ri.get("official_team"), str) \
-            else rj.get("official_team")
+        nat = ri.get("nationality") if isinstance(ri.get("nationality"), str) else rj.get("nationality")
+        team = ri.get("official_team") if isinstance(ri.get("official_team"), str) else rj.get("official_team")
         if not _nat_team_compatible(nat, team):
             continue
         _fold(cw, i, jx)
@@ -220,9 +205,7 @@ def _consolidate_name_variants(cw: pd.DataFrame, drop_idx: set) -> int:
 
 
 def _fold(cw: pd.DataFrame, keep: int, drop: int) -> None:
-    fill_cols = ["api_player_id", "api_name", "rp_slug", "rp_name",
-                 "official_name", "nationality", "canonical_pos",
-                 "official_team"]
+    fill_cols = ["api_player_id", "api_name", "rp_slug", "rp_name", "official_name", "nationality", "canonical_pos", "official_team"]
     for c in fill_cols:
         if c not in cw.columns:
             continue
@@ -250,24 +233,20 @@ def report(cw: pd.DataFrame) -> None:
     api_rp = api_rows[api_rows["in_rp"]]
     pct_api_rp = 100 * len(api_rp) / len(api_rows) if len(api_rows) else float("nan")
     print("-" * 74)
-    print(f"API -> RugbyPass match: {len(api_rp)}/{len(api_rows)} "
-          f"= {pct_api_rp:.1f}%   (target >99%)")
+    print(f"API -> RugbyPass match: {len(api_rp)}/{len(api_rows)} = {pct_api_rp:.1f}%   (target >99%)")
     unmatched_api = api_rows[~api_rows["in_rp"]]
     print(f"  unmatched API players ({len(unmatched_api)}):")
     for _, r in unmatched_api.iterrows():
-        print(f"    {str(r['api_name']):<28} key={r['key']:<22} "
-              f"pos={r['canonical_pos']}")
+        print(f"    {str(r['api_name']):<28} key={r['key']:<22} pos={r['canonical_pos']}")
 
     off_rows = cw[cw["in_official"]]
     off_api = off_rows[off_rows["in_api"]]
     pct_off_api = 100 * len(off_api) / len(off_rows) if len(off_rows) else float("nan")
     print("-" * 74)
-    print(f"Official -> API match:  {len(off_api)}/{len(off_rows)} "
-          f"= {pct_off_api:.1f}%")
+    print(f"Official -> API match:  {len(off_api)}/{len(off_rows)} = {pct_off_api:.1f}%")
     unmatched_off = off_rows[~off_rows["in_api"]]
     if len(unmatched_off):
-        print(f"  unmatched official players ({len(unmatched_off)}): "
-              f"{unmatched_off['official_name'].head(15).tolist()}")
+        print(f"  unmatched official players ({len(unmatched_off)}): {unmatched_off['official_name'].head(15).tolist()}")
 
     n_coll = int(cw["key_collision"].sum())
     n_surn = int((cw["match_method"] == "surname").sum())
@@ -275,22 +254,22 @@ def report(cw: pd.DataFrame) -> None:
     print(f"key_collision rows:    {n_coll}")
     print(f"surname-method links:  {n_surn}")
     if n_coll:
-        print("  collision keys:",
-              sorted(cw[cw["key_collision"]]["key"].unique().tolist()))
+        print("  collision keys:", sorted(cw[cw["key_collision"]]["key"].unique().tolist()))
 
     print("-" * 74)
     print("SPOT-CHECK (10 linked rows; surname-method first):")
-    linked = cw[(cw["in_api"].astype(int) + cw["in_rp"].astype(int) +
-                 cw["in_official"].astype(int)) >= 2]
+    linked = cw[(cw["in_api"].astype(int) + cw["in_rp"].astype(int) + cw["in_official"].astype(int)) >= 2]
     surn = linked[linked["match_method"] == "surname"]
     rest = linked[linked["match_method"] != "surname"]
     sample = pd.concat([surn, rest.head(max(0, 10 - len(surn)))]).head(10)
     for _, r in sample.iterrows():
-        print(f"  [{r['match_method']:<7}] key={r['key']:<20} "
-              f"api={str(r['api_name'])[:20]:<20} "
-              f"rp={str(r['rp_slug'])[:20]:<20} "
-              f"off={str(r['official_name'])[:18]:<18} "
-              f"nat={r['nationality']}")
+        print(
+            f"  [{r['match_method']:<7}] key={r['key']:<20} "
+            f"api={str(r['api_name'])[:20]:<20} "
+            f"rp={str(r['rp_slug'])[:20]:<20} "
+            f"off={str(r['official_name'])[:18]:<18} "
+            f"nat={r['nationality']}"
+        )
     print("=" * 74)
 
 

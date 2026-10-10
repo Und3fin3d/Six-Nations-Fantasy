@@ -22,10 +22,13 @@ class _ConstantProbability:
 
 class UniversalGBDT:
     def __init__(
-        self, events: tuple[str, ...] = EVENTS, random_state: int = 17,
+        self,
+        events: tuple[str, ...] = EVENTS,
+        random_state: int = 17,
         weighting: str = "level_balanced",
         time_half_life_days: float | None = None,
-        n_estimators: int = 180, num_leaves: int = 23,
+        n_estimators: int = 180,
+        num_leaves: int = 23,
         native_categories: bool = False,
     ):
         self.events = tuple(events)
@@ -45,8 +48,7 @@ class UniversalGBDT:
         self.encoder.fit(frame)
         cat, numeric = self.encoder.transform(frame)
         X = np.column_stack([cat, numeric])
-        fit_kwargs = ({"categorical_feature": list(range(cat.shape[1]))}
-                      if self.native_categories else {})
+        fit_kwargs = {"categorical_feature": list(range(cat.shape[1]))} if self.native_categories else {}
         level = frame["competition_level"].fillna("unknown").astype(str)
         sample_weight = np.ones(len(frame), dtype=float)
         if self.weighting == "level_balanced":
@@ -71,11 +73,8 @@ class UniversalGBDT:
             y = np.clip(frame.loc[valid, target].to_numpy(float), 0, None)
             family = distribution_family(target)
             kwargs = dict(
-                n_estimators=self.n_estimators, learning_rate=.045,
-                num_leaves=self.num_leaves,
-                min_child_samples=35, reg_lambda=4.0, subsample=.85,
-                subsample_freq=1, colsample_bytree=.8, random_state=self.random_state,
-                n_jobs=-1, verbosity=-1, deterministic=True, force_col_wise=True,
+                n_estimators=self.n_estimators, learning_rate=0.045, num_leaves=self.num_leaves, min_child_samples=35, reg_lambda=4.0, subsample=0.85,
+                subsample_freq=1, colsample_bytree=0.8, random_state=self.random_state, n_jobs=-1, verbosity=-1, deterministic=True, force_col_wise=True,
             )
             if family == "bernoulli":
                 binary = (y > 0).astype(int)
@@ -87,9 +86,7 @@ class UniversalGBDT:
                 fitted = model.predict_proba(X[valid])[:, 1]
             else:
                 objective = "tweedie" if family == "lognormal" else "poisson"
-                model = lgb.LGBMRegressor(
-                    objective=objective, tweedie_variance_power=1.35, **kwargs,
-                )
+                model = lgb.LGBMRegressor(objective=objective, tweedie_variance_power=1.35, **kwargs)
                 model.fit(X[valid], y, sample_weight=sample_weight[valid], **fit_kwargs)
                 fitted = np.clip(model.predict(X[valid]), 0, None)
             resid_var = float(np.mean((y - fitted) ** 2))
@@ -120,19 +117,19 @@ class UniversalGBDT:
                     dispersion = 1.0
                 elif family == "negative_binomial":
                     var = max(self.dispersion[event], mean + 1e-6)
-                    dispersion = max(mean * mean / max(var - mean, 1e-6), .05)
+                    dispersion = max(mean * mean / max(var - mean, 1e-6), 0.05)
                 else:
                     dispersion = self.dispersion[event]
                 events[event] = EventDistribution(family, mean, dispersion)
             mmean = min(float(means["minutes"][i]), 80.0)
             return_minutes = EventDistribution("lognormal", mmean, self.dispersion["minutes"])
-            output.append(RawPrediction(
-                fixture_id=str(row.fixture_id), player_id=str(row.player_id),
-                player_name=str(row.player_name), team=str(row.team), opponent=str(row.opponent),
-                position=str(row.position), is_forward=bool(row.is_forward), events=events,
-                minutes=return_minutes,
-                metadata={"model": "universal_gbdt", "competition_level": row.competition_level},
-            ))
+            output.append(
+                RawPrediction(
+                    fixture_id=str(row.fixture_id), player_id=str(row.player_id), player_name=str(row.player_name), team=str(row.team),
+                    opponent=str(row.opponent), position=str(row.position), is_forward=bool(row.is_forward), events=events, minutes=return_minutes,
+                    metadata={"model": "universal_gbdt", "competition_level": row.competition_level},
+                )
+            )
         return output
 
     def save(self, path: str) -> None:

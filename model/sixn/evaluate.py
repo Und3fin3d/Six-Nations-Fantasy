@@ -4,10 +4,7 @@ import numpy as np
 import pandas as pd
 from scipy.stats import spearmanr
 
-XV_QUOTA = {
-    "Prop": 2, "Hooker": 1, "Second-row": 2, "Back-row": 3,
-    "Scrum-half": 1, "Fly-half": 1, "Centre": 2, "Back-three": 3,
-}
+XV_QUOTA = {"Prop": 2, "Hooker": 1, "Second-row": 2, "Back-row": 3, "Scrum-half": 1, "Fly-half": 1, "Centre": 2, "Back-three": 3}
 CAPTAIN_MULTIPLIER = 2.0
 SUPERSUB_MULTIPLIER = 3.0
 
@@ -19,8 +16,7 @@ def _labelled(pred: pd.DataFrame) -> pd.DataFrame:
 def points_mae(pred: pd.DataFrame, score_col: str = "target_pts_hat") -> dict:
     lab = _labelled(pred).dropna(subset=[score_col])
     err = (lab["official_pts"] - lab[score_col]).abs()
-    by_pos = (lab.assign(e=err).groupby("canonical_pos")["e"].mean()
-              .round(3).to_dict())
+    by_pos = lab.assign(e=err).groupby("canonical_pos")["e"].mean().round(3).to_dict()
     return {"overall": float(err.mean()), "by_pos": by_pos}
 
 
@@ -67,11 +63,7 @@ def value_of_xv(pred: pd.DataFrame, score_col: str = "target_pts_hat") -> tuple[
 
 
 def value_of_team(
-    pred: pd.DataFrame,
-    score_col: str = "target_pts_hat",
-    *,
-    captain_score_col: str | None = None,
-    supersub_score_col: str | None = None,
+    pred: pd.DataFrame, score_col: str = "target_pts_hat", *, captain_score_col: str | None = None, supersub_score_col: str | None = None
 ) -> tuple[float, list]:
     lab = _labelled(pred)
     captain_score_col = captain_score_col or score_col
@@ -83,10 +75,10 @@ def value_of_team(
             ratios.append(np.nan)
             continue
         picked_base = float(xv["official_pts"].sum())
-        captain_extra = float(
-            xv.loc[xv[captain_score_col].idxmax(), "official_pts"]
-        ) if captain_score_col in xv.columns else float(
-            xv.loc[xv[score_col].idxmax(), "official_pts"]
+        captain_extra = (
+            float(xv.loc[xv[captain_score_col].idxmax(), "official_pts"])
+            if captain_score_col in xv.columns
+            else float(xv.loc[xv[score_col].idxmax(), "official_pts"])
         )
         pool = _supersub_pool(g, set(xv["player_id"]))
         supersub = 0.0
@@ -105,9 +97,7 @@ def value_of_team(
     return float(np.nanmean(ratios)), ratios
 
 
-def captain_hit_rates(
-    pred: pd.DataFrame, score_col: str = "target_pts_hat", topns: tuple[int, ...] = (1, 3, 5),
-) -> dict[str, float]:
+def captain_hit_rates(pred: pd.DataFrame, score_col: str = "target_pts_hat", topns: tuple[int, ...] = (1, 3, 5)) -> dict[str, float]:
     lab = _labelled(pred)
     hits = {n: 0 for n in topns}
     total = 0
@@ -155,15 +145,14 @@ def spearman_within_pos(pred: pd.DataFrame, score_col: str = "target_pts_hat") -
 def evaluate(pred: pd.DataFrame, score_col: str = "target_pts_hat", *, points: bool = True) -> dict:
     vx, _ = value_of_xv(pred, score_col)
     vt, _ = value_of_team(
-        pred,
-        score_col,
-        supersub_score_col="supersub_score" if "supersub_score" in pred.columns else None,
+        pred, score_col, supersub_score_col="supersub_score" if "supersub_score" in pred.columns else None,
         captain_score_col="captain_score" if "captain_score" in pred.columns else None,
     )
     capt = captain_hit_rates(pred, score_col, (1, 3, 5))
     out = {
         "value_team": vt,
-        "value_xv": vx, **capt,
+        "value_xv": vx,
+        **capt,
         "top15": topn_overlap(pred, 15, score_col),
         "top30": topn_overlap(pred, 30, score_col),
         "spearman_pos": spearman_within_pos(pred, score_col),
@@ -174,17 +163,13 @@ def evaluate(pred: pd.DataFrame, score_col: str = "target_pts_hat", *, points: b
 
 
 def format_table(rows: dict[str, dict], title: str) -> str:
-    cols = [
-        "mae", "bench_mae", "value_team", "value_xv", "top15", "top30",
-        "capt_top1", "capt_top3", "capt_top5", "spearman_pos",
-    ]
+    cols = ["mae", "bench_mae", "value_team", "value_xv", "top15", "top30", "capt_top1", "capt_top3", "capt_top5", "spearman_pos"]
     head = f"{'engine':16s} " + " ".join(f"{c:>10s}" for c in cols)
     lines = [f"\n=== {title} ===", head, "-" * len(head)]
     for name, m in rows.items():
         cells = []
         for c in cols:
             v = m.get(c, np.nan)
-            cells.append("       nan" if v is None or (isinstance(v, float) and np.isnan(v))
-                         else f"{v:10.3f}")
+            cells.append("       nan" if v is None or (isinstance(v, float) and np.isnan(v)) else f"{v:10.3f}")
         lines.append(f"{name:16s} " + " ".join(cells))
     return "\n".join(lines)

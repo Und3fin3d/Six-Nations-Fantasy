@@ -9,8 +9,7 @@ import urllib.request
 import pandas as pd
 
 CACHE = "data/cache"
-URL = ("https://api.wr-rims-prod.pulselive.com/rugby/v3/rankings/mru"
-       "?date={date}&language=en")
+URL = "https://api.wr-rims-prod.pulselive.com/rugby/v3/rankings/mru?date={date}&language=en"
 HEADERS = {"User-Agent": "Mozilla/5.0", "Accept": "application/json"}
 
 
@@ -29,48 +28,22 @@ def fetch_snapshot(date: str) -> dict:
 
 
 def snapshot_rows(date: str, data: dict) -> list[dict]:
-    rows = []
-    for e in data.get("entries", []):
-        t = e.get("team", {})
-        rows.append({
-            "snapshot_date": date,
-            "team": t.get("name"),
-            "team_abbr": t.get("abbreviation"),
-            "wr_pos": e.get("pos"),
-            "wr_pts": e.get("pts"),
-            "prev_pos": e.get("previousPos"),
-            "prev_pts": e.get("previousPts"),
-        })
-    return rows
+    return [{"snapshot_date": date, "team": e.get("team", {}).get("name"), "team_abbr": e.get("team", {}).get("abbreviation"), "wr_pos": e.get("pos"),
+             "wr_pts": e.get("pts"), "prev_pos": e.get("previousPos"), "prev_pts": e.get("previousPts")} for e in data.get("entries", [])]
 
 
 def main():
     ap = argparse.ArgumentParser()
-    ap.add_argument("--dates", nargs="+", default=None,
-                    help="explicit YYYY-MM-DD dates; default = fixture dates in "
-                         "data/api_team_match.csv")
+    ap.add_argument("--dates", nargs="+", default=None, help="explicit YYYY-MM-DD dates; default = fixture dates in data/api_team_match.csv")
     args = ap.parse_args()
 
-    if args.dates:
-        dates = sorted(set(args.dates))
-    else:
-        tm = pd.read_csv("data/api_team_match.csv")
-        dates = sorted(d for d in tm["date"].dropna().astype(str).unique() if d)
-
+    dates = sorted(set(args.dates)) if args.dates else sorted(d for d in pd.read_csv("data/api_team_match.csv")["date"].dropna().astype(str).unique() if d)
     print(f"fetching WR snapshots for {len(dates)} fixture dates")
-    rows = []
-    for d in dates:
-        rows += snapshot_rows(d, fetch_snapshot(d))
-
-    df = pd.DataFrame(rows)
+    df = pd.DataFrame([row for d in dates for row in snapshot_rows(d, fetch_snapshot(d))])
     out = "data/wr_rankings.csv"
-    prev = pd.read_csv(out)
-    df = (pd.concat([prev, df], ignore_index=True)
-            .drop_duplicates(["snapshot_date", "team"], keep="last")
-            .sort_values(["snapshot_date", "wr_pos"]))
+    df = pd.concat([pd.read_csv(out), df], ignore_index=True).drop_duplicates(["snapshot_date", "team"], keep="last").sort_values(["snapshot_date", "wr_pos"])
     df.to_csv(out, index=False)
-    print(f"\n✅  {len(df)} rows, {df.snapshot_date.nunique()} snapshots, "
-          f"{df.team.nunique()} teams")
+    print(f"\n✅  {len(df)} rows, {df.snapshot_date.nunique()} snapshots, {df.team.nunique()} teams")
     print(f"💾  {out}")
 
 

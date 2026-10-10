@@ -18,16 +18,10 @@ def _variance(distribution: EventDistribution) -> float:
     return distribution.dispersion
 
 
-def _blend_distribution(
-    left: EventDistribution, right: EventDistribution, weight_left: float,
-    *, target: str,
-) -> EventDistribution:
+def _blend_distribution(left: EventDistribution, right: EventDistribution, weight_left: float, *, target: str) -> EventDistribution:
     weight_right = 1.0 - weight_left
     mean = weight_left * left.mean + weight_right * right.mean
-    variance = (
-        weight_left * (_variance(left) + (left.mean - mean) ** 2)
-        + weight_right * (_variance(right) + (right.mean - mean) ** 2)
-    )
+    variance = weight_left * (_variance(left) + (left.mean - mean) ** 2) + weight_right * (_variance(right) + (right.mean - mean) ** 2)
     family = "lognormal" if target == "minutes" else distribution_family(target)
     if family == "bernoulli":
         return EventDistribution(family, min(mean, 1.0), 1.0)
@@ -57,19 +51,14 @@ class EventBlend50:
                 elif right is None:
                     events[event] = left
                 else:
-                    events[event] = _blend_distribution(
-                        left, right, self.weight_v4, target=event,
-                    )
-            minutes = _blend_distribution(
-                v4.minutes, empirical.minutes, self.weight_v4, target="minutes",
+                    events[event] = _blend_distribution(left, right, self.weight_v4, target=event)
+            minutes = _blend_distribution(v4.minutes, empirical.minutes, self.weight_v4, target="minutes")
+            output.append(
+                RawPrediction(
+                    fixture_id=v4.fixture_id, player_id=v4.player_id, player_name=v4.player_name, team=v4.team, opponent=v4.opponent, position=v4.position,
+                    is_forward=v4.is_forward, events=events, minutes=minutes, metadata={"model": "p3_event_50", "weight_v4": self.weight_v4},
+                )
             )
-            output.append(RawPrediction(
-                fixture_id=v4.fixture_id, player_id=v4.player_id,
-                player_name=v4.player_name, team=v4.team, opponent=v4.opponent,
-                position=v4.position, is_forward=v4.is_forward, events=events,
-                minutes=minutes,
-                metadata={"model": "p3_event_50", "weight_v4": self.weight_v4},
-            ))
         return output
 
     def save(self, path: str) -> None:
@@ -94,8 +83,7 @@ def _validate_weights(default_weight_v4: float, event_weights_v4: Mapping[str, f
 
 
 def _predict_weighted(
-    empirical_model, v4_model, frame, *, default_weight_v4: float,
-    event_weights_v4: Mapping[str, float], model_name: str,
+    empirical_model, v4_model, frame, *, default_weight_v4: float, event_weights_v4: Mapping[str, float], model_name: str
 ) -> list[RawPrediction]:
     _validate_weights(default_weight_v4, event_weights_v4)
     empirical_predictions = empirical_model.predict_frame(frame)
@@ -110,24 +98,17 @@ def _predict_weighted(
             elif right is None:
                 events[event] = left
             else:
-                events[event] = _blend_distribution(
-                    left, right, event_weights_v4.get(event, default_weight_v4),
-                    target=event,
-                )
-        minutes = _blend_distribution(
-            v4.minutes, empirical.minutes,
-            event_weights_v4.get("minutes", default_weight_v4), target="minutes",
-        )
+                events[event] = _blend_distribution(left, right, event_weights_v4.get(event, default_weight_v4), target=event)
+        minutes = _blend_distribution(v4.minutes, empirical.minutes, event_weights_v4.get("minutes", default_weight_v4), target="minutes")
         metadata = {"model": model_name, "weight_v4": default_weight_v4}
         if event_weights_v4:
             metadata["event_weights_v4"] = dict(sorted(event_weights_v4.items()))
-        output.append(RawPrediction(
-            fixture_id=v4.fixture_id, player_id=v4.player_id,
-            player_name=v4.player_name, team=v4.team, opponent=v4.opponent,
-            position=v4.position, is_forward=v4.is_forward, events=events,
-            minutes=minutes,
-            metadata=metadata,
-        ))
+        output.append(
+            RawPrediction(
+                fixture_id=v4.fixture_id, player_id=v4.player_id, player_name=v4.player_name, team=v4.team, opponent=v4.opponent, position=v4.position,
+                is_forward=v4.is_forward, events=events, minutes=minutes, metadata=metadata,
+            )
+        )
     return output
 
 
@@ -144,10 +125,7 @@ class EventWeightedBlend:
 
     def predict_frame(self, frame) -> list[RawPrediction]:
         return _predict_weighted(
-            self.empirical, self.v4, frame,
-            default_weight_v4=self.weight_v4,
-            event_weights_v4=self.event_weights_v4,
-            model_name="p3_event_weighted",
+            self.empirical, self.v4, frame, default_weight_v4=self.weight_v4, event_weights_v4=self.event_weights_v4, model_name="p3_event_weighted"
         )
 
     def save(self, path: str) -> None:

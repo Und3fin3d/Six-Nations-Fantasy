@@ -1,6 +1,5 @@
 from __future__ import annotations
 
-import os
 import argparse
 import numpy as np
 import pandas as pd
@@ -34,11 +33,7 @@ def _load_h2h_meetings(team_df: pd.DataFrame) -> pd.DataFrame:
     base = team_df[["team", "opponent", "date", "margin"]].copy()
     base["_src"] = "api"
 
-    intl_path = "data/intl_results.csv"
-    if not os.path.exists(intl_path):
-        return base
-
-    intl = pd.read_csv(intl_path)
+    intl = pd.read_csv("data/intl_results.csv")
     intl = intl[["team", "opponent", "date", "margin"]].copy()
     intl["date"] = pd.to_datetime(intl["date"], errors="coerce")
     intl = intl.dropna(subset=["team", "opponent", "date"])
@@ -110,10 +105,7 @@ def build(team_csv: str, comps: list[int], half_life: float) -> pd.DataFrame:
 
 
 def _merge_wr(fd: pd.DataFrame) -> pd.DataFrame:
-    wr_path = "data/wr_rankings.csv"
-    if not os.path.exists(wr_path) or fd.empty:
-        return fd
-    wr = pd.read_csv(wr_path)[["snapshot_date", "team", "wr_pos", "wr_pts"]]
+    wr = pd.read_csv("data/wr_rankings.csv")[["snapshot_date", "team", "wr_pos", "wr_pts"]]
     wr = wr.rename(columns={"snapshot_date": "date"})
     own = wr.rename(columns={"wr_pos": "team_wr_pos", "wr_pts": "team_wr_pts"})
     opp = wr.rename(columns={"team": "opponent",

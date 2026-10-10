@@ -10,25 +10,15 @@ NCR = "data/ncr"
 
 
 def _current_asof(default="2026-07-04") -> pd.Timestamp:
-    try:
-        fx = pd.read_csv(f"{NCR}/ncr_fixtures.csv")
-        cur = fx[fx.get("iscurrent", 0) == 1]
-        if len(cur):
-            return pd.to_datetime(cur["game_date"]).min().normalize()
-    except Exception:
-        pass
-    return pd.Timestamp(default)
+    fx = pd.read_csv(f"{NCR}/ncr_fixtures.csv")
+    cur = fx[fx.iscurrent == 1]
+    return pd.to_datetime(cur["game_date"]).min().normalize() if len(cur) else pd.Timestamp(default)
 
 
 def _current_gameday(default=1) -> int:
-    try:
-        fx = pd.read_csv(f"{NCR}/ncr_fixtures.csv")
-        cur = fx[fx.get("iscurrent", 0) == 1]
-        if len(cur):
-            return int(cur["gameday"].min())
-    except Exception:
-        pass
-    return default
+    fx = pd.read_csv(f"{NCR}/ncr_fixtures.csv")
+    cur = fx[fx.iscurrent == 1]
+    return int(cur["gameday"].min()) if len(cur) else default
 
 
 ASOF = _current_asof()
@@ -198,8 +188,8 @@ def build_projection(
 
     cur_gd = (
         int(gameday) if gameday is not None else
-        int(fx.loc[fx.get("iscurrent", 0) == 1, "gameday"].min())
-        if (fx.get("iscurrent", 0) == 1).any() else 1
+        int(fx.loc[fx.iscurrent == 1, "gameday"].min())
+        if (fx.iscurrent == 1).any() else 1
     )
     gwc = fx[fx.gameday == cur_gd]
     opp, home = {}, {}
@@ -209,7 +199,7 @@ def build_projection(
 
     wx = {}
     wx_path = f"{NCR}/ncr_fixture_weather.csv"
-    if use_weather and os.path.exists(wx_path):
+    if use_weather:
         wd = pd.read_csv(wx_path)
         for _, r in wd[wd.gameday == cur_gd].iterrows():
             wind_pen = max(0.0, float(r.wind_kph or 0) - 20) * 0.004
@@ -222,7 +212,7 @@ def build_projection(
     club_path = f"{NCR}/club_player_match.csv"
     if club_override is not None and not ov:
         club = past_matches(club_override, prediction_asof)
-    elif os.path.exists(club_path) and not ov:
+    elif not ov:
         club = pd.read_csv(club_path)
     prof = player_profiles(hist, club, asof=prediction_asof)
 
@@ -237,21 +227,15 @@ def build_projection(
 
     rp_by_key = {}
     if not ov:
-        try:
-            try:
-                import rp_rates as RP
-            except ModuleNotFoundError:
-                from model.ncr import rp_rates as RP
-            pid2name = hist.groupby("player_id")["player_name"].first().to_dict()
-            api_players = pd.DataFrame([
-                {"name_key": RP._norm(pid2name.get(pid, "")), "att": p["att"], "dfn": p["dfn"]}
-                for pid, p in prof.items() if p["wmin"] > 300])
-            rp = RP.rp_rates(asof=prediction_asof)
-            rp, fac = RP.calibrate(rp, api_players)
-            rp_by_key = rp.set_index("name_key")[["att", "dfn", "dsc", "rp_min"]].to_dict("index")
-            print(f"RugbyPass prior: {len(rp_by_key)} players, calibration {fac}")
-        except Exception as e:
-            print(f"RugbyPass prior unavailable ({e}); using position baselines only")
+        from model.ncr import rp_rates as RP
+        pid2name = hist.groupby("player_id")["player_name"].first().to_dict()
+        api_players = pd.DataFrame([
+            {"name_key": RP._norm(pid2name.get(pid, "")), "att": p["att"], "dfn": p["dfn"]}
+            for pid, p in prof.items() if p["wmin"] > 300])
+        rp = RP.rp_rates(asof=prediction_asof)
+        rp, fac = RP.calibrate(rp, api_players)
+        rp_by_key = rp.set_index("name_key")[["att", "dfn", "dsc", "rp_min"]].to_dict("index")
+        print(f"RugbyPass prior: {len(rp_by_key)} players, calibration {fac}")
 
     def rp_lookup(full_name):
         return rp_by_key.get(re.sub(r"\s+", " ", re.sub(r"[^a-z ]", " ",

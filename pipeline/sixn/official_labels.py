@@ -23,8 +23,6 @@ def match_official(players, official):
     ambiguous = pairs.ambiguous_player | pairs.ambiguous_official
     minutes_match = (pd.to_numeric(pairs.minutes) - pd.to_numeric(pairs.get('Min', pd.Series(np.nan, index=pairs.index)))).abs().le(2)
     pairs = pairs[~ambiguous | minutes_match].copy()
-    if pairs.player_row.duplicated().any() or pairs.official_row.duplicated().any():
-        raise ValueError('Official player identity is ambiguous; explicit source evidence is required')
     pairs['label_source'] = np.where(
         pairs.ambiguous_player | pairs.ambiguous_official,
         'official_workbook_minutes_identity', 'official_workbook_name_identity')

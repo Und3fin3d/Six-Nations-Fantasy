@@ -12,16 +12,6 @@ class EventDistribution:
     mean: float
     dispersion: float = 1.0
 
-    def __post_init__(self) -> None:
-        if self.family not in {"poisson", "negative_binomial", "lognormal", "bernoulli"}:
-            raise ValueError(f"unsupported distribution family {self.family!r}")
-        if not np.isfinite(self.mean) or self.mean < 0:
-            raise ValueError("event mean must be finite and non-negative")
-        if not np.isfinite(self.dispersion) or self.dispersion <= 0:
-            raise ValueError("dispersion must be finite and positive")
-        if self.family == "bernoulli" and self.mean > 1:
-            raise ValueError("bernoulli mean must be <= 1")
-
     def sample(self, rng: np.random.Generator, size: int) -> np.ndarray:
         mean = float(self.mean)
         if self.family == "poisson":
@@ -55,8 +45,6 @@ class RawPrediction:
     metadata: Mapping[str, Any] = field(default_factory=dict)
 
     def sample(self, n: int = 2000, seed: int = 0) -> dict[str, np.ndarray]:
-        if n <= 0:
-            raise ValueError("n must be positive")
         rng = np.random.default_rng(seed)
         out = {name: dist.sample(rng, n) for name, dist in self.events.items()}
         out["minutes"] = np.clip(self.minutes.sample(rng, n), 0, 80)

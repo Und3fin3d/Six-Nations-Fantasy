@@ -142,11 +142,8 @@ def resolve_and_scrape(records, *, dry_run: bool, force: bool, delay: float):
             continue
 
         if hit_html is None and hit_slug:
-            try:
-                d = json.load(open(f"{OUT_DIR}/rugbypass_{hit_slug.replace('-', '_')}.json"))
-                nat = (d.get("bio") or {}).get("Nationality", "?")
-            except Exception:
-                nat = "?"
+            d = json.load(open(f"{OUT_DIR}/rugbypass_{hit_slug.replace('-', '_')}.json"))
+            nat = (d.get("bio") or {}).get("Nationality", "?")
             resolved.append((name, hit_slug, nat))
             continue
 

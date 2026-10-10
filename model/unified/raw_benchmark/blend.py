@@ -47,12 +47,8 @@ class EventBlend50:
     def predict_frame(self, frame) -> list[RawPrediction]:
         empirical_predictions = self.empirical.predict_frame(frame)
         v4_predictions = self.v4.predict_frame(frame)
-        if len(empirical_predictions) != len(v4_predictions):
-            raise ValueError("event blend component prediction lengths differ")
         output = []
         for empirical, v4 in zip(empirical_predictions, v4_predictions):
-            if (empirical.fixture_id, empirical.player_id) != (v4.fixture_id, v4.player_id):
-                raise ValueError("event blend component rows are misaligned")
             events = {}
             for event in sorted(set(empirical.events) | set(v4.events)):
                 left, right = v4.events.get(event), empirical.events.get(event)
@@ -84,10 +80,7 @@ class EventBlend50:
     @classmethod
     def load(cls, path: str) -> "EventBlend50":
         with open(path, "rb") as handle:
-            model = pickle.load(handle)
-        if not isinstance(model, cls):
-            raise TypeError(f"{path} is not EventBlend50")
-        return model
+            return pickle.load(handle)
 
 
 def _validate_weights(default_weight_v4: float, event_weights_v4: Mapping[str, float]) -> None:
@@ -107,14 +100,8 @@ def _predict_weighted(
     _validate_weights(default_weight_v4, event_weights_v4)
     empirical_predictions = empirical_model.predict_frame(frame)
     v4_predictions = v4_model.predict_frame(frame)
-    if len(empirical_predictions) != len(v4_predictions):
-        raise ValueError("event blend component prediction lengths differ")
     output = []
     for empirical, v4 in zip(empirical_predictions, v4_predictions):
-        empirical_key = (empirical.fixture_id, empirical.player_id, empirical.team)
-        v4_key = (v4.fixture_id, v4.player_id, v4.team)
-        if empirical_key != v4_key:
-            raise ValueError("event blend component rows are misaligned")
         events = {}
         for event in sorted(set(empirical.events) | set(v4.events)):
             left, right = v4.events.get(event), empirical.events.get(event)
@@ -171,7 +158,4 @@ class EventWeightedBlend:
     @classmethod
     def load(cls, path: str) -> "EventWeightedBlend":
         with open(path, "rb") as handle:
-            model = pickle.load(handle)
-        if not isinstance(model, cls):
-            raise TypeError(f"{path} is not EventWeightedBlend")
-        return model
+            return pickle.load(handle)

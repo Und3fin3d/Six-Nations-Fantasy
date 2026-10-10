@@ -1,6 +1,5 @@
 from __future__ import annotations
 
-import os
 import argparse
 import numpy as np
 import pandas as pd
@@ -97,23 +96,7 @@ def _numeric_prefixed(raw: pd.DataFrame, prefix: str) -> list[str]:
 
 
 def _join_keys(raw: pd.DataFrame, feat: pd.DataFrame, candidates: list[list[str]]) -> list[str]:
-    raw_cols = set(raw.columns)
-    feat_cols = set(feat.columns)
-    for keys in candidates:
-        if set(keys).issubset(raw_cols) and set(keys).issubset(feat_cols):
-            return keys
-    raise ValueError(
-        "external file has no supported join key; expected one of "
-        + ", ".join("[" + ", ".join(k) + "]" for k in candidates)
-    )
-
-
-def _dedupe_external(raw: pd.DataFrame, keys: list[str], source: str) -> pd.DataFrame:
-    dupes = raw.duplicated(keys, keep=False)
-    if dupes.any():
-        examples = raw.loc[dupes, keys].drop_duplicates().head(5).to_dict("records")
-        raise ValueError(f"{source} has duplicate rows for keys {keys}: {examples}")
-    return raw
+    return next(keys for keys in candidates if set(keys) <= set(raw.columns) and set(keys) <= set(feat.columns))
 
 
 def _merge_external(
@@ -139,8 +122,8 @@ def _merge_external(
 
     keys = _join_keys(raw, feat, join_candidates)
     keep = keys + feature_cols + ([ts_col] if ts_col else [])
-    raw = _dedupe_external(raw[keep], keys, source)
-    out = feat.merge(raw, on=keys, how="left", validate="many_to_one")
+    raw = raw[keep]
+    out = feat.merge(raw, on=keys, how="left")
 
     has_col = f"{prefix}has_data"
     out[has_col] = out[feature_cols].notna().any(axis=1).astype(float)
@@ -160,8 +143,6 @@ def _merge_external(
 
 def _merge_external_weather(feat: pd.DataFrame) -> pd.DataFrame:
     path = OPTIONAL_EXTERNAL_FILES["weather"]
-    if not os.path.exists(path):
-        return feat
     raw = pd.read_csv(path)
     if {"weather_rain_mm", "weather_precip_probability"}.issubset(raw.columns):
         raw["weather_wet_index"] = (
@@ -195,8 +176,6 @@ def _merge_external_weather(feat: pd.DataFrame) -> pd.DataFrame:
 
 def _merge_external_roles(feat: pd.DataFrame) -> pd.DataFrame:
     path = OPTIONAL_EXTERNAL_FILES["rolecert"]
-    if not os.path.exists(path):
-        return feat
     raw = pd.read_csv(path)
     feat_in = feat.copy()
     raw = raw.copy()
@@ -217,8 +196,6 @@ def _merge_external_roles(feat: pd.DataFrame) -> pd.DataFrame:
 
 def _merge_external_style(feat: pd.DataFrame) -> pd.DataFrame:
     path = OPTIONAL_EXTERNAL_FILES["style"]
-    if not os.path.exists(path):
-        return feat
     raw = pd.read_csv(path)
     return _merge_external(
         feat, raw, source=str(path), prefix="style_", join_candidates=FIXTURE_JOIN_KEYS,
@@ -544,15 +521,12 @@ def build(half_life: float) -> pd.DataFrame:
 
     feat = feat.merge(fd[fd_feats], on=["fixture_id", "team_id"], how="left")
 
-    tp_path = "data/team_play_predictions.csv"
-    if os.path.exists(tp_path):
-        tp = pd.read_csv(tp_path)
-        tp_feats = [
-            c for c in tp.columns
-            if c not in {"season", "round", "team", "opponent", "opponent_id", "date"}
-        ]
-        feat = feat.merge(tp[tp_feats], on=["fixture_id", "team_id"], how="left",
-                          validate="many_to_one")
+    tp = pd.read_csv("data/team_play_predictions.csv")
+    tp_feats = [
+        c for c in tp.columns
+        if c not in {"season", "round", "team", "opponent", "opponent_id", "date"}
+    ]
+    feat = feat.merge(tp[tp_feats], on=["fixture_id", "team_id"], how="left")
     feat = _merge_external_weather(feat)
     feat = _merge_external_roles(feat)
     feat = _merge_external_style(feat)

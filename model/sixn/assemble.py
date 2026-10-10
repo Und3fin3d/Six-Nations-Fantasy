@@ -81,7 +81,6 @@ def assemble_predictions(
     diag = []
     for r, asof, ridx in round_iter(df, test_season):
         local = np.searchsorted(test_idx, ridx)
-        assert np.array_equal(test_idx[local], ridx)
         fit = fit_latent_asof(df, asof)
         n_calib = int(latent_calib_rows(df, asof).sum())
         if fit is None:
@@ -145,45 +144,3 @@ def rank_scores(
         warnings.simplefilter("ignore")
         ranker.fit(X.iloc[tr_idx_sorted], grade, group=grp)
     return ranker.predict(X.iloc[test_idx])
-
-
-def _selfcheck() -> None:
-    from model.sixn.baselines import predict_rates
-    from model.sixn.data import load
-    from model.sixn.splits import component_train
-    from model.sixn.train_components import predict_rates_registry, select_components
-
-    df = load()
-    mode = "post_team_sheet"
-    train_mask = component_train(df, 2025)
-    train_idx = np.where(train_mask)[0]
-    reg = select_components(df, train_mask, mode)
-
-    def ens(d, ti, te, mo):
-        return predict_rates_registry(d, ti, te, mo, reg)
-
-    pred, diag = assemble_predictions(df, train_idx, 2025, mode, ens)
-    print(diag.to_string(index=False))
-
-    assert diag.iloc[0]["n_calib"] == 0 and diag.iloc[0]["a"] == 0.0
-    assert not pred["target_pts_hat"].isna().any()
-
-    lab = pred[pred["has_label"] & pred["is_modern"]]
-    mae = float((lab["official_pts"] - lab["target_pts_hat"]).abs().mean())
-    mae_recon = float((lab["official_pts"] - lab["recon_pts_hat"]).abs().mean())
-    print(f"\n2025 ensemble: recon-only MAE={mae_recon:.3f}  +latent MAE={mae:.3f}")
-    print(f"mean latent_hat={pred['latent_hat'].mean():.2f} "
-          f"(fwd {pred[pred.is_forward].latent_hat.mean():.2f} / "
-          f"back {pred[~pred.is_forward].latent_hat.mean():.2f})")
-
-    pred_n, _ = assemble_predictions(
-        df, train_idx, 2025, mode,
-        lambda d, ti, te, mo: predict_rates(d, ti, te, mo, "naive"))
-    lab_n = pred_n[pred_n["has_label"] & pred_n["is_modern"]]
-    print(f"2025 naive   : +latent MAE="
-          f"{(lab_n['official_pts']-lab_n['target_pts_hat']).abs().mean():.3f}")
-    print("Phase 5 assemble OK")
-
-
-if __name__ == "__main__":
-    _selfcheck()

@@ -5,8 +5,6 @@ import pandas as pd
 
 def utc_cutoff(value: str | pd.Timestamp) -> pd.Timestamp:
     cutoff = pd.Timestamp(value)
-    if pd.isna(cutoff):
-        raise ValueError('a finite prediction cutoff is required')
     return cutoff.tz_localize('UTC') if cutoff.tzinfo is None else cutoff.tz_convert('UTC')
 
 

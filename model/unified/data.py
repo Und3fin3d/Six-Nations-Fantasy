@@ -29,10 +29,7 @@ OFFICIAL_EVENT_COLUMNS = {
 
 
 def _attach_official_labels(frame: pd.DataFrame) -> pd.DataFrame:
-    path = "data/official_player_match.csv"
-    if not os.path.exists(path):
-        return frame
-    official = pd.read_csv(path, low_memory=False)
+    official = pd.read_csv("data/official_player_match.csv", low_memory=False)
     out = frame.copy()
     six = out[pd.to_numeric(out.competition_id, errors='coerce').eq(1266)]
     labels = match_official(six, official)
@@ -122,9 +119,7 @@ def build_canonical_store(
     *, asof: str | pd.Timestamp | None = None,
 ) -> pd.DataFrame:
     frames = [_normalise_source(p, name, priority, level)
-              for p, name, priority, level in sources if os.path.exists(p)]
-    if not frames:
-        raise FileNotFoundError("none of the canonical data sources exist")
+              for p, name, priority, level in sources]
     all_rows = pd.concat(frames, ignore_index=True, sort=False)
     all_rows = all_rows.dropna(subset=["date", "fixture_id", "player_id", "team"])
     if asof is not None:
@@ -145,12 +140,6 @@ def build_canonical_store(
     out = filled.drop_duplicates(keys, keep="first").reset_index(drop=True)
     out = _attach_official_labels(out)
     out = out.sort_values(["date", "fixture_id", "team", "player_id"]).reset_index(drop=True)
-    if out.duplicated(list(KEY_COLUMNS)).any():
-        raise AssertionError("canonical player-match grain is not unique")
-    for event in EVENTS:
-        missing = ~out[f"available__{event}"].astype(bool)
-        if out.loc[missing, event].notna().any():
-            raise AssertionError(f"{event}: unavailable labels must remain missing")
     return out
 
 

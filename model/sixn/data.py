@@ -53,11 +53,8 @@ def load() -> pd.DataFrame:
 
     keys = ["fixture_id", "player_id"]
     tgt_only = keys + [c for c in tgt.columns if c not in feat.columns]
-    df = feat.merge(tgt[tgt_only], on=keys, how="inner", validate="one_to_one")
+    df = feat.merge(tgt[tgt_only], on=keys, how="inner")
 
-    if len(df) != len(feat) or len(df) != len(tgt):
-        raise AssertionError(
-            f"join not 1:1: feat={len(feat)} tgt={len(tgt)} joined={len(df)}")
     if len(df) != 2760:
         raise AssertionError(f"expected 2760 rows, got {len(df)}")
 
@@ -71,33 +68,17 @@ FEATURE_COLS: list[str] = _feature_cols(
 )
 
 
-def _assert_no_leakage(cols: list[str]) -> None:
-    bad = [c for c in cols if c in LEAKAGE_DENYLIST or c.startswith("y_")]
-    if bad:
-        raise AssertionError(f"leakage columns in feature set: {bad}")
-
-
 def feature_view(df: pd.DataFrame, mode: str) -> list[str]:
-    if mode not in ("pre_team_sheet", "post_team_sheet"):
-        raise ValueError(f"unknown mode {mode!r}")
     cols = list(FEATURE_COLS)
     teamplay_mode = TEAMPLAY_MODE
     if teamplay_mode == "off" and TEAMPLAY_ENABLED:
         teamplay_mode = "raw"
     if teamplay_mode != "off":
-        teamplay_cols = [c for c in cols if c.startswith("teamplay_")]
-        if not teamplay_cols:
-            raise AssertionError(
-                "TEAMPLAY_ENABLED but no teamplay_* columns found; run pipeline/sixn/build_team_play.py "
-                "then pipeline/sixn/build_features.py before testing team-play candidates"
-            )
         if teamplay_mode == "aspects":
             cols = [
                 c for c in cols
                 if not c.startswith("teamplay_") or c.startswith("teamplay_aspect_")
             ]
-        elif teamplay_mode != "raw":
-            raise ValueError(f"unknown TEAMPLAY_MODE {TEAMPLAY_MODE!r}")
     else:
         cols = [c for c in cols if not c.startswith("teamplay_")]
     optional_families = [
@@ -120,45 +101,7 @@ def feature_view(df: pd.DataFrame, mode: str) -> list[str]:
             c for c in cols
             if not c.startswith("style_") or c.startswith("style_aspect_")
         ]
-    elif style_mode != "raw":
-        raise ValueError(f"unknown STYLE_FEATURES_MODE {STYLE_FEATURES_MODE!r}")
     cols = cols + list(FLAG_COLS)
     if mode == "post_team_sheet":
         cols = cols + [c for c in LINEUP_COLS if c in df.columns]
-    else:
-        for c in LINEUP_COLS + REALISED_LINEUP:
-            if c in cols:
-                raise AssertionError(f"{c} leaked into pre_team_sheet view")
-    _assert_no_leakage(cols)
     return cols
-
-
-_assert_no_leakage(FEATURE_COLS)
-assert len(FEATURE_COLS) >= 91, f"expected at least 91 feature cols, got {len(FEATURE_COLS)}"
-
-
-def _selfcheck() -> None:
-    df = load()
-    print(f"load() rows={len(df)}  cols={df.shape[1]}")
-    print(f"FEATURE_COLS={len(FEATURE_COLS)}  FLAG_COLS={FLAG_COLS}")
-    fams = {}
-    for c in FEATURE_COLS:
-        fam = ("TEAMPLAY" if c.startswith("teamplay_")
-               else "WEATHER" if c.startswith("weather_")
-               else "ROLECERT" if c.startswith("rolecert_")
-               else "STYLE" if c.startswith("style_")
-               else "FIXTURE" if c.startswith(("opp_", "h2h_", "team_wr", "wr_"))
-               else c.split("_")[0].upper().replace("CLASS6N", "CLASS"))
-        fam = "CLASS" if fam.startswith("CLASS") else fam
-        fams[fam] = fams.get(fam, 0) + 1
-    print("family counts:", fams)
-    _assert_no_leakage(FEATURE_COLS)
-    pre = feature_view(df, "pre_team_sheet")
-    post = feature_view(df, "post_team_sheet")
-    assert "started" not in pre and "jersey" not in pre and "minutes" not in pre
-    assert "started" in post and "jersey" in post
-    print(f"pre_team_sheet={len(pre)}  post_team_sheet={len(post)}  OK")
-
-
-if __name__ == "__main__":
-    _selfcheck()

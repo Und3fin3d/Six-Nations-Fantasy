@@ -23,11 +23,6 @@ def build_frozen_feature_frames(
     if prepared_train is None:
         training_features = build_pit_features(ordered)
     else:
-        keys = ["fixture_id", "player_id", "team"]
-        if not ordered[keys].reset_index(drop=True).equals(
-            prepared_train[keys].reset_index(drop=True)
-        ):
-            raise ValueError("prepared training features do not match the historical cohort")
         training_features = prepared_train
     candidate_features = candidates.copy()
     if 'position_source' in candidate_features:

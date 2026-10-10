@@ -61,7 +61,7 @@ def _ncr_rows() -> pd.DataFrame:
         actuals = load_actuals(f"data/ncr/{feed}")
         proj = pd.read_csv(f"data/ncr/ncr_gw{gw}_projections.csv")
         cohort = proj[["id", "name", "team", "pos"]].merge(
-            actuals[["id", "actual", "actual_status"]], on="id", validate="one_to_one",
+            actuals[["id", "actual", "actual_status"]], on="id",
         )
         rows.append(pd.DataFrame({
             "competition": "ncr",

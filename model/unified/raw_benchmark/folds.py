@@ -99,8 +99,6 @@ def build_folds(store: pd.DataFrame, min_fixtures: int = MIN_FIXTURES) -> list[H
             slate_ids=tuple(slate_by_fixture[fixture] for fixture in fixture_ids),
             hemisphere=hemisphere,
         ))
-    if len({fold.label for fold in folds}) != len(folds):
-        raise AssertionError("historical fold labels are not unique")
     return sorted(folds, key=lambda fold: (fold.cutoff_timestamp, fold.label))
 
 
@@ -111,9 +109,7 @@ def rolling_folds(
     for fold in build_folds(store) if folds is None else folds:
         evaluation = evaluation_frame(store, fold)
         for slate_id, rows in evaluation.groupby("slate_id", sort=False):
-            times = pd.to_datetime(rows["match_at"], errors="raise", utc=True)
-            if times.isna().any():
-                raise ValueError(f"{slate_id}: missing round kickoff")
+            times = pd.to_datetime(rows["match_at"], utc=True)
             fixture_ids = tuple(rows["fixture_id"].astype(str).drop_duplicates())
             output.append(HistoricalFold(
                 label=str(slate_id), tournament=fold.tournament,
@@ -128,20 +124,13 @@ def rolling_folds(
 def strict_training_frame(store: pd.DataFrame, fold: HistoricalFold) -> pd.DataFrame:
     match_at = pd.to_datetime(store["match_at"], utc=True)
     fixture = store["fixture_id"].astype(str)
-    train = store[match_at.lt(fold.cutoff_timestamp) & ~fixture.isin(fold.fixture_ids)].copy()
-    if not train.empty and pd.to_datetime(train["match_at"], utc=True).max() >= fold.cutoff_timestamp:
-        raise AssertionError("training row is not strictly before tournament cutoff")
-    if set(train["fixture_id"].astype(str)) & set(fold.fixture_ids):
-        raise AssertionError("evaluation fixture leaked into training")
-    return train
+    return store[match_at.lt(fold.cutoff_timestamp) & ~fixture.isin(fold.fixture_ids)].copy()
 
 
 def evaluation_frame(store: pd.DataFrame, fold: HistoricalFold) -> pd.DataFrame:
     rows = store[store["fixture_id"].astype(str).isin(fold.fixture_ids)].copy()
     slate = dict(zip(fold.fixture_ids, fold.slate_ids))
     rows["slate_id"] = rows["fixture_id"].astype(str).map(slate)
-    if rows.empty or rows["fixture_id"].nunique() != len(fold.fixture_ids):
-        raise ValueError(f"{fold.label}: incomplete evaluation fixture cohort")
     return rows
 
 

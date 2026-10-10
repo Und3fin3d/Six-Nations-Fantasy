@@ -80,10 +80,7 @@ def carryover_gameday(
         match = re.fullmatch(r"players_gw(\d+)\.json", os.path.basename(path))
         if not match or int(match.group(1)) == int(requested_gw):
             continue
-        try:
-            prior = json.load(open(path))["Data"]["Value"]["Players"]
-        except (KeyError, TypeError, ValueError, json.JSONDecodeError):
-            continue
+        prior = json.load(open(path))["Data"]["Value"]["Players"]
         prior_signature = {
             int(float(player["id"])): str(player.get("player_status"))
             for player in prior if player.get("player_status") in ("P", "B")

@@ -64,11 +64,10 @@ def main():
 
     df = pd.DataFrame(rows)
     out = "data/wr_rankings.csv"
-    if os.path.exists(out):
-        prev = pd.read_csv(out)
-        df = (pd.concat([prev, df], ignore_index=True)
-                .drop_duplicates(["snapshot_date", "team"], keep="last")
-                .sort_values(["snapshot_date", "wr_pos"]))
+    prev = pd.read_csv(out)
+    df = (pd.concat([prev, df], ignore_index=True)
+            .drop_duplicates(["snapshot_date", "team"], keep="last")
+            .sort_values(["snapshot_date", "wr_pos"]))
     df.to_csv(out, index=False)
     print(f"\n✅  {len(df)} rows, {df.snapshot_date.nunique()} snapshots, "
           f"{df.team.nunique()} teams")

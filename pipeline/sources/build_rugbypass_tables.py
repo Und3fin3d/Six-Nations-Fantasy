@@ -55,10 +55,7 @@ def _parse_age(v) -> int:
 
 def load_json_files():
     for f in sorted(glob.glob("players/rugbypass_*.json")):
-        try:
-            d = json.load(open(f))
-        except Exception:
-            continue
+        d = json.load(open(f))
         slug = d.get("player") or os.path.basename(f).removesuffix(".json").replace("rugbypass_", "")
         yield slug, d
 

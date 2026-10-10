@@ -41,9 +41,6 @@ class V4GBDT(UniversalGBDT):
         self.hurdle_events = tuple(hurdle_events)
         self.hurdle_models: dict[str, tuple] = {}
         self.effects: dict[tuple[str, str], float] = {}
-        if player_effects and not pool_player_id:
-            raise ValueError("player_effects requires pool_player_id "
-                             "(the identity feature must not be double-counted)")
 
     def _frame(self, frame: pd.DataFrame) -> pd.DataFrame:
         if self.pool_player_id:
@@ -67,8 +64,6 @@ class V4GBDT(UniversalGBDT):
                 deterministic=True, force_col_wise=True,
             )
             for event in self.hurdle_events:
-                if distribution_family(event) != "negative_binomial":
-                    raise ValueError(f"hurdle head only supports count events, got {event}")
                 valid = (frame[f"available__{event}"].fillna(False).to_numpy(bool)
                          & frame[event].notna().to_numpy())
                 if valid.sum() < 200:

@@ -56,8 +56,6 @@ class UniversalGBDT:
             sample_weight *= np.where(level.eq("international"), 2.0, 1.0)
         elif self.weighting == "international_x4":
             sample_weight *= np.where(level.eq("international"), 4.0, 1.0)
-        elif self.weighting != "natural":
-            raise ValueError(f"unknown weighting scheme {self.weighting!r}")
         if self.time_half_life_days:
             dates = pd.to_datetime(frame["date"], errors="coerce")
             age = (dates.max() + pd.Timedelta(days=1) - dates).dt.days
@@ -98,8 +96,6 @@ class UniversalGBDT:
             mean = float(np.mean(fitted))
             self.dispersion[target] = max(resid_var, mean, 1e-4)
             self.models[target] = model
-        if "minutes" not in self.models:
-            raise ValueError("not enough observed minutes to fit universal model")
         return self
 
     def predict_frame(self, frame: pd.DataFrame) -> list[RawPrediction]:
@@ -147,7 +143,4 @@ class UniversalGBDT:
     @classmethod
     def load(cls, path: str) -> "UniversalGBDT":
         with open(path, "rb") as handle:
-            model = pickle.load(handle)
-        if not isinstance(model, cls):
-            raise TypeError(f"{path} is not a UniversalGBDT artifact")
-        return model
+            return pickle.load(handle)

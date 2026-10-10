@@ -22,11 +22,6 @@ class ScoreSummary:
 class CompetitionScorer:
     name = "base"
 
-    def score_samples(
-        self, events: Mapping[str, np.ndarray], *, is_forward: bool, position: str | None = None,
-    ) -> np.ndarray:
-        raise NotImplementedError
-
     def score_prediction(
         self, prediction: RawPrediction, n: int = 4000, seed: int = 0,
         ceiling: float = 40.0,

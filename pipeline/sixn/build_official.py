@@ -1,6 +1,5 @@
 from __future__ import annotations
 
-import os
 import pandas as pd
 
 from pipeline.sixn.compare_api_official import (API_BLIND, OFFICIAL, STAT_MAP, norm_key,
@@ -82,16 +81,10 @@ def parse_official_2023(path: str, season: int = 2023) -> pd.DataFrame:
 def build() -> pd.DataFrame:
     frames = []
     for season, path in sorted(OFFICIAL.items()):
-        if not os.path.exists(path):
-            print(f"⚠️  missing {path} (season {season}), skipped")
-            continue
         if season == 2023:
             df = parse_official_2023(path, season)
         else:
             df = parse_official(path, season)
-        if df.empty:
-            print(f"⚠️  season {season} parsed 0 rows, skipped")
-            continue
         print(f"season {season}: {len(df)} rows, "
               f"rounds={sorted(int(x) for x in df['round'].unique())}, "
               f"teams={df['team'].nunique()}")

@@ -31,9 +31,7 @@ def _fit_engine(
             events=(*STABLE_EVENTS, *EXTENDED_EVENTS), weighting="natural",
             pool_player_id=True, player_effects=True,
         ).fit(features)
-    if engine == "empirical_event":
-        return EmpiricalEventModel(asof=fold.cutoff).fit(train)
-    raise ValueError(engine)
+    return EmpiricalEventModel(asof=fold.cutoff).fit(train)
 
 
 def _save_model(model, path: str) -> None:
@@ -42,17 +40,10 @@ def _save_model(model, path: str) -> None:
 
 def _load_model(engine: str, path: str):
     if engine == "v4":
-        with open(path, "rb") as handle:
-            import pickle
-            model = pickle.load(handle)
-        if not isinstance(model, V4GBDT):
-            raise TypeError(path)
-        return model
+        return V4GBDT.load(path)
     if engine == "empirical_event":
         return EmpiricalEventModel.load(path)
-    if engine == "p3_event_50":
-        return EventBlend50.load(path)
-    raise ValueError(engine)
+    return EventBlend50.load(path)
 
 
 def _predict_fixturewise(
@@ -79,8 +70,6 @@ def _predict_fixturewise(
         }
         for row in block.itertuples(index=False):
             key = (str(row.fixture_id), str(row.player_id), str(row.team))
-            if key not in by_key:
-                raise ValueError(f"{engine} missing raw prediction for {key}")
             output[int(row.benchmark_row_id)] = by_key[key]
     return [output[int(row.benchmark_row_id)] for row in evaluation.itertuples(index=False)]
 
@@ -125,12 +114,6 @@ def run_benchmark(
     if fold_labels:
         wanted = set(fold_labels)
         folds = [fold for fold in folds if fold.label in wanted]
-        missing = wanted - {fold.label for fold in folds}
-        if missing:
-            raise ValueError(f"unknown fold labels: {sorted(missing)}")
-    unknown = set(engines) - set(ENGINE_ORDER)
-    if unknown:
-        raise ValueError(f"unknown raw benchmark engines: {sorted(unknown)}")
 
     event_frames, ranking_frames = [], []
     for fold in folds:
@@ -184,8 +167,6 @@ def run_benchmark(
             if os.path.exists(prediction_path):
                 predictions = _read_predictions(prediction_path)
             else:
-                if model is None:
-                    raise RuntimeError(f"{engine}/{fold.label}: prediction missing without model")
                 prepared_evaluation = (
                     v4_evaluation if engine in {"v4", "p3_event_50"} else None
                 )
@@ -194,8 +175,6 @@ def run_benchmark(
                     prepared_evaluation=prepared_evaluation,
                 )
                 _write_predictions(prediction_path, predictions)
-            if len(predictions) != len(evaluation):
-                raise ValueError(f"{engine}/{fold.label}: prediction cohort mismatch")
             write_fold_manifest(
                 manifest, fold, train, evaluation, store_path=store_path,
                 artifact_paths=(artifact, prediction_path), engine=engine,

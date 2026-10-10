@@ -1,6 +1,5 @@
 from __future__ import annotations
 
-import os
 import argparse
 import warnings
 
@@ -95,10 +94,7 @@ def _context_rows(six: pd.DataFrame, half_life: float) -> pd.DataFrame:
 
 
 def _merge_wr(ctx: pd.DataFrame) -> pd.DataFrame:
-    wr_path = "data/wr_rankings.csv"
-    if not os.path.exists(wr_path):
-        return ctx
-    wr = pd.read_csv(wr_path)[["snapshot_date", "team", "wr_pos", "wr_pts"]].copy()
+    wr = pd.read_csv("data/wr_rankings.csv")[["snapshot_date", "team", "wr_pos", "wr_pts"]].copy()
     wr["snapshot_date"] = pd.to_datetime(wr["snapshot_date"], errors="coerce")
     ctx = ctx.copy()
     ctx["_date_key"] = pd.to_datetime(ctx["date"]).dt.date.astype(str)
@@ -175,7 +171,6 @@ def _add_aspects(out: pd.DataFrame) -> pd.DataFrame:
         left_on=["fixture_id", "opponent_id"],
         right_on=["fixture_id", "_opp_team_id"],
         how="left",
-        validate="many_to_one",
     )
 
     def own(col: str) -> pd.Series:
@@ -252,7 +247,6 @@ def build(team_csv: str, half_life: float) -> pd.DataFrame:
         ]],
         on=["fixture_id", "team_id"],
         how="left",
-        validate="one_to_one",
     )
     feature_cols = [
         c for c in frame.columns

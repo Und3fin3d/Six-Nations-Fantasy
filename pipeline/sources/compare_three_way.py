@@ -38,10 +38,7 @@ def load_rugbypass(seasons) -> pd.DataFrame:
     seasons = {str(s) for s in seasons}
     rows = []
     for f in glob.glob("players/rugbypass_*.json"):
-        try:
-            d = json.load(open(f))
-        except Exception:
-            continue
+        d = json.load(open(f))
         slug = d.get("player") or os.path.basename(f).removesuffix(".json").replace("rugbypass_", "")
         key = slug_key(slug)
         for e in d.get("competition_stats", []):
@@ -60,7 +57,7 @@ def load_rugbypass(seasons) -> pd.DataFrame:
 
 def agg_official(seasons) -> pd.DataFrame:
     off = pd.concat([parse_official(p, s) for s, p in OFFICIAL.items()
-                     if s in seasons and os.path.exists(p)], ignore_index=True)
+                     if s in seasons], ignore_index=True)
     cols = [c for c in (set(STAT_MAP) | {"Pts"}) if c in off.columns]
     g = (off.groupby(["season", "key"])
             .agg(off_games=("round", "nunique"), name=("name", "first"),

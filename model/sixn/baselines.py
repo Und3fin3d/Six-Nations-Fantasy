@@ -114,9 +114,7 @@ def predict_rates(
 ) -> pd.DataFrame:
     if engine == "naive":
         return _rates_naive(df, train_idx, test_idx)
-    if engine in ("ridge", "bayesian", "glm"):
-        return _rates_linear(df, train_idx, test_idx, mode, engine)
-    raise ValueError(f"unknown baseline engine {engine!r}")
+    return _rates_linear(df, train_idx, test_idx, mode, engine)
 
 
 def _position_rate_prior(df: pd.DataFrame, train_idx: np.ndarray, comp: str) -> tuple[pd.Series, float]:
@@ -206,13 +204,8 @@ def _bayesian_component_predict(
     prior_precision = np.concatenate([[1e-6], np.full(Xtr.shape[1], 10.0)])
     a = Xtr_aug.T @ Xtr_aug + np.diag(prior_precision)
     b = Xtr_aug.T @ y_fit
-    try:
-        coef = np.linalg.solve(a, b)
-        a_inv_xte = np.linalg.solve(a, Xte_aug.T)
-    except np.linalg.LinAlgError:
-        a_inv = np.linalg.pinv(a)
-        coef = a_inv @ b
-        a_inv_xte = a_inv @ Xte_aug.T
+    coef = np.linalg.solve(a, b)
+    a_inv_xte = np.linalg.solve(a, Xte_aug.T)
     mean = Xte_aug @ coef
     resid = y_fit - Xtr_aug @ coef
     sigma2 = float(np.mean(resid ** 2))
@@ -244,51 +237,3 @@ def direct_points_oof(df: pd.DataFrame, season: int, mode: str) -> pd.Series:
         mdl = RidgeCV(alphas=(1.0, 10.0, 100.0)).fit(Xtr, y)
         pred.iloc[va] = mdl.predict(Xva)
     return pred
-
-
-def _selfcheck() -> None:
-    from scipy.stats import spearmanr
-
-    from model.sixn.data import load
-    from model.sixn.splits import component_train
-
-    df = load()
-    test_season, mode = 2025, "post_team_sheet"
-    train_mask = component_train(df, test_season)
-    train_idx = np.where(train_mask)[0]
-    test_idx = np.where((df["season"] == test_season).to_numpy())[0]
-    mh = expected_minutes(df, train_idx, test_idx, mode)
-    print(f"minutes_hat: mean={mh.mean():.1f} range=[{mh.min():.0f},{mh.max():.0f}]")
-
-    lab = df.iloc[test_idx]
-    lab_mask = (lab["is_modern"] & lab["has_label"]).to_numpy()
-    off = lab["official_pts"].to_numpy(float)
-    isf = lab["is_forward"].to_numpy()
-
-    print(f"\n{'engine':8s} {'pts_MAE(recon)':>14s} {'metres_MAE/80':>14s} {'spearman':>9s}")
-    for engine in ("naive", "ridge", "glm"):
-        rates = predict_rates(df, train_idx, test_idx, mode, engine)
-        comp = rates_to_components(rates, mh)
-        recon = score_recon(comp, isf)
-        mae = float(np.abs(off[lab_mask] - recon[lab_mask]).mean())
-        m10 = lab_mask & (lab["minutes"].to_numpy() >= MIN_MINUTES)
-        rm = _rate_target(lab, "metres")
-        met_mae = float(np.abs(rm[m10] - rates["metres"].to_numpy()[m10]).mean())
-        rho = spearmanr(recon[lab_mask], off[lab_mask]).correlation
-        print(f"{engine:8s} {mae:14.3f} {met_mae:14.2f} {rho:9.3f}")
-        assert (rates.to_numpy() >= 0).all(), f"{engine}: negative rate"
-        assert 0 <= rates["metres"].mean() <= 150
-
-    b3 = direct_points_oof(df, test_season, mode)
-    b3_mae = float(np.abs(df.loc[b3.index, "official_pts"] - b3).mean())
-    print(f"{'B3direct':8s} {b3_mae:14.3f} {'(OOF, cross-check only)':>24s}")
-
-    rates = predict_rates(df, train_idx, test_idx, "post_team_sheet", "naive")
-    nonkick = lab["role_goal_kicker_rate"].fillna(0).to_numpy() < 0.05
-    print(f"\nnaive kicking on non-kickers (pen+conv per80) mean="
-          f"{(rates['penalty_goals']+rates['conversion_goals']).to_numpy()[nonkick].mean():.3f}")
-    print("Phase 3 baselines OK")
-
-
-if __name__ == "__main__":
-    _selfcheck()

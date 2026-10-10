@@ -32,8 +32,6 @@ def main() -> None:
             fold_labels=tuple(args.folds) if args.folds else None,
         )
         print(f"wrote {len(events):,} event metric rows and {len(rankings):,} ranking rows")
-    else:
-        raise ValueError(f"unknown raw-benchmark command: {args.command}")
 
 
 if __name__ == "__main__":

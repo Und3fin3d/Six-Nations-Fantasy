@@ -91,8 +91,6 @@ class FeatureEncoder:
         return self
 
     def transform(self, frame: pd.DataFrame) -> tuple[np.ndarray, np.ndarray]:
-        if self.categories is None or self.numeric_columns is None:
-            raise RuntimeError("FeatureEncoder must be fit before transform")
         cat = np.column_stack([
             frame.get(col, pd.Series("unknown", index=frame.index)).fillna("unknown").astype(str)
             .map(mapping).fillna(0).astype(int).to_numpy()

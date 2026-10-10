@@ -40,8 +40,6 @@ def evaluate_predictions(
     frame: pd.DataFrame, predictions: list[RawPrediction], scorer: CompetitionScorer,
     top_ns: tuple[int, ...] = (10, 25, 50, 100),
 ) -> dict[str, float]:
-    if len(frame) != len(predictions):
-        raise ValueError("frame and predictions must have the same length")
     predicted = np.array([scorer.score_prediction(p, n=1200, seed=31 + i).mean
                           for i, p in enumerate(predictions)])
     actual = actual_points(frame, scorer)

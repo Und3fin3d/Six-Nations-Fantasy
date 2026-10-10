@@ -232,12 +232,12 @@ def main() -> None:
     }
     scored: dict[str, pd.DataFrame] = {}
     totals: dict[str, float] = {}
-    try:
+    if os.path.exists(f"{DATA}/feeds/players_gw{args.gw}.json"):
         official_actuals = load_official_actuals(args.gw)
         source = "official"
         for label, csv_path in squads.items():
             scored[label], totals[label] = score_squad_official(csv_path, official_actuals)
-    except FileNotFoundError:
+    else:
         played, _ = actual_player_points(args.gw)
         source = "reconstructed"
         for label, csv_path in squads.items():

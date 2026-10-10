@@ -11,10 +11,7 @@ from urllib.request import urlopen
 import numpy as np
 import pandas as pd
 
-try:
-    import certifi
-except ImportError:
-    certifi = None
+import certifi
 
 SIX_NATIONS = 1266
 TARGET_SEASONS = [2023, 2024, 2025, 2026]
@@ -29,10 +26,7 @@ DAILY_VARS = [
     "wind_gusts_10m_max",
 ]
 
-SSL_CONTEXT = (
-    ssl.create_default_context(cafile=certifi.where())
-    if certifi is not None else None
-)
+SSL_CONTEXT = ssl.create_default_context(cafile=certifi.where())
 
 
 def _fixture_grid(team_csv: str, stadium_csv: str) -> pd.DataFrame:
@@ -46,10 +40,7 @@ def _fixture_grid(team_csv: str, stadium_csv: str) -> pd.DataFrame:
     ]
     home = home[cols].drop_duplicates("fixture_id")
     stadiums = pd.read_csv(stadium_csv)
-    out = home.merge(stadiums, on=["team_id", "team"], how="left", validate="many_to_one")
-    if out[["latitude", "longitude"]].isna().any(axis=None):
-        missing = out.loc[out["latitude"].isna() | out["longitude"].isna(), ["team", "team_id"]]
-        raise ValueError(f"missing stadium coordinates: {missing.drop_duplicates().to_dict('records')}")
+    out = home.merge(stadiums, on=["team_id", "team"], how="left")
     return out.sort_values(["date", "fixture_id"]).reset_index(drop=True)
 
 

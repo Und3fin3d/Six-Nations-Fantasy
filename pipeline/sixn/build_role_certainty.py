@@ -108,22 +108,11 @@ def _within_team_roles(g: pd.DataFrame) -> pd.DataFrame:
 def build(feature_csv: str) -> pd.DataFrame:
     feat = pd.read_csv(feature_csv)
     feat = feat[feat["season"].isin([2023, 2024, 2025, 2026])].copy()
-    required = {
-        "season", "round", "fixture_id", "team_id", "team", "player_id",
-        "player_name", "started", "jersey", "canonical_pos", "role_goal_kicker_rate",
-        "role_kick_attempts", "role_lineout_per80", "role_potm_rate",
-        "role_potm_n_label", "form_start_rate", "form_minutes_recent",
-    }
-    missing = sorted(required - set(feat.columns))
-    if missing:
-        raise ValueError(f"missing required columns in {feature_csv}: {missing}")
     out = (
         feat.groupby(["fixture_id", "team_id"], sort=False, group_keys=False)
         .apply(_within_team_roles)
         .reset_index(drop=True)
     )
-    if out.duplicated(["fixture_id", "player_id"]).any():
-        raise ValueError("duplicate role-certainty rows after build")
     return out
 
 

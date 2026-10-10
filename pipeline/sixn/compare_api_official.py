@@ -1,6 +1,5 @@
 from __future__ import annotations
 
-import os
 import re
 import unicodedata
 import pandas as pd
@@ -82,8 +81,7 @@ def load_api() -> pd.DataFrame:
 
 def compare():
     api = load_api()
-    off = pd.concat([parse_official(p, s) for s, p in OFFICIAL.items()
-                     if os.path.exists(p)], ignore_index=True)
+    off = pd.concat([parse_official(p, s) for s, p in OFFICIAL.items()], ignore_index=True)
 
     keys4 = ["season", "round", "team", "key"]
     api_u = api.drop_duplicates(keys4)

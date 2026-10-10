@@ -147,8 +147,6 @@ def _accept_and_persist(df, train_idx, season, mode, predictors, engine):
 def _persist_promoted_research_config(df, seasons: list[int]) -> None:
     from model.sixn.picker import PROMOTED_CONFIG, _predict_config, config_from_dict
 
-    if not os.path.exists(PROMOTED_CONFIG):
-        return
     cfg = config_from_dict(json.load(open(PROMOTED_CONFIG)))
     for season in seasons:
         pred, _, _ = _predict_config(df, cfg, season)

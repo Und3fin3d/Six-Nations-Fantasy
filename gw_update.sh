@@ -105,11 +105,10 @@ if len(cur):
     date = pd.to_datetime(fx[fx["gameday"].eq(gw)]["game_date"]).dt.strftime("%Y-%m-%d")
     hist = pd.read_csv("data/ncr/ncr_player_match.csv")
     official = f"data/ncr/feeds/players_gw{gw}.json"
-    potm = pd.read_csv("data/ncr/ncr_potm.csv") if os.path.exists("data/ncr/ncr_potm.csv") else pd.DataFrame()
+    potm = pd.read_csv("data/ncr/ncr_potm.csv")
     reconstruction_ready = (
         len(date)
         and hist[hist["date"].astype(str).eq(date.iloc[0])]["fixture_id"].nunique() == 6
-        and len(potm)
         and potm[potm["date"].astype(str).eq(date.iloc[0])]["fixture_id"].nunique() == 6
     )
     if gw > 0 and os.path.exists(f"data/ncr/ncr_gw{gw}_squad.csv") and (os.path.exists(official) or reconstruction_ready):
@@ -127,7 +126,7 @@ PY
     d=$( (( DRY )) && echo "<current-gameday>" || "$PY_DATA" - <<'PY'
 import pandas as pd
 fx = pd.read_csv("data/ncr/ncr_fixtures.csv")
-cur = fx[fx.get("iscurrent", 0) == 1]
+cur = fx[fx.iscurrent == 1]
 print(pd.to_datetime(cur["game_date"]).min().date() if len(cur) else "")
 PY
 )

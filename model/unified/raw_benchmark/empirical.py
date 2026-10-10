@@ -281,7 +281,4 @@ class EmpiricalEventModel:
     @classmethod
     def load(cls, path: str) -> "EmpiricalEventModel":
         with open(path, "rb") as handle:
-            model = pickle.load(handle)
-        if not isinstance(model, cls):
-            raise TypeError(f"{path} is not an EmpiricalEventModel")
-        return model
+            return pickle.load(handle)

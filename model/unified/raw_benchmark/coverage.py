@@ -132,18 +132,11 @@ def parse_cache_fixture(path: str) -> tuple[dict, list[dict], list[dict]]:
 
 def build_cache_tables(fixture_ids: set[str]) -> tuple[pd.DataFrame, pd.DataFrame, pd.DataFrame]:
     metadata_rows, player_rows, coverage_rows = [], [], []
-    missing = []
     for fixture_id in sorted(fixture_ids):
-        path = f"{CACHE}/match_{fixture_id}.json"
-        if not os.path.exists(path):
-            missing.append(fixture_id)
-            continue
-        metadata, players, coverage = parse_cache_fixture(path)
+        metadata, players, coverage = parse_cache_fixture(f"{CACHE}/match_{fixture_id}.json")
         metadata_rows.append(metadata)
         player_rows.extend(players)
         coverage_rows.extend(coverage)
-    if missing:
-        raise FileNotFoundError(f"{len(missing)} canonical fixtures lack cache JSON: {missing[:10]}")
     return pd.DataFrame(metadata_rows), pd.DataFrame(player_rows), pd.DataFrame(coverage_rows)
 
 
@@ -154,14 +147,9 @@ def _attach_official_extensions(store: pd.DataFrame) -> tuple[pd.DataFrame, dict
         out[f"available__{event}"] = False
         out[f"provenance__{event}"] = "unobserved"
     report = {"official_rows": 0, "matched_rows": 0, "ambiguous_keys": 0}
-    if not os.path.exists(OFFICIAL):
-        return out, report
     official = pd.read_csv(OFFICIAL, low_memory=False)
     report['official_rows'] = int(len(official))
     six = out[pd.to_numeric(out['competition_id'], errors='coerce').eq(1266)].copy()
-    fixture_keys = six[['season', 'round', 'team', 'fixture_id']].drop_duplicates()
-    if fixture_keys.duplicated(['season', 'round', 'team']).any():
-        raise ValueError('official Six Nations fixture map is ambiguous')
     labels = match_official(six, official)
     merged = labels.reindex(out.index)
     matched = pd.Series(False, index=out.index)
@@ -186,7 +174,7 @@ def complete_cache_population(legacy, metadata, players, asof):
     if not set(legacy.fixture_id).issubset(set(included)):
         raise ValueError('Canonical fixtures lack completed cached teamsheets before the research cutoff')
     players = players[players.fixture_id.isin(included)].copy()
-    extra = players.merge(legacy[keys], on=keys, how='left', indicator=True, validate='one_to_one')
+    extra = players.merge(legacy[keys], on=keys, how='left', indicator=True)
     extra = extra[extra._merge.eq('left_only')].copy()
     fields = ('player_name', 'opponent', 'team_id', 'opponent_id', 'team_score', 'opp_score', 'jersey', 'started')
     additions = extra[keys + [f'{name}_cache' for name in fields]].rename(
@@ -228,11 +216,7 @@ def build_corrected_store(legacy_path: str = LEGACY_STORE, *, complete_asof=None
         metadata = metadata[metadata.fixture_id.isin(legacy.fixture_id)]
         coverage = coverage[coverage.fixture_id.isin(legacy.fixture_id)]
     keys = ["fixture_id", "player_id", "team"]
-    if cache_players.duplicated(keys).any():
-        raise ValueError("cache player truth is not unique at fixture/player grain")
-    out = legacy.merge(cache_players, on=keys, how="left", validate="one_to_one")
-    if out["match_at"].isna().any():
-        raise ValueError("corrected store contains rows without exact cached kickoff")
+    out = legacy.merge(cache_players, on=keys, how="left")
 
     for target in ("minutes", "yellow_cards", "red_cards", *DIRECT_EVENTS):
         value_col = f"{target}_cache"

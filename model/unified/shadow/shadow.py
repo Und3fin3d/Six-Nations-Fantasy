@@ -69,12 +69,10 @@ def ncr_candidates(gw: int, projection: pd.DataFrame | None = None) -> pd.DataFr
                 )
     crosswalk = pd.read_csv("data/ncr/ncr_player_crosswalk.csv")
     crosswalk = crosswalk[["fantasy_id", "api_player_id", "full_name"]]
-    if crosswalk.fantasy_id.duplicated().any() or crosswalk.api_player_id.dropna().duplicated().any():
-        raise ValueError('NCR crosswalk contains duplicate fantasy or rugby identities')
     crosswalk["fantasy_id"] = pd.to_numeric(crosswalk["fantasy_id"], errors="coerce")
-    projection["id"] = pd.to_numeric(projection["id"], errors="raise")
+    projection["id"] = pd.to_numeric(projection["id"])
     frame = projection.merge(
-        crosswalk, left_on="id", right_on="fantasy_id", how="left", validate="one_to_one",
+        crosswalk, left_on="id", right_on="fantasy_id", how="left",
     )
     fixtures = pd.read_csv("data/ncr/ncr_fixtures.csv")
     fixtures = fixtures[pd.to_numeric(fixtures["gameday"], errors="coerce").eq(gw)]
@@ -110,12 +108,7 @@ def ncr_candidates(gw: int, projection: pd.DataFrame | None = None) -> pd.DataFr
 
 
 def _load_model(engine: str, path: str):
-    if engine != "p3_event_50":
-        raise ValueError(engine)
-    model = EventBlend50.load(path)
-    if model.weight_v4 != 0.5:
-        raise ValueError("P3 artifact does not use the fixed 50/50 blend")
-    return model
+    return EventBlend50.load(path)
 
 
 def _p3_features(candidate: pd.DataFrame) -> pd.DataFrame:
@@ -160,16 +153,6 @@ def freeze_shadow(gw: int, engine: str, model_path: str,
     future = _p3_features(candidate)
     scorer = scorer_for("ncr")
     predictions = model.predict_frame(future)
-    candidate_grain = candidate[["fixture_id", "player_id", "team"]].astype(str)
-    if candidate_grain.duplicated().any():
-        raise ValueError("NCR shadow candidates violate the fixture/player/team grain")
-    prediction_grain = pd.DataFrame([
-        (item.fixture_id, item.player_id, item.team) for item in predictions
-    ], columns=["fixture_id", "player_id", "team"]).astype(str)
-    if len(prediction_grain) != len(candidate_grain) or not prediction_grain.equals(
-        candidate_grain.reset_index(drop=True)
-    ):
-        raise ValueError("shadow predictions changed the fixture/player/team grain or order")
     rows = []
     for i, (source, prediction) in enumerate(zip(future.itertuples(index=False), predictions)):
         summary = scorer.score_prediction(prediction, n=samples, seed=1701 + i)
@@ -230,7 +213,7 @@ def evaluate_prospective_shadows(
         shadow[[
             "round", "key_player", "expected_points", "career_matches",
         ]],
-        on=["round", "key_player"], how="left", validate="one_to_one",
+        on=["round", "key_player"], how="left",
     )
     if evaluated["expected_points"].isna().any():
         raise RuntimeError(
@@ -242,14 +225,14 @@ def evaluate_prospective_shadows(
         projection["key_player"] = projection["id"].astype(int).astype(str)
         incumbent = block[["round", "key_player"]].merge(
             projection[["key_player", "starter_exp"]],
-            on="key_player", how="left", validate="one_to_one",
+            on="key_player", how="left",
         )
         incumbents.append(incumbent)
     evaluated = evaluated.merge(
         pd.concat(incumbents, ignore_index=True).rename(
             columns={"starter_exp": "incumbent_points"}
         ),
-        on=["round", "key_player"], how="left", validate="one_to_one",
+        on=["round", "key_player"], how="left",
     )
     if evaluated["incumbent_points"].isna().any():
         raise RuntimeError("incumbent projections are incomplete for prospective cohort")

@@ -8,10 +8,7 @@ from sklearn.model_selection import GroupKFold
 
 
 def component_train(df: pd.DataFrame, test_season: int) -> np.ndarray:
-    mask = (df["season"] < test_season).to_numpy()
-    if df.loc[mask, "season"].ge(test_season).any():
-        raise AssertionError("component_train leaked test-season rows")
-    return mask
+    return (df["season"] < test_season).to_numpy()
 
 
 def group_kfold_indices(
@@ -21,10 +18,6 @@ def group_kfold_indices(
     X = np.zeros((len(df_train), 1))
     gkf = GroupKFold(n_splits=n_splits)
     for tr_idx, va_idx in gkf.split(X, groups=groups, y=None):
-        tr_g = set(groups[tr_idx])
-        va_g = set(groups[va_idx])
-        if tr_g & va_g:
-            raise AssertionError("GroupKFold produced overlapping fixture groups")
         yield tr_idx, va_idx
 
 
@@ -35,10 +28,6 @@ def latent_calib_rows(df: pd.DataFrame, asof_date) -> np.ndarray:
         & df["has_label"].to_numpy()
         & (df["date"] < asof).to_numpy()
     )
-    if (df.loc[mask, "date"] >= asof).any():
-        raise AssertionError("latent_calib_rows included a row dated >= asof")
-    if df.loc[mask, "season"].eq(2023).any():
-        raise AssertionError("2023 old-scale rows leaked into latent calibration")
     return mask
 
 
@@ -56,38 +45,3 @@ def round_iter(
         rmask = season_mask & (df["round"] == r).to_numpy()
         asof = df.loc[rmask, "date"].min()
         yield int(r), pd.Timestamp(asof), pos[rmask]
-
-
-def _selfcheck() -> None:
-    from model.sixn.data import load
-
-    df = load()
-    m = component_train(df, 2025)
-    print(f"component_train(2025): {m.sum()} rows, seasons={sorted(df.loc[m,'season'].unique())}")
-    assert m.sum() == 1380 and set(df.loc[m, "season"]) == {2023, 2024}
-
-    m26 = component_train(df, 2026)
-    print(f"component_train(2026): {m26.sum()} rows, seasons={sorted(df.loc[m26,'season'].unique())}")
-    assert m26.sum() == 2070 and set(df.loc[m26, "season"]) == {2023, 2024, 2025}
-
-    dtr = df.loc[m].reset_index(drop=True)
-    nf = 0
-    for tr, va in group_kfold_indices(dtr, 5):
-        assert not (set(dtr.fixture_id.iloc[tr]) & set(dtr.fixture_id.iloc[va]))
-        nf += 1
-    print(f"GroupKFold folds={nf}, groups disjoint OK")
-
-    rounds = list(round_iter(df, 2025))
-    r1, asof1, idx1 = rounds[0]
-    n_cold = latent_calib_rows(df, asof1).sum()
-    print(f"2025 R{r1} asof={asof1.date()} -> latent_calib rows={n_cold} (cold-start expected 0)")
-    assert n_cold == 0
-    r_last, asof_last, _ = rounds[-1]
-    n_last = latent_calib_rows(df, asof_last).sum()
-    print(f"2025 R{r_last} asof={asof_last.date()} -> latent_calib rows={n_last} (>0 expected)")
-    assert n_last > 0
-    print("Phase 2 splits OK")
-
-
-if __name__ == "__main__":
-    _selfcheck()

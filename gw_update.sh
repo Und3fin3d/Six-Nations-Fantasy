@@ -95,7 +95,7 @@ ncr_pipeline() {
     step "3/6  score the completed gameweek's saved model teams"
     local score_gw
     score_gw=$( (( DRY )) && echo "<previous-gameday>" || "$PY_DATA" - <<'PY'
-from pathlib import Path
+import os
 import pandas as pd
 
 fx = pd.read_csv("data/ncr/ncr_fixtures.csv")
@@ -104,15 +104,15 @@ if len(cur):
     gw = int(cur["gameday"].iloc[0]) - 1
     date = pd.to_datetime(fx[fx["gameday"].eq(gw)]["game_date"]).dt.strftime("%Y-%m-%d")
     hist = pd.read_csv("data/ncr/ncr_player_match.csv")
-    official = Path(f"data/ncr/feeds/players_gw{gw}.json")
-    potm = pd.read_csv("data/ncr/ncr_potm.csv") if Path("data/ncr/ncr_potm.csv").exists() else pd.DataFrame()
+    official = f"data/ncr/feeds/players_gw{gw}.json"
+    potm = pd.read_csv("data/ncr/ncr_potm.csv") if os.path.exists("data/ncr/ncr_potm.csv") else pd.DataFrame()
     reconstruction_ready = (
         len(date)
         and hist[hist["date"].astype(str).eq(date.iloc[0])]["fixture_id"].nunique() == 6
         and len(potm)
         and potm[potm["date"].astype(str).eq(date.iloc[0])]["fixture_id"].nunique() == 6
     )
-    if gw > 0 and Path(f"data/ncr/ncr_gw{gw}_squad.csv").exists() and (official.exists() or reconstruction_ready):
+    if gw > 0 and os.path.exists(f"data/ncr/ncr_gw{gw}_squad.csv") and (os.path.exists(official) or reconstruction_ready):
         print(gw)
 PY
 )

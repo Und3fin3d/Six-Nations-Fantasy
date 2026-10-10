@@ -1,9 +1,9 @@
 from __future__ import annotations
 
-import collections
+import glob
 import hashlib
 import json
-from pathlib import Path
+import os
 
 import numpy as np
 import pandas as pd
@@ -21,9 +21,9 @@ from .config import (
 )
 
 
-def sha256(path: Path) -> str:
+def sha256(path: str) -> str:
     digest = hashlib.sha256()
-    with path.open("rb") as handle:
+    with open(path, "rb") as handle:
         for chunk in iter(lambda: handle.read(1024 * 1024), b""):
             digest.update(chunk)
     return digest.hexdigest()
@@ -45,10 +45,10 @@ def _hemisphere(team: object) -> str:
     return "other"
 
 
-def parse_cache_fixture(path: Path) -> tuple[dict, list[dict], list[dict]]:
-    payload = json.loads(path.read_text()).get("results", {})
+def parse_cache_fixture(path: str) -> tuple[dict, list[dict], list[dict]]:
+    payload = json.load(open(path)).get("results", {})
     match = payload.get("match") or {}
-    fixture_id = str(match.get("id") or path.stem.removeprefix("match_"))
+    fixture_id = str(match.get("id") or os.path.basename(path).removesuffix(".json").removeprefix("match_"))
     match_at = pd.to_datetime(match.get("date"), errors="coerce", utc=True)
     metadata = {
         "fixture_id": fixture_id,
@@ -134,8 +134,8 @@ def build_cache_tables(fixture_ids: set[str]) -> tuple[pd.DataFrame, pd.DataFram
     metadata_rows, player_rows, coverage_rows = [], [], []
     missing = []
     for fixture_id in sorted(fixture_ids):
-        path = CACHE / f"match_{fixture_id}.json"
-        if not path.exists():
+        path = f"{CACHE}/match_{fixture_id}.json"
+        if not os.path.exists(path):
             missing.append(fixture_id)
             continue
         metadata, players, coverage = parse_cache_fixture(path)
@@ -154,7 +154,7 @@ def _attach_official_extensions(store: pd.DataFrame) -> tuple[pd.DataFrame, dict
         out[f"available__{event}"] = False
         out[f"provenance__{event}"] = "unobserved"
     report = {"official_rows": 0, "matched_rows": 0, "ambiguous_keys": 0}
-    if not OFFICIAL.exists():
+    if not os.path.exists(OFFICIAL):
         return out, report
     official = pd.read_csv(OFFICIAL, low_memory=False)
     report['official_rows'] = int(len(official))
@@ -214,11 +214,11 @@ def complete_cache_population(legacy, metadata, players, asof):
     return complete, players, report
 
 
-def build_corrected_store(legacy_path: Path = LEGACY_STORE, *, complete_asof=None) -> tuple[pd.DataFrame, pd.DataFrame, dict]:
+def build_corrected_store(legacy_path: str = LEGACY_STORE, *, complete_asof=None) -> tuple[pd.DataFrame, pd.DataFrame, dict]:
     legacy = pd.read_csv(legacy_path, low_memory=False)
     legacy["fixture_id"] = legacy["fixture_id"].astype(str)
     legacy["player_id"] = legacy["player_id"].astype(str)
-    fixture_ids = (set(path.stem.removeprefix('match_') for path in CACHE.glob('match_*.json'))
+    fixture_ids = (set(os.path.basename(path)[6:-5] for path in glob.glob(f'{CACHE}/match_*.json'))
                    if complete_asof else set(legacy["fixture_id"]))
     metadata, cache_players, coverage = build_cache_tables(fixture_ids)
     population_report = {}
@@ -313,7 +313,7 @@ def _event_catalog(store: pd.DataFrame, coverage: pd.DataFrame) -> pd.DataFrame:
     return pd.DataFrame(rows)
 
 
-def run_audit(output_dir: Path = OUT) -> dict:
+def run_audit(output_dir: str = OUT) -> dict:
     store, coverage, report = build_corrected_store()
     eligible = store[
         store["competition_level"].eq("international")
@@ -344,13 +344,13 @@ def run_audit(output_dir: Path = OUT) -> dict:
     if failures:
         raise AssertionError("; ".join(failures))
 
-    output_dir.mkdir(parents=True, exist_ok=True)
-    store_path = output_dir / "player_match.csv"
-    coverage_path = output_dir / "fixture_event_coverage.csv"
-    catalog_path = output_dir / "event_catalog.csv"
-    audit_path = output_dir / "audit.json"
+    os.makedirs(output_dir, exist_ok=True)
+    store_path = f"{output_dir}/player_match.csv"
+    coverage_path = f"{output_dir}/fixture_event_coverage.csv"
+    catalog_path = f"{output_dir}/event_catalog.csv"
+    audit_path = f"{output_dir}/audit.json"
     for path in (store_path, coverage_path, catalog_path, audit_path):
-        if path.exists():
+        if os.path.exists(path):
             raise FileExistsError(f"immutable raw benchmark artifact exists: {path}")
     store.to_csv(store_path, index=False)
     coverage.to_csv(coverage_path, index=False)
@@ -358,5 +358,5 @@ def run_audit(output_dir: Path = OUT) -> dict:
     report["artifacts"] = {
         "store": str(store_path), "coverage": str(coverage_path), "catalog": str(catalog_path),
     }
-    audit_path.write_text(json.dumps(report, indent=2, sort_keys=True) + "\n")
+    open(audit_path, "w").write(json.dumps(report, indent=2, sort_keys=True) + "\n")
     return report

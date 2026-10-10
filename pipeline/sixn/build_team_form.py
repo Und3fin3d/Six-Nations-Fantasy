@@ -1,12 +1,10 @@
 from __future__ import annotations
 
+import os
 import argparse
-from pathlib import Path
-
 import numpy as np
 import pandas as pd
 
-BASE = Path(__file__).resolve().parents[2]
 
 CONCEDE_COLS = {
     "tries_for":         "tries",
@@ -36,8 +34,8 @@ def _load_h2h_meetings(team_df: pd.DataFrame) -> pd.DataFrame:
     base = team_df[["team", "opponent", "date", "margin"]].copy()
     base["_src"] = "api"
 
-    intl_path = BASE / "data" / "intl_results.csv"
-    if not intl_path.exists():
+    intl_path = "data/intl_results.csv"
+    if not os.path.exists(intl_path):
         return base
 
     intl = pd.read_csv(intl_path)
@@ -63,7 +61,7 @@ def _decayed_mean(values: pd.Series, days_ago: pd.Series, half_life: float) -> f
     return float((w * v).sum() / sw) if sw > 0 else np.nan
 
 
-def build(team_csv: Path, comps: list[int], half_life: float) -> pd.DataFrame:
+def build(team_csv: str, comps: list[int], half_life: float) -> pd.DataFrame:
     df = pd.read_csv(team_csv)
     df = df[df.comp_id.isin(comps)].copy()
     df["date"] = pd.to_datetime(df["date"], errors="coerce")
@@ -112,8 +110,8 @@ def build(team_csv: Path, comps: list[int], half_life: float) -> pd.DataFrame:
 
 
 def _merge_wr(fd: pd.DataFrame) -> pd.DataFrame:
-    wr_path = BASE / "data" / "wr_rankings.csv"
-    if not wr_path.exists() or fd.empty:
+    wr_path = "data/wr_rankings.csv"
+    if not os.path.exists(wr_path) or fd.empty:
         return fd
     wr = pd.read_csv(wr_path)[["snapshot_date", "team", "wr_pos", "wr_pts"]]
     wr = wr.rename(columns={"snapshot_date": "date"})
@@ -129,15 +127,15 @@ def _merge_wr(fd: pd.DataFrame) -> pd.DataFrame:
 
 def main():
     ap = argparse.ArgumentParser()
-    ap.add_argument("--team-csv", default=str(BASE / "data" / "api_team_match.csv"))
+    ap.add_argument("--team-csv", default="data/api_team_match.csv")
     ap.add_argument("--comps", nargs="+", type=int, default=[1266],
                     help="competition ids forming the international pool (default 6N)")
     ap.add_argument("--half-life", type=float, default=90.0,
                     help="decay half-life in days (default 90)")
     args = ap.parse_args()
 
-    fd = build(Path(args.team_csv), args.comps, args.half_life)
-    out = BASE / "data" / "fixture_difficulty.csv"
+    fd = build(args.team_csv, args.comps, args.half_life)
+    out = "data/fixture_difficulty.csv"
     fd.to_csv(out, index=False)
 
     cold = (fd.opp_n_prior == 0).sum()

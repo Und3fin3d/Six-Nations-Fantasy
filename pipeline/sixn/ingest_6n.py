@@ -2,7 +2,6 @@ from __future__ import annotations
 
 import argparse
 import collections
-from pathlib import Path
 
 import pandas as pd
 
@@ -316,13 +315,10 @@ def main():
     comps_given = args.comps is not None
     comps = args.comps if comps_given else [SIX_NATIONS]
 
-    out_dir = Path(__file__).resolve().parents[2] / "data"
-    out_dir.mkdir(exist_ok=True)
-
     if args.team:
         pairs = [(c, s) for c in comps for s in args.seasons]
         tm = flatten_team_stats(pairs)
-        tm_path = out_dir / "api_team_match.csv"
+        tm_path = "data/api_team_match.csv"
         tm.to_csv(tm_path, index=False)
         print(f"\n✅  {len(tm)} team-match rows, {tm.fixture_id.nunique()} matches, "
               f"comps {sorted(tm.comp_id.unique())}, seasons {sorted(tm.season.unique())}")
@@ -335,7 +331,7 @@ def main():
     df, players = add_position_and_recon(df)
 
     if comps_given:
-        pm_path = out_dir / "api_player_match.csv"
+        pm_path = "data/api_player_match.csv"
         df.to_csv(pm_path, index=False)
         print(f"\n✅  {len(df)} player-match rows, {len(players)} players, "
               f"{df.fixture_id.nunique()} matches, "
@@ -344,8 +340,8 @@ def main():
         print(f"💾  {pm_path}")
         return
 
-    pm_path = out_dir / "6n_player_match.csv"
-    pl_path = out_dir / "6n_players.csv"
+    pm_path = "data/6n_player_match.csv"
+    pl_path = "data/6n_players.csv"
     df.to_csv(pm_path, index=False)
     players.to_csv(pl_path, index=False)
 

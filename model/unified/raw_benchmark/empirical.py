@@ -1,8 +1,8 @@
 from __future__ import annotations
 
+import os
 import pickle
 from dataclasses import dataclass, field
-from pathlib import Path
 
 import numpy as np
 import pandas as pd
@@ -11,11 +11,10 @@ from model.ncr.rp_rates import _norm, _season_end_year
 from model.history import past_matches, past_seasons
 
 from ..contracts import EventDistribution, RawPrediction
-from ..data import ROOT
 from ..schema import distribution_family
 from .config import EXTENDED_EVENTS, STABLE_EVENTS
 
-DATA = ROOT / "data"
+DATA = "data"
 HALFLIFE_DAYS = 420.0
 K = 220.0
 CLUB_ATT_CAL, CLUB_DEF_CAL, CLUB_DSC_CAL = 0.84, 0.97, 1.0
@@ -98,8 +97,8 @@ class EmpiricalEventModel:
         return output
 
     def _fit_rp_priors(self) -> None:
-        path = DATA / "rp_compstats.csv"
-        if not path.exists():
+        path = f"{DATA}/rp_compstats.csv"
+        if not os.path.exists(path):
             return
         rp = pd.read_csv(path, low_memory=False)
         asof = pd.Timestamp(self.asof).tz_localize(None) if pd.Timestamp(self.asof).tzinfo else pd.Timestamp(self.asof)
@@ -207,8 +206,8 @@ class EmpiricalEventModel:
                 )
         self.dispersion["minutes"] = max(float(pd.to_numeric(minute_rows["minutes"], errors="coerce").var()), 1.0)
 
-        rankings = DATA / "wr_rankings.csv"
-        if rankings.exists():
+        rankings = f"{DATA}/wr_rankings.csv"
+        if os.path.exists(rankings):
             wr = pd.read_csv(rankings, parse_dates=["snapshot_date"])
             snapshot = wr[wr["snapshot_date"].lt(asof)]
             if not snapshot.empty:
@@ -274,14 +273,14 @@ class EmpiricalEventModel:
             ))
         return predictions
 
-    def save(self, path: Path) -> None:
-        path.parent.mkdir(parents=True, exist_ok=True)
-        with path.open("wb") as handle:
+    def save(self, path: str) -> None:
+        os.makedirs(os.path.dirname(path), exist_ok=True)
+        with open(path, "wb") as handle:
             pickle.dump(self, handle)
 
     @classmethod
-    def load(cls, path: Path) -> "EmpiricalEventModel":
-        with path.open("rb") as handle:
+    def load(cls, path: str) -> "EmpiricalEventModel":
+        with open(path, "rb") as handle:
             model = pickle.load(handle)
         if not isinstance(model, cls):
             raise TypeError(f"{path} is not an EmpiricalEventModel")

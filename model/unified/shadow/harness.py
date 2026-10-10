@@ -1,26 +1,23 @@
 from __future__ import annotations
 
 import hashlib
-from pathlib import Path
+import os
 
-from ..data import ROOT
-
-DATA = ROOT / "data"
-OUT = DATA / "unified" / "v3"
+OUT = "data/unified/v3"
 
 
-def sha256(path: Path) -> str:
+def sha256(path: str) -> str:
     digest = hashlib.sha256()
-    with path.open("rb") as handle:
+    with open(path, "rb") as handle:
         for chunk in iter(lambda: handle.read(1024 * 1024), b""):
             digest.update(chunk)
     return digest.hexdigest()
 
 
-def write_once(path: Path, content: str | bytes) -> None:
-    if path.exists():
+def write_once(path: str, content: str | bytes) -> None:
+    if os.path.exists(path):
         raise FileExistsError(f"immutable artifact already exists: {path}")
-    path.parent.mkdir(parents=True, exist_ok=True)
+    os.makedirs(os.path.dirname(path), exist_ok=True)
     mode = "wb" if isinstance(content, bytes) else "x"
-    with path.open(mode) as handle:
+    with open(path, mode) as handle:
         handle.write(content)

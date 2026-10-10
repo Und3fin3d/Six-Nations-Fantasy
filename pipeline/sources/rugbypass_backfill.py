@@ -1,12 +1,13 @@
 from __future__ import annotations
 
 import argparse
-from datetime import datetime, timezone
+import glob
 import json
+import os
 import re
 import time
 import unicodedata
-from pathlib import Path
+from datetime import datetime, timezone
 
 import requests
 from bs4 import BeautifulSoup
@@ -18,8 +19,8 @@ from pipeline.sources.rugbypass_batch import (
     is_six_nations,
 )
 
-BASE = Path(__file__).resolve().parents[2]
-OUT_DIR = BASE / "players"
+BASE = "."
+OUT_DIR = "players"
 
 UA = ("Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) "
       "AppleWebKit/537.36 (KHTML, like Gecko) Chrome/122.0.0.0 Safari/537.36")
@@ -99,7 +100,6 @@ def fetch(session: requests.Session, slug: str):
 
 
 def resolve_and_scrape(records, *, dry_run: bool, force: bool, delay: float):
-    OUT_DIR.mkdir(exist_ok=True)
     session = requests.Session()
     session.headers.update({"User-Agent": UA})
 
@@ -123,11 +123,11 @@ def resolve_and_scrape(records, *, dry_run: bool, force: bool, delay: float):
         hit_slug = hit_html = None
         for slug in cands:
             stem = slug.replace("-", "_")
-            json_path = OUT_DIR / f"rugbypass_{stem}.json"
-            if json_path.exists() and not force and not dry_run:
+            json_path = f"{OUT_DIR}/rugbypass_{stem}.json"
+            if os.path.exists(json_path) and not force and not dry_run:
                 hit_slug = slug
                 hit_html = None
-                print(f"  [{i:>3}/{len(records)}]  {name:<26} ⏭  have {json_path.name}")
+                print(f"  [{i:>3}/{len(records)}]  {name:<26} ⏭  have {os.path.basename(json_path)}")
                 break
             status, html = fetch(session, slug)
             time.sleep(delay)
@@ -143,8 +143,7 @@ def resolve_and_scrape(records, *, dry_run: bool, force: bool, delay: float):
 
         if hit_html is None and hit_slug:
             try:
-                d = json.loads((OUT_DIR /
-                                f"rugbypass_{hit_slug.replace('-', '_')}.json").read_text())
+                d = json.load(open(f"{OUT_DIR}/rugbypass_{hit_slug.replace('-', '_')}.json"))
                 nat = (d.get("bio") or {}).get("Nationality", "?")
             except Exception:
                 nat = "?"
@@ -169,8 +168,7 @@ def resolve_and_scrape(records, *, dry_run: bool, force: bool, delay: float):
                 "competition_stats": comp_stats,
                 "match_log": match_log,
             }
-            (OUT_DIR / f"rugbypass_{hit_slug.replace('-', '_')}.json").write_text(
-                json.dumps(out, indent=2))
+            open(f"{OUT_DIR}/rugbypass_{hit_slug.replace('-', '_')}.json", "w").write(json.dumps(out, indent=2))
         resolved.append((name, hit_slug, nat))
 
     print("\n" + "=" * 74)
@@ -191,15 +189,15 @@ def resolve_and_scrape(records, *, dry_run: bool, force: bool, delay: float):
 def refresh_existing(*, delay: float):
     session = requests.Session()
     session.headers.update({"User-Agent": UA})
-    paths = sorted(OUT_DIR.glob("rugbypass_*.json"))
+    paths = sorted(glob.glob(f"{OUT_DIR}/rugbypass_*.json"))
     results = []
     changed = unchanged = failed = 0
     retained = {"bio": 0, "competition_stats": 0, "match_log": 0}
     retained_historical_competition_rows = 0
 
     for i, path in enumerate(paths, 1):
-        old = json.loads(path.read_text())
-        slug = old.get("player") or path.stem.replace("rugbypass_", "").replace("_", "-")
+        old = json.load(open(path))
+        slug = old.get("player") or os.path.basename(path).removesuffix(".json").replace("rugbypass_", "").replace("_", "-")
         status, html = fetch(session, slug)
         time.sleep(delay)
         if status != 200 or not html:
@@ -235,7 +233,7 @@ def refresh_existing(*, delay: float):
         retained_historical_competition_rows += len(historical_rows)
 
         if fresh != old:
-            path.write_text(json.dumps(fresh, indent=2))
+            open(path, "w").write(json.dumps(fresh, indent=2))
             changed += 1
             outcome = "changed"
         else:
@@ -257,10 +255,9 @@ def refresh_existing(*, delay: float):
         "retained_historical_competition_rows": retained_historical_competition_rows,
         "results": results,
     }
-    manifest_dir = BASE / "data"
-    manifest_dir.mkdir(exist_ok=True)
-    manifest_path = manifest_dir / f"rugbypass_refresh_{datetime.now(timezone.utc).date()}.json"
-    manifest_path.write_text(json.dumps(manifest, indent=2))
+    manifest_path = f"{BASE}/data/rugbypass_refresh_{datetime.now(timezone.utc).date()}.json"
+    os.makedirs(os.path.dirname(manifest_path), exist_ok=True)
+    open(manifest_path, "w").write(json.dumps(manifest, indent=2))
     print(f"FULL REFRESH profiles={len(paths)} changed={changed} unchanged={unchanged} "
           f"failed_kept={failed} manifest={manifest_path}")
     return manifest

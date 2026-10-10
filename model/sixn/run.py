@@ -2,16 +2,16 @@ from __future__ import annotations
 
 import argparse
 import json
+import os
 import warnings
 
 import numpy as np
 import pandas as pd
 from sklearn.linear_model import RidgeCV
 
-from model.sixn import baselines as B
 from model.sixn.assemble import assemble_predictions, rank_scores
 from model.sixn.baselines import build_matrix, direct_points_oof, predict_rates
-from model.sixn.data import DATA, load
+from model.sixn.data import load
 from model.sixn.evaluate import evaluate, format_table
 from model.sixn.splits import component_train
 from model.sixn.train_components import (
@@ -139,22 +139,22 @@ def select_deployable_engine(results: dict[str, dict]) -> str:
 
 def _accept_and_persist(df, train_idx, season, mode, predictors, engine):
     pred, _ = assemble_predictions(df, train_idx, season, mode, predictors[engine])
-    out = DATA / f"model_predictions_{season}.csv"
+    out = f"data/model_predictions_{season}.csv"
     pred.to_csv(out, index=False)
-    print(f"  saved {out.name} from {engine}  ({len(pred)} rows)")
+    print(f"  saved {os.path.basename(out)} from {engine}  ({len(pred)} rows)")
 
 
 def _persist_promoted_research_config(df, seasons: list[int]) -> None:
     from model.sixn.picker import PROMOTED_CONFIG, _predict_config, config_from_dict
 
-    if not PROMOTED_CONFIG.exists():
+    if not os.path.exists(PROMOTED_CONFIG):
         return
-    cfg = config_from_dict(json.loads(PROMOTED_CONFIG.read_text()))
+    cfg = config_from_dict(json.load(open(PROMOTED_CONFIG)))
     for season in seasons:
         pred, _, _ = _predict_config(df, cfg, season)
-        out = DATA / f"model_predictions_{season}.csv"
+        out = f"data/model_predictions_{season}.csv"
         pred.to_csv(out, index=False)
-        print(f"  refreshed {out.name} from promoted research config {cfg.name} "
+        print(f"  refreshed {os.path.basename(out)} from promoted research config {cfg.name} "
               f"({len(pred)} rows)")
 
 

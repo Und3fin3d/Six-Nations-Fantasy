@@ -1,16 +1,13 @@
 from __future__ import annotations
 
+import os
 import argparse
-from pathlib import Path
-
 import numpy as np
 import pandas as pd
 
 from pipeline.sixn.compare_api_official import norm_key
 from pipeline.sixn.official_labels import match_official
 
-BASE = Path(__file__).resolve().parents[2]
-DATA = BASE / "data"
 
 SIX_NATIONS = 1266
 TARGET_SEASONS = [2023, 2024, 2025, 2026]
@@ -51,9 +48,9 @@ ID_COLS = [
 ]
 
 OPTIONAL_EXTERNAL_FILES = {
-    "weather": DATA / "external_fixture_weather.csv",
-    "rolecert": DATA / "external_player_roles.csv",
-    "style": DATA / "external_team_style.csv",
+    "weather": "data/external_fixture_weather.csv",
+    "rolecert": "data/external_player_roles.csv",
+    "style": "data/external_team_style.csv",
 }
 
 FIXTURE_JOIN_KEYS = [
@@ -163,7 +160,7 @@ def _merge_external(
 
 def _merge_external_weather(feat: pd.DataFrame) -> pd.DataFrame:
     path = OPTIONAL_EXTERNAL_FILES["weather"]
-    if not path.exists():
+    if not os.path.exists(path):
         return feat
     raw = pd.read_csv(path)
     if {"weather_rain_mm", "weather_precip_probability"}.issubset(raw.columns):
@@ -198,7 +195,7 @@ def _merge_external_weather(feat: pd.DataFrame) -> pd.DataFrame:
 
 def _merge_external_roles(feat: pd.DataFrame) -> pd.DataFrame:
     path = OPTIONAL_EXTERNAL_FILES["rolecert"]
-    if not path.exists():
+    if not os.path.exists(path):
         return feat
     raw = pd.read_csv(path)
     feat_in = feat.copy()
@@ -220,7 +217,7 @@ def _merge_external_roles(feat: pd.DataFrame) -> pd.DataFrame:
 
 def _merge_external_style(feat: pd.DataFrame) -> pd.DataFrame:
     path = OPTIONAL_EXTERNAL_FILES["style"]
-    if not path.exists():
+    if not os.path.exists(path):
         return feat
     raw = pd.read_csv(path)
     return _merge_external(
@@ -423,26 +420,26 @@ def team_bench_slot_features(
 
 
 def build(half_life: float) -> pd.DataFrame:
-    ap = pd.read_csv(DATA / "api_player_match.csv")
+    ap = pd.read_csv("data/api_player_match.csv")
     ap["date"] = pd.to_datetime(ap["date"], errors="coerce")
     ap = ap.dropna(subset=["date", "player_id"])
 
-    off = pd.read_csv(DATA / "official_player_match.csv")
+    off = pd.read_csv("data/official_player_match.csv")
     six = ap[ap.comp_id.eq(1266)]
     labels = match_official(six, off.dropna(subset=['Pts']))
     ap['potm'] = labels['POTM']
     ap["has_potm_label"] = ap["potm"].notna()
     ap["potm"] = ap["potm"].fillna(0)
 
-    tm = pd.read_csv(DATA / "api_team_match.csv")
+    tm = pd.read_csv("data/api_team_match.csv")
     tm["date"] = pd.to_datetime(tm["date"], errors="coerce")
     tm = tm.dropna(subset=["date", "team_id"])
 
-    xw = pd.read_csv(DATA / "player_crosswalk.csv")
+    xw = pd.read_csv("data/player_crosswalk.csv")
     _xw = xw.dropna(subset=["api_player_id"])
     pid2slug = dict(zip(_xw.api_player_id.astype(int), _xw.rp_slug))
 
-    pl = pd.read_csv(DATA / "6n_players.csv")
+    pl = pd.read_csv("data/6n_players.csv")
     pos_6n = dict(zip(pl.player_id, pl.canonical_pos))
     pos_api = (ap.dropna(subset=["canonical_pos"])
                  .drop_duplicates("player_id")
@@ -455,7 +452,7 @@ def build(half_life: float) -> pd.DataFrame:
     ap["_matchup_pos"] = ap["player_id"].map(canon_pos)
     ap["_matchup_is_forward"] = ap["_matchup_pos"].isin(FORWARD_GROUPS)
 
-    cs = pd.read_csv(DATA / "rp_compstats.csv")
+    cs = pd.read_csv("data/rp_compstats.csv")
     cs["_end_year"] = cs["season"].map(_season_end_year)
     for s in CLASS_STATS:
         cs[s] = pd.to_numeric(cs.get(s), errors="coerce").fillna(0.0)
@@ -463,9 +460,9 @@ def build(half_life: float) -> pd.DataFrame:
     cs["games"] = pd.to_numeric(cs["games"], errors="coerce").fillna(0)
     cs_by_slug = {slug: g for slug, g in cs.groupby("slug")}
 
-    bio = pd.read_csv(DATA / "rp_bio.csv").set_index("slug")
+    bio = pd.read_csv("data/rp_bio.csv").set_index("slug")
 
-    fd = pd.read_csv(DATA / "fixture_difficulty.csv")
+    fd = pd.read_csv("data/fixture_difficulty.csv")
     fd_feats = [c for c in fd.columns
                 if c not in {"team", "opponent", "opponent_id", "date"}]
 
@@ -547,8 +544,8 @@ def build(half_life: float) -> pd.DataFrame:
 
     feat = feat.merge(fd[fd_feats], on=["fixture_id", "team_id"], how="left")
 
-    tp_path = DATA / "team_play_predictions.csv"
-    if tp_path.exists():
+    tp_path = "data/team_play_predictions.csv"
+    if os.path.exists(tp_path):
         tp = pd.read_csv(tp_path)
         tp_feats = [
             c for c in tp.columns
@@ -568,7 +565,7 @@ def main():
     args = ap.parse_args()
 
     feat = build(args.half_life)
-    out = DATA / "model_player_match.csv"
+    out = "data/model_player_match.csv"
     feat.to_csv(out, index=False)
 
     fam = {

@@ -1,14 +1,10 @@
 from __future__ import annotations
 
-from pathlib import Path
-
 import numpy as np
 import pandas as pd
 
 from pipeline.sixn.official_labels import match_official
 
-BASE = Path(__file__).resolve().parents[2]
-DATA = BASE / "data"
 SIX_NATIONS = 1266
 TARGET_SEASONS = [2023, 2024, 2025, 2026]
 MODERN_SEASONS = [2025, 2026]
@@ -43,10 +39,10 @@ def score_components(c: dict, is_forward: bool) -> float:
 
 
 def build() -> tuple[pd.DataFrame, dict]:
-    ap = pd.read_csv(DATA / "api_player_match.csv")
+    ap = pd.read_csv("data/api_player_match.csv")
     six = ap[(ap.comp_id == SIX_NATIONS) & (ap.season.isin(TARGET_SEASONS))].copy()
 
-    feat = pd.read_csv(DATA / "model_player_match.csv")[
+    feat = pd.read_csv("data/model_player_match.csv")[
         ["fixture_id", "player_id", "canonical_pos", "is_forward"]]
     six = six.merge(feat, on=["fixture_id", "player_id"], how="left",
                     suffixes=("", "_feat"))
@@ -64,7 +60,7 @@ def build() -> tuple[pd.DataFrame, dict]:
         for r in six.itertuples(index=False)
     ]
 
-    tm = pd.read_csv(DATA / "api_team_match.csv")[
+    tm = pd.read_csv("data/api_team_match.csv")[
         ["fixture_id", "team", "scrums_won", "lineout_won_steal"]]
     for c in ["scrums_won", "lineout_won_steal"]:
         tm[c] = pd.to_numeric(tm[c], errors="coerce").fillna(0)
@@ -74,7 +70,7 @@ def build() -> tuple[pd.DataFrame, dict]:
     six[["team_scrums_won", "team_lineout_steal"]] = \
         six[["team_scrums_won", "team_lineout_steal"]].fillna(0)
 
-    off = pd.read_csv(DATA / "official_player_match.csv")
+    off = pd.read_csv("data/official_player_match.csv")
     labels = match_official(six, off.dropna(subset=['Pts']))
     six['official_pts'] = labels['Pts']
     six['potm_winner'] = labels['POTM']
@@ -144,7 +140,7 @@ def _fit_latent(six: pd.DataFrame) -> dict:
 
 def main():
     tgt, fit = build()
-    out = DATA / "model_targets.csv"
+    out = "data/model_targets.csv"
     tgt.to_csv(out, index=False)
 
     lab = tgt[tgt.has_label & tgt.is_modern]

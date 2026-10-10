@@ -1,11 +1,11 @@
 from __future__ import annotations
 
 import argparse
+import glob
 import json
-import re
+import os
 import sys
 import time
-from pathlib import Path
 
 import pandas as pd
 from bs4 import BeautifulSoup
@@ -466,7 +466,7 @@ def extract_match_log(soup):
     return games
 
 
-def get_unique_players(csv_paths: list[Path]) -> list[str]:
+def get_unique_players(csv_paths: list[str]) -> list[str]:
     names: set[str] = set()
     for path in csv_paths:
         try:
@@ -497,14 +497,13 @@ def main():
                         help="Re-scrape even if JSON already exists")
     args = parser.parse_args()
 
-    base = Path(__file__).resolve().parents[2]
-    out_dir = base / "players"
-    out_dir.mkdir(exist_ok=True)
+    out_dir = "players"
+    os.makedirs(out_dir, exist_ok=True)
 
-    csv_paths: list[Path] = []
+    csv_paths: list[str] = []
     for year in args.years:
-        p = base / year / "players.csv"
-        if p.exists():
+        p = f"{year}/players.csv"
+        if os.path.exists(p):
             csv_paths.append(p)
             print(f"  📄  Found {p}")
         else:
@@ -529,10 +528,10 @@ def main():
 
     print(f"  ✅  {len(known)} mapped   ❓  {len(unknown)} unknown\n")
 
-    unknown_path = base / "rugbypass_unknown_players.txt"
-    unknown_path.write_text("\n".join(unknown) + "\n")
+    unknown_path = "rugbypass_unknown_players.txt"
+    open(unknown_path, "w").write("\n".join(unknown) + "\n")
     if unknown:
-        print(f"  Unknown players written to {unknown_path.name}")
+        print(f"  Unknown players written to {unknown_path}")
         for n in unknown:
             print(f"      {n}")
         print()
@@ -540,17 +539,17 @@ def main():
     if args.dry_run:
         print("── Dry run: would scrape ──")
         for name, slug in known:
-            json_path = out_dir / f"rugbypass_{slug.replace('-', '_')}.json"
-            status = "EXISTS" if json_path.exists() else "new"
+            json_path = f"{out_dir}/rugbypass_{slug.replace('-', '_')}.json"
+            status = "EXISTS" if os.path.exists(json_path) else "new"
             print(f"  {name:35s}  {slug:45s}  [{status}]")
         return
 
     to_scrape: list[tuple[str, str]] = []
     for name, slug in known:
         stem = slug.replace("-", "_")
-        json_path = out_dir / f"rugbypass_{stem}.json"
-        if json_path.exists() and not args.force:
-            print(f"  ⏭   Skipping {name} (already have {json_path.name})")
+        json_path = f"{out_dir}/rugbypass_{stem}.json"
+        if os.path.exists(json_path) and not args.force:
+            print(f"  ⏭   Skipping {name} (already have {os.path.basename(json_path)})")
         else:
             to_scrape.append((name, slug))
 
@@ -568,7 +567,7 @@ def main():
         for i, (name, slug) in enumerate(to_scrape, 1):
             url = f"https://www.rugbypass.com/players/{slug}/"
             stem = slug.replace("-", "_")
-            json_path = out_dir / f"rugbypass_{stem}.json"
+            json_path = f"{out_dir}/rugbypass_{stem}.json"
 
             print(f"  [{i:>3}/{len(to_scrape)}]  {name}  →  {url}")
 
@@ -596,7 +595,7 @@ def main():
                     "competition_stats": comp_stats,
                     "match_log": match_log,
                 }
-                json_path.write_text(json.dumps(out, indent=2))
+                open(json_path, "w").write(json.dumps(out, indent=2))
 
                 for row in comp_stats:
                     if is_six_nations(row.get("competition")):
@@ -605,7 +604,7 @@ def main():
                 sn_count = sum(1 for r in comp_stats if is_six_nations(r.get("competition")))
                 print(f"           ✅  bio={bool(bio)}  "
                       f"comp_rows={len(comp_stats)}  six_nations_rows={sn_count}  "
-                      f"saved→{json_path.name}")
+                      f"saved→{os.path.basename(json_path)}")
 
             except Exception as e:
                 print(f"           ❌  Error: {e}")
@@ -615,18 +614,18 @@ def main():
         driver.quit()
 
     if six_nations_rows:
-        out_csv = base / "rugbypass_stats_6n.csv"
+        out_csv = "rugbypass_stats_6n.csv"
         pd.DataFrame(six_nations_rows).to_csv(out_csv, index=False)
         print(f"\n  💾  Six Nations stats  → {out_csv}  ({len(six_nations_rows)} rows)")
     else:
         print("\n  ⚠️  No Six Nations competition rows found in scraped data.")
 
     all_6n: list[dict] = []
-    for json_file in sorted(out_dir.glob("rugbypass_*.json")):
-        if json_file.name in ("rugbypass_stats_6n.json",):
+    for json_file in sorted(glob.glob(f"{out_dir}/rugbypass_*.json")):
+        if os.path.basename(json_file) in ("rugbypass_stats_6n.json",):
             continue
         try:
-            data = json.loads(json_file.read_text())
+            data = json.load(open(json_file))
             pname = data.get("csv_name") or data.get("player", "")
             for row in data.get("competition_stats", []):
                 if is_six_nations(row.get("competition")):
@@ -635,7 +634,7 @@ def main():
             pass
 
     if all_6n:
-        out_all = base / "rugbypass_stats_6n_all.csv"
+        out_all = "rugbypass_stats_6n_all.csv"
         pd.DataFrame(all_6n).to_csv(out_all, index=False)
         print(f"  💾  All Six Nations stats (incl. existing JSONs) → {out_all}  ({len(all_6n)} rows)")
 

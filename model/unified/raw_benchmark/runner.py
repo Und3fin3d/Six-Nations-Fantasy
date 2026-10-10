@@ -1,17 +1,15 @@
 from __future__ import annotations
 
-import json
 import hashlib
-from pathlib import Path
+import json
+import os
 
-import numpy as np
 import pandas as pd
 
 from ..contracts import RawPrediction
 from ..v4.gbdt import V4GBDT
 from .blend import EventBlend50
 from .config import CORE_ENGINE_ORDER, ENGINE_ORDER, EXTENDED_EVENTS, OUT, STABLE_EVENTS
-from .coverage import sha256
 from .empirical import EmpiricalEventModel
 from .folds import (
     HistoricalFold, build_folds, evaluation_frame, masked_candidates,
@@ -38,13 +36,13 @@ def _fit_engine(
     raise ValueError(engine)
 
 
-def _save_model(model, path: Path) -> None:
+def _save_model(model, path: str) -> None:
     model.save(path)
 
 
-def _load_model(engine: str, path: Path):
+def _load_model(engine: str, path: str):
     if engine == "v4":
-        with path.open("rb") as handle:
+        with open(path, "rb") as handle:
             import pickle
             model = pickle.load(handle)
         if not isinstance(model, V4GBDT):
@@ -87,40 +85,40 @@ def _predict_fixturewise(
     return [output[int(row.benchmark_row_id)] for row in evaluation.itertuples(index=False)]
 
 
-def _prediction_path(output_dir: Path, engine: str, fold: HistoricalFold) -> Path:
-    return output_dir / "predictions" / engine / f"{fold.label}.jsonl"
+def _prediction_path(output_dir: str, engine: str, fold: HistoricalFold) -> str:
+    return f"{output_dir}/predictions/{engine}/{fold.label}.jsonl"
 
 
-def _write_predictions(path: Path, predictions: list[RawPrediction]) -> None:
+def _write_predictions(path: str, predictions: list[RawPrediction]) -> None:
     content = "".join(json.dumps(prediction.to_dict(), sort_keys=True) + "\n" for prediction in predictions)
-    if path.exists():
-        if path.read_text() != content:
+    if os.path.exists(path):
+        if open(path).read() != content:
             raise FileExistsError(f"immutable predictions differ: {path}")
         return
-    path.parent.mkdir(parents=True, exist_ok=True)
-    path.write_text(content)
+    os.makedirs(os.path.dirname(path), exist_ok=True)
+    open(path, "w").write(content)
 
 
-def _read_predictions(path: Path) -> list[RawPrediction]:
-    return [RawPrediction.from_dict(json.loads(line)) for line in path.read_text().splitlines() if line]
+def _read_predictions(path: str) -> list[RawPrediction]:
+    return [RawPrediction.from_dict(json.loads(line)) for line in open(path).read().splitlines() if line]
 
 
-def _write_table(path: Path, frame: pd.DataFrame) -> None:
+def _write_table(path: str, frame: pd.DataFrame) -> None:
     content = frame.to_csv(index=False)
-    if path.exists():
-        if path.read_text() != content:
+    if os.path.exists(path):
+        if open(path).read() != content:
             raise FileExistsError(f"immutable aggregate differs: {path}")
         return
-    path.parent.mkdir(parents=True, exist_ok=True)
-    path.write_text(content)
+    os.makedirs(os.path.dirname(path), exist_ok=True)
+    open(path, "w").write(content)
 
 
 def run_benchmark(
-    *, output_dir: Path = OUT, engines: tuple[str, ...] = ENGINE_ORDER,
+    *, output_dir: str = OUT, engines: tuple[str, ...] = ENGINE_ORDER,
     fold_labels: tuple[str, ...] | None = None,
 ) -> tuple[pd.DataFrame, pd.DataFrame]:
-    store_path = output_dir / "player_match.csv"
-    if not store_path.exists():
+    store_path = f"{output_dir}/player_match.csv"
+    if not os.path.exists(store_path):
         raise FileNotFoundError("run raw-benchmark audit before raw-benchmark run")
     store = pd.read_csv(store_path, low_memory=False, parse_dates=["date", "match_at"])
     folds = build_folds(store)
@@ -148,15 +146,15 @@ def run_benchmark(
             for dependency in ("empirical_event", "v4"):
                 if dependency not in requested:
                     requested.insert(0, dependency)
-        p3_artifact = output_dir / "models" / "p3_event_50" / f"{fold.label}.pkl"
-        force_blend_dependencies = "p3_event_50" in requested and not p3_artifact.exists()
+        p3_artifact = f"{output_dir}/models/p3_event_50/{fold.label}.pkl"
+        force_blend_dependencies = "p3_event_50" in requested and not os.path.exists(p3_artifact)
 
         def needs_model_work(name: str) -> bool:
-            artifact_path = output_dir / "models" / name / f"{fold.label}.pkl"
+            artifact_path = f"{output_dir}/models/{name}/{fold.label}.pkl"
             prediction_path = _prediction_path(output_dir, name, fold)
             return (
-                not artifact_path.exists()
-                or not prediction_path.exists()
+                not os.path.exists(artifact_path)
+                or not os.path.exists(prediction_path)
                 or (force_blend_dependencies and name in {"empirical_event", "v4"})
             )
 
@@ -166,12 +164,12 @@ def run_benchmark(
                 train, candidates, v4=True,
             )
         for engine in requested:
-            artifact = output_dir / "models" / engine / f"{fold.label}.pkl"
-            manifest = output_dir / "manifests" / engine / f"{fold.label}.json"
+            artifact = f"{output_dir}/models/{engine}/{fold.label}.pkl"
+            manifest = f"{output_dir}/manifests/{engine}/{fold.label}.json"
             prediction_path = _prediction_path(output_dir, engine, fold)
-            if artifact.exists() != manifest.exists():
+            if os.path.exists(artifact) != os.path.exists(manifest):
                 raise RuntimeError(f"partial immutable artifact pair for {engine}/{fold.label}")
-            if artifact.exists():
+            if os.path.exists(artifact):
                 model = _load_model(engine, artifact) if needs_model_work(engine) else None
             elif engine == "p3_event_50":
                 model = EventBlend50(fitted["empirical_event"], fitted["v4"])
@@ -183,7 +181,7 @@ def run_benchmark(
                 _save_model(model, artifact)
             if model is not None:
                 fitted[engine] = model
-            if prediction_path.exists():
+            if os.path.exists(prediction_path):
                 predictions = _read_predictions(prediction_path)
             else:
                 if model is None:
@@ -204,9 +202,9 @@ def run_benchmark(
             )
             if engine not in engines:
                 continue
-            event_metric_path = output_dir / "metrics" / "events" / engine / f"{fold.label}.csv"
-            ranking_metric_path = output_dir / "metrics" / "rankings" / engine / f"{fold.label}.csv"
-            if event_metric_path.exists():
+            event_metric_path = f"{output_dir}/metrics/events/{engine}/{fold.label}.csv"
+            ranking_metric_path = f"{output_dir}/metrics/rankings/{engine}/{fold.label}.csv"
+            if os.path.exists(event_metric_path):
                 fold_events = pd.read_csv(event_metric_path)
             else:
                 print(f"[{fold.label}] metrics {engine}", flush=True)
@@ -215,7 +213,7 @@ def run_benchmark(
                 ).assign(tournament=fold.tournament, calendar_year=fold.calendar_year,
                          fold_hemisphere=fold.hemisphere)
                 _write_table(event_metric_path, fold_events)
-            if ranking_metric_path.exists():
+            if os.path.exists(ranking_metric_path):
                 fold_rankings = pd.read_csv(ranking_metric_path)
             else:
                 fold_rankings = ranking_metrics(
@@ -236,6 +234,6 @@ def run_benchmark(
         suffix = "_partial_" + hashlib.sha256(partial_key).hexdigest()[:16]
     else:
         suffix = ""
-    _write_table(output_dir / f"event_metrics{suffix}.csv", events)
-    _write_table(output_dir / f"ranking_metrics{suffix}.csv", rankings)
+    _write_table(f"{output_dir}/event_metrics{suffix}.csv", events)
+    _write_table(f"{output_dir}/ranking_metrics{suffix}.csv", rankings)
     return events, rankings

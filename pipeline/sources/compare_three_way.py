@@ -2,17 +2,15 @@ from __future__ import annotations
 
 import glob
 import json
+import os
 import sys
-from pathlib import Path
 
-import numpy as np
 import pandas as pd
 
 from pipeline.sixn.compare_api_official import (OFFICIAL, STAT_MAP, load_api, norm_key,
                                   parse_official)
 from pipeline.sources.rugbypass_batch import NAME_TO_SLUG
 
-BASE = Path(__file__).resolve().parents[2]
 SLUG_TO_NAME = {v: k for k, v in NAME_TO_SLUG.items()}
 
 TRIPLE = {
@@ -39,12 +37,12 @@ def slug_key(slug: str) -> str:
 def load_rugbypass(seasons) -> pd.DataFrame:
     seasons = {str(s) for s in seasons}
     rows = []
-    for f in glob.glob(str(BASE / "players" / "rugbypass_*.json")):
+    for f in glob.glob("players/rugbypass_*.json"):
         try:
             d = json.load(open(f))
         except Exception:
             continue
-        slug = d.get("player") or Path(f).stem.replace("rugbypass_", "")
+        slug = d.get("player") or os.path.basename(f).removesuffix(".json").replace("rugbypass_", "")
         key = slug_key(slug)
         for e in d.get("competition_stats", []):
             if e.get("competition") != "Six Nations":
@@ -62,7 +60,7 @@ def load_rugbypass(seasons) -> pd.DataFrame:
 
 def agg_official(seasons) -> pd.DataFrame:
     off = pd.concat([parse_official(p, s) for s, p in OFFICIAL.items()
-                     if s in seasons and p.exists()], ignore_index=True)
+                     if s in seasons and os.path.exists(p)], ignore_index=True)
     cols = [c for c in (set(STAT_MAP) | {"Pts"}) if c in off.columns]
     g = (off.groupby(["season", "key"])
             .agg(off_games=("round", "nunique"), name=("name", "first"),
@@ -145,7 +143,7 @@ def main():
               f"OFF={int(x.off_MC):>4}  API={int(x.api_metres):>4}  "
               f"RP={int(x.rp_metres):>4}")
 
-    j.to_csv(BASE / "data" / "three_way_6n.csv", index=False)
+    j.to_csv("data/three_way_6n.csv", index=False)
     print(f"\n💾  data/three_way_6n.csv  ({len(j)} players)")
     return j
 

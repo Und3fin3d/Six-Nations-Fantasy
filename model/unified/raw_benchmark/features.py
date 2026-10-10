@@ -2,7 +2,6 @@ from __future__ import annotations
 
 import warnings
 
-import numpy as np
 import pandas as pd
 
 from ..features import build_pit_features, team_margin_form, grouped_ewm

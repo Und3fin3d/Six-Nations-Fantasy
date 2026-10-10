@@ -1,16 +1,11 @@
 from __future__ import annotations
 
 import json
-
-from pathlib import Path
+import os
 
 import pandas as pd
 
-
-from .data import ROOT
-
-DATA = ROOT / "data"
-OUT = DATA / "unified" / "fantasy_labels.csv"
+OUT = "data/unified/fantasy_labels.csv"
 
 SIX_NATIONS_TRAIN_SEASONS = (2025,)
 SIX_NATIONS_HOLDOUT_SEASON = 2026
@@ -21,8 +16,8 @@ NCR_ROUNDS = {
 }
 
 
-def load_actuals(path: Path) -> pd.DataFrame:
-    players = json.loads(path.read_text())["Data"]["Value"]["Players"]
+def load_actuals(path: str) -> pd.DataFrame:
+    players = json.load(open(path))["Data"]["Value"]["Players"]
     return pd.DataFrame([
         {
             "id": int(float(player["id"])),
@@ -38,7 +33,7 @@ def _percentile(frame: pd.DataFrame) -> pd.Series:
 
 
 def _six_nations_rows(seasons: tuple[int, ...], *, include_2023: bool) -> pd.DataFrame:
-    targets = pd.read_csv(DATA / "model_targets.csv", low_memory=False)
+    targets = pd.read_csv("data/model_targets.csv", low_memory=False)
     wanted = set(seasons)
     if include_2023:
         wanted.add(2023)
@@ -63,8 +58,8 @@ def _six_nations_rows(seasons: tuple[int, ...], *, include_2023: bool) -> pd.Dat
 def _ncr_rows() -> pd.DataFrame:
     rows = []
     for gw, feed in NCR_ROUNDS.items():
-        actuals = load_actuals(DATA / "ncr" / feed)
-        proj = pd.read_csv(DATA / "ncr" / f"ncr_gw{gw}_projections.csv")
+        actuals = load_actuals(f"data/ncr/{feed}")
+        proj = pd.read_csv(f"data/ncr/ncr_gw{gw}_projections.csv")
         cohort = proj[["id", "name", "team", "pos"]].merge(
             actuals[["id", "actual", "actual_status"]], on="id", validate="one_to_one",
         )
@@ -105,8 +100,8 @@ def build_fantasy_labels(*, include_2023: bool = False) -> pd.DataFrame:
     return pooled
 
 
-def write_fantasy_labels(path: Path = OUT, *, include_2023: bool = False) -> pd.DataFrame:
+def write_fantasy_labels(path: str = OUT, *, include_2023: bool = False) -> pd.DataFrame:
     frame = build_fantasy_labels(include_2023=include_2023)
-    path.parent.mkdir(parents=True, exist_ok=True)
+    os.makedirs(os.path.dirname(path), exist_ok=True)
     frame.to_csv(path, index=False)
     return frame

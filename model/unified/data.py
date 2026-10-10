@@ -1,7 +1,7 @@
 from __future__ import annotations
 
 import hashlib
-from pathlib import Path
+import os
 from typing import Iterable
 
 import numpy as np
@@ -11,11 +11,10 @@ from pipeline.sixn.official_labels import match_official
 
 from .schema import EVENTS, FORWARD_POSITIONS, KEY_COLUMNS, POSITION_BY_JERSEY
 
-ROOT = Path(__file__).resolve().parents[2]
 DEFAULT_SOURCES = (
-    (ROOT / "data/ncr/ncr_player_match.csv", "ncr_international", 30, "international"),
-    (ROOT / "data/ncr/club_player_match.csv", "ncr_club", 20, "club"),
-    (ROOT / "data/api_player_match.csv", "sixn_api", 10, "international"),
+    ("data/ncr/ncr_player_match.csv", "ncr_international", 30, "international"),
+    ("data/ncr/club_player_match.csv", "ncr_club", 20, "club"),
+    ("data/api_player_match.csv", "sixn_api", 10, "international"),
 )
 
 ALIASES = {
@@ -30,8 +29,8 @@ OFFICIAL_EVENT_COLUMNS = {
 
 
 def _attach_official_labels(frame: pd.DataFrame) -> pd.DataFrame:
-    path = ROOT / "data/official_player_match.csv"
-    if not path.exists():
+    path = "data/official_player_match.csv"
+    if not os.path.exists(path):
         return frame
     official = pd.read_csv(path, low_memory=False)
     out = frame.copy()
@@ -59,7 +58,7 @@ def _stable_id(value: object, name: object, team: object) -> str:
 
 
 def _normalise_source(
-    path: Path, source: str, priority: int, level: str,
+    path: str, source: str, priority: int, level: str,
 ) -> pd.DataFrame:
     frame = pd.read_csv(path, low_memory=False).rename(columns=ALIASES)
     original = set(frame.columns)
@@ -119,11 +118,11 @@ def _normalise_source(
 
 
 def build_canonical_store(
-    sources: Iterable[tuple[Path, str, int, str]] = DEFAULT_SOURCES,
+    sources: Iterable[tuple[str, str, int, str]] = DEFAULT_SOURCES,
     *, asof: str | pd.Timestamp | None = None,
 ) -> pd.DataFrame:
-    frames = [_normalise_source(Path(p), name, priority, level)
-              for p, name, priority, level in sources if Path(p).exists()]
+    frames = [_normalise_source(p, name, priority, level)
+              for p, name, priority, level in sources if os.path.exists(p)]
     if not frames:
         raise FileNotFoundError("none of the canonical data sources exist")
     all_rows = pd.concat(frames, ignore_index=True, sort=False)
@@ -155,8 +154,8 @@ def build_canonical_store(
     return out
 
 
-def write_canonical_store(path: Path, *, asof: str | None = None) -> pd.DataFrame:
+def write_canonical_store(path: str, *, asof: str | None = None) -> pd.DataFrame:
     frame = build_canonical_store(asof=asof)
-    path.parent.mkdir(parents=True, exist_ok=True)
+    os.makedirs(os.path.dirname(path), exist_ok=True)
     frame.to_csv(path, index=False)
     return frame

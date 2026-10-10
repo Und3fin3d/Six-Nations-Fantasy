@@ -1,13 +1,9 @@
 from __future__ import annotations
 
 import argparse
-from pathlib import Path
-
 import numpy as np
 import pandas as pd
 
-BASE = Path(__file__).resolve().parents[2]
-DATA = BASE / "data"
 
 BACK_POSITIONS = {"Scrum-half", "Fly-half", "Centre", "Back-three"}
 BENCH_CREATOR_JERSEYS = {21, 22, 23}
@@ -109,7 +105,7 @@ def _within_team_roles(g: pd.DataFrame) -> pd.DataFrame:
     return out
 
 
-def build(feature_csv: Path) -> pd.DataFrame:
+def build(feature_csv: str) -> pd.DataFrame:
     feat = pd.read_csv(feature_csv)
     feat = feat[feat["season"].isin([2023, 2024, 2025, 2026])].copy()
     required = {
@@ -133,12 +129,12 @@ def build(feature_csv: Path) -> pd.DataFrame:
 
 def main() -> None:
     ap = argparse.ArgumentParser()
-    ap.add_argument("--feature-csv", default=str(DATA / "model_player_match.csv"))
-    ap.add_argument("--output", default=str(DATA / "external_player_roles.csv"))
+    ap.add_argument("--feature-csv", default="data/model_player_match.csv")
+    ap.add_argument("--output", default="data/external_player_roles.csv")
     args = ap.parse_args()
 
-    out = build(Path(args.feature_csv))
-    path = Path(args.output)
+    out = build(args.feature_csv)
+    path = args.output
     out.to_csv(path, index=False)
     print(f"OK {len(out)} player-role rows -> {path}")
     cols = [

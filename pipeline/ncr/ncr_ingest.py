@@ -2,11 +2,8 @@ from __future__ import annotations
 
 import argparse
 import os
-import sys
 import time
-from pathlib import Path
 
-os.chdir(Path(__file__).resolve().parents[2])
 import pandas as pd
 
 from pipeline.sixn.ingest_6n import (
@@ -19,7 +16,7 @@ from pipeline.sixn.ingest_6n import (
 )
 from pipeline.sources.rugby_api import RugbyAPI
 
-NCR_DIR = Path("data/ncr")
+NCR_DIR = "data/ncr"
 DONE = ("Result", "Full Time")
 
 NATIONS = {"New Zealand", "Australia", "South Africa", "Argentina", "Fiji", "Japan",
@@ -132,7 +129,7 @@ def sweep(api: RugbyAPI, plan, keep, id_filter=None) -> list[dict]:
                 continue
             if id_filter and not id_filter(f):
                 continue
-            if not api._cache_path(f"/match/{f['id']}").exists():
+            if not os.path.exists(api._cache_path(f"/match/{f['id']}")):
                 continue
             rows += parse_match(api.match(f["id"]), keep)
     return rows
@@ -149,7 +146,7 @@ def sweep_team(api: RugbyAPI, plan, keep) -> list[dict]:
             if fixture.get("status") not in DONE:
                 continue
             match_path = api._cache_path(f"/match/{fixture['id']}")
-            if not match_path.exists():
+            if not os.path.exists(match_path):
                 continue
             rows += parse_team_match(api.match(fixture["id"]), keep)
     return rows
@@ -158,7 +155,7 @@ def sweep_team(api: RugbyAPI, plan, keep) -> list[dict]:
 def fetch_new_results(api: RugbyAPI, floor: int) -> int:
     fixtures = api.get(f"/fixtures/{LIVE_COMP}/2026", refresh=True).get("results", [])
     todo = [f for f in fixtures
-            if f.get("status") in DONE and not api._cache_path(f"/match/{f['id']}").exists()]
+            if f.get("status") in DONE and not os.path.exists(api._cache_path(f"/match/{f['id']}"))]
     print(f"new completed NCR matches to fetch: {len(todo)}  (quota {api.remaining})")
     got = 0
     for f in todo:
@@ -182,7 +179,7 @@ def rebuild(api: RugbyAPI) -> None:
     intl = (pd.DataFrame(rows).drop_duplicates(["fixture_id", "player_id", "team"]))
     intl["date"] = pd.to_datetime(intl["date"])
     intl = intl.sort_values("date")
-    intl.to_csv(NCR_DIR / "ncr_player_match.csv", index=False)
+    intl.to_csv(f"{NCR_DIR}/ncr_player_match.csv", index=False)
     print(f"ncr_player_match.csv : {len(intl):>6} rows  {intl.fixture_id.nunique():>4} matches  "
           f"{intl.player_id.nunique()} players  → {intl.date.max().date()}")
 
@@ -193,7 +190,7 @@ def rebuild(api: RugbyAPI) -> None:
     stat_cols = sorted(column for column in team.columns if column not in TEAM_ID_COLS)
     team = team.reindex(columns=[column for column in TEAM_ID_COLS if column in team] + stat_cols)
     team = team.sort_values("date")
-    team.to_csv(NCR_DIR / "ncr_team_match.csv", index=False)
+    team.to_csv(f"{NCR_DIR}/ncr_team_match.csv", index=False)
     print(f"ncr_team_match.csv   : {len(team):>6} rows  {team.fixture_id.nunique():>4} matches  "
           f"→ {team.date.max().date()}")
 
@@ -201,7 +198,7 @@ def rebuild(api: RugbyAPI) -> None:
     club = club.drop_duplicates(["fixture_id", "player_id", "team"])
     club["date"] = pd.to_datetime(club["date"])
     club = club.sort_values("date")
-    club.to_csv(NCR_DIR / "club_player_match.csv", index=False)
+    club.to_csv(f"{NCR_DIR}/club_player_match.csv", index=False)
     print(f"club_player_match.csv: {len(club):>6} rows  {club.fixture_id.nunique():>4} matches  "
           f"{club.player_id.nunique()} players  → {club.date.max().date()}")
     per_comp = club.groupby("comp_name").fixture_id.nunique().sort_values(ascending=False)

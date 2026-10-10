@@ -2,20 +2,18 @@ from __future__ import annotations
 
 import argparse
 import csv
+import glob
 import json
 import os
 import re
 import urllib.request
 from datetime import datetime, timezone
-from pathlib import Path
-
-os.chdir(Path(__file__).resolve().parents[2])
 
 BASE = "https://fantasy.nationschampionshiprugby.com/fantasy/feeds"
 HEADERS = {"User-Agent": "Mozilla/5.0", "Accept": "application/json",
            "Cache-Control": "no-cache", "Pragma": "no-cache",
            "Entity": "ed0t4n$3!"}
-FEEDS = Path("data/ncr/feeds")
+FEEDS = "data/ncr/feeds"
 PLAYER_COLS = ["id", "display_name", "full_name", "team_name", "team_id", "team_short_code",
                "hemisphere", "skill", "skill_desc", "value", "sel_percentage",
                "sel_cap_percentage", "is_active", "available_status", "injury_status",
@@ -70,7 +68,7 @@ def validate_player_gameday(players: list[dict], requested_gw: int) -> None:
 
 
 def carryover_gameday(
-    players: list[dict], requested_gw: int, feeds_dir: Path = FEEDS,
+    players: list[dict], requested_gw: int, feeds_dir: str = FEEDS,
 ) -> int | None:
     signature = {
         int(float(player["id"])): str(player.get("player_status"))
@@ -78,12 +76,12 @@ def carryover_gameday(
     }
     if len(signature) < 250:
         return None
-    for path in sorted(feeds_dir.glob("players_gw*.json")):
-        match = re.fullmatch(r"players_gw(\d+)\.json", path.name)
+    for path in sorted(glob.glob(f"{feeds_dir}/players_gw*.json")):
+        match = re.fullmatch(r"players_gw(\d+)\.json", os.path.basename(path))
         if not match or int(match.group(1)) == int(requested_gw):
             continue
         try:
-            prior = json.loads(path.read_text())["Data"]["Value"]["Players"]
+            prior = json.load(open(path))["Data"]["Value"]["Players"]
         except (KeyError, TypeError, ValueError, json.JSONDecodeError):
             continue
         prior_signature = {
@@ -102,7 +100,6 @@ def main() -> int:
     ap.add_argument("--gameday", type=int, default=None,
                     help="override the current gameweek derived from fixtures")
     args = ap.parse_args()
-    FEEDS.mkdir(parents=True, exist_ok=True)
 
     raw_fixtures = get("/fixtures/fixtures_1_en.json")
     fixtures = json.loads(raw_fixtures)["Data"]["Value"]
@@ -125,13 +122,10 @@ def main() -> int:
         validate_player_gameday(result_players, results_gw)
 
     stamp = args.label or datetime.now(timezone.utc).strftime("%Y%m%dT%H%M%SZ")
-    archive = FEEDS / f"players_{stamp}.json"
-    archive.write_bytes(raw_players)
-    (FEEDS / f"players_gw{requested_gw}.json").write_bytes(raw_players)
-    (FEEDS / f"players_gw{results_gw}.json").write_bytes(raw_results)
-    (FEEDS / "players_latest.json").write_bytes(raw_results)
-    (FEEDS / "players_latest_results.json").write_bytes(raw_results)
-    (FEEDS / "players_cur.json").write_bytes(raw_players)
+    archive = f"{FEEDS}/players_{stamp}.json"
+    for name, raw in ((f"players_{stamp}", raw_players), (f"players_gw{requested_gw}", raw_players), (f"players_gw{results_gw}", raw_results),
+                      ("players_latest", raw_results), ("players_latest_results", raw_results), ("players_cur", raw_players)):
+        open(f"{FEEDS}/{name}.json", "wb").write(raw)
 
     with open("data/ncr/ncr_players.csv", "w", newline="") as fh:
         w = csv.DictWriter(fh, fieldnames=PLAYER_COLS)
@@ -164,7 +158,7 @@ def main() -> int:
     )
     print(f"current player catalogue: GW{requested_gw}   gameday_id: {sorted(gd_id)}")
     print(f"GW{requested_gw} team sheets: {sheet_state}")
-    print(f"latest completed fantasy points: GW{results_gw} → {FEEDS / 'players_latest.json'}")
+    print(f"latest completed fantasy points: GW{results_gw} → {FEEDS}/players_latest.json")
     print(f"archived raw feed → {archive}")
     return 0
 

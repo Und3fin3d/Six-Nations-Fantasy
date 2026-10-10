@@ -1,20 +1,17 @@
 from __future__ import annotations
-import re, unicodedata
-from pathlib import Path
+import os, re, unicodedata
 import numpy as np
 import pandas as pd
 from scipy.optimize import milp, LinearConstraint, Bounds
 
 from model.history import past_matches, utc_cutoff
 
-ROOT = Path(__file__).resolve().parents[2]
-DATA = ROOT / "data"
-NCR = DATA / "ncr"
+NCR = "data/ncr"
 
 
 def _current_asof(default="2026-07-04") -> pd.Timestamp:
     try:
-        fx = pd.read_csv(NCR / "ncr_fixtures.csv")
+        fx = pd.read_csv(f"{NCR}/ncr_fixtures.csv")
         cur = fx[fx.get("iscurrent", 0) == 1]
         if len(cur):
             return pd.to_datetime(cur["game_date"]).min().normalize()
@@ -25,7 +22,7 @@ def _current_asof(default="2026-07-04") -> pd.Timestamp:
 
 def _current_gameday(default=1) -> int:
     try:
-        fx = pd.read_csv(NCR / "ncr_fixtures.csv")
+        fx = pd.read_csv(f"{NCR}/ncr_fixtures.csv")
         cur = fx[fx.get("iscurrent", 0) == 1]
         if len(cur):
             return int(cur["gameday"].min())
@@ -182,17 +179,17 @@ def build_projection(
     prediction_asof = utc_cutoff(asof if asof is not None else ASOF).tz_convert(None)
     pool = (
         pool_override.copy() if pool_override is not None
-        else pd.read_csv(NCR / "ncr_players.csv")
+        else pd.read_csv(f"{NCR}/ncr_players.csv")
     )
     if exclude_teams:
         pool = pool[~pool.team_name.isin(exclude_teams)]
     hist = past_matches(
         history_override if history_override is not None
-        else pd.read_csv(NCR / "ncr_player_match.csv"), prediction_asof,
+        else pd.read_csv(f"{NCR}/ncr_player_match.csv"), prediction_asof,
     )
-    teams = pd.read_csv(NCR / "ncr_teams.csv")
-    fx = pd.read_csv(NCR / "ncr_fixtures.csv")
-    wr = pd.read_csv(DATA / "wr_rankings.csv")
+    teams = pd.read_csv(f"{NCR}/ncr_teams.csv")
+    fx = pd.read_csv(f"{NCR}/ncr_fixtures.csv")
+    wr = pd.read_csv("data/wr_rankings.csv")
     wr["snapshot_date"] = pd.to_datetime(wr["snapshot_date"])
     point_in_time_wr = wr[wr["snapshot_date"].lt(prediction_asof)]
     wr = point_in_time_wr[
@@ -211,8 +208,8 @@ def build_projection(
         home[r.home] = True; home[r.away] = False
 
     wx = {}
-    wx_path = NCR / "ncr_fixture_weather.csv"
-    if use_weather and wx_path.exists():
+    wx_path = f"{NCR}/ncr_fixture_weather.csv"
+    if use_weather and os.path.exists(wx_path):
         wd = pd.read_csv(wx_path)
         for _, r in wd[wd.gameday == cur_gd].iterrows():
             wind_pen = max(0.0, float(r.wind_kph or 0) - 20) * 0.004
@@ -222,10 +219,10 @@ def build_projection(
 
     pid_map = match_players(pool, hist)
     club = None
-    club_path = NCR / "club_player_match.csv"
+    club_path = f"{NCR}/club_player_match.csv"
     if club_override is not None and not ov:
         club = past_matches(club_override, prediction_asof)
-    elif club_path.exists() and not ov:
+    elif os.path.exists(club_path) and not ov:
         club = pd.read_csv(club_path)
     prof = player_profiles(hist, club, asof=prediction_asof)
 
@@ -414,7 +411,7 @@ def write_markdown(squad, tot_cost, tot_proj, topcaps, path, exclude_teams):
     for _, r in topcaps.iterrows():
         L.append(f"- {r['name']} ({r.team}, {r.pos}) — {r.starter_exp:.1f} xPts  ·  £{r.value}")
     L += ["", "*xPts = expected match points at 1x. xMin = expected minutes.*"]
-    Path(path).write_text("\n".join(L) + "\n")
+    open(path, "w").write("\n".join(L) + "\n")
 
 
 def render(df, squad, tag, exclude, title="empirical projection"):
@@ -441,10 +438,10 @@ def render(df, squad, tag, exclude, title="empirical projection"):
           f"nations {squad.team.nunique()}")
     topcaps = df[df.status == "P"].sort_values("starter_exp", ascending=False).head(6)
     print("Top captaincy options:", ", ".join(f"{r['name']} {r.starter_exp:.1f}" for _, r in topcaps.iterrows()))
-    squad.to_csv(NCR / f"ncr_gw{CUR_GD}_squad{tag}.csv", index=False)
-    md = NCR / f"ncr_gw{CUR_GD}_squad{tag}.md"
+    squad.to_csv(f"{NCR}/ncr_gw{CUR_GD}_squad{tag}.csv", index=False)
+    md = f"{NCR}/ncr_gw{CUR_GD}_squad{tag}.md"
     write_markdown(squad, tot_cost, tot_proj, topcaps, md, exclude)
-    print(f"saved: ncr_gw{CUR_GD}_squad{tag}.csv, {md.name}")
+    print(f"saved: ncr_gw{CUR_GD}_squad{tag}.csv, {os.path.basename(md)}")
 
 
 def main():
@@ -457,7 +454,7 @@ def main():
     tag = args.tag or ("_ex_" + "_".join(t.replace(" ", "") for t in exclude) if exclude else "")
 
     df = build_projection(exclude_teams=exclude)
-    df.to_csv(NCR / f"ncr_gw{CUR_GD}_projections{tag}.csv", index=False)
+    df.to_csv(f"{NCR}/ncr_gw{CUR_GD}_projections{tag}.csv", index=False)
     squad, _, _ = optimise(df)
     render(df, squad, tag, exclude)
 

@@ -1,11 +1,7 @@
 from __future__ import annotations
 
-from pathlib import Path
-
 import pandas as pd
 
-BASE = Path(__file__).resolve().parents[2]
-DATA = BASE / "data"
 TEAMPLAY_ENABLED = False
 TEAMPLAY_MODE = "off"
 WEATHER_FEATURES_ENABLED = False
@@ -52,8 +48,8 @@ def _feature_cols(columns: list[str]) -> list[str]:
 
 
 def load() -> pd.DataFrame:
-    feat = pd.read_csv(DATA / "model_player_match.csv")
-    tgt = pd.read_csv(DATA / "model_targets.csv")
+    feat = pd.read_csv("data/model_player_match.csv")
+    tgt = pd.read_csv("data/model_targets.csv")
 
     keys = ["fixture_id", "player_id"]
     tgt_only = keys + [c for c in tgt.columns if c not in feat.columns]
@@ -71,7 +67,7 @@ def load() -> pd.DataFrame:
 
 
 FEATURE_COLS: list[str] = _feature_cols(
-    list(pd.read_csv(DATA / "model_player_match.csv", nrows=0).columns)
+    list(pd.read_csv("data/model_player_match.csv", nrows=0).columns)
 )
 
 

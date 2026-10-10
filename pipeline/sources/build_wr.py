@@ -3,27 +3,26 @@ from __future__ import annotations
 import argparse
 import json
 import time
+import os
 import urllib.request
-from pathlib import Path
 
 import pandas as pd
 
-BASE = Path(__file__).resolve().parents[2]
-CACHE = BASE / "data" / "cache"
+CACHE = "data/cache"
 URL = ("https://api.wr-rims-prod.pulselive.com/rugby/v3/rankings/mru"
        "?date={date}&language=en")
 HEADERS = {"User-Agent": "Mozilla/5.0", "Accept": "application/json"}
 
 
 def fetch_snapshot(date: str) -> dict:
-    cf = CACHE / f"wr_rank_{date}.json"
-    if cf.exists():
-        return json.loads(cf.read_text())
+    cf = f"{CACHE}/wr_rank_{date}.json"
+    if os.path.exists(cf):
+        return json.load(open(cf))
     req = urllib.request.Request(URL.format(date=date), headers=HEADERS)
     with urllib.request.urlopen(req, timeout=30) as r:
         data = json.loads(r.read().decode())
-    CACHE.mkdir(parents=True, exist_ok=True)
-    cf.write_text(json.dumps(data))
+    os.makedirs(CACHE, exist_ok=True)
+    open(cf, "w").write(json.dumps(data))
     time.sleep(0.3)
     print(f"  ↓ WR rankings {date}  ({len(data.get('entries', []))} teams)")
     return data
@@ -55,7 +54,7 @@ def main():
     if args.dates:
         dates = sorted(set(args.dates))
     else:
-        tm = pd.read_csv(BASE / "data" / "api_team_match.csv")
+        tm = pd.read_csv("data/api_team_match.csv")
         dates = sorted(d for d in tm["date"].dropna().astype(str).unique() if d)
 
     print(f"fetching WR snapshots for {len(dates)} fixture dates")
@@ -64,8 +63,8 @@ def main():
         rows += snapshot_rows(d, fetch_snapshot(d))
 
     df = pd.DataFrame(rows)
-    out = BASE / "data" / "wr_rankings.csv"
-    if out.exists():
+    out = "data/wr_rankings.csv"
+    if os.path.exists(out):
         prev = pd.read_csv(out)
         df = (pd.concat([prev, df], ignore_index=True)
                 .drop_duplicates(["snapshot_date", "team"], keep="last")

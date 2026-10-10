@@ -1,17 +1,14 @@
 from __future__ import annotations
 import json
-from pathlib import Path
 
 import numpy as np
 import pandas as pd
 from scipy.stats import spearmanr
 
-ROOT = Path(__file__).resolve().parents[2]
-FEED = ROOT / "data" / "ncr" / "feeds" / "players_latest.json"
 
 
-def load_actuals(feed_path: Path = FEED) -> dict:
-    players = json.loads(Path(feed_path).read_text())["Data"]["Value"]["Players"]
+def load_actuals(feed_path: str = "data/ncr/feeds/players_latest.json") -> dict:
+    players = json.load(open(feed_path))["Data"]["Value"]["Players"]
     out = {}
     for p in players:
         k = str(int(float(p["id"])))

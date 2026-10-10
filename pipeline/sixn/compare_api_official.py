@@ -1,19 +1,15 @@
 from __future__ import annotations
 
+import os
 import re
-import sys
 import unicodedata
-from pathlib import Path
-
-import numpy as np
 import pandas as pd
 
-BASE = Path(__file__).resolve().parents[2]
 
 OFFICIAL = {
-    2023: BASE / "data" / "official" / "2023" / "Six_Nations_Data_2023.xlsx",
-    2025: BASE / "data" / "official" / "2025" / "sixnationsmatch.xlsx",
-    2026: BASE / "data" / "official" / "2026" / "sixnationmatch.xlsx",
+    2023: "data/official/2023/Six_Nations_Data_2023.xlsx",
+    2025: "data/official/2025/sixnationsmatch.xlsx",
+    2026: "data/official/2026/sixnationmatch.xlsx",
 }
 
 STAT_MAP = {
@@ -49,7 +45,7 @@ def norm_key(name: str) -> str:
     return f"{initial}|{surname}"
 
 
-def parse_official(path: Path, season: int) -> pd.DataFrame:
+def parse_official(path: str, season: int) -> pd.DataFrame:
     xl = pd.ExcelFile(path)
     out = []
     for r_idx, sheet in enumerate(xl.sheet_names, start=1):
@@ -79,7 +75,7 @@ def parse_official(path: Path, season: int) -> pd.DataFrame:
 
 
 def load_api() -> pd.DataFrame:
-    df = pd.read_csv(BASE / "data" / "6n_player_match.csv")
+    df = pd.read_csv("data/6n_player_match.csv")
     df["key"] = df.player_name.map(norm_key)
     return df
 
@@ -87,7 +83,7 @@ def load_api() -> pd.DataFrame:
 def compare():
     api = load_api()
     off = pd.concat([parse_official(p, s) for s, p in OFFICIAL.items()
-                     if p.exists()], ignore_index=True)
+                     if os.path.exists(p)], ignore_index=True)
 
     keys4 = ["season", "round", "team", "key"]
     api_u = api.drop_duplicates(keys4)

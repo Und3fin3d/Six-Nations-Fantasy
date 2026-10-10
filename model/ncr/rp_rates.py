@@ -1,13 +1,10 @@
 from __future__ import annotations
 import re, unicodedata
-from pathlib import Path
 import numpy as np
 import pandas as pd
 
 from model.history import past_seasons, utc_cutoff
 
-ROOT = Path(__file__).resolve().parents[2]
-DATA = ROOT / "data"
 
 ATT = {"tries": 12, "try_assists": 5, "defenders_beaten": 2, "offloads": 2, "clean_breaks": 3}
 DEF = {"tackles": 1, "missed_tackles": -1, "turnovers_won": 4}
@@ -26,7 +23,7 @@ def _season_end_year(s):
 
 
 def rp_rates(asof_year=2026, min_minutes=120, *, asof=None):
-    cs = pd.read_csv(DATA / "rp_compstats.csv")
+    cs = pd.read_csv("data/rp_compstats.csv")
     if cs["slug"].nunique() < 600:
         raise RuntimeError(
             f"rp_compstats.csv looks stale ({cs['slug'].nunique()} slugs < 600); "

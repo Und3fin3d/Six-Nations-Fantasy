@@ -1,14 +1,13 @@
 from __future__ import annotations
 
 import json
+import os
 from datetime import datetime, timezone
-from pathlib import Path
 
 import numpy as np
 import pandas as pd
 from scipy.stats import spearmanr
 
-from ..data import ROOT
 from ..evaluation import tie_aware_top_n
 from ..labels import build_fantasy_labels
 from ..schema import EVENTS, FORWARD_POSITIONS
@@ -21,7 +20,6 @@ from .harness import OUT, sha256, write_once
 
 CUTOFFS = (10, 25, 50, 100)
 
-DATA = ROOT / "data"
 
 POSITION = {
     "Prop": "Prop", "Hooker": "Hooker", "Lock": "Second-row",
@@ -59,8 +57,8 @@ def ncr_candidates(gw: int, projection: pd.DataFrame | None = None) -> pd.DataFr
     if projection is not None:
         projection = projection.copy()
     else:
-        projection_path = DATA / "ncr" / f"ncr_gw{gw}_projections.csv"
-        if projection_path.exists():
+        projection_path = f"data/ncr/ncr_gw{gw}_projections.csv"
+        if os.path.exists(projection_path):
             projection = pd.read_csv(projection_path)
         else:
             from model.ncr.project import build_projection
@@ -69,7 +67,7 @@ def ncr_candidates(gw: int, projection: pd.DataFrame | None = None) -> pd.DataFr
                 raise RuntimeError(
                     f"GW{gw} projection is empty; wait for real team sheets before freezing"
                 )
-    crosswalk = pd.read_csv(DATA / "ncr" / "ncr_player_crosswalk.csv")
+    crosswalk = pd.read_csv("data/ncr/ncr_player_crosswalk.csv")
     crosswalk = crosswalk[["fantasy_id", "api_player_id", "full_name"]]
     if crosswalk.fantasy_id.duplicated().any() or crosswalk.api_player_id.dropna().duplicated().any():
         raise ValueError('NCR crosswalk contains duplicate fantasy or rugby identities')
@@ -78,7 +76,7 @@ def ncr_candidates(gw: int, projection: pd.DataFrame | None = None) -> pd.DataFr
     frame = projection.merge(
         crosswalk, left_on="id", right_on="fantasy_id", how="left", validate="one_to_one",
     )
-    fixtures = pd.read_csv(DATA / "ncr" / "ncr_fixtures.csv")
+    fixtures = pd.read_csv("data/ncr/ncr_fixtures.csv")
     fixtures = fixtures[pd.to_numeric(fixtures["gameday"], errors="coerce").eq(gw)]
     by_team = {}
     for row in fixtures.itertuples(index=False):
@@ -111,7 +109,7 @@ def ncr_candidates(gw: int, projection: pd.DataFrame | None = None) -> pd.DataFr
     return candidates
 
 
-def _load_model(engine: str, path: Path):
+def _load_model(engine: str, path: str):
     if engine != "p3_event_50":
         raise ValueError(engine)
     model = EventBlend50.load(path)
@@ -122,7 +120,7 @@ def _load_model(engine: str, path: Path):
 
 def _p3_features(candidate: pd.DataFrame) -> pd.DataFrame:
     store = pd.read_csv(
-        RAW_BENCHMARK_OUT / "player_match.csv",
+        f"{RAW_BENCHMARK_OUT}/player_match.csv",
         low_memory=False,
         parse_dates=["date", "match_at"],
     )
@@ -136,11 +134,11 @@ def _p3_features(candidate: pd.DataFrame) -> pd.DataFrame:
 
 
 def validate_shadow_write(
-    csv_path: Path, manifest_path: Path, lock_at: pd.Timestamp,
+    csv_path: str, manifest_path: str, lock_at: pd.Timestamp,
     *, now: pd.Timestamp | None = None,
 ) -> None:
-    if csv_path.exists() or manifest_path.exists():
-        raise FileExistsError(f"shadow snapshot already frozen: {csv_path.stem}")
+    if os.path.exists(csv_path) or os.path.exists(manifest_path):
+        raise FileExistsError(f"shadow snapshot already frozen: {os.path.basename(csv_path).removesuffix('.csv')}")
     current = pd.Timestamp.now(tz="UTC") if now is None else pd.Timestamp(now)
     if current.tzinfo is None:
         current = current.tz_localize("UTC")
@@ -148,14 +146,14 @@ def validate_shadow_write(
         raise RuntimeError(f"lock passed at {lock_at}; refusing retrospective shadow")
 
 
-def freeze_shadow(gw: int, engine: str, model_path: Path,
-                  *, output_dir: Path = OUT / "shadow", samples: int = 4000) -> Path:
-    fixtures = pd.read_csv(DATA / "ncr" / "ncr_fixtures.csv")
+def freeze_shadow(gw: int, engine: str, model_path: str,
+                  *, output_dir: str = f"{OUT}/shadow", samples: int = 4000) -> str:
+    fixtures = pd.read_csv("data/ncr/ncr_fixtures.csv")
     round_rows = fixtures[pd.to_numeric(fixtures["gameday"], errors="coerce").eq(gw)]
     lock_at = pd.to_datetime(round_rows["lock_date"], utc=True).min()
-    stem = output_dir / f"ncr_gw{gw}_{engine}"
-    csv_path = stem.with_suffix(".csv")
-    manifest_path = stem.with_suffix(".manifest.json")
+    stem = f"{output_dir}/ncr_gw{gw}_{engine}"
+    csv_path = f"{stem}.csv"
+    manifest_path = f"{stem}.manifest.json"
     validate_shadow_write(csv_path, manifest_path, lock_at)
     candidate = ncr_candidates(gw)
     model = _load_model(engine, model_path)
@@ -206,7 +204,7 @@ def freeze_shadow(gw: int, engine: str, model_path: Path,
 
 def evaluate_prospective_shadows(
     engine: str, *, rounds: tuple[int, ...] = (4, 5, 6, 7),
-    shadow_dir: Path = OUT / "shadow", output_dir: Path = OUT / "prospective",
+    shadow_dir: str = f"{OUT}/shadow", output_dir: str = f"{OUT}/prospective",
 ) -> dict:
     labels = build_fantasy_labels()
     labels = labels[
@@ -217,8 +215,8 @@ def evaluate_prospective_shadows(
         raise RuntimeError(f"official NCR labels are not available for GW{missing_labels}")
     pieces = []
     for gw in rounds:
-        path = shadow_dir / f"ncr_gw{gw}_{engine}.csv"
-        if not path.exists():
+        path = f"{shadow_dir}/ncr_gw{gw}_{engine}.csv"
+        if not os.path.exists(path):
             raise FileNotFoundError(f"missing immutable shadow: {path}")
         frame = pd.read_csv(path)
         frame["round"] = gw
@@ -240,7 +238,7 @@ def evaluate_prospective_shadows(
         )
     incumbents = []
     for gw, block in evaluated.groupby("round", sort=True):
-        projection = pd.read_csv(DATA / "ncr" / f"ncr_gw{int(gw)}_projections.csv")
+        projection = pd.read_csv(f"data/ncr/ncr_gw{int(gw)}_projections.csv")
         projection["key_player"] = projection["id"].astype(int).astype(str)
         incumbent = block[["round", "key_player"]].merge(
             projection[["key_player", "starter_exp"]],
@@ -284,9 +282,9 @@ def evaluate_prospective_shadows(
         }
         if len(rows) and candidate_mae > incumbent_mae + 0.5:
             reasons.append(f"four-round NCR {name} MAE regression exceeds 0.5")
-    retrospective_path = OUT / "benchmark" / "decision.json"
+    retrospective_path = f"{OUT}/benchmark/decision.json"
     retrospective = (
-        json.loads(retrospective_path.read_text()) if retrospective_path.exists() else {}
+        json.load(open(retrospective_path)) if os.path.exists(retrospective_path) else {}
     )
     if not retrospective.get("retrospective_gate_passed"):
         reasons.append("retrospective safe-overall gate did not pass")
@@ -299,9 +297,9 @@ def evaluate_prospective_shadows(
             "promote_unified" if not reasons else "retain_specialists_and_stop"
         ),
     }
-    output_dir.mkdir(parents=True, exist_ok=True)
-    evaluated.to_csv(output_dir / f"{engine}_gw4_gw7_rows.csv", index=False)
-    (output_dir / f"{engine}_decision.json").write_text(
+    os.makedirs(output_dir, exist_ok=True)
+    evaluated.to_csv(f"{output_dir}/{engine}_gw4_gw7_rows.csv", index=False)
+    open(f"{output_dir}/{engine}_decision.json", "w").write(
         json.dumps(payload, indent=2, sort_keys=True) + "\n"
     )
     lines = [
@@ -313,5 +311,5 @@ def evaluate_prospective_shadows(
     ]
     lines.extend(f"- {reason}" for reason in reasons)
     lines.append("")
-    (output_dir / f"{engine}_report.md").write_text("\n".join(lines))
+    open(f"{output_dir}/{engine}_report.md", "w").write("\n".join(lines))
     return payload

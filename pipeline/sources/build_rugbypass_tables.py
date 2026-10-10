@@ -2,14 +2,11 @@ from __future__ import annotations
 
 import glob
 import json
-from pathlib import Path
+import os
 
 import pandas as pd
 
-from pipeline.sixn.compare_api_official import norm_key
-from pipeline.sources.compare_three_way import SLUG_TO_NAME, slug_key
-
-BASE = Path(__file__).resolve().parents[2]
+from pipeline.sources.compare_three_way import slug_key
 
 COMP_NUM_FIELDS = [
     "games", "minutes", "tries", "try_assists", "points",
@@ -57,12 +54,12 @@ def _parse_age(v) -> int:
 
 
 def load_json_files():
-    for f in sorted(glob.glob(str(BASE / "players" / "rugbypass_*.json"))):
+    for f in sorted(glob.glob("players/rugbypass_*.json")):
         try:
             d = json.load(open(f))
         except Exception:
             continue
-        slug = d.get("player") or Path(f).stem.replace("rugbypass_", "")
+        slug = d.get("player") or os.path.basename(f).removesuffix(".json").replace("rugbypass_", "")
         yield slug, d
 
 
@@ -125,9 +122,6 @@ def build_matchlog(records) -> pd.DataFrame:
 
 
 def main():
-    out_dir = BASE / "data"
-    out_dir.mkdir(exist_ok=True)
-
     records = list(load_json_files())
     print(f"loaded {len(records)} RugbyPass JSON files")
 
@@ -137,7 +131,7 @@ def main():
 
     for name, df in (("rp_bio", bio), ("rp_compstats", comp),
                      ("rp_matchlog", log)):
-        path = out_dir / f"{name}.csv"
+        path = f"data/{name}.csv"
         df.to_csv(path, index=False)
         key_nonnull = 100.0 * df["key"].notna().mean() if len(df) else 0.0
         key_nonblank = 100.0 * (df["key"].astype(str).str.len() > 0).mean() if len(df) else 0.0

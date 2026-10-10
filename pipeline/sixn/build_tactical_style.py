@@ -1,13 +1,9 @@
 from __future__ import annotations
 
 import argparse
-from pathlib import Path
-
 import numpy as np
 import pandas as pd
 
-BASE = Path(__file__).resolve().parents[2]
-DATA = BASE / "data"
 SIX_NATIONS = 1266
 TARGET_SEASONS = [2023, 2024, 2025, 2026]
 
@@ -73,7 +69,7 @@ def _history_summary(hist: pd.DataFrame, asof: pd.Timestamp, half_life: float, p
     return out
 
 
-def build(team_csv: Path, half_life: float) -> pd.DataFrame:
+def build(team_csv: str, half_life: float) -> pd.DataFrame:
     raw = pd.read_csv(team_csv)
     raw["date"] = pd.to_datetime(raw["date"], errors="coerce")
     raw = raw.dropna(subset=["date", "team_id", "opponent_id", "fixture_id"])
@@ -125,13 +121,13 @@ def build(team_csv: Path, half_life: float) -> pd.DataFrame:
 
 def main() -> None:
     ap = argparse.ArgumentParser()
-    ap.add_argument("--team-csv", default=str(DATA / "api_team_match.csv"))
+    ap.add_argument("--team-csv", default="data/api_team_match.csv")
     ap.add_argument("--half-life", type=float, default=365.0)
-    ap.add_argument("--output", default=str(DATA / "external_team_style.csv"))
+    ap.add_argument("--output", default="data/external_team_style.csv")
     args = ap.parse_args()
 
-    out = build(Path(args.team_csv), args.half_life)
-    path = Path(args.output)
+    out = build(args.team_csv, args.half_life)
+    path = args.output
     out.to_csv(path, index=False)
     print(f"OK {len(out)} fixture-team rows -> {path}")
     print(out[[

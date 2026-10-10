@@ -1,7 +1,7 @@
 from __future__ import annotations
 
+import os
 import pickle
-from pathlib import Path
 
 import numpy as np
 import pandas as pd
@@ -139,14 +139,14 @@ class UniversalGBDT:
             ))
         return output
 
-    def save(self, path: Path) -> None:
-        path.parent.mkdir(parents=True, exist_ok=True)
-        with path.open("wb") as handle:
+    def save(self, path: str) -> None:
+        os.makedirs(os.path.dirname(path), exist_ok=True)
+        with open(path, "wb") as handle:
             pickle.dump(self, handle)
 
     @classmethod
-    def load(cls, path: Path) -> "UniversalGBDT":
-        with path.open("rb") as handle:
+    def load(cls, path: str) -> "UniversalGBDT":
+        with open(path, "rb") as handle:
             model = pickle.load(handle)
         if not isinstance(model, cls):
             raise TypeError(f"{path} is not a UniversalGBDT artifact")

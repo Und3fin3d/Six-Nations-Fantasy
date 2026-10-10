@@ -1,8 +1,8 @@
 from __future__ import annotations
 
+import os
 import pickle
 from dataclasses import dataclass, field
-from pathlib import Path
 from typing import Mapping
 
 from ..contracts import EventDistribution, RawPrediction
@@ -76,14 +76,14 @@ class EventBlend50:
             ))
         return output
 
-    def save(self, path: Path) -> None:
-        path.parent.mkdir(parents=True, exist_ok=True)
-        with path.open("wb") as handle:
+    def save(self, path: str) -> None:
+        os.makedirs(os.path.dirname(path), exist_ok=True)
+        with open(path, "wb") as handle:
             pickle.dump(self, handle)
 
     @classmethod
-    def load(cls, path: Path) -> "EventBlend50":
-        with path.open("rb") as handle:
+    def load(cls, path: str) -> "EventBlend50":
+        with open(path, "rb") as handle:
             model = pickle.load(handle)
         if not isinstance(model, cls):
             raise TypeError(f"{path} is not EventBlend50")
@@ -163,14 +163,14 @@ class EventWeightedBlend:
             model_name="p3_event_weighted",
         )
 
-    def save(self, path: Path) -> None:
-        path.parent.mkdir(parents=True, exist_ok=True)
-        with path.open("wb") as handle:
+    def save(self, path: str) -> None:
+        os.makedirs(os.path.dirname(path), exist_ok=True)
+        with open(path, "wb") as handle:
             pickle.dump(self, handle)
 
     @classmethod
-    def load(cls, path: Path) -> "EventWeightedBlend":
-        with path.open("rb") as handle:
+    def load(cls, path: str) -> "EventWeightedBlend":
+        with open(path, "rb") as handle:
             model = pickle.load(handle)
         if not isinstance(model, cls):
             raise TypeError(f"{path} is not EventWeightedBlend")

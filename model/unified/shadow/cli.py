@@ -2,7 +2,6 @@ from __future__ import annotations
 
 import argparse
 import json
-from pathlib import Path
 
 from .harness import OUT
 from .shadow import evaluate_prospective_shadows, freeze_shadow
@@ -29,8 +28,8 @@ def parser() -> argparse.ArgumentParser:
     p.add_argument(
         "--engine", choices=("p3_event_50",), required=True,
     )
-    p.add_argument("--model", type=Path, required=True)
-    p.add_argument("--output", type=Path, default=OUT / "shadow")
+    p.add_argument("--model", required=True)
+    p.add_argument("--output", default=f"{OUT}/shadow")
     p.set_defaults(func=shadow_command)
     p = sub.add_parser(
         "shadow-evaluate", help="apply the combined NCR GW4-GW7 promotion gates",
@@ -39,8 +38,8 @@ def parser() -> argparse.ArgumentParser:
         "--engine", choices=("p3_event_50",), required=True,
     )
     p.add_argument("--rounds", type=int, nargs="+", default=(4, 5, 6, 7))
-    p.add_argument("--shadow-dir", type=Path, default=OUT / "shadow")
-    p.add_argument("--output", type=Path, default=OUT / "prospective")
+    p.add_argument("--shadow-dir", default=f"{OUT}/shadow")
+    p.add_argument("--output", default=f"{OUT}/prospective")
     p.set_defaults(func=shadow_evaluate_command)
     return ap
 

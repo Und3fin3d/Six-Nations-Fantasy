@@ -4,7 +4,6 @@ import contextlib
 import dataclasses
 import warnings
 from dataclasses import dataclass
-from pathlib import Path
 
 import numpy as np
 import pandas as pd
@@ -32,10 +31,8 @@ from model.sixn.train_components import (
     select_components,
 )
 
-ROOT = Path(__file__).resolve().parents[2]
-DATA = ROOT / "data"
 MODE = "post_team_sheet"
-PROMOTED_CONFIG = Path(__file__).resolve().parent / "promoted_config.json"
+PROMOTED_CONFIG = "model/sixn/promoted_config.json"
 XGB_MAX_POINT_WEIGHT = 0.20
 POST_TARGET_XGB_MAX_WEIGHT = 1.0
 XGB_MAX_COMBINER_WEIGHT = 0.15

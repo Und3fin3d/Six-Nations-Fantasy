@@ -2,6 +2,7 @@ from __future__ import annotations
 
 import argparse
 import json
+import os
 import re
 from pathlib import Path
 
@@ -9,8 +10,7 @@ import pandas as pd
 
 import model.ncr.project as NP
 
-ROOT = Path(__file__).resolve().parents[2]
-DATA = ROOT / "data" / "ncr"
+DATA = Path("data/ncr")
 
 SCORE_WEIGHTS = {**NP.ATT, **NP.DEF, **NP.DISC}
 RESULT_START = "<!-- GW_RESULT_START -->"
@@ -23,8 +23,8 @@ TEAM_FILES = {
 
 
 def load_official_actuals(gw: int) -> dict[int, dict]:
-    path = DATA / "feeds" / f"players_gw{gw}.json"
-    players = json.loads(path.read_text())["Data"]["Value"]["Players"]
+    path = f"{DATA}/feeds/players_gw{gw}.json"
+    players = json.load(open(path))["Data"]["Value"]["Players"]
     payload_gws = {
         int(float(p["gameday_id"]))
         for p in players
@@ -32,7 +32,7 @@ def load_official_actuals(gw: int) -> dict[int, dict]:
     }
     if payload_gws != {int(gw)}:
         raise ValueError(
-            f"{path.name} contains gameday_id {sorted(payload_gws)}, expected GW{gw}"
+            f"players_gw{gw}.json contains gameday_id {sorted(payload_gws)}, expected GW{gw}"
         )
     return {
         int(float(p["id"])): {
@@ -45,7 +45,7 @@ def load_official_actuals(gw: int) -> dict[int, dict]:
     }
 
 
-def score_squad_official(path: Path, actuals: dict[int, dict]) -> tuple[pd.DataFrame, float]:
+def score_squad_official(path: str, actuals: dict[int, dict]) -> tuple[pd.DataFrame, float]:
     squad = pd.read_csv(path)
     rows = []
     for player in squad.itertuples(index=False):
@@ -79,7 +79,7 @@ def score_squad_official(path: Path, actuals: dict[int, dict]) -> tuple[pd.DataF
 
 
 def gameweek_date(gw: int) -> str:
-    fixtures = pd.read_csv(DATA / "ncr_fixtures.csv")
+    fixtures = pd.read_csv(f"{DATA}/ncr_fixtures.csv")
     rows = fixtures[pd.to_numeric(fixtures["gameday"], errors="coerce").eq(gw)]
     if rows.empty:
         raise ValueError(f"GW{gw} is absent from ncr_fixtures.csv")
@@ -91,7 +91,7 @@ def gameweek_date(gw: int) -> str:
 
 def actual_player_points(gw: int) -> tuple[pd.DataFrame, str]:
     date = gameweek_date(gw)
-    hist = pd.read_csv(DATA / "ncr_player_match.csv")
+    hist = pd.read_csv(f"{DATA}/ncr_player_match.csv")
     played = hist[hist["date"].astype(str).eq(date)].copy()
     if played["fixture_id"].nunique() != 6 or len(played) != 276:
         raise ValueError(
@@ -104,8 +104,7 @@ def actual_player_points(gw: int) -> tuple[pd.DataFrame, str]:
         played[column] * weight for column, weight in SCORE_WEIGHTS.items()
     )
 
-    potm_path = DATA / "ncr_potm.csv"
-    potm = pd.read_csv(potm_path)
+    potm = pd.read_csv(f"{DATA}/ncr_potm.csv")
     potm_for_date = potm[potm["date"].astype(str).eq(date)]
     if potm_for_date["fixture_id"].nunique() != 6:
         raise ValueError(
@@ -121,9 +120,9 @@ def actual_player_points(gw: int) -> tuple[pd.DataFrame, str]:
     return played, date
 
 
-def score_squad(path: Path, played: pd.DataFrame) -> tuple[pd.DataFrame, float]:
+def score_squad(path: str, played: pd.DataFrame) -> tuple[pd.DataFrame, float]:
     squad = pd.read_csv(path)
-    pool = pd.read_csv(DATA / "ncr_players.csv")
+    pool = pd.read_csv(f"{DATA}/ncr_players.csv")
     wanted = pool[pool["id"].astype(int).isin(squad["id"].astype(int))]
     crosswalk = NP.match_players(wanted, played)
     by_api_id = played.set_index(played["player_id"].astype(int))
@@ -211,13 +210,13 @@ def result_section(
     return "\n".join(lines)
 
 
-def update_markdown(path: Path, section: str) -> None:
-    text = path.read_text()
+def update_markdown(path: str, section: str) -> None:
+    text = open(path).read()
     pattern = re.compile(
         rf"\n*{re.escape(RESULT_START)}.*?{re.escape(RESULT_END)}\n?", re.DOTALL
     )
     text = pattern.sub("\n", text).rstrip() + "\n\n" + section + "\n"
-    path.write_text(text)
+    open(path, "w").write(text)
 
 
 def main() -> None:
@@ -228,8 +227,8 @@ def main() -> None:
 
     date = gameweek_date(args.gw)
     squads = {
-        label: DATA / template.format(gw=args.gw) for label, template in TEAM_FILES.items()
-        if (DATA / template.format(gw=args.gw)).exists()
+        label: f"{DATA}/{template.format(gw=args.gw)}" for label, template in TEAM_FILES.items()
+        if os.path.exists(f"{DATA}/{template.format(gw=args.gw)}")
     }
     scored: dict[str, pd.DataFrame] = {}
     totals: dict[str, float] = {}
@@ -250,11 +249,11 @@ def main() -> None:
 
     if args.update_markdown:
         for label, csv_path in squads.items():
-            path = csv_path.with_suffix(".md")
+            path = csv_path.removesuffix(".csv") + ".md"
             update_markdown(
                 path, result_section(args.gw, date, label, scored[label], totals, source)
             )
-            print(f"  updated {path.relative_to(ROOT)}")
+            print(f"  updated {path}")
 
 
 if __name__ == "__main__":

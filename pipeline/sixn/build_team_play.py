@@ -1,8 +1,7 @@
 from __future__ import annotations
 
+import os
 import argparse
-from pathlib import Path
-
 import warnings
 
 import numpy as np
@@ -12,8 +11,6 @@ from sklearn.linear_model import Ridge
 from sklearn.pipeline import make_pipeline
 from sklearn.preprocessing import StandardScaler
 
-BASE = Path(__file__).resolve().parents[2]
-DATA = BASE / "data"
 SIX_NATIONS = 1266
 TARGET_SEASONS = [2023, 2024, 2025, 2026]
 
@@ -98,8 +95,8 @@ def _context_rows(six: pd.DataFrame, half_life: float) -> pd.DataFrame:
 
 
 def _merge_wr(ctx: pd.DataFrame) -> pd.DataFrame:
-    wr_path = DATA / "wr_rankings.csv"
-    if not wr_path.exists():
+    wr_path = "data/wr_rankings.csv"
+    if not os.path.exists(wr_path):
         return ctx
     wr = pd.read_csv(wr_path)[["snapshot_date", "team", "wr_pos", "wr_pts"]].copy()
     wr["snapshot_date"] = pd.to_datetime(wr["snapshot_date"], errors="coerce")
@@ -237,7 +234,7 @@ def _add_aspects(out: pd.DataFrame) -> pd.DataFrame:
     return out
 
 
-def build(team_csv: Path, half_life: float) -> pd.DataFrame:
+def build(team_csv: str, half_life: float) -> pd.DataFrame:
     raw = pd.read_csv(team_csv)
     raw = raw[raw.comp_id == SIX_NATIONS].copy()
     raw["date"] = pd.to_datetime(raw["date"], errors="coerce")
@@ -279,13 +276,13 @@ def build(team_csv: Path, half_life: float) -> pd.DataFrame:
 
 def main() -> None:
     ap = argparse.ArgumentParser()
-    ap.add_argument("--team-csv", default=str(DATA / "api_team_match.csv"))
+    ap.add_argument("--team-csv", default="data/api_team_match.csv")
     ap.add_argument("--half-life", type=float, default=365.0,
                     help="decay half-life in days for team context (default 365)")
     args = ap.parse_args()
 
-    out = build(Path(args.team_csv), args.half_life)
-    path = DATA / "team_play_predictions.csv"
+    out = build(args.team_csv, args.half_life)
+    path = "data/team_play_predictions.csv"
     out.to_csv(path, index=False)
 
     pred_cols = [c for c in out.columns if c.startswith("teamplay_") and c.endswith("_hat")]

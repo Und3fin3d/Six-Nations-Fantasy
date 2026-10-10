@@ -4,13 +4,12 @@ import argparse
 import datetime as dt
 import json
 import time
+import os
 import urllib.request
-from pathlib import Path
 
 import pandas as pd
 
-BASE = Path(__file__).resolve().parents[2]
-CACHE = BASE / "data" / "cache"
+CACHE = "data/cache"
 URL = ("https://api.wr-rims-prod.pulselive.com/rugby/v3/match"
        "?startDate={start}&endDate={end}&sort=asc&pageSize=100&page={page}"
        "&states=C&language=en")
@@ -28,9 +27,9 @@ def _get(url: str) -> dict:
 
 
 def fetch_chunk(start: str, end: str) -> list[dict]:
-    cf = CACHE / f"wr_match_{start}_{end}.json"
-    if cf.exists():
-        return json.loads(cf.read_text())
+    cf = f"{CACHE}/wr_match_{start}_{end}.json"
+    if os.path.exists(cf):
+        return json.load(open(cf))
 
     first = _get(URL.format(start=start, end=end, page=0))
     time.sleep(0.3)
@@ -41,8 +40,8 @@ def fetch_chunk(start: str, end: str) -> list[dict]:
         content += data.get("content", [])
         time.sleep(0.3)
 
-    CACHE.mkdir(parents=True, exist_ok=True)
-    cf.write_text(json.dumps(content))
+    os.makedirs(CACHE, exist_ok=True)
+    open(cf, "w").write(json.dumps(content))
     print(f"  ↓ WR matches {start}…{end}  ({len(content)} items, {num_pages} pages)")
     return content
 
@@ -130,7 +129,7 @@ def main():
         df = df.drop_duplicates(subset=["date", "team", "opponent"])
         df = df.sort_values(["date", "team"]).reset_index(drop=True)
 
-    out = BASE / "data" / "intl_results.csv"
+    out = "data/intl_results.csv"
     df.to_csv(out, index=False)
 
     ncr_df = pd.DataFrame(ncr_rows)
@@ -138,8 +137,7 @@ def main():
         ncr_df = (ncr_df.drop_duplicates(subset=["date", "team", "opponent"])
                          .sort_values(["date", "team"])
                          .reset_index(drop=True))
-    ncr_out = BASE / "data" / "ncr" / "ncr_intl_results.csv"
-    ncr_out.parent.mkdir(parents=True, exist_ok=True)
+    ncr_out = "data/ncr/ncr_intl_results.csv"
     ncr_df.to_csv(ncr_out, index=False)
 
     n_matches = df["is_six_nations_pair"].notna().sum()

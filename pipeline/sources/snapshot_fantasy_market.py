@@ -7,8 +7,8 @@ import json
 import re
 import sys
 from dataclasses import dataclass
+import os
 from datetime import datetime, timezone
-from pathlib import Path
 from typing import Any
 from urllib.error import HTTPError, URLError
 from urllib.parse import urlencode
@@ -16,7 +16,7 @@ from urllib.request import Request, urlopen
 
 
 BASE_URL = "https://fantasy.sixnationsrugby.com"
-DEFAULT_OUTPUT = Path(__file__).resolve().parents[2] / "data" / "fantasy_market_snapshots"
+DEFAULT_OUTPUT = "data/fantasy_market_snapshots"
 CARD_GAME_RE = re.compile(r"var\s+FS_CardGame\s*=\s*(\{.*?\})\s*;", re.DOTALL)
 
 
@@ -140,15 +140,15 @@ def _csv_rows(
 
 
 def write_snapshot(
-    output_dir: Path,
+    output_dir: str,
     game: str,
     config: dict[str, Any],
     payload: dict[str, Any],
-) -> tuple[Path, Path | None, int]:
+) -> tuple[str, str | None, int]:
     now = datetime.now(timezone.utc)
     stamp = now.strftime("%Y%m%dT%H%M%SZ")
-    output_dir.mkdir(parents=True, exist_ok=True)
-    base = output_dir / f"{game}_{stamp}"
+    os.makedirs(output_dir, exist_ok=True)
+    base = f"{output_dir}/{game}_{stamp}"
     players = payload.get("sportifs", [])
     if not isinstance(players, list):
         raise RuntimeError("fantasy API payload has no list-valued 'sportifs' field")
@@ -163,8 +163,8 @@ def write_snapshot(
         "card_url": str(config["card_url"]),
         "player_count": len(players),
     }
-    raw_path = base.with_suffix(".json")
-    raw_path.write_text(
+    raw_path = f"{base}.json"
+    open(raw_path, "w").write(
         json.dumps({"metadata": metadata, "response": payload}, indent=2, sort_keys=True)
         + "\n"
     )
@@ -172,8 +172,8 @@ def write_snapshot(
     csv_path = None
     if players:
         fields, rows = _csv_rows(players, metadata)
-        csv_path = base.with_suffix(".csv")
-        with csv_path.open("w", newline="") as handle:
+        csv_path = f"{base}.csv"
+        with open(csv_path, "w", newline="") as handle:
             writer = csv.DictWriter(handle, fieldnames=fields)
             writer.writeheader()
             writer.writerows(rows)
@@ -184,7 +184,7 @@ def main() -> int:
     parser = argparse.ArgumentParser()
     parser.add_argument("--game", choices=["m6n", "w6n"], default="m6n")
     parser.add_argument("--language", default="en")
-    parser.add_argument("--output-dir", type=Path, default=DEFAULT_OUTPUT)
+    parser.add_argument("--output-dir", default=DEFAULT_OUTPUT)
     parser.add_argument(
         "--allow-unavailable",
         action="store_true",

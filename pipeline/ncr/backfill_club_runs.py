@@ -1,17 +1,14 @@
 from __future__ import annotations
 
 import argparse
-import sys
 import time
-from pathlib import Path
 import os
 
-os.chdir(Path(__file__).resolve().parents[2])
 from pipeline.sources.rugby_api import RugbyAPI
 
 COMPS = {1236: "URC", 1218: "Prem", 1230: "Top14", 1464: "ChampCup", 1470: "ChalCup"}
 DONE = ("Result", "Full Time")
-LOG_PATH = Path("data/ncr/club_backfill_log.txt")
+LOG_PATH = "data/ncr/club_backfill_log.txt"
 
 
 def main() -> int:
@@ -29,7 +26,7 @@ def main() -> int:
     args = ap.parse_args()
 
     api = RugbyAPI(verbose=False, min_interval=0.7)
-    log_f = LOG_PATH.open("a")
+    log_f = open(LOG_PATH, "a")
 
     def log(s: str) -> None:
         log_f.write(s + "\n"); log_f.flush(); print(s, flush=True)
@@ -49,7 +46,7 @@ def main() -> int:
                 continue
             todo = [f for f in fixtures
                     if f.get("status") in DONE
-                    and not api._cache_path(f"/match/{f['id']}").exists()]
+                    and not os.path.exists(api._cache_path(f"/match/{f['id']}"))]
             if args.dry_run:
                 pending += len(todo)
                 log(f"{label} s{season}: {len(todo)} uncached")

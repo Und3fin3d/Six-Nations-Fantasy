@@ -1,13 +1,11 @@
 from __future__ import annotations
 
-from pathlib import Path
-
+import os
 import pandas as pd
 
 from pipeline.sixn.compare_api_official import (API_BLIND, OFFICIAL, STAT_MAP, norm_key,
                                   parse_official)
 
-BASE = Path(__file__).resolve().parents[2]
 
 COL_MAP_2023 = {
     "Time Played":    "Min",
@@ -40,7 +38,7 @@ def _player_nation_map(xl: pd.ExcelFile) -> dict:
     return out
 
 
-def parse_official_2023(path: Path, season: int = 2023) -> pd.DataFrame:
+def parse_official_2023(path: str, season: int = 2023) -> pd.DataFrame:
     xl = pd.ExcelFile(path)
     nation = _player_nation_map(xl)
     out = []
@@ -84,7 +82,7 @@ def parse_official_2023(path: Path, season: int = 2023) -> pd.DataFrame:
 def build() -> pd.DataFrame:
     frames = []
     for season, path in sorted(OFFICIAL.items()):
-        if not path.exists():
+        if not os.path.exists(path):
             print(f"⚠️  missing {path} (season {season}), skipped")
             continue
         if season == 2023:
@@ -103,10 +101,8 @@ def build() -> pd.DataFrame:
 
 
 def main():
-    out_dir = BASE / "data"
-    out_dir.mkdir(exist_ok=True)
     df = build()
-    path = out_dir / "official_player_match.csv"
+    path = "data/official_player_match.csv"
     df.to_csv(path, index=False)
     print(f"\n💾  {path}")
     print(f"   total rows: {len(df)}")

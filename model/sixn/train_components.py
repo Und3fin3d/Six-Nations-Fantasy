@@ -13,7 +13,7 @@ from model.sixn.baselines import (
     _rate_target,
     predict_rates,
 )
-from model.sixn.data import DATA, feature_view
+from model.sixn.data import feature_view
 from model.sixn.splits import group_kfold_indices
 
 RNG = 0
@@ -215,7 +215,7 @@ def predict_rates_lgbm_only(
 
 
 def save_registry(registry: pd.DataFrame, path=None) -> None:
-    path = path or (DATA / "model_component_registry.csv")
+    path = path or "data/model_component_registry.csv"
     registry.to_csv(path, index=False)
 
 

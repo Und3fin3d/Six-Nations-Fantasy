@@ -4,43 +4,41 @@ import json
 import os
 import re
 import time
-from pathlib import Path
-from urllib.parse import quote
 
 import urllib.request
 import urllib.error
 
 HOST = "rugby-live-data.p.rapidapi.com"
 BASE = f"https://{HOST}"
-CACHE_DIR = Path(__file__).resolve().parents[2] / "data" / "cache"
+CACHE_DIR = "data/cache"
 USER_AGENT = (
     "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) "
     "AppleWebKit/537.36 (KHTML, like Gecko) Chrome/124 Safari/537.36"
 )
 
 class RugbyAPI:
-    def __init__(self, key: str | None = None, cache_dir: Path = CACHE_DIR,
+    def __init__(self, key: str | None = None, cache_dir: str = CACHE_DIR,
                  min_interval: float = 0.4, verbose: bool = True):
         self.key = key or os.environ.get("RUGBY_API_KEY")
         if not self.key:
             raise RuntimeError(
                 "RUGBY_API_KEY is not set. Export the RapidAPI key before running this command."
             )
-        self.cache_dir = Path(cache_dir)
-        self.cache_dir.mkdir(parents=True, exist_ok=True)
+        self.cache_dir = cache_dir
+        os.makedirs(cache_dir, exist_ok=True)
         self.min_interval = min_interval
         self.verbose = verbose
         self._last_call = 0.0
         self.remaining: int | None = None
 
-    def _cache_path(self, path: str) -> Path:
+    def _cache_path(self, path: str) -> str:
         safe = re.sub(r"[^A-Za-z0-9._-]+", "_", path.strip("/"))
-        return self.cache_dir / f"{safe}.json"
+        return f"{self.cache_dir}/{safe}.json"
 
     def get(self, path: str, refresh: bool = False) -> dict:
         cp = self._cache_path(path)
-        if cp.exists() and not refresh:
-            return json.loads(cp.read_text())
+        if os.path.exists(cp) and not refresh:
+            return json.load(open(cp))
 
         wait = self.min_interval - (time.time() - self._last_call)
         if wait > 0:
@@ -67,7 +65,7 @@ class RugbyAPI:
         data = json.loads(raw)
         if isinstance(data, dict) and data.get("message", "").startswith("Endpoint"):
             raise RuntimeError(f"Endpoint does not exist: {path}")
-        cp.write_text(raw)
+        open(cp, "w").write(raw)
         if self.verbose:
             print(f"  ↓ {path}   (quota left: {self.remaining})")
         return data

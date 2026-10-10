@@ -1,14 +1,10 @@
 from __future__ import annotations
 
-from pathlib import Path
-
-from ..data import ROOT
-
 VERSION = "v1"
-OUT = ROOT / "data" / "unified" / "raw_benchmark" / VERSION
-CACHE = ROOT / "data" / "cache"
-LEGACY_STORE = ROOT / "data" / "unified" / "player_match.csv"
-OFFICIAL = ROOT / "data" / "official_player_match.csv"
+OUT = f"data/unified/raw_benchmark/{VERSION}"
+CACHE = "data/cache"
+LEGACY_STORE = "data/unified/player_match.csv"
+OFFICIAL = "data/official_player_match.csv"
 
 STABLE_EVENTS = (
     "tries", "try_assists", "conversion_goals", "missed_conversion_goals",
@@ -49,6 +45,3 @@ SOUTH = {"Argentina", "Australia", "Fiji", "Japan", "New Zealand", "South Africa
 CORE_ENGINE_ORDER = ("v4", "empirical_event", "p3_event_50")
 ENGINE_ORDER = CORE_ENGINE_ORDER
 
-
-def output_path(*parts: str) -> Path:
-    return OUT.joinpath(*parts)

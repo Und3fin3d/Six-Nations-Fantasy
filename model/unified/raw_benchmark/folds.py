@@ -1,8 +1,8 @@
 from __future__ import annotations
 
 import json
+import os
 from dataclasses import asdict, dataclass
-from pathlib import Path
 
 import pandas as pd
 
@@ -157,8 +157,8 @@ def masked_candidates(evaluation: pd.DataFrame) -> pd.DataFrame:
 
 
 def write_fold_manifest(
-    path: Path, fold: HistoricalFold, train: pd.DataFrame, evaluation: pd.DataFrame,
-    *, store_path: Path, artifact_paths: tuple[Path, ...] = (), engine: str,
+    path: str, fold: HistoricalFold, train: pd.DataFrame, evaluation: pd.DataFrame,
+    *, store_path: str, artifact_paths: tuple[str, ...] = (), engine: str,
 ) -> dict:
     payload = {
         "schema_version": 1,
@@ -173,16 +173,16 @@ def write_fold_manifest(
         ),
         "store": str(store_path),
         "store_sha256": sha256(store_path),
-        "artifact_sha256": {str(p): sha256(p) for p in artifact_paths if p.exists()},
+        "artifact_sha256": {str(p): sha256(p) for p in artifact_paths if os.path.exists(p)},
         "oracle_lineup": True,
         "evaluation_targets_masked_for_features": True,
     }
     payload = json.loads(json.dumps(payload))
-    if path.exists():
-        existing = json.loads(path.read_text())
+    if os.path.exists(path):
+        existing = json.load(open(path))
         if existing != payload:
             raise FileExistsError(f"immutable fold manifest differs: {path}")
         return existing
-    path.parent.mkdir(parents=True, exist_ok=True)
-    path.write_text(json.dumps(payload, indent=2, sort_keys=True) + "\n")
+    os.makedirs(os.path.dirname(path), exist_ok=True)
+    open(path, "w").write(json.dumps(payload, indent=2, sort_keys=True) + "\n")
     return payload

@@ -5,7 +5,6 @@ import json
 import ssl
 import time
 from datetime import datetime, timezone
-from pathlib import Path
 from urllib.parse import urlencode
 from urllib.request import urlopen
 
@@ -17,8 +16,6 @@ try:
 except ImportError:
     certifi = None
 
-BASE = Path(__file__).resolve().parents[2]
-DATA = BASE / "data"
 SIX_NATIONS = 1266
 TARGET_SEASONS = [2023, 2024, 2025, 2026]
 
@@ -38,7 +35,7 @@ SSL_CONTEXT = (
 )
 
 
-def _fixture_grid(team_csv: Path, stadium_csv: Path) -> pd.DataFrame:
+def _fixture_grid(team_csv: str, stadium_csv: str) -> pd.DataFrame:
     raw = pd.read_csv(team_csv)
     raw = raw[(raw["comp_id"] == SIX_NATIONS) & raw["season"].isin(TARGET_SEASONS)].copy()
     raw["date"] = pd.to_datetime(raw["date"], errors="coerce").dt.date.astype(str)
@@ -74,7 +71,7 @@ def _fetch_open_meteo(lat: float, lon: float, day: str, tz_name: str, sleep_s: f
     return {k: (daily.get(k) or [np.nan])[0] for k in DAILY_VARS}
 
 
-def build(team_csv: Path, stadium_csv: Path, sleep_s: float = 0.0) -> pd.DataFrame:
+def build(team_csv: str, stadium_csv: str, sleep_s: float = 0.0) -> pd.DataFrame:
     fixtures = _fixture_grid(team_csv, stadium_csv)
     rows = []
     source_ts = datetime.now(timezone.utc).isoformat()
@@ -103,14 +100,14 @@ def build(team_csv: Path, stadium_csv: Path, sleep_s: float = 0.0) -> pd.DataFra
 
 def main() -> None:
     ap = argparse.ArgumentParser()
-    ap.add_argument("--team-csv", default=str(DATA / "api_team_match.csv"))
-    ap.add_argument("--stadium-csv", default=str(DATA / "sixn_stadiums.csv"))
+    ap.add_argument("--team-csv", default="data/api_team_match.csv")
+    ap.add_argument("--stadium-csv", default="data/sixn_stadiums.csv")
     ap.add_argument("--sleep", type=float, default=0.05,
                     help="seconds to sleep between Open-Meteo requests")
     args = ap.parse_args()
 
-    out = build(Path(args.team_csv), Path(args.stadium_csv), args.sleep)
-    path = DATA / "external_fixture_weather.csv"
+    out = build(args.team_csv, args.stadium_csv, args.sleep)
+    path = "data/external_fixture_weather.csv"
     out.to_csv(path, index=False)
     print(f"OK {len(out)} fixtures -> {path}")
     print(out[["season", "round", "fixture_id", "venue", "weather_temp_c",

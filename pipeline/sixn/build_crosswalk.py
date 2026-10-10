@@ -1,14 +1,10 @@
 from __future__ import annotations
 
-from pathlib import Path
-
 import pandas as pd
 
 from pipeline.sixn.compare_api_official import norm_key
-from pipeline.sources.compare_three_way import SLUG_TO_NAME, slug_key
+from pipeline.sources.compare_three_way import SLUG_TO_NAME
 
-BASE = Path(__file__).resolve().parents[2]
-DATA = BASE / "data"
 
 SIX_NATIONS = {"England", "France", "Ireland", "Italy", "Scotland", "Wales"}
 
@@ -32,7 +28,7 @@ def last_token(name: str) -> str:
 
 
 def load_api() -> pd.DataFrame:
-    pm = pd.read_csv(DATA / "api_player_match.csv")
+    pm = pd.read_csv("data/api_player_match.csv")
     pm["key"] = pm["player_name"].map(norm_key)
 
     six_n = pm[pm["comp_name"].str.contains("Six Nations", case=False, na=False)]
@@ -41,7 +37,7 @@ def load_api() -> pd.DataFrame:
            .drop_duplicates(subset=["player_id"]))
     api["player_id"] = api["player_id"].astype("Int64")
 
-    ref = pd.read_csv(DATA / "6n_players.csv")
+    ref = pd.read_csv("data/6n_players.csv")
     pos_6n = {int(p): c for p, c in zip(ref["player_id"], ref["canonical_pos"])
               if pd.notna(p)}
     pos_api = {int(p): c for p, c in
@@ -63,7 +59,7 @@ def load_api() -> pd.DataFrame:
 
 
 def load_rp() -> pd.DataFrame:
-    rp = pd.read_csv(DATA / "rp_bio.csv")
+    rp = pd.read_csv("data/rp_bio.csv")
     rp = rp.dropna(subset=["key"]).drop_duplicates(subset=["slug"])
     rp["rp_name"] = rp["slug"].map(
         lambda s: SLUG_TO_NAME.get(s, s.replace("-", " ").title()))
@@ -72,7 +68,7 @@ def load_rp() -> pd.DataFrame:
 
 
 def load_official() -> pd.DataFrame:
-    off = pd.read_csv(DATA / "official_player_match.csv")
+    off = pd.read_csv("data/official_player_match.csv")
     off = off.dropna(subset=["key"])
     off = (off.groupby("key")
               .agg(official_name=("name", lambda s: s.mode().iat[0]),
@@ -300,7 +296,7 @@ def report(cw: pd.DataFrame) -> None:
 
 def main() -> None:
     cw = build()
-    out = DATA / "player_crosswalk.csv"
+    out = "data/player_crosswalk.csv"
     cw.to_csv(out, index=False)
     report(cw)
     print(f"\nwrote {out}  ({len(cw)} rows)")

@@ -1,10 +1,10 @@
 from __future__ import annotations
 
-import argparse
 import numpy as np
 import pandas as pd
 
 SIX_NATIONS = 1266
+HALF_LIFE = 365.0
 TARGET_SEASONS = [2023, 2024, 2025, 2026]
 
 STYLE_COLS = [
@@ -14,7 +14,7 @@ STYLE_COLS = [
 ]
 
 
-def _decayed_mean(hist: pd.DataFrame, col: str, asof: pd.Timestamp, half_life: float) -> float:
+def _decayed_mean(hist: pd.DataFrame, col: str, asof: pd.Timestamp) -> float:
     if hist.empty or col not in hist.columns:
         return np.nan
     v = pd.to_numeric(hist[col], errors="coerce").to_numpy(float)
@@ -22,13 +22,13 @@ def _decayed_mean(hist: pd.DataFrame, col: str, asof: pd.Timestamp, half_life: f
     if not ok.any():
         return np.nan
     days = (asof - hist["date"]).dt.days.to_numpy(float)[ok]
-    w = np.power(0.5, days / half_life)
+    w = np.power(0.5, days / HALF_LIFE)
     sw = float(w.sum())
     return float((w * v[ok]).sum() / sw) if sw > 0 else np.nan
 
 
-def _history_summary(hist: pd.DataFrame, asof: pd.Timestamp, half_life: float, prefix: str) -> dict:
-    out = {f"{prefix}_{c}": _decayed_mean(hist, c, asof, half_life) for c in STYLE_COLS}
+def _history_summary(hist: pd.DataFrame, asof: pd.Timestamp, prefix: str) -> dict:
+    out = {f"{prefix}_{c}": _decayed_mean(hist, c, asof) for c in STYLE_COLS}
     out[f"{prefix}_n_prior"] = int(len(hist))
     attack = np.nanmean(
         [
@@ -52,8 +52,8 @@ def _history_summary(hist: pd.DataFrame, asof: pd.Timestamp, half_life: float, p
     return out
 
 
-def build(team_csv: str, half_life: float) -> pd.DataFrame:
-    raw = pd.read_csv(team_csv)
+def build() -> pd.DataFrame:
+    raw = pd.read_csv("data/api_team_match.csv")
     raw["date"] = pd.to_datetime(raw["date"], errors="coerce")
     raw = raw.dropna(subset=["date", "team_id", "opponent_id", "fixture_id"])
     target = raw[(raw["comp_id"] == SIX_NATIONS) & raw["season"].isin(TARGET_SEASONS)].copy()
@@ -71,8 +71,8 @@ def build(team_csv: str, half_life: float) -> pd.DataFrame:
             "season": int(r.season), "round": int(r.round), "fixture_id": int(r.fixture_id), "team_id": int(r.team_id), "team": r.team,
             "opponent_id": int(r.opponent_id), "opponent": r.opponent,
         }
-        rec.update(_history_summary(own_hist, asof, half_life, "style_own"))
-        rec.update(_history_summary(opp_hist, asof, half_life, "style_opp"))
+        rec.update(_history_summary(own_hist, asof, "style_own"))
+        rec.update(_history_summary(opp_hist, asof, "style_opp"))
         rec["style_attack_edge"] = rec["style_own_attack_index"] + rec["style_opp_defensive_leak_index"] - 1.0
         rec["style_tempo_edge"] = rec["style_own_tempo_index"] - rec["style_opp_tempo_index"]
         rec["style_kick_edge"] = rec["style_own_kick_index"] - rec["style_opp_kick_index"]
@@ -91,17 +91,10 @@ def build(team_csv: str, half_life: float) -> pd.DataFrame:
     return pd.DataFrame(rows)
 
 
-def main() -> None:
-    ap = argparse.ArgumentParser()
-    ap.add_argument("--team-csv", default="data/api_team_match.csv")
-    ap.add_argument("--half-life", type=float, default=365.0)
-    ap.add_argument("--output", default="data/external_team_style.csv")
-    args = ap.parse_args()
-
-    out = build(args.team_csv, args.half_life)
-    path = args.output
-    out.to_csv(path, index=False)
-    print(f"OK {len(out)} fixture-team rows -> {path}")
+if __name__ == "__main__":
+    out = build()
+    out.to_csv("data/external_team_style.csv", index=False)
+    print(f"OK {len(out)} fixture-team rows -> data/external_team_style.csv")
     print(
         out[
             [
@@ -112,7 +105,3 @@ def main() -> None:
         .head(12)
         .to_string(index=False)
     )
-
-
-if __name__ == "__main__":
-    main()

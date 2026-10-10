@@ -9,9 +9,8 @@ import pandas as pd
 from scipy.stats import spearmanr
 
 from ..evaluation import tie_aware_top_n
-from ..labels import build_fantasy_labels
 from ..schema import EVENTS, FORWARD_POSITIONS
-from ..scoring import scorer_for
+from ..scoring import NationsChampionshipScorer
 from ..raw_benchmark.blend import EventBlend50
 from ..raw_benchmark.config import OUT as RAW_BENCHMARK_OUT
 from ..raw_benchmark.features import build_frozen_feature_frames
@@ -19,88 +18,104 @@ from ..raw_benchmark.folds import build_folds, strict_training_frame
 from .harness import OUT, sha256, write_once
 
 CUTOFFS = (10, 25, 50, 100)
-
-
 POSITION = {
     "Prop": "Prop", "Hooker": "Hooker", "Lock": "Second-row", "Loose Forward": "Back-row", "Scrum Half": "Scrum-half", "Fly Half": "Fly-half",
     "Centre": "Centre", "Back Three": "Back-three",
 }
 START_JERSEY = {"Prop": 1, "Hooker": 2, "Lock": 4, "Loose Forward": 6, "Scrum Half": 9, "Fly Half": 10, "Centre": 12, "Back Three": 11}
 BENCH_JERSEY = {"Prop": 17, "Hooker": 16, "Lock": 19, "Loose Forward": 20, "Scrum Half": 21, "Fly Half": 22, "Centre": 23, "Back Three": 23}
+NCR_FEEDS = {1: "players_post_gw1", 2: "players_gw2", 3: "players_gw3"}
 
 
-def _group_metrics(cohort: pd.DataFrame, rank_col: str, mae_col: str | None = None, actual_col: str = "official_pts") -> dict:
-    mae_col = mae_col or rank_col
-    rank = cohort[rank_col].reset_index(drop=True)
-    points = cohort[mae_col].reset_index(drop=True)
-    actual = cohort[actual_col].reset_index(drop=True)
-    row = {
-        "n": len(cohort), "mae": float(np.mean(np.abs(points - actual))), "spearman": float(spearmanr(rank, actual).statistic) if len(cohort) > 2 else np.nan,
-    }
+def build_fantasy_labels() -> pd.DataFrame:
+    t = pd.read_csv("data/model_targets.csv", low_memory=False)
+    t = t[t["season"].isin({2025, 2026}) & t["official_pts"].notna()]
+    six = pd.DataFrame(
+        {
+            "competition": "six_nations", "rubric_era": "modern", "season": t["season"].astype(int), "round": t["round"].astype(int),
+            "key_fixture": t["fixture_id"].astype(str), "key_player": t["player_id"].astype(str), "team": t["team"].astype(str),
+            "player_name": t["player_name"].astype(str), "position": t["canonical_pos"].astype(str), "is_forward": t["is_forward"].astype(bool),
+            "official_pts": t["official_pts"].astype(float),
+        }
+    )
+    six["group_id"] = "6n-" + six["season"].astype(str) + "-r" + six["round"].astype(str)
+    ncr = []
+    for gw, feed in NCR_FEEDS.items():
+        players = json.load(open(f"data/ncr/feeds/{feed}.json"))["Data"]["Value"]["Players"]
+        actuals = pd.DataFrame(
+            [{"id": int(float(p["id"])), "actual": float(p.get("cur_gd_points") or 0), "actual_status": p.get("player_status") or ""} for p in players]
+        )
+        c = pd.read_csv(f"data/ncr/ncr_gw{gw}_projections.csv")[["id", "name", "team", "pos"]].merge(actuals, on="id")
+        ncr.append(
+            pd.DataFrame(
+                {
+                    "competition": "ncr", "rubric_era": "modern", "season": 2026, "round": gw, "key_fixture": f"ncr-gw{gw}",
+                    "key_player": c["id"].astype(int).astype(str), "team": c["team"].astype(str), "player_name": c["name"].astype(str),
+                    "position": c["pos"].astype(str), "is_forward": c["pos"].astype(str).str.lower().str.contains("prop|hook|row|forward|flank|lock|number"),
+                    "official_pts": c["actual"].astype(float), "status": c["actual_status"].astype(str), "group_id": f"ncr-2026-gw{gw}",
+                }
+            )
+        )
+    pooled = pd.concat([six, *ncr], ignore_index=True, sort=False)
+    grp = pooled.groupby("group_id")["official_pts"]
+    pooled["label_percentile"] = grp.rank(pct=True, method="average").to_numpy()
+    pooled["label_z"] = ((pooled["official_pts"] - grp.transform("mean")) / grp.transform("std").replace(0, 1.0)).to_numpy()
+    pooled["status"] = pooled["status"].fillna("")
+    return pooled
+
+
+def _group_metrics(cohort: pd.DataFrame, rank_col: str) -> dict:
+    rank, actual = cohort[rank_col].reset_index(drop=True), cohort["official_pts"].reset_index(drop=True)
+    row = {"n": len(cohort), "mae": float(np.mean(np.abs(rank - actual))), "spearman": float(spearmanr(rank, actual).statistic) if len(cohort) > 2 else np.nan}
     for n in CUTOFFS:
         if len(cohort) >= n:
-            overlap, capture = tie_aware_top_n(rank, actual, n)
-            row[f"top_{n}_overlap"] = overlap
-            row[f"top_{n}_capture"] = capture
+            row[f"top_{n}_overlap"], row[f"top_{n}_capture"] = tie_aware_top_n(rank, actual, n)
     return row
+
+
+def _fixture_rows(gw: int) -> pd.DataFrame:
+    fixtures = pd.read_csv("data/ncr/ncr_fixtures.csv")
+    return fixtures[pd.to_numeric(fixtures["gameday"], errors="coerce").eq(gw)]
 
 
 def ncr_candidates(gw: int, projection: pd.DataFrame | None = None) -> pd.DataFrame:
     if projection is not None:
         projection = projection.copy()
+    elif os.path.exists(f"data/ncr/ncr_gw{gw}_projections.csv"):
+        projection = pd.read_csv(f"data/ncr/ncr_gw{gw}_projections.csv")
     else:
-        projection_path = f"data/ncr/ncr_gw{gw}_projections.csv"
-        if os.path.exists(projection_path):
-            projection = pd.read_csv(projection_path)
-        else:
-            from model.ncr.project import build_projection
+        from model.ncr.project import build_projection
 
-            projection = build_projection(gameday=gw)
-            if projection.empty:
-                raise RuntimeError(f"GW{gw} projection is empty; wait for real team sheets before freezing")
-    crosswalk = pd.read_csv("data/ncr/ncr_player_crosswalk.csv")
-    crosswalk = crosswalk[["fantasy_id", "api_player_id", "full_name"]]
+        projection = build_projection(gameday=gw)
+        if projection.empty:
+            raise RuntimeError(f"GW{gw} projection is empty; wait for real team sheets before freezing")
+    crosswalk = pd.read_csv("data/ncr/ncr_player_crosswalk.csv")[["fantasy_id", "api_player_id", "full_name"]]
     crosswalk["fantasy_id"] = pd.to_numeric(crosswalk["fantasy_id"], errors="coerce")
     projection["id"] = pd.to_numeric(projection["id"])
-    frame = projection.merge(crosswalk, left_on="id", right_on="fantasy_id", how="left")
-    fixtures = pd.read_csv("data/ncr/ncr_fixtures.csv")
-    fixtures = fixtures[pd.to_numeric(fixtures["gameday"], errors="coerce").eq(gw)]
     by_team = {}
-    for row in fixtures.itertuples(index=False):
-        by_team[row.home] = (row.away, str(row.match_id), row.game_date, "home")
-        by_team[row.away] = (row.home, str(row.match_id), row.game_date, "away")
+    for r in _fixture_rows(gw).itertuples(index=False):
+        by_team[r.home], by_team[r.away] = (r.away, str(r.match_id), r.game_date, "home"), (r.home, str(r.match_id), r.game_date, "away")
     records = []
-    for row in frame.itertuples(index=False):
+    for row in projection.merge(crosswalk, left_on="id", right_on="fantasy_id", how="left").itertuples(index=False):
         opponent, fixture_id, date, home_away = by_team[str(row.team)]
-        pos = POSITION[str(row.pos)]
-        started = str(row.status).upper() == "P"
-        api_id = str(int(row.api_player_id)) if pd.notna(row.api_player_id) else f"fantasy_{int(row.id)}"
+        pos, started = POSITION[str(row.pos)], str(row.status).upper() == "P"
         records.append(
             {
                 "date": date, "competition": "Nations Championship", "competition_id": 9999, "competition_level": "international", "season": 2026, "round": gw,
-                "fixture_id": fixture_id, "player_id": api_id, "fantasy_id": int(row.id),
-                "player_name": row.full_name if isinstance(row.full_name, str) else row.name, "team": row.team, "opponent": opponent, "position": pos,
-                "home_away": home_away, "is_forward": pos in FORWARD_POSITIONS, "started": started,
-                "jersey": START_JERSEY[str(row.pos)] if started else BENCH_JERSEY[str(row.pos)], "source": "v3_shadow_candidate", "source_priority": 999,
+                "fixture_id": fixture_id, "player_id": str(int(row.api_player_id)) if pd.notna(row.api_player_id) else f"fantasy_{int(row.id)}",
+                "fantasy_id": int(row.id), "player_name": row.full_name if isinstance(row.full_name, str) else row.name, "team": row.team, "opponent": opponent,
+                "position": pos, "home_away": home_away, "is_forward": pos in FORWARD_POSITIONS, "started": started,
+                "jersey": (START_JERSEY if started else BENCH_JERSEY)[str(row.pos)], "source": "v3_shadow_candidate", "source_priority": 999,
             }
         )
     candidates = pd.DataFrame(records)
     for target in ("minutes", *EVENTS):
-        candidates[target] = np.nan
-        candidates[f"available__{target}"] = False
+        candidates[target], candidates[f"available__{target}"] = np.nan, False
     return candidates
 
 
 def _load_model(engine: str, path: str):
     return EventBlend50.load(path)
-
-
-def _p3_features(candidate: pd.DataFrame) -> pd.DataFrame:
-    store = pd.read_csv(f"{RAW_BENCHMARK_OUT}/player_match.csv", low_memory=False, parse_dates=["date", "match_at"])
-    fold = next(fold for fold in build_folds(store) if fold.label == "nations_championship_2026")
-    train = strict_training_frame(store, fold)
-    _, features = build_frozen_feature_frames(train, candidate, v4=True)
-    return features
 
 
 def validate_shadow_write(csv_path: str, manifest_path: str, lock_at: pd.Timestamp, *, now: pd.Timestamp | None = None) -> None:
@@ -113,45 +128,39 @@ def validate_shadow_write(csv_path: str, manifest_path: str, lock_at: pd.Timesta
         raise RuntimeError(f"lock passed at {lock_at}; refusing retrospective shadow")
 
 
-def freeze_shadow(gw: int, engine: str, model_path: str, *, output_dir: str = f"{OUT}/shadow", samples: int = 4000) -> str:
-    fixtures = pd.read_csv("data/ncr/ncr_fixtures.csv")
-    round_rows = fixtures[pd.to_numeric(fixtures["gameday"], errors="coerce").eq(gw)]
-    lock_at = pd.to_datetime(round_rows["lock_date"], utc=True).min()
-    stem = f"{output_dir}/ncr_gw{gw}_{engine}"
-    csv_path = f"{stem}.csv"
-    manifest_path = f"{stem}.manifest.json"
+def freeze_shadow(gw: int, engine: str, model_path: str) -> str:
+    lock_at = pd.to_datetime(_fixture_rows(gw)["lock_date"], utc=True).min()
+    stem = f"{OUT}/shadow/ncr_gw{gw}_{engine}"
+    csv_path, manifest_path = f"{stem}.csv", f"{stem}.manifest.json"
     validate_shadow_write(csv_path, manifest_path, lock_at)
     candidate = ncr_candidates(gw)
     model = _load_model(engine, model_path)
-    future = _p3_features(candidate)
-    scorer = scorer_for("ncr")
-    predictions = model.predict_frame(future)
+    store = pd.read_csv(f"{RAW_BENCHMARK_OUT}/player_match.csv", low_memory=False, parse_dates=["date", "match_at"])
+    fold = next(fold for fold in build_folds(store) if fold.label == "nations_championship_2026")
+    future = build_frozen_feature_frames(strict_training_frame(store, fold), candidate, v4=True)[1]
+    scorer = NationsChampionshipScorer()
     rows = []
-    for i, (source, prediction) in enumerate(zip(future.itertuples(index=False), predictions)):
-        summary = scorer.score_prediction(prediction, n=samples, seed=1701 + i)
+    for i, (source, p) in enumerate(zip(future.itertuples(index=False), model.predict_frame(future))):
+        s = scorer.score_prediction(p, n=4000, seed=1701 + i)
         rows.append(
             {
-                "fantasy_id": int(source.fantasy_id), "player_id": prediction.player_id, "player_name": prediction.player_name, "team": prediction.team,
-                "opponent": prediction.opponent, "position": prediction.position, "started": bool(source.started), "engine": engine,
-                "expected_points": summary.mean, "p10": summary.p10, "median": summary.median, "p90": summary.p90, "p_play": prediction.metadata.get("p_play"),
-                "expected_minutes": prediction.minutes.mean, "career_matches": float(pd.to_numeric(getattr(source, "career_matches", 0), errors="coerce")),
+                "fantasy_id": int(source.fantasy_id), "player_id": p.player_id, "player_name": p.player_name, "team": p.team, "opponent": p.opponent,
+                "position": p.position, "started": bool(source.started), "engine": engine, "expected_points": s.mean, "p10": s.p10, "median": s.median,
+                "p90": s.p90, "p_play": None, "expected_minutes": p.minutes.mean, "career_matches": float(source.career_matches),
             }
         )
-    payload = pd.DataFrame(rows).sort_values(["expected_points", "fantasy_id"], ascending=[False, True]).to_csv(index=False)
-    write_once(csv_path, payload)
+    write_once(csv_path, pd.DataFrame(rows).sort_values(["expected_points", "fantasy_id"], ascending=[False, True]).to_csv(index=False))
     manifest = {
         "schema_version": 1, "competition": "ncr", "round": gw, "engine": engine, "created_at": datetime.now(timezone.utc).isoformat(),
         "lock_at": lock_at.isoformat(), "model_path": str(model_path), "model_sha256": sha256(model_path), "prediction_sha256": sha256(csv_path),
-        "rows": len(rows), "immutable": True,
+        "rows": len(rows), "immutable": True, "blend_weight_v4": model.weight_v4,
     }
-    manifest["blend_weight_v4"] = model.weight_v4
     write_once(manifest_path, json.dumps(manifest, indent=2, sort_keys=True) + "\n")
     return csv_path
 
 
-def evaluate_prospective_shadows(
-    engine: str, *, rounds: tuple[int, ...] = (4, 5, 6, 7), shadow_dir: str = f"{OUT}/shadow", output_dir: str = f"{OUT}/prospective"
-) -> dict:
+def evaluate_prospective_shadows(engine: str) -> dict:
+    rounds = (4, 5, 6, 7)
     labels = build_fantasy_labels()
     labels = labels[labels["competition"].eq("ncr") & labels["round"].isin(rounds)].copy()
     missing_labels = sorted(set(rounds) - set(labels["round"].astype(int)))
@@ -159,12 +168,10 @@ def evaluate_prospective_shadows(
         raise RuntimeError(f"official NCR labels are not available for GW{missing_labels}")
     pieces = []
     for gw in rounds:
-        path = f"{shadow_dir}/ncr_gw{gw}_{engine}.csv"
+        path = f"{OUT}/shadow/ncr_gw{gw}_{engine}.csv"
         if not os.path.exists(path):
             raise FileNotFoundError(f"missing immutable shadow: {path}")
-        frame = pd.read_csv(path)
-        frame["round"] = gw
-        pieces.append(frame)
+        pieces.append(pd.read_csv(path).assign(round=gw))
     shadow = pd.concat(pieces, ignore_index=True)
     shadow["key_player"] = pd.to_numeric(shadow["fantasy_id"], errors="coerce").astype("Int64").astype(str)
     labels["key_player"] = labels["key_player"].astype(str)
@@ -175,22 +182,19 @@ def evaluate_prospective_shadows(
     for gw, block in evaluated.groupby("round", sort=True):
         projection = pd.read_csv(f"data/ncr/ncr_gw{int(gw)}_projections.csv")
         projection["key_player"] = projection["id"].astype(int).astype(str)
-        incumbent = block[["round", "key_player"]].merge(projection[["key_player", "starter_exp"]], on="key_player", how="left")
-        incumbents.append(incumbent)
+        incumbents.append(block[["round", "key_player"]].merge(projection[["key_player", "starter_exp"]], on="key_player", how="left"))
     evaluated = evaluated.merge(
         pd.concat(incumbents, ignore_index=True).rename(columns={"starter_exp": "incumbent_points"}), on=["round", "key_player"], how="left"
     )
     if evaluated["incumbent_points"].isna().any():
         raise RuntimeError("incumbent projections are incomplete for prospective cohort")
-    candidate_metrics = _group_metrics(evaluated.rename(columns={"official_pts": "actual"}), "expected_points", actual_col="actual")
-    incumbent_metrics = _group_metrics(evaluated, "incumbent_points")
-    reasons = []
-    if candidate_metrics["mae"] > incumbent_metrics["mae"] * 1.02:
-        reasons.append("four-round NCR MAE regression exceeds 2%")
-    for n in (10, 25, 50, 100):
-        key = f"top_{n}_capture"
-        if candidate_metrics[key] < incumbent_metrics[key] - 0.02:
-            reasons.append(f"four-round NCR top-{n} capture regression exceeds 2pp")
+    candidate, incumbent = _group_metrics(evaluated, "expected_points"), _group_metrics(evaluated, "incumbent_points")
+    reasons = ["four-round NCR MAE regression exceeds 2%"] if candidate["mae"] > incumbent["mae"] * 1.02 else []
+    reasons += [
+        f"four-round NCR top-{n} capture regression exceeds 2pp"
+        for n in (10, 25, 50, 100)
+        if candidate[f"top_{n}_capture"] < incumbent[f"top_{n}_capture"] - 0.02
+    ]
     subgroup = {}
     for name, mask in (
         ("bench", evaluated["status"].astype(str).eq("B")), ("low_history", pd.to_numeric(evaluated["career_matches"], errors="coerce").fillna(0).lt(5)),
@@ -201,29 +205,21 @@ def evaluate_prospective_shadows(
         subgroup[name] = {"rows": int(len(rows)), "candidate_mae": candidate_mae, "incumbent_mae": incumbent_mae}
         if len(rows) and candidate_mae > incumbent_mae + 0.5:
             reasons.append(f"four-round NCR {name} MAE regression exceeds 0.5")
-    retrospective_path = f"{OUT}/benchmark/decision.json"
-    retrospective = json.load(open(retrospective_path)) if os.path.exists(retrospective_path) else {}
-    if not retrospective.get("retrospective_gate_passed"):
+    retrospective = f"{OUT}/benchmark/decision.json"
+    if not (json.load(open(retrospective)) if os.path.exists(retrospective) else {}).get("retrospective_gate_passed"):
         reasons.append("retrospective safe-overall gate did not pass")
     payload = {
-        "schema_version": 1,
-        "engine": engine,
-        "rounds": list(rounds),
-        "candidate": candidate_metrics,
-        "incumbent": incumbent_metrics,
-        "subgroups": subgroup,
-        "reasons": reasons,
-        "promotion": not reasons,
-        "deployment_action": ("promote_unified" if not reasons else "retain_specialists_and_stop"),
+        "schema_version": 1, "engine": engine, "rounds": list(rounds), "candidate": candidate, "incumbent": incumbent, "subgroups": subgroup,
+        "reasons": reasons, "promotion": not reasons, "deployment_action": "promote_unified" if not reasons else "retain_specialists_and_stop",
     }
-    os.makedirs(output_dir, exist_ok=True)
-    evaluated.to_csv(f"{output_dir}/{engine}_gw4_gw7_rows.csv", index=False)
-    open(f"{output_dir}/{engine}_decision.json", "w").write(json.dumps(payload, indent=2, sort_keys=True) + "\n")
+    out = f"{OUT}/prospective"
+    os.makedirs(out, exist_ok=True)
+    evaluated.to_csv(f"{out}/{engine}_gw4_gw7_rows.csv", index=False)
+    open(f"{out}/{engine}_decision.json", "w").write(json.dumps(payload, indent=2, sort_keys=True) + "\n")
     lines = [
         "# Unified v3 NCR GW4-GW7 prospective decision", "", f"- Engine: **{engine}**.",
-        f"- Candidate MAE: {candidate_metrics['mae']:.2f}; incumbent: {incumbent_metrics['mae']:.2f}.", f"- Promotion: **{'YES' if not reasons else 'NO'}**.",
+        f"- Candidate MAE: {candidate['mae']:.2f}; incumbent: {incumbent['mae']:.2f}.", f"- Promotion: **{'YES' if not reasons else 'NO'}**.",
+        *(f"- {reason}" for reason in reasons), "",
     ]
-    lines.extend(f"- {reason}" for reason in reasons)
-    lines.append("")
-    open(f"{output_dir}/{engine}_report.md", "w").write("\n".join(lines))
+    open(f"{out}/{engine}_report.md", "w").write("\n".join(lines))
     return payload

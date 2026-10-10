@@ -27,11 +27,7 @@ OFFICIAL_COLUMNS = {"50-22": "fifty_22", "LS": "lineout_steals", "SW": "scrums_w
 MIN_FIXTURES = 5
 EVALUATION_START = "2022-01-01T00:00:00Z"
 DENSE_THRESHOLD = 0.90
-SEED = 17
 TOP_NS = (10, 25, 50, 100)
 
 NORTH = {"England", "France", "Ireland", "Italy", "Scotland", "Wales"}
 SOUTH = {"Argentina", "Australia", "Fiji", "Japan", "New Zealand", "South Africa"}
-
-CORE_ENGINE_ORDER = ("v4", "empirical_event", "p3_event_50")
-ENGINE_ORDER = CORE_ENGINE_ORDER

@@ -1,6 +1,5 @@
 from __future__ import annotations
 
-import argparse
 import warnings
 
 import numpy as np
@@ -11,6 +10,7 @@ from sklearn.pipeline import make_pipeline
 from sklearn.preprocessing import StandardScaler
 
 SIX_NATIONS = 1266
+HALF_LIFE = 365.0
 TARGET_SEASONS = [2023, 2024, 2025, 2026]
 
 CONTEXT_COLS = [
@@ -30,11 +30,11 @@ PREDICTION_TARGETS = {
 }
 
 
-def _decayed_mean(values: pd.Series, dates: pd.Series, asof: pd.Timestamp, half_life: float) -> float:
+def _decayed_mean(values: pd.Series, dates: pd.Series, asof: pd.Timestamp) -> float:
     if values.empty:
         return np.nan
     days = (asof - dates).dt.days.to_numpy(dtype=float)
-    w = np.power(0.5, days / half_life)
+    w = np.power(0.5, days / HALF_LIFE)
     v = pd.to_numeric(values, errors="coerce").to_numpy(dtype=float)
     ok = np.isfinite(v)
     if not ok.any():
@@ -45,7 +45,7 @@ def _decayed_mean(values: pd.Series, dates: pd.Series, asof: pd.Timestamp, half_
     return float((w * v).sum() / sw) if sw > 0 else np.nan
 
 
-def _context_rows(six: pd.DataFrame, half_life: float) -> pd.DataFrame:
+def _context_rows(six: pd.DataFrame) -> pd.DataFrame:
     rows = []
     for r in six.itertuples(index=False):
         asof = pd.Timestamp(r.date)
@@ -60,9 +60,9 @@ def _context_rows(six: pd.DataFrame, half_life: float) -> pd.DataFrame:
             "teamplay_opp_n_prior": int(len(opp)), "teamplay_h2h_n_prior": int(len(h2h)), "home_away_num": 1.0 if str(r.home_away).lower() == "home" else 0.0,
         }
         for col in CONTEXT_COLS:
-            rec[f"ctx_own_{col}"] = _decayed_mean(own[col], own.date, asof, half_life)
-            rec[f"ctx_opp_{col}"] = _decayed_mean(opp[col], opp.date, asof, half_life)
-            rec[f"ctx_vsopp_{col}"] = _decayed_mean(against_opp[col], against_opp.date, asof, half_life)
+            rec[f"ctx_own_{col}"] = _decayed_mean(own[col], own.date, asof)
+            rec[f"ctx_opp_{col}"] = _decayed_mean(opp[col], opp.date, asof)
+            rec[f"ctx_vsopp_{col}"] = _decayed_mean(against_opp[col], against_opp.date, asof)
         rec["ctx_h2h_margin"] = float(h2h.margin.mean()) if len(h2h) else np.nan
         rec["ctx_h2h_winrate"] = float((h2h.margin > 0).mean()) if len(h2h) else np.nan
         rows.append(rec)
@@ -182,15 +182,15 @@ def _add_aspects(out: pd.DataFrame) -> pd.DataFrame:
     return out
 
 
-def build(team_csv: str, half_life: float) -> pd.DataFrame:
-    raw = pd.read_csv(team_csv)
+def build() -> pd.DataFrame:
+    raw = pd.read_csv("data/api_team_match.csv")
     raw = raw[raw.comp_id == SIX_NATIONS].copy()
     raw["date"] = pd.to_datetime(raw["date"], errors="coerce")
     raw = raw.dropna(subset=["date", "team_id", "opponent_id", "fixture_id"])
     raw = raw.sort_values(["date", "fixture_id", "team_id"]).reset_index(drop=True)
     raw = _add_targets(raw)
 
-    ctx = _context_rows(raw, half_life)
+    ctx = _context_rows(raw)
     ctx = _merge_wr(ctx)
     frame = ctx.merge(
         raw[
@@ -218,22 +218,11 @@ def build(team_csv: str, half_life: float) -> pd.DataFrame:
     return out
 
 
-def main() -> None:
-    ap = argparse.ArgumentParser()
-    ap.add_argument("--team-csv", default="data/api_team_match.csv")
-    ap.add_argument("--half-life", type=float, default=365.0, help="decay half-life in days for team context (default 365)")
-    args = ap.parse_args()
-
-    out = build(args.team_csv, args.half_life)
-    path = "data/team_play_predictions.csv"
-    out.to_csv(path, index=False)
-
+if __name__ == "__main__":
+    out = build()
+    out.to_csv("data/team_play_predictions.csv", index=False)
     pred_cols = [c for c in out.columns if c.startswith("teamplay_") and c.endswith("_hat")]
     print(f"✅  {len(out)} (fixture, team) rows; {out.fixture_id.nunique()} fixtures")
     print(f"    {len(pred_cols)} team-play predictions: {pred_cols}")
     print(f"    prior coverage: team n mean={out.teamplay_team_n_prior.mean():.1f}, opp n mean={out.teamplay_opp_n_prior.mean():.1f}")
-    print(f"💾  {path}")
-
-
-if __name__ == "__main__":
-    main()
+    print("💾  data/team_play_predictions.csv")

@@ -194,22 +194,3 @@ def ranking_metrics(frame: pd.DataFrame, predictions: list[RawPrediction], *, en
                     row[f"top_{n}_capture"] = capture
                 rows.append(row)
     return pd.DataFrame(rows)
-
-
-def paired_cluster_bootstrap(
-    rows: pd.DataFrame, candidate: str, baseline: str, metric: str, *, cluster: str, n_boot: int = 2000, seed: int = 17
-) -> dict[str, float]:
-    pivot = rows.pivot_table(index=cluster, columns="engine", values=metric, aggfunc="mean")
-    pivot = pivot.dropna(subset=[candidate, baseline])
-    if pivot.empty:
-        return {"n_clusters": 0, "mean": np.nan, "p05": np.nan, "p95": np.nan}
-    differences = pivot[candidate].to_numpy(float) - pivot[baseline].to_numpy(float)
-    rng = np.random.default_rng(seed)
-    samples = np.empty(n_boot)
-    for i in range(n_boot):
-        index = rng.integers(0, len(differences), len(differences))
-        samples[i] = float(np.mean(differences[index]))
-    return {
-        "n_clusters": int(len(differences)), "mean": float(np.mean(differences)), "p05": float(np.quantile(samples, 0.05)),
-        "p95": float(np.quantile(samples, 0.95)),
-    }

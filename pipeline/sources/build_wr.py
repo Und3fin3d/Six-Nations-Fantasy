@@ -28,8 +28,13 @@ def fetch_snapshot(date: str) -> dict:
 
 
 def snapshot_rows(date: str, data: dict) -> list[dict]:
-    return [{"snapshot_date": date, "team": e.get("team", {}).get("name"), "team_abbr": e.get("team", {}).get("abbreviation"), "wr_pos": e.get("pos"),
-             "wr_pts": e.get("pts"), "prev_pos": e.get("previousPos"), "prev_pts": e.get("previousPts")} for e in data.get("entries", [])]
+    return [
+        {
+            "snapshot_date": date, "team": e.get("team", {}).get("name"), "team_abbr": e.get("team", {}).get("abbreviation"), "wr_pos": e.get("pos"),
+            "wr_pts": e.get("pts"), "prev_pos": e.get("previousPos"), "prev_pts": e.get("previousPts"),
+        }
+        for e in data.get("entries", [])
+    ]
 
 
 def main():

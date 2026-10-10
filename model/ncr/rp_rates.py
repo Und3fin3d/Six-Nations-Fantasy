@@ -1,5 +1,8 @@
 from __future__ import annotations
-import re, unicodedata
+
+import re
+import unicodedata
+
 import numpy as np
 import pandas as pd
 
@@ -12,7 +15,7 @@ DISC = {"turnovers_conceded": -1, "penalties_conceded": -1, "yellow_cards": -5, 
 HALFLIFE_YEARS = 1.6
 
 
-def _norm(s):
+def norm(s):
     s = unicodedata.normalize("NFKD", str(s)).encode("ascii", "ignore").decode()
     return re.sub(r"\s+", " ", re.sub(r"[^a-z ]", " ", s.lower())).strip()
 
@@ -47,7 +50,7 @@ def rp_rates(asof_year=2026, min_minutes=120, *, asof=None):
             )
         )
     out = pd.DataFrame(rows, columns=["slug", "att", "dfn", "dsc", "rp_min"])
-    out["name_key"] = out.slug.str.replace("-", " ").map(_norm)
+    out["name_key"] = out.slug.str.replace("-", " ").map(norm)
     return out
 
 
@@ -63,9 +66,3 @@ def calibrate(rp, api_players):
     rp["att"] *= fac["att"]
     rp["dfn"] *= fac["dfn"]
     return rp, fac
-
-
-if __name__ == "__main__":
-    r = rp_rates()
-    print(f"{len(r)} RugbyPass players with ≥120 weighted min")
-    print(r.sort_values("att", ascending=False).head(12)[["slug", "att", "dfn", "dsc", "rp_min"]].round(1).to_string(index=False))

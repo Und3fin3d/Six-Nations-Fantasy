@@ -21,113 +21,89 @@ class _ConstantProbability:
 
 
 class UniversalGBDT:
-    def __init__(
-        self,
-        events: tuple[str, ...] = EVENTS,
-        random_state: int = 17,
-        weighting: str = "level_balanced",
-        time_half_life_days: float | None = None,
-        n_estimators: int = 180,
-        num_leaves: int = 23,
-        native_categories: bool = False,
-    ):
-        self.events = tuple(events)
-        self.random_state = random_state
-        self.weighting = weighting
-        self.time_half_life_days = time_half_life_days
-        self.n_estimators = n_estimators
-        self.num_leaves = num_leaves
-        self.native_categories = bool(native_categories)
+    model_name = "universal_gbdt"
+
+    def __init__(self, events: tuple[str, ...] = EVENTS, weighting: str = "natural", n_estimators: int = 180, native_categories: bool = False):
+        self.events, self.weighting, self.n_estimators, self.native_categories = tuple(events), weighting, n_estimators, bool(native_categories)
         self.encoder = FeatureEncoder()
         self.models: dict[str, object] = {}
         self.dispersion: dict[str, float] = {}
 
+    def _frame(self, frame: pd.DataFrame) -> pd.DataFrame:
+        return frame
+
+    def _matrix(self, frame: pd.DataFrame) -> tuple[np.ndarray, int]:
+        cat, numeric = self.encoder.transform(self._frame(frame))
+        return np.column_stack([cat, numeric]), cat.shape[1]
+
+    def _design(self, frame: pd.DataFrame) -> tuple[np.ndarray, dict]:
+        X, n_cat = self._matrix(frame)
+        return X, {"categorical_feature": list(range(n_cat))} if self.native_categories else {}
+
+    def _lgbm_kwargs(self) -> dict:
+        return dict(
+            n_estimators=self.n_estimators, learning_rate=0.045, num_leaves=23, min_child_samples=35, reg_lambda=4.0, subsample=0.85, subsample_freq=1,
+            colsample_bytree=0.8, random_state=17, n_jobs=-1, verbosity=-1, deterministic=True, force_col_wise=True,
+        )
+
     def fit(self, frame: pd.DataFrame) -> "UniversalGBDT":
         import lightgbm as lgb
 
-        self.encoder.fit(frame)
-        cat, numeric = self.encoder.transform(frame)
-        X = np.column_stack([cat, numeric])
-        fit_kwargs = {"categorical_feature": list(range(cat.shape[1]))} if self.native_categories else {}
-        level = frame["competition_level"].fillna("unknown").astype(str)
+        self.encoder.fit(self._frame(frame))
+        X, fit_kwargs = self._design(frame)
         sample_weight = np.ones(len(frame), dtype=float)
-        if self.weighting == "level_balanced":
-            domain_count = level.map(level.value_counts()).to_numpy(float)
-            sample_weight *= len(frame) / np.maximum(domain_count, 1)
-        elif self.weighting == "international_x2":
-            sample_weight *= np.where(level.eq("international"), 2.0, 1.0)
-        elif self.weighting == "international_x4":
-            sample_weight *= np.where(level.eq("international"), 4.0, 1.0)
-        if self.time_half_life_days:
-            dates = pd.to_datetime(frame["date"], errors="coerce")
-            age = (dates.max() + pd.Timedelta(days=1) - dates).dt.days
-            age = age.fillna(0).clip(lower=0).to_numpy(float)
-            sample_weight *= np.power(0.5, age / float(self.time_half_life_days))
-        sample_weight /= sample_weight.mean()
-        targets = ("minutes",) + self.events
-        for target in targets:
-            mask_col = f"available__{target}"
-            valid = frame[mask_col].fillna(False).to_numpy(bool) & frame[target].notna().to_numpy()
+        for target in ("minutes",) + self.events:
+            valid = frame[f"available__{target}"].fillna(False).to_numpy(bool) & frame[target].notna().to_numpy()
             if valid.sum() < 20:
                 continue
             y = np.clip(frame.loc[valid, target].to_numpy(float), 0, None)
             family = distribution_family(target)
-            kwargs = dict(
-                n_estimators=self.n_estimators, learning_rate=0.045, num_leaves=self.num_leaves, min_child_samples=35, reg_lambda=4.0, subsample=0.85,
-                subsample_freq=1, colsample_bytree=0.8, random_state=self.random_state, n_jobs=-1, verbosity=-1, deterministic=True, force_col_wise=True,
-            )
             if family == "bernoulli":
                 binary = (y > 0).astype(int)
                 if binary.min() == binary.max():
                     model = _ConstantProbability(float(binary.mean()))
                 else:
-                    model = lgb.LGBMClassifier(objective="binary", **kwargs)
+                    model = lgb.LGBMClassifier(objective="binary", **self._lgbm_kwargs())
                     model.fit(X[valid], binary, sample_weight=sample_weight[valid], **fit_kwargs)
                 fitted = model.predict_proba(X[valid])[:, 1]
             else:
-                objective = "tweedie" if family == "lognormal" else "poisson"
-                model = lgb.LGBMRegressor(objective=objective, tweedie_variance_power=1.35, **kwargs)
+                model = lgb.LGBMRegressor(objective="tweedie" if family == "lognormal" else "poisson", tweedie_variance_power=1.35, **self._lgbm_kwargs())
                 model.fit(X[valid], y, sample_weight=sample_weight[valid], **fit_kwargs)
                 fitted = np.clip(model.predict(X[valid]), 0, None)
-            resid_var = float(np.mean((y - fitted) ** 2))
-            mean = float(np.mean(fitted))
-            self.dispersion[target] = max(resid_var, mean, 1e-4)
+            self.dispersion[target] = max(float(np.mean((y - fitted) ** 2)), float(np.mean(fitted)), 1e-4)
             self.models[target] = model
         return self
 
+    def _means(self, X: np.ndarray, frame: pd.DataFrame) -> tuple[dict, dict]:
+        means = {
+            name: np.clip(model.predict_proba(X)[:, 1], 0, 1)
+            if distribution_family(name) == "bernoulli" and hasattr(model, "predict_proba")
+            else np.clip(model.predict(X), 0, None)
+            for name, model in self.models.items()
+        }
+        return means, {}
+
     def predict_frame(self, frame: pd.DataFrame) -> list[RawPrediction]:
-        cat, numeric = self.encoder.transform(frame)
-        X = np.column_stack([cat, numeric])
-        means = {}
-        for name, model in self.models.items():
-            if distribution_family(name) == "bernoulli" and hasattr(model, "predict_proba"):
-                means[name] = np.clip(model.predict_proba(X)[:, 1], 0, 1)
-            else:
-                means[name] = np.clip(model.predict(X), 0, None)
+        means, variances = self._means(self._matrix(frame)[0], frame)
         output = []
         for i, row in enumerate(frame.itertuples(index=False)):
             events = {}
-            for event in self.events:
-                if event not in means:
-                    continue
-                mean = float(means[event][i])
-                family = distribution_family(event)
+            for event in (e for e in self.events if e in means):
+                mean, family = float(means[event][i]), distribution_family(event)
                 if family == "bernoulli":
-                    mean = min(mean, 1.0)
-                    dispersion = 1.0
+                    mean, dispersion = min(mean, 1.0), 1.0
                 elif family == "negative_binomial":
-                    var = max(self.dispersion[event], mean + 1e-6)
+                    var = max(float(variances[event][i]) if event in variances else self.dispersion[event], mean + 1e-6)
                     dispersion = max(mean * mean / max(var - mean, 1e-6), 0.05)
                 else:
                     dispersion = self.dispersion[event]
                 events[event] = EventDistribution(family, mean, dispersion)
-            mmean = min(float(means["minutes"][i]), 80.0)
-            return_minutes = EventDistribution("lognormal", mmean, self.dispersion["minutes"])
             output.append(
                 RawPrediction(
                     fixture_id=str(row.fixture_id), player_id=str(row.player_id), player_name=str(row.player_name), team=str(row.team),
-                    opponent=str(row.opponent), position=str(row.position), is_forward=bool(row.is_forward), events=events, minutes=return_minutes,
-                    metadata={"model": "universal_gbdt", "competition_level": row.competition_level},
+                    opponent=str(row.opponent), position=str(row.position), is_forward=bool(row.is_forward), events=events,
+                    minutes=EventDistribution("lognormal", min(float(means["minutes"][i]), 80.0), self.dispersion["minutes"]),
+                    metadata={"model": self.model_name, "competition_level": row.competition_level},
                 )
             )
         return output

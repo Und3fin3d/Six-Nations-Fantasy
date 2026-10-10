@@ -1,7 +1,6 @@
 from __future__ import annotations
 
 import hashlib
-import os
 from typing import Iterable
 
 import numpy as np
@@ -43,21 +42,21 @@ def _attach_official_labels(frame: pd.DataFrame) -> pd.DataFrame:
 def _stable_id(value: object, name: object, team: object) -> str:
     if pd.notna(value):
         return str(int(value)) if isinstance(value, (int, float, np.integer, np.floating)) else str(value)
-    raw = f"{name}|{team}".casefold().encode()
-    return "anon_" + hashlib.sha1(raw).hexdigest()[:14]
+    return "anon_" + hashlib.sha1(f"{name}|{team}".casefold().encode()).hexdigest()[:14]
+
+
+def _flag(series: pd.Series) -> pd.Series:
+    return series.map(lambda x: x if isinstance(x, bool) else str(x).strip().lower() in {"1", "true", "t", "yes"})
 
 
 def _normalise_source(path: str, source: str, priority: int, level: str) -> pd.DataFrame:
     frame = pd.read_csv(path, low_memory=False).rename(columns=ALIASES)
     original = set(frame.columns)
     frame["date"] = pd.to_datetime(frame["date"], errors="coerce")
-    frame["source"] = source
-    frame["source_priority"] = priority
-    frame["competition_level"] = level
-    if "competition" not in frame:
-        frame["competition"] = "unknown"
-    if "competition_id" not in frame:
-        frame["competition_id"] = np.nan
+    frame["source"], frame["source_priority"], frame["competition_level"] = source, priority, level
+    for col, default in (("competition", "unknown"), ("competition_id", np.nan)):
+        if col not in frame:
+            frame[col] = default
     if "season" not in frame:
         frame["season"] = frame["date"].dt.year
     if "round" not in frame:
@@ -66,45 +65,25 @@ def _normalise_source(path: str, source: str, priority: int, level: str) -> pd.D
         frame[col] = pd.to_numeric(frame.get(col), errors="coerce")
     if "started" not in frame:
         frame["started"] = frame["jersey"].between(1, 15)
-    frame["started"] = frame["started"].map(lambda x: x if isinstance(x, bool) else str(x).strip().lower() in {"1", "true", "t", "yes"})
+    frame["started"] = _flag(frame["started"])
     inferred = frame["jersey"].map(POSITION_BY_JERSEY)
-    if "position" not in frame:
-        frame["position"] = inferred
-    else:
-        frame["position"] = frame["position"].fillna(inferred)
+    frame["position"] = frame["position"].fillna(inferred) if "position" in frame else inferred
     frame["is_forward"] = frame["position"].isin(FORWARD_POSITIONS)
     frame["player_id"] = [_stable_id(pid, name, team) for pid, name, team in zip(frame.get("player_id"), frame.get("player_name"), frame.get("team"))]
     frame["fixture_id"] = frame["fixture_id"].astype(str)
     for event in EVENTS:
-        available = event in original
-        if event not in frame:
-            frame[event] = np.nan
-        frame[event] = pd.to_numeric(frame[event], errors="coerce")
+        frame[event] = pd.to_numeric(frame[event], errors="coerce") if event in frame else np.nan
         mask = f"available__{event}"
-        if mask in original:
-            explicit = frame[mask].map(lambda value: value if isinstance(value, bool) else str(value).strip().lower() in {"1", "true", "t", "yes"})
-            frame[mask] = explicit.astype(bool) & frame[event].notna()
-        else:
-            frame[mask] = bool(available) & frame[event].notna()
-    if "available__minutes" in original:
-        explicit_minutes = frame["available__minutes"].map(
-            lambda value: value if isinstance(value, bool) else str(value).strip().lower() in {"1", "true", "t", "yes"}
-        )
-        frame["available__minutes"] = explicit_minutes.astype(bool) & frame["minutes"].notna()
-    else:
-        frame["available__minutes"] = frame["minutes"].notna()
+        frame[mask] = (_flag(frame[mask]).astype(bool) if mask in original else event in original) & frame[event].notna()
+    frame["available__minutes"] = (_flag(frame["available__minutes"]).astype(bool) if "available__minutes" in original else True) & frame["minutes"].notna()
     return frame
 
 
-def build_canonical_store(sources: Iterable[tuple[str, str, int, str]] = DEFAULT_SOURCES, *, asof: str | pd.Timestamp | None = None) -> pd.DataFrame:
-    frames = [_normalise_source(p, name, priority, level) for p, name, priority, level in sources]
-    all_rows = pd.concat(frames, ignore_index=True, sort=False)
-    all_rows = all_rows.dropna(subset=["date", "fixture_id", "player_id", "team"])
-    if asof is not None:
-        cutoff = pd.Timestamp(asof)
-        all_rows = all_rows[all_rows["date"] < cutoff]
+def build_canonical_store(sources: Iterable[tuple[str, str, int, str]] = DEFAULT_SOURCES) -> pd.DataFrame:
+    all_rows = pd.concat([_normalise_source(*source) for source in sources], ignore_index=True, sort=False).dropna(
+        subset=["date", "fixture_id", "player_id", "team"]
+    )
     all_rows = all_rows.sort_values([*KEY_COLUMNS, "source_priority"], ascending=[True, True, True, False], kind="stable")
-
     keys = list(KEY_COLUMNS)
     nonkeys = [c for c in all_rows.columns if c not in keys]
     grouped = all_rows.groupby(keys, sort=False)
@@ -113,14 +92,5 @@ def build_canonical_store(sources: Iterable[tuple[str, str, int, str]] = DEFAULT
     availability = [c for c in nonkeys if c.startswith("available__")]
     filled[availability] = grouped[availability].transform("max").astype(bool)
     filled["source_count"] = grouped["source"].transform("size")
-    out = filled.drop_duplicates(keys, keep="first").reset_index(drop=True)
-    out = _attach_official_labels(out)
-    out = out.sort_values(["date", "fixture_id", "team", "player_id"]).reset_index(drop=True)
-    return out
-
-
-def write_canonical_store(path: str, *, asof: str | None = None) -> pd.DataFrame:
-    frame = build_canonical_store(asof=asof)
-    os.makedirs(os.path.dirname(path), exist_ok=True)
-    frame.to_csv(path, index=False)
-    return frame
+    out = _attach_official_labels(filled.drop_duplicates(keys, keep="first").reset_index(drop=True))
+    return out.sort_values(["date", "fixture_id", "team", "player_id"]).reset_index(drop=True)

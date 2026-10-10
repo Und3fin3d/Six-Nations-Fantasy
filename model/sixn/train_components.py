@@ -11,7 +11,6 @@ from model.sixn.baselines import MIN_MINUTES, SCORED, _rate_target, predict_rate
 from model.sixn.data import feature_view
 from model.sixn.splits import group_kfold_indices
 
-RNG = 0
 LGBM_MARGIN = 0.02
 BLEND_WEIGHT = 0.5
 LGBM_COMPS = {"tackles", "metres", "tries", "try_assists", "defenders_beaten", "offload", "tackle_turnover", "penalties_conceded"}
@@ -20,7 +19,7 @@ KICK_COMPS = {"conversion_goals", "penalty_goals"}
 
 _LGBM_BASE = dict(
     n_estimators=400, learning_rate=0.05, num_leaves=15, min_child_samples=50, reg_lambda=5.0, colsample_bytree=0.8, subsample=0.9, subsample_freq=1,
-    random_state=RNG, n_jobs=1, verbosity=-1,
+    random_state=0, n_jobs=1, verbosity=-1,
 )
 
 
@@ -33,24 +32,20 @@ def _lgbm_objective(comp: str) -> dict:
 
 
 def _lgbm_frame(df: pd.DataFrame, mode: str) -> pd.DataFrame:
-    cols = feature_view(df, mode)
-    X = df[cols].copy()
-    return X
+    return df[feature_view(df, mode)].copy()
 
 
 def _fit_lgbm_component(df: pd.DataFrame, tr_idx: np.ndarray, va_idx: np.ndarray | None, comp: str, mode: str):
-    keep = (df.iloc[tr_idx]["minutes"] >= MIN_MINUTES).to_numpy()
-    use = tr_idx[keep]
     X = _lgbm_frame(df, mode)
-    y = np.clip(np.nan_to_num(_rate_target(df.iloc[use], comp), nan=0.0, posinf=0.0, neginf=0.0), 0.0, None)
-    params = {**_LGBM_BASE, **_lgbm_objective(comp)}
-    model = lgb.LGBMRegressor(**params)
+    rows = lambda idx: idx[(df.iloc[idx]["minutes"] >= MIN_MINUTES).to_numpy()]
+    target = lambda idx: np.clip(np.nan_to_num(_rate_target(df.iloc[idx], comp), nan=0.0, posinf=0.0, neginf=0.0), 0.0, None)
+    use = rows(tr_idx)
+    y = target(use)
+    model = lgb.LGBMRegressor(**_LGBM_BASE, **_lgbm_objective(comp))
     fit_kw = {}
     if va_idx is not None:
-        vkeep = (df.iloc[va_idx]["minutes"] >= MIN_MINUTES).to_numpy()
-        vu = va_idx[vkeep]
-        yv = np.clip(np.nan_to_num(_rate_target(df.iloc[vu], comp), nan=0.0, posinf=0.0, neginf=0.0), 0.0, None)
-        fit_kw = dict(eval_set=[(X.iloc[vu], yv)], callbacks=[lgb.early_stopping(50, verbose=False), lgb.log_evaluation(0)])
+        vu = rows(va_idx)
+        fit_kw = dict(eval_set=[(X.iloc[vu], target(vu))], callbacks=[lgb.early_stopping(50, verbose=False), lgb.log_evaluation(0)])
     with warnings.catch_warnings():
         warnings.simplefilter("ignore")
         model.fit(X.iloc[use], y, **fit_kw)
@@ -58,13 +53,11 @@ def _fit_lgbm_component(df: pd.DataFrame, tr_idx: np.ndarray, va_idx: np.ndarray
 
 
 def _lgbm_predict(model, df: pd.DataFrame, idx: np.ndarray, mode: str) -> np.ndarray:
-    X = _lgbm_frame(df, mode)
-    return np.clip(model.predict(X.iloc[idx]), 0.0, None)
+    return np.clip(model.predict(_lgbm_frame(df, mode).iloc[idx]), 0.0, None)
 
 
 def _kick_gate(df: pd.DataFrame, idx: np.ndarray) -> np.ndarray:
-    r = df.iloc[idx]["role_goal_kicker_rate"].fillna(0.0).to_numpy(float)
-    return (r > 0.0).astype(float)
+    return (df.iloc[idx]["role_goal_kicker_rate"].fillna(0.0).to_numpy(float) > 0.0).astype(float)
 
 
 def _oof_candidate_mae(df: pd.DataFrame, train_mask: np.ndarray, mode: str) -> dict[str, dict[str, float]]:
@@ -77,36 +70,24 @@ def _oof_candidate_mae(df: pd.DataFrame, train_mask: np.ndarray, mode: str) -> d
         err[comp].setdefault(engine, []).append(np.abs(y_true - y_pred))
 
     for tr_local, va_local in group_kfold_indices(dft, 5):
-        tr_idx = train_pos[tr_local]
-        va_idx = train_pos[va_local]
-        vmask = (df.iloc[va_idx]["minutes"] >= MIN_MINUTES).to_numpy()
-        vu = va_idx[vmask]
-        if len(vu) == 0:
-            continue
+        tr_idx, va_idx = train_pos[tr_local], train_pos[va_local]
+        vu = va_idx[(df.iloc[va_idx]["minutes"] >= MIN_MINUTES).to_numpy()]
         frames = {e: predict_rates(df, tr_idx, vu, mode, e) for e in ("naive", "ridge", "glm")}
         for comp in SCORED:
-            ytrue = _rate_target(df.iloc[vu], comp)
-            ytrue = np.nan_to_num(ytrue, nan=0.0, posinf=0.0, neginf=0.0)
+            ytrue = np.nan_to_num(_rate_target(df.iloc[vu], comp), nan=0.0, posinf=0.0, neginf=0.0)
             for e in ("naive", "ridge", "glm"):
                 add(comp, e, ytrue, frames[e][comp].to_numpy(float))
             if comp in LGBM_COMPS:
-                m = _fit_lgbm_component(df, tr_idx, va_idx, comp, mode)
-                yl = _lgbm_predict(m, df, vu, mode)
+                yl = _lgbm_predict(_fit_lgbm_component(df, tr_idx, va_idx, comp, mode), df, vu, mode)
                 add(comp, "lgbm", ytrue, yl)
-                yb = BLEND_WEIGHT * yl + (1.0 - BLEND_WEIGHT) * frames["glm"][comp].to_numpy(float)
-                add(comp, "blend", ytrue, yb)
-
-    out: dict[str, dict[str, float]] = {}
-    for comp in SCORED:
-        out[comp] = {e: float(np.concatenate(v).mean()) for e, v in err[comp].items()}
-    return out
+                add(comp, "blend", ytrue, BLEND_WEIGHT * yl + (1.0 - BLEND_WEIGHT) * frames["glm"][comp].to_numpy(float))
+    return {comp: {e: float(np.concatenate(v).mean()) for e, v in err[comp].items()} for comp in SCORED}
 
 
 def select_components(df: pd.DataFrame, train_mask: np.ndarray, mode: str) -> pd.DataFrame:
     maes = _oof_candidate_mae(df, train_mask, mode)
     rows = []
     for comp in SCORED:
-        kind = B.COMP_KIND[comp]
         m = maes[comp]
         if comp in ZERO_PRIOR:
             choice, reason = "zero_prior", "100%/99% zero -> constant 0"
@@ -130,8 +111,8 @@ def select_components(df: pd.DataFrame, train_mask: np.ndarray, mode: str) -> pd
                 reason = f"{best_adv} beats {best_simple} OOF by {gain:.1f}% ({m[best_adv]:.3f} < {best_simple_mae:.3f})"
         rows.append(
             dict(
-                component=comp, kind=kind, engine=choice, oof_naive=m.get("naive", np.nan), oof_ridge=m.get("ridge", np.nan), oof_glm=m.get("glm", np.nan),
-                oof_lgbm=m.get("lgbm", np.nan), oof_blend=m.get("blend", np.nan), reason=reason,
+                component=comp, kind=B.COMP_KIND[comp], engine=choice, **{f"oof_{e}": m.get(e, np.nan) for e in ("naive", "ridge", "glm", "lgbm", "blend")},
+                reason=reason,
             )
         )
     return pd.DataFrame(rows)
@@ -139,13 +120,9 @@ def select_components(df: pd.DataFrame, train_mask: np.ndarray, mode: str) -> pd
 
 def predict_rates_registry(df: pd.DataFrame, train_idx: np.ndarray, test_idx: np.ndarray, mode: str, registry: pd.DataFrame) -> pd.DataFrame:
     eng = dict(zip(registry["component"], registry["engine"]))
-    need_base = {e for e in eng.values() if e in ("naive", "ridge", "glm")}
-    need_base |= {"glm"} if "blend" in eng.values() else set()
-    need_base |= {"naive"}
+    need_base = {e for e in eng.values() if e in ("naive", "ridge", "glm")} | ({"glm"} if "blend" in eng.values() else set()) | {"naive"}
     base = {e: predict_rates(df, train_idx, test_idx, mode, e) for e in need_base}
-
-    te = df.iloc[test_idx]
-    out = pd.DataFrame(index=te.index, columns=SCORED, dtype=float)
+    out = pd.DataFrame(index=df.iloc[test_idx].index, columns=SCORED, dtype=float)
     gate = _kick_gate(df, test_idx)
     for comp in SCORED:
         e = eng[comp]
@@ -153,13 +130,9 @@ def predict_rates_registry(df: pd.DataFrame, train_idx: np.ndarray, test_idx: np
             out[comp] = 0.0
         elif e in base:
             out[comp] = base[e][comp].to_numpy(float)
-        elif e == "lgbm":
-            m = _fit_lgbm_component(df, train_idx, None, comp, mode)
-            out[comp] = _lgbm_predict(m, df, test_idx, mode)
-        elif e == "blend":
-            m = _fit_lgbm_component(df, train_idx, None, comp, mode)
-            yl = _lgbm_predict(m, df, test_idx, mode)
-            out[comp] = BLEND_WEIGHT * yl + (1.0 - BLEND_WEIGHT) * base["glm"][comp].to_numpy(float)
+        else:
+            yl = _lgbm_predict(_fit_lgbm_component(df, train_idx, None, comp, mode), df, test_idx, mode)
+            out[comp] = yl if e == "lgbm" else BLEND_WEIGHT * yl + (1.0 - BLEND_WEIGHT) * base["glm"][comp].to_numpy(float)
         if comp in KICK_COMPS:
             out[comp] = out[comp].to_numpy(float) * gate
     return out.clip(lower=0.0)
@@ -167,22 +140,15 @@ def predict_rates_registry(df: pd.DataFrame, train_idx: np.ndarray, test_idx: np
 
 def predict_rates_lgbm_only(df: pd.DataFrame, train_idx: np.ndarray, test_idx: np.ndarray, mode: str) -> pd.DataFrame:
     naive = predict_rates(df, train_idx, test_idx, mode, "naive")
-    te = df.iloc[test_idx]
-    out = pd.DataFrame(index=te.index, columns=SCORED, dtype=float)
+    out = pd.DataFrame(index=df.iloc[test_idx].index, columns=SCORED, dtype=float)
     gate = _kick_gate(df, test_idx)
     for comp in SCORED:
         if comp in ZERO_PRIOR:
             out[comp] = 0.0
         elif comp in LGBM_COMPS:
-            m = _fit_lgbm_component(df, train_idx, None, comp, mode)
-            out[comp] = _lgbm_predict(m, df, test_idx, mode)
+            out[comp] = _lgbm_predict(_fit_lgbm_component(df, train_idx, None, comp, mode), df, test_idx, mode)
         else:
             out[comp] = naive[comp].to_numpy(float)
         if comp in KICK_COMPS:
             out[comp] = out[comp].to_numpy(float) * gate
     return out.clip(lower=0.0)
-
-
-def save_registry(registry: pd.DataFrame, path=None) -> None:
-    path = path or "data/model_component_registry.csv"
-    registry.to_csv(path, index=False)

@@ -7,7 +7,7 @@ from dataclasses import dataclass, field
 import numpy as np
 import pandas as pd
 
-from model.ncr.rp_rates import _norm, _season_end_year
+from model.ncr.rp_rates import _season_end_year, norm
 from model.history import past_matches, past_seasons
 
 from ..contracts import EventDistribution, RawPrediction
@@ -64,11 +64,15 @@ class EmpiricalEventModel:
     wr_points: dict[str, float] = field(default_factory=dict)
     active_events: set[str] = field(default_factory=set)
 
+    def _naive_asof(self) -> pd.Timestamp:
+        asof = pd.Timestamp(self.asof)
+        return asof.tz_localize(None) if asof.tzinfo else asof
+
     def _weighted_rates(self, frame: pd.DataFrame, level: str) -> dict[tuple[str, str], tuple[float, float]]:
         subset = frame[frame["competition_level"].eq(level)].copy()
         if subset.empty:
             return {}
-        asof = pd.Timestamp(self.asof).tz_localize(None) if pd.Timestamp(self.asof).tzinfo else pd.Timestamp(self.asof)
+        asof = self._naive_asof()
         dates = pd.to_datetime(subset["date"], errors="coerce")
         subset["_weight"] = np.power(0.5, (asof - dates).dt.days.clip(lower=0) / HALFLIFE_DAYS)
         minutes = pd.to_numeric(subset["minutes"], errors="coerce").fillna(0)
@@ -92,7 +96,7 @@ class EmpiricalEventModel:
         if not os.path.exists(path):
             return
         rp = pd.read_csv(path, low_memory=False)
-        asof = pd.Timestamp(self.asof).tz_localize(None) if pd.Timestamp(self.asof).tzinfo else pd.Timestamp(self.asof)
+        asof = self._naive_asof()
         rp = past_seasons(rp, asof)
         rp["_weight"] = np.power(0.5, (asof.year - rp["season"].map(_season_end_year)).clip(lower=0) / RP_HALFLIFE_YEARS)
         rp = rp[rp["_weight"].gt(0.15)]
@@ -111,14 +115,14 @@ class EmpiricalEventModel:
                 if not valid.any():
                     continue
                 rate = float((group.loc[valid, "_weight"] * values[valid]).sum() / weighted_minutes * 80)
-                by_name[(_norm(str(slug).replace("-", " ")), event)] = (rate, weighted_minutes)
+                by_name[(norm(str(slug).replace("-", " ")), event)] = (rate, weighted_minutes)
 
         factor: dict[str, float] = {}
         for event in self.events:
             ratios = []
             for player, name in self.player_names.items():
                 observed = self.profiles.get((player, event))
-                prior = by_name.get((_norm(name), event))
+                prior = by_name.get((norm(name), event))
                 if observed and prior and observed[1] >= 300 and prior[0] > 1e-6:
                     ratios.append(observed[0] / prior[0])
             factor[event] = float(np.clip(np.median(ratios), 0.5, 1.2)) if len(ratios) >= 20 else 0.84
@@ -163,7 +167,7 @@ class EmpiricalEventModel:
             self.dispersion[event] = max(float(np.var(actual)), float(np.mean(actual)), 1e-4)
 
         self._fit_rp_priors()
-        asof = pd.Timestamp(self.asof).tz_localize(None) if pd.Timestamp(self.asof).tzinfo else pd.Timestamp(self.asof)
+        asof = self._naive_asof()
         dates = pd.to_datetime(train["date"], errors="coerce")
         train["_weight"] = np.power(0.5, (asof - dates).dt.days.clip(lower=0) / HALFLIFE_DAYS)
         minute_valid = train["available__minutes"].fillna(False).astype(bool)
@@ -189,7 +193,7 @@ class EmpiricalEventModel:
 
     def _rate(self, player: str, name: str, position: str, event: str) -> float:
         base = self.position_priors.get((position, event), 0.0)
-        rp = self.rp_priors.get((_norm(name), event))
+        rp = self.rp_priors.get((norm(name), event))
         if rp:
             confidence = min(rp[1], 900.0) / 900.0 * 200.0
             prior = (confidence * rp[0] + 80.0 * base) / (confidence + 80.0)

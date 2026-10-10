@@ -1,6 +1,5 @@
 from __future__ import annotations
 
-import argparse
 import numpy as np
 import pandas as pd
 
@@ -82,29 +81,23 @@ def _within_team_roles(g: pd.DataFrame) -> pd.DataFrame:
     return out
 
 
-def build(feature_csv: str) -> pd.DataFrame:
-    feat = pd.read_csv(feature_csv)
+def build() -> pd.DataFrame:
+    feat = pd.read_csv("data/model_player_match.csv")
     feat = feat[feat["season"].isin([2023, 2024, 2025, 2026])].copy()
-    out = feat.groupby(["fixture_id", "team_id"], sort=False, group_keys=False).apply(_within_team_roles).reset_index(drop=True)
-    return out
-
-
-def main() -> None:
-    ap = argparse.ArgumentParser()
-    ap.add_argument("--feature-csv", default="data/model_player_match.csv")
-    ap.add_argument("--output", default="data/external_player_roles.csv")
-    args = ap.parse_args()
-
-    out = build(args.feature_csv)
-    path = args.output
-    out.to_csv(path, index=False)
-    print(f"OK {len(out)} player-role rows -> {path}")
-    cols = [
-        "season", "round", "team", "player_name", "rolecert_goal_kicker_prob", "rolecert_bench_fh_kick_share", "rolecert_lineout_role_prob",
-        "rolecert_replacement_role_uncertainty",
-    ]
-    print(out[cols].head(20).to_string(index=False))
+    return feat.groupby(["fixture_id", "team_id"], sort=False, group_keys=False).apply(_within_team_roles).reset_index(drop=True)
 
 
 if __name__ == "__main__":
-    main()
+    out = build()
+    out.to_csv("data/external_player_roles.csv", index=False)
+    print(f"OK {len(out)} player-role rows -> data/external_player_roles.csv")
+    print(
+        out[
+            [
+                "season", "round", "team", "player_name", "rolecert_goal_kicker_prob", "rolecert_bench_fh_kick_share", "rolecert_lineout_role_prob",
+                "rolecert_replacement_role_uncertainty",
+            ]
+        ]
+        .head(20)
+        .to_string(index=False)
+    )

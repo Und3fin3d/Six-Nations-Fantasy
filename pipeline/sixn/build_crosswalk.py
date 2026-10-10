@@ -126,25 +126,19 @@ def _surname_candidates(row) -> set:
 
 def _surname_pass(cw: pd.DataFrame) -> pd.DataFrame:
     cw = cw.copy()
-    lonely_n = cw[["in_api", "in_rp", "in_official"]].sum(axis=1)
-    lonely = cw[lonely_n == 1]
-
     by_src = {"api": [], "rp": [], "official": []}
     info = {}
-    for idx, row in lonely.iterrows():
-        src = _row_source(row)
-        by_src[src].append(idx)
-        info[idx] = (src, _surname_candidates(row), row.get("nationality"), row.get("official_team"))
-
+    for idx, row in cw[cw[["in_api", "in_rp", "in_official"]].sum(axis=1) == 1].iterrows():
+        by_src[_row_source(row)].append(idx)
+        info[idx] = (_surname_candidates(row), row.get("nationality"), row.get("official_team"))
     drop_idx: set = set()
-    merged = 0
     for src_a, src_b in (("api", "rp"), ("api", "official"), ("official", "rp")):
         cand_ab: dict = {}
         cand_ba: dict = {}
         for a_idx in by_src[src_a]:
-            _, a_sn, a_nat, a_team = info[a_idx]
+            a_sn, a_nat, a_team = info[a_idx]
             for b_idx in by_src[src_b]:
-                _, b_sn, b_nat, b_team = info[b_idx]
+                b_sn, b_nat, b_team = info[b_idx]
                 if not (a_sn & b_sn):
                     continue
                 nat = a_nat if isinstance(a_nat, str) and a_nat else b_nat
@@ -161,20 +155,16 @@ def _surname_pass(cw: pd.DataFrame) -> pd.DataFrame:
                 continue
             _fold(cw, a_idx, b_idx)
             drop_idx.add(b_idx)
-            merged += 1
             for pool in by_src.values():
                 if b_idx in pool:
                     pool.remove(b_idx)
 
     cw = cw.drop(index=drop_idx)
-
-    merged += _consolidate_name_variants(cw, drop_idx)
-    cw = cw.drop(index=[i for i in drop_idx if i in cw.index])
-    cw.attrs["surname_links"] = merged
-    return cw
+    _consolidate_name_variants(cw, drop_idx)
+    return cw.drop(index=[i for i in drop_idx if i in cw.index])
 
 
-def _consolidate_name_variants(cw: pd.DataFrame, drop_idx: set) -> int:
+def _consolidate_name_variants(cw: pd.DataFrame, drop_idx: set) -> None:
     incomplete = cw[(cw[["in_api", "in_rp", "in_official"]].sum(axis=1) < 3) & cw["in_official"]]
     by_ln: dict = {}
     for idx, row in incomplete.iterrows():
@@ -182,7 +172,6 @@ def _consolidate_name_variants(cw: pd.DataFrame, drop_idx: set) -> int:
         if ln:
             by_ln.setdefault(ln, []).append(idx)
 
-    merged = 0
     for ln, idxs in by_ln.items():
         if len(idxs) != 2:
             continue
@@ -200,8 +189,6 @@ def _consolidate_name_variants(cw: pd.DataFrame, drop_idx: set) -> int:
             continue
         _fold(cw, i, jx)
         drop_idx.add(jx)
-        merged += 1
-    return merged
 
 
 def _fold(cw: pd.DataFrame, keep: int, drop: int) -> None:

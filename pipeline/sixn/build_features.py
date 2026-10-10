@@ -1,14 +1,13 @@
 from __future__ import annotations
 
-import argparse
 import numpy as np
 import pandas as pd
 
-from pipeline.sixn.compare_api_official import norm_key
 from pipeline.sixn.official_labels import match_official
 
 
 SIX_NATIONS = 1266
+HALF_LIFE = 90.0
 TARGET_SEASONS = [2023, 2024, 2025, 2026]
 REFERENCE_DATE = pd.Timestamp("2026-06-15")
 FORWARD_GROUPS = {"Prop", "Hooker", "Second-row", "Back-row"}
@@ -38,19 +37,6 @@ ID_COLS = [
     "started", "minutes", "canonical_pos", "is_forward",
 ]
 
-OPTIONAL_EXTERNAL_FILES = {
-    "weather": "data/external_fixture_weather.csv", "rolecert": "data/external_player_roles.csv", "style": "data/external_team_style.csv",
-}
-
-FIXTURE_JOIN_KEYS = [["fixture_id", "team_id"], ["fixture_id", "team"], ["season", "round", "team_id"], ["season", "round", "team"]]
-
-WEATHER_JOIN_KEYS = [["fixture_id"], ["season", "round"]]
-
-ROLECERT_JOIN_KEYS = [
-    ["fixture_id", "player_id"], ["fixture_id", "team_id", "_player_key"], ["fixture_id", "team", "_player_key"], ["season", "round", "player_id"],
-    ["season", "round", "team_id", "_player_key"], ["season", "round", "team", "_player_key"],
-]
-
 
 def _decay_weights(asof: pd.Timestamp, dates: pd.Series, hl: float) -> np.ndarray:
     days = (asof - dates).dt.days.to_numpy(dtype=float)
@@ -61,99 +47,28 @@ def _bool(s: pd.Series) -> pd.Series:
     return s.astype(str).str.lower().eq("true")
 
 
-def _numeric_prefixed(raw: pd.DataFrame, prefix: str) -> list[str]:
-    cols: list[str] = []
-    for col in raw.columns:
-        if not col.startswith(prefix):
-            continue
+def _merge_external(feat: pd.DataFrame, raw: pd.DataFrame, prefix: str, keys: list[str]) -> pd.DataFrame:
+    cols = []
+    for col in [c for c in raw.columns if c.startswith(prefix)]:
         val = pd.to_numeric(raw[col], errors="coerce")
         if val.notna().any():
             raw[col] = val
             cols.append(col)
-    return cols
-
-
-def _join_keys(raw: pd.DataFrame, feat: pd.DataFrame, candidates: list[list[str]]) -> list[str]:
-    return next(keys for keys in candidates if set(keys) <= set(raw.columns) and set(keys) <= set(feat.columns))
-
-
-def _merge_external(
-    feat: pd.DataFrame, raw: pd.DataFrame, *, source: str, prefix: str, join_candidates: list[list[str]], timestamp_col: str | None = None
-) -> pd.DataFrame:
-    if raw.empty:
-        return feat
-    raw = raw.copy()
-    feature_cols = _numeric_prefixed(raw, prefix)
-    if not feature_cols:
-        return feat
-
-    ts_col = None
-    if timestamp_col and timestamp_col in raw.columns:
-        ts_col = f"_{prefix.rstrip('_')}_timestamp"
-        raw[ts_col] = pd.to_datetime(raw[timestamp_col], errors="coerce", utc=True)
-
-    keys = _join_keys(raw, feat, join_candidates)
-    keep = keys + feature_cols + ([ts_col] if ts_col else [])
-    raw = raw[keep]
-    out = feat.merge(raw, on=keys, how="left")
-
-    has_col = f"{prefix}has_data"
-    out[has_col] = out[feature_cols].notna().any(axis=1).astype(float)
-
-    if ts_col:
-        fixture_date = pd.to_datetime(out["date"], errors="coerce", utc=True)
-        days = (fixture_date - out[ts_col]).dt.total_seconds() / 86400.0
-        fresh_col = f"{prefix}days_before_fixture"
-        out[fresh_col] = days.where(days >= 0)
-        bad = days < 0
-        if bad.any():
-            out.loc[bad, feature_cols] = np.nan
-            out.loc[bad, has_col] = 0.0
-        out = out.drop(columns=[ts_col])
+    out = feat.merge(raw[keys + cols], on=keys, how="left")
+    out[f"{prefix}has_data"] = out[cols].notna().any(axis=1).astype(float)
     return out
 
 
-def _merge_external_weather(feat: pd.DataFrame) -> pd.DataFrame:
-    path = OPTIONAL_EXTERNAL_FILES["weather"]
-    raw = pd.read_csv(path)
-    if {"weather_rain_mm", "weather_precip_probability"}.issubset(raw.columns):
-        raw["weather_wet_index"] = np.log1p(pd.to_numeric(raw["weather_rain_mm"], errors="coerce")) + pd.to_numeric(
-            raw["weather_precip_probability"], errors="coerce"
-        )
-    elif "weather_rain_mm" in raw.columns:
-        raw["weather_wet_index"] = np.log1p(pd.to_numeric(raw["weather_rain_mm"], errors="coerce"))
-    if {"weather_wind_kph", "weather_wind_gust_kph"}.issubset(raw.columns):
-        raw["weather_wind_index"] = (
-            pd.to_numeric(raw["weather_wind_kph"], errors="coerce") + 0.5 * pd.to_numeric(raw["weather_wind_gust_kph"], errors="coerce")
-        ) / 40.0
-    elif "weather_wind_kph" in raw.columns:
-        raw["weather_wind_index"] = pd.to_numeric(raw["weather_wind_kph"], errors="coerce") / 30.0
-    if "weather_temp_c" in raw.columns:
-        raw["weather_cold_index"] = np.clip((10.0 - pd.to_numeric(raw["weather_temp_c"], errors="coerce")) / 10.0, 0.0, None)
-    return _merge_external(feat, raw, source=str(path), prefix="weather_", join_candidates=WEATHER_JOIN_KEYS, timestamp_col=None)
-
-
-def _merge_external_roles(feat: pd.DataFrame) -> pd.DataFrame:
-    path = OPTIONAL_EXTERNAL_FILES["rolecert"]
-    raw = pd.read_csv(path)
-    feat_in = feat.copy()
-    raw = raw.copy()
-    if "player_key" in raw.columns:
-        raw["_player_key"] = raw["player_key"].map(norm_key)
-        feat_in["_player_key"] = feat_in["player_name"].map(norm_key)
-    elif "player_name" in raw.columns:
-        raw["_player_key"] = raw["player_name"].map(norm_key)
-        feat_in["_player_key"] = feat_in["player_name"].map(norm_key)
-    out = _merge_external(feat_in, raw, source=str(path), prefix="rolecert_", join_candidates=ROLECERT_JOIN_KEYS, timestamp_col="rolecert_source_timestamp")
-    if "_player_key" in out.columns:
-        out = out.drop(columns=["_player_key"])
-    return out
-
-
-def _merge_external_style(feat: pd.DataFrame) -> pd.DataFrame:
-    path = OPTIONAL_EXTERNAL_FILES["style"]
-    raw = pd.read_csv(path)
-    return _merge_external(feat, raw, source=str(path), prefix="style_", join_candidates=FIXTURE_JOIN_KEYS, timestamp_col=None)
+def _merge_externals(feat: pd.DataFrame) -> pd.DataFrame:
+    wx = pd.read_csv("data/external_fixture_weather.csv")
+    wx["weather_wet_index"] = np.log1p(pd.to_numeric(wx["weather_rain_mm"], errors="coerce"))
+    wx["weather_wind_index"] = (
+        pd.to_numeric(wx["weather_wind_kph"], errors="coerce") + 0.5 * pd.to_numeric(wx["weather_wind_gust_kph"], errors="coerce")
+    ) / 40.0
+    wx["weather_cold_index"] = np.clip((10.0 - pd.to_numeric(wx["weather_temp_c"], errors="coerce")) / 10.0, 0.0, None)
+    feat = _merge_external(feat, wx, "weather_", ["fixture_id"])
+    feat = _merge_external(feat.copy(), pd.read_csv("data/external_player_roles.csv"), "rolecert_", ["fixture_id", "player_id"])
+    return _merge_external(feat, pd.read_csv("data/external_team_style.csv"), "style_", ["fixture_id", "team_id"])
 
 
 def _season_end_year(season) -> int:
@@ -304,7 +219,7 @@ def team_bench_slot_features(hist: pd.DataFrame, asof: pd.Timestamp, jersey: flo
     return out
 
 
-def build(half_life: float) -> pd.DataFrame:
+def build() -> pd.DataFrame:
     ap = pd.read_csv("data/api_player_match.csv")
     ap["date"] = pd.to_datetime(ap["date"], errors="coerce")
     ap = ap.dropna(subset=["date", "player_id"])
@@ -372,10 +287,10 @@ def build(half_life: float) -> pd.DataFrame:
 
         ph = hist_by_pid.get(pid)
         ph = ph[ph["date"] < asof] if ph is not None else ap.iloc[0:0]
-        rec.update(form_role_features(ph, asof, half_life))
+        rec.update(form_role_features(ph, asof, HALF_LIFE))
         pth = player_hist_by_team.get(int(r.team_id))
         pth = pth[pth["date"] < asof] if pth is not None else ap.iloc[0:0]
-        rec.update(team_bench_slot_features(pth, asof, getattr(r, "jersey", None), half_life))
+        rec.update(team_bench_slot_features(pth, asof, r.jersey, HALF_LIFE))
 
         if pd.notna(rec.get("form_per80_metres")) and pd.notna(rec.get("class_per80_metres")):
             rec["form_hot_metres"] = rec["form_per80_metres"] - rec["class_per80_metres"]
@@ -384,11 +299,11 @@ def build(half_life: float) -> pd.DataFrame:
 
         th = hist_by_team.get(int(r.team_id))
         th = th[th["date"] < asof] if th is not None else tm.iloc[0:0]
-        rec.update(ownteam_features(th, asof, half_life))
+        rec.update(ownteam_features(th, asof, HALF_LIFE))
 
         oh = hist_by_opponent.get(int(r.opponent_id))
         oh = oh[oh["date"] < asof] if oh is not None else ap.iloc[0:0]
-        rec.update(matchup_features(oh, asof, rec["canonical_pos"], bool(rec["is_forward"]), half_life))
+        rec.update(matchup_features(oh, asof, rec["canonical_pos"], bool(rec["is_forward"]), HALF_LIFE))
 
         if slug in bio.index:
             b = bio.loc[slug]
@@ -414,37 +329,20 @@ def build(half_life: float) -> pd.DataFrame:
     tp = pd.read_csv("data/team_play_predictions.csv")
     tp_feats = [c for c in tp.columns if c not in {"season", "round", "team", "opponent", "opponent_id", "date"}]
     feat = feat.merge(tp[tp_feats], on=["fixture_id", "team_id"], how="left")
-    feat = _merge_external_weather(feat)
-    feat = _merge_external_roles(feat)
-    feat = _merge_external_style(feat)
-    return feat
-
-
-def main():
-    ap = argparse.ArgumentParser()
-    ap.add_argument("--half-life", type=float, default=90.0)
-    args = ap.parse_args()
-
-    feat = build(args.half_life)
-    out = "data/model_player_match.csv"
-    feat.to_csv(out, index=False)
-
-    fam = {
-        "CLASS": [c for c in feat if c.startswith("class")], "FORM": [c for c in feat if c.startswith("form")],
-        "ROLE": [c for c in feat if c.startswith("role") and not c.startswith("rolecert_")], "OWN-TEAM": [c for c in feat if c.startswith("ownteam")],
-        "BIO": [c for c in feat if c.startswith("bio")], "FIXTURE": [c for c in feat if c.startswith(("opp_", "h2h_", "team_wr", "wr_"))],
-        "TEAMPLAY": [c for c in feat if c.startswith("teamplay_")], "WEATHER": [c for c in feat if c.startswith("weather_")],
-        "ROLECERT": [c for c in feat if c.startswith("rolecert_")], "STYLE": [c for c in feat if c.startswith("style_")],
-    }
-    print(f"✅  {len(feat)} rows, {feat.fixture_id.nunique()} matches, seasons {sorted(feat.season.unique())}")
-    for name, cols in fam.items():
-        if not cols:
-            continue
-        cov = 100 * feat[cols].notna().any(axis=1).mean()
-        print(f"    {name:9s} {len(cols):2d} cols, {cov:5.1f}% rows non-null")
-    print(f"    cold-start: CLASS {100 * (~feat.has_class).mean():.0f}%, FORM {100 * (~feat.has_form).mean():.0f}%, BIO {100 * (~feat.has_bio).mean():.0f}%")
-    print(f"💾  {out}")
+    return _merge_externals(feat)
 
 
 if __name__ == "__main__":
-    main()
+    feat = build()
+    feat.to_csv("data/model_player_match.csv", index=False)
+    families = {
+        "CLASS": "class", "FORM": "form", "ROLE": "role", "OWN-TEAM": "ownteam", "BIO": "bio", "FIXTURE": ("opp_", "h2h_", "team_wr", "wr_"),
+        "TEAMPLAY": "teamplay_", "WEATHER": "weather_", "ROLECERT": "rolecert_", "STYLE": "style_",
+    }
+    print(f"✅  {len(feat)} rows, {feat.fixture_id.nunique()} matches, seasons {sorted(feat.season.unique())}")
+    for name, prefix in families.items():
+        cols = [c for c in feat if c.startswith(prefix) and not (name == "ROLE" and c.startswith("rolecert_"))]
+        if cols:
+            print(f"    {name:9s} {len(cols):2d} cols, {100 * feat[cols].notna().any(axis=1).mean():5.1f}% rows non-null")
+    print(f"    cold-start: CLASS {100 * (~feat.has_class).mean():.0f}%, FORM {100 * (~feat.has_form).mean():.0f}%, BIO {100 * (~feat.has_bio).mean():.0f}%")
+    print("💾  data/model_player_match.csv")

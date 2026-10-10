@@ -1,6 +1,5 @@
 from __future__ import annotations
 
-import argparse
 import datetime as dt
 import json
 import time
@@ -14,7 +13,6 @@ URL = "https://api.wr-rims-prod.pulselive.com/rugby/v3/match?startDate={start}&e
 HEADERS = {"User-Agent": "Mozilla/5.0", "Accept": "application/json"}
 
 SIX = {"England", "France", "Ireland", "Italy", "Scotland", "Wales"}
-NCR = SIX | {"Argentina", "Australia", "Fiji", "Japan", "New Zealand", "South Africa"}
 SENIOR_MENS = "MRU"
 
 
@@ -55,36 +53,22 @@ def month_chunks(start: dt.date, end: dt.date) -> list[tuple[str, str]]:
     return chunks
 
 
-def rows_from_match(m: dict, target_teams: set[str] = SIX, pair_field: str = "is_six_nations_pair") -> list[dict]:
-    if m.get("sport") != SENIOR_MENS:
-        return []
-    teams = m.get("teams", [])
-    scores = m.get("scores", [])
-    if len(teams) != 2 or len(scores) != 2:
+def rows_from_match(m: dict) -> list[dict]:
+    teams, scores = m.get("teams", []), m.get("scores", [])
+    if m.get("sport") != SENIOR_MENS or len(teams) != 2 or len(scores) != 2:
         return []
     names = [t.get("name") for t in teams]
-    if not any(n in target_teams for n in names):
-        return []
-
-    date = (m.get("time") or {}).get("label")
-    comp = m.get("competition")
-    rw = m.get("rankingsWeight")
-    is_pair = all(n in target_teams for n in names)
-
-    out = []
-    for i, j in ((0, 1), (1, 0)):
-        if names[i] not in target_teams:
-            continue
-        ts, os_ = scores[i], scores[j]
-        margin = ts - os_
-        result = "W" if margin > 0 else ("L" if margin < 0 else "D")
-        out.append(
-            {
-                "date": date, "comp": comp, "team": names[i], "team_id": teams[i].get("id"), "opponent": names[j], "opponent_id": teams[j].get("id"),
-                "team_score": ts, "opp_score": os_, "margin": margin, "result": result, "rankings_weight": rw, pair_field: is_pair,
-            }
-        )
-    return out
+    is_pair = all(n in SIX for n in names)
+    return [
+        {
+            "date": (m.get("time") or {}).get("label"), "comp": m.get("competition"), "team": names[i], "team_id": teams[i].get("id"), "opponent": names[j],
+            "opponent_id": teams[j].get("id"), "team_score": scores[i], "opp_score": scores[j], "margin": scores[i] - scores[j],
+            "result": "W" if scores[i] > scores[j] else ("L" if scores[i] < scores[j] else "D"), "rankings_weight": m.get("rankingsWeight"),
+            "is_six_nations_pair": is_pair,
+        }
+        for i, j in ((0, 1), (1, 0))
+        if names[i] in SIX
+    ]
 
 
 def _season(date_iso: str) -> int:
@@ -92,67 +76,21 @@ def _season(date_iso: str) -> int:
     return d.year + 1 if d.month >= 7 else d.year
 
 
-def main():
-    ap = argparse.ArgumentParser()
-    ap.add_argument("--start", default="2020-07-01")
-    ap.add_argument("--end", default=dt.date.today().isoformat())
-    args = ap.parse_args()
-
-    start = dt.date.fromisoformat(args.start)
-    end = dt.date.fromisoformat(args.end)
+if __name__ == "__main__":
+    start, end = dt.date(2020, 7, 1), dt.date.today()
     chunks = month_chunks(start, end)
     print(f"fetching Pulselive matches {start}…{end} in {len(chunks)} monthly chunks")
-
-    rows: list[dict] = []
-    ncr_rows: list[dict] = []
-    for s, e in chunks:
-        for m in fetch_chunk(s, e):
-            rows += rows_from_match(m)
-            ncr_rows += rows_from_match(m, NCR, "is_ncr_pair")
-
-    df = pd.DataFrame(rows)
-    if not df.empty:
-        df = df.drop_duplicates(subset=["date", "team", "opponent"])
-        df = df.sort_values(["date", "team"]).reset_index(drop=True)
-
-    out = "data/intl_results.csv"
-    df.to_csv(out, index=False)
-
-    ncr_df = pd.DataFrame(ncr_rows)
-    if not ncr_df.empty:
-        ncr_df = ncr_df.drop_duplicates(subset=["date", "team", "opponent"]).sort_values(["date", "team"]).reset_index(drop=True)
-    ncr_out = "data/ncr/ncr_intl_results.csv"
-    ncr_df.to_csv(ncr_out, index=False)
-
-    n_matches = df["is_six_nations_pair"].notna().sum()
-    distinct_matches = df.drop_duplicates(subset=["date", "team", "opponent"]).shape[0] if not df.empty else 0
-    n_unique_fixtures = 0
-    seen = set()
-    for r in df.itertuples(index=False):
-        key = tuple(sorted([r.team, r.opponent])) + (r.date,)
-        if key not in seen:
-            seen.add(key)
-            n_unique_fixtures += 1
-
+    df = pd.DataFrame([row for s, e in chunks for m in fetch_chunk(s, e) for row in rows_from_match(m)])
+    df = df.drop_duplicates(subset=["date", "team", "opponent"]).sort_values(["date", "team"]).reset_index(drop=True)
+    df.to_csv("data/intl_results.csv", index=False)
+    fixtures = lambda g: len({tuple(sorted([t, o])) + (d,) for t, o, d in zip(g.team, g.opponent, g.date)})
     df["_season"] = df["date"].map(_season)
-    per_season = (
-        df.drop_duplicates(subset=["date", "team", "opponent"])
-        .groupby("_season")
-        .apply(lambda g: len({tuple(sorted([t, o])) + (d,) for t, o, d in zip(g.team, g.opponent, g.date)}))
-    )
     seen_nations = sorted(SIX & set(df["team"].unique()))
-    n_pair = df[df.is_six_nations_pair].drop_duplicates(subset=["date", "team", "opponent"]).shape[0] // 2
-
-    print(f"\n✅  {len(df)} team-side rows  ({n_unique_fixtures} distinct intl fixtures kept)")
+    print(f"\n✅  {len(df)} team-side rows  ({fixtures(df)} distinct intl fixtures kept)")
     print(f"    seasons covered: {sorted(df['_season'].unique().tolist())}")
     print("    distinct fixtures / season:")
-    for ssn, cnt in per_season.items():
+    for ssn, cnt in df.groupby("_season").apply(fixtures).items():
         print(f"      {ssn}: {cnt}")
-    print(f"    six-nations-pair fixtures (autumn/summer 6N vs 6N): {n_pair}")
+    print(f"    six-nations-pair fixtures (autumn/summer 6N vs 6N): {df[df.is_six_nations_pair].shape[0] // 2}")
     print(f"    6 nations present as `team`: {seen_nations} ({'ALL 6' if len(seen_nations) == 6 else 'MISSING ' + str(sorted(SIX - set(seen_nations)))})")
-    print(f"💾  {out}")
-    print(f"💾  {ncr_out}  ({len(ncr_df)} team-side rows, all 12 NCR nations)")
-
-
-if __name__ == "__main__":
-    main()
+    print("💾  data/intl_results.csv")

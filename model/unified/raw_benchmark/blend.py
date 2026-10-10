@@ -32,6 +32,27 @@ def _blend_distribution(left: EventDistribution, right: EventDistribution, weigh
     return EventDistribution(family, max(mean, 0.0), dispersion)
 
 
+def _blend(empirical: list[RawPrediction], v4: list[RawPrediction], weight, metadata: dict) -> list[RawPrediction]:
+    return [
+        RawPrediction(
+            fixture_id=v.fixture_id,
+            player_id=v.player_id,
+            player_name=v.player_name,
+            team=v.team,
+            opponent=v.opponent,
+            position=v.position,
+            is_forward=v.is_forward,
+            minutes=_blend_distribution(v.minutes, m.minutes, weight("minutes"), target="minutes"),
+            metadata=dict(metadata),
+            events={
+                e: _blend_distribution(v.events[e], m.events[e], weight(e), target=e) if e in v.events and e in m.events else v.events.get(e, m.events.get(e))
+                for e in sorted(set(m.events) | set(v.events))
+            },
+        )
+        for m, v in zip(empirical, v4)
+    ]
+
+
 @dataclass
 class EventBlend50:
     empirical: object
@@ -39,27 +60,10 @@ class EventBlend50:
     weight_v4: float = 0.5
 
     def predict_frame(self, frame) -> list[RawPrediction]:
-        empirical_predictions = self.empirical.predict_frame(frame)
-        v4_predictions = self.v4.predict_frame(frame)
-        output = []
-        for empirical, v4 in zip(empirical_predictions, v4_predictions):
-            events = {}
-            for event in sorted(set(empirical.events) | set(v4.events)):
-                left, right = v4.events.get(event), empirical.events.get(event)
-                if left is None:
-                    events[event] = right
-                elif right is None:
-                    events[event] = left
-                else:
-                    events[event] = _blend_distribution(left, right, self.weight_v4, target=event)
-            minutes = _blend_distribution(v4.minutes, empirical.minutes, self.weight_v4, target="minutes")
-            output.append(
-                RawPrediction(
-                    fixture_id=v4.fixture_id, player_id=v4.player_id, player_name=v4.player_name, team=v4.team, opponent=v4.opponent, position=v4.position,
-                    is_forward=v4.is_forward, events=events, minutes=minutes, metadata={"model": "p3_event_50", "weight_v4": self.weight_v4},
-                )
-            )
-        return output
+        return _blend(
+            self.empirical.predict_frame(frame), self.v4.predict_frame(frame), lambda event: self.weight_v4,
+            {"model": "p3_event_50", "weight_v4": self.weight_v4},
+        )
 
     def save(self, path: str) -> None:
         os.makedirs(os.path.dirname(path), exist_ok=True)
@@ -72,68 +76,23 @@ class EventBlend50:
             return pickle.load(handle)
 
 
-def _validate_weights(default_weight_v4: float, event_weights_v4: Mapping[str, float]) -> None:
-    weights = {"default": default_weight_v4, **dict(event_weights_v4)}
-    invalid = {name: value for name, value in weights.items() if not 0.0 <= value <= 1.0}
-    if invalid:
-        raise ValueError(f"blend weights must be in [0, 1]: {invalid}")
-    unknown = set(event_weights_v4) - {"minutes", *EVENTS}
-    if unknown:
-        raise ValueError(f"unknown event blend weights: {sorted(unknown)}")
-
-
-def _predict_weighted(
-    empirical_model, v4_model, frame, *, default_weight_v4: float, event_weights_v4: Mapping[str, float], model_name: str
-) -> list[RawPrediction]:
-    _validate_weights(default_weight_v4, event_weights_v4)
-    empirical_predictions = empirical_model.predict_frame(frame)
-    v4_predictions = v4_model.predict_frame(frame)
-    output = []
-    for empirical, v4 in zip(empirical_predictions, v4_predictions):
-        events = {}
-        for event in sorted(set(empirical.events) | set(v4.events)):
-            left, right = v4.events.get(event), empirical.events.get(event)
-            if left is None:
-                events[event] = right
-            elif right is None:
-                events[event] = left
-            else:
-                events[event] = _blend_distribution(left, right, event_weights_v4.get(event, default_weight_v4), target=event)
-        minutes = _blend_distribution(v4.minutes, empirical.minutes, event_weights_v4.get("minutes", default_weight_v4), target="minutes")
-        metadata = {"model": model_name, "weight_v4": default_weight_v4}
-        if event_weights_v4:
-            metadata["event_weights_v4"] = dict(sorted(event_weights_v4.items()))
-        output.append(
-            RawPrediction(
-                fixture_id=v4.fixture_id, player_id=v4.player_id, player_name=v4.player_name, team=v4.team, opponent=v4.opponent, position=v4.position,
-                is_forward=v4.is_forward, events=events, minutes=minutes, metadata=metadata,
-            )
-        )
-    return output
-
-
 @dataclass
-class EventWeightedBlend:
-    empirical: object
-    v4: object
-    weight_v4: float = 0.5
+class EventWeightedBlend(EventBlend50):
     event_weights_v4: Mapping[str, float] = field(default_factory=dict)
 
     def __post_init__(self) -> None:
         self.event_weights_v4 = dict(self.event_weights_v4)
-        _validate_weights(self.weight_v4, self.event_weights_v4)
+        invalid = {name: value for name, value in {"default": self.weight_v4, **self.event_weights_v4}.items() if not 0.0 <= value <= 1.0}
+        if invalid:
+            raise ValueError(f"blend weights must be in [0, 1]: {invalid}")
+        unknown = set(self.event_weights_v4) - {"minutes", *EVENTS}
+        if unknown:
+            raise ValueError(f"unknown event blend weights: {sorted(unknown)}")
 
     def predict_frame(self, frame) -> list[RawPrediction]:
-        return _predict_weighted(
-            self.empirical, self.v4, frame, default_weight_v4=self.weight_v4, event_weights_v4=self.event_weights_v4, model_name="p3_event_weighted"
+        metadata = {"model": "p3_event_weighted", "weight_v4": self.weight_v4} | (
+            {"event_weights_v4": dict(sorted(self.event_weights_v4.items()))} if self.event_weights_v4 else {}
         )
-
-    def save(self, path: str) -> None:
-        os.makedirs(os.path.dirname(path), exist_ok=True)
-        with open(path, "wb") as handle:
-            pickle.dump(self, handle)
-
-    @classmethod
-    def load(cls, path: str) -> "EventWeightedBlend":
-        with open(path, "rb") as handle:
-            return pickle.load(handle)
+        return _blend(
+            self.empirical.predict_frame(frame), self.v4.predict_frame(frame), lambda event: self.event_weights_v4.get(event, self.weight_v4), metadata
+        )

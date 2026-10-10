@@ -1,6 +1,5 @@
 from __future__ import annotations
 
-import argparse
 import json
 import ssl
 import time
@@ -21,37 +20,36 @@ DAILY_VARS = ["temperature_2m_mean", "temperature_2m_min", "temperature_2m_max",
 SSL_CONTEXT = ssl.create_default_context(cafile=certifi.where())
 
 
-def _fixture_grid(team_csv: str, stadium_csv: str) -> pd.DataFrame:
-    raw = pd.read_csv(team_csv)
+def _fixture_grid() -> pd.DataFrame:
+    raw = pd.read_csv("data/api_team_match.csv")
     raw = raw[(raw["comp_id"] == SIX_NATIONS) & raw["season"].isin(TARGET_SEASONS)].copy()
     raw["date"] = pd.to_datetime(raw["date"], errors="coerce").dt.date.astype(str)
     home = raw[raw["home_away"].astype(str).str.lower().eq("home")].copy()
     cols = ["season", "round", "fixture_id", "date", "team_id", "team", "opponent_id", "opponent"]
     home = home[cols].drop_duplicates("fixture_id")
-    stadiums = pd.read_csv(stadium_csv)
+    stadiums = pd.read_csv("data/sixn_stadiums.csv")
     out = home.merge(stadiums, on=["team_id", "team"], how="left")
     return out.sort_values(["date", "fixture_id"]).reset_index(drop=True)
 
 
-def _fetch_open_meteo(lat: float, lon: float, day: str, tz_name: str, sleep_s: float) -> dict:
+def _fetch_open_meteo(lat: float, lon: float, day: str, tz_name: str) -> dict:
     params = {
         "latitude": f"{lat:.4f}", "longitude": f"{lon:.4f}", "start_date": day, "end_date": day, "daily": ",".join(DAILY_VARS), "timezone": tz_name or "auto",
     }
     url = "https://archive-api.open-meteo.com/v1/archive?" + urlencode(params)
     with urlopen(url, timeout=30, context=SSL_CONTEXT) as resp:
         payload = json.loads(resp.read().decode("utf-8"))
-    if sleep_s > 0:
-        time.sleep(sleep_s)
+    time.sleep(0.05)
     daily = payload.get("daily", {})
     return {k: (daily.get(k) or [np.nan])[0] for k in DAILY_VARS}
 
 
-def build(team_csv: str, stadium_csv: str, sleep_s: float = 0.0) -> pd.DataFrame:
-    fixtures = _fixture_grid(team_csv, stadium_csv)
+def build() -> pd.DataFrame:
+    fixtures = _fixture_grid()
     rows = []
     source_ts = datetime.now(timezone.utc).isoformat()
     for r in fixtures.itertuples(index=False):
-        weather = _fetch_open_meteo(float(r.latitude), float(r.longitude), str(r.date), str(r.timezone), sleep_s)
+        weather = _fetch_open_meteo(float(r.latitude), float(r.longitude), str(r.date), str(r.timezone))
         rows.append(
             {
                 "season": int(r.season), "round": int(r.round), "fixture_id": int(r.fixture_id), "date": r.date, "venue": r.venue,
@@ -64,19 +62,8 @@ def build(team_csv: str, stadium_csv: str, sleep_s: float = 0.0) -> pd.DataFrame
     return pd.DataFrame(rows)
 
 
-def main() -> None:
-    ap = argparse.ArgumentParser()
-    ap.add_argument("--team-csv", default="data/api_team_match.csv")
-    ap.add_argument("--stadium-csv", default="data/sixn_stadiums.csv")
-    ap.add_argument("--sleep", type=float, default=0.05, help="seconds to sleep between Open-Meteo requests")
-    args = ap.parse_args()
-
-    out = build(args.team_csv, args.stadium_csv, args.sleep)
-    path = "data/external_fixture_weather.csv"
-    out.to_csv(path, index=False)
-    print(f"OK {len(out)} fixtures -> {path}")
-    print(out[["season", "round", "fixture_id", "venue", "weather_temp_c", "weather_rain_mm", "weather_wind_kph"]].head(10).to_string(index=False))
-
-
 if __name__ == "__main__":
-    main()
+    out = build()
+    out.to_csv("data/external_fixture_weather.csv", index=False)
+    print(f"OK {len(out)} fixtures -> data/external_fixture_weather.csv")
+    print(out[["season", "round", "fixture_id", "venue", "weather_temp_c", "weather_rain_mm", "weather_wind_kph"]].head(10).to_string(index=False))

@@ -1,23 +1,21 @@
 from __future__ import annotations
 
-import argparse
-import json
-import os
 import warnings
 
 import numpy as np
 import pandas as pd
 from sklearn.linear_model import RidgeCV
 
+from model.sixn import picker
 from model.sixn.assemble import assemble_predictions, rank_scores
 from model.sixn.baselines import build_matrix, direct_points_oof, predict_rates
 from model.sixn.data import load
 from model.sixn.evaluate import evaluate, format_table
 from model.sixn.splits import component_train
-from model.sixn.train_components import predict_rates_lgbm_only, predict_rates_registry, save_registry, select_components
+from model.sixn.train_components import predict_rates_lgbm_only, predict_rates_registry, select_components
 
-ENGINE_ORDER = ["ensemble", "lgbm_only", "glm", "ridge", "naive"]
-DEPLOYABLE_ENGINES = ["ensemble", "lgbm_only", "glm", "ridge", "naive"]
+ENGINES = ["ensemble", "lgbm_only", "glm", "ridge", "naive"]
+MODE = "post_team_sheet"
 
 
 def build_predictors(registry: pd.DataFrame):
@@ -53,99 +51,49 @@ def direct_points_frame(df: pd.DataFrame, test_season: int, mode: str) -> pd.Dat
     )
 
 
-def run_season(df, train_idx, test_season, mode, predictors, registry):
+def run_season(df, train_idx, test_season, predictors):
     results, preds = {}, {}
-    for name in ENGINE_ORDER:
-        pred, diag = assemble_predictions(df, train_idx, test_season, mode, predictors[name])
-        results[name] = evaluate(pred)
-        preds[name] = (pred, diag)
-    results["b3_direct"] = evaluate(direct_points_frame(df, test_season, mode))
-    test_idx = np.where((df["season"] == test_season).to_numpy())[0]
-    rk = preds["ensemble"][0].copy()
-    rk["rank_score"] = rank_scores(df, train_idx, test_idx, mode)
+    for name in ENGINES:
+        preds[name] = assemble_predictions(df, train_idx, test_season, MODE, predictors[name])
+        results[name] = evaluate(preds[name])
+    results["b3_direct"] = evaluate(direct_points_frame(df, test_season, MODE))
+    rk = preds["ensemble"].copy()
+    rk["rank_score"] = rank_scores(df, train_idx, np.where((df["season"] == test_season).to_numpy())[0], MODE)
     results["rank_head"] = evaluate(rk, score_col="rank_score", points=False)
-    return results, preds
-
-
-def main():
-    ap = argparse.ArgumentParser()
-    ap.add_argument("--no-2026", action="store_true", help="keep 2026 sealed")
-    ap.add_argument("--mode", default="post_team_sheet", choices=["pre_team_sheet", "post_team_sheet"])
-    args = ap.parse_args()
-
-    df = load()
-
-    bt_train_mask = component_train(df, 2025)
-    print("Selecting components on 2023+2024 OOF (post_team_sheet) ...")
-    registry = select_components(df, bt_train_mask, args.mode)
-    save_registry(registry)
-    print(registry[["component", "kind", "engine", "reason"]].to_string(index=False))
-
-    predictors = build_predictors(registry)
-    bt_train_idx = np.where(bt_train_mask)[0]
-
-    res25, preds25 = run_season(df, bt_train_idx, 2025, args.mode, predictors, registry)
-    print(format_table(res25, f"2025 BACKTEST  (train 2023+2024, mode={args.mode})"))
-
-    if args.mode == "post_team_sheet":
-        alt = {}
-        for name in ("naive", "ensemble"):
-            pred, _ = assemble_predictions(df, bt_train_idx, 2025, "pre_team_sheet", predictors[name])
-            alt[name] = evaluate(pred)
-        print(format_table(alt, "2025 BACKTEST  (mode=pre_team_sheet, anchors only)"))
-
-    selected_engine = select_deployable_engine(res25)
-    print(f"\nSelected deployable engine from 2025 backtest: {selected_engine}")
-    _accept_and_persist(df, bt_train_idx, 2025, args.mode, predictors, selected_engine)
-
-    if not args.no_2026:
-        dep_train_idx = np.where(component_train(df, 2026))[0]
-        res26, _ = run_season(df, dep_train_idx, 2026, args.mode, predictors, registry)
-        print(format_table(res26, f"2026 DEPLOYMENT  (train 2023+2024+2025, mode={args.mode})"))
-        _accept_and_persist(df, dep_train_idx, 2026, args.mode, predictors, selected_engine)
-
-    seasons = [2025] + ([] if args.no_2026 else [2026])
-    _persist_promoted_research_config(df, seasons)
-
-    _verdict(res25, selected_engine)
+    return results
 
 
 def select_deployable_engine(results: dict[str, dict]) -> str:
     naive = results["naive"]
-    candidates = []
-    for name in DEPLOYABLE_ENGINES:
-        m = results[name]
-        if m["mae"] <= naive["mae"] and m["value_xv"] >= naive["value_xv"]:
-            candidates.append(name)
-    if not candidates:
-        return "naive"
-    return sorted(candidates, key=lambda n: (-results[n]["value_xv"], results[n]["mae"], n))[0]
+    candidates = [n for n in ENGINES if results[n]["mae"] <= naive["mae"] and results[n]["value_xv"] >= naive["value_xv"]]
+    return min(candidates, key=lambda n: (-results[n]["value_xv"], results[n]["mae"], n)) if candidates else "naive"
 
 
-def _accept_and_persist(df, train_idx, season, mode, predictors, engine):
-    pred, _ = assemble_predictions(df, train_idx, season, mode, predictors[engine])
-    out = f"data/model_predictions_{season}.csv"
-    pred.to_csv(out, index=False)
-    print(f"  saved {os.path.basename(out)} from {engine}  ({len(pred)} rows)")
-
-
-def _persist_promoted_research_config(df, seasons: list[int]) -> None:
-    from model.sixn.picker import PROMOTED_CONFIG, _predict_config, config_from_dict
-
-    cfg = config_from_dict(json.load(open(PROMOTED_CONFIG)))
-    for season in seasons:
-        pred, _, _ = _predict_config(df, cfg, season)
-        out = f"data/model_predictions_{season}.csv"
-        pred.to_csv(out, index=False)
-        print(f"  refreshed {os.path.basename(out)} from promoted research config {cfg.name} ({len(pred)} rows)")
-
-
-def _verdict(res25, selected_engine):
-    e, n = res25[selected_engine], res25["naive"]
+def main():
+    df = load()
+    bt_train_mask = component_train(df, 2025)
+    print("Selecting components on 2023+2024 OOF (post_team_sheet) ...")
+    registry = select_components(df, bt_train_mask, MODE)
+    print(registry[["component", "kind", "engine", "reason"]].to_string(index=False))
+    predictors = build_predictors(registry)
+    bt_train_idx = np.where(bt_train_mask)[0]
+    res25 = run_season(df, bt_train_idx, 2025, predictors)
+    print(format_table(res25, f"2025 BACKTEST  (train 2023+2024, mode={MODE})"))
+    alt = {name: evaluate(assemble_predictions(df, bt_train_idx, 2025, "pre_team_sheet", predictors[name])) for name in ("naive", "ensemble")}
+    print(format_table(alt, "2025 BACKTEST  (mode=pre_team_sheet, anchors only)"))
+    engine = select_deployable_engine(res25)
+    print(f"\nSelected deployable engine from 2025 backtest: {engine}")
+    res26 = run_season(df, np.where(component_train(df, 2026))[0], 2026, predictors)
+    print(format_table(res26, f"2026 DEPLOYMENT  (train 2023+2024+2025, mode={MODE})"))
+    for season in (2025, 2026):
+        pred = picker.predict(df, season)
+        pred.to_csv(f"data/model_predictions_{season}.csv", index=False)
+        print(f"  refreshed model_predictions_{season}.csv from promoted research config {picker.CFG['name']} ({len(pred)} rows)")
+    e, n = res25[engine], res25["naive"]
     print("\n=== VERDICT (2025 backtest, baseline bar) ===")
-    print(f"  {selected_engine} value_xv={e['value_xv']:.3f} vs naive {n['value_xv']:.3f} -> {'PASS' if e['value_xv'] >= n['value_xv'] else 'FAIL'}")
-    print(f"  {selected_engine} MAE={e['mae']:.3f} vs naive {n['mae']:.3f} -> {'PASS' if e['mae'] <= n['mae'] else 'FAIL'}")
-    print(f"  {selected_engine} spearman={e['spearman_pos']:.3f} vs naive {n['spearman_pos']:.3f}")
+    print(f"  {engine} value_xv={e['value_xv']:.3f} vs naive {n['value_xv']:.3f} -> {'PASS' if e['value_xv'] >= n['value_xv'] else 'FAIL'}")
+    print(f"  {engine} MAE={e['mae']:.3f} vs naive {n['mae']:.3f} -> {'PASS' if e['mae'] <= n['mae'] else 'FAIL'}")
+    print(f"  {engine} spearman={e['spearman_pos']:.3f} vs naive {n['spearman_pos']:.3f}")
 
 
 if __name__ == "__main__":

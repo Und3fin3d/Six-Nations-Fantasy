@@ -66,12 +66,15 @@ class FeatureEncoder:
     means: np.ndarray | None = None
     scales: np.ndarray | None = None
 
+    def columns(self, frame: pd.DataFrame) -> list[str]:
+        return numeric_feature_columns(frame)
+
     def fit(self, frame: pd.DataFrame) -> "FeatureEncoder":
         self.categories = {}
         for col in CATEGORICAL_FEATURES:
             values = frame.get(col, pd.Series("unknown", index=frame.index)).fillna("unknown").astype(str)
             self.categories[col] = {value: i + 1 for i, value in enumerate(sorted(values.unique()))}
-        self.numeric_columns = numeric_feature_columns(frame)
+        self.numeric_columns = self.columns(frame)
         numeric_frame = frame[self.numeric_columns].astype(float)
         matrix = numeric_frame.to_numpy()
         self.means = numeric_frame.mean(axis=0, skipna=True).fillna(0.0).to_numpy()

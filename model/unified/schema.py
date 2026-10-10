@@ -16,11 +16,6 @@ SCORING_EVENTS = (
 )
 
 KEY_COLUMNS = ("fixture_id", "player_id", "team")
-META_COLUMNS = (
-    "date", "competition", "competition_id", "competition_level", "season", "round", "fixture_id", "player_id", "player_name", "team", "team_id", "opponent",
-    "opponent_id", "position", "is_forward", "jersey", "started", "minutes", "source", "source_priority",
-)
-
 POSITION_BY_JERSEY = {
     1: "Prop", 2: "Hooker", 3: "Prop", 4: "Second-row", 5: "Second-row", 6: "Back-row", 7: "Back-row", 8: "Back-row", 9: "Scrum-half", 10: "Fly-half",
     11: "Back-three", 12: "Centre", 13: "Centre", 14: "Back-three", 15: "Back-three", 16: "Hooker", 17: "Prop", 18: "Prop", 19: "Second-row", 20: "Back-row",

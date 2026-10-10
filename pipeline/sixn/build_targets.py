@@ -104,21 +104,19 @@ def _fit_latent(six: pd.DataFrame) -> dict:
 
     positions = sorted(lab["canonical_pos"].dropna().unique())
     pos_idx = {p: i for i, p in enumerate(positions)}
-    n, k = len(lab), len(positions)
-    X = np.zeros((n, k + 2))
+    k = len(positions)
+    X = np.zeros((len(lab), k + 2))
     for i, p in enumerate(lab["canonical_pos"]):
         if p in pos_idx:
             X[i, pos_idx[p]] = 1.0
-    X[:, k] = lab["sw_drive"].to_numpy(float)
-    X[:, k + 1] = lab["ls_drive"].to_numpy(float)
-    coef, *_ = np.linalg.lstsq(X, y, rcond=None)
+    X[:, k], X[:, k + 1] = lab["sw_drive"].to_numpy(float), lab["ls_drive"].to_numpy(float)
+    coef = np.linalg.lstsq(X, y, rcond=None)[0]
     other_const = {p: float(coef[pos_idx[p]]) for p in positions}
-    a, b = float(coef[k]), float(coef[k + 1])
 
     potm_base = lab.groupby("canonical_pos").apply(lambda g: 15.0 * g["potm_winner"].fillna(0).mean())
     return {
-        "a": a, "b": b, "other_const": other_const, "other_global": float(np.mean(list(other_const.values()))), "potm_base": potm_base.to_dict(),
-        "potm_base_global": float(15.0 * lab["potm_winner"].fillna(0).mean()), "positions": positions,
+        "a": float(coef[k]), "b": float(coef[k + 1]), "other_const": other_const, "other_global": float(np.mean(list(other_const.values()))),
+        "potm_base": potm_base.to_dict(), "potm_base_global": float(15.0 * lab["potm_winner"].fillna(0).mean()),
     }
 
 

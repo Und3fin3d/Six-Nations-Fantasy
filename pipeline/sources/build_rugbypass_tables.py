@@ -57,20 +57,47 @@ def load_json_files():
 
 
 def build_bio(records) -> pd.DataFrame:
-    return pd.DataFrame([{"key": slug_key(slug), "slug": slug, "nationality": bio.get("Nationality") or "", "age": _parse_age(bio.get("Age")),
-                          "position": bio.get("Position") or "", "height_cm": _parse_height_cm(bio.get("Height")), "weight_kg": _parse_weight_kg(bio.get("Weight"))}
-                         for slug, bio in ((slug, d.get("bio") or {}) for slug, d in records)])
+    return pd.DataFrame(
+        [
+            {
+                "key": slug_key(slug), "slug": slug, "nationality": bio.get("Nationality") or "", "age": _parse_age(bio.get("Age")),
+                "position": bio.get("Position") or "", "height_cm": _parse_height_cm(bio.get("Height")), "weight_kg": _parse_weight_kg(bio.get("Weight")),
+            }
+            for slug, bio in ((slug, d.get("bio") or {}) for slug, d in records)
+        ]
+    )
 
 
 def build_compstats(records) -> pd.DataFrame:
-    return pd.DataFrame([{"key": slug_key(slug), "slug": slug, "competition": e.get("competition") or "", "season": e.get("season") or "", **{c: _num(e.get(c, 0)) for c in COMP_NUM_FIELDS}}
-                         for slug, d in records for e in d.get("competition_stats", [])])
+    return pd.DataFrame(
+        [
+            {
+                "key": slug_key(slug),
+                "slug": slug,
+                "competition": e.get("competition") or "",
+                "season": e.get("season") or "",
+                **{c: _num(e.get(c, 0)) for c in COMP_NUM_FIELDS},
+            }
+            for slug, d in records
+            for e in d.get("competition_stats", [])
+        ]
+    )
 
 
 def build_matchlog(records) -> pd.DataFrame:
-    df = pd.DataFrame([{"key": slug_key(slug), "slug": slug, **{c: e.get(c) or "" for c in ("competition", "match", "date", "opposition")},
-                        **{c: _num(e.get(c, 0)) for c in LOG_NUM_FIELDS}, **{c: bool(e.get(c, False)) for c in LOG_BOOL_FIELDS}}
-                       for slug, d in records for e in d.get("match_log", [])])
+    df = pd.DataFrame(
+        [
+            {
+                "key": slug_key(slug),
+                "slug": slug,
+                **{c: e.get(c) or "" for c in ("competition", "match", "date", "opposition")},
+                **{c: _num(e.get(c, 0)) for c in LOG_NUM_FIELDS},
+                **{c: bool(e.get(c, False)) for c in LOG_BOOL_FIELDS},
+            }
+            for slug, d in records
+            for e in d.get("match_log", [])
+        ]
+    )
     iso = pd.to_datetime(df["date"], format="%d %b %Y", errors="coerce")
     df["date"] = iso.dt.strftime("%Y-%m-%d").where(iso.notna(), "")
     return df
@@ -82,7 +109,10 @@ def main():
     comp = build_compstats(records)
     for name, df in (("rp_bio", build_bio(records)), ("rp_compstats", comp), ("rp_matchlog", build_matchlog(records))):
         df.to_csv(f"data/{name}.csv", index=False)
-        print(f"💾  data/{name}.csv  rows={len(df)}  key non-null={100.0 * df['key'].notna().mean():.1f}%  non-blank={100.0 * (df['key'].astype(str).str.len() > 0).mean():.1f}%")
+        print(
+            f"💾  data/{name}.csv  rows={len(df)}  key non-null={100.0 * df['key'].notna().mean():.1f}%  "
+            f"non-blank={100.0 * (df['key'].astype(str).str.len() > 0).mean():.1f}%"
+        )
 
     print("\nrp_compstats sample (3 rows):")
     print(comp.head(3).to_string())

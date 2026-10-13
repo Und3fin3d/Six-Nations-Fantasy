@@ -3,7 +3,7 @@
   "csv_name": "Michael Leitch",
   "bio": {
     "Nationality": "Japan",
-    "Age": "37",
+    "Age": "38",
     "Position": "Back Row",
     "Height": "189cm",
     "Weight": "105kg"
@@ -605,7 +605,7 @@
       "competition": "Internationals",
       "match": "Japan vs Uruguay",
       "date": "29 Aug 2015",
-      "opposition": "Uruguay",
+      "opposition": "",
       "win": true,
       "draw": false,
       "mins": 80,
@@ -618,7 +618,7 @@
       "competition": "Internationals",
       "match": "Japan vs Uruguay",
       "date": "22 Aug 2015",
-      "opposition": "Uruguay",
+      "opposition": "",
       "win": true,
       "draw": false,
       "mins": 80,

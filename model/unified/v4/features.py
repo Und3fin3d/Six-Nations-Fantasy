@@ -56,12 +56,3 @@ def fit_shrinkage_k(train: pd.DataFrame) -> dict[str, float]:
         tau2 = float(np.average((80.0 * agg["count"] / agg["mins"] - mu) ** 2, weights=weight)) - float(np.average(80.0 * mu / agg["mins"], weights=weight))
         out[event] = K_BOUNDS[1] if mu <= 0 or tau2 <= 1e-9 else float(np.clip(80.0 * mu / tau2, *K_BOUNDS))
     return out
-
-
-def apply_eb_features(store: pd.DataFrame, k_by_event: dict[str, float]) -> pd.DataFrame:
-    df = store.copy()
-    for event in EB_EVENTS:
-        k, cum_min = float(k_by_event.get(event, K_DEFAULT)), df[f"cum_min__{event}"]
-        df[f"eb_rate__{event}"] = (80.0 * df[f"cum_count__{event}"] + k * df[f"prior_per80__{event}"]) / (cum_min + k)
-        df[f"eb_weight__{event}"] = cum_min / (cum_min + k)
-    return df

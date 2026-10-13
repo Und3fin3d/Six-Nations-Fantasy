@@ -219,7 +219,7 @@ esac
 
 step "done"
 if (( DRY )); then
-  note "dry run — nothing was executed"
+  note "dry run: nothing was executed"
 elif [[ "$GAME" == ncr ]]; then
   ls -t data/ncr/ncr_gw*_squad*.md 2>/dev/null | head -1 | sed 's/^/  team: /'
   note "if ncr_snapshot said team sheets are CARRYOVER, this team is PROVISIONAL;"

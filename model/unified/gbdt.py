@@ -23,8 +23,8 @@ class _ConstantProbability:
 class UniversalGBDT:
     model_name = "universal_gbdt"
 
-    def __init__(self, events: tuple[str, ...] = EVENTS, weighting: str = "natural", n_estimators: int = 180, native_categories: bool = False):
-        self.events, self.weighting, self.n_estimators, self.native_categories = tuple(events), weighting, n_estimators, bool(native_categories)
+    def __init__(self, events: tuple[str, ...] = EVENTS, weighting: str = "natural", n_estimators: int = 180):
+        self.events, self.weighting, self.n_estimators = tuple(events), weighting, n_estimators
         self.encoder = FeatureEncoder()
         self.models: dict[str, object] = {}
         self.dispersion: dict[str, float] = {}
@@ -32,13 +32,8 @@ class UniversalGBDT:
     def _frame(self, frame: pd.DataFrame) -> pd.DataFrame:
         return frame
 
-    def _matrix(self, frame: pd.DataFrame) -> tuple[np.ndarray, int]:
-        cat, numeric = self.encoder.transform(self._frame(frame))
-        return np.column_stack([cat, numeric]), cat.shape[1]
-
-    def _design(self, frame: pd.DataFrame) -> tuple[np.ndarray, dict]:
-        X, n_cat = self._matrix(frame)
-        return X, {"categorical_feature": list(range(n_cat))} if self.native_categories else {}
+    def _matrix(self, frame: pd.DataFrame) -> np.ndarray:
+        return np.column_stack(self.encoder.transform(self._frame(frame)))
 
     def _lgbm_kwargs(self) -> dict:
         return dict(
@@ -50,7 +45,7 @@ class UniversalGBDT:
         import lightgbm as lgb
 
         self.encoder.fit(self._frame(frame))
-        X, fit_kwargs = self._design(frame)
+        X = self._matrix(frame)
         sample_weight = np.ones(len(frame), dtype=float)
         for target in ("minutes",) + self.events:
             valid = frame[f"available__{target}"].fillna(False).to_numpy(bool) & frame[target].notna().to_numpy()
@@ -64,11 +59,11 @@ class UniversalGBDT:
                     model = _ConstantProbability(float(binary.mean()))
                 else:
                     model = lgb.LGBMClassifier(objective="binary", **self._lgbm_kwargs())
-                    model.fit(X[valid], binary, sample_weight=sample_weight[valid], **fit_kwargs)
+                    model.fit(X[valid], binary, sample_weight=sample_weight[valid])
                 fitted = model.predict_proba(X[valid])[:, 1]
             else:
                 model = lgb.LGBMRegressor(objective="tweedie" if family == "lognormal" else "poisson", tweedie_variance_power=1.35, **self._lgbm_kwargs())
-                model.fit(X[valid], y, sample_weight=sample_weight[valid], **fit_kwargs)
+                model.fit(X[valid], y, sample_weight=sample_weight[valid])
                 fitted = np.clip(model.predict(X[valid]), 0, None)
             self.dispersion[target] = max(float(np.mean((y - fitted) ** 2)), float(np.mean(fitted)), 1e-4)
             self.models[target] = model
@@ -84,7 +79,7 @@ class UniversalGBDT:
         return means, {}
 
     def predict_frame(self, frame: pd.DataFrame) -> list[RawPrediction]:
-        means, variances = self._means(self._matrix(frame)[0], frame)
+        means, variances = self._means(self._matrix(frame), frame)
         output = []
         for i, row in enumerate(frame.itertuples(index=False)):
             events = {}

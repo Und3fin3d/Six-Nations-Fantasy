@@ -2,11 +2,10 @@ from __future__ import annotations
 
 import os
 import pickle
-from dataclasses import dataclass, field
-from typing import Mapping
+from dataclasses import dataclass
 
 from ..contracts import EventDistribution, RawPrediction
-from ..schema import EVENTS, distribution_family
+from ..schema import distribution_family
 
 
 def _variance(distribution: EventDistribution) -> float:
@@ -32,7 +31,7 @@ def _blend_distribution(left: EventDistribution, right: EventDistribution, weigh
     return EventDistribution(family, max(mean, 0.0), dispersion)
 
 
-def _blend(empirical: list[RawPrediction], v4: list[RawPrediction], weight, metadata: dict) -> list[RawPrediction]:
+def _blend(empirical: list[RawPrediction], v4: list[RawPrediction], weight: float, metadata: dict) -> list[RawPrediction]:
     return [
         RawPrediction(
             fixture_id=v.fixture_id,
@@ -42,10 +41,10 @@ def _blend(empirical: list[RawPrediction], v4: list[RawPrediction], weight, meta
             opponent=v.opponent,
             position=v.position,
             is_forward=v.is_forward,
-            minutes=_blend_distribution(v.minutes, m.minutes, weight("minutes"), target="minutes"),
+            minutes=_blend_distribution(v.minutes, m.minutes, weight, target="minutes"),
             metadata=dict(metadata),
             events={
-                e: _blend_distribution(v.events[e], m.events[e], weight(e), target=e) if e in v.events and e in m.events else v.events.get(e, m.events.get(e))
+                e: _blend_distribution(v.events[e], m.events[e], weight, target=e) if e in v.events and e in m.events else v.events.get(e, m.events.get(e))
                 for e in sorted(set(m.events) | set(v.events))
             },
         )
@@ -61,7 +60,7 @@ class EventBlend50:
 
     def predict_frame(self, frame) -> list[RawPrediction]:
         return _blend(
-            self.empirical.predict_frame(frame), self.v4.predict_frame(frame), lambda event: self.weight_v4,
+            self.empirical.predict_frame(frame), self.v4.predict_frame(frame), self.weight_v4,
             {"model": "p3_event_50", "weight_v4": self.weight_v4},
         )
 
@@ -74,25 +73,3 @@ class EventBlend50:
     def load(cls, path: str) -> "EventBlend50":
         with open(path, "rb") as handle:
             return pickle.load(handle)
-
-
-@dataclass
-class EventWeightedBlend(EventBlend50):
-    event_weights_v4: Mapping[str, float] = field(default_factory=dict)
-
-    def __post_init__(self) -> None:
-        self.event_weights_v4 = dict(self.event_weights_v4)
-        invalid = {name: value for name, value in {"default": self.weight_v4, **self.event_weights_v4}.items() if not 0.0 <= value <= 1.0}
-        if invalid:
-            raise ValueError(f"blend weights must be in [0, 1]: {invalid}")
-        unknown = set(self.event_weights_v4) - {"minutes", *EVENTS}
-        if unknown:
-            raise ValueError(f"unknown event blend weights: {sorted(unknown)}")
-
-    def predict_frame(self, frame) -> list[RawPrediction]:
-        metadata = {"model": "p3_event_weighted", "weight_v4": self.weight_v4} | (
-            {"event_weights_v4": dict(sorted(self.event_weights_v4.items()))} if self.event_weights_v4 else {}
-        )
-        return _blend(
-            self.empirical.predict_frame(frame), self.v4.predict_frame(frame), lambda event: self.event_weights_v4.get(event, self.weight_v4), metadata
-        )

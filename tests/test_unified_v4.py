@@ -8,7 +8,7 @@ from model.unified.features import build_pit_features
 from model.unified.gbdt import UniversalGBDT
 from model.unified.schema import EVENTS
 from model.unified.v4.features import (
-    EB_EVENTS, add_v4_base_stats, apply_eb_features, fit_shrinkage_k,
+    add_v4_base_stats, fit_shrinkage_k,
 )
 from model.unified.v4.gbdt import V4GBDT
 
@@ -67,20 +67,6 @@ def test_flags_off_is_bit_identical_to_v1_baseline():
         for event in a.events:
             assert a.events[event].mean == b.events[event].mean
             assert a.events[event].dispersion == b.events[event].dispersion
-
-
-def test_eb_rate_collapses_to_prior_and_to_player_rate():
-    store = _store()
-    k = {event: 200.0 for event in EB_EVENTS}
-    out = apply_eb_features(store, k)
-    zero_history = out[out["cum_min__tries"].eq(0.0)]
-    assert len(zero_history) > 0
-    assert np.allclose(zero_history["eb_rate__tries"],
-                       zero_history["prior_per80__tries"])
-    tiny = apply_eb_features(store, {event: 1e-9 for event in EB_EVENTS})
-    rich = tiny[tiny["cum_min__tries"].gt(0)]
-    player_rate = 80.0 * rich["cum_count__tries"] / rich["cum_min__tries"]
-    assert np.allclose(rich["eb_rate__tries"], player_rate)
 
 
 def test_v4_features_are_point_in_time():
@@ -168,47 +154,15 @@ def test_event_distribution_contract_unchanged():
     assert samples.min() >= 0
 
 
-def test_native_categories_reach_count_binary_and_minutes_heads():
+def test_unknown_values_and_artifact_roundtrip(tmp_path):
     frame = _store(240)
-    model = V4GBDT(events=("tries", "potm"), weighting="natural",
-                   native_categories=True, n_estimators=8).fit(frame)
-    expected = list(range(len(model.encoder.categories)))
-    for target in ("minutes", "tries", "potm"):
-        assert model.models[target].booster_.params["categorical_column"] == expected
-    assert "competition" not in model.encoder.categories
-    assert "competition_id" not in model.encoder.categories
-
-
-def test_native_categories_reach_both_hurdle_heads():
-    frame = _store(240)
-    model = V4GBDT(events=("tries",), weighting="natural", native_categories=True,
-                   hurdle_events=("tries",), n_estimators=8).fit(frame)
-    expected = list(range(len(model.encoder.categories)))
-    classifier, positive, _ = model.hurdle_models["tries"]
-    assert classifier.booster_.params["categorical_column"] == expected
-    assert positive.booster_.params["categorical_column"] == expected
-
-
-def test_native_categories_disabled_keeps_historical_default():
-    frame = _store(120)
-    implicit = V4GBDT(events=("tries",), weighting="natural", n_estimators=8).fit(frame)
-    explicit = V4GBDT(events=("tries",), weighting="natural", n_estimators=8,
-                      native_categories=False).fit(frame)
-    assert "categorical_column" not in implicit.models["tries"].booster_.params
-    assert [p.to_dict() for p in implicit.predict_frame(frame.tail(3))] == [
-        p.to_dict() for p in explicit.predict_frame(frame.tail(3))]
-
-
-def test_native_categories_unknown_values_and_artifact_roundtrip(tmp_path):
-    frame = _store(240)
-    model = V4GBDT(events=("tries",), weighting="natural", native_categories=True,
+    model = V4GBDT(events=("tries",), weighting="natural",
                    pool_player_id=True, player_effects=True, n_estimators=8).fit(frame)
     candidates = frame.tail(3).assign(team="unseen-team", opponent="unseen-opponent",
                                     player_id="unseen-player")
     before = model.predict_frame(candidates)
     assert all(np.isfinite(p.events["tries"].mean) for p in before)
-    path = tmp_path / "native.pkl"
+    path = tmp_path / "v4.pkl"
     model.save(path)
     loaded = V4GBDT.load(path)
-    assert loaded.native_categories is True
     assert [p.to_dict() for p in loaded.predict_frame(candidates)] == [p.to_dict() for p in before]

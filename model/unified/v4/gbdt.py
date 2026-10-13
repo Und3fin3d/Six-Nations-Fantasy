@@ -38,7 +38,7 @@ class V4GBDT(UniversalGBDT):
         import lightgbm as lgb
 
         super().fit(frame)
-        X, fit_kwargs = self._design(frame)
+        X = self._matrix(frame)
         for event in self.hurdle_events:
             valid = frame[f"available__{event}"].fillna(False).to_numpy(bool) & frame[event].notna().to_numpy()
             if valid.sum() < 200:
@@ -48,9 +48,9 @@ class V4GBDT(UniversalGBDT):
             if positive.sum() < 50 or positive.all():
                 continue
             clf = lgb.LGBMClassifier(objective="binary", **self._lgbm_kwargs())
-            clf.fit(X[valid], positive.astype(int), **fit_kwargs)
+            clf.fit(X[valid], positive.astype(int))
             reg = lgb.LGBMRegressor(objective="poisson", **self._lgbm_kwargs())
-            reg.fit(X[valid][positive], y[positive], **fit_kwargs)
+            reg.fit(X[valid][positive], y[positive])
             self.hurdle_models[event] = (clf, reg, float(np.mean((y[positive] - np.clip(reg.predict(X[valid][positive]), 1e-6, None)) ** 2)))
         if self.player_effects:
             minutes = pd.to_numeric(frame["minutes"], errors="coerce")

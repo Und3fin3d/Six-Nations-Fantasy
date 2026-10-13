@@ -87,22 +87,6 @@ def build_folds(store: pd.DataFrame, min_fixtures: int = MIN_FIXTURES) -> list[H
     return sorted(folds, key=lambda fold: (fold.cutoff_timestamp, fold.label))
 
 
-def rolling_folds(store: pd.DataFrame, folds: list[HistoricalFold] | None = None) -> list[HistoricalFold]:
-    output = []
-    for fold in build_folds(store) if folds is None else folds:
-        evaluation = evaluation_frame(store, fold)
-        for slate_id, rows in evaluation.groupby("slate_id", sort=False):
-            times = pd.to_datetime(rows["match_at"], utc=True)
-            fixture_ids = tuple(rows["fixture_id"].astype(str).drop_duplicates())
-            output.append(
-                HistoricalFold(
-                    label=str(slate_id), tournament=fold.tournament, calendar_year=fold.calendar_year, cutoff=times.min().isoformat(), fixture_ids=fixture_ids,
-                    slate_ids=tuple(str(slate_id) for _ in fixture_ids), hemisphere=fold.hemisphere,
-                )
-            )
-    return sorted(output, key=lambda fold: (fold.cutoff_timestamp, fold.label))
-
-
 def strict_training_frame(store: pd.DataFrame, fold: HistoricalFold) -> pd.DataFrame:
     match_at = pd.to_datetime(store["match_at"], utc=True)
     fixture = store["fixture_id"].astype(str)

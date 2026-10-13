@@ -63,4 +63,4 @@ def test_ncr_dry_run_keeps_predictions_non_mutating_and_reports_p3_shadow():
 
     assert f"model interpreter: {sys.executable}" in result.stdout
     assert "freeze the current GW once" in result.stdout
-    assert "dry run — nothing was executed" in result.stdout
+    assert "dry run: nothing was executed" in result.stdout

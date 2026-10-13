@@ -4,13 +4,12 @@ import argparse
 import json
 import os
 import re
-from pathlib import Path
 
 import pandas as pd
 
 import model.ncr.project as NP
 
-DATA = Path("data/ncr")
+DATA = "data/ncr"
 
 SCORE_WEIGHTS = {**NP.ATT, **NP.DEF, **NP.DISC}
 RESULT_START = "<!-- GW_RESULT_START -->"

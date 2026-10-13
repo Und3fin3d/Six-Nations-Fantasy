@@ -7,7 +7,7 @@ def test_gw2_official_feed_scores_all_three_saved_teams():
     details = {}
     for label, template in scorer.TEAM_FILES.items():
         details[label], totals[label] = scorer.score_squad_official(
-            scorer.DATA / template.format(gw=2), actuals
+            f"{scorer.DATA}/{template.format(gw=2)}", actuals
         )
 
     assert totals == {

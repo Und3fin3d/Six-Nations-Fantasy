@@ -206,6 +206,19 @@
     },
     {
       "competition": "Top 14",
+      "match": "Stade Francais vs Montpellier",
+      "date": "10 Oct 2026",
+      "opposition": "Stade Francais",
+      "win": false,
+      "draw": false,
+      "mins": 80,
+      "tries": 0,
+      "yellow_cards": 0,
+      "red_cards": 0,
+      "conversions": 0
+    },
+    {
+      "competition": "Top 14",
       "match": "Montpellier vs Toulon",
       "date": "4 Oct 2026",
       "opposition": "Toulon",

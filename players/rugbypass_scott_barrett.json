@@ -274,6 +274,19 @@
   "match_log": [
     {
       "competition": "Internationals",
+      "match": "New Zealand vs Australia",
+      "date": "10 Oct 2026",
+      "opposition": "Australia",
+      "win": true,
+      "draw": false,
+      "mins": 71,
+      "tries": 0,
+      "yellow_cards": 0,
+      "red_cards": 0,
+      "conversions": 0
+    },
+    {
+      "competition": "Internationals",
       "match": "Wales vs New Zealand",
       "date": "22 Nov 2025",
       "opposition": "Wales",
@@ -2161,7 +2174,7 @@
       "competition": "Super Rugby Pacific",
       "match": "Crusaders vs Force",
       "date": "24 Mar 2017",
-      "opposition": "Force",
+      "opposition": "",
       "win": true,
       "draw": false,
       "mins": 80,
@@ -2356,7 +2369,7 @@
       "competition": "Super Rugby Pacific",
       "match": "Force vs Crusaders",
       "date": "8 Apr 2016",
-      "opposition": "Force",
+      "opposition": "",
       "win": true,
       "draw": false,
       "mins": 28,

@@ -325,6 +325,19 @@
       "conversions": 0
     },
     {
+      "competition": "Internationals",
+      "match": "New Zealand vs Australia",
+      "date": "10 Oct 2026",
+      "opposition": "Australia",
+      "win": true,
+      "draw": false,
+      "mins": 26,
+      "tries": 0,
+      "yellow_cards": 0,
+      "red_cards": 0,
+      "conversions": 0
+    },
+    {
       "competition": "Super Rugby Pacific",
       "match": "Hurricanes vs Blues",
       "date": "13 Jun 2026",

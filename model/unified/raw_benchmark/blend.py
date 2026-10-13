@@ -32,6 +32,9 @@ def _blend_distribution(left: EventDistribution, right: EventDistribution, weigh
 
 
 def _blend(empirical: list[RawPrediction], v4: list[RawPrediction], weight: float, metadata: dict) -> list[RawPrediction]:
+    keys = lambda predictions: [(p.fixture_id, p.player_id, p.team) for p in predictions]
+    if keys(empirical) != keys(v4):
+        raise ValueError("event blend player-match keys differ")
     return [
         RawPrediction(
             fixture_id=v.fixture_id,

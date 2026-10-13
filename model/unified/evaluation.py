@@ -1,10 +1,13 @@
 from __future__ import annotations
 
+import numpy as np
 import pandas as pd
 
 
 def tie_aware_top_n(predicted: pd.Series, actual: pd.Series, n: int) -> tuple[float, float]:
     n = min(n, len(actual))
+    if n <= 0:
+        return np.nan, np.nan
     selected = set(predicted.nlargest(n).index)
     cutoff = actual.nlargest(n).iloc[-1]
     above = set(actual[actual > cutoff].index)

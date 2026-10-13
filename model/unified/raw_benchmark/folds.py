@@ -5,6 +5,7 @@ import os
 from dataclasses import asdict, dataclass
 
 import pandas as pd
+from model.history import past_matches
 
 from ..schema import EVENTS
 from .config import EVALUATION_START, MIN_FIXTURES
@@ -88,9 +89,8 @@ def build_folds(store: pd.DataFrame, min_fixtures: int = MIN_FIXTURES) -> list[H
 
 
 def strict_training_frame(store: pd.DataFrame, fold: HistoricalFold) -> pd.DataFrame:
-    match_at = pd.to_datetime(store["match_at"], utc=True)
-    fixture = store["fixture_id"].astype(str)
-    return store[match_at.lt(fold.cutoff_timestamp) & ~fixture.isin(fold.fixture_ids)].copy()
+    history = past_matches(store, fold.cutoff_timestamp)
+    return history[~history["fixture_id"].astype(str).isin(fold.fixture_ids)].copy()
 
 
 def evaluation_frame(store: pd.DataFrame, fold: HistoricalFold) -> pd.DataFrame:

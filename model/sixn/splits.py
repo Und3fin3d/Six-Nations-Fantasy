@@ -4,19 +4,22 @@ from collections.abc import Iterator
 
 import numpy as np
 import pandas as pd
-from sklearn.model_selection import GroupKFold
 
 
 def component_train(df: pd.DataFrame, test_season: int) -> np.ndarray:
     return (df["season"] < test_season).to_numpy()
 
 
-def group_kfold_indices(df_train: pd.DataFrame, n_splits: int = 5) -> Iterator[tuple[np.ndarray, np.ndarray]]:
-    groups = df_train["fixture_id"].to_numpy()
-    X = np.zeros((len(df_train), 1))
-    gkf = GroupKFold(n_splits=n_splits)
-    for tr_idx, va_idx in gkf.split(X, groups=groups, y=None):
-        yield tr_idx, va_idx
+def chronological_indices(df_train: pd.DataFrame, n_splits: int = 5) -> Iterator[tuple[np.ndarray, np.ndarray]]:
+    dates = pd.to_datetime(df_train["date"], errors="raise")
+    if dates.isna().any():
+        raise ValueError("chronological folds require complete match dates")
+    unique_dates = np.sort(dates.unique())
+    if len(unique_dates) < 2:
+        raise ValueError("chronological folds require at least two match dates")
+    blocks = np.array_split(unique_dates, min(n_splits + 1, len(unique_dates)))
+    for block in blocks[1:]:
+        yield np.flatnonzero(dates.lt(block[0])), np.flatnonzero(dates.isin(block))
 
 
 def latent_calib_rows(df: pd.DataFrame, asof_date) -> np.ndarray:

@@ -4,6 +4,7 @@ import numpy as np
 import pandas as pd
 
 from pipeline.sixn.official_labels import match_official
+from model.unified.scoring import SixNationsScorer
 
 SIX_NATIONS = 1266
 TARGET_SEASONS = [2023, 2024, 2025, 2026]
@@ -17,31 +18,18 @@ COMPONENTS = [
 ]
 
 
-def score_components(c: dict, is_forward: bool) -> float:
-    try_val = 15 if is_forward else 10
-    return float(
-        try_val * c["tries"]
-        + 1.0 * c["tackles"]
-        + c["metres"] // 10
-        + 4 * c["try_assists"]
-        + 2 * c["conversion_goals"]
-        + 3 * c["penalty_goals"]
-        + 4 * c["drop_goals_converted"]
-        + 2 * c["defenders_beaten"]
-        + 2 * c["offload"]
-        + 5 * c["tackle_turnover"]
-        - 1 * c["penalties_conceded"]
-        - 5 * c["yellow_cards"]
-        - 8 * c["red_cards"]
-    )
+def score_components(c: dict, is_forward: bool, season: int = 2025) -> float:
+    events = {name: np.asarray([value], dtype=float) for name, value in c.items()}
+    return float(SixNationsScorer(season).score_samples(events, is_forward=is_forward)[0])
 
 
 def build() -> tuple[pd.DataFrame, dict]:
     ap = pd.read_csv("data/api_player_match.csv")
     six = ap[(ap.comp_id == SIX_NATIONS) & (ap.season.isin(TARGET_SEASONS))].copy()
 
-    feat = pd.read_csv("data/model_player_match.csv")[["fixture_id", "player_id", "canonical_pos", "is_forward"]]
-    six = six.merge(feat, on=["fixture_id", "player_id"], how="left", suffixes=("", "_feat"))
+    keys = ["fixture_id", "player_id", "team"]
+    feat = pd.read_csv("data/model_player_match.csv")[keys + ["canonical_pos", "is_forward"]]
+    six = six.merge(feat, on=keys, how="left", suffixes=("", "_feat"), validate="one_to_one")
     six["canonical_pos"] = six["canonical_pos_feat"].fillna(six["canonical_pos"])
     six["is_forward"] = six["is_forward_feat"].fillna(six["is_forward"]).astype(bool)
     six["is_jumper"] = six["canonical_pos"].isin(JUMPER_GROUPS)
@@ -51,7 +39,7 @@ def build() -> tuple[pd.DataFrame, dict]:
     six["minutes"] = pd.to_numeric(six["minutes"], errors="coerce").fillna(0)
     six["min_share"] = (six["minutes"] / 80.0).clip(0, 1)
 
-    six["recon_pts"] = [score_components({c: getattr(r, c) for c in COMPONENTS}, bool(r.is_forward)) for r in six.itertuples(index=False)]
+    six["recon_pts"] = [score_components({c: getattr(r, c) for c in COMPONENTS}, bool(r.is_forward), int(r.season)) for r in six.itertuples(index=False)]
 
     tm = pd.read_csv("data/api_team_match.csv")[["fixture_id", "team", "scrums_won", "lineout_won_steal"]]
     for c in ["scrums_won", "lineout_won_steal"]:

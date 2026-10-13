@@ -36,13 +36,15 @@ def _team_value(g: pd.DataFrame, score_col: str) -> float:
     return (
         float(xv["official_pts"].sum())
         + float(xv.loc[xv[score_col].idxmax(), "official_pts"])
-        + SUPERSUB_MULTIPLIER * (float(pool.loc[pool[score_col].idxmax(), "official_pts"]) if not pool.empty else 0.0)
+        + (_sub_value(pool.loc[pool[score_col].idxmax()]) if not pool.empty else 0.0)
     )
 
 
-def evaluate(pred: pd.DataFrame, score_col: str = "target_pts_hat", *, points: bool = True) -> dict:
-    lab = _labelled(pred)
-    rounds = [g for _, g in lab.groupby("round")]
+def _sub_value(player: pd.Series) -> float:
+    return float(player["official_pts"]) * (0.5 if bool(player["started"]) else SUPERSUB_MULTIPLIER)
+
+
+def _round_values(rounds: list[pd.DataFrame], score_col: str) -> tuple[list[float], list[float]]:
     xv = [
         float(_pick_xv(g, score_col)["official_pts"].sum()) / optimal if (optimal := float(_pick_xv(g, "official_pts")["official_pts"].sum())) > 0 else np.nan
         for g in rounds
@@ -57,9 +59,25 @@ def evaluate(pred: pd.DataFrame, score_col: str = "target_pts_hat", *, points: b
         optimal = (
             float(opt_xv["official_pts"].sum())
             + (float(opt_xv["official_pts"].max()) if not opt_xv.empty else 0.0)
-            + SUPERSUB_MULTIPLIER * (float(opt_pool["official_pts"].max()) if not opt_pool.empty else 0.0)
+            + (max(_sub_value(player) for _, player in opt_pool.iterrows()) if not opt_pool.empty else 0.0)
         )
         team.append(_team_value(g, score_col) / optimal if optimal > 0 else np.nan)
+    return xv, team
+
+
+def _position_spearman(lab: pd.DataFrame, score_col: str) -> float:
+    num = den = 0.0
+    for _, g in lab.dropna(subset=[score_col]).groupby("canonical_pos"):
+        if g[score_col].nunique() >= 3 and len(g) >= 5 and np.isfinite(rho := spearmanr(g[score_col], g["official_pts"]).correlation):
+            num, den = num + rho * len(g), den + len(g)
+    return float(num / den) if den else np.nan
+
+
+def evaluate(pred: pd.DataFrame, score_col: str = "target_pts_hat", *, points: bool = True) -> dict:
+    lab = _labelled(pred).dropna(subset=[score_col, "official_pts"])
+    groups = ["season", "round"] if "season" in lab else ["round"]
+    rounds = [g for _, g in lab.groupby(groups)]
+    xv, team = _round_values(rounds, score_col)
     hits = {n: 0 for n in (1, 3, 5)}
     for g in rounds:
         cap, act = g.loc[g[score_col].idxmax()], g["official_pts"].sort_values(ascending=False).to_numpy()
@@ -77,10 +95,6 @@ def evaluate(pred: pd.DataFrame, score_col: str = "target_pts_hat", *, points: b
         if rounds
         else np.nan
     )
-    num = den = 0.0
-    for _, g in lab.dropna(subset=[score_col]).groupby("canonical_pos"):
-        if g[score_col].nunique() >= 3 and len(g) >= 5 and np.isfinite(rho := spearmanr(g[score_col], g["official_pts"]).correlation):
-            num, den = num + rho * len(g), den + len(g)
     labelled = lab.dropna(subset=[score_col])
     return {
         "value_team": float(np.nanmean(team)),
@@ -88,7 +102,7 @@ def evaluate(pred: pd.DataFrame, score_col: str = "target_pts_hat", *, points: b
         **{f"capt_top{n}": hits[n] / len(rounds) if rounds else np.nan for n in hits},
         "top15": overlap(15),
         "top30": overlap(30),
-        "spearman_pos": float(num / den) if den else np.nan,
+        "spearman_pos": _position_spearman(lab, score_col),
         "mae": float((labelled["official_pts"] - labelled[score_col]).abs().mean()) if points else np.nan,
         "bench_mae": np.nan,
     }
@@ -125,9 +139,9 @@ def direct_points_frame(df: pd.DataFrame, test_season: int, mode: str) -> pd.Dat
         yhat.loc[oof.index] = oof.to_numpy()
     return pd.DataFrame(
         {
-            "round": sub["round"].to_numpy(), "fixture_id": sub["fixture_id"].to_numpy(), "player_id": sub["player_id"].to_numpy(),
+            "season": sub["season"].to_numpy(), "round": sub["round"].to_numpy(), "fixture_id": sub["fixture_id"].to_numpy(), "player_id": sub["player_id"].to_numpy(), "team": sub["team"].to_numpy(),
             "canonical_pos": sub["canonical_pos"].to_numpy(), "is_forward": sub["is_forward"].to_numpy(), "official_pts": sub["official_pts"].to_numpy(),
-            "has_label": sub["has_label"].to_numpy(), "is_modern": sub["is_modern"].to_numpy(), "target_pts_hat": yhat.to_numpy(),
+            "has_label": sub["has_label"].to_numpy(), "is_modern": sub["is_modern"].to_numpy(), "started": sub["started"].to_numpy(), "target_pts_hat": yhat.to_numpy(),
         },
         index=sub.index,
     )

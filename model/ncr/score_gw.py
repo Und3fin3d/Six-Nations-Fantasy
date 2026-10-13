@@ -8,6 +8,7 @@ import re
 import pandas as pd
 
 import model.ncr.project as NP
+from model.unified.scoring import ncr_multiplier
 
 DATA = "data/ncr"
 
@@ -23,6 +24,9 @@ def load_official_actuals(gw: int) -> dict[int, dict]:
     payload_gws = {int(float(p["gameday_id"])) for p in players if p.get("gameday_id") not in (None, "")}
     if payload_gws != {int(gw)}:
         raise ValueError(f"players_gw{gw}.json contains gameday_id {sorted(payload_gws)}, expected GW{gw}")
+    points_gws = {int(float(p["cur_gameday_id"])) for p in players if p.get("cur_gameday_id") not in (None, "")}
+    if points_gws and points_gws != {int(gw)}:
+        raise ValueError(f"players_gw{gw}.json contains points for GW{sorted(points_gws)}, expected GW{gw}")
     return {
         int(float(p["id"])): {
             "points": float(p.get("cur_gd_points") or 0), "status": p.get("player_status") or "",
@@ -44,15 +48,14 @@ def _row(player, points: float, multiplier: float, role: str, potm: bool) -> dic
 
 
 def score_squad_official(path: str, actuals: dict[int, dict]) -> tuple[pd.DataFrame, float]:
-    roles = {"B": (3.0, "Super sub (bench)"), "P": (0.5, "Super sub (started)")}
+    roles = {"B": "Super sub (bench)", "P": "Super sub (started)"}
     rows = []
     for player in pd.read_csv(path).itertuples(index=False):
         if int(player.id) not in actuals:
             raise ValueError(f"No official GW points row for {player.name} ({int(player.id)})")
         actual = actuals[int(player.id)]
-        multiplier, role = (
-            (2.0, "Captain") if bool(player.is_capt) else roles.get(actual["status"], (0.0, "Super sub (did not play)")) if bool(player.is_sub) else (1.0, "")
-        )
+        multiplier = ncr_multiplier(actual["status"], is_capt=bool(player.is_capt), is_sub=bool(player.is_sub))
+        role = "Captain" if bool(player.is_capt) else roles.get(actual["status"], "Super sub (did not play)") if bool(player.is_sub) else ""
         rows.append(_row(player, float(actual["points"]), multiplier, role, False))
     return _result(rows)
 

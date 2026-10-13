@@ -9,7 +9,7 @@ import pandas as pd
 from model.sixn import baselines as B
 from model.sixn.baselines import MIN_MINUTES, SCORED, _rate_target, predict_rates
 from model.sixn.data import feature_view
-from model.sixn.splits import group_kfold_indices
+from model.sixn.splits import chronological_indices
 
 LGBM_MARGIN = 0.02
 BLEND_WEIGHT = 0.5
@@ -69,7 +69,7 @@ def _oof_candidate_mae(df: pd.DataFrame, train_mask: np.ndarray, mode: str) -> d
     def add(comp, engine, y_true, y_pred):
         err[comp].setdefault(engine, []).append(np.abs(y_true - y_pred))
 
-    for tr_local, va_local in group_kfold_indices(dft, 5):
+    for tr_local, va_local in chronological_indices(dft, 5):
         tr_idx, va_idx = train_pos[tr_local], train_pos[va_local]
         vu = va_idx[(df.iloc[va_idx]["minutes"] >= MIN_MINUTES).to_numpy()]
         frames = {e: predict_rates(df, tr_idx, vu, mode, e) for e in ("naive", "ridge", "glm")}
@@ -78,7 +78,7 @@ def _oof_candidate_mae(df: pd.DataFrame, train_mask: np.ndarray, mode: str) -> d
             for e in ("naive", "ridge", "glm"):
                 add(comp, e, ytrue, frames[e][comp].to_numpy(float))
             if comp in LGBM_COMPS:
-                yl = _lgbm_predict(_fit_lgbm_component(df, tr_idx, va_idx, comp, mode), df, vu, mode)
+                yl = _lgbm_predict(_fit_lgbm_component(df, tr_idx, None, comp, mode), df, vu, mode)
                 add(comp, "lgbm", ytrue, yl)
                 add(comp, "blend", ytrue, BLEND_WEIGHT * yl + (1.0 - BLEND_WEIGHT) * frames["glm"][comp].to_numpy(float))
     return {comp: {e: float(np.concatenate(v).mean()) for e, v in err[comp].items()} for comp in SCORED}

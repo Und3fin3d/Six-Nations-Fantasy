@@ -10,6 +10,10 @@ from .contracts import RawPrediction
 FRONT_ROW = {"Prop", "Hooker"}
 
 
+def ncr_multiplier(status: str, *, is_capt: bool, is_sub: bool) -> float:
+    return 2.0 if is_capt else {"B": 3.0, "P": 0.5}.get(status, 0.0) if is_sub else 1.0
+
+
 @dataclass(frozen=True)
 class ScoreSummary:
     mean: float

@@ -9,7 +9,7 @@ from sklearn.preprocessing import StandardScaler
 
 from pipeline.sixn.build_targets import score_components
 from model.sixn.data import CATEGORICAL_COLS, feature_view
-from model.sixn.splits import group_kfold_indices
+from model.sixn.splits import chronological_indices
 
 SCORED = [
     "tries", "tackles", "metres", "try_assists", "conversion_goals", "penalty_goals", "drop_goals_converted", "defenders_beaten", "offload", "tackle_turnover",
@@ -77,8 +77,8 @@ def rates_to_components(rates: pd.DataFrame, minutes_hat: np.ndarray) -> pd.Data
     return rates.clip(lower=0.0).multiply(minutes_hat / 80.0, axis=0)
 
 
-def score_recon(comp: pd.DataFrame, is_forward: np.ndarray) -> np.ndarray:
-    return np.array([score_components(c, bool(f)) for c, f in zip(comp[SCORED].to_dict("records"), is_forward)], dtype=float)
+def score_recon(comp: pd.DataFrame, is_forward: np.ndarray, season: int = 2025) -> np.ndarray:
+    return np.array([score_components(c, bool(f), season) for c, f in zip(comp[SCORED].to_dict("records"), is_forward)], dtype=float)
 
 
 def predict_rates(df: pd.DataFrame, train_idx: np.ndarray, test_idx: np.ndarray, mode: str, engine: str) -> pd.DataFrame:
@@ -131,7 +131,7 @@ def direct_points_oof(df: pd.DataFrame, season: int, mode: str) -> pd.Series:
     sub = df[(df["season"] == season) & df["is_modern"] & df["has_label"]].copy()
     pred = pd.Series(np.nan, index=sub.index, dtype=float)
     sub_reset = sub.reset_index(drop=True)
-    for tr, va in group_kfold_indices(sub_reset, 5):
+    for tr, va in chronological_indices(sub_reset, 5):
         Xtr, Xva, _ = build_matrix(sub_reset, tr, va, mode)
         pred.iloc[va] = RidgeCV(alphas=(1.0, 10.0, 100.0)).fit(Xtr, sub_reset.iloc[tr]["official_pts"].to_numpy(float)).predict(Xva)
     return pred

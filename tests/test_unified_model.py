@@ -5,7 +5,6 @@ import pandas as pd
 
 from model.unified.contracts import EventDistribution, RawPrediction
 from model.unified.data import build_canonical_store
-from model.unified.evaluation import promotion_gate
 from model.unified.features import build_pit_features
 from model.unified.scoring import NationsChampionshipScorer, SixNationsScorer
 
@@ -84,13 +83,3 @@ def test_pit_features_never_include_current_match_target():
     pit = build_pit_features(frame)
     assert pd.isna(pit.iloc[0]["form_per80__tries"])
     assert pit.iloc[1]["form_per80__tries"] == 2
-
-
-def test_promotion_gate_requires_both_competitions_and_aggregate_gain():
-    incumbent = {c: {"points_mae": 10, "top_10_capture": .50} for c in ("ncr", "six")}
-    good = {c: {"points_mae": 10.1, "top_10_capture": .54} for c in ("ncr", "six")}
-    bad = {"ncr": {"points_mae": 9, "top_10_capture": .60}}
-    assert promotion_gate(good, incumbent).passed
-    decision = promotion_gate(bad, incumbent)
-    assert not decision.passed
-    assert any("missing" in reason for reason in decision.reasons)

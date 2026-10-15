@@ -1,0 +1,59 @@
+name: Regenerate model data
+
+on:
+  push:
+    branches: [main]
+    paths:
+      - "model/**"
+      - "pipeline/**"
+      - "requirements-*.txt"
+      - ".github/workflows/regenerate-model-data.yml"
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+concurrency:
+  group: regenerate-model-data
+  cancel-in-progress: false
+
+jobs:
+  regenerate:
+    runs-on: ubuntu-latest
+    timeout-minutes: 60
+
+    steps:
+      - uses: actions/checkout@v5
+
+      - uses: actions/setup-python@v6
+        with:
+          python-version: "3.12"
+
+      - name: Install data and model environments
+        run: |
+          python -m venv /tmp/data && /tmp/data/bin/pip install -q -r requirements-refresh.txt
+          python -m venv /tmp/model && /tmp/model/bin/pip install -q -r requirements-model.txt pytest
+
+      - name: Rebuild model stores from cached data
+        env:
+          RUGBY_API_KEY: ""
+        run: |
+          for step in build_crosswalk build_team_form build_features build_targets; do
+            /tmp/data/bin/python -m pipeline.sixn.$step
+          done
+          /tmp/model/bin/python -m model.sixn.run
+
+      - name: Run model tests
+        run: PYTEST_DISABLE_PLUGIN_AUTOLOAD=1 /tmp/model/bin/python -m pytest -q tests --ignore=tests/test_rugbypass_parsers.py
+
+      - name: Commit regenerated data
+        run: |
+          git add -u data
+          if git diff --cached --quiet; then
+            echo "Generated data is current."
+            exit 0
+          fi
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git commit -m "Regenerate model data for ${GITHUB_SHA::8}"
+          git push

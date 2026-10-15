@@ -31,12 +31,11 @@ def _lgbm_objective(comp: str) -> dict:
     return dict(objective="poisson")
 
 
-def _lgbm_frame(df: pd.DataFrame, mode: str) -> pd.DataFrame:
-    return df[feature_view(df, mode)].copy()
+def _lgbm_frame(df: pd.DataFrame, mode: str, teamplay: str = "off") -> pd.DataFrame:
+    return df[feature_view(df, mode, teamplay)].copy()
 
 
-def _fit_lgbm_component(df: pd.DataFrame, tr_idx: np.ndarray, va_idx: np.ndarray | None, comp: str, mode: str):
-    X = _lgbm_frame(df, mode)
+def _fit_lgbm_component(df: pd.DataFrame, X: pd.DataFrame, tr_idx: np.ndarray, va_idx: np.ndarray | None, comp: str):
     rows = lambda idx: idx[(df.iloc[idx]["minutes"] >= MIN_MINUTES).to_numpy()]
     target = lambda idx: np.clip(np.nan_to_num(_rate_target(df.iloc[idx], comp), nan=0.0, posinf=0.0, neginf=0.0), 0.0, None)
     use = rows(tr_idx)
@@ -52,8 +51,8 @@ def _fit_lgbm_component(df: pd.DataFrame, tr_idx: np.ndarray, va_idx: np.ndarray
     return model
 
 
-def _lgbm_predict(model, df: pd.DataFrame, idx: np.ndarray, mode: str) -> np.ndarray:
-    return np.clip(model.predict(_lgbm_frame(df, mode).iloc[idx]), 0.0, None)
+def _lgbm_predict(model, X: pd.DataFrame, idx: np.ndarray) -> np.ndarray:
+    return np.clip(model.predict(X.iloc[idx]), 0.0, None)
 
 
 def _kick_gate(df: pd.DataFrame, idx: np.ndarray) -> np.ndarray:
@@ -65,6 +64,7 @@ def _oof_candidate_mae(df: pd.DataFrame, train_mask: np.ndarray, mode: str) -> d
     dft = df.iloc[train_pos].reset_index(drop=True)
 
     err: dict[str, dict[str, list]] = {c: {} for c in SCORED}
+    X = _lgbm_frame(df, mode)
 
     def add(comp, engine, y_true, y_pred):
         err[comp].setdefault(engine, []).append(np.abs(y_true - y_pred))
@@ -78,7 +78,7 @@ def _oof_candidate_mae(df: pd.DataFrame, train_mask: np.ndarray, mode: str) -> d
             for e in ("naive", "ridge", "glm"):
                 add(comp, e, ytrue, frames[e][comp].to_numpy(float))
             if comp in LGBM_COMPS:
-                yl = _lgbm_predict(_fit_lgbm_component(df, tr_idx, None, comp, mode), df, vu, mode)
+                yl = _lgbm_predict(_fit_lgbm_component(df, X, tr_idx, None, comp), X, vu)
                 add(comp, "lgbm", ytrue, yl)
                 add(comp, "blend", ytrue, BLEND_WEIGHT * yl + (1.0 - BLEND_WEIGHT) * frames["glm"][comp].to_numpy(float))
     return {comp: {e: float(np.concatenate(v).mean()) for e, v in err[comp].items()} for comp in SCORED}
@@ -122,6 +122,7 @@ def predict_rates_registry(df: pd.DataFrame, train_idx: np.ndarray, test_idx: np
     eng = dict(zip(registry["component"], registry["engine"]))
     need_base = {e for e in eng.values() if e in ("naive", "ridge", "glm")} | ({"glm"} if "blend" in eng.values() else set()) | {"naive"}
     base = {e: predict_rates(df, train_idx, test_idx, mode, e) for e in need_base}
+    X = _lgbm_frame(df, mode)
     out = pd.DataFrame(index=df.iloc[test_idx].index, columns=SCORED, dtype=float)
     gate = _kick_gate(df, test_idx)
     for comp in SCORED:
@@ -131,22 +132,23 @@ def predict_rates_registry(df: pd.DataFrame, train_idx: np.ndarray, test_idx: np
         elif e in base:
             out[comp] = base[e][comp].to_numpy(float)
         else:
-            yl = _lgbm_predict(_fit_lgbm_component(df, train_idx, None, comp, mode), df, test_idx, mode)
+            yl = _lgbm_predict(_fit_lgbm_component(df, X, train_idx, None, comp), X, test_idx)
             out[comp] = yl if e == "lgbm" else BLEND_WEIGHT * yl + (1.0 - BLEND_WEIGHT) * base["glm"][comp].to_numpy(float)
         if comp in KICK_COMPS:
             out[comp] = out[comp].to_numpy(float) * gate
     return out.clip(lower=0.0)
 
 
-def predict_rates_lgbm_only(df: pd.DataFrame, train_idx: np.ndarray, test_idx: np.ndarray, mode: str) -> pd.DataFrame:
+def predict_rates_lgbm_only(df: pd.DataFrame, train_idx: np.ndarray, test_idx: np.ndarray, mode: str, teamplay: str = "off") -> pd.DataFrame:
     naive = predict_rates(df, train_idx, test_idx, mode, "naive")
+    X = _lgbm_frame(df, mode, teamplay)
     out = pd.DataFrame(index=df.iloc[test_idx].index, columns=SCORED, dtype=float)
     gate = _kick_gate(df, test_idx)
     for comp in SCORED:
         if comp in ZERO_PRIOR:
             out[comp] = 0.0
         elif comp in LGBM_COMPS:
-            out[comp] = _lgbm_predict(_fit_lgbm_component(df, train_idx, None, comp, mode), df, test_idx, mode)
+            out[comp] = _lgbm_predict(_fit_lgbm_component(df, X, train_idx, None, comp), X, test_idx)
         else:
             out[comp] = naive[comp].to_numpy(float)
         if comp in KICK_COMPS:

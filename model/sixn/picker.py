@@ -8,7 +8,6 @@ import pandas as pd
 import xgboost as xgb
 from sklearn.linear_model import Ridge
 
-from model.sixn import data as MD
 from model.sixn.assemble import assemble_predictions, rank_scores
 from model.sixn.baselines import MIN_MINUTES, SCORED, _rate_target, expected_minutes, predict_rates
 from model.sixn.data import CATEGORICAL_COLS, feature_view
@@ -69,16 +68,6 @@ def _xgb_rates(df: pd.DataFrame, train_idx: np.ndarray, test_idx: np.ndarray, mo
     return out.clip(lower=0.0)
 
 
-def _lgbm_rates(teamplay: str):
-    def predict(df, train_idx, test_idx, mode):
-        MD.TEAMPLAY_MODE = teamplay
-        rates = predict_rates_lgbm_only(df, train_idx, test_idx, mode)
-        MD.TEAMPLAY_MODE = "off"
-        return rates
-
-    return predict
-
-
 def _frontrow_prior(df: pd.DataFrame, test_idx: np.ndarray, pred: pd.DataFrame, season: int) -> np.ndarray:
     out = pred["target_pts_hat"].to_numpy(float).copy()
     base, w = out.copy(), CFG["target_prior_blend"]
@@ -133,7 +122,7 @@ def _bench_minutes(df: pd.DataFrame, train_idx: np.ndarray, test_idx: np.ndarray
 
 
 def _target(df, train_idx, test_idx, season, minutes_hat, xgb_target, bench_minutes, teamplay) -> pd.DataFrame:
-    pred = assemble_predictions(df, train_idx, season, MODE, _lgbm_rates(teamplay), minutes_hat=minutes_hat)
+    pred = assemble_predictions(df, train_idx, season, MODE, lambda *args: predict_rates_lgbm_only(*args, teamplay), minutes_hat=minutes_hat)
     for col in META_COLS:
         pred[col] = df.iloc[test_idx][col].to_numpy()
     lgbm = _frontrow_prior(df, test_idx, pred, season)

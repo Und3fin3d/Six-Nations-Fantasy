@@ -77,7 +77,7 @@ def rates_to_components(rates: pd.DataFrame, minutes_hat: np.ndarray) -> pd.Data
     return rates.clip(lower=0.0).multiply(minutes_hat / 80.0, axis=0)
 
 
-def score_recon(comp: pd.DataFrame, is_forward: np.ndarray, season: int = 2025) -> np.ndarray:
+def score_recon(comp: pd.DataFrame, is_forward: np.ndarray, season: int) -> np.ndarray:
     return np.array([score_components(c, bool(f), season) for c, f in zip(comp[SCORED].to_dict("records"), is_forward)], dtype=float)
 
 

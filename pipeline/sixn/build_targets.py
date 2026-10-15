@@ -18,7 +18,7 @@ COMPONENTS = [
 ]
 
 
-def score_components(c: dict, is_forward: bool, season: int = 2025) -> float:
+def score_components(c: dict, is_forward: bool, season: int) -> float:
     events = {name: np.asarray([value], dtype=float) for name, value in c.items()}
     return float(SixNationsScorer(season).score_samples(events, is_forward=is_forward)[0])
 

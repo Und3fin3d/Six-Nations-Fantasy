@@ -10,15 +10,9 @@ def component_train(df: pd.DataFrame, test_season: int) -> np.ndarray:
     return (df["season"] < test_season).to_numpy()
 
 
-def chronological_indices(df_train: pd.DataFrame, n_splits: int = 5) -> Iterator[tuple[np.ndarray, np.ndarray]]:
-    dates = pd.to_datetime(df_train["date"], errors="raise")
-    if dates.isna().any():
-        raise ValueError("chronological folds require complete match dates")
-    unique_dates = np.sort(dates.unique())
-    if len(unique_dates) < 2:
-        raise ValueError("chronological folds require at least two match dates")
-    blocks = np.array_split(unique_dates, min(n_splits + 1, len(unique_dates)))
-    for block in blocks[1:]:
+def chronological_indices(df_train: pd.DataFrame, n_splits: int) -> Iterator[tuple[np.ndarray, np.ndarray]]:
+    dates = df_train["date"]
+    for block in np.array_split(np.sort(dates.unique()), n_splits + 1)[1:]:
         yield np.flatnonzero(dates.lt(block[0])), np.flatnonzero(dates.isin(block))
 
 

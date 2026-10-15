@@ -45,7 +45,7 @@ def evaluate(proj: pd.DataFrame, actuals: dict, squad: pd.DataFrame | None = Non
     opt15 = {k for k, _ in sorted(((k, actuals.get(k, (0,))[0]) for k in d["k"]), key=lambda x: -x[1])[:15]}
     out = {
         "mae": float(np.abs(p - y).mean()) if len(live) else np.nan, "cal_mae": cal_mae, "rho": spearmanr(p, y).correlation if len(live) >= 5 else np.nan,
-        "n": len(live), "calibration_scope": "in_sample_diagnostic", "top15": len(set(d.nlargest(15, "starter_exp")["k"]) & opt15),
+        "n": len(live), "top15": len(set(d.nlargest(15, "starter_exp")["k"]) & opt15),
     }
     if squad is None and {"pos", "team", "value", "hemi"}.issubset(proj.columns):
         squad = optimise(proj)

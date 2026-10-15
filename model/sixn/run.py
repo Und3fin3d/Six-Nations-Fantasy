@@ -1,6 +1,7 @@
 from __future__ import annotations
 
 import warnings
+from functools import partial
 
 import numpy as np
 import pandas as pd
@@ -65,18 +66,8 @@ def evaluate(pred: pd.DataFrame, score_col: str = "target_pts_hat", *, points: b
         cap, act = g.loc[g[score_col].idxmax()], g["official_pts"].sort_values(ascending=False).to_numpy()
         for n in hits:
             hits[n] += int(cap["official_pts"] >= act[min(n - 1, len(act) - 1)])
-    overlap = lambda n: (
-        float(
-            np.mean(
-                [
-                    len(set(g.nlargest(min(n, len(g)), score_col)["player_id"]) & set(g.nlargest(min(n, len(g)), "official_pts")["player_id"])) / min(n, len(g))
-                    for g in rounds
-                ]
-            )
-        )
-        if rounds
-        else np.nan
-    )
+    top = lambda g, col, n: set(g.nlargest(min(n, len(g)), col)["player_id"])
+    overlap = lambda n: float(np.mean([len(top(g, score_col, n) & top(g, "official_pts", n)) / min(n, len(g)) for g in rounds])) if rounds else np.nan
     num = den = 0.0
     for _, g in lab.dropna(subset=[score_col]).groupby("canonical_pos"):
         if g[score_col].nunique() >= 3 and len(g) >= 5 and np.isfinite(rho := spearmanr(g[score_col], g["official_pts"]).correlation):
@@ -101,21 +92,19 @@ def format_table(rows: dict[str, dict], title: str) -> str:
 
 
 def build_predictors(registry: pd.DataFrame):
-    return {
-        "naive": lambda d, ti, te, mo: predict_rates(d, ti, te, mo, "naive"), "ridge": lambda d, ti, te, mo: predict_rates(d, ti, te, mo, "ridge"),
-        "glm": lambda d, ti, te, mo: predict_rates(d, ti, te, mo, "glm"), "lgbm_only": lambda d, ti, te, mo: predict_rates_lgbm_only(d, ti, te, mo),
-        "ensemble": lambda d, ti, te, mo: predict_rates_registry(d, ti, te, mo, registry),
+    eng = dict(zip(registry["component"], registry["engine"]))
+    return {e: partial(predict_rates, engine=e) for e in ("naive", "ridge", "glm")} | {
+        "lgbm_only": predict_rates_lgbm_only, "ensemble": partial(predict_rates_registry, eng=eng),
     }
 
 
 def direct_points_frame(df: pd.DataFrame, test_season: int, mode: str) -> pd.DataFrame:
     sub = df[df["season"] == test_season]
-    prior = df[(df["season"] < test_season) & df["is_modern"] & df["has_label"]]
     yhat = pd.Series(np.nan, index=sub.index, dtype=float)
-    if len(prior):
-        tr_idx = np.where((df["season"] < test_season).to_numpy() & df["is_modern"].to_numpy() & df["has_label"].to_numpy())[0]
+    tr_idx = np.where((df["season"] < test_season).to_numpy() & df["is_modern"].to_numpy() & df["has_label"].to_numpy())[0]
+    if len(tr_idx):
         te_idx = np.where((df["season"] == test_season).to_numpy())[0]
-        Xtr, Xte, _ = build_matrix(df, tr_idx, te_idx, mode)
+        Xtr, Xte = build_matrix(df, tr_idx, te_idx, mode)
         with warnings.catch_warnings():
             warnings.simplefilter("ignore")
             mdl = RidgeCV(alphas=(1.0, 10.0, 100.0)).fit(Xtr, df.iloc[tr_idx]["official_pts"].to_numpy(float))

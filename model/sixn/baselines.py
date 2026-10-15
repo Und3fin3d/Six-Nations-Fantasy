@@ -38,17 +38,13 @@ class PositionMeanImputer:
         return X.fillna(posframe).fillna(self.global_).fillna(0.0)
 
 
-def numeric_cols(df: pd.DataFrame, mode: str) -> list[str]:
-    return [c for c in feature_view(df, mode) if c not in CATEGORICAL_COLS]
-
-
-def build_matrix(df: pd.DataFrame, train_idx: np.ndarray, test_idx: np.ndarray, mode: str) -> tuple[np.ndarray, np.ndarray, list[str]]:
-    cols = numeric_cols(df, mode)
+def build_matrix(df: pd.DataFrame, train_idx: np.ndarray, test_idx: np.ndarray, mode: str) -> tuple[np.ndarray, np.ndarray]:
+    cols = [c for c in feature_view(df, mode) if c not in CATEGORICAL_COLS]
     tr, te = df.iloc[train_idx], df.iloc[test_idx]
     imp = PositionMeanImputer().fit(tr[cols].astype(float), tr["canonical_pos"])
     Xtr, Xte = imp.transform(tr[cols].astype(float), tr["canonical_pos"]), imp.transform(te[cols].astype(float), te["canonical_pos"])
     sc = StandardScaler().fit(Xtr.to_numpy())
-    return sc.transform(Xtr.to_numpy()), sc.transform(Xte.to_numpy()), cols
+    return sc.transform(Xtr.to_numpy()), sc.transform(Xte.to_numpy())
 
 
 def expected_minutes(df: pd.DataFrame, train_idx: np.ndarray, test_idx: np.ndarray, mode: str) -> np.ndarray:
@@ -87,26 +83,21 @@ def predict_rates(df: pd.DataFrame, train_idx: np.ndarray, test_idx: np.ndarray,
     return _rates_linear(df, train_idx, test_idx, mode, engine)
 
 
-def _position_rate_prior(df: pd.DataFrame, train_idx: np.ndarray, comp: str) -> tuple[pd.Series, float]:
-    tr = df.iloc[train_idx]
-    tr = tr[tr["minutes"] >= MIN_MINUTES]
-    rate = _rate_target(tr, comp)
-    return pd.Series(rate, index=tr.index).groupby(tr["canonical_pos"].to_numpy()).mean(), float(np.nanmean(rate))
-
-
 def _rates_naive(df: pd.DataFrame, train_idx: np.ndarray, test_idx: np.ndarray) -> pd.DataFrame:
-    te = df.iloc[test_idx]
+    tr, te = df.iloc[train_idx], df.iloc[test_idx]
+    tr = tr[tr["minutes"] >= MIN_MINUTES]
     out = pd.DataFrame(index=te.index, columns=SCORED, dtype=float)
     for comp in SCORED:
-        by_pos, glob = _position_rate_prior(df, train_idx, comp)
-        prior = te["canonical_pos"].map(by_pos).fillna(glob).to_numpy(float)
+        rate = _rate_target(tr, comp)
+        by_pos = pd.Series(rate, index=tr.index).groupby(tr["canonical_pos"].to_numpy()).mean()
+        prior = te["canonical_pos"].map(by_pos).fillna(float(np.nanmean(rate))).to_numpy(float)
         out[comp] = prior if FORM_COL[comp] is None else np.where(np.isnan(te[FORM_COL[comp]].to_numpy(float)), prior, te[FORM_COL[comp]].to_numpy(float))
     return out.clip(lower=0.0)
 
 
 def _rates_linear(df: pd.DataFrame, train_idx: np.ndarray, test_idx: np.ndarray, mode: str, engine: str) -> pd.DataFrame:
     use_train_idx = train_idx[(df.iloc[train_idx]["minutes"] >= MIN_MINUTES).to_numpy()]
-    Xtr, Xte, _ = build_matrix(df, use_train_idx, test_idx, mode)
+    Xtr, Xte = build_matrix(df, use_train_idx, test_idx, mode)
     out = pd.DataFrame(index=df.iloc[test_idx].index, columns=SCORED, dtype=float)
     for comp in SCORED:
         y = np.nan_to_num(_rate_target(df.iloc[use_train_idx], comp), nan=0.0, posinf=0.0, neginf=0.0)
@@ -132,6 +123,6 @@ def direct_points_oof(df: pd.DataFrame, season: int, mode: str) -> pd.Series:
     pred = pd.Series(np.nan, index=sub.index, dtype=float)
     sub_reset = sub.reset_index(drop=True)
     for tr, va in group_kfold_indices(sub_reset, 5):
-        Xtr, Xva, _ = build_matrix(sub_reset, tr, va, mode)
+        Xtr, Xva = build_matrix(sub_reset, tr, va, mode)
         pred.iloc[va] = RidgeCV(alphas=(1.0, 10.0, 100.0)).fit(Xtr, sub_reset.iloc[tr]["official_pts"].to_numpy(float)).predict(Xva)
     return pred

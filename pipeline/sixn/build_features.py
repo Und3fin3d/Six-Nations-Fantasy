@@ -47,6 +47,21 @@ def _bool(s: pd.Series) -> pd.Series:
     return s.astype(str).str.lower().eq("true")
 
 
+def _before(groups: dict, key, asof: pd.Timestamp, empty: pd.DataFrame) -> pd.DataFrame:
+    return groups[key][groups[key]["date"] < asof] if key in groups else empty.iloc[0:0]
+
+
+def _bench_history(prefix: str, bench: pd.DataFrame, minutes: np.ndarray, asof: pd.Timestamp, hl: float) -> dict:
+    w = _decay_weights(asof, bench["date"], hl)
+    sw = w.sum()
+    out = {f"{prefix}_n_prior": int(len(bench)), f"{prefix}_days_since_last": float((asof - bench["date"].max()).days)}
+    if sw > 0:
+        out[f"{prefix}_minutes_recent"] = float((w * minutes).sum() / sw)
+        out[f"{prefix}_play10_rate"] = float((w * (minutes >= 10.0)).sum() / sw)
+        out[f"{prefix}_high30_rate"] = float((w * (minutes >= 30.0)).sum() / sw)
+    return out
+
+
 def _merge_external(feat: pd.DataFrame, raw: pd.DataFrame, prefix: str, keys: list[str]) -> pd.DataFrame:
     cols = []
     for col in [c for c in raw.columns if c.startswith(prefix)]:
@@ -133,17 +148,9 @@ def form_role_features(hist: pd.DataFrame, asof: pd.Timestamp, hl: float) -> dic
         out["form_start_rate"] = float((w * _bool(hist["started"]).to_numpy(float)).sum() / sw)
     out["form_days_since_last"] = float((asof - hist["date"].max()).days)
 
-    bench = hist.loc[~_bool(hist["started"])].copy()
+    bench = hist.loc[~_bool(hist["started"])]
     if not bench.empty:
-        bench_w = _decay_weights(asof, bench["date"], hl)
-        bench_sw = bench_w.sum()
-        bench_minutes = bench["minutes"].to_numpy(dtype=float)
-        out["benchhist_n_prior"] = int(len(bench))
-        out["benchhist_days_since_last"] = float((asof - bench["date"].max()).days)
-        if bench_sw > 0:
-            out["benchhist_minutes_recent"] = float((bench_w * bench_minutes).sum() / bench_sw)
-            out["benchhist_play10_rate"] = float((bench_w * (bench_minutes >= 10.0)).sum() / bench_sw)
-            out["benchhist_high30_rate"] = float((bench_w * (bench_minutes >= 30.0)).sum() / bench_sw)
+        out.update(_bench_history("benchhist", bench, bench["minutes"].to_numpy(dtype=float), asof, hl))
 
     if swm > 0:
         for s in FORM_STATS:
@@ -207,16 +214,8 @@ def team_bench_slot_features(hist: pd.DataFrame, asof: pd.Timestamp, jersey: flo
     bench = hist.loc[(~_bool(hist["started"])) & pd.to_numeric(hist["jersey"], errors="coerce").eq(float(slot))]
     if bench.empty:
         return out
-    weights = _decay_weights(asof, bench["date"], max(float(hl), 365.0))
-    sw = weights.sum()
     minutes = pd.to_numeric(bench["minutes"], errors="coerce").fillna(0.0).to_numpy(float)
-    out["benchteam_slot_n_prior"] = int(len(bench))
-    out["benchteam_slot_days_since_last"] = float((asof - bench["date"].max()).days)
-    if sw > 0:
-        out["benchteam_slot_minutes_recent"] = float((weights * minutes).sum() / sw)
-        out["benchteam_slot_play10_rate"] = float((weights * (minutes >= 10.0)).sum() / sw)
-        out["benchteam_slot_high30_rate"] = float((weights * (minutes >= 30.0)).sum() / sw)
-    return out
+    return out | _bench_history("benchteam_slot", bench, minutes, asof, max(float(hl), 365.0))
 
 
 def build() -> pd.DataFrame:
@@ -285,25 +284,13 @@ def build() -> pd.DataFrame:
 
         rec.update(class_features(slug, int(r.season), cs_by_slug))
 
-        ph = hist_by_pid.get(pid)
-        ph = ph[ph["date"] < asof] if ph is not None else ap.iloc[0:0]
-        rec.update(form_role_features(ph, asof, HALF_LIFE))
-        pth = player_hist_by_team.get(int(r.team_id))
-        pth = pth[pth["date"] < asof] if pth is not None else ap.iloc[0:0]
-        rec.update(team_bench_slot_features(pth, asof, r.jersey, HALF_LIFE))
-
-        if pd.notna(rec.get("form_per80_metres")) and pd.notna(rec.get("class_per80_metres")):
-            rec["form_hot_metres"] = rec["form_per80_metres"] - rec["class_per80_metres"]
-        if pd.notna(rec.get("form_per80_tries")) and pd.notna(rec.get("class_per80_tries")):
-            rec["form_hot_tries"] = rec["form_per80_tries"] - rec["class_per80_tries"]
-
-        th = hist_by_team.get(int(r.team_id))
-        th = th[th["date"] < asof] if th is not None else tm.iloc[0:0]
-        rec.update(ownteam_features(th, asof, HALF_LIFE))
-
-        oh = hist_by_opponent.get(int(r.opponent_id))
-        oh = oh[oh["date"] < asof] if oh is not None else ap.iloc[0:0]
-        rec.update(matchup_features(oh, asof, rec["canonical_pos"], bool(rec["is_forward"]), HALF_LIFE))
+        rec.update(form_role_features(_before(hist_by_pid, pid, asof, ap), asof, HALF_LIFE))
+        rec.update(team_bench_slot_features(_before(player_hist_by_team, int(r.team_id), asof, ap), asof, r.jersey, HALF_LIFE))
+        for s in ("metres", "tries"):
+            if pd.notna(rec.get(f"form_per80_{s}")) and pd.notna(rec.get(f"class_per80_{s}")):
+                rec[f"form_hot_{s}"] = rec[f"form_per80_{s}"] - rec[f"class_per80_{s}"]
+        rec.update(ownteam_features(_before(hist_by_team, int(r.team_id), asof, tm), asof, HALF_LIFE))
+        rec.update(matchup_features(_before(hist_by_opponent, int(r.opponent_id), asof, ap), asof, rec["canonical_pos"], bool(rec["is_forward"]), HALF_LIFE))
 
         if slug in bio.index:
             b = bio.loc[slug]

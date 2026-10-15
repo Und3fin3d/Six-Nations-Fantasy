@@ -1,5 +1,8 @@
 from __future__ import annotations
 
+import re
+import unicodedata
+
 import pandas as pd
 
 from pipeline.sixn.compare_api_official import norm_key
@@ -16,9 +19,6 @@ def surname_of(key: str) -> str:
 
 
 def last_token(name: str) -> str:
-    import re
-    import unicodedata
-
     if not isinstance(name, str) or not name.strip():
         return ""
     s = unicodedata.normalize("NFKD", name).encode("ascii", "ignore").decode()
@@ -65,8 +65,7 @@ def load_rp() -> pd.DataFrame:
 def load_official() -> pd.DataFrame:
     off = pd.read_csv("data/official_player_match.csv")
     off = off.dropna(subset=["key"])
-    off = off.groupby("key").agg(official_name=("name", lambda s: s.mode().iat[0]), official_team=("team", lambda s: s.mode().iat[0])).reset_index()
-    return off
+    return off.groupby("key").agg(official_name=("name", lambda s: s.mode().iat[0]), official_team=("team", lambda s: s.mode().iat[0])).reset_index()
 
 
 def build() -> pd.DataFrame:
@@ -91,37 +90,20 @@ def build() -> pd.DataFrame:
         "key", "api_player_id", "api_name", "rp_slug", "rp_name", "official_name", "nationality", "canonical_pos", "in_api", "in_rp", "in_official",
         "key_collision", "match_method",
     ]
-    cw = cw[cols].sort_values(["key", "api_player_id"]).reset_index(drop=True)
-    return cw
+    return cw[cols].sort_values(["key", "api_player_id"]).reset_index(drop=True)
 
 
 def _nat_team_compatible(nat, team) -> bool:
-    if not isinstance(nat, str) or nat not in SIX_NATIONS:
-        return True
-    if not isinstance(team, str) or team not in SIX_NATIONS:
-        return True
-    return nat == team
+    return nat not in SIX_NATIONS or team not in SIX_NATIONS or nat == team
 
 
 def _row_source(row) -> str:
-    if row["in_api"]:
-        return "api"
-    if row["in_rp"]:
-        return "rp"
-    return "official"
+    return "api" if row["in_api"] else "rp" if row["in_rp"] else "official"
 
 
 def _surname_candidates(row) -> set:
-    cands = set()
-    s = surname_of(row.get("key"))
-    if s:
-        cands.add(s)
-    src = _row_source(row)
-    name = {"api": row.get("api_name"), "rp": row.get("rp_slug"), "official": row.get("official_name")}[src]
-    lt = last_token(name)
-    if lt:
-        cands.add(lt)
-    return cands
+    name = {"api": row.get("api_name"), "rp": row.get("rp_slug"), "official": row.get("official_name")}[_row_source(row)]
+    return {c for c in (surname_of(row.get("key")), last_token(name)) if c}
 
 
 def _surname_pass(cw: pd.DataFrame) -> pd.DataFrame:
@@ -194,8 +176,6 @@ def _consolidate_name_variants(cw: pd.DataFrame, drop_idx: set) -> None:
 def _fold(cw: pd.DataFrame, keep: int, drop: int) -> None:
     fill_cols = ["api_player_id", "api_name", "rp_slug", "rp_name", "official_name", "nationality", "canonical_pos", "official_team"]
     for c in fill_cols:
-        if c not in cw.columns:
-            continue
         if pd.isna(cw.at[keep, c]) and pd.notna(cw.at[drop, c]):
             cw.at[keep, c] = cw.at[drop, c]
     for flag in ("in_api", "in_rp", "in_official"):

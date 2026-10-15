@@ -14,6 +14,7 @@ DATA = "data/ncr"
 SCORE_WEIGHTS = {**NP.ATT, **NP.DEF, **NP.DISC}
 RESULT_START = "<!-- GW_RESULT_START -->"
 RESULT_END = "<!-- GW_RESULT_END -->"
+SUB_ROLES = {"B": (3.0, "Super sub (bench)"), "P": (0.5, "Super sub (started)")}
 TEAM_FILES = {"Bayes / NCR empirical": "ncr_gw{gw}_squad.csv", "6N champion": "ncr_gw{gw}_squad_champion.csv", "Blend": "ncr_gw{gw}_squad_blend.csv"}
 
 
@@ -37,23 +38,22 @@ def _result(rows: list[dict]) -> tuple[pd.DataFrame, float]:
     return result, float(result["Contribution"].sum())
 
 
-def _row(player, points: float, multiplier: float, role: str, potm: bool) -> dict:
+def _row(player, points: float, status: str, potm: bool) -> dict:
+    multiplier, role = (
+        (2.0, "Captain") if bool(player.is_capt) else SUB_ROLES.get(status, (0.0, "Super sub (did not play)")) if bool(player.is_sub) else (1.0, "")
+    )
     return {
         "Player": player.name, "Team": player.team, "Base": points, "Multiplier": multiplier, "Contribution": points * multiplier, "Role": role, "POTM": potm,
     }
 
 
 def score_squad_official(path: str, actuals: dict[int, dict]) -> tuple[pd.DataFrame, float]:
-    roles = {"B": (3.0, "Super sub (bench)"), "P": (0.5, "Super sub (started)")}
     rows = []
     for player in pd.read_csv(path).itertuples(index=False):
         if int(player.id) not in actuals:
             raise ValueError(f"No official GW points row for {player.name} ({int(player.id)})")
         actual = actuals[int(player.id)]
-        multiplier, role = (
-            (2.0, "Captain") if bool(player.is_capt) else roles.get(actual["status"], (0.0, "Super sub (did not play)")) if bool(player.is_sub) else (1.0, "")
-        )
-        rows.append(_row(player, float(actual["points"]), multiplier, role, False))
+        rows.append(_row(player, float(actual["points"]), actual["status"], False))
     return _result(rows)
 
 
@@ -99,15 +99,7 @@ def score_squad(path: str, played: pd.DataFrame) -> tuple[pd.DataFrame, float]:
         actual = by_api_id.loc[int(api_id)]
         if isinstance(actual, pd.DataFrame):
             raise ValueError(f"Multiple GW match rows for {player.name} ({player.team})")
-        bench = not bool(actual["started"])
-        multiplier, role = (
-            (2.0, "Captain")
-            if bool(player.is_capt)
-            else ((3.0, "Super sub (bench)") if bench else (0.5, "Super sub (started)"))
-            if bool(player.is_sub)
-            else (1.0, "")
-        )
-        rows.append(_row(player, float(actual["actual_points"]), multiplier, role, bool(actual["potm"])))
+        rows.append(_row(player, float(actual["actual_points"]), "P" if bool(actual["started"]) else "B", bool(actual["potm"])))
     return _result(rows)
 
 

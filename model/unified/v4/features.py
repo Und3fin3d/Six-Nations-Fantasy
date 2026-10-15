@@ -12,6 +12,17 @@ V4_FEATURE_PREFIXES = ("form_per80_intl__", "form_per80_club__", "eb_rate__", "e
 V4_BASE_NUMERIC = ("intl_prior_matches", "club_prior_matches")
 
 
+def prior_rates(frame: pd.DataFrame, rates: pd.Series, keys: list[str], min_count: int) -> pd.Series:
+    groups = frame[keys + ["date"]].copy()
+    groups[keys] = groups[keys].fillna("unknown")
+    groups["rate"] = rates
+    totals = groups.groupby(keys + ["date"])["rate"].agg(["sum", "count"]).sort_index()
+    past = totals.groupby(level=keys).cumsum() - totals
+    prior = (past["sum"] / past["count"]).where(past["count"] >= min_count)
+    index = pd.MultiIndex.from_frame(groups[keys + ["date"]])
+    return pd.Series(prior.reindex(index).to_numpy(float), index=frame.index)
+
+
 def add_v4_base_stats(store: pd.DataFrame) -> pd.DataFrame:
     df = store.copy()
     is_intl = df["competition_level"].eq("international").astype(float)
@@ -28,10 +39,9 @@ def add_v4_base_stats(store: pd.DataFrame) -> pd.DataFrame:
             df[f"form_per80_{level}__{event}"] = grouped_ewm(per80.where(mask), df["player_id"], shifted=True, halflife=4)
         df[f"cum_count__{event}"] = count.fillna(0).groupby(df["player_id"]).cumsum() - count.fillna(0)
         df[f"cum_min__{event}"] = mins.fillna(0).groupby(df["player_id"]).cumsum() - mins.fillna(0)
-        group = [df["position"].fillna("unknown"), df["competition_level"].fillna("unknown")]
-        df[f"prior_per80__{event}"] = per80.groupby(group).transform(lambda x: x.shift(1).expanding(min_periods=5).mean())
-        overall = per80.groupby(df["competition_level"].fillna("unknown")).transform(lambda x: x.shift(1).expanding(min_periods=1).mean())
-        df[f"prior_per80__{event}"] = df[f"prior_per80__{event}"].fillna(overall).fillna(0.0)
+        prior = prior_rates(df, per80, ["position", "competition_level"], 5)
+        overall = prior_rates(df, per80, ["competition_level"], 1)
+        df[f"prior_per80__{event}"] = prior.fillna(overall).fillna(0.0)
     return df.copy()
 
 

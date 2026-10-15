@@ -8,13 +8,14 @@ import re
 import pandas as pd
 
 import model.ncr.project as NP
+from model.unified.scoring import ncr_multiplier
 
 DATA = "data/ncr"
 
 SCORE_WEIGHTS = {**NP.ATT, **NP.DEF, **NP.DISC}
 RESULT_START = "<!-- GW_RESULT_START -->"
 RESULT_END = "<!-- GW_RESULT_END -->"
-SUB_ROLES = {"B": (3.0, "Super sub (bench)"), "P": (0.5, "Super sub (started)")}
+SUB_ROLES = {"B": "Super sub (bench)", "P": "Super sub (started)"}
 TEAM_FILES = {"Bayes / NCR empirical": "ncr_gw{gw}_squad.csv", "6N champion": "ncr_gw{gw}_squad_champion.csv", "Blend": "ncr_gw{gw}_squad_blend.csv"}
 
 
@@ -24,6 +25,9 @@ def load_official_actuals(gw: int) -> dict[int, dict]:
     payload_gws = {int(float(p["gameday_id"])) for p in players if p.get("gameday_id") not in (None, "")}
     if payload_gws != {int(gw)}:
         raise ValueError(f"players_gw{gw}.json contains gameday_id {sorted(payload_gws)}, expected GW{gw}")
+    points_gws = {int(float(p["cur_gameday_id"])) for p in players if p.get("cur_gameday_id") not in (None, "")}
+    if points_gws and points_gws != {int(gw)}:
+        raise ValueError(f"players_gw{gw}.json contains points for GW{sorted(points_gws)}, expected GW{gw}")
     return {
         int(float(p["id"])): {
             "points": float(p.get("cur_gd_points") or 0), "status": p.get("player_status") or "",
@@ -39,9 +43,9 @@ def _result(rows: list[dict]) -> tuple[pd.DataFrame, float]:
 
 
 def _row(player, points: float, status: str, potm: bool) -> dict:
-    multiplier, role = (
-        (2.0, "Captain") if bool(player.is_capt) else SUB_ROLES.get(status, (0.0, "Super sub (did not play)")) if bool(player.is_sub) else (1.0, "")
-    )
+    capt, sub = bool(player.is_capt), bool(player.is_sub)
+    multiplier = ncr_multiplier(status, is_capt=capt, is_sub=sub)
+    role = "Captain" if capt else SUB_ROLES.get(status, "Super sub (did not play)") if sub else ""
     return {
         "Player": player.name, "Team": player.team, "Base": points, "Multiplier": multiplier, "Contribution": points * multiplier, "Role": role, "POTM": potm,
     }

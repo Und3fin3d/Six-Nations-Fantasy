@@ -11,8 +11,8 @@ FEATURE_COLS = [c for c in pd.read_csv("data/model_player_match.csv", nrows=0).c
 
 def load() -> pd.DataFrame:
     feat, tgt = pd.read_csv("data/model_player_match.csv"), pd.read_csv("data/model_targets.csv")
-    keys = ["fixture_id", "player_id"]
-    df = feat.merge(tgt[keys + [c for c in tgt.columns if c not in feat.columns]], on=keys, how="inner")
+    keys = ["fixture_id", "player_id", "team"]
+    df = feat.merge(tgt[keys + [c for c in tgt.columns if c not in feat.columns]], on=keys, validate="one_to_one")
     if len(df) != 2760:
         raise AssertionError(f"expected 2760 rows, got {len(df)}")
     df["date"] = pd.to_datetime(df["date"])

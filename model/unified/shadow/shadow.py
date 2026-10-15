@@ -15,6 +15,7 @@ from ..raw_benchmark.blend import EventBlend50
 from ..raw_benchmark.config import OUT as RAW_BENCHMARK_OUT
 from ..raw_benchmark.features import build_frozen_feature_frames
 from ..raw_benchmark.folds import build_folds, strict_training_frame
+from model.ncr.score_gw import load_official_actuals
 from .harness import OUT, sha256, write_once
 
 CUTOFFS = (10, 25, 50, 100)
@@ -24,10 +25,9 @@ POSITION = {
 }
 START_JERSEY = {"Prop": 1, "Hooker": 2, "Lock": 4, "Loose Forward": 6, "Scrum Half": 9, "Fly Half": 10, "Centre": 12, "Back Three": 11}
 BENCH_JERSEY = {"Prop": 17, "Hooker": 16, "Lock": 19, "Loose Forward": 20, "Scrum Half": 21, "Fly Half": 22, "Centre": 23, "Back Three": 23}
-NCR_FEEDS = {1: "players_post_gw1", 2: "players_gw2", 3: "players_gw3"}
 
 
-def build_fantasy_labels() -> pd.DataFrame:
+def build_fantasy_labels(ncr_rounds: tuple[int, ...] = (1, 2, 3)) -> pd.DataFrame:
     t = pd.read_csv("data/model_targets.csv", low_memory=False)
     t = t[t["season"].isin({2025, 2026}) & t["official_pts"].notna()]
     six = pd.DataFrame(
@@ -40,12 +40,14 @@ def build_fantasy_labels() -> pd.DataFrame:
     )
     six["group_id"] = "6n-" + six["season"].astype(str) + "-r" + six["round"].astype(str)
     ncr = []
-    for gw, feed in NCR_FEEDS.items():
-        players = json.load(open(f"data/ncr/feeds/{feed}.json"))["Data"]["Value"]["Players"]
+    for gw in ncr_rounds:
+        official = load_official_actuals(gw)
         actuals = pd.DataFrame(
-            [{"id": int(float(p["id"])), "actual": float(p.get("cur_gd_points") or 0), "actual_status": p.get("player_status") or ""} for p in players]
+            [{"id": player, "actual": p["points"], "actual_status": p["status"]} for player, p in official.items()]
         )
-        c = pd.read_csv(f"data/ncr/ncr_gw{gw}_projections.csv")[["id", "name", "team", "pos"]].merge(actuals, on="id")
+        c = pd.read_csv(f"data/ncr/ncr_gw{gw}_projections.csv")[["id", "name", "team", "pos"]].merge(actuals, on="id", how="left", validate="one_to_one")
+        if not np.isfinite(c["actual"]).all():
+            raise ValueError(f"GW{gw} projections lack finite official points")
         ncr.append(
             pd.DataFrame(
                 {
@@ -161,7 +163,7 @@ def freeze_shadow(gw: int, engine: str, model_path: str) -> str:
 
 def evaluate_prospective_shadows(engine: str) -> dict:
     rounds = (4, 5, 6, 7)
-    labels = build_fantasy_labels()
+    labels = build_fantasy_labels(ncr_rounds=rounds)
     labels = labels[labels["competition"].eq("ncr") & labels["round"].isin(rounds)].copy()
     missing_labels = sorted(set(rounds) - set(labels["round"].astype(int)))
     if missing_labels:
@@ -175,9 +177,9 @@ def evaluate_prospective_shadows(engine: str) -> dict:
     shadow = pd.concat(pieces, ignore_index=True)
     shadow["key_player"] = pd.to_numeric(shadow["fantasy_id"], errors="coerce").astype("Int64").astype(str)
     labels["key_player"] = labels["key_player"].astype(str)
-    evaluated = labels.merge(shadow[["round", "key_player", "expected_points", "career_matches"]], on=["round", "key_player"], how="left")
-    if evaluated["expected_points"].isna().any():
-        raise RuntimeError(f"{int(evaluated['expected_points'].isna().sum())} official rows lack a shadow")
+    evaluated = labels.merge(shadow[["round", "key_player", "expected_points", "career_matches"]], on=["round", "key_player"], how="left", validate="one_to_one")
+    if not np.isfinite(evaluated["expected_points"]).all():
+        raise RuntimeError(f"{int((~np.isfinite(evaluated['expected_points'])).sum())} official rows lack finite shadow points")
     incumbents = []
     for gw, block in evaluated.groupby("round", sort=True):
         projection = pd.read_csv(f"data/ncr/ncr_gw{int(gw)}_projections.csv")
@@ -186,7 +188,7 @@ def evaluate_prospective_shadows(engine: str) -> dict:
     evaluated = evaluated.merge(
         pd.concat(incumbents, ignore_index=True).rename(columns={"starter_exp": "incumbent_points"}), on=["round", "key_player"], how="left"
     )
-    if evaluated["incumbent_points"].isna().any():
+    if not np.isfinite(evaluated["incumbent_points"]).all():
         raise RuntimeError("incumbent projections are incomplete for prospective cohort")
     candidate, incumbent = _group_metrics(evaluated, "expected_points"), _group_metrics(evaluated, "incumbent_points")
     reasons = ["four-round NCR MAE regression exceeds 2%"] if candidate["mae"] > incumbent["mae"] * 1.02 else []

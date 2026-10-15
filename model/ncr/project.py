@@ -183,12 +183,13 @@ def build_projection(exclude_teams=(), *, pool_override=None, asof=None, gameday
         per80 = att * float(np.clip(1 + margin / 60.0, 0.72, 1.35)) * wx.get(team, 1.0) + dfn * float(np.clip(1 - margin / 90.0, 0.80, 1.28)) + dsc
         exp_min, potm_cap, sub_mult = (start_min, 0.13, 0.5) if status == "P" else (bench_min, 0.05, 3.0)
         base_pts = per80 * (exp_min / 80)
+        expected_pts = base_pts + float(np.clip(base_pts / 145, 0, potm_cap) * 15)
         recs.append(
             dict(
                 id=pl.id, name=pl.full_name, team=team, hemi=pl.hemisphere, pos=pos, value=pl.value, sel=pl.sel_percentage, status=status, opp=opp.get(team),
                 home=home.get(team), n_hist=n, rp_min=int(rp_min), wr_margin=round(margin, 1), weather_att=round(wx.get(team, 1.0), 3), per80=round(per80, 2),
-                exp_min=round(exp_min, 1), starter_exp=round(base_pts + float(np.clip(base_pts / 145, 0, potm_cap) * 15), 2),
-                supersub_exp=round(per80 * (exp_min / 80) * sub_mult, 2),
+                exp_min=round(exp_min, 1), starter_exp=round(expected_pts, 2),
+                supersub_exp=round(expected_pts * sub_mult, 2),
             )
         )
     return pd.DataFrame(recs)

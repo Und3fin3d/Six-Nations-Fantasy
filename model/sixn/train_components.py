@@ -9,7 +9,7 @@ import pandas as pd
 from model.sixn import baselines as B
 from model.sixn.baselines import MIN_MINUTES, SCORED, _rate_target, predict_rates
 from model.sixn.data import feature_view
-from model.sixn.splits import group_kfold_indices
+from model.sixn.splits import chronological_indices
 
 LGBM_MARGIN = 0.02
 BLEND_WEIGHT = 0.5
@@ -36,19 +36,13 @@ def _lgbm_frame(df: pd.DataFrame, mode: str, teamplay: str = "off") -> pd.DataFr
     return df[feature_view(df, mode, teamplay)].copy()
 
 
-def _fit_lgbm_component(df: pd.DataFrame, X: pd.DataFrame, tr_idx: np.ndarray, va_idx: np.ndarray | None, comp: str):
-    rows = lambda idx: idx[(df.iloc[idx]["minutes"] >= MIN_MINUTES).to_numpy()]
-    target = lambda idx: np.clip(np.nan_to_num(_rate_target(df.iloc[idx], comp), nan=0.0, posinf=0.0, neginf=0.0), 0.0, None)
-    use = rows(tr_idx)
-    y = target(use)
+def _fit_lgbm_component(df: pd.DataFrame, X: pd.DataFrame, tr_idx: np.ndarray, comp: str):
+    use = tr_idx[(df.iloc[tr_idx]["minutes"] >= MIN_MINUTES).to_numpy()]
+    y = np.clip(np.nan_to_num(_rate_target(df.iloc[use], comp), nan=0.0, posinf=0.0, neginf=0.0), 0.0, None)
     model = lgb.LGBMRegressor(**_LGBM_BASE, **_lgbm_objective(comp))
-    fit_kw = {}
-    if va_idx is not None:
-        vu = rows(va_idx)
-        fit_kw = dict(eval_set=[(X.iloc[vu], target(vu))], callbacks=[lgb.early_stopping(50, verbose=False), lgb.log_evaluation(0)])
     with warnings.catch_warnings():
         warnings.simplefilter("ignore")
-        model.fit(X.iloc[use], y, **fit_kw)
+        model.fit(X.iloc[use], y)
     return model
 
 
@@ -70,7 +64,7 @@ def _oof_candidate_mae(df: pd.DataFrame, train_mask: np.ndarray, mode: str) -> d
     def add(comp, engine, y_true, y_pred):
         err[comp].setdefault(engine, []).append(np.abs(y_true - y_pred))
 
-    for tr_local, va_local in group_kfold_indices(dft, 5):
+    for tr_local, va_local in chronological_indices(dft, 5):
         tr_idx, va_idx = train_pos[tr_local], train_pos[va_local]
         vu = va_idx[(df.iloc[va_idx]["minutes"] >= MIN_MINUTES).to_numpy()]
         frames = {e: predict_rates(df, tr_idx, vu, mode, e) for e in ("naive", "ridge", "glm")}
@@ -79,7 +73,7 @@ def _oof_candidate_mae(df: pd.DataFrame, train_mask: np.ndarray, mode: str) -> d
             for e in ("naive", "ridge", "glm"):
                 add(comp, e, ytrue, frames[e][comp].to_numpy(float))
             if comp in LGBM_COMPS:
-                yl = _lgbm_predict(_fit_lgbm_component(df, X, tr_idx, va_idx, comp), X, vu)
+                yl = _lgbm_predict(_fit_lgbm_component(df, X, tr_idx, comp), X, vu)
                 add(comp, "lgbm", ytrue, yl)
                 add(comp, "blend", ytrue, BLEND_WEIGHT * yl + (1.0 - BLEND_WEIGHT) * frames["glm"][comp].to_numpy(float))
     return {comp: {e: float(np.concatenate(v).mean()) for e, v in err[comp].items()} for comp in SCORED}
@@ -118,7 +112,7 @@ def select_components(df: pd.DataFrame, train_mask: np.ndarray, mode: str) -> pd
 
 def lgbm_model(df: pd.DataFrame, train_idx: np.ndarray, test_idx: np.ndarray, mode: str, teamplay: str = "off"):
     X = _lgbm_frame(df, mode, teamplay)
-    return lambda comp: _lgbm_predict(_fit_lgbm_component(df, X, train_idx, None, comp), X, test_idx)
+    return lambda comp: _lgbm_predict(_fit_lgbm_component(df, X, train_idx, comp), X, test_idx)
 
 
 def predict_rates_registry(df: pd.DataFrame, train_idx: np.ndarray, test_idx: np.ndarray, mode: str, eng: dict, model=None) -> pd.DataFrame:

@@ -4,15 +4,16 @@ from collections.abc import Iterator
 
 import numpy as np
 import pandas as pd
-from sklearn.model_selection import GroupKFold
 
 
 def component_train(df: pd.DataFrame, test_season: int) -> np.ndarray:
     return (df["season"] < test_season).to_numpy()
 
 
-def group_kfold_indices(df_train: pd.DataFrame, n_splits: int = 5) -> Iterator[tuple[np.ndarray, np.ndarray]]:
-    yield from GroupKFold(n_splits=n_splits).split(np.zeros((len(df_train), 1)), groups=df_train["fixture_id"].to_numpy(), y=None)
+def chronological_indices(df_train: pd.DataFrame, n_splits: int) -> Iterator[tuple[np.ndarray, np.ndarray]]:
+    dates = df_train["date"]
+    for block in np.array_split(np.sort(dates.unique()), n_splits + 1)[1:]:
+        yield np.flatnonzero(dates.lt(block[0])), np.flatnonzero(dates.isin(block))
 
 
 def latent_calib_rows(df: pd.DataFrame, asof_date) -> np.ndarray:

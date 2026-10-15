@@ -43,7 +43,7 @@ def assemble_predictions(
     comp = rates_to_components(rate_predictor(df, train_idx, test_idx, mode), minutes_hat)
     sub = df.iloc[test_idx]
     isf = sub["is_forward"].to_numpy()
-    recon_hat = score_recon(comp, isf)
+    recon_hat = score_recon(comp, isf, test_season)
     latent_hat = np.zeros(len(test_idx))
     for _, asof, ridx in round_iter(df, test_season):
         local = np.searchsorted(test_idx, ridx)
@@ -58,8 +58,8 @@ def assemble_predictions(
     pred = pd.DataFrame(
         {
             "season": sub["season"].to_numpy(), "round": sub["round"].to_numpy(), "fixture_id": sub["fixture_id"].to_numpy(),
-            "player_id": sub["player_id"].to_numpy(), "player_name": sub["player_name"].to_numpy(), "canonical_pos": sub["canonical_pos"].to_numpy(),
-            "is_forward": isf, "minutes_hat": minutes_hat, "recon_pts_hat": recon_hat, "latent_hat": latent_hat, "target_pts_hat": recon_hat + latent_hat,
+            "player_id": sub["player_id"].to_numpy(), "team": sub["team"].to_numpy(), "player_name": sub["player_name"].to_numpy(), "canonical_pos": sub["canonical_pos"].to_numpy(),
+            "is_forward": isf, "started": sub["started"].to_numpy(), "minutes_hat": minutes_hat, "recon_pts_hat": recon_hat, "latent_hat": latent_hat, "target_pts_hat": recon_hat + latent_hat,
             "official_pts": sub["official_pts"].to_numpy(), "has_label": sub["has_label"].to_numpy(), "is_modern": sub["is_modern"].to_numpy(),
         },
         index=sub.index,

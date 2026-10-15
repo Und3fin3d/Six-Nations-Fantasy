@@ -159,7 +159,7 @@ def _upside(df: pd.DataFrame, train_idx: np.ndarray, test_idx: np.ndarray, pred:
     official = train["official_pts"].to_numpy(float)
     target = np.where(
         (train["has_label"].astype(bool) & train["is_modern"].astype(bool)).to_numpy() & np.isfinite(official), official,
-        train["target_pts"].fillna(train["recon_pts"]).to_numpy(float),
+        train["recon_pts"].to_numpy(float),
     )
     by = train.assign(_t=target).groupby
     player_std = by("player_id")["_t"].std().where(by("player_id")["_t"].size() >= 3)

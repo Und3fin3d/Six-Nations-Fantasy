@@ -8,6 +8,7 @@ on:
       - "pipeline/**"
       - "requirements-*.txt"
       - ".github/workflows/regenerate-model-data.yml"
+      - ".github/scripts/discard_float_noise.py"
   workflow_dispatch:
 
 permissions:
@@ -49,8 +50,10 @@ jobs:
         run: |
           for step in build_crosswalk build_team_form build_features build_targets; do
             /tmp/data/bin/python -m pipeline.sixn.$step
+            /tmp/data/bin/python .github/scripts/discard_float_noise.py
           done
           /tmp/model/bin/python -m model.sixn.run
+          /tmp/data/bin/python .github/scripts/discard_float_noise.py
 
       - name: Run model tests
         run: PYTEST_DISABLE_PLUGIN_AUTOLOAD=1 /tmp/model/bin/python -m pytest -q tests --ignore=tests/test_rugbypass_parsers.py

@@ -1,30 +1,20 @@
-#!/usr/bin/env python3
-"""Reject model predictions outside the exact pinned Python environment."""
-
 from __future__ import annotations
 
 import argparse
 import re
 import sys
 from importlib.metadata import PackageNotFoundError, version
-from pathlib import Path
 
 
 PIN = re.compile(r"^([A-Za-z0-9_.-]+)==([^\s#]+)$")
 
 
-def check(
-    requirements: Path = Path("requirements-model.txt"),
-    *, python_version: tuple[int, int] | None = None,
-    installed_version=version,
-) -> list[str]:
+def check(requirements: str = "requirements-model.txt", *, python_version: tuple[int, int] | None = None, installed_version=version) -> list[str]:
     errors = []
     current_python = sys.version_info[:2] if python_version is None else python_version
     if current_python != (3, 12):
-        errors.append(
-            f"Python 3.12 is required; found {current_python[0]}.{current_python[1]}"
-        )
-    for line in requirements.read_text().splitlines():
+        errors.append(f"Python 3.12 is required; found {current_python[0]}.{current_python[1]}")
+    for line in open(requirements).read().splitlines():
         match = PIN.match(line.strip())
         if not match:
             continue
@@ -40,7 +30,7 @@ def check(
 
 
 def main() -> int:
-    parser = argparse.ArgumentParser(description=__doc__)
+    parser = argparse.ArgumentParser()
     parser.add_argument("--quiet", action="store_true")
     args = parser.parse_args()
     errors = check()

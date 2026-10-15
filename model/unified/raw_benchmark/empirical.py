@@ -1,23 +1,20 @@
-"""Competition-independent empirical event-rate model."""
-
 from __future__ import annotations
 
+import os
 import pickle
 from dataclasses import dataclass, field
-from pathlib import Path
 
 import numpy as np
 import pandas as pd
 
-from model.ncr.rp_rates import _norm, _season_end_year
+from model.ncr.rp_rates import _season_end_year, norm
 from model.history import past_matches, past_seasons
 
 from ..contracts import EventDistribution, RawPrediction
-from ..data import ROOT
 from ..schema import distribution_family
 from .config import EXTENDED_EVENTS, STABLE_EVENTS
 
-DATA = ROOT / "data"
+DATA = "data"
 HALFLIFE_DAYS = 420.0
 K = 220.0
 CLUB_ATT_CAL, CLUB_DEF_CAL, CLUB_DSC_CAL = 0.84, 0.97, 1.0
@@ -25,20 +22,14 @@ CLUB_CONF = 0.55
 RP_HALFLIFE_YEARS = 1.6
 
 ATTACK_EVENTS = {
-    "tries", "try_assists", "conversion_goals", "missed_conversion_goals",
-    "penalty_goals", "missed_penalty_goals", "drop_goals_converted",
-    "drop_goal_missed", "defenders_beaten", "clean_breaks", "offload",
-    "runs", "passes", "bad_passes", "metres", "fifty_22", "kicks_retained",
+    "tries", "try_assists", "conversion_goals", "missed_conversion_goals", "penalty_goals", "missed_penalty_goals", "drop_goals_converted", "drop_goal_missed",
+    "defenders_beaten", "clean_breaks", "offload", "runs", "passes", "bad_passes", "metres", "fifty_22", "kicks_retained",
 }
 DEFENCE_EVENTS = {
-    "tackles", "missed_tackles", "dominant_tackles", "tackle_turnover",
-    "tackle_try_saver", "rucks_won", "rucks_lost", "lineout_steals",
-    "scrums_won",
+    "tackles", "missed_tackles", "dominant_tackles", "tackle_turnover", "tackle_try_saver", "rucks_won", "rucks_lost", "lineout_steals", "scrums_won",
 }
 DISCIPLINE_EVENTS = {"turnovers_conceded", "penalties_conceded", "yellow_cards", "red_cards"}
-RP_ALIASES = {
-    "runs": "carries", "offload": "offloads", "tackle_turnover": "turnovers_won",
-}
+RP_ALIASES = {"runs": "carries", "offload": "offloads", "tackle_turnover": "turnovers_won"}
 
 
 def _calibration(event: str) -> float:
@@ -61,8 +52,6 @@ def _matchup_group(event: str) -> str:
 
 @dataclass
 class EmpiricalEventModel:
-    """Recency, club and player-prior model operating only on raw events."""
-
     asof: str | pd.Timestamp
     events: tuple[str, ...] = (*STABLE_EVENTS, *EXTENDED_EVENTS)
     profiles: dict[tuple[str, str], tuple[float, float]] = field(default_factory=dict)
@@ -75,20 +64,21 @@ class EmpiricalEventModel:
     wr_points: dict[str, float] = field(default_factory=dict)
     active_events: set[str] = field(default_factory=set)
 
+    def _naive_asof(self) -> pd.Timestamp:
+        asof = pd.Timestamp(self.asof)
+        return asof.tz_localize(None) if asof.tzinfo else asof
+
     def _weighted_rates(self, frame: pd.DataFrame, level: str) -> dict[tuple[str, str], tuple[float, float]]:
         subset = frame[frame["competition_level"].eq(level)].copy()
         if subset.empty:
             return {}
-        asof = pd.Timestamp(self.asof).tz_localize(None) if pd.Timestamp(self.asof).tzinfo else pd.Timestamp(self.asof)
+        asof = self._naive_asof()
         dates = pd.to_datetime(subset["date"], errors="coerce")
         subset["_weight"] = np.power(0.5, (asof - dates).dt.days.clip(lower=0) / HALFLIFE_DAYS)
         minutes = pd.to_numeric(subset["minutes"], errors="coerce").fillna(0)
         output: dict[tuple[str, str], tuple[float, float]] = {}
         for event in self.events:
-            valid = (
-                subset[f"available__{event}"].fillna(False).astype(bool)
-                & minutes.gt(0) & pd.to_numeric(subset[event], errors="coerce").notna()
-            )
+            valid = subset[f"available__{event}"].fillna(False).astype(bool) & minutes.gt(0) & pd.to_numeric(subset[event], errors="coerce").notna()
             if not valid.any():
                 continue
             block = subset[valid].copy()
@@ -102,16 +92,13 @@ class EmpiricalEventModel:
         return output
 
     def _fit_rp_priors(self) -> None:
-        path = DATA / "rp_compstats.csv"
-        if not path.exists():
+        path = f"{DATA}/rp_compstats.csv"
+        if not os.path.exists(path):
             return
         rp = pd.read_csv(path, low_memory=False)
-        asof = pd.Timestamp(self.asof).tz_localize(None) if pd.Timestamp(self.asof).tzinfo else pd.Timestamp(self.asof)
+        asof = self._naive_asof()
         rp = past_seasons(rp, asof)
-        rp["_weight"] = np.power(
-            0.5,
-            (asof.year - rp["season"].map(_season_end_year)).clip(lower=0) / RP_HALFLIFE_YEARS,
-        )
+        rp["_weight"] = np.power(0.5, (asof.year - rp["season"].map(_season_end_year)).clip(lower=0) / RP_HALFLIFE_YEARS)
         rp = rp[rp["_weight"].gt(0.15)]
         by_name: dict[tuple[str, str], tuple[float, float]] = {}
         for slug, group in rp.groupby("slug"):
@@ -128,22 +115,18 @@ class EmpiricalEventModel:
                 if not valid.any():
                     continue
                 rate = float((group.loc[valid, "_weight"] * values[valid]).sum() / weighted_minutes * 80)
-                by_name[(_norm(str(slug).replace("-", " ")), event)] = (rate, weighted_minutes)
+                by_name[(norm(str(slug).replace("-", " ")), event)] = (rate, weighted_minutes)
 
-        # Event-specific calibration against established international players.
         factor: dict[str, float] = {}
         for event in self.events:
             ratios = []
             for player, name in self.player_names.items():
                 observed = self.profiles.get((player, event))
-                prior = by_name.get((_norm(name), event))
+                prior = by_name.get((norm(name), event))
                 if observed and prior and observed[1] >= 300 and prior[0] > 1e-6:
                     ratios.append(observed[0] / prior[0])
             factor[event] = float(np.clip(np.median(ratios), 0.5, 1.2)) if len(ratios) >= 20 else 0.84
-        self.rp_priors = {
-            (name, event): (rate * factor[event], exposure)
-            for (name, event), (rate, exposure) in by_name.items()
-        }
+        self.rp_priors = {(name, event): (rate * factor[event], exposure) for (name, event), (rate, exposure) in by_name.items()}
 
     def fit(self, frame: pd.DataFrame) -> "EmpiricalEventModel":
         train = past_matches(frame, self.asof)
@@ -158,10 +141,7 @@ class EmpiricalEventModel:
             club_rate, club_minutes = club.get(key, (np.nan, 0.0))
             if intl_minutes > 0 and club_minutes > 0:
                 club_weight = CLUB_CONF * club_minutes
-                rate = (
-                    intl_minutes * intl_rate
-                    + club_weight * club_rate * _calibration(key[1])
-                ) / (intl_minutes + club_weight)
+                rate = (intl_minutes * intl_rate + club_weight * club_rate * _calibration(key[1])) / (intl_minutes + club_weight)
                 exposure = intl_minutes + club_weight
             elif intl_minutes > 0:
                 rate, exposure = intl_rate, intl_minutes
@@ -173,18 +153,12 @@ class EmpiricalEventModel:
 
         intl = train[train["competition_level"].eq("international")].copy()
         for event in self.events:
-            valid = (
-                intl[f"available__{event}"].fillna(False).astype(bool)
-                & pd.to_numeric(intl["minutes"], errors="coerce").gt(0)
-            )
+            valid = intl[f"available__{event}"].fillna(False).astype(bool) & pd.to_numeric(intl["minutes"], errors="coerce").gt(0)
             if not valid.any():
                 continue
             self.active_events.add(event)
             block = intl[valid].copy()
-            block["_rate"] = (
-                pd.to_numeric(block[event], errors="coerce")
-                / pd.to_numeric(block["minutes"], errors="coerce").clip(lower=1) * 80
-            )
+            block["_rate"] = pd.to_numeric(block[event], errors="coerce") / pd.to_numeric(block["minutes"], errors="coerce").clip(lower=1) * 80
             position = block.groupby("position")["_rate"].mean()
             overall = float(block["_rate"].mean())
             for pos in train["position"].dropna().astype(str).unique():
@@ -193,7 +167,7 @@ class EmpiricalEventModel:
             self.dispersion[event] = max(float(np.var(actual)), float(np.mean(actual)), 1e-4)
 
         self._fit_rp_priors()
-        asof = pd.Timestamp(self.asof).tz_localize(None) if pd.Timestamp(self.asof).tzinfo else pd.Timestamp(self.asof)
+        asof = self._naive_asof()
         dates = pd.to_datetime(train["date"], errors="coerce")
         train["_weight"] = np.power(0.5, (asof - dates).dt.days.clip(lower=0) / HALFLIFE_DAYS)
         minute_valid = train["available__minutes"].fillna(False).astype(bool)
@@ -201,19 +175,15 @@ class EmpiricalEventModel:
         for (player, started), group in minute_rows.groupby([minute_rows["player_id"].astype(str), "started"]):
             weight = group["_weight"].to_numpy(float)
             if weight.sum() > 0:
-                self.minutes_by_player[(str(player), bool(started))] = float(
-                    np.average(pd.to_numeric(group["minutes"], errors="coerce"), weights=weight)
-                )
+                self.minutes_by_player[(str(player), bool(started))] = float(np.average(pd.to_numeric(group["minutes"], errors="coerce"), weights=weight))
         for (position, started), group in minute_rows.groupby(["position", "started"]):
             weight = group["_weight"].to_numpy(float)
             if weight.sum() > 0:
-                self.minutes_by_position[(str(position), bool(started))] = float(
-                    np.average(pd.to_numeric(group["minutes"], errors="coerce"), weights=weight)
-                )
+                self.minutes_by_position[(str(position), bool(started))] = float(np.average(pd.to_numeric(group["minutes"], errors="coerce"), weights=weight))
         self.dispersion["minutes"] = max(float(pd.to_numeric(minute_rows["minutes"], errors="coerce").var()), 1.0)
 
-        rankings = DATA / "wr_rankings.csv"
-        if rankings.exists():
+        rankings = f"{DATA}/wr_rankings.csv"
+        if os.path.exists(rankings):
             wr = pd.read_csv(rankings, parse_dates=["snapshot_date"])
             snapshot = wr[wr["snapshot_date"].lt(asof)]
             if not snapshot.empty:
@@ -223,7 +193,7 @@ class EmpiricalEventModel:
 
     def _rate(self, player: str, name: str, position: str, event: str) -> float:
         base = self.position_priors.get((position, event), 0.0)
-        rp = self.rp_priors.get((_norm(name), event))
+        rp = self.rp_priors.get((norm(name), event))
         if rp:
             confidence = min(rp[1], 900.0) / 900.0 * 200.0
             prior = (confidence * rp[0] + 80.0 * base) / (confidence + 80.0)
@@ -240,10 +210,7 @@ class EmpiricalEventModel:
         for row in frame.itertuples(index=False):
             player, name, position = str(row.player_id), str(row.player_name), str(row.position)
             started = bool(row.started)
-            minutes = self.minutes_by_player.get(
-                (player, started),
-                self.minutes_by_position.get((position, started), 70.0 if started else 20.0),
-            )
+            minutes = self.minutes_by_player.get((player, started), self.minutes_by_position.get((position, started), 70.0 if started else 20.0))
             minutes = float(np.clip(minutes, 0, 80))
             margin = 2.0 * (
                 self.wr_points.get(str(row.team), 80.0)
@@ -270,24 +237,21 @@ class EmpiricalEventModel:
                 else:
                     dispersion = max(self.dispersion.get(event, 1.0), 1e-6)
                 events[event] = EventDistribution(family, float(mean), float(dispersion))
-            predictions.append(RawPrediction(
-                fixture_id=str(row.fixture_id), player_id=player, player_name=name,
-                team=str(row.team), opponent=str(row.opponent), position=position,
-                is_forward=bool(row.is_forward), events=events,
-                minutes=EventDistribution("lognormal", minutes, self.dispersion.get("minutes", 25.0)),
-                metadata={"model": "empirical_event", "competition_level": str(row.competition_level)},
-            ))
+            predictions.append(
+                RawPrediction(
+                    fixture_id=str(row.fixture_id), player_id=player, player_name=name, team=str(row.team), opponent=str(row.opponent), position=position,
+                    is_forward=bool(row.is_forward), events=events, minutes=EventDistribution("lognormal", minutes, self.dispersion.get("minutes", 25.0)),
+                    metadata={"model": "empirical_event", "competition_level": str(row.competition_level)},
+                )
+            )
         return predictions
 
-    def save(self, path: Path) -> None:
-        path.parent.mkdir(parents=True, exist_ok=True)
-        with path.open("wb") as handle:
+    def save(self, path: str) -> None:
+        os.makedirs(os.path.dirname(path), exist_ok=True)
+        with open(path, "wb") as handle:
             pickle.dump(self, handle)
 
     @classmethod
-    def load(cls, path: Path) -> "EmpiricalEventModel":
-        with path.open("rb") as handle:
-            model = pickle.load(handle)
-        if not isinstance(model, cls):
-            raise TypeError(f"{path} is not an EmpiricalEventModel")
-        return model
+    def load(cls, path: str) -> "EmpiricalEventModel":
+        with open(path, "rb") as handle:
+            return pickle.load(handle)

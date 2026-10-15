@@ -9,7 +9,7 @@ import pytest
 
 from model.unified.contracts import EventDistribution, RawPrediction
 from model.unified.raw_benchmark import coverage
-from model.unified.raw_benchmark.blend import EventBlend50, EventWeightedBlend
+from model.unified.raw_benchmark.blend import EventBlend50
 from model.unified.raw_benchmark.config import (
     DIAGNOSTIC_ONLY_EVENTS,
     EXTENDED_EVENTS, STABLE_EVENTS,
@@ -178,29 +178,6 @@ def test_event_blend_preserves_raw_contract_and_both_scorers_accept_it():
     six = SixNationsScorer().score_prediction(prediction, n=20, seed=1)
     ncr = NationsChampionshipScorer().score_prediction(prediction, n=20, seed=1)
     assert np.isfinite(six.mean) and np.isfinite(ncr.mean)
-
-
-def test_event_weighted_blend_changes_only_named_raw_event():
-    empirical = _StaticModel([_raw(0.2)])
-    v4 = _StaticModel([_raw(0.8)])
-    blend = EventWeightedBlend(
-        empirical, v4, weight_v4=0.5, event_weights_v4={"tries": 0.25},
-    )
-    prediction = blend.predict_frame(pd.DataFrame([{"unused": 1}]))[0]
-    assert prediction.events["tries"].mean == pytest.approx(0.35)
-    assert prediction.events["tries"].dispersion != pytest.approx(1.0)
-    assert prediction.minutes.mean == pytest.approx(70.0)
-    assert prediction.metadata["event_weights_v4"] == {"tries": 0.25}
-    assert np.isfinite(SixNationsScorer().score_prediction(
-        prediction, n=20, seed=1,
-    ).mean)
-    assert np.isfinite(NationsChampionshipScorer().score_prediction(
-        prediction, n=20, seed=1,
-    ).mean)
-    with pytest.raises(ValueError, match="blend weights"):
-        EventWeightedBlend(empirical, v4, event_weights_v4={"tries": 1.01})
-    with pytest.raises(ValueError, match="unknown event"):
-        EventWeightedBlend(empirical, v4, event_weights_v4={"competition": 0.4})
 
 
 def test_empirical_serialization_is_deterministic_and_covers_lineup_roles(

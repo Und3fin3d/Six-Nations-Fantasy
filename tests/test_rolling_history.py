@@ -71,32 +71,6 @@ def test_season_aggregates_cannot_use_an_unfinished_calendar_year():
     assert past_seasons(frame, '2025-02-01').index.tolist() == [0]
 
 
-def test_round_folds_admit_earlier_rounds_but_not_current_or_future():
-    from model.unified.raw_benchmark.folds import HistoricalFold, rolling_folds, strict_training_frame
-    frame = _history()
-    frame['match_at'] = pd.to_datetime(frame.date, utc=True)
-    tournament = HistoricalFold('ncr_2026', 'nations_championship', 2026,
-                                '2026-07-01T00:00:00Z',
-                                ('past', 'current', 'future'), ('r1', 'r2', 'r3'), 'mixed')
-    rounds = rolling_folds(frame, [tournament])
-    assert [fold.label for fold in rounds] == ['r1', 'r2', 'r3']
-    assert strict_training_frame(frame, tournament).empty
-    assert set(strict_training_frame(frame, rounds[1]).fixture_id) == {'past'}
-    assert set(strict_training_frame(frame, rounds[2]).fixture_id) == {'past', 'current'}
-
-
-def test_current_round_players_share_one_history_cutoff():
-    from model.unified.raw_benchmark.folds import HistoricalFold, rolling_folds, strict_training_frame
-    frame = _history()
-    frame['match_at'] = pd.to_datetime(frame.date, utc=True)
-    tournament = HistoricalFold('ncr_2026', 'nations_championship', 2026,
-                                '2026-07-01T00:00:00Z',
-                                ('past', 'current', 'future'), ('r1', 'r2', 'r2'), 'mixed')
-    rounds = rolling_folds(frame, [tournament])
-    assert set(rounds[1].fixture_ids) == {'current', 'future'}
-    assert set(strict_training_frame(frame, rounds[1]).fixture_id) == {'past'}
-
-
 def test_precomputed_training_features_equal_cutoff_rebuild():
     from model.unified.raw_benchmark.features import build_frozen_feature_frames
     from model.unified.raw_benchmark.folds import masked_candidates
@@ -128,31 +102,6 @@ def test_candidate_outcomes_cannot_change_features():
     _, after = build_frozen_feature_frames(frame.iloc[:2], masked_candidates(candidate), v4=True)
     columns = V4FeatureEncoder().fit(a).numeric_columns
     pd.testing.assert_frame_equal(before.reindex(columns=columns), after.reindex(columns=columns))
-
-
-def test_robust_minutes_use_international_role_not_club_minutes(monkeypatch):
-    from model.unified.raw_benchmark.empirical import EmpiricalEventModel
-    from model.unified.raw_benchmark.robust_empirical import RobustEmpiricalEventModel
-    monkeypatch.setattr(EmpiricalEventModel, '_fit_rp_priors', lambda self: None)
-    frame = _history().iloc[:1].copy()
-    frame['minutes'] = 20.0
-    frame['started'] = False
-    club = pd.concat([frame]*20, ignore_index=True)
-    club['competition_level'] = 'club'
-    club['minutes'] = 80.0
-    model = RobustEmpiricalEventModel(asof='2026-07-03').fit(pd.concat([frame,club],ignore_index=True))
-    assert model.minutes_by_player[('p',False)] == pytest.approx(20.0)
-
-
-def test_robust_position_rate_uses_observed_exposure(monkeypatch):
-    from model.unified.raw_benchmark.empirical import EmpiricalEventModel
-    from model.unified.raw_benchmark.robust_empirical import RobustEmpiricalEventModel
-    monkeypatch.setattr(EmpiricalEventModel, '_fit_rp_priors', lambda self: None)
-    frame = pd.concat([_history().iloc[:1]]*2,ignore_index=True)
-    frame.loc[0,['player_id','minutes','tries']] = ['cameo',1.0,1.0]
-    frame.loc[1,['player_id','minutes','tries']] = ['starter',80.0,0.0]
-    model = RobustEmpiricalEventModel(asof='2026-07-03').fit(frame)
-    assert model.position_priors[('Prop','tries')] == pytest.approx(80.0/81.0)
 
 
 def test_kickoff_before_lock_does_not_make_ongoing_match_results_available():

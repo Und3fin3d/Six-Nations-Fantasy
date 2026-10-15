@@ -71,8 +71,9 @@ def match_players(pool, hist):
     return out
 
 
-CLUB_ATT_CAL, CLUB_DEF_CAL, CLUB_DSC_CAL = 0.84, 0.97, 1.0
+CLUB_CAL = {"att": 0.84, "dfn": 0.97, "dsc": 1.0}
 CLUB_CONF = 0.55
+GROUPS = {"att": ATT, "dfn": DEF, "dsc": DISC}
 
 
 def _weighted_rates(g):
@@ -80,7 +81,7 @@ def _weighted_rates(g):
     if wm <= 0:
         return None, 0.0
     rates = {e: (g.w * g[e]).sum() / wm * 80 for e in {**ATT, **DEF, **DISC}}
-    return rates, wm
+    return {k: sum(rates[e] * v for e, v in w.items()) for k, w in GROUPS.items()}, wm
 
 
 def player_profiles(hist, club=None, *, asof=None):
@@ -97,29 +98,20 @@ def player_profiles(hist, club=None, *, asof=None):
         club_by_pid = {pid: g for pid, g in club.groupby("player_id")}
     prof = {}
     for pid, g in hist.groupby("player_id"):
-        rates, wm = _weighted_rates(g)
-        if rates is None:
+        comp, wm = _weighted_rates(g)
+        if comp is None:
             continue
-        att = sum(rates[e] * v for e, v in ATT.items())
-        dfn = sum(rates[e] * v for e, v in DEF.items())
-        dsc = sum(rates[e] * v for e, v in DISC.items())
         cg = club_by_pid.get(pid)
-        if cg is not None:
-            crates, cwm = _weighted_rates(cg)
-            if crates is not None:
-                catt = sum(crates[e] * v for e, v in ATT.items()) * CLUB_ATT_CAL
-                cdfn = sum(crates[e] * v for e, v in DEF.items()) * CLUB_DEF_CAL
-                cdsc = sum(crates[e] * v for e, v in DISC.items()) * CLUB_DSC_CAL
-                cw = CLUB_CONF * cwm
-                att = (wm * att + cw * catt) / (wm + cw)
-                dfn = (wm * dfn + cw * cdfn) / (wm + cw)
-                dsc = (wm * dsc + cw * cdsc) / (wm + cw)
-                wm = wm + cw
+        club_comp, cwm = _weighted_rates(cg) if cg is not None else (None, 0.0)
+        if club_comp is not None:
+            cw = CLUB_CONF * cwm
+            comp = {k: (wm * v + cw * (club_comp[k] * CLUB_CAL[k])) / (wm + cw) for k, v in comp.items()}
+            wm = wm + cw
         starts, bench = g[g.started], g[~g.started]
         start_min = (starts.w * starts.minutes).sum() / starts.w.sum() if len(starts) and starts.w.sum() > 0 else 72
         bench_min = (bench.w * bench.minutes).sum() / bench.w.sum() if len(bench) and bench.w.sum() > 0 else np.nan
         prof[pid] = dict(
-            att=att, dfn=dfn, dsc=dsc, wmin=wm, start_min=min(80, start_min), bench_min=min(35, max(8, bench_min)) if bench_min == bench_min else np.nan,
+            **comp, wmin=wm, start_min=min(80, start_min), bench_min=min(35, max(8, bench_min)) if bench_min == bench_min else np.nan,
             n=g.fixture_id.nunique(),
         )
     return prof
@@ -170,7 +162,7 @@ def build_projection(exclude_teams=(), *, pool_override=None, asof=None, gameday
         if pl.player_status not in ("P", "B"):
             continue
         status, pos, team = pl.player_status, SKILL2POS[pl.skill_desc], pl.team_name
-        p, b, rpr = prof.get(pid_map.get(pl.id)), base[SKILL2POS[pl.skill_desc]], rp_by_key.get(norm(pl.full_name))
+        p, b, rpr = prof.get(pid_map.get(pl.id)), base[pos], rp_by_key.get(norm(pl.full_name))
         if rpr:
             rc = min(rpr["rp_min"], 900) / 900 * 200
             prior, rp_min = {k: (rc * rpr[k] + 80 * b[k]) / (rc + 80) for k in ("att", "dfn", "dsc")}, rpr["rp_min"]

@@ -16,6 +16,7 @@ BLEND_WEIGHT = 0.5
 LGBM_COMPS = {"tackles", "metres", "tries", "try_assists", "defenders_beaten", "offload", "tackle_turnover", "penalties_conceded"}
 ZERO_PRIOR = {"drop_goals_converted", "red_cards"}
 KICK_COMPS = {"conversion_goals", "penalty_goals"}
+LGBM_ONLY = {c: "zero_prior" if c in ZERO_PRIOR else "lgbm" if c in LGBM_COMPS else "naive" for c in SCORED}
 
 _LGBM_BASE = dict(
     n_estimators=400, learning_rate=0.05, num_leaves=15, min_child_samples=50, reg_lambda=5.0, colsample_bytree=0.8, subsample=0.9, subsample_freq=1,
@@ -95,10 +96,7 @@ def select_components(df: pd.DataFrame, train_mask: np.ndarray, mode: str) -> pd
             best_simple_mae = simple[best_simple]
             choice, reason = best_simple, f"best baseline (OOF {best_simple_mae:.3f})"
             threshold = best_simple_mae * (1.0 - LGBM_MARGIN)
-            best_adv, best_adv_mae = None, threshold
-            for adv in ("lgbm", "blend"):
-                if adv in m and m[adv] < best_adv_mae:
-                    best_adv, best_adv_mae = adv, m[adv]
+            best_adv = min((adv for adv in ("lgbm", "blend") if adv in m and m[adv] < threshold), key=m.get, default=None)
             if best_adv is not None:
                 gain = 100.0 * (1.0 - m[best_adv] / best_simple_mae)
                 choice = best_adv
@@ -112,11 +110,15 @@ def select_components(df: pd.DataFrame, train_mask: np.ndarray, mode: str) -> pd
     return pd.DataFrame(rows)
 
 
-def predict_rates_registry(df: pd.DataFrame, train_idx: np.ndarray, test_idx: np.ndarray, mode: str, registry: pd.DataFrame) -> pd.DataFrame:
-    eng = dict(zip(registry["component"], registry["engine"]))
+def lgbm_model(df: pd.DataFrame, train_idx: np.ndarray, test_idx: np.ndarray, mode: str, teamplay: str = "off"):
+    X = _lgbm_frame(df, mode, teamplay)
+    return lambda comp: _lgbm_predict(_fit_lgbm_component(df, X, train_idx, comp), X, test_idx)
+
+
+def predict_rates_registry(df: pd.DataFrame, train_idx: np.ndarray, test_idx: np.ndarray, mode: str, eng: dict, model=None) -> pd.DataFrame:
     need_base = {e for e in eng.values() if e in ("naive", "ridge", "glm")} | ({"glm"} if "blend" in eng.values() else set()) | {"naive"}
     base = {e: predict_rates(df, train_idx, test_idx, mode, e) for e in need_base}
-    X = _lgbm_frame(df, mode)
+    model = model or lgbm_model(df, train_idx, test_idx, mode)
     out = pd.DataFrame(index=df.iloc[test_idx].index, columns=SCORED, dtype=float)
     gate = _kick_gate(df, test_idx)
     for comp in SCORED:
@@ -126,7 +128,7 @@ def predict_rates_registry(df: pd.DataFrame, train_idx: np.ndarray, test_idx: np
         elif e in base:
             out[comp] = base[e][comp].to_numpy(float)
         else:
-            yl = _lgbm_predict(_fit_lgbm_component(df, X, train_idx, comp), X, test_idx)
+            yl = model(comp)
             out[comp] = yl if e == "lgbm" else BLEND_WEIGHT * yl + (1.0 - BLEND_WEIGHT) * base["glm"][comp].to_numpy(float)
         if comp in KICK_COMPS:
             out[comp] = out[comp].to_numpy(float) * gate
@@ -134,17 +136,4 @@ def predict_rates_registry(df: pd.DataFrame, train_idx: np.ndarray, test_idx: np
 
 
 def predict_rates_lgbm_only(df: pd.DataFrame, train_idx: np.ndarray, test_idx: np.ndarray, mode: str, teamplay: str = "off") -> pd.DataFrame:
-    naive = predict_rates(df, train_idx, test_idx, mode, "naive")
-    X = _lgbm_frame(df, mode, teamplay)
-    out = pd.DataFrame(index=df.iloc[test_idx].index, columns=SCORED, dtype=float)
-    gate = _kick_gate(df, test_idx)
-    for comp in SCORED:
-        if comp in ZERO_PRIOR:
-            out[comp] = 0.0
-        elif comp in LGBM_COMPS:
-            out[comp] = _lgbm_predict(_fit_lgbm_component(df, X, train_idx, comp), X, test_idx)
-        else:
-            out[comp] = naive[comp].to_numpy(float)
-        if comp in KICK_COMPS:
-            out[comp] = out[comp].to_numpy(float) * gate
-    return out.clip(lower=0.0)
+    return predict_rates_registry(df, train_idx, test_idx, mode, LGBM_ONLY, lgbm_model(df, train_idx, test_idx, mode, teamplay))

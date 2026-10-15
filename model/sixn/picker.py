@@ -9,10 +9,10 @@ import xgboost as xgb
 from sklearn.linear_model import Ridge
 
 from model.sixn.assemble import assemble_predictions, rank_scores
-from model.sixn.baselines import MIN_MINUTES, SCORED, _rate_target, expected_minutes, predict_rates
+from model.sixn.baselines import MIN_MINUTES, _rate_target, expected_minutes
 from model.sixn.data import CATEGORICAL_COLS, feature_view
-from model.sixn.splits import component_train, round_iter
-from model.sixn.train_components import KICK_COMPS, LGBM_COMPS, ZERO_PRIOR, _kick_gate, predict_rates_lgbm_only
+from model.sixn.splits import component_train, latent_calib_rows, round_iter
+from model.sixn.train_components import LGBM_ONLY, predict_rates_lgbm_only, predict_rates_registry
 
 MODE = "post_team_sheet"
 CFG = json.load(open("model/sixn/promoted_config.json"))
@@ -46,33 +46,25 @@ def _xgb_objective(comp: str) -> dict:
 
 
 def _xgb_rates(df: pd.DataFrame, train_idx: np.ndarray, test_idx: np.ndarray, mode: str) -> pd.DataFrame:
-    naive = predict_rates(df, train_idx, test_idx, mode, "naive")
-    out = pd.DataFrame(index=df.iloc[test_idx].index, columns=SCORED, dtype=float)
-    gate = _kick_gate(df, test_idx)
     X = _xgb_frame(df)
     use = train_idx[(df.iloc[train_idx]["minutes"] >= MIN_MINUTES).to_numpy()]
-    for comp in SCORED:
-        if comp in ZERO_PRIOR:
-            out[comp] = 0.0
-        elif comp in LGBM_COMPS:
-            y = np.clip(np.nan_to_num(_rate_target(df.iloc[use], comp), nan=0.0, posinf=0.0, neginf=0.0), 0.0, None)
-            model = xgb.XGBRegressor(**XGB_PARAMS, **_xgb_objective(comp))
-            with warnings.catch_warnings():
-                warnings.simplefilter("ignore")
-                model.fit(X.iloc[use], y)
-            out[comp] = np.clip(model.predict(X.iloc[test_idx]), 0.0, None)
-        else:
-            out[comp] = naive[comp].to_numpy(float)
-        if comp in KICK_COMPS:
-            out[comp] = out[comp].to_numpy(float) * gate
-    return out.clip(lower=0.0)
+
+    def model(comp: str) -> np.ndarray:
+        y = np.clip(np.nan_to_num(_rate_target(df.iloc[use], comp), nan=0.0, posinf=0.0, neginf=0.0), 0.0, None)
+        regressor = xgb.XGBRegressor(**XGB_PARAMS, **_xgb_objective(comp))
+        with warnings.catch_warnings():
+            warnings.simplefilter("ignore")
+            regressor.fit(X.iloc[use], y)
+        return np.clip(regressor.predict(X.iloc[test_idx]), 0.0, None)
+
+    return predict_rates_registry(df, train_idx, test_idx, mode, LGBM_ONLY, model)
 
 
 def _frontrow_prior(df: pd.DataFrame, test_idx: np.ndarray, pred: pd.DataFrame, season: int) -> np.ndarray:
     out = pred["target_pts_hat"].to_numpy(float).copy()
     base, w = out.copy(), CFG["target_prior_blend"]
     for _, asof, ridx in round_iter(df, season):
-        hist_mask = df["is_modern"].to_numpy() & df["has_label"].to_numpy() & (df["date"] < asof).to_numpy()
+        hist_mask = latent_calib_rows(df, asof)
         if hist_mask.sum() < 40:
             continue
         local = np.searchsorted(test_idx, ridx)

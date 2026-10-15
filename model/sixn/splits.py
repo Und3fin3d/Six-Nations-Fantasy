@@ -17,9 +17,7 @@ def chronological_indices(df_train: pd.DataFrame, n_splits: int) -> Iterator[tup
 
 
 def latent_calib_rows(df: pd.DataFrame, asof_date) -> np.ndarray:
-    asof = pd.Timestamp(asof_date)
-    mask = df["is_modern"].to_numpy() & df["has_label"].to_numpy() & (df["date"] < asof).to_numpy()
-    return mask
+    return df["is_modern"].to_numpy() & df["has_label"].to_numpy() & (df["date"] < pd.Timestamp(asof_date)).to_numpy()
 
 
 def round_iter(df: pd.DataFrame, test_season: int) -> Iterator[tuple[int, pd.Timestamp, np.ndarray]]:

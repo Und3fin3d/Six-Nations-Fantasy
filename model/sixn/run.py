@@ -1,6 +1,7 @@
 from __future__ import annotations
 
 import warnings
+from functools import partial
 
 import numpy as np
 import pandas as pd
@@ -36,12 +37,12 @@ def _team_value(g: pd.DataFrame, score_col: str) -> float:
     return (
         float(xv["official_pts"].sum())
         + float(xv.loc[xv[score_col].idxmax(), "official_pts"])
-        + (_sub_value(pool.loc[pool[score_col].idxmax()]) if not pool.empty else 0.0)
+        + (float(_sub_values(pool).loc[pool[score_col].idxmax()]) if not pool.empty else 0.0)
     )
 
 
-def _sub_value(player: pd.Series) -> float:
-    return float(player["official_pts"]) * (0.5 if bool(player["started"]) else SUPERSUB_MULTIPLIER)
+def _sub_values(rows: pd.DataFrame) -> pd.Series:
+    return rows["official_pts"].astype(float) * np.where(rows["started"].astype(bool), 0.5, SUPERSUB_MULTIPLIER)
 
 
 def _round_values(rounds: list[pd.DataFrame], score_col: str) -> tuple[list[float], list[float]]:
@@ -59,7 +60,7 @@ def _round_values(rounds: list[pd.DataFrame], score_col: str) -> tuple[list[floa
         optimal = (
             float(opt_xv["official_pts"].sum())
             + (float(opt_xv["official_pts"].max()) if not opt_xv.empty else 0.0)
-            + (max(_sub_value(player) for _, player in opt_pool.iterrows()) if not opt_pool.empty else 0.0)
+            + (float(_sub_values(opt_pool).max()) if not opt_pool.empty else 0.0)
         )
         team.append(_team_value(g, score_col) / optimal if optimal > 0 else np.nan)
     return xv, team
@@ -67,7 +68,7 @@ def _round_values(rounds: list[pd.DataFrame], score_col: str) -> tuple[list[floa
 
 def _position_spearman(lab: pd.DataFrame, score_col: str) -> float:
     num = den = 0.0
-    for _, g in lab.dropna(subset=[score_col]).groupby("canonical_pos"):
+    for _, g in lab.groupby("canonical_pos"):
         if g[score_col].nunique() >= 3 and len(g) >= 5 and np.isfinite(rho := spearmanr(g[score_col], g["official_pts"]).correlation):
             num, den = num + rho * len(g), den + len(g)
     return float(num / den) if den else np.nan
@@ -75,27 +76,15 @@ def _position_spearman(lab: pd.DataFrame, score_col: str) -> float:
 
 def evaluate(pred: pd.DataFrame, score_col: str = "target_pts_hat", *, points: bool = True) -> dict:
     lab = _labelled(pred).dropna(subset=[score_col, "official_pts"])
-    groups = ["season", "round"] if "season" in lab else ["round"]
-    rounds = [g for _, g in lab.groupby(groups)]
+    rounds = [g for _, g in lab.groupby(["season", "round"])]
     xv, team = _round_values(rounds, score_col)
     hits = {n: 0 for n in (1, 3, 5)}
     for g in rounds:
         cap, act = g.loc[g[score_col].idxmax()], g["official_pts"].sort_values(ascending=False).to_numpy()
         for n in hits:
             hits[n] += int(cap["official_pts"] >= act[min(n - 1, len(act) - 1)])
-    overlap = lambda n: (
-        float(
-            np.mean(
-                [
-                    len(set(g.nlargest(min(n, len(g)), score_col)["player_id"]) & set(g.nlargest(min(n, len(g)), "official_pts")["player_id"])) / min(n, len(g))
-                    for g in rounds
-                ]
-            )
-        )
-        if rounds
-        else np.nan
-    )
-    labelled = lab.dropna(subset=[score_col])
+    top = lambda g, col, n: set(g.nlargest(min(n, len(g)), col)["player_id"])
+    overlap = lambda n: float(np.mean([len(top(g, score_col, n) & top(g, "official_pts", n)) / min(n, len(g)) for g in rounds])) if rounds else np.nan
     return {
         "value_team": float(np.nanmean(team)),
         "value_xv": float(np.nanmean(xv)),
@@ -103,7 +92,7 @@ def evaluate(pred: pd.DataFrame, score_col: str = "target_pts_hat", *, points: b
         "top15": overlap(15),
         "top30": overlap(30),
         "spearman_pos": _position_spearman(lab, score_col),
-        "mae": float((labelled["official_pts"] - labelled[score_col]).abs().mean()) if points else np.nan,
+        "mae": float((lab["official_pts"] - lab[score_col]).abs().mean()) if points else np.nan,
         "bench_mae": np.nan,
     }
 
@@ -115,21 +104,19 @@ def format_table(rows: dict[str, dict], title: str) -> str:
 
 
 def build_predictors(registry: pd.DataFrame):
-    return {
-        "naive": lambda d, ti, te, mo: predict_rates(d, ti, te, mo, "naive"), "ridge": lambda d, ti, te, mo: predict_rates(d, ti, te, mo, "ridge"),
-        "glm": lambda d, ti, te, mo: predict_rates(d, ti, te, mo, "glm"), "lgbm_only": lambda d, ti, te, mo: predict_rates_lgbm_only(d, ti, te, mo),
-        "ensemble": lambda d, ti, te, mo: predict_rates_registry(d, ti, te, mo, registry),
+    eng = dict(zip(registry["component"], registry["engine"]))
+    return {e: partial(predict_rates, engine=e) for e in ("naive", "ridge", "glm")} | {
+        "lgbm_only": predict_rates_lgbm_only, "ensemble": partial(predict_rates_registry, eng=eng),
     }
 
 
 def direct_points_frame(df: pd.DataFrame, test_season: int, mode: str) -> pd.DataFrame:
     sub = df[df["season"] == test_season]
-    prior = df[(df["season"] < test_season) & df["is_modern"] & df["has_label"]]
     yhat = pd.Series(np.nan, index=sub.index, dtype=float)
-    if len(prior):
-        tr_idx = np.where((df["season"] < test_season).to_numpy() & df["is_modern"].to_numpy() & df["has_label"].to_numpy())[0]
+    tr_idx = np.where((df["season"] < test_season).to_numpy() & df["is_modern"].to_numpy() & df["has_label"].to_numpy())[0]
+    if len(tr_idx):
         te_idx = np.where((df["season"] == test_season).to_numpy())[0]
-        Xtr, Xte, _ = build_matrix(df, tr_idx, te_idx, mode)
+        Xtr, Xte = build_matrix(df, tr_idx, te_idx, mode)
         with warnings.catch_warnings():
             warnings.simplefilter("ignore")
             mdl = RidgeCV(alphas=(1.0, 10.0, 100.0)).fit(Xtr, df.iloc[tr_idx]["official_pts"].to_numpy(float))

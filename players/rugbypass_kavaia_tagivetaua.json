@@ -11,7 +11,7 @@
   "match_log": [
     {
       "competition": "Japan Rugby League One",
-      "match": "Hanazono Kintetsu Liners vs Green Rockets Tokatsu",
+      "match": "Kintetsu Liners vs Green Rockets Tokatsu",
       "date": "22 Apr 2023",
       "opposition": "Hanazono Kintetsu Liners",
       "win": true,
@@ -55,7 +55,7 @@
       "opposition": "Tokyo Sungoliath",
       "win": false,
       "draw": false,
-      "mins": 37,
+      "mins": 34,
       "tries": 0,
       "yellow_cards": 0,
       "red_cards": 0,
@@ -63,20 +63,7 @@
     },
     {
       "competition": "Japan Rugby League One",
-      "match": "Green Rockets Tokatsu vs Kobelco Kobe Steelers",
-      "date": "8 Jan 2023",
-      "opposition": "Green Rockets Tokatsu",
-      "win": true,
-      "draw": false,
-      "mins": 80,
-      "tries": 0,
-      "yellow_cards": 0,
-      "red_cards": 0,
-      "conversions": 0
-    },
-    {
-      "competition": "Japan Rugby League One",
-      "match": "Green Rockets Tokatsu vs Kobelco Kobe Steelers",
+      "match": "Green Rockets Tokatsu vs Kobe Kobelco Steelers",
       "date": "8 Jan 2023",
       "opposition": "Kobelco Kobe Steelers",
       "win": false,
@@ -102,7 +89,7 @@
     },
     {
       "competition": "Japan Rugby League One",
-      "match": "Green Rockets Tokatsu vs Hanazono Kintetsu Liners",
+      "match": "Green Rockets Tokatsu vs Kintetsu Liners",
       "date": "18 Dec 2022",
       "opposition": "Hanazono Kintetsu Liners",
       "win": true,

@@ -848,3 +848,5 @@ date,comp,team,team_id,opponent,opponent_id,team_score,opp_score,margin,result,r
 2026-09-27,Men's Internationals 2026,South Africa,39,Australia,38,38,42,-4,L,,True
 2026-10-10,Bledisloe Cup 2026,Australia,38,New Zealand,37,19,50,-31,L,,True
 2026-10-10,Bledisloe Cup 2026,New Zealand,37,Australia,38,50,19,31,W,,True
+2026-10-17,Bledisloe Cup 2026,Australia,38,New Zealand,37,21,43,-22,L,,True
+2026-10-17,Bledisloe Cup 2026,New Zealand,37,Australia,38,43,21,22,W,,True

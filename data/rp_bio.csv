@@ -8,12 +8,12 @@ a|cocagi,adrea-cocagi,Fiji,32,Centre,185,109
 a|creevy,agustin-creevy,Argentina,41,Hooker,181,106
 a|fraga,agustin-fraga,,24,Outside Back,192,98
 a|moyano,agustin-moyano,,23,Scrum Half,173,75
-a|sarelli,agustin-sarelli,,21,Back Row,193,101
-a|ross,aidan-ross,New Zealand,30,Prop,189,118
+a|sarelli,agustin-sarelli,,22,Back Row,193,101
+a|ross,aidan-ross,New Zealand,31,Prop,189,118
 a|okui,akito-okui,Japan,25,Back Row,177,103
 a|tuisue,albert-tuisue,Fiji,33,Lock,188,115
 a|hepburn,alec-hepburn,Scotland,33,Prop,185,114
-a|fusco,alessandro-fusco,Italy,26,Scrum Half,183,85
+a|fusco,alessandro-fusco,Italy,27,Scrum Half,183,85
 a|garbisi,alessandro-garbisi,Italy,24,Scrum Half,174,83
 a|izekor,alessandro-izekor,Italy,26,Back Row,196,108
 a|ortombina,alessandro-ortombina,Italy,24,Lock,196,114
@@ -81,7 +81,7 @@ b|carter,ben-carter,Wales,25,Lock,197,122
 b|curry,ben-curry,England,28,Back Row,185,105
 b|donaldson,ben-donaldson,Australia,27,Fly Half,184,84
 b|earl,ben-earl,England,28,Back Row,183,107
-b|gunter,ben-gunter,Japan,28,Back Row,195,118
+b|gunter,ben-gunter,Japan,29,Back Row,195,118
 b|healy,ben-healy,Scotland,27,Fly Half,191,97
 b|jasondixon,ben-jason-dixon,South Africa,28,Back Row,198,110
 b|muncaster,ben-muncaster,Scotland,25,Back Row,190,110
@@ -96,7 +96,7 @@ b|youngs,ben-youngs,England,37,Scrum Half,178,92
 b|jansevanrensburg,benhard-janse-van-rensburg,South Africa,29,Centre,185,96
 b|elizalde,benjamin-elizalde,Argentina,22,Outside Back,188,93
 b|grondona,benjamin-grondona,Argentina,23,Back Row,190,100
-b|obano,beno-obano,England,31,Prop,176,120
+b|obano,beno-obano,England,32,Prop,176,120
 b|rodd,bevan-rodd,England,26,Prop,183,118
 b|bohan,billy-bohan,,20,Fullback,191,114
 b|burns,billy-burns,England,32,Fly Half,185,86
@@ -127,7 +127,7 @@ c|evans,cai-evans,Wales,27,Outside Back,185,84
 c|clarke,caleb-clarke,New Zealand,27,Outside Back,189,109
 c|muntz,caleb-muntz,Fiji,26,Fly Half,178,87
 c|braley,callum-braley,Italy,32,Scrum Half,178,84
-c|sheedy,callum-sheedy,Wales,30,Fly Half,173,82
+c|sheedy,callum-sheedy,Wales,31,Fly Half,173,82
 c|nash,calvin-nash,Ireland,29,Outside Back,178,90
 c|roigard,cam-roigard,New Zealand,25,Scrum Half,183,88
 c|winnett,cam-winnett,Wales,23,Outside Back,180,85
@@ -148,7 +148,7 @@ c|cale,charlie-cale,Australia,26,Back Row,195,105
 c|ewels,charlie-ewels,England,31,Lock,199,108
 c|lawrence,charlie-lawrence,New Zealand,28,Centre,172,87
 c|traore,cherif-traore,,32,Prop,184,116
-c|kolbe,cheslin-kolbe,South Africa,32,Outside Back,171,78
+c|kolbe,cheslin-kolbe,South Africa,33,Outside Back,171,78
 c|coleman,chris-coleman,Wales,28,Prop,188,125
 c|harris,chris-harris,,35,Centre,188,104
 c|tshiunza,christ-tshiunza,,0,Lock,0,0
@@ -168,7 +168,7 @@ c|ratima,cortez-ratima,New Zealand,25,Scrum Half,179,87
 c|hill,cory-hill,,34,Lock,193,114
 c|lawes,courtney-lawes,England,37,Back Row,200,119
 c|casey,craig-casey,Ireland,27,Scrum Half,165,76
-c|millar,craig-millar,Japan,35,Prop,186,116
+c|millar,craig-millar,Japan,36,Prop,186,116
 c|langdon,curtis-langdon,England,29,Hooker,183,107
 c|baille,cyril-baille,France,33,Prop,182,116
 c|cazeaux,cyril-cazeaux,France,31,Lock,198,117
@@ -198,7 +198,7 @@ d|graham,darcy-graham,Scotland,29,Outside Back,176,84
 d|rae,darcy-rae,Scotland,31,Prop,185,125
 d|murray,darragh-murray,Ireland,25,Lock,201,115
 d|kilcoyne,dave-kilcoyne,Ireland,37,Prop,183,112
-d|porecki,dave-porecki,Australia,33,Hooker,185,108
+d|porecki,dave-porecki,Australia,34,Hooker,185,108
 d|cherry,david-cherry,Scotland,35,Hooker,183,107
 d|odiase,david-odiase,,23,Back Row,189,104
 d|ribbans,david-ribbans,England,31,Lock,202,116
@@ -217,7 +217,7 @@ d|cretin,dylan-cretin,France,29,Back Row,195,105
 d|pietsch,dylan-pietsch,Australia,28,Outside Back,187,97
 d|richardson,dylan-richardson,,27,Back Row,183,106
 d|riley,dylan-riley,Japan,29,Centre,187,102
-e|etzebeth,eben-etzebeth,South Africa,34,Lock,203,122
+e|etzebeth,eben-etzebeth,South Africa,35,Lock,203,122
 e|byrne,ed-byrne,Ireland,33,Prop,180,114
 e|james,eddie-james,Wales,24,Centre,193,110
 e|iachizzi,edoardo-iachizzi,Italy,28,Lock,196,110
@@ -246,7 +246,7 @@ e|meafou,emmanuel-meafou,France,28,Lock,203,140
 e|narawa,emoni-narawa,New Zealand,27,Outside Back,184,98
 e|opokugyamfi,enoch-opoku-gyamfi,,0,Back Row,0,0
 h|faiva,epalahame-faiva,Italy,32,Hooker,183,102
-e|momo,epeli-momo,Fiji,26,Outside Back,184,84
+e|momo,epeli-momo,Fiji,27,Outside Back,184,84
 e|uluiviti,epineri-uluiviti,Japan,30,Lock,196,122
 e|mawi,eroni-mawi,Fiji,30,Prop,189,131
 e|haangana,esei-haangana,Australia,27,Lock,198,120
@@ -300,7 +300,7 @@ f|thomas,freddie-thomas,England,24,Back Row,193,106
 g|villiere,gabin-villiere,France,30,Outside Back,180,93
 g|hamerwebb,gabriel-hamer-webb,England,25,Outside Back,181,94
 g|oghre,gabriel-oghre,England,28,Hooker,172,103
-g|drean,gael-drean,France,25,Outside Back,184,84
+g|drean,gael-drean,France,26,Outside Back,184,84
 g|fickou,gael-fickou,France,32,Centre,190,99
 g|barlot,gaeton-barlot,France,29,Hooker,184,107
 g|anscombe,gareth-anscombe,,35,Fly Half,183,90
@@ -352,7 +352,7 @@ h|watson,hamish-watson,Scotland,35,Back Row,185,102
 h|pollard,handre-pollard,South Africa,32,Fly Half,189,96
 h|deaves,harri-deaves,Wales,25,Back Row,180,91
 h|morris,harri-morris,Scotland,25,Hooker,180,103
-h|oconnor,harri-oconnor,Wales,25,Prop,182,118
+h|oconnor,harri-oconnor,Wales,26,Prop,182,118
 h|keddie,harrison-keddie,Wales,30,Back Row,188,110
 h|byrne,harry-byrne,Ireland,27,Fly Half,191,95
 h|hockings,harry-hockings,Australia,28,Lock,206,118
@@ -381,7 +381,7 @@ h|jones,huw-jones,Scotland,32,Centre,186,102
 i|henderson,iain-henderson,Northern Ireland,34,Lock,198,116
 i|diallo,ibrahim-diallo,France,28,Back Row,193,108
 i|nakakusu,ichigo-nakakusu,Japan,26,Fly Half,174,84
-i|calles,ignacio-calles,Argentina,30,Prop,187,116
+i|calles,ignacio-calles,Argentina,31,Prop,187,116
 i|mendy,ignacio-mendy,Argentina,26,Outside Back,185,81
 i|ruiz,ignacio-ruiz,Argentina,25,Hooker,188,104
 i|droasese,ilaisa-droasese,Fiji,27,Outside Back,187,99
@@ -443,9 +443,9 @@ j|osborne,jamie-osborne,Ireland,24,Centre,193,96
 j|ritchie,jamie-ritchie,Scotland,30,Back Row,193,109
 j|gibsonpark,jamison-gibson-park,,34,Scrum Half,175,80
 j|hendrikwessels,jan-hendrik-wessels,South Africa,25,Hooker,193,120
-j|tarrit,janick-tarrit,France,27,Hooker,183,108
+j|tarrit,janick-tarrit,France,28,Hooker,183,108
 j|evans,jarrod-evans,Wales,30,Fly Half,180,87
-j|wiese,jasper-wiese,South Africa,30,Back Row,190,110
+j|wiese,jasper-wiese,South Africa,31,Back Row,190,110
 j|sebastian,javan-sebastian,Scotland,32,Prop,177,118
 j|gros,jean-baptiste-gros,France,27,Prop,187,112
 j|kleyn,jean-kleyn,,33,Lock,203,121
@@ -501,7 +501,7 @@ j|canham,josh-canham,Australia,25,Lock,202,115
 j|flook,josh-flook,Australia,25,Centre,186,89
 j|hathaway,josh-hathaway,Wales,23,Outside Back,183,84
 j|lord,josh-lord,New Zealand,25,Lock,202,106
-j|macleod,josh-macleod,Wales,29,Back Row,188,103
+j|macleod,josh-macleod,Wales,30,Back Row,188,103
 j|nasser,josh-nasser,Australia,27,Hooker,188,111
 j|navidi,josh-navidi,,35,Back Row,185,105
 j|vanderflier,josh-van-der-flier,,33,Back Row,188,103
@@ -515,7 +515,7 @@ j|penoucos,juan-penoucos,,21,Back Row,0,0
 j|postlethwaite,jude-postlethwaite,Northern Ireland,24,Centre,193,101
 j|cancoriet,judicael-cancoriet,France,30,Back Row,194,116
 j|favre,jules-favre,France,27,Centre,181,93
-j|montoya,julian-montoya,Argentina,32,Hooker,183,110
+j|montoya,julian-montoya,Argentina,33,Hooker,183,110
 j|marchand,julien-marchand,France,31,Hooker,181,108
 j|hamano,junta-hamano,Japan,25,Centre,180,93
 j|tipuric,justin-tipuric,Wales,37,Back Row,188,102
@@ -567,7 +567,7 @@ l|ikitau,len-ikitau,Australia,28,Centre,180,95
 l|nouchi,lenni-nouchi,France,22,Back Row,192,105
 l|barre,leo-barre,France,24,Outside Back,189,89
 l|berdeu,leo-berdeu,France,28,Fly Half,195,99
-l|brown,leon-brown,Wales,29,Prop,190,126
+l|brown,leon-brown,Wales,30,Prop,190,126
 l|darricarrere,leon-darricarrere,France,22,Centre,181,92
 l|marin,leonardo-marin,Italy,24,Fly Half,188,88
 l|oviedo,leonel-oviedo,,28,Hooker,186,115
@@ -608,7 +608,7 @@ l|reimer,luke-reimer,Australia,26,Back Row,187,102
 l|tagi,luke-tagi,Fiji,29,Prop,187,130
 l|am,lukhanyo-am,South Africa,32,Centre,186,87
 m|hansen,mackenzie-hansen,Ireland,28,Outside Back,188,89
-m|martin,mackenzie-martin,Wales,22,Back Row,196,119
+m|martin,mackenzie-martin,Wales,23,Back Row,196,119
 m|bradbury,magnus-bradbury,Scotland,31,Back Row,194,110
 m|mapimpi,makazole-mapimpi,,36,Outside Back,184,91
 m|vunipola,mako-vunipola,England,35,Prop,182,118
@@ -636,7 +636,7 @@ m|telea,mark-telea,New Zealand,29,Outside Back,186,94
 m|wilson,mark-wilson,,37,Back Row,188,107
 m|gazzotti,marko-gazzotti,France,22,Back Row,192,110
 m|vandermerwe,marnus-van-der-merwe,South Africa,29,Hooker,186,107
-m|itoje,maro-itoje,England,31,Lock,195,118
+m|itoje,maro-itoje,England,32,Lock,195,118
 m|sykes,marshall-sykes,Scotland,26,Lock,200,121
 m|bogado,martin-bogado,Argentina,28,Outside Back,192,98
 m|pagerelo,martin-page-relo,Italy,27,Scrum Half,173,77
@@ -651,10 +651,10 @@ m|orlando,matias-orlando,Argentina,34,Centre,183,94
 m|currie,matt-currie,Scotland,25,Centre,191,95
 m|faessler,matt-faessler,Australia,27,Hooker,183,105
 m|fagerson,matt-fagerson,Scotland,28,Back Row,186,110
-m|gallagher,matt-gallagher,Italy,29,Outside Back,185,96
+m|gallagher,matt-gallagher,Italy,30,Outside Back,185,96
 m|philip,matt-philip,Australia,32,Lock,201,117
 m|canali,matteo-canali,Italy,28,Lock,198,118
-m|screech,matthew-screech,Wales,33,Lock,198,116
+m|screech,matthew-screech,Wales,34,Lock,198,116
 m|halagahu,matthias-halagahu,France,25,Lock,194,117
 m|jalibert,matthieu-jalibert,France,27,Fly Half,184,84
 m|lebel,matthis-lebel,France,27,Outside Back,184,91
@@ -686,11 +686,11 @@ m|belloni,mirko-belloni,,0,Outside Back,0,0
 m|haouas,mohammed-haouas,,32,Prop,185,127
 m|ioane,monty-ioane,Italy,31,Outside Back,180,93
 m|morse,morgan-morse,Wales,21,Back Row,180,106
-m|vandenberg,morne-van-den-berg,South Africa,28,Scrum Half,175,80
+m|vandenberg,morne-van-den-berg,South Africa,29,Scrum Half,175,80
 m|aloemile,moses-alo-emile,Australia,26,Prop,187,130
 m|sorovi,moses-sorovi,Fiji,30,Scrum Half,173,77
 m|hasa,muhamed-hasa,Italy,25,Prop,183,125
-m|walker,murphy-walker,Scotland,26,Prop,185,115
+m|walker,murphy-walker,Scotland,27,Prop,185,115
 n|tetazchaparro,nahuel-tetaz-chaparro,Argentina,37,Prop,188,121
 n|saito,naoto-saito,Japan,29,Scrum Half,165,75
 n|doak,nathan-doak,Northern Ireland,24,Scrum Half,185,87
@@ -711,7 +711,7 @@ n|smith,nicky-smith,,32,Prop,183,116
 n|damorim,nicolas-damorim,,0,Back Row,0,0
 n|depoortere,nicolas-depoortere,France,23,Centre,193,94
 n|roger,nicolas-roger,,26,Outside Back,177,79
-n|sanchez,nicolas-sanchez,Argentina,37,Fly Half,177,83
+n|sanchez,nicolas-sanchez,Argentina,38,Fly Half,177,83
 n|mccurran,nik-mccurran,Japan,30,Centre,189,94
 n|caluori,noah-caluori,England,20,Outside Back,194,100
 n|hotham,noah-hotham,New Zealand,23,Scrum Half,181,90
@@ -788,7 +788,7 @@ r|morganwilliams,reuben-morgan-williams,Wales,28,Scrum Half,178,84
 r|snyman,rg-snyman,South Africa,31,Lock,206,117
 r|jones,rhodri-jones,Wales,34,Prop,191,116
 r|williams,rhodri-williams,Wales,33,Scrum Half,176,81
-r|barratt,rhys-barratt,Wales,23,Prop,183,110
+r|barratt,rhys-barratt,Wales,24,Prop,183,110
 r|carre,rhys-carre,Wales,28,Prop,191,131
 r|davies,rhys-davies,Wales,27,Lock,198,114
 r|patchell,rhys-patchell,Wales,33,Fly Half,190,92
@@ -827,7 +827,7 @@ r|vintcent,ross-vintcent,Italy,24,Back Row,185,98
 r|nortje,ruan-nortje,South Africa,28,Lock,200,113
 r|venter,ruan-venter,South Africa,23,Back Row,196,112
 r|love,ruben-love,New Zealand,25,Outside Back,183,90
-r|vanheerden,ruben-van-heerden,South Africa,28,Lock,199,120
+r|vanheerden,ruben-van-heerden,South Africa,29,Lock,199,120
 r|baird,ryan-baird,Ireland,27,Lock,198,113
 r|elias,ryan-elias,,31,Hooker,185,112
 r|lonergan,ryan-lonergan,Australia,28,Scrum Half,184,82
@@ -978,7 +978,7 @@ t|hooper,tom-hooper,Australia,25,Lock,199,122
 t|jordan,tom-jordan,Scotland,28,Fly Half,189,95
 t|lynagh,tom-lynagh,Australia,23,Fly Half,178,83
 t|otoole,tom-otoole,Ireland,28,Prop,183,123
-t|pearson,tom-pearson,England,26,Back Row,190,114
+t|pearson,tom-pearson,England,27,Back Row,190,114
 t|robertson,tom-robertson,Australia,32,Prop,180,113
 t|roebuck,tom-roebuck,England,25,Outside Back,188,96
 t|rogers,tom-rogers,Wales,27,Outside Back,185,91
@@ -1011,7 +1011,7 @@ u|seunes,ugo-seunes,,25,Outside Back,182,75
 u|atonio,uini-atonio,France,36,Prop,196,145
 u|dillane,ultan-dillane,Ireland,32,Lock,198,115
 u|helu,uwe-helu,Japan,36,Lock,193,115
-v|mata,viliame-mata,Fiji,34,Back Row,196,116
+v|mata,viliame-mata,Fiji,35,Back Row,196,116
 v|botitu,vilimoni-botitu,Fiji,28,Centre,179,93
 v|miramira,vilive-miramira,Fiji,27,Back Row,192,92
 v|habosi,vinaya-habosi,Fiji,26,Outside Back,176,92

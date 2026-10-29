@@ -1492,6 +1492,19 @@
     },
     {
       "competition": "Top 14",
+      "match": "Racing 92 vs Montpellier",
+      "date": "24 Oct 2026",
+      "opposition": "Racing 92",
+      "win": true,
+      "draw": false,
+      "mins": 14,
+      "tries": 0,
+      "yellow_cards": 0,
+      "red_cards": 0,
+      "conversions": 0
+    },
+    {
+      "competition": "Top 14",
       "match": "Stade Francais Paris vs Montpellier",
       "date": "10 Oct 2026",
       "opposition": "Stade Francais",

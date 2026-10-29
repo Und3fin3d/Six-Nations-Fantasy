@@ -3,7 +3,7 @@
   "csv_name": "M. Gallagher",
   "bio": {
     "Nationality": "Italy",
-    "Age": "29",
+    "Age": "30",
     "Position": "Outside Back",
     "Height": "185cm",
     "Weight": "96kg"
@@ -293,6 +293,19 @@
       "win": false,
       "draw": false,
       "mins": 77,
+      "tries": 0,
+      "yellow_cards": 0,
+      "red_cards": 0,
+      "conversions": 0
+    },
+    {
+      "competition": "United Rugby Championship",
+      "match": "Benetton Rugby vs Glasgow Warriors",
+      "date": "24 Oct 2026",
+      "opposition": "Glasgow",
+      "win": false,
+      "draw": false,
+      "mins": 80,
       "tries": 0,
       "yellow_cards": 0,
       "red_cards": 0,

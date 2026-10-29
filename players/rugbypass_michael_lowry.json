@@ -316,6 +316,19 @@
     },
     {
       "competition": "United Rugby Championship",
+      "match": "Vodacom Bulls vs Ulster Rugby",
+      "date": "24 Oct 2026",
+      "opposition": "Bulls",
+      "win": false,
+      "draw": false,
+      "mins": 80,
+      "tries": 0,
+      "yellow_cards": 0,
+      "red_cards": 0,
+      "conversions": 0
+    },
+    {
+      "competition": "United Rugby Championship",
       "match": "Ulster Rugby vs Edinburgh Rugby",
       "date": "25 Sep 2026",
       "opposition": "Edinburgh",

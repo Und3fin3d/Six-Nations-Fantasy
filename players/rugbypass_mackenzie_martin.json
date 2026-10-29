@@ -3,7 +3,7 @@
   "csv_name": "Mackenzie Martin",
   "bio": {
     "Nationality": "Wales",
-    "Age": "22",
+    "Age": "23",
     "Position": "Back Row",
     "Height": "196cm",
     "Weight": "119kg"
@@ -767,6 +767,19 @@
       "win": false,
       "draw": false,
       "mins": 18,
+      "tries": 0,
+      "yellow_cards": 0,
+      "red_cards": 0,
+      "conversions": 0
+    },
+    {
+      "competition": "Pro D2",
+      "match": "Provence vs Beziers",
+      "date": "23 Oct 2026",
+      "opposition": "Provence Rugby",
+      "win": false,
+      "draw": false,
+      "mins": 80,
       "tries": 0,
       "yellow_cards": 0,
       "red_cards": 0,

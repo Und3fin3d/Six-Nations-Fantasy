@@ -434,6 +434,19 @@
     },
     {
       "competition": "Pro D2",
+      "match": "Narbonne vs Brive",
+      "date": "23 Oct 2026",
+      "opposition": "Narbonne",
+      "win": false,
+      "draw": false,
+      "mins": 25,
+      "tries": 0,
+      "yellow_cards": 0,
+      "red_cards": 0,
+      "conversions": 0
+    },
+    {
+      "competition": "Pro D2",
       "match": "Brive vs Grenoble",
       "date": "17 Oct 2026",
       "opposition": "Grenoble",

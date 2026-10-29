@@ -933,6 +933,19 @@
     },
     {
       "competition": "United Rugby Championship",
+      "match": "Leinster Rugby vs Munster Rugby",
+      "date": "24 Oct 2026",
+      "opposition": "Munster",
+      "win": true,
+      "draw": false,
+      "mins": 61,
+      "tries": 0,
+      "yellow_cards": 0,
+      "red_cards": 0,
+      "conversions": 0
+    },
+    {
+      "competition": "United Rugby Championship",
       "match": "Leinster Rugby vs Cardiff Rugby",
       "date": "10 Oct 2026",
       "opposition": "Cardiff Rugby",

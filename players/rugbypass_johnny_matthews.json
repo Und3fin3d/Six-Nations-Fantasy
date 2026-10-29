@@ -1490,6 +1490,19 @@
     },
     {
       "competition": "Pro D2",
+      "match": "Montauban vs Oyonnax",
+      "date": "22 Oct 2026",
+      "opposition": "Oyonnax",
+      "win": true,
+      "draw": false,
+      "mins": 54,
+      "tries": 0,
+      "yellow_cards": 0,
+      "red_cards": 0,
+      "conversions": 0
+    },
+    {
+      "competition": "Pro D2",
       "match": "Dax vs Montauban",
       "date": "16 Oct 2026",
       "opposition": "Dax",

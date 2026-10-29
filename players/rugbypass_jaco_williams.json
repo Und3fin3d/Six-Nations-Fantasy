@@ -424,6 +424,19 @@
     },
     {
       "competition": "United Rugby Championship",
+      "match": "Cardiff Rugby vs Hollywoodbets Sharks",
+      "date": "23 Oct 2026",
+      "opposition": "Cardiff Rugby",
+      "win": true,
+      "draw": false,
+      "mins": 79,
+      "tries": 0,
+      "yellow_cards": 0,
+      "red_cards": 0,
+      "conversions": 0
+    },
+    {
+      "competition": "United Rugby Championship",
       "match": "Hollywoodbets Sharks vs Zebre Parma",
       "date": "16 May 2026",
       "opposition": "Zebre",

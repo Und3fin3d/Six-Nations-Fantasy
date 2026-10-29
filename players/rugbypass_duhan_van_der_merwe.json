@@ -1222,6 +1222,19 @@
     },
     {
       "competition": "United Rugby Championship",
+      "match": "Edinburgh Rugby vs 10bet Lions",
+      "date": "23 Oct 2026",
+      "opposition": "Lions",
+      "win": true,
+      "draw": false,
+      "mins": 18,
+      "tries": 0,
+      "yellow_cards": 0,
+      "red_cards": 0,
+      "conversions": 0
+    },
+    {
+      "competition": "United Rugby Championship",
       "match": "Edinburgh Rugby vs Connacht Rugby",
       "date": "15 May 2026",
       "opposition": "Connacht",

@@ -1645,7 +1645,7 @@
     },
     {
       "competition": "Hilux NPC",
-      "match": "Canterbury vs Otago Razorbacks",
+      "match": "Canterbury vs Otago",
       "date": "20 Sep 2025",
       "opposition": "Canterbury",
       "win": true,
@@ -1658,7 +1658,7 @@
     },
     {
       "competition": "Hilux NPC",
-      "match": "Otago Razorbacks vs Taranaki Bulls",
+      "match": "Otago vs Taranaki Bulls",
       "date": "13 Sep 2025",
       "opposition": "Taranaki Bulls",
       "win": true,
@@ -1671,7 +1671,7 @@
     },
     {
       "competition": "Hilux NPC",
-      "match": "Otago Razorbacks vs Northland Taniwha",
+      "match": "Otago vs Northland Taniwha",
       "date": "5 Sep 2025",
       "opposition": "Northland",
       "win": true,
@@ -1684,7 +1684,7 @@
     },
     {
       "competition": "Hilux NPC",
-      "match": "Tasman Mako vs Otago Razorbacks",
+      "match": "Tasman Mako vs Otago",
       "date": "30 Aug 2025",
       "opposition": "Tasman Mako",
       "win": false,

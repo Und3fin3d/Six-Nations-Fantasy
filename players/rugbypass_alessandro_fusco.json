@@ -3,7 +3,7 @@
   "csv_name": "A. Fusco",
   "bio": {
     "Nationality": "Italy",
-    "Age": "26",
+    "Age": "27",
     "Position": "Scrum Half",
     "Height": "183cm",
     "Weight": "85kg"
@@ -582,6 +582,19 @@
       "win": false,
       "draw": false,
       "mins": 20,
+      "tries": 0,
+      "yellow_cards": 0,
+      "red_cards": 0,
+      "conversions": 0
+    },
+    {
+      "competition": "United Rugby Championship",
+      "match": "Connacht Rugby vs Zebre Parma",
+      "date": "23 Oct 2026",
+      "opposition": "Connacht",
+      "win": false,
+      "draw": false,
+      "mins": 58,
       "tries": 0,
       "yellow_cards": 0,
       "red_cards": 0,

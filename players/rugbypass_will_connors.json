@@ -181,6 +181,19 @@
     },
     {
       "competition": "United Rugby Championship",
+      "match": "Connacht Rugby vs Zebre Parma",
+      "date": "23 Oct 2026",
+      "opposition": "Zebre",
+      "win": true,
+      "draw": false,
+      "mins": 26,
+      "tries": 0,
+      "yellow_cards": 0,
+      "red_cards": 0,
+      "conversions": 0
+    },
+    {
+      "competition": "United Rugby Championship",
       "match": "Leinster Rugby vs 10bet Lions",
       "date": "9 May 2026",
       "opposition": "Lions",

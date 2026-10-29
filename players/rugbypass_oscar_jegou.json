@@ -621,6 +621,19 @@
     },
     {
       "competition": "Top 14",
+      "match": "La Rochelle vs Bordeaux-Begles",
+      "date": "25 Oct 2026",
+      "opposition": "Bordeaux",
+      "win": false,
+      "draw": false,
+      "mins": 80,
+      "tries": 0,
+      "yellow_cards": 0,
+      "red_cards": 0,
+      "conversions": 0
+    },
+    {
+      "competition": "Top 14",
       "match": "Lyon O.U. vs La Rochelle",
       "date": "10 Oct 2026",
       "opposition": "Lyon",

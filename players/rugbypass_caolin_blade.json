@@ -1480,6 +1480,19 @@
       "yellow_cards": 0,
       "red_cards": 0,
       "conversions": 0
+    },
+    {
+      "competition": "United Rugby Championship",
+      "match": "Connacht Rugby vs Leinster Rugby",
+      "date": "30 Oct 2026",
+      "opposition": "Leinster",
+      "win": false,
+      "draw": false,
+      "mins": 61,
+      "tries": 0,
+      "yellow_cards": 0,
+      "red_cards": 0,
+      "conversions": 0
     }
   ]
 }

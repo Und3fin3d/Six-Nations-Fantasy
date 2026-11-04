@@ -1226,6 +1226,19 @@
       "yellow_cards": 0,
       "red_cards": 0,
       "conversions": 0
+    },
+    {
+      "competition": "United Rugby Championship",
+      "match": "Benetton Rugby vs Edinburgh Rugby",
+      "date": "31 Oct 2026",
+      "opposition": "Edinburgh",
+      "win": true,
+      "draw": false,
+      "mins": 67,
+      "tries": 1,
+      "yellow_cards": 0,
+      "red_cards": 0,
+      "conversions": 0
     }
   ]
 }

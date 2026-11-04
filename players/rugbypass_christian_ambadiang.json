@@ -1028,6 +1028,19 @@
       "yellow_cards": 0,
       "red_cards": 0,
       "conversions": 0
+    },
+    {
+      "competition": "Top 14",
+      "match": "Montpellier vs Castres Olympique",
+      "date": "1 Nov 2026",
+      "opposition": "Montpellier",
+      "win": false,
+      "draw": false,
+      "mins": 68,
+      "tries": 0,
+      "yellow_cards": 0,
+      "red_cards": 0,
+      "conversions": 0
     }
   ]
 }

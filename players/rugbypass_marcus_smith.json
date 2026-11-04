@@ -3120,6 +3120,19 @@
       "yellow_cards": 0,
       "red_cards": 0,
       "conversions": 3
+    },
+    {
+      "competition": "Gallagher Premiership",
+      "match": "Exeter Chiefs vs Harlequins",
+      "date": "31 Oct 2026",
+      "opposition": "Exeter Chiefs",
+      "win": true,
+      "draw": false,
+      "mins": 80,
+      "tries": 0,
+      "yellow_cards": 0,
+      "red_cards": 0,
+      "conversions": 3
     }
   ]
 }

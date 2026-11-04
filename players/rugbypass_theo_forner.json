@@ -526,6 +526,19 @@
       "yellow_cards": 0,
       "red_cards": 0,
       "conversions": 0
+    },
+    {
+      "competition": "Top 14",
+      "match": "Perpignan vs Toulon",
+      "date": "31 Oct 2026",
+      "opposition": "Toulon",
+      "win": false,
+      "draw": false,
+      "mins": 80,
+      "tries": 1,
+      "yellow_cards": 0,
+      "red_cards": 0,
+      "conversions": 0
     }
   ]
 }

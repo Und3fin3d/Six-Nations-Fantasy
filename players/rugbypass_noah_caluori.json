@@ -671,6 +671,19 @@
       "yellow_cards": 0,
       "red_cards": 0,
       "conversions": 0
+    },
+    {
+      "competition": "Gallagher Premiership",
+      "match": "Saracens vs Newcastle Red Bulls",
+      "date": "31 Oct 2026",
+      "opposition": "Newcastle",
+      "win": true,
+      "draw": false,
+      "mins": 30,
+      "tries": 1,
+      "yellow_cards": 0,
+      "red_cards": 0,
+      "conversions": 0
     }
   ]
 }

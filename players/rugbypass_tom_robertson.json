@@ -1936,6 +1936,45 @@
       "yellow_cards": 0,
       "red_cards": 0,
       "conversions": 0
+    },
+    {
+      "competition": "Pacific Nations Cup",
+      "match": "Tonga vs Australia A",
+      "date": "16 Jul 2022",
+      "opposition": "Tonga",
+      "win": true,
+      "draw": false,
+      "mins": 63,
+      "tries": 0,
+      "yellow_cards": 0,
+      "red_cards": 0,
+      "conversions": 0
+    },
+    {
+      "competition": "Pacific Nations Cup",
+      "match": "Fiji vs Australia A",
+      "date": "9 Jul 2022",
+      "opposition": "Fiji",
+      "win": true,
+      "draw": false,
+      "mins": 65,
+      "tries": 0,
+      "yellow_cards": 0,
+      "red_cards": 0,
+      "conversions": 0
+    },
+    {
+      "competition": "Pacific Nations Cup",
+      "match": "Australia A vs Samoa",
+      "date": "2 Jul 2022",
+      "opposition": "Samoa",
+      "win": false,
+      "draw": false,
+      "mins": 68,
+      "tries": 0,
+      "yellow_cards": 0,
+      "red_cards": 0,
+      "conversions": 0
     }
   ]
 }
